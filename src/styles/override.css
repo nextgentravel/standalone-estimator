@@ -1,0 +1,62 @@
+body {
+    padding-top: 0px;
+}
+
+.footer ul {
+    list-style: none;
+    padding-left: 15px;
+}
+
+.footer ul li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.button-blue-dark {
+    color: #fff;
+    background-color: #137991;
+    display: block;
+    margin-bottom: 10px;
+    float: left; 
+    clear: left;
+
+}
+
+.button-blue-medium {
+    color: #000;
+    background-color: #15A3A6;
+    display: block;
+    margin-bottom: 10px;
+    float: left; 
+    clear: left;
+}
+
+.button-blue-light {
+    color: #000;
+    background-color: #6DD2DA;
+    display: block;
+    margin-bottom: 10px;
+    float: left; 
+    clear: left;
+}
+
+.btn:hover {
+    background-color: #002D42 !important;
+    color: #fff !important;
+}
+
+.toggle-content {
+	display: none;
+}
+
+.toggle-content.is-visible {
+	display: block;
+}
+
+.card-body > * > p {
+    margin-left: 8px;
+}
+
+.card-body > * > h5 {
+    margin-left: 8px;
+}

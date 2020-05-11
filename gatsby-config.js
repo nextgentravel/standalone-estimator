@@ -27,6 +27,48 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-pages`,
+        path: `${__dirname}/src/markdown-pages`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-custom-blocks",
+            options: {
+              blocks: {
+                card: {
+                  classes: "card",
+                },
+                'card-body': {
+                  classes: "card-body",
+                },
+                info: {
+                  classes: "info",
+                  title: "optional",
+                },
+              },
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Nunito Sans`,
+            variants: ['300', '400', '600', '700']
+          },
+        ],
+      },
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
