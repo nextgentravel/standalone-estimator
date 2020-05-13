@@ -6,38 +6,33 @@
 
 // You can delete this file if you're not using it
 
-exports.createPages = async ({ actions, graphql, reporter }) => {
-    const { createPage } = actions
-    const infoPage = require.resolve(`./src/templates/infoPage.js`)
-    const result = await graphql(`
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
+  return new Promise((resolve, reject) => {
+    graphql(`
       {
-        allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
-          limit: 1000
-        ) {
+        allMarkdownRemark {
           edges {
             node {
-              frontmatter {
+              fields {
                 slug
               }
             }
           }
         }
       }
-    `)
-    // Handle errors
-    if (result.errors) {
-      reporter.panicOnBuild(`Error while running GraphQL query.`)
-      return
-    }
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      createPage({
-        path: node.frontmatter.slug,
-        component: infoPage,
-        context: {
-          // additional data can be passed via context
-          slug: node.frontmatter.slug,
-        },
+    `).then(result => {
+      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+        createPage({
+          path: node.fields.slug,
+          component: require.resolve(`./src/templates/infoPage.js`),
+          context: {
+            // Data passed to context is available in page queries as GraphQL variables.
+            slug: node.fields.slug,
+          },
+        })
       })
+      resolve()
     })
-  }
+  })
+};
