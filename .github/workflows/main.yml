@@ -1,9 +1,7 @@
 name: Gatsby Publish
 
 on:
-  push:
-    branches:
-      - github-pages
+  deployment_status
 jobs:
   build:
     name: a11y
