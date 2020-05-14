@@ -1,0 +1,15 @@
+diff --git a/node_modules/gatsby-plugin-i18n/getMarkdownPage.js b/node_modules/gatsby-plugin-i18n/getMarkdownPage.js
+index 16b6878..174a812 100644
+--- a/node_modules/gatsby-plugin-i18n/getMarkdownPage.js
++++ b/node_modules/gatsby-plugin-i18n/getMarkdownPage.js
+@@ -20,7 +20,9 @@ var getMarkdownPage = function getMarkdownPage(options, postPage) {
+       path: path, // required
+       component: postPage,
+       context: {
+-        path: path, // For backward compatibility only...
++        // Removed my Mike.  We don't need it for backward compatibility and
++        // it creates an annoying warning in dev.
++        // path: path, // For backward compatibility only...
+         slug: slug,
+         langKey: langKey
+       },
