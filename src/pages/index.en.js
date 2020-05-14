@@ -33,7 +33,7 @@ const IndexPage = () => (
                       Create a Travel Request
                     </a>
                     <a
-                      href="booktravel"
+                      href="en/booktravel"
                       role="button"
                       className="btn button-blue-dark"
                     >
