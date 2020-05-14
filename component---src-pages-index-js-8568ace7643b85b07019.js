@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{RXBc:function(e,n,t){"use strict";t.r(n);var a=t("q1tI"),r=t.n(a),c=t("vrFN"),i=t("Wbzz");n.default=function(){return r.a.createElement("div",null,r.a.createElement(c.a,{title:"Language Select"}),r.a.createElement(i.Link,{to:"/en"},"English"),r.a.createElement(i.Link,{to:"/fr"},"François"))}}}]);
+//# sourceMappingURL=component---src-pages-index-js-8568ace7643b85b07019.js.map
