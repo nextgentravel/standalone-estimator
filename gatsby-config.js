@@ -1,3 +1,5 @@
+const languages = require('./src/data/languages');
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -30,8 +32,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `markdown-pages`,
-        path: `${__dirname}/src/markdown-pages`,
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
       },
     },
     {
@@ -68,7 +70,31 @@ module.exports = {
           },
         ],
       },
-    }
+    },
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyDefault: 'en',
+        useLangKeyLayout: false,
+        markdownRemark: {
+          postPage: 'src/templates/infoPage.js',
+          query: `
+          {
+              allMarkdownRemark {
+                  edges {
+                  node {
+                      fields {
+                      slug,
+                      langKey
+                      }
+                  }
+                  }
+              }
+          }
+          `
+        }
+      }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
