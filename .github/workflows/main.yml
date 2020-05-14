@@ -4,12 +4,11 @@ on:
   push:
     branches:
       - github-pages
-
 jobs:
   build:
+    name: a11y
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: enriikke/gatsby-gh-pages-action@v2
-        with:
-          access-token: ${{ secrets.ACCESS_TOKEN }}
+    - uses: actions/checkout@master
+    - name: docker://cdssnc/a11y-multiple-page-checker
+      uses: docker://cdssnc/a11y-multiple-page-checker
