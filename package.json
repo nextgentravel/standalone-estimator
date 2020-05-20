@@ -7,7 +7,7 @@
   "dependencies": {
     "@types/react": "^16.9.35",
     "bufferutil": "^4.0.1",
-    "gatsby": "^2.21.21",
+    "gatsby": "^2.22.0",
     "gatsby-image": "^2.4.3",
     "gatsby-plugin-i18n": "^1.0.1",
     "gatsby-plugin-manifest": "^2.4.2",
@@ -26,6 +26,7 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^6.0.0",
     "sockjs-client": "^1.4.0",
+    "ts-node": "^8.10.1",
     "tsutils": "^3.17.1",
     "typescript": "^3.9.2",
     "utf-8-validate": "^5.0.2"
