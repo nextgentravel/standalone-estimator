@@ -10,3 +10,4 @@ FROM nginx:1.17.8-alpine
 RUN rm -rf /usr/share/nginx/html
 COPY --from=front /app/public/ /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/nginx.conf
+CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/nginx.conf && nginx -g 'daemon off;'
