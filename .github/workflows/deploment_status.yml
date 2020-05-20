@@ -3,7 +3,7 @@ name: Review App Test
 on:
     pull_request:
         branches:
-        - docker
+        - master
 
 jobs:
   review-app-test:
