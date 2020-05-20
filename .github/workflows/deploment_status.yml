@@ -1,9 +1,9 @@
 name: Review App Test
 
 on:
-    push:
+    pull_request:
         branches:
-        - docker
+        - master
 
 jobs:
   review-app-test:
