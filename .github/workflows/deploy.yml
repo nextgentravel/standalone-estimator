@@ -1,24 +1,16 @@
-name: Docker Push
-
+name: 'Build Docker Image and Push to Heroku'
 on: push
-
 jobs:
-  docker:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
+      - name: Build, Push and Deploy to Heroku
+        id: heroku
+        uses: jctaveras/heroku-deploy@v1.0.0
         with:
-          fetch-depth: 1
-
-      - name: Docker Build & Push to Docker Hub
-        uses: opspresso/action-docker@master
-        with:
-          args: --docker
-        env:
-          USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-          PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-          DOCKERFILE: "Dockerfile"
-          IMAGE_NAME: "nextgentravel/travel-guidebook-client"
-          TAG_NAME: "v0.0.1"
-          LATEST: "true"
+          email: ${{ secrets.HEROKU_EMAIL }}
+          api_key: ${{ secrets.HEROKU_API_KEY }}
+          app_name: ${{ secrets.HEROKU_APP_NAME }}
+          dockerfile: 'Dockerfile'
