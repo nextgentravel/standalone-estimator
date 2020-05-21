@@ -21,13 +21,13 @@ jobs:
         checks: build, response
 
         # Delay for the application to be built in Heroku, default is 5 seconds
-        build_time_delay: 5
+        build_time_delay: 180
 
         # Delay for the application to load and start serving, default is 5 seconds
         load_time_delay: 5
 
         # Interval for the repeating checks, default is 10 seconds
-        interval: 10
+        interval: 15
 
         # Acceptable responses for the response check, default is 200
         accepted_responses: 200
