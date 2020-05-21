@@ -19,7 +19,7 @@ jobs:
           dockerfile: 'Dockerfile'
       - name: update deploy status
         if: always()
-        uses: unacast/actions-github-deployment-status@latest
+        uses: unacast/actions-github-deployment-status
         with:
             github_token: ${{ secrets.ACCESS_TOKEN }}
             status: ${{ job.status }}
