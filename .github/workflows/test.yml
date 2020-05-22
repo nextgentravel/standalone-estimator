@@ -16,6 +16,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - name: install gatsby
+        run: |
+          npm install -g gatsby
       - name: yarn run build
         run: |
           yarn run build
