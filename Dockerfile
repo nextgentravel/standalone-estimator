@@ -4,7 +4,6 @@ WORKDIR /app
 COPY ./ /app/
 
 RUN yarn install
-RUN yarn run test:e2e:ci
 RUN yarn run build
 
 FROM nginx:1.17.8-alpine

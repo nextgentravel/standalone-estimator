@@ -1,6 +1,6 @@
 name: 'Build Docker Image and Push to Heroku'
 on:
-    push:
+    pull_request:
         branches:
         - cypress
 jobs:
