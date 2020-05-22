@@ -2,7 +2,7 @@ name: 'Build Docker Image and Push to Heroku'
 on:
     pull_request:
         branches:
-        - docker
+        - master
 jobs:
   build:
     runs-on: ubuntu-latest
