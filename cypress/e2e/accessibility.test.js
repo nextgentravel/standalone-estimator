@@ -18,7 +18,7 @@ function terminalLog(violations) {
   cy.task('table', violationData)
 }
 
-describe("Accessibility tests", () => {w
+describe("Accessibility tests", () => {
   beforeEach(() => {
     cy.visit("/").get("main").injectAxe()
   })
