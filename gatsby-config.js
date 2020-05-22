@@ -43,7 +43,10 @@ module.exports = {
             options: {
               blocks: {
                 card: {
-                  classes: "card",
+                  classes: "card right",
+                },
+                sidebar: {
+                  classes: "sidebar card left",
                 },
                 'card-body': {
                   classes: "card-body",

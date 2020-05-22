@@ -36,7 +36,7 @@ body {
     background-color: #6DD2DA;
     display: block;
     margin-bottom: 10px;
-    float: left; 
+    float: left;
     clear: left;
 }
 
@@ -53,10 +53,44 @@ body {
 	display: block;
 }
 
+.card {
+    margin: 8px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.sidebar {
+    margin: 8px;
+    margin-right: 16px;
+    order: 2;
+    flex-grow: 1;
+}
+
 .card-body > * > p {
-    margin-left: 8px;
+    margin-left: 8px; 
 }
 
 .card-body > * > h5 {
     margin-left: 8px;
+}
+
+.info-page-content {
+    margin-left: 20px;
+    margin-right: 20px;
+    order: 1;
+    flex-grow: 2;
+}
+.holder{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.spacer{
+    height: 105px;
+}
+.info-card{
+    background-color: #FCF8E3;
+     border: 1px solid #FAF2CC;
+     margin-top: 20px;
 }
