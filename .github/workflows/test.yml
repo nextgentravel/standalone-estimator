@@ -19,9 +19,11 @@ jobs:
       - name: install gatsby
         run: |
           npm install -g gatsby
-          yarn
       - name: yarn
         run: |
           yarn
+      - name: build gatsby project
+        run: |
+          gatsby build
       - name: Run Cypress end-to-end
         run: yarn run test:e2e:ci
