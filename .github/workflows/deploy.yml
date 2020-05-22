@@ -2,7 +2,7 @@ name: 'Build Docker Image and Push to Heroku'
 on:
     pull_request:
         branches:
-        - master
+        - cypress
 jobs:
   build:
     runs-on: ubuntu-latest
