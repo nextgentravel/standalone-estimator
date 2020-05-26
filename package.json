@@ -53,7 +53,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "postinstall": "patch-package",
     "cy:open": "cypress open",
-    "cy:run": "cypress run",
+    "cy:run": "node ./node_modules/.bin/cypress run",
     "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
     "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run"
   },
