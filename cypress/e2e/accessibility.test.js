@@ -22,7 +22,7 @@ describe("Accessibility tests", () => {
   beforeEach(() => {
     cy.visit("/").get("main").injectAxe()
   })
-  it("Has no detectable accessibility violations on load", () => {
+  it("Index Page has no detectable accessibility violations on load", () => {
     cy.checkA11y(null, null, terminalLog)
   })
   it("Navigates to page 2 and checks for accessibility violations", () => {
