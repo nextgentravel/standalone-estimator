@@ -17,21 +17,6 @@ export default function Template({
               dangerouslySetInnerHTML={{ __html: html }}
               />
           </div>
-          <div className="sidebar">
-            <div className="spacer"></div>
-            <div className="card card-body ">
-              <h4>Suggest an update</h4>
-              <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform?usp=sf_link" target="_blank">Submit anonymous feedback here</a></p>
-            </div>
-            <div className="card info-card">
-              <div className="card-body">
-                <h4>Still have travel-related questions?</h4>
-                  <p>
-                    Your <a target="_blank" href="https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp">Designated Departmental Travel Coordinator</a> should be able to help!
-                  </p>
-              </div>
-            </div>
-          </div>
         </div>
     </Layout>
   )

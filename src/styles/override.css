@@ -73,21 +73,18 @@ body {
     margin-left: 8px;
 }
 
-.info-page-content {
+.main-content {
     margin-left: 40px;
     margin-right: 20px;
     order: 1;
     flex-grow: 2;
 }
-.holder{
+.info-page-content{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: flex-start;
-}
-.spacer{
-    height: 105px;
 }
 .info-card{
     background-color: #FCF8E3;
@@ -96,17 +93,14 @@ body {
 }
 
 @media only screen and (max-width: 800px) {
-    .holder{
+    .info-page-content{
         display: inline;
     }
     .sidebar {
         margin-left: 40px;
     }
-    .info-page-content {
+    .main-content {
         margin-left: 40px;
-    }
-    .spacer{
-        height: 0px;
     }
 }
 

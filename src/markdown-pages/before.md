@@ -3,6 +3,9 @@ slug: "/before-you-travel"
 date: "2019-05-13"
 title: "Before you leave"
 ---
+
+<div classname="splitClass main-content">
+
 [Home](./) > Before your travel
 ### Before your travel
 
@@ -41,3 +44,13 @@ How to get ready for your trip
 | |
 
 [Next: Booking your travel](./booking-your-travel)
+
+</div> 
+
+<div className="fullClass sidebar">
+
+#### Resources
+* [Option One](/)
+* [Option Two](/)
+
+</div>
