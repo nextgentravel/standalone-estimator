@@ -74,7 +74,7 @@ body {
 }
 
 .info-page-content {
-    margin-left: 20px;
+    margin-left: 40px;
     margin-right: 20px;
     order: 1;
     flex-grow: 2;
@@ -94,3 +94,19 @@ body {
      border: 1px solid #FAF2CC;
      margin-top: 20px;
 }
+
+@media only screen and (max-width: 800px) {
+    .holder{
+        display: inline;
+    }
+    .sidebar {
+        margin-left: 40px;
+    }
+    .info-page-content {
+        margin-left: 40px;
+    }
+    .spacer{
+        height: 0px;
+    }
+}
+
