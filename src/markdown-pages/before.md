@@ -53,4 +53,15 @@ How to get ready for your trip
 * [Option One](/)
 * [Option Two](/)
 
+#### Suggest an update
+ [Submit anonymous feedback here]{https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform}
+
+[[info-card]]
+| [[card-body]]
+| |
+| | ###### Still have travel-related questions?
+| |
+| | Your [Designated Departmental Travel Coordinator]{https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp} should be able to help!
+| |
+
 </div>
