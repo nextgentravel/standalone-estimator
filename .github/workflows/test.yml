@@ -1,0 +1,29 @@
+name: test
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: install gatsby
+        run: |
+          npm install -g gatsby
+      - name: yarn
+        run: |
+          yarn
+      - name: build gatsby project
+        run: |
+          gatsby build
+      - name: Run Cypress end-to-end
+        run: yarn run test:e2e:ci
