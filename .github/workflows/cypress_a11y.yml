@@ -1,6 +1,6 @@
 name: cypress a11y e2e test
 
-on: [push]
+on: [pull_request]
 
 jobs:
   test:
