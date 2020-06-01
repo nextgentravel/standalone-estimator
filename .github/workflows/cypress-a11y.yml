@@ -1,4 +1,4 @@
-name: test
+name: cypress a11y test
 
 on: [push]
 
