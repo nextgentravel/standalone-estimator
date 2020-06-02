@@ -59,47 +59,42 @@ body {
     margin-left: 0px;
 }
 .sidebar {
-    margin: 8px;
-    margin-right: 16px;
-    order: 2;
-    flex-grow: 1;
+    margin: 20px;
+    margin-top: 120px;
 }
 
 .card-body > * > p {
-    margin-left: 8px; 
+    margin-left: 8px;
 }
 
 .card-body > * > h5 {
     margin-left: 8px;
 }
 
-.main-content {
-    margin-left: 40px;
-    margin-right: 20px;
-    order: 1;
-    flex-grow: 2;
-}
 .info-page-content{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: flex-start;
+    margin-left: 120px;
 }
 .info-card{
     background-color: #FCF8E3;
      border: 1px solid #FAF2CC;
-     margin-top: 20px;
+     margin: 20px;
 }
 
 @media only screen and (max-width: 800px) {
     .info-page-content{
         display: inline;
+        margin-left: 40px;
     }
     .sidebar {
         margin-left: 40px;
+        margin-top:0px;
     }
-    .main-content {
+    .card{
         margin-left: 40px;
     }
 }

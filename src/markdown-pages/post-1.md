@@ -3,6 +3,9 @@ slug: "/booking-your-travel"
 date: "2019-05-04"
 title: "Booking Travel"
 ---
+
+<div classname="fullClass">
+
 [Home](./) > Booking your travel
 
 ### Booking your travel
@@ -50,3 +53,26 @@ Important steps to book your trip
 | |
 
 [Next: During your travel](./during-your-travel)
+
+</div>
+
+<div className="splitClass">
+
+[[sidebar]]
+|
+| #### Resources
+| * [Option One](/)
+| * [Option Two](/)
+|
+| #### Suggest an update
+| [Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
+
+[[info-card]]
+| [[card-body]]
+| |
+| | ###### Still have travel-related questions?
+| |
+| | Your [Designated Departmental Travel Coordinator](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) should be able to help!
+| |
+
+</div>

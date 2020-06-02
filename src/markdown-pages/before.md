@@ -4,7 +4,7 @@ date: "2019-05-13"
 title: "Before you leave"
 ---
 
-<div classname="splitClass main-content">
+<div classname="fullClass">
 
 [Home](./) > Before your travel
 ### Before your travel
@@ -45,23 +45,25 @@ How to get ready for your trip
 
 [Next: Booking your travel](./booking-your-travel)
 
-</div> 
+</div>
 
-<div className="fullClass sidebar">
+<div className="splitClass">
 
-#### Resources
-* [Option One](/)
-* [Option Two](/)
-
-#### Suggest an update
- [Submit anonymous feedback here]{https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform}
+[[sidebar]]
+|
+| #### Resources
+| * [Option One](/)
+| * [Option Two](/)
+|
+| #### Suggest an update
+| [Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
 
 [[info-card]]
 | [[card-body]]
 | |
 | | ###### Still have travel-related questions?
 | |
-| | Your [Designated Departmental Travel Coordinator]{https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp} should be able to help!
+| | Your [Designated Departmental Travel Coordinator](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) should be able to help!
 | |
 
 </div>

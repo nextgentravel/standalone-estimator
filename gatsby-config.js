@@ -43,13 +43,19 @@ module.exports = {
             options: {
               blocks: {
                 card: {
-                  classes: "card right",
+                  classes: "card",
                 },
                 sidebar: {
-                  classes: "sidebar card left",
+                  classes: "sidebar",
+                },
+                spacer: {
+                  classes: "spacer",
                 },
                 'card-body': {
                   classes: "card-body",
+                },
+                'info-card': {
+                  classes: "card info-card",
                 },
                 info: {
                   classes: "info",
