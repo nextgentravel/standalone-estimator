@@ -55,7 +55,8 @@
     "cy:open": "cypress open",
     "cy:run": "node ./node_modules/.bin/cypress run",
     "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
-    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run"
+    "test:e2e:ci": "start-server-and-test http://localhost:8000 cy:run",
+    "test:e2e:local": "start-server-and-test develop http://localhost:8000 cy:run"
   },
   "repository": {
     "type": "git",
