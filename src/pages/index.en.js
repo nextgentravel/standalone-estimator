@@ -26,7 +26,7 @@ const IndexPage = () => (
                   <h3 className="card-title h5">Before Your Travel</h3>
                   <p className="card-text">Get ready for your business travel.</p>
                   <a
-                    href="en/before-you-travel"
+                    href="en/before"
                     role="button"
                     className="btn button-blue-dark"
                   >
@@ -47,7 +47,7 @@ const IndexPage = () => (
                   Making the arrangements needed for your travel.
                   </p>
                   <a
-                    href="en/booking-your-travel"
+                    href="en/booktravel"
                     role="button"
                     className="btn button-blue-medium"
                   >
@@ -68,7 +68,7 @@ const IndexPage = () => (
                     Useful information during a trip.
                   </p>
                   <a
-                    href="en/during-your-travel"
+                    href="en/during"
                     role="button"
                     className="btn button-blue-medium"
                   >
@@ -87,7 +87,7 @@ const IndexPage = () => (
                   <h3 className="card-title h5">After You Return</h3>
                   <p className="card-text">Arranging reimbursement.</p>
                   <a
-                    href="en/after-you-travel"
+                    href="/en/after"
                     role="button"
                     className="btn button-blue-light"
                   >
@@ -103,7 +103,7 @@ const IndexPage = () => (
         <div className="foot-container container">
           <ul>
             <li>
-              <a href="index.html">Home</a>
+              <a href="/en">Home</a>
             </li>
             {/* <li><a href="#">About</a></li>
                         <li><a href="#">Tips</a></li> */}
