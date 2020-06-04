@@ -1,5 +1,5 @@
 ---
-slug: "fr/before-you-travel"
+slug: "fr/before"
 date: "2019-05-13"
 title: "Before you leave"
 ---
@@ -43,7 +43,7 @@ How to get ready for your trip
 | | [See travel advisories](/)
 | |
 
-[Next: Booking your travel](./fr/booking-your-travel)
+[Next: Booking your travel](./booktravel)
 
 </div>
 

@@ -1,5 +1,5 @@
 ---
-slug: "fr/after-you-travel"
+slug: "fr/after"
 date: "2019-05-13"
 title: "After you return"
 ---
