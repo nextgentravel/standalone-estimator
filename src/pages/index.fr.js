@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import { Link } from "gatsby"
 
 const IndexPage = () => (
   <Layout>
@@ -33,12 +34,14 @@ const IndexPage = () => (
                       Create a Travel Request
                     </a>
                     <a
-                      href="fr/booktravel"
+                      href="/booktravel"
                       role="button"
                       className="btn button-blue-dark"
                     >
+                
                       Book Travel
                     </a>
+                    <Link to="en/booktravel">Book Travel</Link>
                     <a
                       href="double-check.html"
                       role="button"
