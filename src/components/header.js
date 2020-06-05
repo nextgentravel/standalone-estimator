@@ -25,7 +25,7 @@ const Header = ({ siteTitle }) => (
     </div>
   </div>
   <div
-    style={{ backgroundColor: "#137991", borderBottom: "10px solid #002D42" }}
+    style={{ backgroundColor: "#FF69B4", borderBottom: "10px solid #002D42" }}
   >
     <div className="container py-2 h-100" style={{ color: "#fff" }}>
       <div className="row">
