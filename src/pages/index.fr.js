@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import { Link } from "gatsby"
 
 const IndexPage = () => (
   <Layout>
@@ -25,13 +26,7 @@ const IndexPage = () => (
                 <div className="card-body">
                   <h3 className="card-title h5">Before Your Travel</h3>
                   <p className="card-text">Get ready for your business travel.</p>
-                  <a
-                    href="/fr/before"
-                    role="button"
-                    className="btn button-blue-dark"
-                  >
-                    More Information
-                  </a>
+                  <Link to="/fr/before" className="btn button-blue-dark">More Information</Link>
                 </div>
               </div>
             </div>
@@ -46,13 +41,7 @@ const IndexPage = () => (
                   <p className="card-text">
                   Making the arrangements needed for your travel.
                   </p>
-                  <a
-                    href="/fr/booktravel"
-                    role="button"
-                    className="btn button-blue-medium"
-                  >
-                    More Information
-                  </a>
+                  <Link to="/fr/booktravel" className="btn button-blue-medium">More Information</Link>
                 </div>
               </div>
             </div>
@@ -67,13 +56,7 @@ const IndexPage = () => (
                   <p className="card-text">
                     Useful information during a trip.
                   </p>
-                  <a
-                    href="/fr/during"
-                    role="button"
-                    className="btn button-blue-medium"
-                  >
-                    More Information
-                  </a>
+                  <Link to="/fr/during" className="btn button-blue-medium">More Information</Link>
                 </div>
               </div>
             </div>
@@ -86,13 +69,7 @@ const IndexPage = () => (
                 <div className="card-body">
                   <h3 className="card-title h5">After You Return</h3>
                   <p className="card-text">Arranging reimbursement.</p>
-                  <a
-                    href="/fr/after"
-                    role="button"
-                    className="btn button-blue-light"
-                  >
-                    More Information
-                  </a>
+                  <Link to="/fr/after" className="btn button-blue-light">More Information</Link>
                 </div>
               </div>
             </div>
@@ -103,7 +80,7 @@ const IndexPage = () => (
         <div className="foot-container container">
           <ul>
             <li>
-              <a href="/fr">Home</a>
+              <Link to="/fr">Home</Link>
             </li>
             {/* <li><a href="#">About</a></li>
                         <li><a href="#">Tips</a></li> */}
