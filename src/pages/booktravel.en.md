@@ -14,11 +14,11 @@ Important steps to book your trip
 
 [[card]]
 | [[card-body]]
-| | #### 1. Reserve your mode of transportation on HRG
+| | #### Booking your trip
 | |
-| |Phasellus non urna accumsan, fermentum dolor a, mattis ipsum. Nam ac magna augue. Sed quis purus in felis vulputate tempor et eu lectus.
-| |
-| | [Open HRG Portal](/)
+| | - Using your Travel Identification Number (TIN) [log into the system](https://isuite6.hrgworldwide.com/gcportal/en-ca/sts.aspx)
+| | - In the system, use the instructions to book your trip. You can reference your estimates listed above to go through the booking process. [link to HRG instructions](/)
+| | - When at the submitting stage, requesting for online approval, try to submit at a time where the approver can approve it immediately. Success rates for bookings are over 90% if requests are immediately approved. Delaying submissions can cause the process to fail, causing you to restart the online booking process.
 | |
 
 [[card]]
