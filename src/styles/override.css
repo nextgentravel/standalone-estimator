@@ -84,6 +84,31 @@ body {
      border: 1px solid #FAF2CC;
      margin: 20px;
 }
+.langlink{
+    margin: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.lang{
+    margin: auto;
+    width: 50%;
+    max-width: 600px;
+    min-width: 300px;
+    overflow: auto;
+    text-align: center;
+    margin-top: 200px;
+}
+
+#bg {
+    height: 200%;
+    left: -50%;
+    position: fixed;
+    top: -50%;
+    width: 200%;
+    background-color: #6DD2DA;
+}
 
 @media only screen and (max-width: 800px) {
     .info-page-content{
