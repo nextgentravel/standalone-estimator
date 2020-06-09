@@ -47,8 +47,17 @@ module.exports = {
                 card: {
                   classes: "card",
                 },
+                sidebar: {
+                  classes: "sidebar",
+                },
+                lead: {
+                  classes: "lead",
+                },
                 'card-body': {
                   classes: "card-body",
+                },
+                'info-card': {
+                  classes: "card info-card",
                 },
                 info: {
                   classes: "info",
