@@ -7,7 +7,7 @@ title: "During your Travel"
 <div classname="fullClass">
 
 [Home](./) > During your travel
-### During your travel
+## During your travel
 
 [[lead]]
 | How to handle any issues with the actual trip
