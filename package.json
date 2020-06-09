@@ -7,7 +7,7 @@
   "dependencies": {
     "@testing-library/cypress": "^6.0.0",
     "@types/react": "^16.9.35",
-    "axe-core": "^3.5.3",
+    "axe-core": "3.5.3",
     "bufferutil": "^4.0.1",
     "cypress": "^4.6.0",
     "cypress-axe": "^0.8.1",
