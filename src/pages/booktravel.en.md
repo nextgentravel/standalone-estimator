@@ -8,7 +8,7 @@ title: "Booking Travel"
 
 [Home](./) > Booking your travel
 
-### Booking your travel
+## Booking your travel
 
 [[lead]]
 | Important steps to book your trip
