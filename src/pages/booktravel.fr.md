@@ -1,5 +1,4 @@
 ---
-slug: "fr/booktravel"
 date: "2019-05-04"
 title: "Booking Travel"
 ---
