@@ -50,8 +50,8 @@ module.exports = {
                 sidebar: {
                   classes: "sidebar",
                 },
-                spacer: {
-                  classes: "spacer",
+                lead: {
+                  classes: "lead",
                 },
                 'card-body': {
                   classes: "card-body",
