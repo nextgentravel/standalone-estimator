@@ -12,7 +12,7 @@ const IndexPage = () => (
       <main id="main-content" role="main">
         <div className="container mt-4">
           <h2>Business travel shouldn’t feel like work</h2>
-          <h5 className="mb-4">We're here to help you travel better</h5>
+          <h3 className="mb-4">We're here to help you travel better</h3>
           <div className="row mb-4">
             <div className="col-sm-3 mb-3">
               <div className="card d-inline-block w-100 h-100">
@@ -24,7 +24,7 @@ const IndexPage = () => (
                 </div>
 
                 <div className="card-body">
-                  <h3 className="card-title h5">Before Your Travel</h3>
+                  <h4 className="card-title h5">Before Your Travel</h4>
                   <p className="card-text">Get ready for your business travel.</p>
                   <Link to="/en/before" className="btn button-blue-dark">More Information</Link>
                 </div>
@@ -37,7 +37,7 @@ const IndexPage = () => (
                   alt="Card image cap"
                 />
                 <div className="card-body">
-                  <h3 className="card-title h5">Booking your Travel</h3>
+                  <h4 className="card-title h5">Booking your Travel</h4>
                   <p className="card-text">
                   Making the arrangements needed for your travel.
                   </p>
@@ -52,7 +52,7 @@ const IndexPage = () => (
                   alt="Card image cap"
                 />
                 <div className="card-body">
-                  <h3 className="card-title h5">During Your Travel</h3>
+                  <h4 className="card-title h5">During Your Travel</h4>
                   <p className="card-text">
                     Useful information during a trip.
                   </p>
@@ -67,7 +67,7 @@ const IndexPage = () => (
                   alt="Card image cap"
                 />
                 <div className="card-body">
-                  <h3 className="card-title h5">After You Return</h3>
+                  <h4 className="card-title h5">After You Return</h4>
                   <p className="card-text">Arranging reimbursement.</p>
                   <Link to="/en/after" className="btn button-blue-light">More Information</Link>
                 </div>
