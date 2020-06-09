@@ -7,7 +7,7 @@ title: "Before you leave"
 <div classname="fullClass">
 
 [Home](./) > Before your travel
-### Decision to Travel
+## Decision to Travel
 
 [[lead]]
 | After deciding to travel, you should start by creating an estimate. The estimate should give an overall approximation of what the total cost of the trip will be, so that it can the be approved.
