@@ -14,7 +14,7 @@ title: "Booking Travel"
 
 [[card]]
 | [[card-body]]
-| | #### Booking your trip
+| | ### Booking your trip
 | |
 | | - Using your Travel Identification Number (TIN) [log into the system](https://isuite6.hrgworldwide.com/gcportal/en-ca/sts.aspx)
 | | - In the system, use the instructions to book your trip. You can reference your estimates listed above to go through the booking process. [link to HRG instructions](/)
@@ -23,7 +23,7 @@ title: "Booking Travel"
 
 [[card]]
 | [[card-body]]
-| | #### 2. Reserve your accomidations
+| | ### 2. Reserve your accomidations
 | |
 | |Sed quis purus in felis vulputate tempor et eu lectus. Suspendisse quis metus eu justo lobortis commodo vitae et purus. Vestibulum odio velit, euismod quis mi tempus, bibendum fermentum diam.
 | |
@@ -33,21 +33,21 @@ title: "Booking Travel"
 
 [[card]]
 | [[card-body]]
-| | #### 3. Reserve your car rentals if required
+| | ### 3. Reserve your car rentals if required
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
 
 [[card]]
 | [[card-body]]
-| | #### 4. Enter your potential expenses
+| | ### 4. Enter your potential expenses
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
 
 [[card]]
 | [[card-body]]
-| | #### 5. Submit for approval and book
+| | ### 5. Submit for approval and book
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
@@ -60,17 +60,17 @@ title: "Booking Travel"
 
 [[sidebar]]
 |
-| #### Resources
+| ### Resources
 | * [Option One](/)
 | * [Option Two](/)
 |
-| #### Suggest an update
+| ### Suggest an update
 | [Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
 
 [[info-card]]
 | [[card-body]]
 | |
-| | ###### Still have travel-related questions?
+| | ### Still have travel-related questions?
 | |
 | | Your [Designated Departmental Travel Coordinator](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) should be able to help!
 | |
