@@ -5,13 +5,12 @@ export default ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Layout>
-        <div className="info-page-container holder">
-          <div className="info-page inside">
+        <div className="info-page-container container">
+          <div className="info-page row">
               <main
-              className="info-page-content"
+              className="info-page-content col-12"
               dangerouslySetInnerHTML={{ __html: post.html }}
-              >
-              </main>
+              />
           </div>
         </div>
     </Layout>
