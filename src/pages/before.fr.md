@@ -7,34 +7,34 @@ title: "Before you leave"
 <div classname="fullClass">
 
 [Home](./) > Before your travel
-### Before your travel
+## Before your travel
 
 How to get ready for your trip
 
 [[card]]
 | [[card-body]]
-| | #### 1. Estimate the cost
+| | ### 1. Estimate the cost
 | |
 | | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra tempus dapibus.
 | |
 
 [[card]]
 | [[card-body]]
-| | #### 2. Get the travel approved
+| | ### 2. Get the travel approved
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
 
 [[card]]
 | [[card-body]]
-| | #### 3. Determine how you'll pay
+| | ### 3. Determine how you'll pay
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
 
 [[card]]
 | [[card-body]]
-| | #### 4. If you are traveling internationally
+| | ### 4. If you are traveling internationally
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
@@ -61,7 +61,7 @@ How to get ready for your trip
 [[info-card]]
 | [[card-body]]
 | |
-| | ###### Still have travel-related questions?
+| | ##### Still have travel-related questions?
 | |
 | | Your [Designated Departmental Travel Coordinator](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) should be able to help!
 | |
