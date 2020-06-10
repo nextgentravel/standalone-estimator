@@ -59,8 +59,8 @@ body {
     margin-left: 0px;
 }
 .sidebar {
-    margin: 20px;
-    margin-top: 120px;
+    margin-left: 20px;
+    margin-top: 90px;
 }
 
 .card-body > * > p {
@@ -77,12 +77,13 @@ body {
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-left: 120px;
+    margin-top: 20px;
 }
 .info-card{
     background-color: #FCF8E3;
-     border: 1px solid #FAF2CC;
-     margin: 20px;
+    border: 1px solid #FAF2CC;
+    margin-left: 20px;
+    margin-top: 10px;
 }
 .langlink{
     margin: 10px;
@@ -113,11 +114,16 @@ body {
 @media only screen and (max-width: 800px) {
     .info-page-content{
         display: inline-block;
-        margin-left: 40px;
-        margin-right: 10px;
     }
     .sidebar {
         margin-top:0px;
+        margin-left: 0px;
+    }
+    .info-card{
+        background-color: #FCF8E3;
+        border: 1px solid #FAF2CC;
+        margin: 0px;
+        margin-bottom: 20px;
     }
 }
 

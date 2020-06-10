@@ -9,7 +9,8 @@ title: "Booking Travel"
 
 ## Booking your travel
 
-Important steps to book your trip
+[[lead]]
+| Important steps to book your trip
 
 [[card]]
 | [[card-body]]
