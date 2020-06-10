@@ -14,14 +14,14 @@ title: "After you return"
 
 [[card]]
 | [[card-body]]
-| | #### 1. Gather your receipts
+| | ### 1. Gather your receipts
 | |
 | | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra tempus dapibus.
 | |
 
 [[card]]
 | [[card-body]]
-| | #### 2. Submit an expense report
+| | ### 2. Submit an expense report
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
@@ -29,7 +29,7 @@ title: "After you return"
 
 [[card]]
 | [[card-body]]
-| | #### 3. Wait for your reimbursement
+| | ### 3. Wait for your reimbursement
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
@@ -57,7 +57,7 @@ title: "After you return"
 [[info-card]]
 | [[card-body]]
 | |
-| | ###### Still have travel-related questions?
+| | ### Still have travel-related questions?
 | |
 | | Your [Designated Departmental Travel Coordinator](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) should be able to help!
 | |
