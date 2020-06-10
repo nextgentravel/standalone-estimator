@@ -9,7 +9,8 @@ title: "Before you leave"
 [Home](./) > Before your travel
 ## Before your travel
 
-How to get ready for your trip
+[[lead]]
+| How to get ready for your trip
 
 [[card]]
 | [[card-body]]

@@ -9,7 +9,9 @@ title: "Before you leave"
 [Home](./) > Before your travel
 ## Decision to Travel
 
-After deciding to travel, you should start by creating an estimate. The estimate should give an overall approximation of what the total cost of the trip will be, so that it can the be approved.
+[[lead]]
+| After deciding to travel, you should start by creating an estimate. The estimate should give an overall approximation of what the total cost of the trip will be, so that it can the be approved.
+|
 
 [[card]]
 | [[card-body]]
@@ -65,6 +67,7 @@ After deciding to travel, you should start by creating an estimate. The estimate
 |
 | #### Suggest an update
 | [Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
+
 
 [[info-card]]
 | [[card-body]]

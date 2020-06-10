@@ -9,7 +9,8 @@ title: "During your Travel"
 [Home](./) > During your travel
 ## During your travel
 
-How to handle any issues with the actual trip
+[[lead]]
+| How to handle any issues with the actual trip
 
 [[card]]
 | [[card-body]]

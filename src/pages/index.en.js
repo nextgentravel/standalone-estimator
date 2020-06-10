@@ -14,7 +14,7 @@ const IndexPage = () => (
           <h2>Business travel shouldn’t feel like work</h2>
           <h3 className="mb-4">We're here to help you travel better</h3>
           <div className="row mb-4">
-            <div className="col-sm-3 mb-3">
+            <div className="col-lg-3 col-md-6 col-sm-12 mb-3">
               <div className="card d-inline-block w-100 h-100">
                 <div className="card-img-top">
                   <Image
@@ -30,7 +30,7 @@ const IndexPage = () => (
                 </div>
               </div>
             </div>
-            <div className="col-sm-3 mb-3">
+            <div className="col-lg-3 col-md-6 col-sm-12 mb-3">
               <div className="card mb-2 d-inline-block w-100 h-100">
                 <Image
                   filename="15A3A6-1.png"
@@ -45,7 +45,7 @@ const IndexPage = () => (
                 </div>
               </div>
             </div>
-            <div className="col-sm-3 mb-3">
+            <div className="col-lg-3 col-md-6 col-sm-12 mb-3">
               <div className="card mb-2 d-inline-block w-100 h-100">
                 <Image
                   filename="15A3A6-1.png"
@@ -60,7 +60,7 @@ const IndexPage = () => (
                 </div>
               </div>
             </div>
-            <div className="col-sm-3 mb-3">
+            <div className="col-lg-3 col-md-6 col-sm-12 mb-3">
               <div className="card mb-2 d-inline-block w-100 h-100">
                 <Image
                   filename="6DD2DA-1.png"
