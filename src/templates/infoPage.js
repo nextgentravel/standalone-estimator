@@ -7,10 +7,11 @@ export default ({ data }) => {
     <Layout>
         <div className="info-page-container holder">
           <div className="info-page inside">
-              <div
+              <main
               className="info-page-content"
               dangerouslySetInnerHTML={{ __html: post.html }}
-              />
+              >
+              </main>
           </div>
         </div>
     </Layout>
