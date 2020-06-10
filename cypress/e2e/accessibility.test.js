@@ -1,34 +1,62 @@
-function terminalLog(violations) {
+function terminalLog(violations, url) {
   cy.task(
     'log',
-    `${violations.length} accessibility violation${
+    `\n\n ${violations.length} accessibility violation${
       violations.length === 1 ? '' : 's'
-    } ${violations.length === 1 ? 'was' : 'were'} detected`
+    } ${violations.length === 1 ? 'was' : 'were'} detected \n at URL ${url}`
   )
-  // pluck specific keys to keep the table readable
-  const violationData = violations.map(
-    ({ id, impact, description, nodes }) => ({
-      id,
-      impact,
-      description,
-      nodes: nodes.length
-    })
+
+  const violationData = violations.map(violation => {
+      console.log('##', violation)
+      let id = violation.id;
+      let impact = violation.impact;
+      let description = violation.description;
+      let nodes = violation.nodes;
+      let nodeString = ''
+      nodes.forEach((node, index) => {
+        index === 0 ? nodeString = node.html : nodeString = nodeString + ', ' + node.html
+      })
+      return {
+        id,
+        impact,
+        description,
+        nodes: nodes.length,
+        tags: nodeString
+      }
+    }
   )
+
 
   cy.task('table', violationData)
+
+  cy.task(
+    'log',
+    `\n\n`
+  )
+
+
 }
 
-describe("Accessibility tests", () => {
-  beforeEach(() => {
-    cy.visit("/").get("main").injectAxe()
-  })
-  it("Index Page has no detectable accessibility violations on load", () => {
-    cy.checkA11y(null, null, terminalLog)
-  })
-  it("Navigates to page 2 and checks for accessibility violations", () => {
-    cy.findByText(/English/i)
-      .click()
-      .checkA11y(null, null, terminalLog)
-  })
-
-})
+const reducedSiteMap = [
+  "/",
+  "/en",
+  "/fr",
+  "/fr/before",
+  "/en/before",
+  "/fr/booktravel",
+  "/en/booktravel",
+  "/fr/during",
+  "/en/during",
+  "/fr/after",
+  "/en/after",
+]
+describe('accessibility', () => {
+  reducedSiteMap.forEach(function(url) {
+      it(`\n\n ${url} page should have appropriate accessibility \n\n`, () => {
+          cy.visit(url).get("main").injectAxe();
+          cy.checkA11y(null, null, (violations) => {
+            terminalLog(violations, url)
+          })
+      });
+  });        
+});
