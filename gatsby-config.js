@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: `Travel Guide`,
     description: `A guide for travel in the Canadian public service.`,
-    author: `@gatsbyjs`,
+    author: `NextGEN Travel Team`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
