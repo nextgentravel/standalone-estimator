@@ -3,7 +3,7 @@ const languages = require('./src/data/languages');
 module.exports = {
   siteMetadata: {
     title: `Travel Guide`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `A guide for travel in the Canadian public service.`,
     author: `@gatsbyjs`,
   },
   plugins: [
