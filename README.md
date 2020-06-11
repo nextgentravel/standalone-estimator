@@ -26,3 +26,11 @@
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
     Open the `travel-guidebook-client` directory in your code editor of choice and edits in the `src` directory. Save your changes and the browser will update in real time!
+
+1.  **Running tests**
+
+    You can run a11y integration tests by running the command `yarn run test:e2e`.  When the Chrome browser appears, click on "accessibility.test.js" under "Integration Tests" and observe the test running.  Any exceptions will be raised.  These same tests run via github actions when a pull request is made.
+
+1.  **Deployments**
+
+    Deployments are made when a pull request passes all testing and review and is merged into the staging or master (production) branch.
