@@ -5,8 +5,10 @@ module.exports = {
     title: `Travel Guide`,
     description: `A guide for travel in the Canadian public service.`,
     author: `NextGEN Travel Team`,
+    siteUrl: `https://travel-guidebook.herokuapp.com/`,
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -103,7 +105,7 @@ module.exports = {
           `
         }
       }
-    },
+    },    
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
