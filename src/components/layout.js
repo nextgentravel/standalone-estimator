@@ -1,36 +1,42 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
+import React from 'react'
+import PropTypes from 'prop-types'
+import Header from '../components/Header'
+import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n';
+import { StaticQuery, graphql } from "gatsby"
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "./header"
-
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+const Layout = ({ children, location }) => {
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div>
-        <div>{children}</div>
-      </div>
-    </>
-  )
-}
+    <StaticQuery
+      query={graphql`
+        query LayoutQuery {
+          site {
+            siteMetadata {
+              languages {
+                defaultLangKey
+                langs
+              }      
+            }
+          }
+        }
+      `}
+      render={data => {
+        const url = window.location.pathname;
+        const { langs, defaultLangKey } = data.site.siteMetadata.languages;
+        const langKey = getCurrentLangKey(langs, defaultLangKey, url);
+        const homeLink = `/${langKey}/`;
+        const langsMenu = getLangs(langs, langKey, getUrlForLang(homeLink, url))
+        return (
+          <div>
+            <Header langs={langsMenu} />
+            <div>
+              {children}
+            </div>
+          </div>
+        )
+      }}
+    />
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
