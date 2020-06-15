@@ -37,21 +37,18 @@ function terminalLog(violations, url) {
   )
 }
 
-describe('accessibility', () => {
-  const reducedSiteMap = []
-  before(() => {
-    cy.task('getSiteMapTask').then(result => {
-      cy.wrap(result).as('siteMap');
-    })
+describe('accessibility', function () {
+  const siteMap = require('../../sitemap.json')
+  it('has imported sitemap', function () {
+    expect(siteMap).to.be.an('array')
   })
-  it(`\n\n Pages should have appropriate accessibility \n\n`, () => {
-  cy.get('@siteMap').then(siteMap => {
-    siteMap.forEach(url => {
+
+  siteMap.forEach(url => {
+    it(`\n\n ${url} page should have appropriate accessibility \n\n`, () => {
       cy.visit(url).get("main").injectAxe();
       cy.checkA11y(null, null, (violations) => {
-          terminalLog(violations, url)
-        })
-      });
+        terminalLog(violations, url)
+      })
     });
-  })
+  });
 });
