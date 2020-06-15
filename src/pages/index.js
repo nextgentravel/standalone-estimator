@@ -8,9 +8,19 @@ const IndexPage = () => (
       <SEO title="Language Select" />
       <div className="card lang">
         <div className="card-body">
-          <h1 className="card-title">Choose Language</h1>
-          <Link to="/en" className="langlink btn btn-primary">English</Link>
+          <image></image>
           <Link to="/fr" className="langlink btn btn-primary">Français</Link>
+          <Link to="/en" className="langlink btn btn-primary">English</Link>
+        </div>
+        <div className="card-body splash">
+          <div className="col-6">
+            <p><a href="https://www.canada.ca/fr/transparence/avis.html">Avis</a>
+            <span id="divider">●</span>
+            <a href="https://www.canada.ca/en/transparency/terms.html">Terms and conditions</a></p> 
+          </div>
+          <div className="col-6">
+            <image></image>
+          </div>
         </div>
       </div>
   </main>
