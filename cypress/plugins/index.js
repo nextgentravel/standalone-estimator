@@ -1,3 +1,7 @@
+const fetch = require("node-fetch");
+const DomParser = require('dom-parser');
+const parser = new DomParser();
+
 /// <reference types="cypress" />
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
@@ -15,21 +19,35 @@
 /**
  * @type {Cypress.PluginConfig}
  */
-module.exports = (on, config) => {
+
+const getSiteMap = async () => {
+  const result = await fetch('http://localhost:8000/sitemap.xml')
+    .then(response => response.text())
+    .then(str => (parser.parseFromString(str, "text/xml")))
+    .then(str => (str.getElementsByTagName('loc')))
+    .then(str => (str.map(node => {
+      return node.firstChild.text.replace('https://travel-guidebook.herokuapp.com', '')
+    }))).then(result => result)
+    console.log(result)
+  return result
+}
+
+
+ module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
   on('task', {
     log(message) {
       console.log(message)
-
       return null
     },
     table(message) {
       console.table(message)
-
       return null
-    }
+    },
+    async getSiteMapTask() {
+      let result = await getSiteMap()
+      return result
+    },
   })
-
-
 }
