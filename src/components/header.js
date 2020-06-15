@@ -1,7 +1,8 @@
 import PropTypes from "prop-types"
 import React from "react"
+import SelectLanguage from './languageSelect';
 
-const Header = ({ siteTitle }) => (
+const Header = ({siteTitle, langs}) => (
 <header className="shadow-sm">
   <div
     style={{
@@ -33,7 +34,7 @@ const Header = ({ siteTitle }) => (
           <h1 className="mb-3 mt-3 h4">Travel Guidebook</h1>
         </div>
         <div className="col-4 align-self-center">
-          <span className="float-right d-none d-md-block"></span>
+          <span className="float-right d-none d-md-block"><SelectLanguage langs={langs} /></span>
         </div>
       </div>
     </div>
