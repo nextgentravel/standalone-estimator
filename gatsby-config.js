@@ -5,6 +5,7 @@ module.exports = {
     title: `Travel Guide`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
+    languages
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -84,7 +85,9 @@ module.exports = {
       resolve: 'gatsby-plugin-i18n',
       options: {
         langKeyDefault: 'en',
+        langKeyForNull: 'any',
         useLangKeyLayout: false,
+        prefixDefault: true,
         markdownRemark: {
           postPage: 'src/templates/infoPage.js',
           query: `
