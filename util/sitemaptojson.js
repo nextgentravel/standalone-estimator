@@ -11,7 +11,7 @@ const processXML = (string) => {
     return result;
 }
 
-fs.readFile('././sitemap.xml', 'utf8', function(err, data) {
+fs.readFile('././sitemap.xml', 'utf8', (err, data) => {
     if (err) throw err;
     let result = processXML(data)
     let json = JSON.stringify(result);
