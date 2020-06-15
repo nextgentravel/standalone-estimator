@@ -1,6 +1,7 @@
 import PropTypes from "prop-types"
 import React from "react"
 import SelectLanguage from './languageSelect';
+import { FormattedMessage } from 'react-intl';
 
 const Header = ({siteTitle, langs}) => (
 <header className="shadow-sm">
@@ -31,7 +32,7 @@ const Header = ({siteTitle, langs}) => (
     <div className="container py-2 h-100" style={{ color: "#fff" }}>
       <div className="row">
         <div className="col-8">
-          <h1 className="mb-3 mt-3 h4">Travel Guidebook</h1>
+          <h1 className="mb-3 mt-3 h4"><FormattedMessage id="pageTitle" /></h1>
         </div>
         <div className="col-4 align-self-center">
           <span className="float-right d-none d-md-block"><SelectLanguage langs={langs} /></span>
