@@ -8,6 +8,8 @@ const processXML = (string) => {
     let result = urlArray.map(node => {
         return node.firstChild.text.replace('https://travel-guidebook.herokuapp.com', '')
     });
+    // manually add the 404 page to the array, since it's excluded by default
+    result.push('/404')
     return result;
 }
 
