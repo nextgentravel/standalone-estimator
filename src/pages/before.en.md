@@ -6,7 +6,7 @@ title: "Before you leave"
 
 <div classname="fullClass">
 
-[Home](./) > Before your travel
+[Home](/en/) > Before your travel
 ## Decision to Travel
 
 [[lead]]
@@ -53,7 +53,7 @@ title: "Before you leave"
 | | - Once you’ve created your account, you can set up your [traveller profile using these instructions](https://isuite6.hrgworldwide.com/Portals/6/docs/EN%20-%20UG%20-%20Completing%20a%20traveller%20profile%20-%2019jui2019.pdf)
 | |
 
-[Next: Booking your travel](./booktravel)
+[Next: Booking your travel](/en/booktravel)
 
 </div>
 
