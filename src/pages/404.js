@@ -9,14 +9,14 @@ import { FaExclamationTriangle } from 'react-icons/fa';
 const NotFoundPage = () => (
   <Layout>
     <SEO title="404: Not found" />
-      <main className="container css404">
+      <main className="container mt-3">
         <div className="row">
-          <div className="col-lg-6 col-md-12 css404" lang="fr">
+          <div className="col-lg-6 col-md-12 mt-3" lang="fr">
             <h2><FaExclamationTriangle /> Nous ne pouvons trouver cette page (Erreur 404)</h2>
             <p>Nous sommes désolés que vous ayez abouti ici. Il arrive parfois qu'une page ait été déplacée ou supprimée. Heureusement, nous pouvons vous aider à trouver ce que vous cherchez.</p>
             <Link to="/fr">Retournez à la page d'accueil</Link>
           </div>
-          <div className="col-lg-6 col-md-12 css404" lang="en">
+          <div className="col-lg-6 col-md-12 mt-3" lang="en">
             <h2><FaExclamationTriangle /> We couldn't find that page (Error 404)</h2>
             <p>We're sorry you ended up here. Sometimes a page gets moved or deleted, but hopefully we can help you find what you're looking for.</p>
             <Link to="/en">Return to the home page</Link>
