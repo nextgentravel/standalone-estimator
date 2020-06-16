@@ -30,12 +30,4 @@ const Footer = ({ siteTitle }) => (
   </footer>
 )
 
-Footer.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Footer.defaultProps = {
-  siteTitle: ``,
-}
-
 export default Footer
