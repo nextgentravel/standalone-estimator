@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from "prop-types"
 import Header from "./header"
 import Footer from "./footer"
 import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n';
