@@ -6,6 +6,7 @@ module.exports = {
     description: `A guide for travel in the Canadian public service.`,
     author: `NextGen Travel Team`,
     siteUrl: `https://travel-guidebook.herokuapp.com/`,
+    languages
   },
   plugins: [
     `gatsby-plugin-sitemap`,
