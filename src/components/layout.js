@@ -7,8 +7,10 @@ import { StaticQuery, graphql } from "gatsby"
 import { IntlProvider } from 'react-intl';
 import 'intl';
 import i18nMessages from '../data/messages';
+import { globalHistory } from "@reach/router"
 
-const Layout = ({ children, location }) => {
+
+const Layout = ({ children }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -24,7 +26,7 @@ const Layout = ({ children, location }) => {
         }
       `}
       render={data => {
-        const url = location.pathname;
+        const url = globalHistory.location.pathname;
         const { langs, defaultLangKey } = data.site.siteMetadata.languages;
         const langKey = getCurrentLangKey(langs, defaultLangKey, url);
         const homeLink = `/${langKey}/`;
