@@ -15,7 +15,7 @@ title: "Before you leave"
 
 [[card]]
 | [[card-body]]
-| | #### Creating your estimate
+| | ### Creating your estimate
 | |
 | | The following information must be included in an estimate:
 | |
@@ -37,7 +37,7 @@ title: "Before you leave"
 
 [[card]]
 | [[card-body]]
-| | #### Getting preliminary approval
+| | ### Getting preliminary approval
 | |
 | | - Once you’ve created your estimate, submit to your approver who is usually a senior manager. Your supervisor or organizational chart can help you find them
 | | - Ensure that you give the approver enough time to approve your trip before your travel date. Somewhere between 3 to 4 weeks should be sufficient
@@ -46,7 +46,7 @@ title: "Before you leave"
 
 [[card]]
 | [[card-body]]
-| | #### Creating an account in HRG
+| | ### Creating an account in HRG
 | |
 | | - If you haven’t travelled before, the government of Canada uses an online booking tool. The following link will take you to the [online booking tool](https://isuite6.hrgworldwide.com/gcportal/en-ca/sts.aspx)
 | |   * [Create an account here](https://isuite6.hrgworldwide.com/tabid/292/Default.aspx)
@@ -72,7 +72,7 @@ title: "Before you leave"
 [[info-card]]
 | [[card-body]]
 | |
-| | ###### Still have travel-related questions?
+| | ### Still have travel-related questions?
 | |
 | | Your [Designated Departmental Travel Coordinator](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) should be able to help!
 | |
