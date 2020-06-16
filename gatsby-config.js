@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: `Travel Guide`,
     description: `A guide for travel in the Canadian public service.`,
-    author: `NextGEN Travel Team`,
+    author: `NextGen Travel Team`,
     siteUrl: `https://travel-guidebook.herokuapp.com/`,
   },
   plugins: [
@@ -86,7 +86,9 @@ module.exports = {
       resolve: 'gatsby-plugin-i18n',
       options: {
         langKeyDefault: 'en',
+        langKeyForNull: 'any',
         useLangKeyLayout: false,
+        prefixDefault: true,
         markdownRemark: {
           postPage: 'src/templates/infoPage.js',
           query: `
