@@ -21,9 +21,9 @@ const Header = ({siteTitle, langs}) => (
           marginRight: 10
         }}
       >
-        <strong>ALPHA</strong>
+        <strong><FormattedMessage id="alpha" /></strong>
       </button>
-      <span>This website is under development.</span>
+      <span><FormattedMessage id="underDevelopment" /></span>
     </div>
   </div>
   <div
