@@ -12,7 +12,7 @@ const IndexPage = () => (
       <main id="main-content" role="main">
         <div className="container mt-4">
           <h2>Business travel shouldn’t feel like work</h2>
-          <h5 className="mb-4">We're here to help you travel better</h5>
+          <h3 className="mb-4">We're here to help you travel better</h3>
           <div className="row mb-4">
             <div className="col-lg-3 col-md-6 col-sm-12 mb-3">
               <div className="card d-inline-block w-100 h-100">
