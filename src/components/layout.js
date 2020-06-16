@@ -24,7 +24,7 @@ const Layout = ({ children, location }) => {
         }
       `}
       render={data => {
-        const url = window.location.pathname;
+        const url = location.pathname;
         const { langs, defaultLangKey } = data.site.siteMetadata.languages;
         const langKey = getCurrentLangKey(langs, defaultLangKey, url);
         const homeLink = `/${langKey}/`;
