@@ -1,13 +1,14 @@
-import PropTypes from "prop-types"
 import React from "react"
 import { Link } from "gatsby"
+
+import { FormattedMessage } from 'react-intl';
 
 const Footer = ({ siteTitle }) => (
     <footer className="footer">
     <div className="foot-container container">
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/"><FormattedMessage id="home" /></Link>
         </li>
         <li>
           <a
@@ -15,14 +16,14 @@ const Footer = ({ siteTitle }) => (
             target="_blank"
             rel="noopener noreferrer"
           >
-            Suggest an Update
+            <FormattedMessage id="suggestAnUpdate" />
           </a>
         </li>
       </ul>
       <ul>
         <li>
           <a href="https://github.com/nextgentravel/travel-guidebook">
-            <small>View this page on Github</small>
+            <small><FormattedMessage id="viewThisPageOnGithub" /></small>
           </a>
         </li>
       </ul>
