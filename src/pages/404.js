@@ -9,7 +9,7 @@ import { FaExclamationTriangle } from 'react-icons/fa';
 const NotFoundPage = () => (
   <Layout>
     <SEO title="404: Not found" />
-      <div className="container css404">
+      <main className="container css404">
         <div className="row">
           <div className="col-lg-6 col-md-12 css404" lang="fr">
             <h2><FaExclamationTriangle /> Nous ne pouvons trouver cette page (Erreur 404)</h2>
@@ -22,7 +22,7 @@ const NotFoundPage = () => (
             <Link to="/en">Return to the home page</Link>
           </div>
         </div>
-      </div>
+      </main>
     </Layout>
 )
 
