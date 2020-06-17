@@ -1,19 +1,13 @@
 import React from "react";
 import { graphql } from 'gatsby'
 import Layout from "../components/layout"
+import Breadcrumbs from "../components/breadcrumb"
 export default ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Layout>
         <main>
-          <div className="container">
-            <nav aria-label="breadcrumb">
-                <ol className="breadcrumb pl-0">
-                    <li className="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li className="breadcrumb-item active" aria-current="page">{post.frontmatter.title}</li>
-                </ol>
-            </nav>
-          </div>
+          <Breadcrumbs />
           <div className="hero-holder">
             <div className="container">
               <h2 className="display-5">{post.frontmatter.heading}</h2>
