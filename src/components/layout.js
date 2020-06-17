@@ -9,7 +9,6 @@ import 'intl';
 import i18nMessages from '../data/messages';
 import { globalHistory } from "@reach/router"
 
-
 const Layout = ({ children }) => {
   return (
     <StaticQuery
@@ -37,11 +36,11 @@ const Layout = ({ children }) => {
             messages={i18nMessages[langKey]}
           >
             <div>
-              <Header langs={langsMenu} />
+              <Header langs={langsMenu} homeLink={homeLink} />
               <div>
                 {children}
               </div>
-              <Footer />
+              <Footer langs={langsMenu} homeLink={homeLink}/>
             </div>
           </IntlProvider>
         )
