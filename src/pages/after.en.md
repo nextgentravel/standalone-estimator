@@ -2,14 +2,11 @@
 slug: "/en/after"
 date: "2019-05-13"
 title: "After you return"
+heading: "After you return"
+lead: "Ensuring timely reimbursement"
 ---
 
 <div classname="fullClass">
-
-## After you return
-
-[[lead]]
-| Ensuring timely reimbursement
 
 [[card]]
 | [[card-body]]
