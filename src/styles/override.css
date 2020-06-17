@@ -103,13 +103,20 @@ body {
     margin-top: 200px;
 }
 
+.splash{
+    background-color: lightgrey;
+}
+
 #bg {
     height: 200%;
     left: -50%;
     position: fixed;
     top: -50%;
     width: 200%;
-    background-color: #15A3A6;
+    background-image: none;
+}
+#divider{
+    color: grey;
 }
 
 @media only screen and (max-width: 800px) {
