@@ -6,7 +6,7 @@ title: "Before you leave"
 
 <div classname="fullClass">
 
-[Home](./) > Before your travel
+[Home](/fr/) > Before your travel
 ## Before your travel
 
 [[lead]]
@@ -44,7 +44,7 @@ title: "Before you leave"
 | | [See travel advisories](/)
 | |
 
-[Next: Booking your travel](./booktravel)
+[Next: Booking your travel](/fr/booktravel)
 
 </div>
 
