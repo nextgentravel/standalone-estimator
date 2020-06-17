@@ -5,7 +5,7 @@ title: "Before you leave"
 heading: "Decision to Travel"
 lead: "After deciding to travel, you should start by creating an estimate. The estimate should give an overall approximation of what the total cost of the trip will be, so that it can the be approved."
 ---
-<div classname="fullClass">
+<div class="col-xs-12 col-sm-6 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -51,16 +51,14 @@ lead: "After deciding to travel, you should start by creating an estimate. The e
 
 </div>
 
-<div className="splitClass">
+<div class="col-xs-6 col-md-4">
 
-[[sidebar]]
-|
-| #### Resources
-| * [Option One](/)
-| * [Option Two](/)
-|
-| #### Suggest an update
-| [Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
+#### Resources
+* [Option One](/)
+* [Option Two](/)
+
+#### Suggest an update
+[Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
 
 
 [[info-card]]
