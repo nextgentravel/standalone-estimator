@@ -3,10 +3,8 @@ slug: "en/before"
 date: "2019-05-13"
 title: "Before you leave"
 ---
-
 <div classname="fullClass">
 
-[Home](./) > Before your travel
 ## Decision to Travel
 
 [[lead]]

@@ -5,8 +5,6 @@ title: "Booking Travel"
 
 <div classname="fullClass">
 
-[Home](./) > Booking your travel
-
 ## Booking your travel
 
 [[lead]]
