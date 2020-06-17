@@ -3,12 +3,12 @@ import { Link } from "gatsby"
 
 import { FormattedMessage } from 'react-intl';
 
-const Footer = ({ siteTitle }) => (
+const Footer = ({ siteTitle, homeLink }) => (
     <footer className="footer">
     <div className="foot-container container">
       <ul>
         <li>
-          <Link to="/"><FormattedMessage id="home" /></Link>
+          <Link to={`${homeLink}`}><FormattedMessage id="home" /></Link>
         </li>
         <li>
           <a
