@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from 'gatsby'
 import Layout from "../components/layout"
 import Breadcrumbs from "../components/breadcrumb"
+import SEO from "../components/seo"
 export default ({ data }) => {
   const post = data.markdownRemark;
   return (
