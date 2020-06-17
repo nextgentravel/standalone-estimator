@@ -5,28 +5,28 @@ export default ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Layout>
-        <div className="info-page-container container">
-          <div class="container pl-0">
+        <div className="container">
+          <div className="container">
               <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb pl-0">
-                      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                      <li class="breadcrumb-item active" aria-current="page">{post.frontmatter.title}</li>
+                  <ol className="breadcrumb pl-0">
+                      <li className="breadcrumb-item"><a href="index.html">Home</a></li>
+                      <li className="breadcrumb-item active" aria-current="page">{post.frontmatter.title}</li>
                   </ol>
               </nav>
           </div>
-          <div class="hero-holder">
-              <div class="container pl-0">
-                  <h2 class="display-5">{post.frontmatter.heading}</h2>
-                  <p class="lead">
+          <div className="hero-holder">
+              <div className="container">
+                  <h2 className="display-5">{post.frontmatter.heading}</h2>
+                  <p className="lead">
                     {post.frontmatter.lead}
                   </p>
               </div>
           </div>
-          <div className="info-page row">
-              <main
-              className="info-page-content col-12"
+          <div className="container">
+            <div
+              className="row"
               dangerouslySetInnerHTML={{ __html: post.html }}
-              />
+            />
           </div>
         </div>
     </Layout>
