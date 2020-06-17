@@ -5,22 +5,22 @@ export default ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Layout>
-        <div className="container">
+        <main>
           <div className="container">
-              <nav aria-label="breadcrumb">
-                  <ol className="breadcrumb pl-0">
-                      <li className="breadcrumb-item"><a href="index.html">Home</a></li>
-                      <li className="breadcrumb-item active" aria-current="page">{post.frontmatter.title}</li>
-                  </ol>
-              </nav>
+            <nav aria-label="breadcrumb">
+                <ol className="breadcrumb pl-0">
+                    <li className="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li className="breadcrumb-item active" aria-current="page">{post.frontmatter.title}</li>
+                </ol>
+            </nav>
           </div>
           <div className="hero-holder">
-              <div className="container">
-                  <h2 className="display-5">{post.frontmatter.heading}</h2>
-                  <p className="lead">
-                    {post.frontmatter.lead}
-                  </p>
-              </div>
+            <div className="container">
+              <h2 className="display-5">{post.frontmatter.heading}</h2>
+              <p className="lead">
+                {post.frontmatter.lead}
+              </p>
+            </div>
           </div>
           <div className="container">
             <div
@@ -28,7 +28,7 @@ export default ({ data }) => {
               dangerouslySetInnerHTML={{ __html: post.html }}
             />
           </div>
-        </div>
+        </main>
     </Layout>
   );
 };
