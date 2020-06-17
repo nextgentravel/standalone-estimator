@@ -10,9 +10,17 @@ export default ({ data }) => {
               <nav aria-label="breadcrumb">
                   <ol class="breadcrumb pl-0">
                       <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                      <li class="breadcrumb-item active" aria-current="page">Suggest an Update</li>
+                      <li class="breadcrumb-item active" aria-current="page">{post.frontmatter.title}</li>
                   </ol>
               </nav>
+          </div>
+          <div class="hero-holder">
+              <div class="container pl-0">
+                  <h2 class="display-5">{post.frontmatter.heading}</h2>
+                  <p class="lead">
+                    {post.frontmatter.lead}
+                  </p>
+              </div>
           </div>
           <div className="info-page row">
               <main
@@ -31,6 +39,8 @@ export const query = graphql`
       html
       frontmatter {
         title
+        heading
+        lead
       }
     }
   }
