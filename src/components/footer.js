@@ -22,7 +22,7 @@ const Footer = ({ siteTitle }) => (
       </ul>
       <ul>
         <li>
-          <a href="https://github.com/nextgentravel/travel-guidebook">
+          <a href="https://github.com/nextgentravel/travel-guidebook-client">
             <small><FormattedMessage id="viewThisPageOnGithub" /></small>
           </a>
         </li>

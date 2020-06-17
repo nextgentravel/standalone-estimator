@@ -6,7 +6,7 @@ title: "After you return"
 
 <div classname="fullClass">
 
-[Home](./) > After you return
+[Home](/fr/) > After you return
 ## After you return
 
 [[lead]]

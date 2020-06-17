@@ -1,10 +1,13 @@
 import React from "react";
 import { graphql } from 'gatsby'
 import Layout from "../components/layout"
+import SEO from "../components/seo"
+
 export default ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Layout>
+        <SEO title={post.frontmatter.title} />
         <div className="info-page-container container">
           <div className="info-page row">
               <main
