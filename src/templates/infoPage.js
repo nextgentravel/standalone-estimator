@@ -7,6 +7,7 @@ export default ({ data }) => {
   return (
     <Layout>
         <main>
+          <SEO title={post.frontmatter.title} />
           <Breadcrumbs />
           <div className="hero-holder">
             <div className="container">

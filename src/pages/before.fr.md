@@ -6,7 +6,13 @@ heading: "Before your travel"
 lead: "How to get ready for your trip"
 ---
 
-<div class="col-xs-12 col-sm-6 col-md-8">
+<div classname="fullClass">
+
+[Home](/fr/) > Before your travel
+## Before your travel
+
+[[lead]]
+| How to get ready for your trip
 
 [[card]]
 | [[card-body]]
@@ -40,7 +46,7 @@ lead: "How to get ready for your trip"
 | | [See travel advisories](/)
 | |
 
-[Next: Booking your travel](./booktravel)
+[Next: Booking your travel](/fr/booktravel)
 
 </div>
 

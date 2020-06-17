@@ -31,7 +31,7 @@ lead: "How to handle any issues with the actual trip"
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus at elementum mi. Phasellus sed vestibulum ex, et imperdiet sem.
 | |
 
-[Next: After you return](./after)
+[Next: After you return](/en/after)
 
 </div>
 
