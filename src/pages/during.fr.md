@@ -2,14 +2,11 @@
 slug: "fr/during"
 date: "2019-05-13"
 title: "During your Travel"
+heading: "During your Travel"
+lead: "How to handle any issues with the actual trip"
 ---
 
 <div classname="fullClass">
-
-## During your travel
-
-[[lead]]
-| How to handle any issues with the actual trip
 
 [[card]]
 | [[card-body]]

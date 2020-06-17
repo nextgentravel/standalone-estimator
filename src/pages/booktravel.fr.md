@@ -1,14 +1,11 @@
 ---
 date: "2019-05-04"
 title: "Booking Travel"
+heading: "Booking your travel"
+lead: "Important steps to book your trip"
 ---
 
 <div classname="fullClass">
-
-## Booking your travel
-
-[[lead]]
-| Important steps to book your trip
 
 [[card]]
 | [[card-body]]

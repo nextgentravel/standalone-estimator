@@ -2,14 +2,10 @@
 slug: "en/before"
 date: "2019-05-13"
 title: "Before you leave"
+heading: "Decision to Travel"
+lead: "After deciding to travel, you should start by creating an estimate. The estimate should give an overall approximation of what the total cost of the trip will be, so that it can the be approved."
 ---
 <div classname="fullClass">
-
-## Decision to Travel
-
-[[lead]]
-| After deciding to travel, you should start by creating an estimate. The estimate should give an overall approximation of what the total cost of the trip will be, so that it can the be approved.
-|
 
 [[card]]
 | [[card-body]]

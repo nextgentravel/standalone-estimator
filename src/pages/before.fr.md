@@ -2,14 +2,11 @@
 slug: "fr/before"
 date: "2019-05-13"
 title: "Before you leave"
+heading: "Before your travel"
+lead: "How to get ready for your trip"
 ---
 
 <div classname="fullClass">
-
-## Before your travel
-
-[[lead]]
-| How to get ready for your trip
 
 [[card]]
 | [[card-body]]
