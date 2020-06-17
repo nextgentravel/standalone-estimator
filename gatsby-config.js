@@ -86,7 +86,9 @@ module.exports = {
       resolve: 'gatsby-plugin-i18n',
       options: {
         langKeyDefault: 'en',
+        langKeyForNull: 'any',
         useLangKeyLayout: false,
+        prefixDefault: true,
         markdownRemark: {
           postPage: 'src/templates/infoPage.js',
           query: `
