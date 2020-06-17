@@ -47,7 +47,7 @@ lead: "Important steps to book your trip"
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
 
-[Next: During your travel](./during)
+[Next: During your travel](/en/during)
 
 </div>
 
