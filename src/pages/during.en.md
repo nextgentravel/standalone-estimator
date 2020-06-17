@@ -6,7 +6,6 @@ title: "During your Travel"
 
 <div classname="fullClass">
 
-[Home](./) > During your travel
 ## During your travel
 
 [[lead]]
