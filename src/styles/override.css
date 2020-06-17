@@ -54,9 +54,8 @@ body {
 }
 
 .card {
-    margin: 8px;
-    margin-right: 0px;
-    margin-left: 0px;
+    margin-top: 0em;
+    margin-bottom: 1.3em;
 }
 .sidebar {
     margin-left: 20px;
@@ -71,19 +70,9 @@ body {
     margin-left: 8px;
 }
 
-.info-page-content{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-top: 20px;
-}
 .info-card{
     background-color: #FCF8E3;
     border: 1px solid #FAF2CC;
-    margin-left: 20px;
-    margin-top: 10px;
 }
 
 .langlink{
@@ -118,20 +107,3 @@ body {
 #divider{
     color: grey;
 }
-
-@media only screen and (max-width: 800px) {
-    .info-page-content{
-        display: inline-block;
-    }
-    .sidebar {
-        margin-top:0px;
-        margin-left: 0px;
-    }
-    .info-card{
-        background-color: #FCF8E3;
-        border: 1px solid #FAF2CC;
-        margin: 0px;
-        margin-bottom: 20px;
-    }
-}
-
