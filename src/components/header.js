@@ -3,7 +3,7 @@ import React from "react"
 import SelectLanguage from './languageSelect';
 import { FormattedMessage } from 'react-intl';
 
-const Header = ({siteTitle, langs}) => (
+const Header = ({siteTitle, langs, showLanguageSelect}) => (
 <header className="shadow-sm">
   <div
     style={{
@@ -35,7 +35,9 @@ const Header = ({siteTitle, langs}) => (
           <h1 className="mb-3 mt-3 h4"><FormattedMessage id="pageTitle" /></h1>
         </div>
         <div className="col-4 align-self-center">
-          <span className="float-right d-none d-md-block"><SelectLanguage langs={langs} /></span>
+          <span className="float-right d-none d-md-block">
+            {showLanguageSelect && <SelectLanguage langs={langs} />}
+          </span>
         </div>
       </div>
     </div>
