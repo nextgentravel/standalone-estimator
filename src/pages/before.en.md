@@ -5,7 +5,7 @@ title: "Before you leave"
 heading: "Decision to Travel"
 lead: "After deciding to travel, you should start by creating an estimate. The estimate should give an overall approximation of what the total cost of the trip will be, so that it can the be approved."
 ---
-<div class="col-xs-12 col-sm-6 col-md-8">
+<div class="col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
