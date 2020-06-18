@@ -42,7 +42,7 @@ const Layout = ({ children }) => {
               <div>
                 {children}
               </div>
-              <Footer langs={langsMenu} homeLink={homeLink}/>
+              {showLanguageSelect && <Footer langs={langsMenu} homeLink={homeLink}/>}
             </div>
           </IntlProvider>
         )
