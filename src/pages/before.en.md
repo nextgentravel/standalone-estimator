@@ -2,16 +2,10 @@
 slug: "en/before"
 date: "2019-05-13"
 title: "Before you leave"
+heading: "Decision to Travel"
+lead: "After deciding to travel, you should start by creating an estimate. The estimate should give an overall approximation of what the total cost of the trip will be, so that it can the be approved."
 ---
-
-<div classname="fullClass">
-
-[Home](./) > Before your travel
-## Decision to Travel
-
-[[lead]]
-| After deciding to travel, you should start by creating an estimate. The estimate should give an overall approximation of what the total cost of the trip will be, so that it can the be approved.
-|
+<div class="col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -53,20 +47,18 @@ title: "Before you leave"
 | | - Once you’ve created your account, you can set up your [traveller profile using these instructions](https://isuite6.hrgworldwide.com/Portals/6/docs/EN%20-%20UG%20-%20Completing%20a%20traveller%20profile%20-%2019jui2019.pdf)
 | |
 
-[Next: Booking your travel](./booktravel)
+[Next: Booking your travel](/en/booktravel)
 
 </div>
 
-<div className="splitClass">
+<div class="col-xs-6 col-md-4">
 
-[[sidebar]]
-|
-| #### Resources
-| * [Option One](/)
-| * [Option Two](/)
-|
-| #### Suggest an update
-| [Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
+#### Resources
+* [Option One](/)
+* [Option Two](/)
+
+#### Suggest an update
+[Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
 
 
 [[info-card]]

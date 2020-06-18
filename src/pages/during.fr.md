@@ -2,15 +2,11 @@
 slug: "fr/during"
 date: "2019-05-13"
 title: "During your Travel"
+heading: "During your Travel"
+lead: "How to handle any issues with the actual trip"
 ---
 
-<div classname="fullClass">
-
-[Home](./) > During your travel
-## During your travel
-
-[[lead]]
-| How to handle any issues with the actual trip
+<div class="col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -35,20 +31,18 @@ title: "During your Travel"
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus at elementum mi. Phasellus sed vestibulum ex, et imperdiet sem.
 | |
 
-[Next: After you return](./after)
+[Next: After you return](/fr/after)
 
 </div>
 
-<div className="splitClass">
+<div class="col-xs-6 col-md-4">
 
-[[sidebar]]
-|
-| ### Resources
-| * [Option One](/)
-| * [Option Two](/)
-|
-| ### Suggest an update
-| [Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
+### Resources
+* [Option One](/)
+* [Option Two](/)
+
+### Suggest an update
+[Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
 
 [[info-card]]
 | [[card-body]]

@@ -1,7 +1,9 @@
 import PropTypes from "prop-types"
 import React from "react"
+import SelectLanguage from './languageSelect';
+import { FormattedMessage } from 'react-intl';
 
-const Header = ({ siteTitle }) => (
+const Header = ({siteTitle, langs}) => (
 <header className="shadow-sm">
   <div
     style={{
@@ -19,9 +21,9 @@ const Header = ({ siteTitle }) => (
           marginRight: 10
         }}
       >
-        <strong>ALPHA</strong>
+        <strong><FormattedMessage id="alpha" /></strong>
       </button>
-      <span>This website is under development.</span>
+      <span><FormattedMessage id="underDevelopment" /></span>
     </div>
   </div>
   <div
@@ -30,10 +32,10 @@ const Header = ({ siteTitle }) => (
     <div className="container py-2 h-100" style={{ color: "#fff" }}>
       <div className="row">
         <div className="col-8">
-          <h1 className="mb-3 mt-3 h4">Travel Guidebook</h1>
+          <h1 className="mb-3 mt-3 h4"><FormattedMessage id="pageTitle" /></h1>
         </div>
         <div className="col-4 align-self-center">
-          <span className="float-right d-none d-md-block"></span>
+          <span className="float-right d-none d-md-block"><SelectLanguage langs={langs} /></span>
         </div>
       </div>
     </div>

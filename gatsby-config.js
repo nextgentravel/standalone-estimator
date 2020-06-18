@@ -4,10 +4,12 @@ module.exports = {
   siteMetadata: {
     title: `Travel Guide`,
     description: `A guide for travel in the Canadian public service.`,
-    author: `NextGEN Travel Team`,
+    author: `NextGen Travel Team`,
     siteUrl: `https://travel-guidebook.herokuapp.com/`,
+    languages
   },
   plugins: [
+    `gatsby-plugin-catch-links`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     {
@@ -49,12 +51,6 @@ module.exports = {
                 card: {
                   classes: "card",
                 },
-                sidebar: {
-                  classes: "sidebar",
-                },
-                lead: {
-                  classes: "lead",
-                },
                 'card-body': {
                   classes: "card-body",
                 },
@@ -86,7 +82,9 @@ module.exports = {
       resolve: 'gatsby-plugin-i18n',
       options: {
         langKeyDefault: 'en',
+        langKeyForNull: 'any',
         useLangKeyLayout: false,
+        prefixDefault: true,
         markdownRemark: {
           postPage: 'src/templates/infoPage.js',
           query: `
