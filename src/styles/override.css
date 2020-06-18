@@ -70,6 +70,10 @@ body {
     background-color: #FCF8E3;
     border: 1px solid #FAF2CC;
 }
+.button-lang-toggle {
+    color: black;
+    background-color: white;
+}
 
 .langlink{
     margin: 10px;
