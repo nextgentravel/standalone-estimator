@@ -2,15 +2,11 @@
 slug: "fr/after"
 date: "2019-05-13"
 title: "After you return"
+heading: "After you return"
+lead: "Ensuring timely reimbursement"
 ---
 
-<div classname="fullClass">
-
-[Home](./) > After you return
-## After you return
-
-[[lead]]
-| Ensuring timely reimbursement
+<div class="col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -36,23 +32,21 @@ title: "After you return"
 
 [[card]]
 | [[card-body]]
-| | #### 4. If you have issues with reimbursement
+| | ### 4. If you have issues with reimbursement
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
 
 </div>
 
-<div className="splitClass">
+<div class="col-xs-6 col-md-4">
 
-[[sidebar]]
-|
-| #### Resources
-| * [Option One](/)
-| * [Option Two](/)
-|
-| #### Suggest an update
-| [Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
+#### Resources
+* [Option One](/)
+* [Option Two](/)
+
+#### Suggest an update
+[Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
 
 [[info-card]]
 | [[card-body]]

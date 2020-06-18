@@ -76,33 +76,6 @@ const IndexPage = () => (
           </div>
         </div>
       </main>
-      <footer className="footer">
-        <div className="foot-container container">
-          <ul>
-            <li>
-              <Link to="/fr">Home</Link>
-            </li>
-            {/* <li><a href="#">About</a></li>
-                        <li><a href="#">Tips</a></li> */}
-            <li>
-              <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform?usp=sf_link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Suggest an Update
-              </a>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <a href="https://github.com/nextgentravel/travel-guidebook">
-                <small>View this page on Github</small>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </footer>
     </div>
   </w-screen>
 </Layout>

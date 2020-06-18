@@ -2,15 +2,11 @@
 slug: "/en/after"
 date: "2019-05-13"
 title: "After you return"
+heading: "After you return"
+lead: "Ensuring timely reimbursement"
 ---
 
-<div classname="fullClass">
-
-[Home](./) > After you return
-## After you return
-
-[[lead]]
-| Ensuring timely reimbursement
+<div class="col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -43,16 +39,14 @@ title: "After you return"
 
 </div>
 
-<div className="splitClass">
+<div class="col-xs-6 col-md-4">
 
-[[sidebar]]
-|
-| #### Resources
-| * [Option One](/)
-| * [Option Two](/)
-|
-| #### Suggest an update
-| [Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
+#### Resources
+* [Option One](/)
+* [Option Two](/)
+
+#### Suggest an update
+[Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
 
 [[info-card]]
 | [[card-body]]
