@@ -75,25 +75,19 @@ body {
     background-color: white;
 }
 
-.langlink{
-    margin: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
-}
 .lang{
     margin: auto;
     width: 50%;
-    max-width: 600px;
+    max-width: 500px;
     min-width: 300px;
     overflow: auto;
-    text-align: center;
-    margin-top: 200px;
+    margin-top: 175px;
 }
 
-.splash{
-    background-color: lightgrey;
+@media only screen and (max-width: 990px) {
+    .lang {
+        margin-top: 50px;
+    }
 }
 
 #bg {
@@ -104,7 +98,7 @@ body {
     width: 200%;
     background-image: url("../images/sp-bg-3-1-min.jpg");
     background-position: center;
-    background-size: contain;
+    background-size: cover;
 }
 #divider{
     color: grey;
