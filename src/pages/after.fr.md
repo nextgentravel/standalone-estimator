@@ -6,7 +6,7 @@ heading: "After you return"
 lead: "Ensuring timely reimbursement"
 ---
 
-<div class="col-xs-12 col-sm-6 col-md-8">
+<div class="col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -32,7 +32,7 @@ lead: "Ensuring timely reimbursement"
 
 [[card]]
 | [[card-body]]
-| | #### 4. If you have issues with reimbursement
+| | ### 4. If you have issues with reimbursement
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
