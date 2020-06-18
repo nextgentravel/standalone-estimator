@@ -85,6 +85,10 @@ body {
     margin-left: 20px;
     margin-top: 10px;
 }
+.button-lang-toggle {
+    color: black;
+    background-color: white;
+}
 
 .langlink{
     margin: 10px;
