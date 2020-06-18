@@ -4,7 +4,7 @@ module.exports = {
         'pageTitle': 'Travel Guidebook',
         'underDevelopment': 'This website is under development.',
         'alpha': 'ALPHA',
-        'fullName': 'English',
+        'otherLangName': 'Français',
         // footer
         'home': 'Home',
         'suggestAnUpdate': 'Suggest an Update',
@@ -15,7 +15,7 @@ module.exports = {
         'pageTitle': 'Guide de voyage',
         'underDevelopment': 'Ce site Web est en cours de développement.',
         'alpha': 'ALPHA',
-        'fullName': 'Français',
+        'otherLangName': 'English',
         // footer
         'home': 'Maison',
         'suggestAnUpdate': 'Suggérer une mise à jour',
