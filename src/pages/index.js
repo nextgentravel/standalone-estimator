@@ -16,9 +16,9 @@ const IndexPage = () => (
       </div>
       <div className="card-body bg-splash-card">
         <div className="col-6 float-left">
-          <a class="text-dark" href="">Avis</a>
+          <a class="text-dark" href="/">Avis</a>
           &nbsp;<FaCircle size={5} class="text-secondary" />&nbsp;
-          <a class="text-dark" href="">Terms and conditions</a>
+          <a class="text-dark" href="/">Terms and conditions</a>
         </div>
         <div className="col-6">
           <image></image>
