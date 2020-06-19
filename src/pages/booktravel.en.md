@@ -1,7 +1,7 @@
 ---
 date: "2019-05-04"
 title: "Booking Travel"
-heading: "Booking your travel"
+heading: "Booking Your travel"
 lead: "Important steps to book your trip"
 ---
 
