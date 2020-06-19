@@ -18,7 +18,7 @@ const IndexPage = () => (
               <div className="card d-inline-block w-100 h-100">
                 <div className="card-img-top">
                   <Image
-                    filename="137991-1.png"
+                    filename="002D42-1.png"
                     alt="Card image cap"
                   />
                 </div>
@@ -26,14 +26,14 @@ const IndexPage = () => (
                 <div className="card-body">
                   <h4 className="card-title h5">Before Your Travel</h4>
                   <p className="card-text">Get ready for your business travel.</p>
-                  <Link to="/en/before" className="btn button-blue-dark">More Information</Link>
+                  <Link to="/en/before" className="btn button-blue-darker">More Information</Link>
                 </div>
               </div>
             </div>
             <div className="col-lg-3 col-md-6 col-sm-12 mb-3">
               <div className="card mb-2 d-inline-block w-100 h-100">
                 <Image
-                  filename="15A3A6-1.png"
+                  filename="137991-1.png"
                   alt="Card image cap"
                 />
                 <div className="card-body">
@@ -41,7 +41,7 @@ const IndexPage = () => (
                   <p className="card-text">
                   Making the arrangements needed for your travel.
                   </p>
-                  <Link to="/en/booktravel" className="btn button-blue-medium">More Information</Link>
+                  <Link to="/en/booktravel" className="btn button-blue-dark">More Information</Link>
                 </div>
               </div>
             </div>
