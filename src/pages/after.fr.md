@@ -1,59 +1,59 @@
 ---
 slug: "fr/after"
 date: "2019-05-13"
-title: "After you return"
-heading: "After you return"
-lead: "Ensuring timely reimbursement"
+title: "Après votre retour"
+heading: "Après votre retour"
+lead: "Assurer un remboursement rapide"
 ---
 
-<div class="col-xs-12 col-sm-12 col-md-8">
+<div class="content-left col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
-| | ### 1. Gather your receipts
+| | ### 1. Rassemblez vos reçus
 | |
 | | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra tempus dapibus.
 | |
 
 [[card]]
 | [[card-body]]
-| | ### 2. Submit an expense report
+| | ### 2. Soumettre un rapport de dépenses
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
-| | [Open HRG Portal](/)
+| | [Ouvrir le portail HRG](/)
 
 [[card]]
 | [[card-body]]
-| | ### 3. Wait for your reimbursement
+| | ### 3. Attendez votre remboursement
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
 
 [[card]]
 | [[card-body]]
-| | ### 4. If you have issues with reimbursement
+| | ### 4. Si vous rencontrez des problèmes de remboursement
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
 
 </div>
 
-<div class="col-xs-6 col-md-4">
+<div class="content-right col-xs-6 col-md-4">
 
-#### Resources
-* [Option One](/)
-* [Option Two](/)
+#### Ressources
+* [Première option](/)
+* [Deuxième option](/)
 
-#### Suggest an update
-[Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
+#### Suggérer une mise à jour
+[Envoyez des commentaires anonymes ici](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
 
 [[info-card]]
 | [[card-body]]
 | |
-| | ### Still have travel-related questions?
+| | ### Vous avez encore des questions liées au voyage?
 | |
-| | Your [Designated Departmental Travel Coordinator](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) should be able to help!
+| | Votre [coordonnateur ministériel des voyages](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) désigné devrait être en mesure d'aider!
 | |
 
 </div>

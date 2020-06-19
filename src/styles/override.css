@@ -12,6 +12,15 @@ body {
     margin-right: 15px;
 }
 
+.button-blue-darker {
+    color: #fff;
+    background-color: #002D42;
+    display: block;
+    margin-bottom: 10px;
+    float: left;
+    clear: left;
+}
+
 .button-blue-dark {
     color: #fff;
     background-color: #137991;
@@ -39,6 +48,9 @@ body {
     float: left;
     clear: left;
 }
+
+
+
 
 .btn:hover {
     background-color: #002D42 !important;
@@ -70,6 +82,17 @@ body {
     background-color: #FCF8E3;
     border: 1px solid #FAF2CC;
 }
+
+.content-left h3 {
+    font-size: 1.5em;
+}
+
+.content-right .info-card h3 {
+    font-size: 1rem;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+}
+
 .button-lang-toggle {
     color: black;
     background-color: white;
@@ -82,6 +105,9 @@ body {
     min-width: 300px;
     overflow: auto;
     margin-top: 175px;
+}
+.bg-splash-card{
+    background-color: #cccccc;
 }
 
 @media only screen and (max-width: 990px) {
@@ -99,7 +125,4 @@ body {
     background-image: url("../images/sp-bg-3-1-min.jpg");
     background-position: center;
     background-size: cover;
-}
-#divider{
-    color: grey;
 }

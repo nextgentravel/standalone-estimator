@@ -1,11 +1,11 @@
 ---
 date: "2019-05-04"
 title: "Booking Travel"
-heading: "Booking your travel"
+heading: "Booking Your Travel"
 lead: "Important steps to book your trip"
 ---
 
-<div class="col-xs-12 col-sm-12 col-md-8">
+<div class="content-left col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -18,7 +18,7 @@ lead: "Important steps to book your trip"
 
 [[card]]
 | [[card-body]]
-| | ### 2. Reserve your accomidations
+| | ### 2. Reserve your accommodations
 | |
 | |Sed quis purus in felis vulputate tempor et eu lectus. Suspendisse quis metus eu justo lobortis commodo vitae et purus. Vestibulum odio velit, euismod quis mi tempus, bibendum fermentum diam.
 | |
@@ -51,7 +51,7 @@ lead: "Important steps to book your trip"
 
 </div>
 
-<div class="col-xs-6 col-md-4">
+<div class="content-right col-xs-6 col-md-4">
 
 ### Resources
 * [Option One](/)
