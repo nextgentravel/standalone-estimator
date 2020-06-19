@@ -10,14 +10,15 @@ const IndexPage = () => (
     <div className="card lang">
       <div className="card-body d-flex justify-content-center">
         <image></image>
-        <Link to="/fr" className="btn btn-primary m-2 p-2">Français</Link>
-        <Link to="/en" className="btn btn-primary m-2 p-2">English</Link>
+        <h1 className="sr-only">Travel guidebook language selection</h1>
+        <Link to="/fr" className="btn btn-primary m-2 p-2 pl-3 pr-3">Français</Link>
+        <Link to="/en" className="btn btn-primary m-2 p-2 pl-3 pr-3">English</Link>
       </div>
-      <div className="card-body bg-dark">
+      <div className="card-body bg-splash-card">
         <div className="col-6 float-left">
-          <a class="text-light" href="">Avis</a>
+          <a class="text-dark" href="">Avis</a>
           &nbsp;<FaCircle size={5} class="text-secondary" />&nbsp;
-          <a class="text-light" href="">Terms and conditions</a>
+          <a class="text-dark" href="">Terms and conditions</a>
         </div>
         <div className="col-6">
           <image></image>
