@@ -82,6 +82,17 @@ body {
     background-color: #FCF8E3;
     border: 1px solid #FAF2CC;
 }
+
+.content-left h3 {
+    font-size: 1.5em;
+}
+
+.content-right .info-card h3 {
+    font-size: 1rem;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+}
+
 .button-lang-toggle {
     color: black;
     background-color: white;
