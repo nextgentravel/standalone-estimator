@@ -4,9 +4,9 @@ import { Link } from "gatsby"
 import { FormattedMessage } from 'react-intl';
 
 const Footer = ({ siteTitle, homeLink }) => (
-    <footer className="footer">
-    <div className="foot-container container">
-      <ul>
+  <footer className="footer">
+    <div className="container">
+      <ul className="pl-0">
         <li>
           <Link to={`${homeLink}`}><FormattedMessage id="home" /></Link>
         </li>
@@ -20,7 +20,8 @@ const Footer = ({ siteTitle, homeLink }) => (
           </a>
         </li>
       </ul>
-      <ul>
+      
+      <ul className="pl-0">
         <li>
           <a href="https://github.com/nextgentravel/travel-guidebook-client">
             <small><FormattedMessage id="viewThisPageOnGithub" /></small>
