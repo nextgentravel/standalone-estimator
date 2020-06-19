@@ -83,6 +83,9 @@ body {
     overflow: auto;
     margin-top: 175px;
 }
+.bg-splash-card{
+    background-color: #cccccc;
+}
 
 @media only screen and (max-width: 990px) {
     .lang {
@@ -99,7 +102,4 @@ body {
     background-image: url("../images/sp-bg-3-1-min.jpg");
     background-position: center;
     background-size: cover;
-}
-#divider{
-    color: grey;
 }
