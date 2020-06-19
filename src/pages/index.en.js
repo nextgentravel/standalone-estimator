@@ -37,7 +37,7 @@ const IndexPage = () => (
                   alt="Card image cap"
                 />
                 <div className="card-body">
-                  <h4 className="card-title h5">Booking your Travel</h4>
+                  <h4 className="card-title h5">Booking Your Travel</h4>
                   <p className="card-text">
                   Making the arrangements needed for your travel.
                   </p>

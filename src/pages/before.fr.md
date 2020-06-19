@@ -40,7 +40,7 @@ lead: "How to get ready for your trip"
 | | [See travel advisories](/)
 | |
 
-[Next: Booking your travel](/fr/booktravel)
+[Next: Booking Your travel](/fr/booktravel)
 
 </div>
 
