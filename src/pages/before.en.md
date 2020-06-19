@@ -5,7 +5,7 @@ title: "Before you leave"
 heading: "Decision to Travel"
 lead: "After deciding to travel, you should start by creating an estimate. The estimate should give an overall approximation of what the total cost of the trip will be, so that it can the be approved."
 ---
-<div class="col-xs-12 col-sm-12 col-md-8">
+<div class="content-left col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -47,11 +47,11 @@ lead: "After deciding to travel, you should start by creating an estimate. The e
 | | - Once you’ve created your account, you can set up your [traveller profile using these instructions](https://isuite6.hrgworldwide.com/Portals/6/docs/EN%20-%20UG%20-%20Completing%20a%20traveller%20profile%20-%2019jui2019.pdf)
 | |
 
-[Next: Booking your travel](/en/booktravel)
+[Next: Booking Your Travel](/en/booktravel)
 
 </div>
 
-<div class="col-xs-6 col-md-4">
+<div class="content-right col-xs-6 col-md-4">
 
 #### Resources
 * [Option One](/)
