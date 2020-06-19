@@ -12,6 +12,15 @@ body {
     margin-right: 15px;
 }
 
+.button-blue-darker {
+    color: #fff;
+    background-color: #002D42;
+    display: block;
+    margin-bottom: 10px;
+    float: left;
+    clear: left;
+}
+
 .button-blue-dark {
     color: #fff;
     background-color: #137991;
@@ -39,6 +48,9 @@ body {
     float: left;
     clear: left;
 }
+
+
+
 
 .btn:hover {
     background-color: #002D42 !important;
