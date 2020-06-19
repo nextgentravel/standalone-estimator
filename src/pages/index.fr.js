@@ -11,8 +11,8 @@ const IndexPage = () => (
     <div>
       <main id="main-content" role="main">
         <div className="container mt-4">
-          <h2>Business travel shouldn’t feel like work</h2>
-          <p className="lead">We're here to help you travel better</p>
+          <h2>Les voyages d'affaires ne devraient pas ressembler à du travail</h2>
+          <p className="lead">Nous sommes là pour vous aider à mieux voyager</p>
           <div className="row mb-4">
             <div className="col-lg-3 col-md-6 col-sm-12 mb-3">
               <div className="card d-inline-block w-100 h-100">
@@ -24,8 +24,8 @@ const IndexPage = () => (
                 </div>
 
                 <div className="card-body">
-                  <h3 className="card-title h5">Before Your Travel</h3>
-                  <p className="card-text">Get ready for your business travel.</p>
+                  <h3 className="card-title h5">Avant votre voyage</h3>
+                  <p className="card-text">Préparez-vous pour votre voyage d'affaires.</p>
                   <Link to="/fr/before" className="btn button-blue-darker">Pretravel</Link>
                 </div>
               </div>
@@ -37,11 +37,11 @@ const IndexPage = () => (
                   alt="Card image cap"
                 />
                 <div className="card-body">
-                  <h3 className="card-title h5">Booking Your Travel</h3>
+                  <h3 className="card-title h5">Réservation de votre voyage</h3>
                   <p className="card-text">
-                  Making the arrangements needed for your travel.
+                  Prendre les dispositions nécessaires à votre voyage.
                   </p>
-                  <Link to="/fr/booktravel" className="btn button-blue-dark">Booking</Link>
+                  <Link to="/fr/booktravel" className="btn button-blue-dark">Réservations</Link>
                 </div>
               </div>
             </div>
@@ -52,11 +52,11 @@ const IndexPage = () => (
                   alt="Card image cap"
                 />
                 <div className="card-body">
-                  <h3 className="card-title h5">During Your Travel</h3>
+                  <h3 className="card-title h5">Pendant votre voyage</h3>
                   <p className="card-text">
-                    Useful information during a trip.
+                    Informations utiles lors d'un voyage.
                   </p>
-                  <Link to="/fr/during" className="btn button-blue-medium">While Travelling</Link>
+                  <Link to="/fr/during" className="btn button-blue-medium">En voyage</Link>
                 </div>
               </div>
             </div>
@@ -67,9 +67,9 @@ const IndexPage = () => (
                   alt="Card image cap"
                 />
                 <div className="card-body">
-                  <h3 className="card-title h5">After You Return</h3>
-                  <p className="card-text">Arranging reimbursement.</p>
-                  <Link to="/fr/after" className="btn button-blue-light">Return</Link>
+                  <h3 className="card-title h5">Après votre retour</h3>
+                  <p className="card-text">Organiser le remboursement.</p>
+                  <Link to="/fr/after" className="btn button-blue-light">Revenir</Link>
                 </div>
               </div>
             </div>
