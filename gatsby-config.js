@@ -75,6 +75,10 @@ module.exports = {
             family: `Nunito Sans`,
             variants: ['300', '400', '600', '700']
           },
+          {
+            family: `Rubik`,
+            variants: ['300', '400', '600', '700']
+          },
         ],
       },
     },
