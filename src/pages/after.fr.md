@@ -6,7 +6,7 @@ heading: "After you return"
 lead: "Ensuring timely reimbursement"
 ---
 
-<div class="col-xs-12 col-sm-12 col-md-8">
+<div class="content-left col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -39,7 +39,7 @@ lead: "Ensuring timely reimbursement"
 
 </div>
 
-<div class="col-xs-6 col-md-4">
+<div class="content-right col-xs-6 col-md-4">
 
 #### Resources
 * [Option One](/)

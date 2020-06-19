@@ -6,7 +6,7 @@ heading: "During your Travel"
 lead: "How to handle any issues with the actual trip"
 ---
 
-<div class="col-xs-12 col-sm-12 col-md-8">
+<div class="content-left col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -35,7 +35,7 @@ lead: "How to handle any issues with the actual trip"
 
 </div>
 
-<div class="col-xs-6 col-md-4">
+<div class="content-right col-xs-6 col-md-4">
 
 ### Resources
 * [Option One](/)
