@@ -9,7 +9,7 @@ lead: "Étapes importantes pour réserver votre voyage"
 
 [[card]]
 | [[card-body]]
-| | ### Réserver votre voyage
+| | ### 1. Réserver votre voyage
 | |
 | | - Utilisation de votre numéro d'identification de voyage (TIN) [se connecter au système](https://isuite6.hrgworldwide.com/gcportal/fr-ca/sts.aspx)
 | | - Dans le système, utilisez les instructions pour réserver votre voyage. Vous pouvez référencer vos estimations ci-dessus pour passer par le processus de réservation. [lien vers les instructions HRG](/)
