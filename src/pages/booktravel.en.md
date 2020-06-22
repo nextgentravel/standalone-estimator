@@ -9,7 +9,7 @@ lead: "Important steps to book your trip"
 
 [[card]]
 | [[card-body]]
-| | ### Booking your trip
+| | ### 1. Booking your trip
 | |
 | | - Using your Travel Identification Number (TIN) [log into the system](https://isuite6.hrgworldwide.com/gcportal/en-ca/sts.aspx)
 | | - In the system, use the instructions to book your trip. You can reference your estimates listed above to go through the booking process. [link to HRG instructions](/)
