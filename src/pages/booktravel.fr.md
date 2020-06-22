@@ -9,11 +9,11 @@ lead: "Étapes importantes pour réserver votre voyage"
 
 [[card]]
 | [[card-body]]
-| | ### 1. Réservez votre mode de transport sur HRG
+| | ### 1. Réserver votre voyage
 | |
-| |Phasellus non urna accumsan, fermentum dolor a, mattis ipsum. Nam ac magna augue. Sed quis purus in felis vulputate tempor et eu lectus.
-| |
-| | [Ouvrir le portail HRG](/)
+| | - Utilisation de votre numéro d'identification de voyage (TIN) [se connecter au système](https://isuite6.hrgworldwide.com/gcportal/fr-ca/sts.aspx)
+| | - Dans le système, utilisez les instructions pour réserver votre voyage. Vous pouvez référencer vos estimations ci-dessus pour passer par le processus de réservation. [lien vers les instructions HRG](/)
+| | - Lorsque vous êtes à l'étape de soumission, en demandant une approbation en ligne, essayez de soumettre à un moment où l'approbateur peut l'approuver immédiatement. Les taux de réussite des réservations sont supérieurs à 90% si les demandes sont immédiatement approuvées. Tout retard dans la soumission peut entraîner l'échec du processus, vous obligeant à redémarrer le processus de réservation en ligne.
 | |
 
 [[card]]
