@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import InputDatalist from "./input-datalist.js"
-
+import DatePicker from "./date-picker.js"
 // import { globalHistory } from "@reach/router"
 
 // the following will be fetched from an API
@@ -16,17 +16,19 @@ let mockCityList = [
 ]
 
 const RatesChecker = () => {
-  const [cityValue, setCityValue] = useState('')
+    const [cityValue, setCityValue] = useState('')
 
-//   const url = globalHistory.location.pathname;
+    //   const url = globalHistory.location.pathname;
 
-  console.log(cityValue)
+    console.log(cityValue)
 
-  return (
-    <div className="container mt-4">
-        <InputDatalist label="City" name="city" options={mockCityList} updateCityValue={setCityValue} />
-    </div>
-  )
+    return (
+        <div className="container mt-4">
+            <InputDatalist label="City" name="city" options={mockCityList} updateCityValue={setCityValue} />
+            <DatePicker label="Start Date" name="start"></DatePicker>
+            <DatePicker label="End Date" name="end"></DatePicker>
+        </div>
+    )
 }
 
 export default RatesChecker;
