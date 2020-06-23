@@ -22,7 +22,7 @@ const Rates = () => (
       <div>
         <main id="main-content" role="main">
           <div className="container mt-4">
-            <InputDatalist label="City" options={mockCityList} />
+            <InputDatalist label="City" name="city" options={mockCityList} />
           </div>
         </main>
       </div>
