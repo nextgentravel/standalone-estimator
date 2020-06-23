@@ -17,16 +17,23 @@ let mockCityList = [
 
 const RatesChecker = () => {
     const [cityValue, setCityValue] = useState('')
+    const [startDate, setStartDate] = useState('')
+    const [endDate, setEndDate] = useState('')
 
+    //   Will use later when integration language
     //   const url = globalHistory.location.pathname;
 
-    console.log(cityValue)
+    console.log('cityValue', cityValue)
+
+    console.log('startDate', startDate)
+
+    console.log('endDate', endDate)
 
     return (
-        <div className="container mt-4">
-            <InputDatalist label="City" name="city" options={mockCityList} updateCityValue={setCityValue} />
-            <DatePicker label="Start Date" name="start"></DatePicker>
-            <DatePicker label="End Date" name="end"></DatePicker>
+        <div className="mb-4">
+            <InputDatalist label="City" name="city" options={mockCityList} updateValue={setCityValue} />
+            <DatePicker label="Start Date" name="start" updateValue={setStartDate}></DatePicker>
+            <DatePicker label="End Date" name="end" updateValue={setEndDate}></DatePicker>
         </div>
     )
 }
