@@ -1,11 +1,11 @@
 import React from "react"
 
-const InputDatalist = ({label, name, options, updateCityValue}) => {
+const InputDatalist = ({label, name, options, updateValue}) => {
 
     return (
         <div>
             <label htmlFor={name}>{label}</label>
-            <input type="text" id={name} name={name} list="suggestions" onChange={event => updateCityValue(event.target.value)} />
+            <input type="text" id={name} name={name} list="suggestions" onChange={event => updateValue(event.target.value)} />
             <datalist id="suggestions">
                 {/* TODO <!--[if lte IE 9]><select><![endif]--> */}
                 {options.map((option, index) =>
