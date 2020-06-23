@@ -1,17 +1,11 @@
-import React, {useState} from "react"
+import React from "react"
 
-// import { FormattedMessage } from 'react-intl';
-
-const InputDatalist = ({label, name, options}) => {
-
-    const [input, setInput] = useState('')
-
-    console.log('input: ', input);
+const InputDatalist = ({label, name, options, updateCityValue}) => {
 
     return (
         <div>
             <label htmlFor={name}>{label}</label>
-            <input type="text" id={name} name={name} list="suggestions" onChange={event => setInput(event.target.value)} />
+            <input type="text" id={name} name={name} list="suggestions" onChange={event => updateCityValue(event.target.value)} />
             <datalist id="suggestions">
                 {/* TODO <!--[if lte IE 9]><select><![endif]--> */}
                 {options.map((option, index) =>
