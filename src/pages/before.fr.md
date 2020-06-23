@@ -55,7 +55,7 @@ lead: "Après avoir décidé de voyager, vous devez commencer par créer un devi
 <div class="content-right col-xs-6 col-md-4">
 
 #### Ressources
-* [Première option](/)
+* [Vos tarifs et limites](/en/rates)
 * [Option deux](/)
 
 #### Suggérer une mise à jour
