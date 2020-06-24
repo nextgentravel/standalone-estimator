@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import InputDatalist from "./input-datalist.js"
 import DatePicker from "./date-picker.js"
 // import { globalHistory } from "@reach/router"
@@ -16,6 +16,8 @@ let mockCityList = [
 ]
 
 const RatesChecker = () => {
+    const [citiesList, setCitiesList] = useState([])
+
     const [cityValue, setCityValue] = useState('')
     const [startDate, setStartDate] = useState('')
     const [endDate, setEndDate] = useState('')
@@ -23,17 +25,48 @@ const RatesChecker = () => {
     //   Will use later when integration language
     //   const url = globalHistory.location.pathname;
 
-    console.log('cityValue', cityValue)
+    const fetchListOfCities = () => {
+        fetch('https://acrd-api.herokuapp.com/cities')
+        .then(function(response) {
+            return response.json();
+          })
+          .then(function(json) {
+            console.log('Request successful', json);
+            let list = json.citiesList.map(city => {
+                return {
+                    value: city,
+                    label: city,
+                }
+            })
+            setCitiesList(list)
+          })
+          .catch(function(error) {
+            console.log('Request failed', error)
+          });
+    }
 
-    console.log('startDate', startDate)
+    useEffect(() => {
+        fetchListOfCities();
+        
+    }, []);
 
-    console.log('endDate', endDate)
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('cityValue', cityValue)
+
+        console.log('startDate', startDate)
+    
+        console.log('endDate', endDate)
+    }
 
     return (
         <div className="mb-4">
-            <InputDatalist label="City" name="city" options={mockCityList} updateValue={setCityValue} />
-            <DatePicker label="Start Date" name="start" updateValue={setStartDate}></DatePicker>
-            <DatePicker label="End Date" name="end" updateValue={setEndDate}></DatePicker>
+            <form onSubmit={handleSubmit}>
+                <InputDatalist label="City" name="city" options={citiesList} updateValue={setCityValue} />
+                <DatePicker label="Start Date" name="start" updateValue={setStartDate}></DatePicker>
+                <DatePicker label="End Date" name="end" updateValue={setEndDate}></DatePicker>
+                <button>Submit</button>
+            </form>
         </div>
     )
 }
