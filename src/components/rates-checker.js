@@ -1,19 +1,9 @@
 import React, {useState, useEffect} from "react"
 import InputDatalist from "./input-datalist.js"
 import DatePicker from "./date-picker.js"
-// import { globalHistory } from "@reach/router"
+import mealAllowances from "../data/meals"
 
-// the following will be fetched from an API
-let mockCityList = [
-  {
-      label: "Barrie",
-      value: "Barrie"
-  },
-  {
-      label: "Calgary",
-      value: "Calgary"
-  },
-]
+// import { globalHistory } from "@reach/router"
 
 const RatesChecker = () => {
     const [citiesList, setCitiesList] = useState([]);
