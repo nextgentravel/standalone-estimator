@@ -19,9 +19,9 @@ const RatesChecker = () => {
     const [citiesList, setCitiesList] = useState([]);
     const [suburbCityList, setSuburbCityList] = useState({});
 
-    const [cityValue, setCityValue] = useState('')
-    const [startDate, setStartDate] = useState('')
-    const [endDate, setEndDate] = useState('')
+    const [cityValue, setCityValue] = useState('');
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
 
     const [acrdRates, setAcrdRates] = useState({});
 
@@ -65,16 +65,40 @@ const RatesChecker = () => {
     }
 
     return (
-        <div className="mb-4">
-            <form onSubmit={handleSubmit}>
-                <InputDatalist label="City" name="city" options={citiesList} updateValue={setCityValue} />
-                <DatePicker label="Start Date" name="start" updateValue={setStartDate}></DatePicker>
-                <DatePicker label="End Date" name="end" updateValue={setEndDate}></DatePicker>
-                <button>Submit</button>
+        <div>
+            <h2>Find Your Rates and Limits</h2>
+            <p className="lead">A tool to help you easily find the limits applicable to your trip.</p>
+
+            <form className="mb-4" onSubmit={handleSubmit}>
+                <InputDatalist label="Destination" name="destination" options={citiesList} updateValue={setCityValue} />
+                <DatePicker label="Departure Date" name="departure" updateValue={setStartDate}></DatePicker>
+                <DatePicker label="Return Date" name="return" updateValue={setEndDate}></DatePicker>
+                <button type="submit" className="btn btn-primary">Submit</button>
+                {/* TODO <button type="button" className="btn btn-secondary ml-2" onPress={clearForm}>Reset</button> */}
             </form>
-            <div>
-                {acrdRates !== '' && JSON.stringify(acrdRates)}
-            </div>
+
+            {Object.keys(acrdRates).length !== 0 &&
+                <>
+                    <h3>Accommodation Rate Limits</h3>
+                    <p className="lead">These limits help determine reasonable accommodation costs for <strong>{cityValue}</strong>.</p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Month</th>
+                                <th scope="col">Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {Object.keys(acrdRates).map((month) => (
+                            <tr>
+                                <th scope="row">{month}</th>
+                                <td>{acrdRates[month]}</td>
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                </>
+            }
         </div>
     )
 }
