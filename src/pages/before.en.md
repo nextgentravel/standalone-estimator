@@ -54,7 +54,7 @@ lead: "After deciding to travel, you should start by creating an estimate. The e
 <div class="content-right col-xs-6 col-md-4">
 
 #### Resources
-* [Option One](/)
+* [Your Rates and Limits](/en/rates)
 * [Option Two](/)
 
 #### Suggest an update
