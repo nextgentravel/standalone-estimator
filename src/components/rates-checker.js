@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react"
 import InputDatalist from "./input-datalist.js"
 import DatePicker from "./date-picker.js"
 import mealAllowances from "../data/meals"
+import luxon, { DateTime } from "luxon"
 
 // import { globalHistory } from "@reach/router"
 
@@ -15,6 +16,8 @@ const RatesChecker = () => {
 
     const [acrdRates, setAcrdRates] = useState({});
 
+    const [mealsAndIncidentals, setMealsAndIncidentals] = useState({});
+
     //   Will use later when integration language
     //   const url = globalHistory.location.pathname;
 
@@ -24,7 +27,6 @@ const RatesChecker = () => {
             return response.json();
           })
           .then(json => {
-            console.log('Request successful', json);
             let list = json.citiesList.map(city => {
                 return {
                     value: city,
@@ -39,6 +41,38 @@ const RatesChecker = () => {
           });
     }
 
+    const calculateMeals = (departDate, returnDate, province) => {
+        let departD = DateTime.fromISO(departDate);
+        let returnD = DateTime.fromISO(returnDate);
+        let duration = returnD.diff(departD, 'days')
+        let provinceAllowances = Object.keys(mealAllowances);
+
+        let ratesForProvince = {};
+
+        if (provinceAllowances.includes(province)) {
+            ratesForProvince = mealAllowances[province];
+        } else {
+            ratesForProvince = mealAllowances['CAN'];
+        };
+
+        let breakfast = ratesForProvince.breakfast;
+        let lunch = ratesForProvince.lunch;
+        let dinner = ratesForProvince.dinner;
+        let incidentals = ratesForProvince.incidentals;
+        let dailyTotal = breakfast + lunch + dinner + incidentals;
+        let total = dailyTotal * duration.values.days;
+
+        return {
+            dailyTotal,
+            total,
+            breakfast,
+            lunch,
+            dinner,
+            incidentals,
+        }
+
+    }
+
     useEffect(() => {
         fetchListOfCities();
     }, []);
@@ -46,12 +80,14 @@ const RatesChecker = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         let city = suburbCityList[cityValue] || cityValue;
+        let province = city.slice(-2); // This is bad.  We need to change the data structure.
         let uri = `https://acrd-api.herokuapp.com/${city.replace('/','sss')}/rules`
         fetch(uri)
           .then(response => response.json())
           .then(json => {
             setAcrdRates(json);
           })
+        setMealsAndIncidentals(calculateMeals(startDate, endDate, province))
     }
 
     return (
@@ -71,7 +107,7 @@ const RatesChecker = () => {
                 <>
                     <h3>Accommodation Rate Limits</h3>
                     <p className="lead">These limits help determine reasonable accommodation costs for <strong>{cityValue}</strong>.</p>
-                    <table class="table">
+                    <table className="table">
                         <thead>
                             <tr>
                                 <th scope="col">Month</th>
@@ -80,7 +116,7 @@ const RatesChecker = () => {
                         </thead>
                         <tbody>
                         {Object.keys(acrdRates).map((month) => (
-                            <tr>
+                            <tr key={month}>
                                 <th scope="row">{month}</th>
                                 <td>{acrdRates[month]}</td>
                             </tr>
@@ -89,6 +125,35 @@ const RatesChecker = () => {
                     </table>
                 </>
             }
+            {Object.keys(mealsAndIncidentals).length !== 0 &&
+                <>
+                    <h3>Meals and Incidentals</h3>
+                    <p className="lead">This text will say something useful.</p>
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Breakfast</th>
+                                <th scope="col">Lunch</th>
+                                <th scope="col">Dinner</th>
+                                <th scope="col">Incidentals</th>
+                                <th scope="col">Daily Total</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>${mealsAndIncidentals.breakfast}</td>
+                                <td>${mealsAndIncidentals.lunch}</td>
+                                <td>${mealsAndIncidentals.dinner}</td>
+                                <td>${mealsAndIncidentals.incidentals}</td>
+                                <td>${mealsAndIncidentals.dailyTotal}</td>
+                                <td>${mealsAndIncidentals.total}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </>
+            }
+
         </div>
     )
 }
