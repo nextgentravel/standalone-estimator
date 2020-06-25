@@ -3,6 +3,7 @@ import InputDatalist from "./input-datalist.js"
 import DatePicker from "./date-picker.js"
 import mealAllowances from "../data/meals"
 import luxon, { DateTime } from "luxon"
+import monthsContained from "./months-contained.js"
 
 // import { globalHistory } from "@reach/router"
 
@@ -82,10 +83,13 @@ const RatesChecker = () => {
         let city = suburbCityList[cityValue] || cityValue;
         let province = city.slice(-2); // This is bad.  We need to change the data structure.
         let uri = `https://acrd-api.herokuapp.com/${city.replace('/','sss')}/rules`
+        let months = monthsContained(startDate,endDate);
         fetch(uri)
           .then(response => response.json())
           .then(json => {
-            setAcrdRates(json);
+              console.log(json);
+            let filtered = json.map();
+            setAcrdRates(filtered);
           })
         setMealsAndIncidentals(calculateMeals(startDate, endDate, province))
     }

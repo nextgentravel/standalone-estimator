@@ -2,17 +2,18 @@ import React, {useState, useEffect} from "react"
 import Luxon, { DateTime } from "luxon"
 
 const dates = (start, end) => {
-    var startDate = DateTime(start);
-    var endDate = DateTime(end);
+    var startDate = DateTime.fromISO(start);
+    var endDate = DateTime.fromISO(end);
     var dates = [];
-    endDate.subtract(1, "month");
+    endDate.minus({month: 1});
 
-    var month = DateTime(startDate);
-    while( month < endDate ) {
-      month.setMonth(month.getMonth() + 1);
-       dates.push(month.format('DD-MM-YYYY'));
+    var month = DateTime.fromISO(startDate);
+    console.log("to this point");
+    while( !month.hasSame(endDate, "month")) {
+      month.plus({month: 1});
+       dates.push(month.toFormat('MMMM'));
     }
-
+    console.log(dates);
     return dates;
 }
 
