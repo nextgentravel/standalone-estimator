@@ -95,7 +95,7 @@ const RatesChecker = () => {
             <h2>Find Your Rates and Limits</h2>
             <p className="lead">A tool to help you easily find the limits applicable to your trip.</p>
 
-            <form className="mb-4" onSubmit={handleSubmit}>
+            <form class="form-group" className="mb-4" onSubmit={handleSubmit}>
                 <InputDatalist label="Destination" name="destination" options={citiesList} updateValue={setCityValue} />
                 <DatePicker label="Departure Date" name="departure" updateValue={setStartDate}></DatePicker>
                 <DatePicker label="Return Date" name="return" updateValue={setEndDate}></DatePicker>
@@ -107,50 +107,54 @@ const RatesChecker = () => {
                 <>
                     <h3>Accommodation Rate Limits</h3>
                     <p className="lead">These limits help determine reasonable accommodation costs for <strong>{cityValue}</strong>.</p>
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Month</th>
-                                <th scope="col">Rate</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {Object.keys(acrdRates).map((month) => (
-                            <tr key={month}>
-                                <th scope="row">{month}</th>
-                                <td>{acrdRates[month]}</td>
-                            </tr>
-                        ))}
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Month</th>
+                                    <th scope="col">Rate</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {Object.keys(acrdRates).map((month) => (
+                                <tr key={month}>
+                                    <th scope="row">{month}</th>
+                                    <td>{acrdRates[month]}</td>
+                                </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </>
             }
             {Object.keys(mealsAndIncidentals).length !== 0 &&
                 <>
                     <h3>Meals and Incidentals</h3>
                     <p className="lead">This text will say something useful.</p>
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Breakfast</th>
-                                <th scope="col">Lunch</th>
-                                <th scope="col">Dinner</th>
-                                <th scope="col">Incidentals</th>
-                                <th scope="col">Daily Total</th>
-                                <th scope="col">Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>${mealsAndIncidentals.breakfast}</td>
-                                <td>${mealsAndIncidentals.lunch}</td>
-                                <td>${mealsAndIncidentals.dinner}</td>
-                                <td>${mealsAndIncidentals.incidentals}</td>
-                                <td>${mealsAndIncidentals.dailyTotal}</td>
-                                <td>${mealsAndIncidentals.total}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Breakfast</th>
+                                    <th scope="col">Lunch</th>
+                                    <th scope="col">Dinner</th>
+                                    <th scope="col">Incidentals</th>
+                                    <th scope="col">Daily Total</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>${mealsAndIncidentals.breakfast}</td>
+                                    <td>${mealsAndIncidentals.lunch}</td>
+                                    <td>${mealsAndIncidentals.dinner}</td>
+                                    <td>${mealsAndIncidentals.incidentals}</td>
+                                    <td>${mealsAndIncidentals.dailyTotal}</td>
+                                    <td>${mealsAndIncidentals.total}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </>
             }
 
