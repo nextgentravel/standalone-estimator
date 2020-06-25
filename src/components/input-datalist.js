@@ -5,7 +5,7 @@ const InputDatalist = ({label, name, options, updateValue}) => {
     return (
         <div className="mb-4">
             <label htmlFor={name}>{label}</label>
-            <input className="col-12" type="text" id={name} name={name} list="suggestions" onChange={event => updateValue(event.target.value)} />
+            <input class="form-control" type="text" id={name} name={name} list="suggestions" onChange={event => updateValue(event.target.value)} />
             <datalist id="suggestions">
                 {/* TODO <!--[if lte IE 9]><select><![endif]--> */}
                 {options.map((option, index) =>
