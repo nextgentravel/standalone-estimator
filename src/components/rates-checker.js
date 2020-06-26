@@ -3,6 +3,7 @@ import InputDatalist from "./input-datalist.js"
 import DatePicker from "./date-picker.js"
 import mealAllowances from "../data/meals"
 import { DateTime } from "luxon"
+import * as yup from "yup"
 import monthsContained from "./months-contained.js"
 
 // import { globalHistory } from "@reach/router"
@@ -98,15 +99,40 @@ const RatesChecker = () => {
         setMealsAndIncidentals(calculateMeals(startDate, endDate, province))
     }
 
+    let schema = yup.object().shape({
+        start: yup
+            .date()
+            .required(),
+        end: yup
+            .date()
+            .when(
+                'startDate',
+                (start, schema) => (start && schema.min(start, "The end date is before the start date.")),
+        ),
+    });
+    const dateChange = (e) => {
+        schema.isValid({
+            start: startDate,
+            end: endDate
+            })
+            .then(valid => {
+                if(valid = false) {
+                    console.log("i failed");
+                } else {
+                    console.log("i returned true");
+                }
+            });
+    }
+    
     return (
         <div>
             <h2>Find Your Rates and Limits</h2>
             <p className="lead">A tool to help you easily find the limits applicable to your trip.</p>
 
             <form className="form-group mb-4" onSubmit={handleSubmit}>
-                <InputDatalist label="Destination" name="destination" options={citiesList} updateValue={setCityValue} />
-                <DatePicker label="Departure Date" name="departure" updateValue={setStartDate}></DatePicker>
-                <DatePicker label="Return Date" name="return" updateValue={setEndDate}></DatePicker>
+                <InputDatalist label="Destination" name="destination" options={citiesList} updateValue={setCityValue}  />
+                <DatePicker label="Departure Date" name="departure" updateValue={setStartDate} onChange={dateChange}></DatePicker>
+                <DatePicker label="Return Date" name="return" updateValue={setEndDate} onChange={dateChange}></DatePicker>
                 <button type="submit" className="btn btn-primary">Submit</button>
                 {/* TODO <button type="button" className="btn btn-secondary ml-2" onPress={clearForm}>Reset</button> */}
             </form>
