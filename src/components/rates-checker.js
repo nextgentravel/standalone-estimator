@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react"
 import InputDatalist from "./input-datalist.js"
 import DatePicker from "./date-picker.js"
 import mealAllowances from "../data/meals"
-import luxon, { DateTime } from "luxon"
+import { DateTime } from "luxon"
 import monthsContained from "./months-contained.js"
 
 // import { globalHistory } from "@reach/router"
@@ -103,7 +103,7 @@ const RatesChecker = () => {
             <h2>Find Your Rates and Limits</h2>
             <p className="lead">A tool to help you easily find the limits applicable to your trip.</p>
 
-            <form class="form-group" className="mb-4" onSubmit={handleSubmit}>
+            <form className="form-group mb-4" onSubmit={handleSubmit}>
                 <InputDatalist label="Destination" name="destination" options={citiesList} updateValue={setCityValue} />
                 <DatePicker label="Departure Date" name="departure" updateValue={setStartDate}></DatePicker>
                 <DatePicker label="Return Date" name="return" updateValue={setEndDate}></DatePicker>
@@ -115,7 +115,7 @@ const RatesChecker = () => {
                 <>
                     <h3>Accommodation Rate Limits</h3>
                     <p className="lead">These limits help determine reasonable accommodation costs for <strong>{cityValue}</strong>.</p>
-                    <div class="table-responsive">
+                    <div className="table-responsive">
                         <table className="table">
                             <thead>
                                 <tr>
@@ -139,7 +139,7 @@ const RatesChecker = () => {
                 <>
                     <h3>Meals and Incidentals</h3>
                     <p className="lead">This text will say something useful.</p>
-                    <div class="table-responsive">
+                    <div className="table-responsive">
                         <table className="table">
                             <thead>
                                 <tr>
