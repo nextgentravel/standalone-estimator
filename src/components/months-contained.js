@@ -1,20 +1,15 @@
 import React, {useState, useEffect} from "react"
 import Luxon, { DateTime } from "luxon"
 
-const dates = (start, end) => {
-    var startDate = DateTime.fromISO(start);
-    var endDate = DateTime.fromISO(end);
-    var dates = [];
-    endDate.minus({month: 1});
-
-    var month = DateTime.fromISO(startDate);
-    console.log("to this point");
-    while( !month.hasSame(endDate, "month")) {
-      month.plus({month: 1});
-       dates.push(month.toFormat('MMMM'));
-    }
-    console.log(dates);
-    return dates;
+const monthsContained = (start, end) => {
+  var endDate = DateTime.fromISO(end);
+  var interim = DateTime.fromISO(start);
+  var timeValues = [];
+  while (endDate > interim || interim.toFormat('M') === endDate.toFormat('M')) {
+    timeValues.push({month: interim.toFormat('MMMM'), year: interim.toFormat('yyyy')});
+     interim = interim.plus({ month: 1 });
+  }
+  return timeValues;
 }
 
-export default dates;
+export default monthsContained;

@@ -87,8 +87,12 @@ const RatesChecker = () => {
         fetch(uri)
           .then(response => response.json())
           .then(json => {
-              console.log(json);
-            let filtered = json.map();
+            let filtered = Object.keys(json)
+            .filter(key => months.map(mon => mon.month).includes(key))
+            .reduce((res, key) => {
+               res[key] = json[key];
+               return res;
+            }, {});
             setAcrdRates(filtered);
           })
         setMealsAndIncidentals(calculateMeals(startDate, endDate, province))
