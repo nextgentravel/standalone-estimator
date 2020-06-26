@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from "react"
-import Luxon, { DateTime } from "luxon"
+import { DateTime } from "luxon"
 
 const monthsContained = (start, end) => {
   var endDate = DateTime.fromISO(end);
