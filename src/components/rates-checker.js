@@ -3,6 +3,7 @@ import InputDatalist from "./input-datalist.js"
 import DatePicker from "./date-picker.js"
 import mealAllowances from "../data/meals"
 import { DateTime } from "luxon"
+import * as yup from "yup"
 import monthsContained from "./months-contained.js"
 
 // import { globalHistory } from "@reach/router"
@@ -104,6 +105,31 @@ const RatesChecker = () => {
         setMealsAndIncidentals({});
     }
 
+    let schema = yup.object().shape({
+        start: yup
+            .date()
+            .required(),
+        end: yup
+            .date()
+            .when(
+                'startDate',
+                (start, schema) => (start && schema.min(start, "The end date is before the start date.")),
+        ),
+    });
+    const dateChange = (e) => {
+        schema.isValid({
+            start: startDate,
+            end: endDate
+            })
+            .then(valid => {
+                if(valid = false) {
+                    console.log("i failed");
+                } else {
+                    console.log("i returned true");
+                }
+            });
+    }
+    
     return (
         <div>
             <h2>Find Your Rates and Limits</h2>
