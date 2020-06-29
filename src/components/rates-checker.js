@@ -16,6 +16,8 @@ const RatesChecker = () => {
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
 
+    const [validationWarnings, setValidationWarnings] = useState([]);
+
     const [acrdRates, setAcrdRates] = useState({});
 
     const [mealsAndIncidentals, setMealsAndIncidentals] = useState({});
@@ -81,22 +83,35 @@ const RatesChecker = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log("start of handler");
+        handleValidation()
+            .then(async function(valid) {
+               setValidationWarnings([]);
+               console.log("success");
+            })
+            .catch(function(err) {
+                setValidationWarnings(err.errors);
+                console.log("fail");
+            });
+            console.log("post validate");
         let city = suburbCityList[cityValue] || cityValue;
         let province = city.slice(-2); // This is bad.  We need to change the data structure.
         let uri = `https://acrd-api.herokuapp.com/${city.replace('/','sss')}/rules`
+        console.log("pre month");
         let months = monthsContained(startDate,endDate);
-        fetch(uri)
-          .then(response => response.json())
-          .then(json => {
-            let filtered = Object.keys(json)
-            .filter(key => months.map(mon => mon.month).includes(key))
-            .reduce((res, key) => {
-               res[key] = json[key];
-               return res;
-            }, {});
-            setAcrdRates(filtered);
-          })
-        setMealsAndIncidentals(calculateMeals(startDate, endDate, province))
+        console.log("post month");
+       // fetch(uri)
+        //  .then(response => response.json())
+       //   .then(json => {
+       //     let filtered = Object.keys(json)
+       //     .filter(key => months.map(mon => mon.month).includes(key))
+       //     .reduce((res, key) => {
+       //        res[key] = json[key];
+       //        return res;
+       //     }, {});
+        //    setAcrdRates(filtered);
+        //  })
+       // setMealsAndIncidentals(calculateMeals(startDate, endDate, province))
     }
 
     const clearForm = () => {
@@ -105,31 +120,28 @@ const RatesChecker = () => {
         setMealsAndIncidentals({});
     }
 
-    let schema = yup.object().shape({
-        start: yup
-            .date()
-            .required(),
-        end: yup
-            .date()
-            .when(
-                'startDate',
-                (start, schema) => (start && schema.min(start, "The end date is before the start date.")),
-        ),
-    });
-    const dateChange = (e) => {
-        schema.isValid({
-            start: startDate,
-            end: endDate
-            })
-            .then(valid => {
-                if(valid = false) {
-                    console.log("i failed");
-                } else {
-                    console.log("i returned true");
-                }
-            });
+    const handleValidation = () => {
+        console.log("hit point");
+        console.log("startDate",startDate);
+        console.log(endDate);
+        let target = {start: DateTime.fromISO(startDate).toJSDate(), end: DateTime.fromISO(endDate).toJSDate()};
+        console.log(target.start);
+        console.log(target.end);
+        let schema = yup.object().shape({
+            start: yup
+                .date()
+                .required(),
+            end: yup
+                .date()
+                .required()
+                .when(
+                    'start',
+                    (start, schema) => (start && schema.min(start)),
+                ),
+        });
+        return schema.isValid(target);
     }
-    
+
     return (
         <div>
             <h2>Find Your Rates and Limits</h2>
