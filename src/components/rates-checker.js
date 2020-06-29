@@ -6,6 +6,9 @@ import { DateTime } from "luxon"
 import * as yup from "yup"
 import monthsContained from "./months-contained.js"
 
+import { FaSpinner } from 'react-icons/fa';
+import { FaExclamationTriangle } from 'react-icons/fa';
+
 // import { globalHistory } from "@reach/router"
 
 const RatesChecker = () => {
@@ -21,6 +24,9 @@ const RatesChecker = () => {
     const [acrdRates, setAcrdRates] = useState({});
 
     const [mealsAndIncidentals, setMealsAndIncidentals] = useState({});
+
+    const [loading, setLoading] = useState(false);
+    const [generalError, setGeneralError] = useState(false);
 
     //   Will use later when integration language
     //   const url = globalHistory.location.pathname;
@@ -82,6 +88,7 @@ const RatesChecker = () => {
     }, []);
 
     const handleSubmit = (e) => {
+        setLoading(true);
         e.preventDefault();
         console.log("start of handler");
         handleValidation()
@@ -99,25 +106,31 @@ const RatesChecker = () => {
         let uri = `https://acrd-api.herokuapp.com/${city.replace('/','sss')}/rules`
         console.log("pre month");
         let months = monthsContained(startDate,endDate);
-        console.log("post month");
-       // fetch(uri)
-        //  .then(response => response.json())
-       //   .then(json => {
-       //     let filtered = Object.keys(json)
-       //     .filter(key => months.map(mon => mon.month).includes(key))
-       //     .reduce((res, key) => {
-       //        res[key] = json[key];
-       //        return res;
-       //     }, {});
-        //    setAcrdRates(filtered);
-        //  })
-       // setMealsAndIncidentals(calculateMeals(startDate, endDate, province))
+        fetch(uri)
+          .then(response => response.json())
+          .then(json => {
+            let filtered = Object.keys(json)
+            .filter(key => months.map(mon => mon.month).includes(key))
+            .reduce((res, key) => {
+               res[key] = json[key];
+               return res;
+            }, {});
+            setAcrdRates(filtered);
+            setMealsAndIncidentals(calculateMeals(startDate, endDate, province))
+            setLoading(false);
+          }).catch(err => {
+            // handle the error.  Ask user to try again?
+            setGeneralError(true);
+            setLoading(false);
+          })
+        
     }
 
     const clearForm = () => {
         document.getElementById("rates-form").reset();
         setAcrdRates({});
         setMealsAndIncidentals({});
+        setGeneralError(false);
     }
 
     const handleValidation = () => {
@@ -143,7 +156,7 @@ const RatesChecker = () => {
     }
 
     return (
-        <div>
+        <div className="mb-4">
             <h2>Find Your Rates and Limits</h2>
             <p className="lead">A tool to help you easily find the limits applicable to your trip.</p>
 
@@ -153,9 +166,21 @@ const RatesChecker = () => {
                 <DatePicker label="Return Date" name="return" updateValue={setEndDate}></DatePicker>
                 <button type="submit" className="btn btn-primary">Submit</button>
                 <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}>Clear</button>
+                {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
             </form>
 
-            {Object.keys(acrdRates).length !== 0 &&
+            {generalError && <div className="alert-icon alert-danger" role="alert">
+                <div className="icon" aria-hidden="true">
+                    <FaExclamationTriangle size="24" />
+                </div>
+                <div className="message">
+                    <h3>Application Error</h3>
+                    <p>Unable to load rates and limits.</p>
+                </div>
+            </div>}
+
+
+            {!loading && Object.keys(acrdRates).length !== 0 &&
                 <>
                     <h3>Accommodation Rate Limits</h3>
                     <p className="lead">These limits help determine reasonable accommodation costs for <strong>{cityValue}</strong>.</p>
@@ -179,7 +204,7 @@ const RatesChecker = () => {
                     </div>
                 </>
             }
-            {Object.keys(mealsAndIncidentals).length !== 0 &&
+            {!loading && Object.keys(mealsAndIncidentals).length !== 0 &&
                 <>
                     <h3>Meals and Incidentals</h3>
                     <p className="lead">This text will say something useful.</p>
