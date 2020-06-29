@@ -98,17 +98,23 @@ const RatesChecker = () => {
         setMealsAndIncidentals(calculateMeals(startDate, endDate, province))
     }
 
+    const clearForm = () => {
+        document.getElementById("rates-form").reset();
+        setAcrdRates({});
+        setMealsAndIncidentals({});
+    }
+
     return (
         <div>
             <h2>Find Your Rates and Limits</h2>
             <p className="lead">A tool to help you easily find the limits applicable to your trip.</p>
 
-            <form className="form-group mb-4" onSubmit={handleSubmit}>
+            <form id="rates-form" className="form-group mb-4" onSubmit={handleSubmit}>
                 <InputDatalist label="Destination" name="destination" options={citiesList} updateValue={setCityValue} />
                 <DatePicker label="Departure Date" name="departure" updateValue={setStartDate}></DatePicker>
                 <DatePicker label="Return Date" name="return" updateValue={setEndDate}></DatePicker>
                 <button type="submit" className="btn btn-primary">Submit</button>
-                {/* TODO <button type="button" className="btn btn-secondary ml-2" onPress={clearForm}>Reset</button> */}
+                <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}>Clear</button>
             </form>
 
             {Object.keys(acrdRates).length !== 0 &&
