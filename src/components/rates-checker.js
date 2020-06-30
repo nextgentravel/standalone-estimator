@@ -118,7 +118,6 @@ const RatesChecker = () => {
             })
             .catch(err => {
                 setLoading(false);
-                console.log('err', err);
                 setValidationWarnings(err.inner)
             });
     }
@@ -136,7 +135,6 @@ const RatesChecker = () => {
 
     const handleValidation = () => {
         let target = {destination, departureDate, returnDate};
-        console.log('target: ', target)
         let schema = yup.object().shape({
             destination: yup
                 .string()
@@ -162,9 +160,9 @@ const RatesChecker = () => {
             <p className="lead">A tool to help you easily find the limits applicable to your trip.</p>
 
             <form id="rates-form" className="form-group mb-4" onSubmit={handleSubmit}>
-                <InputDatalist label="Destination" name="destination" options={citiesList} updateValue={setDestination} />
-                <DatePicker label="Departure Date" name="departure" updateValue={setDepartureDate}></DatePicker>
-                <DatePicker label="Return Date" name="return" updateValue={setReturnDate}></DatePicker>
+                <InputDatalist validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Destination" name="destination" options={citiesList} updateValue={setDestination} />
+                <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Departure Date" name="departureDate" updateValue={setDepartureDate}></DatePicker>
+                <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Return Date" name="returnDate" updateValue={setReturnDate}></DatePicker>
                 <button type="submit" className="btn btn-primary">Submit</button>
                 <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}>Clear</button>
                 {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
@@ -179,8 +177,6 @@ const RatesChecker = () => {
                     <p>Unable to load rates and limits.</p>
                 </div>
             </div>}
-
-            <code>{JSON.stringify(validationWarnings, null, 2)}</code>
 
             {!loading && Object.keys(acrdRates).length !== 0 &&
                 <>
