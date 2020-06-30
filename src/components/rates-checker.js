@@ -148,7 +148,7 @@ const RatesChecker = () => {
                 .typeError('Return Date must be in YYYY-MM-DD format')
                 .required().min(
                 yup.ref('departureDate'),
-                "End date can't be before start date"
+                "End date cannot be before start date"
             )
         });
         return schema.validate(target, {abortEarly: false})
@@ -207,9 +207,7 @@ const RatesChecker = () => {
                     <h3>Meals and Incidentals</h3>
                     <p className="lead">This text will say something useful.</p>
 
-                    <p>You can spend this much on meals and incidentals a day: <strong>${mealsAndIncidentals.dailyTotal.toFixed(2)}</strong></p>
-
-                    <p>${mealsAndIncidentals.dailyTotal.toFixed(2)} = (${mealsAndIncidentals.breakfast.toFixed(2)} + ${mealsAndIncidentals.lunch.toFixed(2)} + ${mealsAndIncidentals.dinner.toFixed(2)} + ${mealsAndIncidentals.incidentals.toFixed(2)}) daily rate</p>
+                    <p>You can spend <strong>${mealsAndIncidentals.dailyTotal.toFixed(2)}</strong> on meals and incidentals per day.</p>
                 </>
             }
 
