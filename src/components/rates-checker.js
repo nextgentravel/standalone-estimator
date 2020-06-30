@@ -124,6 +124,10 @@ const RatesChecker = () => {
 
     const clearForm = () => {
         document.getElementById("rates-form").reset();
+        setStartDate('');
+        setEndDate('');
+        setCityValue('');
+        setValidationWarnings([])
         setAcrdRates({});
         setMealsAndIncidentals({});
         setGeneralError(false);
@@ -205,30 +209,10 @@ const RatesChecker = () => {
                 <>
                     <h3>Meals and Incidentals</h3>
                     <p className="lead">This text will say something useful.</p>
-                    <div className="table-responsive">
-                        <table className="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Breakfast</th>
-                                    <th scope="col">Lunch</th>
-                                    <th scope="col">Dinner</th>
-                                    <th scope="col">Incidentals</th>
-                                    <th scope="col">Daily Total</th>
-                                    <th scope="col">Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>${mealsAndIncidentals.breakfast}</td>
-                                    <td>${mealsAndIncidentals.lunch}</td>
-                                    <td>${mealsAndIncidentals.dinner}</td>
-                                    <td>${mealsAndIncidentals.incidentals}</td>
-                                    <td>${mealsAndIncidentals.dailyTotal}</td>
-                                    <td>${mealsAndIncidentals.total}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+
+                    <p>You can spend this much on meals and incidentals a day: <strong>${mealsAndIncidentals.dailyTotal.toFixed(2)}</strong></p>
+
+                    <p>${mealsAndIncidentals.dailyTotal.toFixed(2)} = (${mealsAndIncidentals.breakfast.toFixed(2)} + ${mealsAndIncidentals.lunch.toFixed(2)} + ${mealsAndIncidentals.dinner.toFixed(2)} + ${mealsAndIncidentals.incidentals.toFixed(2)}) daily rate</p>
                 </>
             }
 
