@@ -13,6 +13,7 @@ import { FaExclamationTriangle } from 'react-icons/fa';
 
 const RatesChecker = () => {
     const [citiesList, setCitiesList] = useState([]);
+    const [citiesListArray, setCitiesListArray] = useState([]);
     const [suburbCityList, setSuburbCityList] = useState({});
 
     const [destination, setDestination] = useState('');
@@ -37,6 +38,8 @@ const RatesChecker = () => {
             return response.json();
           })
           .then(json => {
+            console.log('json', json)
+            setCitiesListArray(json.citiesList);
             let list = json.citiesList.map(city => {
                 return {
                     value: city,
@@ -138,7 +141,14 @@ const RatesChecker = () => {
         let schema = yup.object().shape({
             destination: yup
                 .string()
-                .required('Destination is a required field'),
+                .required('Destination is a required field')
+                .test(
+                    'City is valid',
+                    'City is not valid.',
+                    (value) => {
+                        return citiesListArray.includes(value)
+                    },
+                  ),
             departureDate: yup
                 .date()
                 .typeError('Start Date must be in YYYY-MM-DD format')
