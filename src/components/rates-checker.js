@@ -89,41 +89,37 @@ const RatesChecker = () => {
 
     const handleSubmit = (e) => {
         setLoading(true);
+        setGeneralError(false);
         e.preventDefault();
-        console.log("start of handler");
         handleValidation()
-            .then(async function(valid) {
-               setValidationWarnings([]);
-               console.log("success");
-            })
-            .catch(function(err) {
-                setValidationWarnings(err.errors);
-                console.log("fail");
-            });
-            console.log("post validate");
-        let city = suburbCityList[cityValue] || cityValue;
-        let province = city.slice(-2); // This is bad.  We need to change the data structure.
-        let uri = `https://acrd-api.herokuapp.com/${city.replace('/','sss')}/rules`
-        console.log("pre month");
-        let months = monthsContained(startDate,endDate);
-        fetch(uri)
-          .then(response => response.json())
-          .then(json => {
-            let filtered = Object.keys(json)
-            .filter(key => months.map(mon => mon.month).includes(key))
-            .reduce((res, key) => {
-               res[key] = json[key];
-               return res;
-            }, {});
-            setAcrdRates(filtered);
-            setMealsAndIncidentals(calculateMeals(startDate, endDate, province))
+        .then((valid) => {
+            setValidationWarnings([]);
+            let city = suburbCityList[cityValue] || cityValue;
+            let province = city.slice(-2); // This is bad.  We need to change the data structure.
+            let uri = `https://acrd-api.herokuapp.com/${city.replace('/','sss')}/rules`
+            let months = monthsContained(startDate,endDate);
+            fetch(uri)
+                .then(response => response.json())
+                .then(json => {
+                    let filtered = Object.keys(json)
+                    .filter(key => months.map(mon => mon.month).includes(key))
+                    .reduce((res, key) => {
+                        res[key] = json[key];
+                        return res;
+                    }, {});
+                    setAcrdRates(filtered);
+                    setMealsAndIncidentals(calculateMeals(startDate, endDate, province))
+                    setLoading(false);
+                }).catch(err => {
+                    // handle the error.  Ask user to try again?
+                    setGeneralError(true);
+                    setLoading(false);
+                })   
+        })
+        .catch(err => {
             setLoading(false);
-          }).catch(err => {
-            // handle the error.  Ask user to try again?
-            setGeneralError(true);
-            setLoading(false);
-          })
-        
+            setValidationWarnings(err.errors)
+        });
     }
 
     const clearForm = () => {
@@ -137,22 +133,18 @@ const RatesChecker = () => {
         console.log("hit point");
         console.log("startDate",startDate);
         console.log(endDate);
-        let target = {start: DateTime.fromISO(startDate).toJSDate(), end: DateTime.fromISO(endDate).toJSDate()};
+        let target = {start: startDate, end: endDate};
         console.log(target.start);
         console.log(target.end);
         let schema = yup.object().shape({
             start: yup
-                .date()
-                .required(),
-            end: yup
-                .date()
-                .required()
-                .when(
-                    'start',
-                    (start, schema) => (start && schema.min(start)),
-                ),
+                .date(),
+            end: yup.date().min(
+                yup.ref('start'),
+                "end date can't be before start date"
+                )
         });
-        return schema.isValid(target);
+        return schema.validate(target)
     }
 
     return (
@@ -179,6 +171,11 @@ const RatesChecker = () => {
                 </div>
             </div>}
 
+            <ul>
+                {validationWarnings.map(error => (
+                    <li>{error}</li>
+                ))}
+            </ul>
 
             {!loading && Object.keys(acrdRates).length !== 0 &&
                 <>
