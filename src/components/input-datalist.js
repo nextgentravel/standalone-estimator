@@ -13,8 +13,6 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
         showValidationWarning = true;
     }
 
-    console.log('validationWarnings', validationWarnings)
-
     const handleRemoveError = name => {
         setValidationWarnings(validationWarnings.filter(item => item.path !== name))
     }
