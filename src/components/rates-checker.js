@@ -15,9 +15,9 @@ const RatesChecker = () => {
     const [citiesList, setCitiesList] = useState([]);
     const [suburbCityList, setSuburbCityList] = useState({});
 
-    const [cityValue, setCityValue] = useState('');
-    const [startDate, setStartDate] = useState('');
-    const [endDate, setEndDate] = useState('');
+    const [destination, setDestination] = useState('');
+    const [departureDate, setDepartureDate] = useState('');
+    const [returnDate, setReturnDate] = useState('');
 
     const [validationWarnings, setValidationWarnings] = useState([]);
 
@@ -92,41 +92,42 @@ const RatesChecker = () => {
         setGeneralError(false);
         e.preventDefault();
         handleValidation()
-        .then((valid) => {
-            setValidationWarnings([]);
-            let city = suburbCityList[cityValue] || cityValue;
-            let province = city.slice(-2); // This is bad.  We need to change the data structure.
-            let uri = `https://acrd-api.herokuapp.com/${city.replace('/','sss')}/rules`
-            let months = monthsContained(startDate,endDate);
-            fetch(uri)
-                .then(response => response.json())
-                .then(json => {
-                    let filtered = Object.keys(json)
-                    .filter(key => months.map(mon => mon.month).includes(key))
-                    .reduce((res, key) => {
-                        res[key] = json[key];
-                        return res;
-                    }, {});
-                    setAcrdRates(filtered);
-                    setMealsAndIncidentals(calculateMeals(startDate, endDate, province))
-                    setLoading(false);
-                }).catch(err => {
-                    // handle the error.  Ask user to try again?
-                    setGeneralError(true);
-                    setLoading(false);
-                })   
-        })
-        .catch(err => {
-            setLoading(false);
-            setValidationWarnings(err.errors)
-        });
+            .then((valid) => {
+                setValidationWarnings([]);
+                let city = suburbCityList[destination] || destination;
+                let province = city.slice(-2); // This is bad.  We need to change the data structure.
+                let uri = `https://acrd-api.herokuapp.com/${city.replace('/','sss')}/rules`
+                let months = monthsContained(departureDate,returnDate);
+                fetch(uri)
+                    .then(response => response.json())
+                    .then(json => {
+                        let filtered = Object.keys(json)
+                        .filter(key => months.map(mon => mon.month).includes(key))
+                        .reduce((res, key) => {
+                            res[key] = json[key];
+                            return res;
+                        }, {});
+                        setAcrdRates(filtered);
+                        setMealsAndIncidentals(calculateMeals(departureDate, returnDate, province))
+                        setLoading(false);
+                    }).catch(err => {
+                        // handle the error.  Ask user to try again?
+                        setGeneralError(true);
+                        setLoading(false);
+                    })   
+            })
+            .catch(err => {
+                setLoading(false);
+                console.log('err', err);
+                setValidationWarnings(err.inner)
+            });
     }
 
     const clearForm = () => {
         document.getElementById("rates-form").reset();
-        setStartDate('');
-        setEndDate('');
-        setCityValue('');
+        setDepartureDate('');
+        setReturnDate('');
+        setDestination('');
         setValidationWarnings([])
         setAcrdRates({});
         setMealsAndIncidentals({});
@@ -134,21 +135,25 @@ const RatesChecker = () => {
     }
 
     const handleValidation = () => {
-        console.log("hit point");
-        console.log("startDate",startDate);
-        console.log(endDate);
-        let target = {start: startDate, end: endDate};
-        console.log(target.start);
-        console.log(target.end);
+        let target = {destination, departureDate, returnDate};
+        console.log('target: ', target)
         let schema = yup.object().shape({
-            start: yup
-                .date(),
-            end: yup.date().min(
-                yup.ref('start'),
-                "end date can't be before start date"
-                )
+            destination: yup
+                .string()
+                .required('Destination is a required field'),
+            departureDate: yup
+                .date()
+                .typeError('Start Date must be in YYYY-MM-DD format')
+                .required(),
+            returnDate: yup
+                .date()
+                .typeError('Return Date must be in YYYY-MM-DD format')
+                .required().min(
+                yup.ref('departureDate'),
+                "End date can't be before start date"
+            )
         });
-        return schema.validate(target)
+        return schema.validate(target, {abortEarly: false})
     }
 
     return (
@@ -157,9 +162,9 @@ const RatesChecker = () => {
             <p className="lead">A tool to help you easily find the limits applicable to your trip.</p>
 
             <form id="rates-form" className="form-group mb-4" onSubmit={handleSubmit}>
-                <InputDatalist label="Destination" name="destination" options={citiesList} updateValue={setCityValue} />
-                <DatePicker label="Departure Date" name="departure" updateValue={setStartDate}></DatePicker>
-                <DatePicker label="Return Date" name="return" updateValue={setEndDate}></DatePicker>
+                <InputDatalist label="Destination" name="destination" options={citiesList} updateValue={setDestination} />
+                <DatePicker label="Departure Date" name="departure" updateValue={setDepartureDate}></DatePicker>
+                <DatePicker label="Return Date" name="return" updateValue={setReturnDate}></DatePicker>
                 <button type="submit" className="btn btn-primary">Submit</button>
                 <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}>Clear</button>
                 {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
@@ -175,16 +180,12 @@ const RatesChecker = () => {
                 </div>
             </div>}
 
-            <ul>
-                {validationWarnings.map(error => (
-                    <li>{error}</li>
-                ))}
-            </ul>
+            <code>{JSON.stringify(validationWarnings, null, 2)}</code>
 
             {!loading && Object.keys(acrdRates).length !== 0 &&
                 <>
                     <h3>Accommodation Rate Limits</h3>
-                    <p className="lead">These limits help determine reasonable accommodation costs for <strong>{cityValue}</strong>.</p>
+                    <p className="lead">These limits help determine reasonable accommodation costs for <strong>{destination}</strong>.</p>
                     <div className="table-responsive">
                         <table className="table">
                             <thead>
