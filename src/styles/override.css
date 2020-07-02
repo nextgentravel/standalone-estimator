@@ -93,9 +93,13 @@ body {
     font-weight: 700;
 }
 
-.button-lang-toggle {
-    color: black;
-    background-color: white;
+.language-link {
+    text-decoration: underline;
+    color: #002D42;
+}
+
+.language-link:hover {
+    color: #137991;
 }
 
 .lang{
