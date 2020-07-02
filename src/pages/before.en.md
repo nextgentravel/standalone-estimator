@@ -55,7 +55,7 @@ lead: "After deciding to travel, you should start by creating an estimate. The e
 
 #### Resources
 * [Your Rates and Limits](/en/rates)
-* [Option Two](/)
+* [Kilometrics Rates](/en/kilometrics)
 
 #### Suggest an update
 [Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)

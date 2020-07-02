@@ -56,7 +56,7 @@ lead: "Après avoir décidé de voyager, vous devez commencer par créer un devi
 
 #### Ressources
 * [Vos tarifs et limites](/fr/rates)
-* [Option deux](/)
+* [Tarifs kilométriques](/fr/kilometrics)
 
 #### Suggérer une mise à jour
 [Envoyez des commentaires anonymes ici](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
