@@ -1,6 +1,7 @@
 import React from "react"
 
-const getLocation = (label, name, options, updateValue) => {
+const getLocation = ({label, name, options, updateValue}) => {
+
     return (
         <div className="mb-4">
             <label htmlFor={name}>{label}</label>
