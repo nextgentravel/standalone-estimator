@@ -8,7 +8,7 @@ const Image = props => (
   <StaticQuery
     query={graphql`
       query {
-        images: allFile(filter:{ extension: { regex: "/jpeg|jpg|png|gif/"}}) {
+        images: allFile(filter:{ extension: { regex: "/jpeg|jpg|png|svg|gif/"}}) {
           edges {
             node {
               relativePath
@@ -18,6 +18,8 @@ const Image = props => (
                   ...GatsbyImageSharpFluid
                 }
               }
+              extension
+              publicURL
             }
           }
         }
@@ -29,6 +31,10 @@ const Image = props => (
       });
       if (!image) {
         return null;
+      }
+
+      if (!image.node.childImageSharp && image.node.extension === 'svg') {
+        return <img alt={props.alt} src={image.node.publicURL} />
       }
 
       //const imageSizes = image.node.childImageSharp.sizes; sizes={imageSizes}
