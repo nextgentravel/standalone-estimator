@@ -1,10 +1,12 @@
 import PropTypes from "prop-types"
 import React from "react"
+import Image from "../components/image"
 import SelectLanguage from './languageSelect';
 import { FormattedMessage } from 'react-intl';
 
 const Header = ({siteTitle, langs, showLanguageSelect}) => (
-<header className="shadow-sm">
+
+<header>
   <div
     style={{
       backgroundColor: "#FAF2CC",
@@ -26,23 +28,24 @@ const Header = ({siteTitle, langs, showLanguageSelect}) => (
       <span><FormattedMessage id="underDevelopment" /></span>
     </div>
   </div>
-  <div
-    style={{ backgroundColor: "#137991", borderBottom: "10px solid #002D42" }}
-  >
-    <div className="container py-2 h-100" style={{ color: "#fff" }}>
-      <div className="row">
-        <div className="col-8">
-          <h1 className="mb-3 mt-3 h4"><FormattedMessage id="pageTitle" /></h1>
-        </div>
-        <div className="col-4 align-self-center">
-          <span className="float-right d-none d-md-block">
-            {showLanguageSelect && <SelectLanguage langs={langs} />}
-          </span>
-        </div>
+
+	<div class="container">
+		<div class="row mt-4">
+      <div class="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization">
+        <a href="/en.html" property="url">
+          <Image
+            filename="sig-blk-en.svg"
+            alt="Government of Canada"
+          />
+        </a>
       </div>
-    </div>
-  </div>
+      <div className='ml-auto mr-3'>
+        {showLanguageSelect && <SelectLanguage langs={langs} />}
+      </div>
+		</div>
+	</div>
 </header>
+
 
 )
 
