@@ -11,9 +11,8 @@ const IndexPage = () => (
     <div>
       <main id="main-content" role="main">
         <div className="container mt-4">
-          <h2>Les voyages d'affaires ne devraient pas ressembler à du travail</h2>
-          <p className="lead">Nous sommes là pour vous aider à mieux voyager</p>
-          <div className="row mb-4">
+          <h1>GC Guide de voyage</h1>
+          <div className="row mb-4 mt-4">
             <div className="col-lg-3 col-md-6 col-sm-12 mb-3">
               <div className="card d-inline-block w-100 h-100">
                 <div className="card-img-top">
