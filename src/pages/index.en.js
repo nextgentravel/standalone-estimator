@@ -22,7 +22,7 @@ const IndexPage = () => (
                 </div>
 
                 <div className="card-body d-flex flex-column">
-                  <h3 className="card-title h5">Before Your Travel</h3>
+                  <h2 className="card-title h5">Before Your Travel</h2>
                   <p className="card-text">Get ready for your business travel.</p>
                   <div class="mt-auto w-100">
                     <Link to="/en/before" className="btn btn-primary">Pretravel</Link>
@@ -36,7 +36,7 @@ const IndexPage = () => (
                   alt="Card image cap"
                 />
                 <div className="card-body d-flex flex-column">
-                  <h3 className="card-title h5">Booking Your Travel</h3>
+                  <h2 className="card-title h5">Booking Your Travel</h2>
                   <p className="card-text">
                   Making the arrangements needed for your travel.
                   </p>
@@ -51,7 +51,7 @@ const IndexPage = () => (
                   alt="Card image cap"
                 />
                 <div className="card-body d-flex flex-column">
-                  <h3 className="card-title h5">During Your Travel</h3>
+                  <h2 className="card-title h5">During Your Travel</h2>
                   <p className="card-text">
                     Useful information during a trip.
                   </p>
@@ -66,7 +66,7 @@ const IndexPage = () => (
                   alt="Card image cap"
                 />
                 <div className="card-body d-flex flex-column">
-                  <h3 className="card-title h5">After You Return</h3>
+                  <h2 className="card-title h5">After You Return</h2>
                   <p className="card-text">Arranging reimbursement.</p>
                   <div class="mt-auto w-100">
                     <Link to="/en/after" className="btn btn-primary">Return</Link>

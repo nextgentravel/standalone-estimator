@@ -44,7 +44,7 @@ const Kilometrics = () => {
     return (
         <>
             <div className="mb-4">
-                <h2>Find the correct rate for your kilometrics</h2>
+                <h1>Find the correct rate for your kilometrics</h1>
                 <p className="lead">Taking your personal vehicle on a government trip? Refer to these rates.</p>
                 <form onSubmit={handleSubmit}>
                     <InputDatalist validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Province/Territory of Travel:" name="province" options={provinces} updateValue={setProvinceValue} />
