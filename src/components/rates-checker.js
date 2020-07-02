@@ -114,7 +114,7 @@ const RatesChecker = () => {
                     // handle the error.  Ask user to try again?
                     setGeneralError(true);
                     setLoading(false);
-                })   
+                })
         })
         .catch(err => {
             setLoading(false);
