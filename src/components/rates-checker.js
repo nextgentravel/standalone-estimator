@@ -166,9 +166,8 @@ const RatesChecker = () => {
 
     return (
         <div className="mb-4">
-            <h2>Find Your Rates and Limits</h2>
+            <h1>Find Your Rates and Limits</h1>
             <p className="lead">A tool to help you easily find the limits applicable to your trip.</p>
-
             <form id="rates-form" className="form-group mb-4" onSubmit={handleSubmit}>
                 <InputDatalist validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Destination" name="destination" options={citiesList} updateValue={setDestination} />
                 <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Departure Date" name="departureDate" updateValue={setDepartureDate}></DatePicker>
