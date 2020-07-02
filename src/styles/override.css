@@ -83,19 +83,27 @@ body {
     border: 1px solid #FAF2CC;
 }
 
-.content-left h3 {
+.content-right h3 {
     font-size: 1.5em;
 }
 
-.content-right .info-card h3 {
+.content-left h2 {
+    font-size: 1.5em;
+}
+
+.content-right .info-card h2 {
     font-size: 1rem;
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
 }
 
-.button-lang-toggle {
-    color: black;
-    background-color: white;
+.language-link {
+    text-decoration: underline;
+    color: #002D42;
+}
+
+.language-link:hover {
+    color: #137991;
 }
 
 .lang{

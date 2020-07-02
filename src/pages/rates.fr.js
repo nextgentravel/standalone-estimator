@@ -1,6 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import RatesChecker from "../components/rates-checker"
 import Breadcrumbs from "../components/breadcrumb"
 
 const Rates = () => (
@@ -12,6 +13,7 @@ const Rates = () => (
         <Breadcrumbs pageTitle={'Trouvez vos tarifs et limites'} homeLink={'/fr/'} />
         <div className="container mt-4">
           <p>Developing in English, for now.</p>
+          <RatesChecker />
         </div>
       </main>
     </div>
