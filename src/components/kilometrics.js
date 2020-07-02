@@ -50,8 +50,12 @@ const Kilometrics = () => {
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
             </div>
-            <p>The kilometric rate for <strong>{province}</strong> is <strong>{rate}</strong> cents per kilometre</p>
-            <p>For your trip of <strong>{distance}</strong> kilometres you would be reimbursed <strong>${calculatedTotal}</strong></p>
+            {rate !== '' && calculatedTotal !== '' && distance !== '' &&
+                <>
+                    <p>The kilometric rate for <strong>{province}</strong> is <strong>{rate}</strong> cents per kilometre</p>
+                    <p>For your trip of <strong>{distance}</strong> kilometres you would be reimbursed <strong>${calculatedTotal}</strong></p>
+                </>
+            }
         </>
 
     // ## Note that this wasn't going to work
