@@ -1,10 +1,11 @@
 import PropTypes from "prop-types"
 import React from "react"
 import Image from "../components/image"
+import Link from 'gatsby-link';
 import SelectLanguage from './languageSelect';
 import { FormattedMessage } from 'react-intl';
 
-const Header = ({siteTitle, langs, showLanguageSelect}) => (
+const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => (
 
 <header>
   <div
@@ -32,12 +33,12 @@ const Header = ({siteTitle, langs, showLanguageSelect}) => (
 	<div class="container">
 		<div class="row mt-4">
       <div class="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization">
-        <a href="/en.html" property="url">
-          <Image
-            filename="sig-blk-en.svg"
-            alt="Government of Canada"
-          />
-        </a>
+        <Link to={homeLink}>
+            <Image
+              filename="sig-blk-en.svg"
+              alt="Government of Canada"
+            />
+        </Link>
       </div>
       <div className='ml-auto mr-3'>
         {showLanguageSelect && <SelectLanguage langs={langs} />}
