@@ -7,7 +7,7 @@ import { FormattedMessage } from 'react-intl';
 
 const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => (
 
-<header>
+<header className="mb-4">
   <div
     style={{
       backgroundColor: "#FAF2CC",
