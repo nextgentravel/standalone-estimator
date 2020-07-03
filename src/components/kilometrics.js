@@ -3,7 +3,8 @@ import locations from "../data/locations.js"
 import TextInput from "./input-text.js";
 import InputDatalist from "./input-datalist.js"
 import * as yup from "yup"
-
+import { FaSpinner } from 'react-icons/fa';
+import { FaExclamationTriangle } from 'react-icons/fa';
 
 const Kilometrics = () => {
 
@@ -63,6 +64,7 @@ const Kilometrics = () => {
                 setRate(provinceRate)
                 let rateCalc = parseInt(provinceRate) * parseInt(distance) / 100;
                 setCalculatedTotal(rateCalc.toFixed(2));
+                setLoading(false);
             })
             .catch(err => {
                 setLoading(false);
@@ -74,6 +76,7 @@ const Kilometrics = () => {
         document.getElementById("kilometrics-form").reset();
         setProvinceValue('');
         setDistance('');
+        setValidationWarnings([]);
     }
 
 
@@ -83,18 +86,42 @@ const Kilometrics = () => {
                 <h1>Find the correct rate for your kilometrics</h1>
                 <p className="lead">Taking your personal vehicle on a government trip? Refer to these rates.</p>
                 <form id="kilometrics-form" onSubmit={handleSubmit}>
-                    <InputDatalist validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Province/Territory of Travel:" name="province" options={provinces} updateValue={setProvinceValue} />
-                    <TextInput validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Kilometres Travelled" name="distance" updateValue={setDistance} />
+                    <InputDatalist
+                        validationWarnings={validationWarnings}
+                        setValidationWarnings={setValidationWarnings}
+                        label="Province/Territory of Travel"
+                        name="province"
+                        options={provinces}
+                        updateValue={setProvinceValue}
+                        clearForm={clearForm}
+                    />
+                    <TextInput
+                        validationWarnings={validationWarnings}
+                        setValidationWarnings={setValidationWarnings}
+                        label="Kilometres Travelled"
+                        name="distance"
+                        updateValue={setDistance}
+                        clearForm={clearForm}
+                    />
                     <button type="submit" className="btn btn-primary">Submit</button>
                     <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}>Clear</button>
+                    {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
                 </form>
-            </div>
-            {rate !== '' && calculatedTotal !== '' && distance !== '' &&
+                {generalError && <div className="alert-icon alert-danger" role="alert">
+                    <div className="icon" aria-hidden="true">
+                        <FaExclamationTriangle size="24" />
+                    </div>
+                    <div className="message">
+                        <h3>Application Error</h3>
+                        <p>Unable to load rates and limits.</p>
+                    </div>
+                </div>}
+                {!loading && rate !== '' && calculatedTotal !== '' && distance !== '' &&
                 <>
                     <p>The kilometric rate for <strong>{province}</strong> is <strong>{rate}</strong> cents per kilometre</p>
                     <p>For your trip of <strong>{distance}</strong> kilometres you would be reimbursed <strong>${calculatedTotal}</strong></p>
-                </>
-            }
+                </>}
+            </div>
         </>
     )
 }
