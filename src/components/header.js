@@ -41,7 +41,12 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => (
         </Link>
       </div>
       <div className='ml-auto mr-3'>
-        {showLanguageSelect && <SelectLanguage langs={langs} />}
+        {showLanguageSelect &&
+          <>
+            <h2 class="d-none">Language selection</h2>
+            <SelectLanguage langs={langs} />
+          </>
+        }
       </div>
 		</div>
 	</div>
