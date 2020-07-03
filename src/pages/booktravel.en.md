@@ -9,7 +9,7 @@ lead: "To book your travel, you will need to select and confirm all of your trav
 
 [[card]]
 | [[card-body]]
-| | ### Company / Accounting Details
+| | ## Company / Accounting Details
 | | Travel Directive Module: select your travel details, such as if you will be travelling domestically, or internationally, and if the travel is overnight or not  
 | | TAN Prefix: The Travel Access Number or TAN Prefix is a generated number that will be associated with the travel requests you make. This can be used if you would like to reference your travel requests in the future
 | | 
@@ -17,7 +17,7 @@ lead: "To book your travel, you will need to select and confirm all of your trav
 
 [[card]]
 | [[card-body]]
-| | ### Booking flights
+| | ## Booking flights
 | |
 | | Select the airport location from which you will leave from, and the airport of your destination
 | |
@@ -39,7 +39,7 @@ lead: "To book your travel, you will need to select and confirm all of your trav
 
 [[card]]
 | [[card-body]]
-| | ### Booking Car Rentals
+| | ## Booking Car Rentals
 | |
 | | Select the airport location of your destination and fill out all other appropriate information, making sure your start and end date align with your flights or other transportation method. Then search
 | |
@@ -62,7 +62,7 @@ lead: "To book your travel, you will need to select and confirm all of your trav
 
 [[card]]
 | [[card-body]]
-| | ### Booking Rail
+| | ## Booking Rail
 | |
 | | Select the station from which you will leave from, and the station of your destination. You will then be asked for a departure and return date, as well as the timing of each train.
 | |
@@ -80,7 +80,7 @@ lead: "To book your travel, you will need to select and confirm all of your trav
 
 [[card]]
 | [[card-body]]
-| | ###  Booking a Hotel
+| | ##  Booking a Hotel
 | |
 | | Book Hotel: When searching for a hotel, enter in the city rate limit as the maximum amount in the hotel price range [Find city rate limits here](/en/rates). To choose a hotel above this range, an explanation is required.
 | |
@@ -99,7 +99,7 @@ lead: "To book your travel, you will need to select and confirm all of your trav
 
 [[card]]
 | [[card-body]]
-| | ### Payment methods
+| | ## Payment methods
 | |
 | | **Transportation:** The governments credit card should appear as the payment method
 | |
@@ -112,17 +112,17 @@ lead: "To book your travel, you will need to select and confirm all of your trav
 
 <div class="content-right col-xs-6 col-md-4">
 
-### Resources
+## Resources
 * [Option One](/)
 * [Option Two](/)
 
-### Suggest an update
+## Suggest an update
 [Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
 
 [[info-card]]
 | [[card-body]]
 | |
-| | ### Still have travel-related questions?
+| | ## Still have travel-related questions?
 | |
 | | Your [Designated Departmental Travel Coordinator](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) should be able to help!
 | |

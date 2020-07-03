@@ -21,7 +21,7 @@ export default ({ data }) => {
           <Breadcrumbs pageTitle={post.frontmatter.title} homeLink={homeLink} />
           <div className="hero-holder">
             <div className="container">
-              <h2 className="display-5">{post.frontmatter.heading}</h2>
+              <h1 className="display-5">{post.frontmatter.heading}</h1>
               <p className="lead">
                 {post.frontmatter.lead}
               </p>

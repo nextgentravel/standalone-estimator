@@ -10,7 +10,7 @@ lead: "Après avoir décidé de voyager, vous devez commencer par créer un devi
 
 [[card]]
 | [[card-body]]
-| | ### Création de votre devis
+| | ## Création de votre devis
 | |
 | | Les informations suivantes doivent être incluses dans un devis:
 | |
@@ -32,7 +32,7 @@ lead: "Après avoir décidé de voyager, vous devez commencer par créer un devi
 
 [[card]]
 | [[card-body]]
-| | ### Obtenir une approbation préliminaire
+| | ## Obtenir une approbation préliminaire
 | |
 | | - Une fois que vous avez créé votre estimation, soumettez-la à votre approbateur qui est généralement un cadre supérieur. Votre superviseur ou votre organigramme peut vous aider à les trouver
 | | - Assurez-vous de donner à l'approbateur suffisamment de temps pour approuver votre voyage avant la date de votre voyage. Entre 3 et 4 semaines devrait suffire
@@ -41,7 +41,7 @@ lead: "Après avoir décidé de voyager, vous devez commencer par créer un devi
 
 [[card]]
 | [[card-body]]
-| | ### Création d'un compte dans HRG
+| | ## Création d'un compte dans HRG
 | |
 | | - Si vous n'avez jamais voyagé auparavant, le gouvernement du Canada utilise un outil de réservation en ligne. Le lien suivant vous amène à [l'outil de réservation en ligne](https://isuite6.hrgworldwide.com/gcportal/en-ca/sts.aspx)
 | |   * [Créez un compte ici](https://isuite6.hrgworldwide.com/tabid/292/Default.aspx)
@@ -54,18 +54,18 @@ lead: "Après avoir décidé de voyager, vous devez commencer par créer un devi
 
 <div class="content-right col-xs-6 col-md-4">
 
-#### Ressources
+### Ressources
 * [Vos tarifs et limites](/fr/rates)
-* [Option deux](/)
+* [Tarifs kilométriques](/fr/kilometrics)
 
-#### Suggérer une mise à jour
+### Suggérer une mise à jour
 [Envoyez des commentaires anonymes ici](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
 
 
 [[info-card]]
 | [[card-body]]
 | |
-| | ### Vous avez encore des questions liées au voyage?
+| | ## Vous avez encore des questions liées au voyage?
 | |
 | | Votre [Coordonnateur ministériel des voyages désigné](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-fra.asp) devrait être en mesure de vous aider!
 | |
