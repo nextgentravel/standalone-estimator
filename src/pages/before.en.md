@@ -15,7 +15,7 @@ lead: "After deciding to travel, you should start by creating an estimate. The e
 | |
 | | - **Objective:** Your reason for travelling
 | |
-| |  #### Category:
+| |  ### Category:
 | |
 | | To get your travel authorization, decide which of the following categories best describes your travel:
 | |      **Operational Activities** – Travel to complete a task, important to your office’s directive  
@@ -26,7 +26,7 @@ lead: "After deciding to travel, you should start by creating an estimate. The e
 | | - **Virtual presence or remote meeting solutions** – Provide your reasoning for why the activities could not be conducted using virtual tools such as Webex or Skype
 | | - **Mode of transportation** - List which mode(s) of transport you will be using (air/rail/car), and what the estimated cost of the ticket(s) for air and rail, and or the number of kilometers you’ll be travelling if by car. [Find your kilometric rates here](https://www.njc-cnm.gc.ca/directive/d10/v238/s658/en#s658-tc-tm)
 | |
-| | #### Spending Allowances:
+| | ### Spending Allowances:
 | |
 | | **Accommodations**
 | |
@@ -60,7 +60,7 @@ lead: "After deciding to travel, you should start by creating an estimate. The e
 
 [[card]]
 | [[card-body]]
-| | ### Booking your trip
+| | ## Booking your trip
 | | - Using your Travel Identification Number (TIN) [log into the system](https://isuite6.hrgworldwide.com/gcportal/en-ca/sts.aspx)
 | | - In the system, use the instructions to book your trip. You can reference your estimates listed above to go through the booking process. [Link to the HRG instructions](/en/booktravel)
 | | - When at the submitting stage, requesting for online approval, try to submit at a time where the approver can approve it immediately. Success rates for bookings are over 90% if requests are immediately approved. Delaying submissions can cause the process to fail, causing you to restart the online booking process. 
@@ -72,11 +72,11 @@ lead: "After deciding to travel, you should start by creating an estimate. The e
 
 <div class="content-right col-xs-6 col-md-4">
 
-### Resources
+## Resources
 * [Your Rates and Limits](/en/rates)
 * [Kilometrics Rates](/en/kilometrics)
 
-### Suggest an update
+## Suggest an update
 [Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
 
 
