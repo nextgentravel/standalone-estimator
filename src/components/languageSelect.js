@@ -7,7 +7,7 @@ const SelectLanguage = (props) => {
 
   const links = props.langs
     .filter(lang => !lang.selected)
-    .map((lang, idx) => <Link to={lang.link} key={idx} className="btn btn-primary button-lang-toggle"><FormattedMessage id="otherLangName"/></Link>);
+    .map((lang, idx) => <Link to={lang.link} key={idx} className="language-link"><FormattedMessage id="otherLangName"/></Link>);
 
   return (
     <div>
