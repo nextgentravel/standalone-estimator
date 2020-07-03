@@ -24,10 +24,6 @@ const RatesChecker = () => {
 
     const [validationWarnings, setValidationWarnings] = useState([]);
 
-    const [acrdRates, setAcrdRates] = useState({});
-
-    const [mealsAndIncidentals, setMealsAndIncidentals] = useState({});
-
     const [loading, setLoading] = useState(false);
     const [generalError, setGeneralError] = useState(false);
 
@@ -119,9 +115,6 @@ const RatesChecker = () => {
                             destination,
                             mealsAndIncidentals,
                         })
-                        // setAcrdRates(acrdRatesFiltered);
-                        // setMealsAndIncidentals()
-                        console.log('result', result)
                         setLoading(false);
                     }).catch(err => {
                         // handle the error.  Ask user to try again?
@@ -141,8 +134,6 @@ const RatesChecker = () => {
         setReturnDate('');
         setDestination('');
         setValidationWarnings([])
-        setAcrdRates({});
-        setMealsAndIncidentals({});
         setGeneralError(false);
         setResult({});
     }
