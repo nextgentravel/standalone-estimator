@@ -11,7 +11,6 @@ const Kilometrics = () => {
     const [province, setProvinceValue] = useState('');
     const [distance, setDistance] = useState('');
     const [provinces, setProvinces] = useState([]);
-    const [rate, setRate] = useState('');
 
     const [result, setResult] = useState({});
 
@@ -28,12 +27,10 @@ const Kilometrics = () => {
             }
         })
         setProvinces(provinceOptions);
-
     }, []);
 
     const handleValidation = () => {
         let provinceKeys = Object.keys(locations);
-        console.log(provinceKeys)
         let target = {province, distance};
         let schema = yup.object().shape({
             province: yup
@@ -62,7 +59,6 @@ const Kilometrics = () => {
             .then((valid) => {
                 setValidationWarnings([]);
                 let provinceRate = locations[province].rateCents
-                setRate(provinceRate)
                 let rateCalc = parseInt(provinceRate) * parseInt(distance) / 100;
                 setResult({
                     total: rateCalc.toFixed(2),
@@ -84,7 +80,6 @@ const Kilometrics = () => {
         setResult({});
         setValidationWarnings([]);
     }
-
 
     return (
         <>

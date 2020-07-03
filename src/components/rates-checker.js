@@ -38,7 +38,6 @@ const RatesChecker = () => {
             return response.json();
           })
           .then(json => {
-            console.log('json', json)
             setCitiesListArray(json.citiesList);
             let list = json.citiesList.map(city => {
                 return {
