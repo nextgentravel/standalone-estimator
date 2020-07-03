@@ -11,8 +11,9 @@ const Kilometrics = () => {
     const [province, setProvinceValue] = useState('');
     const [distance, setDistance] = useState('');
     const [provinces, setProvinces] = useState([]);
-    const [calculatedTotal, setCalculatedTotal] = useState(false);
     const [rate, setRate] = useState('');
+
+    const [result, setResult] = useState({});
 
     const [loading, setLoading] = useState(false);
     const [generalError, setGeneralError] = useState(false);
@@ -63,7 +64,11 @@ const Kilometrics = () => {
                 let provinceRate = locations[province].rateCents
                 setRate(provinceRate)
                 let rateCalc = parseInt(provinceRate) * parseInt(distance) / 100;
-                setCalculatedTotal(rateCalc.toFixed(2));
+                setResult({
+                    total: rateCalc.toFixed(2),
+                    provinceRate,
+                    distance,
+                });
                 setLoading(false);
             })
             .catch(err => {
@@ -76,6 +81,7 @@ const Kilometrics = () => {
         document.getElementById("kilometrics-form").reset();
         setProvinceValue('');
         setDistance('');
+        setResult({});
         setValidationWarnings([]);
     }
 
@@ -85,7 +91,7 @@ const Kilometrics = () => {
             <div className="mb-4">
                 <h1>Find the correct rate for your kilometrics</h1>
                 <p className="lead">Taking your personal vehicle on a government trip? Refer to these rates.</p>
-                <form id="kilometrics-form" onSubmit={handleSubmit}>
+                <form id="kilometrics-form" className="form-group mb-4" onSubmit={handleSubmit}>
                     <InputDatalist
                         validationWarnings={validationWarnings}
                         setValidationWarnings={setValidationWarnings}
@@ -116,10 +122,10 @@ const Kilometrics = () => {
                         <p>Unable to load rates and limits.</p>
                     </div>
                 </div>}
-                {!loading && rate !== '' && calculatedTotal !== '' && distance !== '' &&
+                {!loading && Object.keys(result).length !== 0 &&
                 <>
-                    <p>The kilometric rate for <strong>{province}</strong> is <strong>{rate}</strong> cents per kilometre</p>
-                    <p>For your trip of <strong>{distance}</strong> kilometres you would be reimbursed <strong>${calculatedTotal}</strong></p>
+                    <p>The kilometric rate for <strong>{result.province}</strong> is <strong>{result.provinceRate}</strong> cents per kilometre</p>
+                    <p>For your trip of <strong>{result.distance}</strong> kilometres you would be reimbursed <strong>${result.total}</strong></p>
                 </>}
             </div>
         </>
