@@ -2,49 +2,108 @@
 date: "2019-05-04"
 title: "Booking Travel"
 heading: "Booking Your Travel"
-lead: "Important steps to book your trip"
+lead: "To book your travel, you will need to select and confirm all of your travel requirements, including the hotel you will be staying at, and your transportation method(s) needed for your trip."
 ---
 
 <div class="content-left col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
-| | ## 1. Booking your trip
+| | ## Company / Accounting Details
+| | Travel Directive Module: select your travel details, such as if you will be travelling domestically, or internationally, and if the travel is overnight or not  
+| | TAN Prefix: The Travel Access Number or TAN Prefix is a generated number that will be associated with the travel requests you make. This can be used if you would like to reference your travel requests in the future
+| | 
+| | To a specific trip, use your Trip reference number, located near the top of the Itinerary details page.
+
+[[card]]
+| [[card-body]]
+| | ## Booking flights
 | |
-| | - Using your Travel Identification Number (TIN) [log into the system](https://isuite6.hrgworldwide.com/gcportal/en-ca/sts.aspx)
-| | - In the system, use the instructions to book your trip. You can reference your estimates listed above to go through the booking process. [link to HRG instructions](/)
-| | - When at the submitting stage, requesting for online approval, try to submit at a time where the approver can approve it immediately. Success rates for bookings are over 90% if requests are immediately approved. Delaying submissions can cause the process to fail, causing you to restart the online booking process.
+| | Select the airport location from which you will leave from, and the airport of your destination
+| |
+| | You will then be asked for a departure and return date, as well as the timing of each flight. **Important notice:** only flights that fall 2 hours before or after your selected time will appear in this search, meaning that an ideal flight may not appear if it does not fall within this window
+| |
+| | **Tip:** To find flights that are more suited to your needs, it may be a good idea to do an external flight search on another website such as google flights to see all the flights scheduled for that day, to find your ideal time. You can then go back into HRG and select a date and time which align with the best flight for your needs
+| |
+| | After hitting search, you will be brought to a selection of the possible flights for your given timeframe where:
+| |
+| | All options in Green are within Government policy and good to select
+| |
+| |All options in Red are not within policy and require an explanation to your approver as to why this flight is required for your travel if you chose it **Note:** items may appear red even though it meets policy, if it falls outside of the search query for example
+| |
+| |Then you may proceed with selection(s) of your chosen flights
+| | When your flight(s) are selected, you will be greeted with the Flight details. Here you will be given the option to:
+| |
+| | - Make a special request to the **airline/travel agency** 
 | |
 
 [[card]]
 | [[card-body]]
-| | ## 2. Reserve your accommodations
+| | ## Booking Car Rentals
 | |
-| |Sed quis purus in felis vulputate tempor et eu lectus. Suspendisse quis metus eu justo lobortis commodo vitae et purus. Vestibulum odio velit, euismod quis mi tempus, bibendum fermentum diam.
+| | Select the airport location of your destination and fill out all other appropriate information, making sure your start and end date align with your flights or other transportation method. Then search
 | |
-| | The ACRD has a list of authorized hotels for travel.
+| | **Tips:** You may choose to wait to book the car rental until you have already chosen your flight(s) to simplify the process. After the flight is added to your itinerary, stay on the itinerary details page. There you should find an option to add a car under your departing flight. Doing so will automatically input the fields for Start location and date, as well as End date for your rental
 | |
-| | [Policy: Accommodation and Car Rental Directory](http://rehelv-acrd.tpsgc-pwgsc.gc.ca/acrds/index-eng.aspx)
+| | After hitting search, you will be brought to a selection of the possible Car Rentals for your given timeframe where:
+| |
+| | All options in Green are within Government policy and good to select
+| |
+| | All options in Red are not within policy and require an explanation to your approver as to why this room is required for your travel if you chose it **Note:** items may appear red even though it meets policy, if it falls outside of the search query for example
+| |
+| | Then you may proceed with the selected car rental
+| |
+| |When a vehicle is selected, you will be greeted with the rental details. Here you will be given the option to:
+| |
+| | - Add your personal Car Rental loyalty card under: Membership no
+| |
+| | - Make a special request to the car rental company
+| |
 
 [[card]]
 | [[card-body]]
-| | ## 3. Reserve your car rentals if required
+| | ## Booking Rail
 | |
-| | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
+| | Select the station from which you will leave from, and the station of your destination. You will then be asked for a departure and return date, as well as the timing of each train.
+| |
+| | **Tip:** To bookings that are more suited to your needs, it may be a good idea to do an external rail search on another website such as VIA rail to see all the scheduled trains for that day, to find your ideal time. You can then go back into HRG and select a date and time related to the best train for your needs
+| |
+| |After hitting search, you will be brought to a selection of the possible trains for your given timeframe where:
+| |
+| | All options in Green are within Government policy and good to select
+| |
+| | All options in Red are not within policy and require an explanation to your approver as to why this train is required for your travel if you chose it **Note:** items may appear red even though it meets policy, if it falls outside of the search query for example
+| |
+| | Then you may proceed with selection(s) of your chosen trains
+| |
 | |
 
 [[card]]
 | [[card-body]]
-| | ## 4. Enter your potential expenses
+| | ##  Booking a Hotel
 | |
-| | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
+| | Book Hotel: When searching for a hotel, enter in the city rate limit as the maximum amount in the hotel price range [Find city rate limits here](/en/rates). To choose a hotel above this range, an explanation is required.
+| |
+| | **If not Booking a Hotel:** After adding all other items to the itinerary, the full trip details will come up. At the bottom of this page, not providing a hotel should come up under the policy breach section. Provide a reason from the dropdown. If your reasoning is one which required you to make some sort of payment, be sure to add the cost of your accommodations later under “Out of Pocket Expenses”
+| |
+| | After hitting search, you will be provided with an unordered list that fulfills your search criteria. If you have made the search to fall within the city rate limits, you will be provided with a list of hotels that are within policy.
+| |
+| | When a hotel is selected, you will be greeted with the Hotel details. Here you will be given the option to:
+| |
+| | - Add your personal hotel loyalty card under: Membership no
+| |
+| | - Make a special request to the hotel for your stay
+| |
+| | - When finished, add the hotel to itinerary
 | |
 
 [[card]]
 | [[card-body]]
-| | ## 5. Submit for approval and book
+| | ## Payment methods
 | |
-| | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
+| | **Transportation:** The governments credit card should appear as the payment method
+| |
+| | **Hotel:** you must use your own government travel card or your personal credit card. This is not under the government credit card. However, you will be reimbursed for your hotel costs by the government. To use a government travel card, make sure to apply for the card 3 weeks ahead of booking, so that it may come in time
 | |
 
 [Next: During your travel](/en/during)
