@@ -1,22 +1,24 @@
 import React, {useState, useEffect} from "react"
 import locations from "../data/locations.js"
 import TextInput from "./input-text.js";
-
 import InputDatalist from "./input-datalist.js"
+import * as yup from "yup"
+import { FaSpinner } from 'react-icons/fa';
+import { FaExclamationTriangle } from 'react-icons/fa';
 
 const Kilometrics = () => {
 
     const [province, setProvinceValue] = useState('');
     const [distance, setDistance] = useState('');
     const [provinces, setProvinces] = useState([]);
-    const [calculatedTotal, setCalculatedTotal] = useState(false);
-    const [rate, setRate] = useState('');
+
+    const [result, setResult] = useState({});
+
+    const [loading, setLoading] = useState(false);
+    const [generalError, setGeneralError] = useState(false);
 
     const [validationWarnings, setValidationWarnings] = useState([]);
 
-    // We need to process the incoming province data to a format that
-    // the InputDatalist component expects
-    // this function runs once on render
     useEffect(() => {
         let provinceOptions = Object.keys(locations).map(location => {
             return {
@@ -27,18 +29,56 @@ const Kilometrics = () => {
         setProvinces(provinceOptions);
     }, []);
 
-    
+    const handleValidation = () => {
+        let provinceKeys = Object.keys(locations);
+        let target = {province, distance};
+        let schema = yup.object().shape({
+            province: yup
+                .string()
+                .required('Province is a required field')
+                .test(
+                    'Province is valid',
+                    'Province is not valid.',
+                    (value) => {
+                        return provinceKeys.includes(value)
+                    },
+                  ),
+            distance: yup
+                .number()
+                .integer()
+                .typeError('Kilometres Travelled must be a number')
+                .required('Distance is a required field'),
+        });
+        return schema.validate(target, {abortEarly: false})
+    }
 
     const handleSubmit = (e) => {
-        // unless we have the next line, the page is going to refresh
-        // since this is the standard behaviour of a 'submit' button
+        setLoading(true);
         e.preventDefault();
-        // this is where validation goes
-        let provinceRate = locations[province].rateCents
-        setRate(provinceRate)
-        let rateCalc = parseInt(provinceRate) * parseInt(distance) / 100;
-        // do stuff to make the hidden display part show here
-        setCalculatedTotal(rateCalc.toFixed(2));
+        handleValidation()
+            .then((valid) => {
+                setValidationWarnings([]);
+                let provinceRate = locations[province].rateCents
+                let rateCalc = parseInt(provinceRate) * parseInt(distance) / 100;
+                setResult({
+                    total: rateCalc.toFixed(2),
+                    provinceRate,
+                    distance,
+                });
+                setLoading(false);
+            })
+            .catch(err => {
+                setLoading(false);
+                setValidationWarnings(err.inner)
+            });
+    }
+
+    const clearForm = () => {
+        document.getElementById("kilometrics-form").reset();
+        setProvinceValue('');
+        setDistance('');
+        setResult({});
+        setValidationWarnings([]);
     }
 
     return (
@@ -46,29 +86,44 @@ const Kilometrics = () => {
             <div className="mb-4">
                 <h1>Find the correct rate for your kilometrics</h1>
                 <p className="lead">Taking your personal vehicle on a government trip? Refer to these rates.</p>
-                <form onSubmit={handleSubmit}>
-                    <InputDatalist validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Province/Territory of Travel:" name="province" options={provinces} updateValue={setProvinceValue} />
-                    <TextInput label="Kilometres Travelled" name="distance" updateValue={setDistance} />
+                <form id="kilometrics-form" className="form-group mb-4" onSubmit={handleSubmit}>
+                    <InputDatalist
+                        validationWarnings={validationWarnings}
+                        setValidationWarnings={setValidationWarnings}
+                        label="Province/Territory of Travel"
+                        name="province"
+                        options={provinces}
+                        updateValue={setProvinceValue}
+                        clearForm={clearForm}
+                    />
+                    <TextInput
+                        validationWarnings={validationWarnings}
+                        setValidationWarnings={setValidationWarnings}
+                        label="Kilometres Travelled"
+                        name="distance"
+                        updateValue={setDistance}
+                        clearForm={clearForm}
+                    />
                     <button type="submit" className="btn btn-primary">Submit</button>
+                    <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}>Clear</button>
+                    {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
                 </form>
-            </div>
-            {rate !== '' && calculatedTotal !== '' && distance !== '' &&
+                {generalError && <div className="alert-icon alert-danger" role="alert">
+                    <div className="icon" aria-hidden="true">
+                        <FaExclamationTriangle size="24" />
+                    </div>
+                    <div className="message">
+                        <h3>Application Error</h3>
+                        <p>Unable to load rates and limits.</p>
+                    </div>
+                </div>}
+                {!loading && Object.keys(result).length !== 0 &&
                 <>
-                    <p>The kilometric rate for <strong>{province}</strong> is <strong>{rate}</strong> cents per kilometre</p>
-                    <p>For your trip of <strong>{distance}</strong> kilometres you would be reimbursed <strong>${calculatedTotal}</strong></p>
-                </>
-            }
+                    <p>The kilometric rate for <strong>{result.province}</strong> is <strong>{result.provinceRate}</strong> cents per kilometre</p>
+                    <p>For your trip of <strong>{result.distance}</strong> kilometres you would be reimbursed <strong>${result.total}</strong></p>
+                </>}
+            </div>
         </>
-
-    // ## Note that this wasn't going to work
-    // ## as a react child can only ever be a single element.
-    // ## so wrap the whole element you're exporting in a <div> or <>
-    // ## like above
-    //    {results && distance !== 0 &&
-    //        <>
-    //        <p>The kilometics covered portion of this travel is {rateCalc}</p>
-    //        </>
-    //    }
     )
 }
 
