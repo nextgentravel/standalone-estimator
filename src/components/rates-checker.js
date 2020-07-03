@@ -19,6 +19,8 @@ const RatesChecker = () => {
     const [destination, setDestination] = useState('');
     const [departureDate, setDepartureDate] = useState('');
     const [returnDate, setReturnDate] = useState('');
+    const [result, setResult] = useState({});
+
 
     const [validationWarnings, setValidationWarnings] = useState([]);
 
@@ -103,14 +105,23 @@ const RatesChecker = () => {
                 fetch(uri)
                     .then(response => response.json())
                     .then(json => {
-                        let filtered = Object.keys(json)
+                        let acrdRatesFiltered = Object.keys(json)
                         .filter(key => months.map(mon => mon.month).includes(key))
                         .reduce((res, key) => {
                             res[key] = json[key];
                             return res;
                         }, {});
-                        setAcrdRates(filtered);
-                        setMealsAndIncidentals(calculateMeals(departureDate, returnDate, province))
+
+                        let mealsAndIncidentals = calculateMeals(departureDate, returnDate, province);
+
+                        setResult({
+                            acrdRatesFiltered,
+                            destination,
+                            mealsAndIncidentals,
+                        })
+                        // setAcrdRates(acrdRatesFiltered);
+                        // setMealsAndIncidentals()
+                        console.log('result', result)
                         setLoading(false);
                     }).catch(err => {
                         // handle the error.  Ask user to try again?
@@ -133,6 +144,7 @@ const RatesChecker = () => {
         setAcrdRates({});
         setMealsAndIncidentals({});
         setGeneralError(false);
+        setResult({});
     }
 
     const handleValidation = () => {
@@ -186,10 +198,10 @@ const RatesChecker = () => {
                 </div>
             </div>}
 
-            {!loading && Object.keys(acrdRates).length !== 0 &&
+            {!loading && 'acrdRatesFiltered' in result &&
                 <>
                     <h3>Accommodation Rate Limits</h3>
-                    <p className="lead">These limits help determine reasonable accommodation costs for <strong>{destination}</strong>.</p>
+                    <p className="lead">These limits help determine reasonable accommodation costs for <strong>{result.destination}</strong>.</p>
                     <div className="table-responsive">
                         <table className="table">
                             <thead>
@@ -199,10 +211,10 @@ const RatesChecker = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                            {Object.keys(acrdRates).map((month) => (
+                            {Object.keys(result.acrdRatesFiltered).map((month) => (
                                 <tr key={month}>
                                     <th scope="row">{month}</th>
-                                    <td>{acrdRates[month]}</td>
+                                    <td>{result.acrdRatesFiltered[month]}</td>
                                 </tr>
                             ))}
                             </tbody>
@@ -210,12 +222,11 @@ const RatesChecker = () => {
                     </div>
                 </>
             }
-            {!loading && Object.keys(mealsAndIncidentals).length !== 0 &&
+            {!loading && 'mealsAndIncidentals' in result &&
                 <>
                     <h3>Meals and Incidentals</h3>
-                    <p className="lead">This text will say something useful.</p>
-
-                    <p>You can spend <strong>${mealsAndIncidentals.dailyTotal.toFixed(2)}</strong> on meals and incidentals per day.</p>
+                    <p className="lead">These rates help determine reasonable meal costs. </p>
+                    <p>You can spend <strong>${result.mealsAndIncidentals.dailyTotal.toFixed(2)}</strong> on meals and incidentals per day.</p>
                 </>
             }
 
