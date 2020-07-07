@@ -18,6 +18,7 @@ const Kilometrics = () => {
     const [generalError, setGeneralError] = useState(false);
 
     const [validationWarnings, setValidationWarnings] = useState([]);
+    const [errorPanel, setErrorPanel] = useState(false);
 
     useEffect(() => {
         let provinceOptions = Object.keys(locations).map(location => {
@@ -66,10 +67,12 @@ const Kilometrics = () => {
                     distance,
                 });
                 setLoading(false);
+                setErrorPanel(false);
             })
             .catch(err => {
                 setLoading(false);
-                setValidationWarnings(err.inner)
+                setValidationWarnings(err.inner);
+                setErrorPanel(true);
             });
     }
 
@@ -79,6 +82,15 @@ const Kilometrics = () => {
         setDistance('');
         setResult({});
         setValidationWarnings([]);
+        setErrorPanel(false);
+    }
+
+    const errorList =() => {
+        let list = [];
+        list = validationWarnings.map((error, index) =>
+            <li key={index}><a className="alert-link" href={`#${error.path}`}>{error.errors}</a></li>
+        );
+        return list;
     }
 
     return (
@@ -86,6 +98,13 @@ const Kilometrics = () => {
             <div className="mb-4">
                 <h1>Find the correct rate for your kilometrics</h1>
                 <p className="lead">Taking your personal vehicle on a government trip? Refer to these rates.</p>
+                {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
+                    <h2>Field error or required</h2>
+                    <p>Please verify the following fields: </p>
+                    <ul className="list-unstyled">
+                        {errorList()}
+                    </ul>
+                </div>}
                 <form id="kilometrics-form" className="form-group mb-4" onSubmit={handleSubmit}>
                     <InputDatalist
                         validationWarnings={validationWarnings}
