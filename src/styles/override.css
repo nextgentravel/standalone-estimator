@@ -166,3 +166,9 @@ body {
         margin-bottom: 0
     }
 }
+
+/* header .brand img,
+header .brand object {
+    height: auto;
+    max-height: 40px
+} */
