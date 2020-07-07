@@ -40,14 +40,14 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => (
             />
         </Link>
       </div>
-      <div className='ml-auto mr-3'>
+      <section className='col-xs-3 ml-auto mr-3'>
         {showLanguageSelect &&
           <>
             <h2 class="d-none">Language selection</h2>
             <SelectLanguage langs={langs} />
           </>
         }
-      </div>
+      </section>
 		</div>
 	</div>
 </header>
