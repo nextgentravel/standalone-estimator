@@ -6,6 +6,10 @@
 
 // You can delete this file if you're not using it
 
+const { GraphQLJSONObject } = require(`graphql-type-json`)
+const striptags = require(`striptags`)
+const lunr = require(`lunr`)
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return new Promise((resolve, reject) => {
@@ -36,3 +40,20 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 };
+
+exports.createResolvers = ({ cache, createResolvers }) => {
+  createResolvers({
+    Query: {
+      LunrIndex: {
+        type: GraphQLJSONObject,
+        resolve: (source, args, context, info) => {
+          const blogNodes = context.nodeModel.getAllNodes({
+            type: `MarkdownRemark`,
+          })
+          const type = info.schema.getType(`MarkdownRemark`)
+          return createIndex(blogNodes, type, cache)
+        },
+      },
+    },
+  })
+}
