@@ -3,6 +3,8 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import { Link } from "gatsby"
+import SearchForm from "../components/search-form"
+
 
 const IndexPage = () => (
   <Layout>
@@ -12,6 +14,7 @@ const IndexPage = () => (
       <main id="main-content" role="main">
         <div className="container mt-4">
           <h1>GC Travel Guide</h1>
+          <SearchForm />
           <div className="card-deck mb-3 mt-3">
               <div className="card mb-2">
                 <div className="card-img-top">

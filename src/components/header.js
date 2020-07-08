@@ -30,9 +30,9 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => (
     </div>
   </div>
 
-	<div class="container">
-		<div class="row mt-4">
-      <div class="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization">
+	<div className="container">
+		<div className="row mt-4">
+      <div className="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization">
         <Link to={homeLink}>
             <Image
               filename="sig-blk-en.svg"
@@ -43,7 +43,7 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => (
       <div className='ml-auto mr-3'>
         {showLanguageSelect &&
           <>
-            <h2 class="d-none">Language selection</h2>
+            <h2 className="d-none">Language selection</h2>
             <SelectLanguage langs={langs} />
           </>
         }
