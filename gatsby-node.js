@@ -57,3 +57,37 @@ exports.createResolvers = ({ cache, createResolvers }) => {
     },
   })
 }
+
+const createIndex = async (blogNodes, type, cache) => {
+  const documents = []
+  const store = {}
+  for (const node of blogNodes) {
+    const {slug} = node.fields
+    const title = node.frontmatter.title
+    const [html, excerpt] = await Promise.all([
+      type.getFields().html.resolve(node),
+      type.getFields().excerpt.resolve(node, { pruneLength: 40 }),
+    ])
+    documents.push({
+      slug: node.fields.slug,
+      title: node.frontmatter.title,
+      content: striptags(html),
+    })
+    store[slug] = {
+      title,
+      excerpt,
+      content: striptags(html),
+    }
+
+  }
+  const index = lunr(function() {
+    this.metadataWhitelist = ['position']
+    this.ref(`slug`)
+    this.field(`title`)
+    this.field(`content`)
+    for (const doc of documents) {
+      this.add(doc)
+    }
+  })
+  return { index: index.toJSON(), store }
+}
