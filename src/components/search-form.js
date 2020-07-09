@@ -42,7 +42,9 @@ const SearchForm = ({ initialQuery = "" }) => {
           onChange={handleChange}
         />
         <div className="input-group-append">
-          <button type="submit" className="btn btn-primary"><FaSearch /></button>
+          <button type="submit" className="btn btn-primary"><FaSearch />
+            <span className="sr-only">Search</span>
+          </button>
         </div>
       </div>
       <span className="search-form-addon"></span>
