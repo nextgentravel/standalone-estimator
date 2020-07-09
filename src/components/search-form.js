@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react"
 import { navigate } from "@reach/router"
 import { FaSearch } from 'react-icons/fa';
 
-const SearchForm = ({ initialQuery = "" }) => {
+const SearchForm = ({ initialQuery = "", placement = "header" }) => {
   // Create a piece of state, and initialize it to initialQuery
   // query will hold the current value of the state,
   // and setQuery will let us change it
@@ -28,14 +28,14 @@ const SearchForm = ({ initialQuery = "" }) => {
   }
   return (
     <form role="search" onSubmit={handleSubmit} className="search-form">
-      <label htmlFor="search-input" className="sr-only">
+      <label htmlFor={`search-input-${placement}`} className="sr-only">
         Search for:
       </label>
       <div className="input-group">
         <input
           className="form-control"
           ref={inputEl}
-          id="search-input"
+          id={`search-input-${placement}`}
           type="search"
           value={query}
           placeholder="Search"

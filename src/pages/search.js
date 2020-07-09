@@ -67,10 +67,10 @@ const SearchPage = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Search results" />
-      <main className="container mt-3">
+      <main className="container mt-3" id="main-content">
         {q ? <h1>Search results</h1> : <h1>What are you looking for?</h1>}
         <hr className="mb-5" />
-        <SearchForm initialQuery={q} />
+        <SearchForm initialQuery={q} placement="page" />
         <h2 className="mt-4 mb-4">{results.length} search results for "{q}"</h2>
         {results.length ? (
             results.map(result => {

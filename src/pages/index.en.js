@@ -3,8 +3,6 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import { Link } from "gatsby"
-import SearchForm from "../components/search-form"
-
 
 const IndexPage = () => (
   <Layout>
