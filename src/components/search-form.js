@@ -1,6 +1,8 @@
 /* src/components/search-form.js */
 import React, { useState, useRef } from "react"
 import { navigate } from "@reach/router"
+import { FaSearch } from 'react-icons/fa';
+
 const SearchForm = ({ initialQuery = "" }) => {
   // Create a piece of state, and initialize it to initialQuery
   // query will hold the current value of the state,
@@ -25,19 +27,25 @@ const SearchForm = ({ initialQuery = "" }) => {
     navigate(`/search?q=${q}`)
   }
   return (
-    <form role="search" onSubmit={handleSubmit}>
-      <label htmlFor="search-input" style={{ display: "block" }}>
+    <form role="search" onSubmit={handleSubmit} className="form-inline search-form">
+      <label htmlFor="search-input" className="sr-only">
         Search for:
       </label>
-      <input
-        ref={inputEl}
-        id="search-input"
-        type="search"
-        value={query}
-        placeholder="e.g. duck"
-        onChange={handleChange}
-      />
-      <button type="submit">Go</button>
+      <div className="input-group">
+        <input
+          className="form-control"
+          ref={inputEl}
+          id="search-input"
+          type="search"
+          value={query}
+          placeholder="Search"
+          onChange={handleChange}
+        />
+        <div className="input-group-append">
+          <button type="submit" className="btn btn-primary"><FaSearch /></button>
+        </div>
+      </div>
+      <span className="search-form-addon"></span>
     </form>
   )
 }
