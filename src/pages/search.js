@@ -23,32 +23,46 @@ const SearchPage = ({ data, location }) => {
   let results = []
 
   try {
-    // Search is a lunr method
     results = index.search(q).map(({ ref, matchData }) => {
-      return {
-        slug: ref,
-        positions: matchData.metadata[q].content.position,
-        ...store[ref],
-      }
+        return {
+          slug: ref,
+          metadata: matchData.metadata,
+          ...store[ref],
+        }
+      // })
     })
   } catch (error) {
     console.log(error)
   }
 
-  console.log('results', results)
-
   results = results.map((result) => {
-    console.log('result.positions', result.positions)
-    let highlightedContent = 'test'
-    
-    //   console.log('highlightedContent', highlightedContent)
+    let positions = [];
+    let terms = Object.keys(result.metadata);
+    terms.forEach(term => {
+      positions.push(result.metadata[term].content.position[0][0]);
+    })
+
+    positions.sort((a, b) => {
+      return a - b;
+    });
+
+    let firstInstance = positions[0]
+    let c = result.content;
+    let excerpt = c.substring(firstInstance - 20, firstInstance + 200);
+    let firstSpace = excerpt.indexOf(' ');
+    let excerptTruncated = excerpt.substring(firstSpace, excerpt.length);
+    let highlightedExcerpt = excerptTruncated;
+    terms.forEach(term => {
+      let replace = term;
+      let re = new RegExp(replace, 'gi');
+      highlightedExcerpt = highlightedExcerpt.replace(re, `<strong>${term}</strong>`);
+    });
+    highlightedExcerpt = `...${highlightedExcerpt.trim()}...`
     return {
-    highlightedContent,
-        ...result,
+      highlightedExcerpt,
+      ...result,
     }
   })
-
-  console.log('results after highlight', results)
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -65,7 +79,7 @@ const SearchPage = ({ data, location }) => {
                         {result.title || result.slug}
                     </Link>
                 </h2>
-                <p dangerouslySetInnerHTML={{__html: result.highlightedContent}}></p>
+                <p dangerouslySetInnerHTML={{__html: result.highlightedExcerpt}}></p>
                 </article>
             )
             })
