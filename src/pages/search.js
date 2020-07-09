@@ -24,12 +24,11 @@ const SearchPage = ({ data, location }) => {
 
   try {
     results = index.search(q).map(({ ref, matchData }) => {
-        return {
-          slug: ref,
-          metadata: matchData.metadata,
-          ...store[ref],
-        }
-      // })
+      return {
+        slug: ref,
+        metadata: matchData.metadata,
+        ...store[ref],
+      }
     })
   } catch (error) {
     console.log(error)
@@ -69,18 +68,23 @@ const SearchPage = ({ data, location }) => {
       <SEO title="Search results" />
       <main className="container mt-3">
         {q ? <h1>Search results</h1> : <h1>What are you looking for?</h1>}
+        <hr className="mb-5" />
         <SearchForm initialQuery={q} />
+        <h2 className="mt-4 mb-4">{results.length} search results for "{q}"</h2>
         {results.length ? (
             results.map(result => {
             return (
+              <>
                 <article key={result.slug}>
-                <h2>
+                  <h3>
                     <Link to={result.slug}>
-                        {result.title || result.slug}
+                      {result.title || result.slug}
                     </Link>
-                </h2>
-                <p dangerouslySetInnerHTML={{__html: result.highlightedExcerpt}}></p>
+                  </h3>
+                  <p dangerouslySetInnerHTML={{__html: result.highlightedExcerpt}}></p>
                 </article>
+                <hr />
+              </>
             )
             })
         ) : (
