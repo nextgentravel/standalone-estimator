@@ -36,21 +36,26 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => {
           <nav className="sr-only sr-only-focusable aurora-skip">
             <a className="sr-only sr-only-focusable aurora-skip" href="#main-content"><FormattedMessage id="skipToMain" /></a>
           </nav>
-          <div className="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization">
+          <div className="col-4" property="publisher" typeof="GovernmentOrganization">
             <Link to={homeLink}>
                 <Image
                   filename="sig-blk-en.svg"
                   alt={ intl.formatMessage({ id: 'governmentOfCanada' })}
+                  className="gc-logo"
                 />
             </Link>
           </div>
-          <section className='col-xs-3 ml-auto mr-3'>
+          <section className='col-3 pull-right text-right'>
             {showLanguageSelect &&
               <>
                 <h2 className="sr-only sr-only-focusable aurora-skip"><FormattedMessage id="languageSelection" /></h2>
                 <SelectLanguage langs={langs} />
               </>
             }
+          </section>
+
+          <section className='col-lg-offset-4 col-md-offset-4 col-sm-offset-2 col-sm-5 col-md-4'>
+            Here I am
           </section>
         </div>
       </div>
