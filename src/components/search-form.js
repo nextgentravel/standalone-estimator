@@ -27,7 +27,7 @@ const SearchForm = ({ initialQuery = "" }) => {
     navigate(`/search?q=${q}`)
   }
   return (
-    <form role="search" onSubmit={handleSubmit} className="form-inline search-form">
+    <form role="search" onSubmit={handleSubmit} className="search-form">
       <label htmlFor="search-input" className="sr-only">
         Search for:
       </label>
