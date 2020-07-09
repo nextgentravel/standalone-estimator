@@ -49,9 +49,6 @@ body {
     clear: left;
 }
 
-
-
-
 .btn:hover {
     background-color: #002D42 !important;
     color: #fff !important;
@@ -147,28 +144,6 @@ body {
     }
   }
 
-
-
-@media screen and (max-width:767px) {
-    header .brand a {
-        margin-top: 15px
-    }
-
-    header .brand img,
-    header .brand object {
-        max-height: 30px
-    }
+.gc-logo {
+    max-width: 100px,
 }
-
-
-@media print {
-    header .brand {
-        margin-bottom: 0
-    }
-}
-
-/* header .brand img,
-header .brand object {
-    height: auto;
-    max-height: 40px
-} */
