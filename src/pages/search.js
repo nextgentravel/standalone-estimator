@@ -5,6 +5,7 @@ import { Index } from "lunr"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SearchForm from "../components/search-form"
+import 'url-search-params-polyfill';
 
 // We can access the results of the page GraphQL query via the data props
 const SearchPage = ({ data, location }) => {
