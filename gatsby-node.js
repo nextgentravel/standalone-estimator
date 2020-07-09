@@ -78,7 +78,6 @@ const createIndex = async (blogNodes, type, cache) => {
       excerpt,
       content: striptags(html),
     }
-
   }
   const index = lunr(function() {
     this.metadataWhitelist = ['position']
@@ -89,5 +88,6 @@ const createIndex = async (blogNodes, type, cache) => {
       this.add(doc)
     }
   })
+
   return { index: index.toJSON(), store }
 }
