@@ -14,7 +14,7 @@ const SearchPage = ({ data, location }) => {
   // URLSearchParams provides a native way to get URL params
   // location.search.slice(1) gets rid of the "?" 
   const params = new URLSearchParams(location.search.slice(1))
-  const q = params.get("q") || ""
+  const q = params.get("q")
   
   // LunrIndex is available via page query
   const { store } = data.LunrIndex
