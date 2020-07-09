@@ -49,9 +49,6 @@ body {
     clear: left;
 }
 
-
-
-
 .btn:hover {
     background-color: #002D42 !important;
     color: #fff !important;
@@ -146,3 +143,7 @@ body {
       transform: rotate(359deg);
     }
   }
+
+.gc-logo {
+    max-width: 100px,
+}

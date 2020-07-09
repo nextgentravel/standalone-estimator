@@ -1,8 +1,11 @@
 module.exports = {
     'en': {
         // header
+        'governmentOfCanada': 'Government of Canada',
+        'skipToMain': 'Skip to the main content',
         'pageTitle': 'Travel Guidebook',
         'underDevelopment': 'This website is under development.',
+        'languageSelection': 'Language Selection',
         'alpha': 'ALPHA',
         'otherLangName': 'Français',
         // footer
@@ -12,8 +15,11 @@ module.exports = {
     },
     'fr': {
         // header
+        'governmentOfCanada': 'Gouvernement du Canada',
+        'skipToMain': 'Passez au contenu principal',
         'pageTitle': 'Guide de voyage',
         'underDevelopment': 'Ce site Web est en cours de développement.',
+        'languageSelection': 'Sélection de la langue',
         'alpha': 'ALPHA',
         'otherLangName': 'English',
         // footer
