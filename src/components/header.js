@@ -32,9 +32,6 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => (
 
 	<div className="container">
 		<div className="row mt-4">
-      <nav className="sr-only sr-only-focusable aurora-skip">
-        <a className="sr-only sr-only-focusable aurora-skip" href="#main-content">Skip to the main content</a>
-      </nav>
       <div className="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization">
         <Link to={homeLink}>
             <Image
@@ -43,6 +40,9 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => (
             />
         </Link>
       </div>
+      <nav>
+        <a className="sr-only sr-only-focusable aurora-skip skiplink" href="#main-content">Skip to the main content</a>
+      </nav>
       <section className='col-xs-3 ml-auto mr-3'>
         {showLanguageSelect &&
           <>
