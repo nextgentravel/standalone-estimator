@@ -125,6 +125,8 @@ module.exports = {
           `/fr/during/*`,
           `/en/after/*`,
           `/fr/after/*`,
+          `/en/*`,
+          `/fr/*`,
         ],
       },
       runtimeCaching: [
