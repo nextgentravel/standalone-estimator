@@ -108,7 +108,49 @@ module.exports = {
         }
       }
     },
-    `gatsby-plugin-offline`,
+    {
+      resolve:`gatsby-plugin-offline`,
+      options: {
+        precachePages: [
+          `/search/*`,
+          `/en/rates/*`,
+          `/fr/rates/*`,
+          `/en/kilometrics/*`,
+          `/fr/kilometrics/*`,
+          `/en/before/*`,
+          `/fr/before/*`,
+          `/en/booktravel/*`,
+          `/fr/booktravel/*`,
+          `/en/during/*`,
+          `/fr/during/*`,
+          `/en/after/*`,
+          `/fr/after/*`,
+        ],
+      },
+      runtimeCaching: [
+        {
+          // Use cacheFirst since these don't need to be revalidated (same RegExp
+          // and same reason as above)
+          urlPattern: /(\.js$|\.css$|static\/)/,
+          handler: `CacheFirst`,
+        },
+        {
+          // page-data.json files are not content hashed
+          urlPattern: /^https?:.*\page-data\/.*\/page-data\.json/,
+          handler: `NetworkFirst`,
+        },
+        {
+          // Add runtime caching of various other page resources
+          urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
+          handler: `StaleWhileRevalidate`,
+        },
+        {
+          // Google Fonts CSS (doesn't end in .css so we need to specify it)
+          urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/,
+          handler: `StaleWhileRevalidate`,
+        },
+      ],
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
