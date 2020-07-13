@@ -26,6 +26,7 @@ const RatesChecker = () => {
 
     const [loading, setLoading] = useState(false);
     const [generalError, setGeneralError] = useState(false);
+    const [errorPanel, setErrorPanel] = useState(false);
 
     //   Will use later when integration language
     //   const url = globalHistory.location.pathname;
@@ -116,15 +117,18 @@ const RatesChecker = () => {
                             mealsAndIncidentals,
                         })
                         setLoading(false);
+                        setErrorPanel(false);
                     }).catch(err => {
                         // handle the error.  Ask user to try again?
                         setGeneralError(true);
                         setLoading(false);
-                    })   
+                        setErrorPanel(false);
+                    })
             })
             .catch(err => {
                 setLoading(false);
-                setValidationWarnings(err.inner)
+                setValidationWarnings(err.inner);
+                setErrorPanel(true);
             });
     }
 
@@ -135,6 +139,7 @@ const RatesChecker = () => {
         setDestination('');
         setValidationWarnings([])
         setGeneralError(false);
+        setErrorPanel(false);
         setResult({});
     }
 
@@ -153,11 +158,11 @@ const RatesChecker = () => {
                   ),
             departureDate: yup
                 .date()
-                .typeError('Start Date must be in YYYY-MM-DD format')
+                .typeError('Start Date must be in DD-MM-YYYY format')
                 .required(),
             returnDate: yup
                 .date()
-                .typeError('Return Date must be in YYYY-MM-DD format')
+                .typeError('Return Date must be in DD-MM-YYYY format')
                 .required().min(
                 yup.ref('departureDate'),
                 "End date cannot be before start date"
@@ -166,10 +171,25 @@ const RatesChecker = () => {
         return schema.validate(target, {abortEarly: false})
     }
 
+    const errorList =() => {
+        let list = [];
+        list = validationWarnings.map((error, index) =>
+            <li key={index}><a className="alert-link" href={`#${error.path}`}>{error.errors}</a></li>
+        );
+        return list;
+    }
+
     return (
         <div className="mb-4">
             <h1>Find Your Rates and Limits</h1>
             <p className="lead">A tool to help you easily find the limits applicable to your trip.</p>
+             {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
+                <h2>Field error or required</h2>
+                <p>Please verify the following fields: </p>
+                <ul className="list-unstyled">
+                    {errorList()}
+                </ul>
+            </div>}
             <form id="rates-form" className="form-group mb-4" onSubmit={handleSubmit}>
                 <InputDatalist validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Destination" name="destination" options={citiesList} updateValue={setDestination} />
                 <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Departure Date" name="departureDate" updateValue={setDepartureDate}></DatePicker>
