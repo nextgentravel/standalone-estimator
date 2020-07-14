@@ -64,6 +64,7 @@ const createIndex = async (blogNodes, type, cache) => {
   for (const node of blogNodes) {
     const {slug} = node.fields
     const title = node.frontmatter.title
+    const meta = node.frontmatter.meta
     const [html, excerpt] = await Promise.all([
       type.getFields().html.resolve(node),
       type.getFields().excerpt.resolve(node, { pruneLength: 40 }),
@@ -72,17 +73,20 @@ const createIndex = async (blogNodes, type, cache) => {
       slug: node.fields.slug,
       title: node.frontmatter.title,
       content: striptags(html),
+      meta,
     })
     store[slug] = {
       title,
       excerpt,
       content: striptags(html),
+      meta,
     }
   }
   const index = lunr(function() {
     this.metadataWhitelist = ['position']
     this.ref(`slug`)
     this.field(`title`)
+    this.field(`meta`)
     this.field(`content`)
     for (const doc of documents) {
       this.add(doc)
