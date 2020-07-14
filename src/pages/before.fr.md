@@ -52,7 +52,7 @@ lead: "Après avoir décidé de voyager, vous devez commencer par créer un devi
 
 </div>
 
-<div class="content-right col-xs-6 col-md-4">
+<div class="content-right col-xs-6 col-md-4" id="sidebar">
 
 ### Ressources
 * [Vos tarifs et limites](/fr/rates)
