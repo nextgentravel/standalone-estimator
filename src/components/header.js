@@ -46,7 +46,7 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => (
       <section className='col-xs-3 ml-auto mr-3'>
         {showLanguageSelect &&
           <>
-            <h2 className="d-none sr-only sr-only-focusable aurora-skip">Language selection</h2>
+            <span className="d-none sr-only sr-only-focusable aurora-skip"><FormattedMessage  id="Language selection" /></span>
             <SelectLanguage langs={langs} />
           </>
         }
