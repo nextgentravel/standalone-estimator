@@ -39,7 +39,13 @@ const SearchPage = ({ data, location }) => {
     let positions = [];
     let terms = Object.keys(result.metadata);
     terms.forEach(term => {
-      positions.push(result.metadata[term].content.position[0][0]);
+      if ('content' in result.metadata[term]) {
+        positions.push(result.metadata[term].content.position[0][0]);
+      }
+      if ('meta' in result.metadata[term]) {
+        console.log("Found in meta data")
+      }
+
     })
 
     positions.sort((a, b) => {
