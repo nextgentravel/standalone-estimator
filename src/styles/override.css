@@ -118,7 +118,7 @@ body {
 .skiplink:focus, .skiplink:active {
     color: white;
     background-color: black;
-    font-size: 1em;
+    font-size: 1.2em;
     text-align: center;
 }
 
