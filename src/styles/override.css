@@ -118,6 +118,14 @@ body {
     background-color: #cccccc;
 }
 
+.skiplink:focus, .skiplink:active {
+    color: white;
+    background-color: black;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+
 @media only screen and (max-width: 990px) {
     .lang {
         margin-top: 50px;
