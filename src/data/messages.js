@@ -7,6 +7,7 @@ module.exports = {
         'otherLangName': 'Français',
         'languageSelect': 'Language selection toggle',
         'mainSkip': 'Skip to the main content',
+        'GOCAlt': 'Government of Canada',
         // footer
         'home': 'Home',
         'suggestAnUpdate': 'Suggest an Update',
@@ -22,6 +23,7 @@ module.exports = {
         'otherLangName': 'English',
         'languageSelect': 'Bascule de sélection de la langue',
         'mainSkip': 'Passez au contenu principal',
+        'GOCAlt': 'Gouvernement du Canada',
         // footer
         'home': 'Maison',
         'suggestAnUpdate': 'Suggérer une mise à jour',
