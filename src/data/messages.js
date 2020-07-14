@@ -5,10 +5,14 @@ module.exports = {
         'underDevelopment': 'This website is under development.',
         'alpha': 'ALPHA',
         'otherLangName': 'Français',
+        'languageSelect': 'Language selection toggle',
+        'mainSkip': 'Skip to the main content',
         // footer
         'home': 'Home',
         'suggestAnUpdate': 'Suggest an Update',
-        'viewThisPageOnGithub': 'View this page on Github'
+        'viewThisPageOnGithub': 'View this page on Github',
+        //infopage
+        'sidebarSkip': 'Skip to the sidebar'
     },
     'fr': {
         // header
@@ -16,9 +20,13 @@ module.exports = {
         'underDevelopment': 'Ce site Web est en cours de développement.',
         'alpha': 'ALPHA',
         'otherLangName': 'English',
+        'languageSelect': 'Bascule de sélection de la langue',
+        'mainSkip': 'Passez au contenu principal',
         // footer
         'home': 'Maison',
         'suggestAnUpdate': 'Suggérer une mise à jour',
-        'viewThisPageOnGithub': 'Voir cette page sur Github'
+        'viewThisPageOnGithub': 'Voir cette page sur Github',
+        //infopage
+        'sidebarSkip': 'Passer à la barre latérale'
     }
 };

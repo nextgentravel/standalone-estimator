@@ -41,12 +41,12 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => (
         </Link>
       </div>
       <nav>
-        <a className="sr-only sr-only-focusable aurora-skip skiplink" href="#main-content">Skip to the main content</a>
+        <a className="sr-only sr-only-focusable aurora-skip skiplink" href="#main-content"><FormattedMessage id="mainSkip" /></a>
       </nav>
       <section className='col-xs-3 ml-auto mr-3'>
         {showLanguageSelect &&
           <>
-            <span className="d-none sr-only sr-only-focusable aurora-skip"><FormattedMessage  id="Language selection" /></span>
+            <span className="d-none sr-only sr-only-focusable aurora-skip"><FormattedMessage  id="languageSelect" /></span>
             <SelectLanguage langs={langs} />
           </>
         }
