@@ -36,7 +36,7 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => (
         <Link to={homeLink}>
             <Image
               filename="sig-blk-en.svg"
-              alt="Government of Canada"
+              alt={<FormattedMessage id="GOCAlt"/>}
             />
         </Link>
       </div>
