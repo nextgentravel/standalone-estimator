@@ -10,10 +10,10 @@ const SelectLanguage = (props) => {
     .map((lang, idx) => {
       console.log('lang: ', lang)
       return (
-      <>
-        <Link to={lang.link} key={idx} className="language-link d-none d-sm-block"><FormattedMessage id="otherLangName"/></Link>
-        <abbr key={idx} title="Français" class="d-sm-none h3 language-link mrgn-tp-sm mrgn-bttm-0 text-uppercase"><Link to={lang.link}>{lang.langKey}</Link></abbr>
-      </>
+      <React.Fragment key={idx}>
+        <Link to={lang.link} className="language-link d-none d-sm-block"><FormattedMessage id="otherLangName"/></Link>
+        <abbr title="Français" className="d-sm-none h3 language-link mrgn-tp-sm mrgn-bttm-0 text-uppercase"><Link to={lang.link}>{lang.langKey}</Link></abbr>
+      </React.Fragment>
     )});
 
   return (
