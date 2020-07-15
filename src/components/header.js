@@ -15,7 +15,7 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => (
       verticalAlign: "middle"
     }}
   >
-    <div className="container py-3">
+    <aside className="container py-3">
       <button
         style={{
           background: "#FEC04F",
@@ -27,10 +27,10 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => (
         <strong><FormattedMessage id="alpha" /></strong>
       </button>
       <span><FormattedMessage id="underDevelopment" /></span>
-    </div>
+    </aside>
   </div>
 
-	<div class="container">
+	<nav class="container">
 		<div class="row mt-4">
       <div class="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization">
         <Link to={homeLink}>
@@ -49,7 +49,7 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => (
         }
       </div>
 		</div>
-	</div>
+	</nav>
 </header>
 
 
