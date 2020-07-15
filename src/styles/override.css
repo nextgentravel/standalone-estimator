@@ -49,9 +49,6 @@ body {
     clear: left;
 }
 
-
-
-
 .btn:hover {
     background-color: #002D42 !important;
     color: #fff !important;
@@ -121,7 +118,7 @@ body {
 .skiplink:focus, .skiplink:active {
     color: white;
     background-color: black;
-    font-size: 1em;
+    font-size: 1.2em;
     text-align: center;
 }
 
@@ -154,3 +151,7 @@ body {
       transform: rotate(359deg);
     }
   }
+
+.gc-logo {
+    max-width: 100px,
+}
