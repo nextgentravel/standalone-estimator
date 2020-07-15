@@ -35,7 +35,7 @@ lead: "Comment gérer tout problème avec le voyage réel"
 
 </section>
 
-<aside class="content-right col-xs-6 col-md-4">
+<aside class="content-right col-xs-6 col-md-4" id="sidebar">
 
 ### Ressources
 * [Première option](/)

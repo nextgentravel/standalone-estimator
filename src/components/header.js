@@ -36,18 +36,21 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => (
         <Link to={homeLink}>
             <Image
               filename="sig-blk-en.svg"
-              alt="Government of Canada"
+              alt={<FormattedMessage id="GOCAlt"/>}
             />
         </Link>
       </div>
-      <div className='ml-auto mr-3'>
+      <nav>
+        <a className="sr-only sr-only-focusable aurora-skip skiplink" href="#main-content"><FormattedMessage id="mainSkip" /></a>
+      </nav>
+      <section className='col-xs-3 ml-auto mr-3'>
         {showLanguageSelect &&
           <>
-            <h2 class="d-none">Language selection</h2>
+            <span className="d-none sr-only sr-only-focusable aurora-skip"><FormattedMessage  id="languageSelect" /></span>
             <SelectLanguage langs={langs} />
           </>
         }
-      </div>
+      </section>
 		</div>
 	</nav>
 </header>

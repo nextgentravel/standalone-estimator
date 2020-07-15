@@ -51,7 +51,7 @@ lead: "Étapes importantes pour réserver votre voyage"
 
 </section>
 
-<aside class="content-right col-xs-6 col-md-4">
+<aside class="content-right col-xs-6 col-md-4" id="sidebar">
 
 ### Ressources
 * [Première option](/)

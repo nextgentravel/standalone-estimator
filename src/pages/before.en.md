@@ -63,14 +63,14 @@ lead: "After deciding to travel, you should start by creating an estimate. The e
 | | ## Booking your trip
 | | - Using your Travel Identification Number (TIN) [log into the system](https://isuite6.hrgworldwide.com/gcportal/en-ca/sts.aspx)
 | | - In the system, use the instructions to book your trip. You can reference your estimates listed above to go through the booking process. [Link to the HRG instructions](/en/booktravel)
-| | - When at the submitting stage, requesting for online approval, try to submit at a time where the approver can approve it immediately. Success rates for bookings are over 90% if requests are immediately approved. Delaying submissions can cause the process to fail, causing you to restart the online booking process. 
+| | - When at the submitting stage, requesting for online approval, try to submit at a time where the approver can approve it immediately. Success rates for bookings are over 90% if requests are immediately approved. Delaying submissions can cause the process to fail, causing you to restart the online booking process.
 | |
 
 [Next: Booking Your Travel](/en/booktravel)
 
 </section>
 
-<aside class="content-right col-xs-6 col-md-4">
+<aside class="content-right col-xs-6 col-md-4" id="sidebar">
 
 ## Resources
 * [Your Rates and Limits](/en/rates)

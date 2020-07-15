@@ -110,7 +110,7 @@ lead: "To book your travel, you will need to select and confirm all of your trav
 
 </section>
 
-<aside class="content-right col-xs-6 col-md-4">
+<aside class="content-right col-xs-6 col-md-4" id="sidebar">
 
 ## Resources
 * [Option One](/)
