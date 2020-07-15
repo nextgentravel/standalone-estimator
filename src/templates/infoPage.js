@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 import { getCurrentLangKey } from 'ptz-i18n';
 import 'intl';
 import { globalHistory } from "@reach/router"
+import { FormattedMessage } from "react-intl";
 
 export default ({ data }) => {
   const post = data.markdownRemark;
@@ -16,11 +17,12 @@ export default ({ data }) => {
   const homeLink = `/${langKey}/`;
   return (
     <Layout>
-        <main>
+        <main id="main-content">
           <SEO title={post.frontmatter.title} />
           <Breadcrumbs pageTitle={post.frontmatter.title} homeLink={homeLink} />
           <div className="hero-holder">
             <div className="container">
+              <a className="sr-only sr-only-focusable aurora-skip skiplink" href="#sidebar"><FormattedMessage id="sidebarSkip"/></a>
               <h1 className="display-5">{post.frontmatter.heading}</h1>
               <p className="lead">
                 {post.frontmatter.lead}
