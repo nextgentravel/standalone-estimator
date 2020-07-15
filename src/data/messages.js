@@ -11,7 +11,9 @@ module.exports = {
         // footer
         'home': 'Home',
         'suggestAnUpdate': 'Suggest an Update',
-        'viewThisPageOnGithub': 'View this page on Github'
+        'viewThisPageOnGithub': 'View this page on Github',
+        //infoPage
+        'skipToSide': 'Skip to sidebar'
     },
     'fr': {
         // header
@@ -25,6 +27,8 @@ module.exports = {
         // footer
         'home': 'Maison',
         'suggestAnUpdate': 'Suggérer une mise à jour',
-        'viewThisPageOnGithub': 'Voir cette page sur Github'
+        'viewThisPageOnGithub': 'Voir cette page sur Github',
+        //infoPage
+        'skipToSide': 'Passer à la barre latérale'
     }
 };

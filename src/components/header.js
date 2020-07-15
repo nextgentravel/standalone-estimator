@@ -34,8 +34,8 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => {
 
       <div className="container">
         <div className="row mt-2">
-          <nav className="sr-only sr-only-focusable aurora-skip">
-            <a className="sr-only sr-only-focusable aurora-skip" href="#main-content"><FormattedMessage id="skipToMain" /></a>
+          <nav>
+            <a className="sr-only sr-only-focusable aurora-skip skiplink" href="#main-content"><FormattedMessage id="skipToMain" /></a>
           </nav>
           <section className='col-sm-4 col-md-12 text-right mb-2'>
             {showLanguageSelect &&
