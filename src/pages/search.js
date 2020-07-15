@@ -36,39 +36,55 @@ const SearchPage = ({ data, location }) => {
   }
 
   results = results.map((result) => {
-    let positions = [];
     let terms = Object.keys(result.metadata);
+    let displayExcerpt = '';
+    let foundInContent = false;
+    let foundInTags = false;
+    let positions = [];
+
     terms.forEach(term => {
       if ('content' in result.metadata[term]) {
         positions.push(result.metadata[term].content.position[0][0]);
+        foundInContent = true;
       }
       if ('meta' in result.metadata[term]) {
-        console.log("Found in meta data")
+        foundInTags = true;
       }
-
     })
 
     positions.sort((a, b) => {
       return a - b;
     });
 
-    let firstInstance = positions[0]
-    let c = result.content;
-    let excerpt = c.substring(firstInstance - 20, firstInstance + 200);
-    let firstSpace = excerpt.indexOf(' ');
-    let excerptTruncated = excerpt.substring(firstSpace, excerpt.length);
-    let highlightedExcerpt = excerptTruncated;
-    terms.forEach(term => {
-      let replace = term;
-      let re = new RegExp(replace, 'gi');
-      highlightedExcerpt = highlightedExcerpt.replace(re, `<strong>${term}</strong>`);
-    });
-    highlightedExcerpt = `...${highlightedExcerpt.trim()}...`
+
+    if (foundInContent) {
+      console.log('foundInContent', foundInContent)
+
+      let firstInstance = positions[0]
+      let c = result.content;
+      let excerpt = c.substring(firstInstance - 20, firstInstance + 200);
+      let firstSpace = excerpt.indexOf(' ');
+      let excerptTruncated = excerpt.substring(firstSpace, excerpt.length);
+      let highlightedExcerpt = excerptTruncated;
+      terms.forEach(term => {
+        let replace = term;
+        let re = new RegExp(replace, 'gi');
+        highlightedExcerpt = highlightedExcerpt.replace(re, `<strong>${term}</strong>`);
+      });
+      displayExcerpt = `...${highlightedExcerpt.trim()}...`
+    } else if (foundInTags) {
+      displayExcerpt = 'found in tags'
+    }
+
+    console.log('displayExcerpt: ', displayExcerpt)
+
     return {
-      highlightedExcerpt,
+      displayExcerpt,
       ...result,
     }
   })
+
+  console.log('results', results)
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -81,17 +97,17 @@ const SearchPage = ({ data, location }) => {
         {results.length ? (
             results.map(result => {
             return (
-              <>
-                <article key={result.slug}>
+              <React.Fragment key={result.slug}>
+                <article>
                   <h3>
                     <Link to={result.slug}>
                       {result.title || result.slug}
                     </Link>
                   </h3>
-                  <p dangerouslySetInnerHTML={{__html: result.highlightedExcerpt}}></p>
+                  <p dangerouslySetInnerHTML={{__html: result.displayExcerpt}}></p>
                 </article>
                 <hr />
-              </>
+              </React.Fragment>
             )
             })
         ) : (
