@@ -6,7 +6,7 @@ heading: "Décision de voyager"
 lead: "Après avoir décidé de voyager, vous devez commencer par créer un devis. L'estimation devrait donner une approximation globale du coût total du voyage, afin qu'il puisse être approuvé."
 ---
 
-<div class="content-left col-xs-12 col-sm-12 col-md-8">
+<section class="content-left col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -50,9 +50,9 @@ lead: "Après avoir décidé de voyager, vous devez commencer par créer un devi
 
 [Suivant: Réservez votre voyage](/ fr / booktravel)
 
-</div>
+</section>
 
-<div class="content-right col-xs-6 col-md-4">
+<aside class="content-right col-xs-6 col-md-4">
 
 ### Ressources
 * [Vos tarifs et limites](/fr/rates)
@@ -70,4 +70,4 @@ lead: "Après avoir décidé de voyager, vous devez commencer par créer un devi
 | | Votre [Coordonnateur ministériel des voyages désigné](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-fra.asp) devrait être en mesure de vous aider!
 | |
 
-</div>
+</aside>
