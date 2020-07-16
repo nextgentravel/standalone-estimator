@@ -8,7 +8,6 @@ const SelectLanguage = (props) => {
   const links = props.langs
     .filter(lang => !lang.selected)
     .map((lang, idx) => {
-      console.log('lang: ', lang)
       return (
       <React.Fragment key={idx}>
         <Link to={lang.link} className="language-link d-none d-sm-block"><FormattedMessage id="otherLangName"/></Link>

@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SearchForm from "../components/search-form"
 import 'url-search-params-polyfill';
+import { FaQuestionSign } from 'react-icons/fa';
 
 // We can access the results of the page GraphQL query via the data props
 const SearchPage = ({ data, location }) => {
@@ -31,6 +32,20 @@ const SearchPage = ({ data, location }) => {
         ...store[ref],
       }
     })
+  } catch (error) {
+    console.log(error)
+  }
+
+  try {
+    if (results.length === 0) {
+      results = index.search(q).map(({ ref, matchData }) => {
+        return {
+          slug: ref,
+          metadata: matchData.metadata,
+          ...store[ref],
+        }
+      });
+    }
   } catch (error) {
     console.log(error)
   }
