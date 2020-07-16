@@ -47,7 +47,7 @@ const SearchPage = ({ data, location }) => {
         positions.push(result.metadata[term].content.position[0][0]);
         foundInContent = true;
       }
-      if ('meta' in result.metadata[term]) {
+      if ('tags' in result.metadata[term]) {
         foundInTags = true;
       }
     })
@@ -58,8 +58,6 @@ const SearchPage = ({ data, location }) => {
 
 
     if (foundInContent) {
-      console.log('foundInContent', foundInContent)
-
       let firstInstance = positions[0]
       let c = result.content;
       let excerpt = c.substring(firstInstance - 20, firstInstance + 200);
@@ -73,18 +71,17 @@ const SearchPage = ({ data, location }) => {
       });
       displayExcerpt = `...${highlightedExcerpt.trim()}...`
     } else if (foundInTags) {
-      displayExcerpt = 'found in tags'
+      let split = result.tags.split(': ')
+      let c = result.content;
+      displayExcerpt = c.substring(0, 200);
+      displayExcerpt = `<p class="lead">Suggestion based on <em>${split[0]}</em></p>${displayExcerpt.trim()}...`
     }
-
-    console.log('displayExcerpt: ', displayExcerpt)
 
     return {
       displayExcerpt,
       ...result,
     }
   })
-
-  console.log('results', results)
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -93,7 +90,7 @@ const SearchPage = ({ data, location }) => {
         {q ? <h1>Search results</h1> : <h1>What are you looking for?</h1>}
         <hr className="mb-5" />
         <SearchForm initialQuery={q} placement="page" />
-        <h2 className="mt-4 mb-4">{results.length} search results for "{q}"</h2>
+        <h2 className="mt-4 mb-4">{results.length} search result{results.length > 1 ? 's' : ''} for "{q}"</h2>
         {results.length ? (
             results.map(result => {
             return (
