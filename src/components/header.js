@@ -1,46 +1,66 @@
 import PropTypes from "prop-types"
 import React from "react"
+import Image from "../components/image"
+import Link from 'gatsby-link';
+import SelectLanguage from './languageSelect';
+import { FormattedMessage, useIntl } from 'react-intl';
+import SearchForm from "../components/search-form"
 
-const Header = ({ siteTitle }) => (
-<header className="shadow-sm">
-  <div
-    style={{
-      backgroundColor: "#FAF2CC",
-      textAlign: "left",
-      verticalAlign: "middle"
-    }}
-  >
-    <div className="container py-3">
-      <button
+const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => {
+  const intl = useIntl();
+  return (
+    <header className="mb-4">
+      <div
         style={{
-          background: "#FEC04F",
-          border: "1px solid #000000",
-          borderRadius: 20,
-          marginRight: 10
+          backgroundColor: "#FAF2CC",
+          textAlign: "left",
+          verticalAlign: "middle"
         }}
       >
-        <strong>ALPHA</strong>
-      </button>
-      <span>This website is under development.</span>
-    </div>
-  </div>
-  <div
-    style={{ backgroundColor: "#137991", borderBottom: "10px solid #002D42" }}
-  >
-    <div className="container py-2 h-100" style={{ color: "#fff" }}>
-      <div className="row">
-        <div className="col-8">
-          <h4 className="mb-3 mt-3 h4">Travel Guidebook</h4>
-        </div>
-        <div className="col-4 align-self-center">
-          <span className="float-right d-none d-md-block"></span>
+        <div className="container py-3">
+          <button
+            style={{
+              background: "#FEC04F",
+              border: "1px solid #000000",
+              borderRadius: 20,
+              marginRight: 10
+            }}
+          >
+            <strong><FormattedMessage id="alpha" /></strong>
+          </button>
+          <span><FormattedMessage id="underDevelopment" /></span>
         </div>
       </div>
-    </div>
-  </div>
-</header>
 
-)
+      <div className="container">
+        <div className="row mt-2">
+          <nav>
+            <a className="sr-only sr-only-focusable aurora-skip skiplink" href="#main-content"><FormattedMessage id="skipToMain" /></a>
+          </nav>
+          <section className='float-right col-2 col-sm-12 col-md-12 text-right mb-2'>
+            {showLanguageSelect &&
+              <>
+                <h2 className="sr-only sr-only-focusable aurora-skip"><FormattedMessage id="languageSelection" /></h2>
+                <SelectLanguage langs={langs} />
+              </>
+            }
+          </section>
+          <div className="col-10 col-sm-6 pt-1 pb-4" property="publisher" typeof="GovernmentOrganization">
+            <Link to={homeLink}>
+                <Image
+                  filename="sig-blk-en.svg"
+                  alt={ intl.formatMessage({ id: 'governmentOfCanada' })}
+                />
+            </Link>
+          </div>
+          <section className='col-12 col-sm-6 ml-auto'>
+            <SearchForm />
+          </section>
+        </div>
+      </div>
+    </header>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
