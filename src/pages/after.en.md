@@ -6,7 +6,7 @@ heading: "After you return"
 lead: "Ensuring timely reimbursement"
 ---
 
-<div class="content-left col-xs-12 col-sm-12 col-md-8">
+<section class="content-left col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -37,9 +37,9 @@ lead: "Ensuring timely reimbursement"
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
 
-</div>
+</section>
 
-<div class="content-right col-xs-6 col-md-4" id="sidebar">
+<aside class="content-right col-xs-6 col-md-4" id="sidebar">
 
 ### Resources
 * [Option One](/)
@@ -56,4 +56,4 @@ lead: "Ensuring timely reimbursement"
 | | Your [Designated Departmental Travel Coordinator](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) should be able to help!
 | |
 
-</div>
+</aside>

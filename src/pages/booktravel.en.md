@@ -3,9 +3,10 @@ date: "2019-05-04"
 title: "Booking Travel"
 heading: "Booking Your Travel"
 lead: "To book your travel, you will need to select and confirm all of your travel requirements, including the hotel you will be staying at, and your transportation method(s) needed for your trip."
+tags: { 'hotel': ['lodging', 'sleep'] }
 ---
 
-<div class="content-left col-xs-12 col-sm-12 col-md-8">
+<section class="content-left col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -108,9 +109,9 @@ lead: "To book your travel, you will need to select and confirm all of your trav
 
 [Next: During your travel](/en/during)
 
-</div>
+</section>
 
-<div class="content-right col-xs-6 col-md-4" id="sidebar">
+<aside class="content-right col-xs-6 col-md-4" id="sidebar">
 
 ## Resources
 * [Option One](/)
@@ -127,4 +128,4 @@ lead: "To book your travel, you will need to select and confirm all of your trav
 | | Your [Designated Departmental Travel Coordinator](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) should be able to help!
 | |
 
-</div>
+</aside>
