@@ -64,25 +64,43 @@ const createIndex = async (blogNodes, type, cache) => {
   for (const node of blogNodes) {
     const {slug} = node.fields
     const title = node.frontmatter.title
+    const tags = node.frontmatter.tags
     const [html, excerpt] = await Promise.all([
       type.getFields().html.resolve(node),
       type.getFields().excerpt.resolve(node, { pruneLength: 40 }),
     ])
+
+    function processTags(tags, title) {
+      try {
+          let key = Object.keys(tags)[0];
+          let items = tags[key];
+          return `${key}: ${items.join(', ')}`
+      } catch (err) {
+          console.log("No tags defined or error in tags for page", title)
+          return ''
+      }
+    }
+
+    let processedTags = processTags(tags, title)
+
     documents.push({
       slug: node.fields.slug,
       title: node.frontmatter.title,
       content: striptags(html),
+      tags: processedTags,
     })
     store[slug] = {
       title,
       excerpt,
       content: striptags(html),
+      tags: processedTags,
     }
   }
   const index = lunr(function() {
     this.metadataWhitelist = ['position']
     this.ref(`slug`)
     this.field(`title`)
+    this.field(`tags`)
     this.field(`content`)
     for (const doc of documents) {
       this.add(doc)

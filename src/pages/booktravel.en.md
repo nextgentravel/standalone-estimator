@@ -3,6 +3,7 @@ date: "2019-05-04"
 title: "Booking Travel"
 heading: "Booking Your Travel"
 lead: "To book your travel, you will need to select and confirm all of your travel requirements, including the hotel you will be staying at, and your transportation method(s) needed for your trip."
+tags: { 'hotel': ['lodging', 'sleep'] }
 ---
 
 <section class="content-left col-xs-12 col-sm-12 col-md-8">
