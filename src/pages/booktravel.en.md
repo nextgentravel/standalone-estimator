@@ -81,21 +81,21 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 
 [[card]]
 | [[card-body]]
-| | ##  Booking a Hotel
 | |
-| | Book Hotel: When searching for a hotel, enter in the city rate limit as the maximum amount in the hotel price range [Find city rate limits here](/en/rates). To choose a hotel above this range, an explanation is required.
+| |### Booking a Hotel
 | |
-| | **If not Booking a Hotel:** After adding all other items to the itinerary, the full trip details will come up. At the bottom of this page, not providing a hotel should come up under the policy breach section. Provide a reason from the dropdown. If your reasoning is one which required you to make some sort of payment, be sure to add the cost of your accommodations later under “Out of Pocket Expenses”
+| |To search for a hotel, please enter the city rate limit of your destination in the maximum field for the hotel price range to ensure you will be in government policy.[Find your rates and limits here.](http://travel-guidebook-staging.herokuapp.com/en/rates/ "Find your rates andlimits here.") There are many cases where a suitable hotel is above the city rate limit. In these cases, if a desired room/hotel is above this range, it can still beselected but will require an explanation which will then be reviewed for approval at the end of the booking process
 | |
-| | After hitting search, you will be provided with an unordered list that fulfills your search criteria. If you have made the search to fall within the city rate limits, you will be provided with a list of hotels that are within policy.
+| |**Amenities:** if you wish to look for a hotel with specific amenities, look under advanced options to narrow your search (examples: in hotel restaurant, elevator access, etc.)When you select your ideal hotel, you will be greeted with the Hotel details. Here you will be given the option to:
+| |- Add your personal hotel loyalty card under: Membership no
+| |- Make a special request to the hotel for your stay
 | |
-| | When a hotel is selected, you will be greeted with the Hotel details. Here you will be given the option to:
+| |When finished, add the hotel to itinerary
 | |
-| | - Add your personal hotel loyalty card under: Membership no
+| |**Tip:** when beginning your search, it may is a good idea to call the hotel directly and speak to a booking member. Be sure to ask about any applicable discounted rates or offers for federal employees which you may be eligible for thatare not included in HRG
 | |
-| | - Make a special request to the hotel for your stay
+| |**If you do not wish to book a hotel in HRG:** after adding all other items to the itinerary (flight, train, and vehicle) your trip details will be brought up. At thebottom of this summary page, there should be a policy breach for not providing a hotel. From there, simply select your reasoning from the dropdown menu. If your reasoning is one which requires payment, be sure to add the cost of your accommodations later under “Out of Pocket Expenses”
 | |
-| | - When finished, add the hotel to itinerary
 | |
 
 [[card]]
