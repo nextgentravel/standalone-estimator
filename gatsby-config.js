@@ -2,11 +2,15 @@ const languages = require('./src/data/languages');
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Travel Guide`,
+    description: `A guide for travel in the Canadian public service.`,
+    author: `NextGen Travel Team`,
+    siteUrl: `https://travel-guidebook.herokuapp.com/`,
+    languages
   },
   plugins: [
+    `gatsby-plugin-catch-links`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -26,7 +30,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/tg-favicon.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -50,6 +54,9 @@ module.exports = {
                 'card-body': {
                   classes: "card-body",
                 },
+                'info-card': {
+                  classes: "card info-card",
+                },
                 info: {
                   classes: "info",
                   title: "optional",
@@ -68,6 +75,10 @@ module.exports = {
             family: `Nunito Sans`,
             variants: ['300', '400', '600', '700']
           },
+          {
+            family: `Rubik`,
+            variants: ['300', '400', '600', '700']
+          },
         ],
       },
     },
@@ -75,7 +86,9 @@ module.exports = {
       resolve: 'gatsby-plugin-i18n',
       options: {
         langKeyDefault: 'en',
+        langKeyForNull: 'any',
         useLangKeyLayout: false,
+        prefixDefault: true,
         markdownRemark: {
           postPage: 'src/templates/infoPage.js',
           query: `
@@ -94,7 +107,7 @@ module.exports = {
           `
         }
       }
-    },
+    },    
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

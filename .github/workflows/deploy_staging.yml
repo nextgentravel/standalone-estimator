@@ -17,10 +17,3 @@ jobs:
         api_key: ${{ secrets.HEROKU_API_KEY }}
         app_name: ${{ secrets.HEROKU_APP_STAGING_NAME }}
         dockerfile: 'Dockerfile'
-    - name: update deploy status
-      if: always()
-      uses: unacast/actions-github-deployment-status@master
-      with:
-          github_token: ${{ secrets.ACCESS_TOKEN }}
-          status: ${{ job.status }}
-          description: "Staging Updated"
