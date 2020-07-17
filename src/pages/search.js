@@ -11,7 +11,8 @@ import { FaQuestionSign } from 'react-icons/fa';
 // We can access the results of the page GraphQL query via the data props
 const SearchPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-  
+  let fuzzy = false;
+  let correctedTerms = [];
   // We can read what follows the ?q= here
   // URLSearchParams provides a native way to get URL params
   // location.search.slice(1) gets rid of the "?" 
@@ -32,13 +33,9 @@ const SearchPage = ({ data, location }) => {
         ...store[ref],
       }
     })
-  } catch (error) {
-    console.log(error)
-  }
-
-  try {
     if (results.length === 0) {
-      results = index.search(q).map(({ ref, matchData }) => {
+      fuzzy = true;
+      results = index.search(`${q}~2`).map(({ ref, matchData }) => {
         return {
           slug: ref,
           metadata: matchData.metadata,
@@ -50,12 +47,27 @@ const SearchPage = ({ data, location }) => {
     console.log(error)
   }
 
+  let allTerms = []
+
   results = results.map((result) => {
     let terms = Object.keys(result.metadata);
     let displayExcerpt = '';
     let foundInContent = false;
     let foundInTags = false;
     let positions = [];
+
+    if (fuzzy) {
+      terms.forEach(term => {
+        if (foundInTags) {
+          let start = result.metadata[term].tags.position[0][0];
+          term = result.tags.substring(start, result.tags.length)
+        }
+
+        correctedTerms.indexOf(term) === -1 ? correctedTerms.push(term) : console.log('exists!');
+      });
+    }
+
+    console.log(results)
 
     terms.forEach(term => {
       if ('content' in result.metadata[term]) {
@@ -65,6 +77,7 @@ const SearchPage = ({ data, location }) => {
       if ('tags' in result.metadata[term]) {
         foundInTags = true;
       }
+      allTerms.push(term);
     })
 
     positions.sort((a, b) => {
@@ -95,6 +108,7 @@ const SearchPage = ({ data, location }) => {
     return {
       displayExcerpt,
       ...result,
+      terms,
     }
   })
 
@@ -105,7 +119,17 @@ const SearchPage = ({ data, location }) => {
         {q ? <h1>Search results</h1> : <h1>What are you looking for?</h1>}
         <hr className="mb-5" />
         <SearchForm initialQuery={q} placement="page" />
-        <h2 className="mt-4 mb-4">{results.length} search result{results.length > 1 ? 's' : ''} for "{q}"</h2>
+        {!fuzzy &&
+          <>
+            <h2 className="mt-4 mb-4">{results.length} search result{results.length > 1 ? 's' : ''} for "{q}"</h2>
+          </>
+        }
+        {fuzzy &&
+          <>
+            <h2 className="mt-4 mb-4">0 search result{results.length > 1 ? 's' : ''} for "{q}"</h2>
+            <p className="lead">Did you mean <em>{correctedTerms}</em>?</p>
+          </>
+        }
         {results.length ? (
             results.map(result => {
             return (
