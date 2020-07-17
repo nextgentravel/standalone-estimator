@@ -34,10 +34,10 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => {
 
       <div className="container">
         <div className="row mt-2">
-          <nav className="sr-only sr-only-focusable aurora-skip">
-            <a className="sr-only sr-only-focusable aurora-skip" href="#main-content"><FormattedMessage id="skipToMain" /></a>
+          <nav>
+            <a className="sr-only sr-only-focusable aurora-skip skiplink" href="#main-content"><FormattedMessage id="skipToMain" /></a>
           </nav>
-          <section className='col-sm-4 col-md-12 text-right mb-2'>
+          <section className='float-right col-2 col-sm-12 col-md-12 text-right mb-2'>
             {showLanguageSelect &&
               <>
                 <h2 className="sr-only sr-only-focusable aurora-skip"><FormattedMessage id="languageSelection" /></h2>
@@ -45,16 +45,15 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => {
               </>
             }
           </section>
-          <div className="col-sm-5 pt-1 pb-4" property="publisher" typeof="GovernmentOrganization">
+          <div className="col-10 col-sm-6 pt-1 pb-4" property="publisher" typeof="GovernmentOrganization">
             <Link to={homeLink}>
                 <Image
                   filename="sig-blk-en.svg"
                   alt={ intl.formatMessage({ id: 'governmentOfCanada' })}
-                  className="gc-logo"
                 />
             </Link>
           </div>
-          <section className='col-sm-5 ml-auto'>
+          <section className='col-12 col-sm-6 ml-auto'>
             <SearchForm />
           </section>
         </div>

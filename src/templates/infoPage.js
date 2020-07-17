@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from "../components/layout"
 import Breadcrumbs from "../components/breadcrumb"
 import SEO from "../components/seo"
+import { FormattedMessage } from 'react-intl';
 
 import { getCurrentLangKey } from 'ptz-i18n';
 import 'intl';
@@ -21,19 +22,19 @@ export default ({ data }) => {
           <Breadcrumbs pageTitle={post.frontmatter.title} homeLink={homeLink} />
           <div className="hero-holder">
             <div className="container">
-              <a className="sr-only sr-only-focusable aurora-skip skiplink" href="#sidebar">Skip to sidebar</a>
+              <a className="sr-only sr-only-focusable aurora-skip skiplink" href="#sidebar"><FormattedMessage id="skipToSide"/></a>
               <h1 className="display-5">{post.frontmatter.heading}</h1>
               <p className="lead">
                 {post.frontmatter.lead}
               </p>
             </div>
           </div>
-          <div className="container">
+          <article className="container">
             <div
               className="row"
               dangerouslySetInnerHTML={{ __html: post.html }}
             />
-          </div>
+          </article>
         </main>
     </Layout>
   );

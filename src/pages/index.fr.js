@@ -13,7 +13,7 @@ const IndexPage = () => (
         <div className="container mt-4">
           <h1>GC Guide de voyage</h1>
           <div className="card-deck mb-3 mt-3">
-              <div className="card mb-2">
+              <section className="card mb-2">
                 <div className="card-img-top">
                   <Image
                     filename="002D42-1.png"
@@ -28,9 +28,9 @@ const IndexPage = () => (
                     <Link to="/fr/before" className="btn btn-primary">Pretravel</Link>
                   </div>
                 </div>
-              </div>
+              </section>
 
-              <div className="card mb-2">
+              <section className="card mb-2">
                 <Image
                   filename="137991-1.png"
                   alt="Card image cap"
@@ -44,8 +44,8 @@ const IndexPage = () => (
                     <Link to="/fr/booktravel" className="btn btn-primary">Réservations</Link>
                   </div>
                 </div>
-              </div>
-              <div className="card mb-2">
+              </section>
+              <section className="card mb-2">
                 <Image
                   filename="15A3A6-1.png"
                   alt="Card image cap"
@@ -59,8 +59,8 @@ const IndexPage = () => (
                     <Link to="/fr/during" className="btn btn-primary">En voyage</Link>
                   </div>
                 </div>
-              </div>
-              <div className="card mb-2">
+              </section>
+              <section className="card mb-2">
                 <Image
                   filename="6DD2DA-1.png"
                   alt="Card image cap"
@@ -72,7 +72,7 @@ const IndexPage = () => (
                     <Link to="/fr/after" className="btn btn-primary">Revenir</Link>
                   </div>
                 </div>
-              </div>
+              </section>
           </div>
         </div>
       </main>
