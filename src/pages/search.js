@@ -131,10 +131,11 @@ const SearchPage = ({ data, location }) => {
           </>
         }
         {results.length ? (
-            results.map(result => {
+            results.map((result, index) => {
             return (
               <React.Fragment key={result.slug}>
-                <article>
+                <article className={index === 0 ? 'card p-3': ''}>
+                  {index === 0 && <p class="lead">Recommended</p>}
                   <h3>
                     <Link to={result.slug}>
                       {result.title || result.slug}
@@ -142,7 +143,7 @@ const SearchPage = ({ data, location }) => {
                   </h3>
                   <p dangerouslySetInnerHTML={{__html: result.displayExcerpt}}></p>
                 </article>
-                <hr />
+                {index !== 0 && <hr />}
               </React.Fragment>
             )
             })
