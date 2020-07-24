@@ -22,7 +22,7 @@ export default ({ data }) => {
           <Breadcrumbs pageTitle={post.frontmatter.title} homeLink={homeLink} />
           <div className="hero-holder">
             <div className="container">
-              <a className="sr-only sr-only-focusable aurora-skip skiplink" href="#sidebar"><FormattedMessage id="skipToSide"/></a>
+              <nav className="skiphold"><a className="sr-only sr-only-focusable aurora-skip skiplink" href="#sidebar"><FormattedMessage id="skipToSide"/></a></nav>
               <h1 className="display-5">{post.frontmatter.heading}</h1>
               <p className="lead">
                 {post.frontmatter.lead}
