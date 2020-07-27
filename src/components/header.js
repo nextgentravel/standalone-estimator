@@ -34,7 +34,7 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => {
 
       <div className="container">
         <div className="row mt-2">
-          <nav className="skiphold">
+          <nav className="skiphold" id="header-skiplink">
             <a className="sr-only sr-only-focusable aurora-skip skiplink" href="#main-content"><FormattedMessage id="skipToMain" /></a>
           </nav>
           <section className='float-right col-2 col-sm-12 col-md-12 text-right mb-2'>
