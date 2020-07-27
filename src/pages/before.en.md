@@ -5,7 +5,7 @@ title: "Before you leave"
 heading: "Decision to Travel"
 lead: "After deciding to travel, you should start by creating an estimate. The estimate should give an overall approximation of what the total cost of the trip will be, so that it can the be approved."
 ---
-<main class="content-left col-xs-12 col-sm-12 col-md-8">
+<article class="content-left col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -68,9 +68,9 @@ lead: "After deciding to travel, you should start by creating an estimate. The e
 
 [Next: Booking Your Travel](/en/booktravel)
 
-</main>
+</article>
 
-<aside class="content-right col-xs-6 col-md-4" id="sidebar">
+<section class="content-right col-xs-6 col-md-4" id="sidebar">
 
 ## Resources
 * [Your Rates and Limits](/en/rates)
@@ -88,4 +88,4 @@ lead: "After deciding to travel, you should start by creating an estimate. The e
 | | Your [Designated Departmental Travel Coordinator](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) should be able to help!
 | |
 
-</aside>
+</section>

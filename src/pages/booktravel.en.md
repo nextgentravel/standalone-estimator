@@ -6,7 +6,7 @@ lead: "To book your travel, you will need to select and confirm all of your trav
 tags: { 'hotel': ['lodging', 'sleep'] }
 ---
 
-<main class="content-left col-xs-12 col-sm-12 col-md-8">
+<article class="content-left col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -109,9 +109,9 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 
 [Next: During your travel](/en/during)
 
-</main>
+</article>
 
-<aside class="content-right col-xs-6 col-md-4" id="sidebar">
+<section class="content-right col-xs-6 col-md-4" id="sidebar">
 
 ## Resources
 * [Option One](/)
@@ -128,4 +128,4 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 | | Your [Designated Departmental Travel Coordinator](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) should be able to help!
 | |
 
-</aside>
+</section>
