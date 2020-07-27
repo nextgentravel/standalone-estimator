@@ -6,7 +6,7 @@ heading: "During your Travel"
 lead: "How to handle any issues with the actual trip"
 ---
 
-<section class="content-left col-xs-12 col-sm-12 col-md-8">
+<main class="content-left col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -33,7 +33,7 @@ lead: "How to handle any issues with the actual trip"
 
 [Next: After you return](/en/after)
 
-</section>
+</main>
 
 <aside class="content-right col-xs-6 col-md-4" id="sidebar">
 

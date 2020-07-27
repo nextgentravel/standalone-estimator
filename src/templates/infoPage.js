@@ -17,7 +17,7 @@ export default ({ data }) => {
   const homeLink = `/${langKey}/`;
   return (
     <Layout>
-        <main id="main-content">
+        <div id="main-content">
           <SEO title={post.frontmatter.title} />
           <Breadcrumbs pageTitle={post.frontmatter.title} homeLink={homeLink} />
           <div className="hero-holder">
@@ -35,7 +35,7 @@ export default ({ data }) => {
               dangerouslySetInnerHTML={{ __html: post.html }}
             />
           </article>
-        </main>
+        </div>
     </Layout>
   );
 };

@@ -5,7 +5,7 @@ heading: "Réservation de votre voyage"
 lead: "Étapes importantes pour réserver votre voyage"
 ---
 
-<section class="content-left col-xs-12 col-sm-12 col-md-8">
+<main class="content-left col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -49,7 +49,7 @@ lead: "Étapes importantes pour réserver votre voyage"
 
 [Suivant: Pendant votre voyage](/fr/during)
 
-</section>
+</main>
 
 <aside class="content-right col-xs-6 col-md-4" id="sidebar">
 
