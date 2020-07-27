@@ -6,7 +6,7 @@ heading: "During your Travel"
 lead: "How to handle any issues with the actual trip"
 ---
 
-<main class="content-left col-xs-12 col-sm-12 col-md-8">
+<article class="content-left col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -33,9 +33,9 @@ lead: "How to handle any issues with the actual trip"
 
 [Next: After you return](/en/after)
 
-</main>
+</article>
 
-<aside class="content-right col-xs-6 col-md-4" id="sidebar">
+<section class="content-right col-xs-6 col-md-4" id="sidebar">
 
 ## Resources
 * [Option One](/)
@@ -52,4 +52,4 @@ lead: "How to handle any issues with the actual trip"
 | | Your [Designated Departmental Travel Coordinator](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) should be able to help!
 | |
 
-</aside>
+</section>
