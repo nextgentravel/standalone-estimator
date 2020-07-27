@@ -6,7 +6,7 @@ heading: "Après votre retour"
 lead: "Assurer un remboursement rapide"
 ---
 
-<section class="content-left col-xs-12 col-sm-12 col-md-8">
+<main class="content-left col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -37,7 +37,7 @@ lead: "Assurer un remboursement rapide"
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
 
-</section>
+</main>
 
 <aside class="content-right col-xs-6 col-md-4" id="sidebar">
 
