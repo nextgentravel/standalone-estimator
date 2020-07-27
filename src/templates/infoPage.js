@@ -29,12 +29,12 @@ export default ({ data }) => {
               </p>
             </div>
           </div>
-          <article className="container">
+          <div className="container">
             <div
               className="row"
               dangerouslySetInnerHTML={{ __html: post.html }}
             />
-          </article>
+          </div>
         </div>
     </Layout>
   );
