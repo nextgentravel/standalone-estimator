@@ -118,10 +118,20 @@ body {
 .skiplink:focus, .skiplink:active {
     color: white;
     background-color: black;
-    font-size: 1.2em;
+    font-size: 1em;
     text-align: center;
+    padding: 5px;
+    z-index: 501;
 }
 
+.skiphold{
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 10px;
+    width: 100%;
+    z-index: 3;
+}
 
 @media only screen and (max-width: 990px) {
     .lang {
