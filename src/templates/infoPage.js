@@ -22,19 +22,19 @@ export default ({ data }) => {
           <Breadcrumbs pageTitle={post.frontmatter.title} homeLink={homeLink} />
           <div className="hero-holder">
             <div className="container">
-              <a className="sr-only sr-only-focusable aurora-skip skiplink" href="#sidebar"><FormattedMessage id="skipToSide"/></a>
+              <nav className="skiphold" aria-label="sidebar skiplink"><a className="sr-only sr-only-focusable aurora-skip skiplink" id="sidebar-skiplink" href="#sidebar"><FormattedMessage id="skipToSide"/></a></nav>
               <h1 className="display-5">{post.frontmatter.heading}</h1>
               <p className="lead">
                 {post.frontmatter.lead}
               </p>
             </div>
           </div>
-          <article className="container">
+          <div className="container">
             <div
               className="row"
               dangerouslySetInnerHTML={{ __html: post.html }}
             />
-          </article>
+          </div>
         </main>
     </Layout>
   );

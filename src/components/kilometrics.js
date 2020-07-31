@@ -63,6 +63,7 @@ const Kilometrics = () => {
                     total: rateCalc.toFixed(2),
                     provinceRate,
                     distance,
+                    province,
                 });
                 setLoading(false);
                 setErrorPanel(false);

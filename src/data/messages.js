@@ -1,7 +1,7 @@
 module.exports = {
     'en': {
         // header
-        'governmentOfCanada': 'Government of Canada',
+        'governmentOfCanada': 'Government of Canada Travel Guide',
         'skipToMain': 'Skip to the main content',
         'pageTitle': 'Travel Guidebook',
         'underDevelopment': 'This website is under development.',
@@ -13,11 +13,12 @@ module.exports = {
         'suggestAnUpdate': 'Suggest an Update',
         'viewThisPageOnGithub': 'View this page on Github',
         //infoPage
-        'skipToSide': 'Skip to sidebar'
+        'skipToSide': 'Skip to sidebar',
+        'breadCrumbAria': 'You are here: ',
     },
     'fr': {
         // header
-        'governmentOfCanada': 'Gouvernement du Canada',
+        'governmentOfCanada': 'Guide de voyage du gouvernement du Canada',
         'skipToMain': 'Passez au contenu principal',
         'pageTitle': 'Guide de voyage',
         'underDevelopment': 'Ce site Web est en cours de développement.',
@@ -29,6 +30,7 @@ module.exports = {
         'suggestAnUpdate': 'Suggérer une mise à jour',
         'viewThisPageOnGithub': 'Voir cette page sur Github',
         //infoPage
-        'skipToSide': 'Passer à la barre latérale'
+        'skipToSide': 'Passer à la barre latérale',
+        'breadCrumbAria': 'Tu es là: ',
     }
 };
