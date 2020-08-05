@@ -9,6 +9,7 @@ module.exports = {
     languages
   },
   plugins: [
+    `gatsby-plugin-sass`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
