@@ -50,7 +50,7 @@ module.exports = {
             options: {
               blocks: {
                 card: {
-                  classes: "card",
+                  classes: "card mb-3",
                 },
                 'card-body': {
                   classes: "card-body",
