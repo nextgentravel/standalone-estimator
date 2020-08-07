@@ -59,7 +59,7 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => {
         <h1 className="col-10 col-md-6 mx-auto text-center text-light">GC Travel Guide</h1>
       </div>
       <div className="bg-light col-12">
-        <section className='col-12 col-md-6 mx-auto pt-4 pb-4 '>
+        <section className='col-12 col-md-6 mx-auto pt-4 pb-4'>
           <SearchForm />
         </section>
       </div>
