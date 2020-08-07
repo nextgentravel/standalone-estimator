@@ -130,9 +130,8 @@ const SearchPage = ({ data, location }) => {
           }
           {fuzzy &&
             <>
-              <h2 className="mt-4 mb-4">{results.length} search result{results.length !== 1 ? 's' : ''} for "{correctedTerms.join(', ')}"</h2>
-              {results.length > 0 && <p className="lead mb-1">Showing results for <u>{correctedTerms.join(', ')}</u>.</p>}
-              {results.length > 0 && <p className="lead"><small>Search instead for <a href="#" onClick={() => { searchInstead(searchQuery) }}>{searchQuery}</a>.</small></p>}
+              <p className="font-weight-bold text-secondary mt-2 mb-2">{results.length} result{results.length !== 1 ? 's' : ''} for "{correctedTerms.join(', ')}"</p>
+              {results.length > 0 && <p className="font-italic text-secondary mb-5">Search instead for <a href="#" onClick={() => { searchInstead(searchQuery) }}>{searchQuery}</a>.</p>}
             </>
           }
           {results.length ? (
