@@ -30,6 +30,52 @@ body {
     margin-right: 15px;
 }
 
+// Colors for link tool bar
+
+.tool-link-item > a {
+    color: #424242 !important;
+}
+
+.tool-link-item > a:hover {
+    color: #2572B4 !important;
+    text-decoration: none;
+}
+
+// background from home page background
+
+.icon-background {
+    padding-top: 25px;
+    border-radius: 100px;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.icon-background-plan {
+    background-color: #E7A948;
+}
+
+.icon-background-book {
+    background-color: #CC4859;
+}
+
+.icon-background-travel {
+    background-color: #047789;
+}
+
+.icon-background-expense {
+    background-color: #043B59;
+}
+
+.home-chevron {
+    position: absolute;
+    right: -15px;
+    top: 70px;
+    color: #9E9E9E;
+}
+
 /* body {
     padding-top: 0px;
 }
