@@ -77,8 +77,10 @@ body {
 }
 
 .footer-deco {
-    background-image: url("../images/landscape.png");
-    background-size: contain;
+    background: #26374a url("../images/landscape.png") no-repeat right bottom;
+    // background-image: url("../images/landscape.png");
+    // background-repeat: no-repeat;
+    // background-position: bottom right;
 }
 
 /* body {
