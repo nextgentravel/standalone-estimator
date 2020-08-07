@@ -11,7 +11,7 @@ const IndexPage = () => (
     <div>
       <main id="main-content" role="main">
         <div className="container mt-4">
-          <h1>GC Guide de voyage</h1>
+
           <div className="card-deck mb-3 mt-3">
               <section className="card mb-2">
                 <div className="card-img-top">
