@@ -68,7 +68,7 @@ const SearchPage = ({ data, location }) => {
           let re = new RegExp(replace, 'gi');
           highlightedExcerpt = highlightedExcerpt.replace(re, `<strong>${term}</strong>`);
         });
-        displayExcerpt = `...${highlightedExcerpt.trim()}...`
+        displayExcerpt = `${highlightedExcerpt.trim()}`
       } else if (foundInTags) {
         let c = result.content;
         displayExcerpt = c.substring(0, 200);
@@ -120,42 +120,41 @@ const SearchPage = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Search results" />
-      <main className="container mt-3" id="main-content">
-        {searchQuery ? <h1>Search results</h1> : <h1>What are you looking for?</h1>}
-        <hr className="mb-5" />
-        <SearchForm initialQuery={searchQuery} placement="page" />
-        {!fuzzy &&
-          <>
-            <h2 className="mt-4 mb-4">{results.length} search result{results.length !== 1 ? 's' : ''} for "{searchQuery}"</h2>
-          </>
-        }
-        {fuzzy &&
-          <>
-            <h2 className="mt-4 mb-4">{results.length} search result{results.length !== 1 ? 's' : ''} for "{correctedTerms.join(', ')}"</h2>
-            {results.length > 0 && <p className="lead mb-1">Showing results for <u>{correctedTerms.join(', ')}</u>.</p>}
-            {results.length > 0 && <p className="lead"><small>Search instead for <a href="#" onClick={() => { searchInstead(searchQuery) }}>{searchQuery}</a>.</small></p>}
-          </>
-        }
-        {results.length ? (
-            results.map((result, index) => {
-            return (
-              <React.Fragment key={result.slug}>
-                <article className={index === 0 ? 'card p-3': ''}>
-                  {index === 0 && <p className="lead">Recommended</p>}
-                  <h3>
-                    <Link to={result.slug}>
-                      {result.title || result.slug}
-                    </Link>
-                  </h3>
-                  <p dangerouslySetInnerHTML={{__html: result.displayExcerpt}}></p>
-                </article>
-                {index !== 0 && <hr />}
-              </React.Fragment>
-            )
-            })
-        ) : (
-            <p>No results were found for {searchQuery}.</p>
-        )}
+      <main className="container px-5 py-2" id="main-content">
+        {searchQuery ? <h1 className="font-weight-bold">Search Results</h1> : <h1 className="font-weight-bold">What are you looking for?</h1>}
+        <div className="p-1">
+          {!fuzzy &&
+            <>
+              <p className="font-weight-bold text-secondary mt-2 mb-5">{results.length} result{results.length !== 1 ? 's' : ''} for "{searchQuery}"</p>
+            </>
+          }
+          {fuzzy &&
+            <>
+              <h2 className="mt-4 mb-4">{results.length} search result{results.length !== 1 ? 's' : ''} for "{correctedTerms.join(', ')}"</h2>
+              {results.length > 0 && <p className="lead mb-1">Showing results for <u>{correctedTerms.join(', ')}</u>.</p>}
+              {results.length > 0 && <p className="lead"><small>Search instead for <a href="#" onClick={() => { searchInstead(searchQuery) }}>{searchQuery}</a>.</small></p>}
+            </>
+          }
+          {results.length ? (
+              results.map((result, index) => {
+              return (
+                <React.Fragment key={result.slug}>
+                  <article className={index === 0 ? 'card border-dark p-3 mb-5': 'mb-5'}>
+                    {index === 0 && <p className="text-secondary">Best Match</p>}
+                    <h5>
+                      <Link to={result.slug}>
+                        {result.title || result.slug}
+                      </Link>
+                    </h5>
+                    <p dangerouslySetInnerHTML={{__html: result.displayExcerpt}}></p>
+                  </article>
+                </React.Fragment>
+              )
+              })
+          ) : (
+              <p>No results were found for {searchQuery}.</p>
+          )}
+        </div>
       </main>
     </Layout>
   )
