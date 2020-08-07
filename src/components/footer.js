@@ -5,54 +5,56 @@ import { FormattedMessage } from 'react-intl';
 
 const Footer = ({ siteTitle, homeLink }) => (
   <footer className="footer">
-    <div className="container bg-dark col-12 footer-deco py-5">
-      <ul className="pl-0">
-        <li>
-          <a href="" className="text-light">
-            <FormattedMessage id="knowledge" />
-          </a>
-        </li>
-        <li>
-          <a href="" className="text-light">
-            <FormattedMessage id="training" />
-          </a>
-        </li>
-        <li>
-          <a href="" className="text-light">
-            <FormattedMessage id="submitquestion" />
-          </a>
-        </li>
-        <li>
-          <a href="" className="text-light">
-          <FormattedMessage id="contact" />
-          </a>
-        </li>
-        <li>
-          <a href="" className="text-light">
-            <FormattedMessage id="nextgen" />
-          </a>
-        </li>
-        <li>
-          <a href="" className="text-light">
-            <FormattedMessage id="travelcard" />
-          </a>
-        </li>
-        <li>
-          <a href="" className="text-light">
-            <FormattedMessage id="travelcontacts" />
-          </a>
-        </li>
-        <li>
-          <a href="" className="text-light">
-            <FormattedMessage id="advisories" />
-          </a>
-        </li>
-        <li>
-          <a href="" className="text-light">
-            <FormattedMessage id="estimator" />
-          </a>
-        </li>
-      </ul>
+    <div className="bg-dark py-5 footer-deco">
+      <div class="container">
+        <ul className="list-unstyled colcount-sm-2 colcount-md-3">
+          <li>
+            <a href="" className="text-light">
+              <FormattedMessage id="knowledge" />
+            </a>
+          </li>
+          <li>
+            <a href="" className="text-light">
+              <FormattedMessage id="training" />
+            </a>
+          </li>
+          <li>
+            <a href="" className="text-light">
+              <FormattedMessage id="submitquestion" />
+            </a>
+          </li>
+          <li>
+            <a href="" className="text-light">
+            <FormattedMessage id="contact" />
+            </a>
+          </li>
+          <li>
+            <a href="" className="text-light">
+              <FormattedMessage id="nextgen" />
+            </a>
+          </li>
+          <li>
+            <a href="" className="text-light">
+              <FormattedMessage id="travelcard" />
+            </a>
+          </li>
+          <li>
+            <a href="" className="text-light">
+              <FormattedMessage id="travelcontacts" />
+            </a>
+          </li>
+          <li>
+            <a href="" className="text-light">
+              <FormattedMessage id="advisories" />
+            </a>
+          </li>
+          <li>
+            <a href="" className="text-light">
+              <FormattedMessage id="estimator" />
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
     <div className="container col-12">
       <ul className="col-9">
