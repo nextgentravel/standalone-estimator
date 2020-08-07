@@ -1,6 +1,13 @@
 import React from "react"
 import Layout from "../components/layout"
-import Image from "../components/image"
+import { FaClipboardList } from 'react-icons/fa';
+import { FaTicketAlt } from 'react-icons/fa';
+import { FaPlaneDeparture } from 'react-icons/fa';
+import { FaFileInvoiceDollar } from 'react-icons/fa';
+import { FaChevronRight } from 'react-icons/fa';
+// import { FaCalculator } from 'react-icons/fa';
+import { FaMapMarker } from 'react-icons/fa';
+import { FaCar } from 'react-icons/fa';
 import SEO from "../components/seo"
 import { Link } from "gatsby"
 
@@ -11,68 +18,95 @@ const IndexPage = () => (
     <div>
       <main id="main-content" role="main">
         <div className="container mt-4">
-
-          <div className="card-deck mb-3 mt-3">
-              <section className="card mb-2">
-                <div className="card-img-top">
-                  <Image
-                    filename="002D42-1.png"
-                    alt=""
-                  />
-                </div>
-
-                <div className="card-body d-flex flex-column">
-                  <h2 className="card-title h5">Before Your Travel</h2>
-                  <p className="card-text">Get ready for your business travel.</p>
+          <h3 className="text-center mb-4">Get Started</h3>
+          <p className="text-center mb-5">Select the part of the journey you need support with or launch our travel assistant for a guided travel experience.  You can use this guide offline, even when you are not connected to the internet.</p>
+          <div className="row mb-3 mt-3">
+              <section className="col-sm-3 text-center mb-5">
+                <div className="h-100 d-flex flex-column">
+                  <div className="icon-background icon-background-plan mt-2 mb-4">
+                    <FaClipboardList size="100" color="#fff" />
+                  </div>
+                  <h4 className="mb-4">Plan</h4>
+                  <p className="mb-4">Plan ahead and get ready for your business trip</p>
                   <div className="mt-auto w-100">
-                    <Link to="/en/before" className="btn btn-primary">Pretravel</Link>
+                    <Link to="/en/before" className="btn btn-outline-primary">Launch</Link>
                   </div>
                 </div>
-              </section>
-
-              <section className="card mb-2">
-                <Image
-                  filename="137991-1.png"
-                  alt=""
+                <FaChevronRight
+                  className="home-chevron d-none d-sm-block"
+                  size="30"
                 />
-                <div className="card-body d-flex flex-column">
-                  <h2 className="card-title h5">Booking Your Travel</h2>
-                  <p className="card-text">
-                  Making the arrangements needed for your travel.
+              </section>
+              <section className="col-sm-3 text-center mb-5">
+                <div className="h-100 d-flex flex-column">
+                  <div className="icon-background icon-background-book mt-2 mb-4"><FaTicketAlt size="100" color="#fff" /></div>
+                  <h4 className="mb-4">Book</h4>
+                  <p className="mb-4">
+                    Secure your tickets and make travel arrangements
                   </p>
                   <div className="mt-auto w-100">
-                    <Link to="/en/booktravel" className="btn btn-primary">Booking</Link>
+                    <Link to="/en/booktravel" className="btn btn-outline-primary">Launch</Link>
                   </div>
                 </div>
-              </section>
-              <section className="card mb-2">
-                <Image
-                  filename="15A3A6-1.png"
-                  alt=""
+                <FaChevronRight
+                  className="home-chevron d-none d-sm-block"
+                  size="30"
                 />
-                <div className="card-body d-flex flex-column">
-                  <h2 className="card-title h5">During Your Travel</h2>
-                  <p className="card-text">
-                    Useful information during a trip.
+              </section>
+              <section className="col-sm-3 text-center mb-5">
+                <div className="h-100 d-flex flex-column">
+                  <div className="icon-background icon-background-travel mt-2 mb-4">
+                    <FaPlaneDeparture size="100" color="#fff" />
+                  </div>
+                  <h4 className="mb-4">Travel</h4>
+                  <p className="mb-4">
+                    Everything you need when you're travelling
                   </p>
                   <div className="mt-auto w-100">
-                    <Link to="/en/during" className="btn btn-primary">While Travelling</Link>
+                    <Link to="/en/during" className="btn btn-outline-primary">Launch</Link>
                   </div>
                 </div>
-              </section>
-              <section className="card mb-2">
-                <Image
-                  filename="6DD2DA-1.png"
-                  alt=""
+                <FaChevronRight
+                  className="home-chevron d-none d-sm-block"
+                  size="30"
                 />
-                <div className="card-body d-flex flex-column">
-                  <h2 className="card-title h5">After You Return</h2>
-                  <p className="card-text">Arranging reimbursement.</p>
+              </section>
+              <section className="col-sm-3 text-center mb-5">
+                <div className="h-100 d-flex flex-column">
+                  <div className="icon-background icon-background-expense mt-2 mb-4">
+                    <FaFileInvoiceDollar size="100" color="#fff" />
+                  </div>
+                  <h4 className="mb-4">Expense</h4>
+                  <p className="mb-4">Filing trip expenses and get reimbursed</p>
                   <div className="mt-auto w-100">
-                    <Link to="/en/after" className="btn btn-primary">Return</Link>
+                    <Link to="/en/after" className="btn btn-outline-primary">Launch</Link>
                   </div>
                 </div>
               </section>
+          </div>
+        </div>
+        <div class="bg-light">
+          <div className="container">
+            <div className="d-flex justify-content-center">
+              {/* <div className="text-center m-5">
+                <Link to="/en/after">
+                  <FaCalculator size="40" />
+                  <p className="mt-2">Trip Estimator</p>
+                </Link>
+              </div> */}
+              <div className="tool-link-item text-center m-5">
+                <Link to="/en/rates">
+                  <FaMapMarker size="40" />
+                  <p className="mt-2">City Rates and Limits</p>
+                </Link>
+              </div>
+              <div className="tool-link-item text-center m-5">
+                <Link to="/en/kilometrics">
+                  <FaCar size="40" />
+                  <p className="mt-2">Kilometric Rates</p>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </main>
