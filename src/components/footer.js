@@ -56,29 +56,34 @@ const Footer = ({ siteTitle, homeLink }) => (
         </ul>
       </div>
     </div>
-    <div className="container col-12">
-      <ul className="col-9">
-        <li>
-          <a href="">
-            <FormattedMessage id="socialmedia" />
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <FormattedMessage id="mobileapp" />
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <FormattedMessage id="terms" />
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <FormattedMessage id="privacy" />
-          </a>
-        </li>
-      </ul>
+    <div className="container">
+      <div className="row">
+        <ul className="col-9">
+          <nav className="col-md-10 ftr-urlt-lnk">
+
+          </nav>
+          <li>
+            <a href="">
+              <FormattedMessage id="socialmedia" />
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <FormattedMessage id="mobileapp" />
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <FormattedMessage id="terms" />
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <FormattedMessage id="privacy" />
+            </a>
+          </li>
+        </ul>
+      </div>
       <div className="col-2 float-right">
         <Image
           filename="footer-tag.svg"
