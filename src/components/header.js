@@ -6,7 +6,7 @@ import SelectLanguage from './languageSelect';
 import { FormattedMessage, useIntl } from 'react-intl';
 import SearchForm from "../components/search-form"
 
-const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => {
+const Header = ({homeHeader, langs, showLanguageSelect, homeLink}) => {
   const intl = useIntl();
   return (
     <header className="mb-4">
@@ -55,14 +55,36 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => {
           </div>
         </div>
       </div>
-      <div className="col-12 py-4 bg-dark">
-        <h1 className="text-center text-light"><FormattedMessage id="siteTitle" /></h1>
+      <div className="py-4 bg-dark">
+        <div className="container">
+            {!homeHeader &&
+              <div className="row">
+                  <div className="col-sm-6">
+                      <h1 className="text-light"><FormattedMessage id="siteTitle" /></h1>
+                  </div>
+                  <div className="col-sm-6">
+                      <SearchForm placement="header" />
+                  </div>
+              </div>
+            }
+            {homeHeader &&
+              <div className="row">
+                  <div className="col-sm-12">
+                      <h1 className="text-light text-center"><FormattedMessage id="siteTitle" /></h1>
+                  </div>
+              </div>
+            }
+        </div>
       </div>
-      <div className="bg-light col-12">
-        <section className='col-12 col-md-6 mx-auto py-4'>
-          <SearchForm placement="home" />
-        </section>
-      </div>
+      {homeHeader &&
+        <div className="bg-light col-12">
+          <section className='col-12 col-md-6 mx-auto py-4'>
+            <SearchForm placement="home" />
+          </section>
+        </div>
+
+      }
+
     </header>
   )
 }
