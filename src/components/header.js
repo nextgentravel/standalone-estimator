@@ -33,19 +33,11 @@ const Header = ({homeHeader, langs, showLanguageSelect, homeLink}) => {
       </div>
 
       <div className="container">
-        <div className="row mt-2">
+        <div className="row my-4">
           <nav className="skiphold" id="header-skiplink">
             <a className="sr-only sr-only-focusable aurora-skip skiplink" aria-label="main skiplink" href="#main-content"><FormattedMessage id="skipToMain" /></a>
           </nav>
-          <section className='float-right col-2 col-sm-12 col-md-12 text-right mb-2'>
-            {showLanguageSelect &&
-              <>
-                <h2 className="sr-only sr-only-focusable aurora-skip"><FormattedMessage id="languageSelection" /></h2>
-                <SelectLanguage langs={langs} />
-              </>
-            }
-          </section>
-          <div className="col-10 col-sm-6 pt-1 pb-4" property="publisher" typeof="GovernmentOrganization">
+          <div className="col-6 col-sm-6 goc-logo" property="publisher" typeof="GovernmentOrganization">
             <Link to={homeLink}>
                 <Image
                   filename="sig-blk-en.svg"
@@ -53,6 +45,16 @@ const Header = ({homeHeader, langs, showLanguageSelect, homeLink}) => {
                 />
             </Link>
           </div>
+          <section className='float-right col-sm-6 col-md-6 text-right'>
+            {showLanguageSelect &&
+              <>
+                <h2 className="sr-only sr-only-focusable aurora-skip"><FormattedMessage id="languageSelection" /></h2>
+                <SelectLanguage langs={langs} />
+              </>
+            }
+          </section>
+
+
         </div>
       </div>
       <div className="py-4 bg-dark">
