@@ -31,14 +31,16 @@ const Layout = ({ children }) => {
         const homeLink = `/${langKey}/`;
         const langsMenu = getLangs(langs, langKey, getUrlForLang(homeLink, url))
         let showLanguageSelect = true;
+        let onHomePage = true;
         showLanguageSelect = url === '/404/' ? showLanguageSelect = false : showLanguageSelect = true;
+        onHomePage = url === '/en/' || url === '/fr/' ? onHomePage = true : onHomePage = false;
         return (
           <IntlProvider
             locale={langKey}
             messages={i18nMessages[langKey]}
           >
             <div>
-              <Header langs={langsMenu} homeLink={homeLink} showLanguageSelect={showLanguageSelect} />
+              <Header langs={langsMenu} homeLink={homeLink} showLanguageSelect={showLanguageSelect} homeHeader={onHomePage} />
               <div>
                 {children}
               </div>
