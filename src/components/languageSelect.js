@@ -11,7 +11,7 @@ const SelectLanguage = (props) => {
       return (
       <React.Fragment key={idx}>
         <Link to={lang.link} className="language-link d-none d-sm-block"><FormattedMessage id="otherLangName"/></Link>
-        <abbr title="Français" className="d-sm-none h3 language-link mrgn-tp-sm mrgn-bttm-0 text-uppercase"><Link to={lang.link}>{lang.langKey}</Link></abbr>
+        <abbr title="Français" className="d-sm-none language-link mrgn-tp-sm mrgn-bttm-0 text-uppercase"><Link to={lang.link}>{lang.langKey}</Link></abbr>
       </React.Fragment>
     )});
 
