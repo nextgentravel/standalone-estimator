@@ -56,33 +56,41 @@ const Footer = ({ siteTitle, homeLink }) => (
         </ul>
       </div>
     </div>
-    <div className="container col-12 ">
-      <ul className="col-9 inline">
-        <li className="list-inline-item">
-          <a href="">
-            <FormattedMessage id="socialmedia" />
-          </a>
-        </li>
-        <li className="list-inline-item dot">
-          <a href="">
-            <FormattedMessage id="mobileapp" />
-          </a>
-        </li>
-        <li className="list-inline-item dot">
-          <a href="">
-            <FormattedMessage id="terms" />
-          </a>
-        </li>
-        <li className="list-inline-item dot">
-          <a href="">
-            <FormattedMessage id="privacy" />
-          </a>
-        </li>
-      </ul>
-      <div className="col-2 float-right">
-        <Image
-          filename="footer-tag.svg"
-        />
+
+    <div className="bg-light py-3">
+      <div class="container">
+        <div className="row h-100">
+          <div className="col-sm-6">
+            <ul className="list-unstyled colcount-sm-2 colcount-md-2 my-auto">
+                <li className="dot">
+                  <a href="">
+                    <FormattedMessage id="socialmedia" />
+                  </a>
+                </li>
+                <li className="dot">
+                  <a href="">
+                    <FormattedMessage id="mobileapp" />
+                  </a>
+                </li>
+                <li className="dot">
+                  <a href="">
+                    <FormattedMessage id="terms" />
+                  </a>
+                </li>
+                <li className="dot">
+                  <a href="">
+                    <FormattedMessage id="privacy" />
+                  </a>
+                </li>
+            </ul>
+          </div>
+          <div className="col-sm-6 canada-logo text-right my-auto">
+            <Image
+              className=""
+              filename="footer-tag.svg"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </footer>
