@@ -97,6 +97,44 @@ body {
     font-weight: lighter;
 }
 
+.lang{
+    margin: auto;
+    width: 50%;
+    max-width: 500px;
+    min-width: 300px;
+    overflow: auto;
+    margin-top: 175px;
+}
+
+.skiplink:focus, .skiplink:active {
+    color: white;
+    background-color: black;
+    font-size: 1em;
+    text-align: center;
+    padding: 5px;
+    z-index: 501;
+}
+
+.skiphold{
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 10px;
+    width: 100%;
+    z-index: 3;
+}
+
+#bg {
+    height: 200%;
+    left: -50%;
+    position: fixed;
+    top: -50%;
+    width: 200%;
+    background-image: url("../images/sp-bg-3-1-min.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
 @media screen and (min-width: 768px) {
 	.colcount-sm-2 {
 		-webkit-column-count: 2;
@@ -203,34 +241,8 @@ body {
     color: #137991;
 }
 
-.lang{
-    margin: auto;
-    width: 50%;
-    max-width: 500px;
-    min-width: 300px;
-    overflow: auto;
-    margin-top: 175px;
-}
 .bg-splash-card{
     background-color: #cccccc;
-}
-
-.skiplink:focus, .skiplink:active {
-    color: white;
-    background-color: black;
-    font-size: 1em;
-    text-align: center;
-    padding: 5px;
-    z-index: 501;
-}
-
-.skiphold{
-    left: 0;
-    position: absolute;
-    text-align: center;
-    top: 10px;
-    width: 100%;
-    z-index: 3;
 }
 
 @media only screen and (max-width: 990px) {
@@ -239,16 +251,7 @@ body {
     }
 }
 
-#bg {
-    height: 200%;
-    left: -50%;
-    position: fixed;
-    top: -50%;
-    width: 200%;
-    background-image: url("../images/sp-bg-3-1-min.jpg");
-    background-position: center;
-    background-size: cover;
-}
+
 
 .fa-spin {
     animation: fa-spin 2s infinite linear;
