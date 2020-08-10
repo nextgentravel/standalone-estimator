@@ -9,6 +9,7 @@ module.exports = {
     languages
   },
   plugins: [
+    `gatsby-plugin-sass`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
@@ -49,7 +50,7 @@ module.exports = {
             options: {
               blocks: {
                 card: {
-                  classes: "card",
+                  classes: "card mb-3",
                 },
                 'card-body': {
                   classes: "card-body",
