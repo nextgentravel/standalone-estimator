@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
         let showLanguageSelect = true;
         let onHomePage = true;
         showLanguageSelect = url === '/404/' ? showLanguageSelect = false : showLanguageSelect = true;
-        showLanguageSelect = url === '/en/' || url === '/fr/' ? onHomePage = true : onHomePage = false;
+        onHomePage = url === '/en/' || url === '/fr/' ? onHomePage = true : onHomePage = false;
         return (
           <IntlProvider
             locale={langKey}
