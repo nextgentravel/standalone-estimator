@@ -56,11 +56,11 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => {
         </div>
       </div>
       <div className="col-12 py-4 bg-dark">
-        <h1 className="text-center text-light">GC Travel Guide</h1>
+        <h1 className="text-center text-light"><FormattedMessage id="siteTitle" /></h1>
       </div>
       <div className="bg-light col-12">
         <section className='col-12 col-md-6 mx-auto py-4'>
-          <SearchForm />
+          <SearchForm placement="home" />
         </section>
       </div>
     </header>
