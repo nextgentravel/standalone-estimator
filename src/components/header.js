@@ -37,7 +37,7 @@ const Header = ({homeHeader, langs, showLanguageSelect, homeLink}) => {
           <nav className="skiphold" id="header-skiplink">
             <a className="sr-only sr-only-focusable aurora-skip skiplink" aria-label="main skiplink" href="#main-content"><FormattedMessage id="skipToMain" /></a>
           </nav>
-          <div className="goc-logo" property="publisher" typeof="GovernmentOrganization">
+          <div className="goc-logo align-self-center" property="publisher" typeof="GovernmentOrganization">
             <Link to={homeLink}>
                 <Image
                   filename="sig-blk-en.svg"
@@ -45,7 +45,7 @@ const Header = ({homeHeader, langs, showLanguageSelect, homeLink}) => {
                 />
             </Link>
           </div>
-          <section className='text-right'>
+          <section className='text-right align-self-center'>
             {showLanguageSelect &&
               <>
                 <h2 className="sr-only sr-only-focusable aurora-skip"><FormattedMessage id="languageSelection" /></h2>

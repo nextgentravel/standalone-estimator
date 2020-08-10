@@ -80,7 +80,7 @@ body {
 }
 
 .goc-logo > a > img {
-    height: 30px;
+    height: 1.3em;
 }
 
 [class*="colcount-"] {
@@ -139,11 +139,17 @@ body {
     background-size: cover;
 }
 
+
 @media screen and (min-width: 768px) {
 	.colcount-sm-2 {
 		-webkit-column-count: 2;
 		column-count: 2
-	}
+    }
+
+    .goc-logo > a > img {
+        height: 2em;
+    }
+
 }
 
 @media screen and (min-width: 992px) {
