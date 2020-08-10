@@ -33,11 +33,11 @@ const Header = ({homeHeader, langs, showLanguageSelect, homeLink}) => {
       </div>
 
       <div className="container">
-        <div className="row my-4">
+        <div className="d-flex justify-content-between my-4">
           <nav className="skiphold" id="header-skiplink">
             <a className="sr-only sr-only-focusable aurora-skip skiplink" aria-label="main skiplink" href="#main-content"><FormattedMessage id="skipToMain" /></a>
           </nav>
-          <div className="col-6 col-sm-6 goc-logo" property="publisher" typeof="GovernmentOrganization">
+          <div className="goc-logo" property="publisher" typeof="GovernmentOrganization">
             <Link to={homeLink}>
                 <Image
                   filename="sig-blk-en.svg"
@@ -45,7 +45,7 @@ const Header = ({homeHeader, langs, showLanguageSelect, homeLink}) => {
                 />
             </Link>
           </div>
-          <section className='float-right col-sm-6 col-md-6 text-right'>
+          <section className='text-right'>
             {showLanguageSelect &&
               <>
                 <h2 className="sr-only sr-only-focusable aurora-skip"><FormattedMessage id="languageSelection" /></h2>
