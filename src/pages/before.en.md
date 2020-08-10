@@ -66,7 +66,7 @@ lead: "After deciding to travel, you should start by creating an estimate. The e
 | | - When at the submitting stage, requesting for online approval, try to submit at a time where the approver can approve it immediately. Success rates for bookings are over 90% if requests are immediately approved. Delaying submissions can cause the process to fail, causing you to restart the online booking process.
 | |
 
-[Next: Booking Your Travel](/en/booktravel)
+<p class="text-center"><a href="/en/booktravel" class="btn btn-outline-primary my-4 px-4">Continue to Book</a></p>
 
 </article>
 
