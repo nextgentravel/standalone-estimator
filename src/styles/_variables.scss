@@ -11,3 +11,9 @@ $dark: #26374A;
 //Breadcrumb
 $breadcrumb-bg: transparent; // Inner background colour (Bootstrap override).
 $breadcrumb-divider: quote(">");
+
+//** Breadcrumb text color
+$breadcrumb-color: #26374A;
+//** Text color of current page in the breadcrumb
+$breadcrumb-active-color: #26374A;
+//** Textual separator for between breadcrumb elements
