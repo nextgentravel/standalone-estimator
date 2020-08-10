@@ -56,24 +56,24 @@ const Footer = ({ siteTitle, homeLink }) => (
         </ul>
       </div>
     </div>
-    <div className="container col-12">
-      <ul className="col-9">
-        <li>
+    <div className="container col-12 ">
+      <ul className="col-9 inline">
+        <li className="list-inline-item">
           <a href="">
             <FormattedMessage id="socialmedia" />
           </a>
         </li>
-        <li>
+        <li className="list-inline-item dot">
           <a href="">
             <FormattedMessage id="mobileapp" />
           </a>
         </li>
-        <li>
+        <li className="list-inline-item dot">
           <a href="">
             <FormattedMessage id="terms" />
           </a>
         </li>
-        <li>
+        <li className="list-inline-item dot">
           <a href="">
             <FormattedMessage id="privacy" />
           </a>
