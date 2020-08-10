@@ -88,6 +88,11 @@ body {
     margin-bottom: .75em;
 }
 
+.search:placeholder-shown {
+    font-style: italic;
+    font-weight: lighter;
+}
+
 @media screen and (min-width: 768px) {
 	.colcount-sm-2 {
 		-webkit-column-count: 2;

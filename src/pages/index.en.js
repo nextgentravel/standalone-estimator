@@ -18,7 +18,7 @@ const IndexPage = () => (
     <div>
       <main id="main-content" role="main">
         <div className="container mt-4">
-          <h3 className="text-center mb-4">Get Started</h3>
+          <h3 className="text-center mb-4 font-weight-bold">Get Started</h3>
           <p className="text-center mb-5">Select the part of the journey you need support with or launch our travel assistant for a guided travel experience.  You can use this guide offline, even when you are not connected to the internet.</p>
           <div className="row mb-3 mt-3">
               <section className="col-sm-3 text-center mb-5">
