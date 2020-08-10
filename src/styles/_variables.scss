@@ -1,9 +1,19 @@
+
+$font-family-base: "Noto Sans", sans-serif; // (Bootstrap override), "Noto Sans" is a Google font but it is not loaded yet
+
 $primary: #2572B4; // changed
 $gray-light: #6f6f6f; // Light grey colour (Bootstrap override).
 $border-red: #af3c43;
 $light: #F8F8F8;
 $secondary: #9E9E9E;
 $dark: #26374A;
+
 //Breadcrumb
 $breadcrumb-bg: transparent; // Inner background colour (Bootstrap override).
-$font-family-base: "Noto Sans", sans-serif; // (Bootstrap override), "Noto Sans" is a Google font but it is not loaded yet
+$breadcrumb-divider: quote(">");
+
+//** Breadcrumb text color
+$breadcrumb-color: #26374A;
+//** Text color of current page in the breadcrumb
+$breadcrumb-active-color: #26374A;
+//** Textual separator for between breadcrumb elements

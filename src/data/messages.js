@@ -3,7 +3,7 @@ module.exports = {
         // header
         'governmentOfCanada': 'Government of Canada Travel Guide',
         'skipToMain': 'Skip to the main content',
-        'pageTitle': 'Travel Guidebook',
+        'siteTitle': 'GC Travel Guide',
         'underDevelopment': 'This website is under development.',
         'languageSelection': 'Language Selection',
         'alpha': 'ALPHA',
@@ -30,7 +30,7 @@ module.exports = {
         // header
         'governmentOfCanada': 'Guide de voyage du gouvernement du Canada',
         'skipToMain': 'Passez au contenu principal',
-        'pageTitle': 'Guide de voyage',
+        'siteTitle': 'GC Guide de voyage',
         'underDevelopment': 'Ce site Web est en cours de développement.',
         'languageSelection': 'Sélection de la langue',
         'alpha': 'ALPHA',

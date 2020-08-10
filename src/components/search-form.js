@@ -42,7 +42,7 @@ const SearchForm = ({ initialQuery = "", placement = "header" }) => {
           onChange={handleChange}
         />
         <div className="input-group-append">
-          <button type="submit" className="btn btn-primary"><FaSearch />
+          <button type="submit" className={`btn btn-primary${placement !== 'header' ? ` btn-dark` : ``}`}><FaSearch />
             <span className="sr-only">Search</span>
           </button>
         </div>
