@@ -60,7 +60,7 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => {
       </div>
       <div className="bg-light col-12">
         <section className='col-12 col-md-6 mx-auto py-4'>
-          <SearchForm />
+          <SearchForm placement="home" />
         </section>
       </div>
     </header>
