@@ -17,7 +17,7 @@ const IndexPage = () => (
                 <div className="card-img-top">
                   <Image
                     filename="002D42-1.png"
-                    alt="Card image cap"
+                    alt=""
                   />
                 </div>
 
@@ -33,7 +33,7 @@ const IndexPage = () => (
               <section className="card mb-2">
                 <Image
                   filename="137991-1.png"
-                  alt="Card image cap"
+                  alt=""
                 />
                 <div className="card-body d-flex flex-column">
                   <h2 className="card-title h5">Booking Your Travel</h2>
@@ -48,7 +48,7 @@ const IndexPage = () => (
               <section className="card mb-2">
                 <Image
                   filename="15A3A6-1.png"
-                  alt="Card image cap"
+                  alt=""
                 />
                 <div className="card-body d-flex flex-column">
                   <h2 className="card-title h5">During Your Travel</h2>
@@ -63,7 +63,7 @@ const IndexPage = () => (
               <section className="card mb-2">
                 <Image
                   filename="6DD2DA-1.png"
-                  alt="Card image cap"
+                  alt=""
                 />
                 <div className="card-body d-flex flex-column">
                   <h2 className="card-title h5">After You Return</h2>
