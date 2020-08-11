@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 const Footer = ({ siteTitle, homeLink }) => (
   <footer className="footer">
     <div className="bg-dark py-5 footer-deco">
-      <div class="container">
+      <div className="container">
         <ul className="list-unstyled colcount-sm-2 colcount-md-3">
           <li>
             <a href={`${homeLink}sitemap`} className="text-light">
@@ -58,7 +58,7 @@ const Footer = ({ siteTitle, homeLink }) => (
     </div>
 
     <div className="bg-light py-3">
-      <div class="container">
+      <div className="container">
         <div className="row h-100">
           <div className="col-sm-6">
             <ul className="list-unstyled colcount-sm-2 colcount-md-2 my-auto">
