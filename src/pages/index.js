@@ -14,7 +14,7 @@ const IndexPage = () => (
         <Link to="/fr" className="btn btn-primary m-2 p-2 pl-3 pr-3">Français</Link>
         <Link to="/en" className="btn btn-primary m-2 p-2 pl-3 pr-3">English</Link>
       </div>
-      <div className="card-body bg-splash-card">
+      <div className="card-body bg-light">
         <div className="col-6 float-left">
           <a className="text-dark" href="/">Avis</a>
           &nbsp;<FaCircle size={5} className="text-secondary" />&nbsp;

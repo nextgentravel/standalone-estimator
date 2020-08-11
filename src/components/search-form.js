@@ -31,18 +31,18 @@ const SearchForm = ({ initialQuery = "", placement = "header" }) => {
       <label htmlFor={`search-input-${placement}`} className="sr-only">
         Search for:
       </label>
-      <div className="input-group">
+      <div className="input-group input-group-lg">
         <input
-          className="form-control"
+          className="form-control input-lg search"
           ref={inputEl}
           id={`search-input-${placement}`}
           type="search"
           value={query}
-          placeholder="Search"
+          placeholder="Search GC Travel Guide"
           onChange={handleChange}
         />
         <div className="input-group-append">
-          <button type="submit" className="btn btn-primary"><FaSearch />
+          <button type="submit" className={`btn ${placement !== 'header' ? ` btn-dark` : ` btn-light`}`}><FaSearch />
             <span className="sr-only">Search</span>
           </button>
         </div>
