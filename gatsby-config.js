@@ -1,5 +1,15 @@
 const languages = require('./src/data/languages');
 
+const activeEnv =
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
+
+  console.log(`Using environment config: '${activeEnv}'`)
+
+
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Travel Guide`,
@@ -113,7 +123,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // The property ID; the tracking code won't be generated without it
-        trackingId: "UA-173947223-1",
+        trackingId: process.env.GA_TRACKING_ID,
         // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: false,
         // Setting this parameter is optional
