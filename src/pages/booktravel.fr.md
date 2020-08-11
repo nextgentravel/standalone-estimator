@@ -5,7 +5,7 @@ heading: "Réservation de votre voyage"
 lead: "Étapes importantes pour réserver votre voyage"
 ---
 
-<section class="content-left col-xs-12 col-sm-12 col-md-8">
+<article class="content-left col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -49,9 +49,9 @@ lead: "Étapes importantes pour réserver votre voyage"
 
 [Suivant: Pendant votre voyage](/fr/during)
 
-</section>
+</article>
 
-<aside class="content-right col-xs-6 col-md-4" id="sidebar">
+<section class="content-right col-xs-6 col-md-4" id="sidebar">
 
 ### Ressources
 * [Première option](/)
@@ -68,4 +68,4 @@ lead: "Étapes importantes pour réserver votre voyage"
 | | Votre [Coordonnateur ministériel désigné des voyages](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) devrait être en mesure de vous aider!
 | |
 
-</aside>
+</section>

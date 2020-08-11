@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - staging
-  pull_request:
-    types: [opened, synchronize, reopened, closed]
-    branches:
-      - staging
 
 jobs:
   build_and_deploy_job:
