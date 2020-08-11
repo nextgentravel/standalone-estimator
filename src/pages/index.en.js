@@ -84,6 +84,7 @@ const IndexPage = () => (
                 </div>
               </section>
           </div>
+          <p>Looking for a specific page? Try the <a href="/en/sitemap">sitemap</a>!</p>
         </div>
         <div class="bg-light">
           <div className="container">
