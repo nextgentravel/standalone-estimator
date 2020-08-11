@@ -74,6 +74,7 @@ const IndexPage = () => (
                 </div>
               </section>
           </div>
+          <p>Vous recherchez une page spécifique? Essayez le <a href="/fr/sitemap"> plan du site </a>!</p>
         </div>
       </main>
     </div>
