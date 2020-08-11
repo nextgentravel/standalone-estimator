@@ -310,7 +310,7 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 | |
 | |
 
-[Next: During your travel](/en/during)
+<p class="text-center"><a href="/en/during" class="btn btn-outline-primary my-4 px-4">Continue to Travel</a></p>
 
 </article>
 
