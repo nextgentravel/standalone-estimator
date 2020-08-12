@@ -5,7 +5,7 @@ title: "Before you leave"
 heading: "Decision to Travel"
 lead: "After deciding to travel, you should start by creating an estimate. The estimate should give an overall approximation of what the total cost of the trip will be, so that it can the be approved."
 ---
-<div class="content-left col-xs-12 col-sm-12 col-md-8">
+<article class="content-left col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -63,14 +63,14 @@ lead: "After deciding to travel, you should start by creating an estimate. The e
 | | ## Booking your trip
 | | - Using your Travel Identification Number (TIN) [log into the system](https://isuite6.hrgworldwide.com/gcportal/en-ca/sts.aspx)
 | | - In the system, use the instructions to book your trip. You can reference your estimates listed above to go through the booking process. [Link to the HRG instructions](/en/booktravel)
-| | - When at the submitting stage, requesting for online approval, try to submit at a time where the approver can approve it immediately. Success rates for bookings are over 90% if requests are immediately approved. Delaying submissions can cause the process to fail, causing you to restart the online booking process. 
+| | - When at the submitting stage, requesting for online approval, try to submit at a time where the approver can approve it immediately. Success rates for bookings are over 90% if requests are immediately approved. Delaying submissions can cause the process to fail, causing you to restart the online booking process.
 | |
 
-[Next: Booking Your Travel](/en/booktravel)
+<p class="text-center"><a href="/en/booktravel" class="btn btn-outline-primary my-4 px-4">Continue to Book</a></p>
 
-</div>
+</article>
 
-<div class="content-right col-xs-6 col-md-4">
+<section class="content-right col-xs-6 col-md-4" id="sidebar">
 
 ## Resources
 * [Your Rates and Limits](/en/rates)
@@ -88,4 +88,4 @@ lead: "After deciding to travel, you should start by creating an estimate. The e
 | | Your [Designated Departmental Travel Coordinator](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) should be able to help!
 | |
 
-</div>
+</section>

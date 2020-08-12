@@ -6,7 +6,7 @@ import SelectLanguage from './languageSelect';
 import { FormattedMessage, useIntl } from 'react-intl';
 import SearchForm from "../components/search-form"
 
-const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => {
+const Header = ({homeHeader, langs, showLanguageSelect, homeLink}) => {
   const intl = useIntl();
   return (
     <header className="mb-4">
@@ -33,11 +33,19 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => {
       </div>
 
       <div className="container">
-        <div className="row mt-2">
-          <nav className="sr-only sr-only-focusable aurora-skip">
-            <a className="sr-only sr-only-focusable aurora-skip" href="#main-content"><FormattedMessage id="skipToMain" /></a>
+        <div className="d-flex justify-content-between my-4">
+          <nav className="skiphold" id="header-skiplink">
+            <a className="sr-only sr-only-focusable aurora-skip skiplink" aria-label="main skiplink" href="#main-content"><FormattedMessage id="skipToMain" /></a>
           </nav>
-          <section className='col-sm-4 col-md-12 text-right mb-2'>
+          <div className="goc-logo align-self-center" property="publisher" typeof="GovernmentOrganization">
+            <Link to={homeLink}>
+                <Image
+                  filename="sig-blk-en.svg"
+                  alt={ intl.formatMessage({ id: 'governmentOfCanada' })}
+                />
+            </Link>
+          </div>
+          <section className='text-right align-self-center'>
             {showLanguageSelect &&
               <>
                 <h2 className="sr-only sr-only-focusable aurora-skip"><FormattedMessage id="languageSelection" /></h2>
@@ -45,20 +53,40 @@ const Header = ({siteTitle, langs, showLanguageSelect, homeLink}) => {
               </>
             }
           </section>
-          <div className="col-sm-5 pt-1 pb-4" property="publisher" typeof="GovernmentOrganization">
-            <Link to={homeLink}>
-                <Image
-                  filename="sig-blk-en.svg"
-                  alt={ intl.formatMessage({ id: 'governmentOfCanada' })}
-                  className="gc-logo"
-                />
-            </Link>
-          </div>
-          <section className='col-sm-5 ml-auto'>
-            <SearchForm />
-          </section>
+
+
         </div>
       </div>
+      <div className="py-4 bg-dark">
+        <div className="container">
+            {!homeHeader &&
+              <div className="row">
+                  <div className="col-sm-6">
+                      <h1 className="text-light"><FormattedMessage id="siteTitle" /></h1>
+                  </div>
+                  <div className="col-sm-6">
+                      <SearchForm placement="header" />
+                  </div>
+              </div>
+            }
+            {homeHeader &&
+              <div className="row">
+                  <div className="col-sm-12">
+                      <h1 className="text-light text-center"><FormattedMessage id="siteTitle" /></h1>
+                  </div>
+              </div>
+            }
+        </div>
+      </div>
+      {homeHeader &&
+        <div className="bg-light col-12">
+          <section className='col-12 col-md-6 mx-auto py-4'>
+            <SearchForm placement="home" />
+          </section>
+        </div>
+
+      }
+
     </header>
   )
 }

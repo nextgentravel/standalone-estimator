@@ -9,6 +9,7 @@ module.exports = {
     languages
   },
   plugins: [
+    `gatsby-plugin-sass`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
@@ -49,7 +50,7 @@ module.exports = {
             options: {
               blocks: {
                 card: {
-                  classes: "card",
+                  classes: "card mb-3",
                 },
                 'card-body': {
                   classes: "card-body",
@@ -109,5 +110,9 @@ module.exports = {
       }
     },
     `gatsby-plugin-offline`,
+    `gatsby-plugin-use-query-params`,
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
   ],
 }
