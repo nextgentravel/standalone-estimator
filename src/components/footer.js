@@ -9,7 +9,7 @@ const Footer = ({ siteTitle, homeLink }) => (
       <div className="container">
         <ul className="list-unstyled colcount-sm-2 colcount-md-3">
           <li>
-            <a href="" className="text-light">
+            <a href={`${homeLink}sitemap`} className="text-light">
               <FormattedMessage id="knowledge" />
             </a>
           </li>
