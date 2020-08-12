@@ -121,7 +121,7 @@ const SearchPage = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Search results" />
       <main className="container px-5 py-2" id="main-content">
-        {searchQuery ? <h1 className="font-weight-bold">Search Results</h1> : <h1 className="font-weight-bold">What are you looking for?</h1>}
+        {searchQuery ? <h2 className="font-weight-bold">Search Results</h2> : <h2 className="font-weight-bold">What are you looking for?</h2>}
         <div className="p-1">
           {!fuzzy &&
             <>
@@ -140,11 +140,11 @@ const SearchPage = ({ data, location }) => {
                 <React.Fragment key={result.slug}>
                   <article className={index === 0 ? 'card border-dark p-3 mb-5': 'mb-5'}>
                     {index === 0 && <p className="text-secondary">Best Match</p>}
-                    <h5>
+                    <h3>
                       <Link to={result.slug}>
                         {result.title || result.slug}
                       </Link>
-                    </h5>
+                    </h3>
                     <p dangerouslySetInnerHTML={{__html: result.displayExcerpt}}></p>
                   </article>
                 </React.Fragment>
