@@ -22,6 +22,7 @@ module.exports = {
         'mobileapp': 'Mobile applications',
         'terms': 'Terms and conditions',
         'privacy': 'Privacy',
+        'footer-alt': 'symbol of the government of canada',
         //infoPage
         'skipToSide': 'Skip to sidebar',
         'breadCrumbAria': 'You are here: ',
@@ -49,6 +50,7 @@ module.exports = {
         'mobileapp': 'Applications mobiles',
         'terms': 'Termes et conditions',
         'privacy': 'Intimité',
+        'footer-alt': 'symbole du gouvernement du canada',
         //infoPage
         'skipToSide': 'Passer à la barre latérale',
         'breadCrumbAria': 'Tu es là: ',
