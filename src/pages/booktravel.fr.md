@@ -9,7 +9,7 @@ lead: "Étapes importantes pour réserver votre voyage"
 
 [[card]]
 | [[card-body]]
-| | ## 1. Réserver votre voyage
+| | ### 1. Réserver votre voyage
 | |
 | | - Utilisation de votre numéro d'identification de voyage (TIN) [se connecter au système](https://isuite6.hrgworldwide.com/gcportal/fr-ca/sts.aspx)
 | | - Dans le système, utilisez les instructions pour réserver votre voyage. Vous pouvez référencer vos estimations ci-dessus pour passer par le processus de réservation. [lien vers les instructions HRG](/)
@@ -18,7 +18,7 @@ lead: "Étapes importantes pour réserver votre voyage"
 
 [[card]]
 | [[card-body]]
-| | ## 2. Réservez votre hébergement
+| | ### 2. Réservez votre hébergement
 | |
 | |Sed quis purus in felis vulputate tempor et eu lectus. Suspendisse quis metus eu justo lobortis commodo vitae et purus. Vestibulum odio velit, euismod quis mi tempus, bibendum fermentum diam.
 | |
@@ -28,21 +28,21 @@ lead: "Étapes importantes pour réserver votre voyage"
 
 [[card]]
 | [[card-body]]
-| | ## 3. Réservez vos locations de voiture si besoin
+| | ### 3. Réservez vos locations de voiture si besoin
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
 
 [[card]]
 | [[card-body]]
-| | ## 4. Saisissez vos dépenses potentielles
+| | ### 4. Saisissez vos dépenses potentielles
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
 
 [[card]]
 | [[card-body]]
-| | ## 5. Soumettre pour approbation et réserver
+| | ### 5. Soumettre pour approbation et réserver
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
@@ -53,17 +53,17 @@ lead: "Étapes importantes pour réserver votre voyage"
 
 <section class="content-right col-xs-6 col-md-4" id="sidebar">
 
-### Ressources
+#### Ressources
 * [Première option](/)
 * [Deuxième option](/)
 
-### Suggérer une mise à jour
+#### Suggérer une mise à jour
 [Envoyez des commentaires anonymes ici](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
 
 [[info-card]]
 | [[card-body]]
 | |
-| | ## Vous avez encore des questions liées au voyage?
+| | ### Vous avez encore des questions liées au voyage?
 | |
 | | Votre [Coordonnateur ministériel désigné des voyages](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) devrait être en mesure de vous aider!
 | |

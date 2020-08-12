@@ -10,7 +10,7 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 
 [[card]]
 | [[card-body]]
-| | ## Company / Accounting Details
+| | ### Company / Accounting Details
 | | **Travel Directive Module:** please select your travel details.  Choose the correct option for if you will be travelling domestically, or internationally, and if the travel will be overnight
 | |
 | | **TAN Prefix:** the Travel Access Number or TAN is a number that is associated with your branch or department. Before continuing, it is important that the tan prefix is correctly linked to your branch or department
@@ -18,12 +18,12 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 
 [[card]]
 | [[card-body]]
-| |## Booking Transportation
+| |### Booking Transportation
 | |To find a specific trip on your account, use your Trip reference number, located near the top of the Itinerary details page
 
 [[card]]
 | [[card-body]]
-| | ### Booking flights
+| | #### Booking flights
 | |
 | | Select the airport location from which you will leave from, and the airport of your destination. You will then be asked for a departure and return date, as well as the timing of each flight.
 | |
@@ -46,7 +46,7 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 
 [[card]]
 | [[card-body]]
-| | ### Booking Car Rentals
+| | #### Booking Car Rentals
 | |
 | | Select the airport location of your destination and fill out all other appropriate information, making sure your start and end date align with your flights or other transportation method. Then search
 | |
@@ -71,7 +71,7 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 
 [[card]]
 | [[card-body]]
-| | ### Booking Rail
+| | #### Booking Rail
 | |
 | | Select the station from which you will leave from, and the station of your destination.
 | |
@@ -92,7 +92,7 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 [[card]]
 | [[card-body]]
 | |
-| |### Booking a Hotel
+| |#### Booking a Hotel
 | |
 | |To search for a hotel, please enter the city rate limit of your destination in the maximum field for the hotel price range to ensure you will be in government policy. [Find your rates and limits here.](http://travel-guidebook-staging.herokuapp.com/en/rates/ "Find your rates and limits here.") There are many cases where a suitable hotel is above the city rate limit. In these cases, if a desired room/hotel is above this range, it can still be selected but will require an explanation which will then be reviewed for approval at the end of the booking process
 | |
@@ -114,7 +114,7 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 
 [[card]]
 | [[card-body]]
-| | ### Payment methods
+| | #### Payment methods
 | |
 | | **Transportation:** the departmental travel expense card (**DTEC**) should appear as the payment method
 | |
@@ -129,7 +129,7 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 [[card]]
 | [[card-body]]
 | |
-| | ### Accounting/Payment Details
+| | #### Accounting/Payment Details
 | |
 | |Before you can submit your Travel Request into the **Expense Management Tool (EMT)**, you must first verify and enter in the appropriate payment details for your trip
 | |
@@ -147,7 +147,7 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 | [[card-body]]
 | |
 | |
-| | ### Company accounting details
+| | #### Company accounting details
 | |You are only required to complete the fields marked with a red asterisk
 | |The departure and finish dates are automatically populated but can be changed in this section, please review for accuracy. Please note however, any changes made here may impact your accommodations in previous steps, which you then must go back and correct
 | |
@@ -160,14 +160,14 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 [[card]]
 | [[card-body]]
 | |
-| | ### Additional estimates and expenses Expense Management Tool **(EMT)**
+| | #### Additional estimates and expenses Expense Management Tool **(EMT)**
 | |
 | |Before your Travel Request is complete, you must edit the request and be sure to include all other business-related expenses for your trip. This can be done by using the **Expense Management Tool**, located under **Manage Expenses** on the top menu of the site and by selecting: **Expense Management System**
 | |From the Expense Management Tool, locate the Travel Request created and include the applicable estimates and expenses.
 | |
 | | **Note:** to add the additional estimates and expenses, select the green checkmark of the trip you have just created in the previous step
 | |
-| | #### Add Additional Estimates
+| | ##### Add Additional Estimates
 | |
 | |Under Expenses find and select the expense type you would like to add. Simply add in the amount in Canadian dollars or it’s Canadian dollar equivalent, then select one of the choices from the dropdown.
 | |Finally you may be required to fill out your rationale for the expenses where you are required to provide details or put a dash if you do not need to be specific.
@@ -178,7 +178,7 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 | |
 | |**Tip:** to add an attachment, select the paperclip icon. However, please note that there can only be up to one file attached
 | |
-| | #### Add Meals, Incidentals & Private Accommodation
+| | ##### Add Meals, Incidentals & Private Accommodation
 | |
 | |Allowed rates are specified under Appendix C or D of the NJC or by using the [Rates and Limits Calculator here.](http://travel-guidebook-staging.herokuapp.com/en/rates/ "Find your rates and limits here.")
 | |Under **Expenses** find and select the **Add Meals, Incidentals & Private Accommodation** section. Please make sure the Start and End dates align with your trip. If meals were consumed in two locations on the same day, select the green plus icon to add an additional field. Select the pencil to change the meal location if necessary
@@ -187,7 +187,7 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 | |
 | |**Note:** if you are not responsible to pay for one or more meals during your time away, please do not include it as an expense. For example: meals that would be included in the airfare or if you are a guest at an event that is providing food
 | |
-| |#### Add Private Motor Vehicle
+| |##### Add Private Motor Vehicle
 | |
 | |Under **Expenses** find and select the **Private Motor Vehicle** section. Please make sure the Start and End dates align with your trip. From the dropdown, select the State/Province the car is registered in
 | |Select the **calculator icon** to calculate your estimated travel distance traveled and the mileage calculator will be brought up. Enter in the From and To address fields and then select any applicable options below:
@@ -200,7 +200,7 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 [[card]]
 | [[card-body]]
 | |
-| | ### Modifying a Financial Code Block (FCB)
+| | #### Modifying a Financial Code Block (FCB)
 | |
 | | The financial code blocks are assigned by default based on the information inputted when creating the traveller profile. However, it may be necessary to change this information if an expense should be submitted to a different cost center. Additionally it may be necessary to split a Coding Line between multiple cost centres, should more than one cost centre be responsible for your travel
 | |
@@ -225,7 +225,7 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 [[card]]
 | [[card-body]]
 | |
-| |### Submitting for Approval
+| |#### Submitting for Approval
 | |
 | | The last step in the process is to get your trip approved
 | |
@@ -242,11 +242,11 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 [[card]]
 | [[card-body]]
 | |
-| |### Checking the status of your request
+| |#### Checking the status of your request
 | |
 | | To check if your request has been approved in the HRG system, please login to HRG and select the Expense Management menu item and then the Expense Management link from the dropdown. Then locate your trip of interest on the Travel Request Details page
 | |
-| |#### Possible status options:
+| |##### Possible status options:
 | |
 | | - **pending -** if your request is still pending, no sign will be shown
 | | - **approved -** a green checkmark will show that you have been approved for your journey
@@ -259,7 +259,7 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 [[card]]
 | [[card-body]]
 | |
-| |### Unsubmit or Modify a Travel Request
+| |#### Unsubmit or Modify a Travel Request
 | |
 | |Please login to HRG and under the Manage Expenses menu item, select the Expense Management link from the dropdown. Then locate your trip of interest on the Travel Request page. Select the Unsubmit button from Approval bubble on the right hand side
 | |
@@ -272,7 +272,7 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 [[card]]
 | [[card-body]]
 | |
-| |### Verify or Modify the Approver
+| |#### Verify or Modify the Approver
 | |
 | |It is always good practice to verify that the approver is correct before submitting your travel request. Please login to HRG and under the **Manage Expenses** menu item, select the **Expense Management** link from the dropdown. Then locate your trip of interest on the Travel Request page. Select the **red exclamation mark** next to the correct trip and you will be brought to the approval tab
 | |
@@ -285,7 +285,7 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 [[card]]
 | [[card-body]]
 | |
-| |### Verify or Modify a Recommender
+| |#### Verify or Modify a Recommender
 | |
 | |It is always good practice to also verify that the recommender is correct before submitting your travel request.
 | |
@@ -316,17 +316,17 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 
 <section class="content-right col-xs-6 col-md-4" id="sidebar">
 
-## Resources
+### Resources
 * [Option One](/)
 * [Option Two](/)
 
-## Suggest an update
+### Suggest an update
 [Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
 
 [[info-card]]
 | [[card-body]]
 | |
-| | ## Still have travel-related questions?
+| | ### Still have travel-related questions?
 | |
 | | Your [Designated Departmental Travel Coordinator](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) should be able to help!
 | |
