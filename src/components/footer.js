@@ -88,6 +88,7 @@ const Footer = ({ siteTitle, homeLink }) => (
             <Image
               className=""
               filename="footer-tag.svg"
+              alt=""
             />
           </div>
         </div>
