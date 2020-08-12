@@ -6,7 +6,7 @@ heading: "Après votre retour"
 lead: "Assurer un remboursement rapide"
 ---
 
-<div class="content-left col-xs-12 col-sm-12 col-md-8">
+<article class="content-left col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -37,9 +37,9 @@ lead: "Assurer un remboursement rapide"
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
 
-</div>
+</article>
 
-<div class="content-right col-xs-6 col-md-4">
+<section class="content-right col-xs-6 col-md-4" id="sidebar">
 
 ### Ressources
 * [Première option](/)
@@ -56,4 +56,4 @@ lead: "Assurer un remboursement rapide"
 | | Votre [coordonnateur ministériel des voyages](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) désigné devrait être en mesure d'aider!
 | |
 
-</div>
+</section>

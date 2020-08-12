@@ -13,10 +13,6 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
         showValidationWarning = true;
     }
 
-    const handleRemoveError = name => {
-        setValidationWarnings(validationWarnings.filter(item => item.path !== name))
-    }
-
     return (
         <div className="mb-4">
             <label htmlFor={name}>{label}</label>
@@ -28,7 +24,6 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
                 name={name}
                 list="suggestions"
                 onChange={event => {
-                    handleRemoveError(name)
                     updateValue(event.target.value)
                 }}
             />

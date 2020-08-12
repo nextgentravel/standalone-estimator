@@ -6,7 +6,7 @@ heading: "Pendant votre voyage"
 lead: "Comment gérer tout problème avec le voyage réel"
 ---
 
-<div class="content-left col-xs-12 col-sm-12 col-md-8">
+<article class="content-left col-xs-12 col-sm-12 col-md-8">
 
 [[card]]
 | [[card-body]]
@@ -33,9 +33,9 @@ lead: "Comment gérer tout problème avec le voyage réel"
 
 [Suivant: Après votre retour](/fr/after)
 
-</div>
+</article>
 
-<div class="content-right col-xs-6 col-md-4">
+<section class="content-right col-xs-6 col-md-4" id="sidebar">
 
 ### Ressources
 * [Première option](/)
@@ -52,4 +52,4 @@ lead: "Comment gérer tout problème avec le voyage réel"
 | | Votre [Coordonnateur ministériel désigné des voyages](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) devrait être en mesure de vous aider!
 | |
 
-</div>
+</section>
