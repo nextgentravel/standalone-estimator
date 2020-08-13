@@ -95,7 +95,7 @@ const Kilometrics = () => {
     return (
         <>
             <div className="mb-4">
-                <h1>Find the correct rate for your kilometrics</h1>
+                <h2>Find the correct rate for your kilometrics</h2>
                 <p className="lead">Taking your personal vehicle on a government trip? Refer to these rates.</p>
                 {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
                     <h2>Field error or required</h2>
