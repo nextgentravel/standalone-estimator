@@ -48,7 +48,7 @@ const Header = ({homeHeader, langs, showLanguageSelect, homeLink}) => {
           <section className='text-right align-self-center'>
             {showLanguageSelect &&
               <>
-                <h2 className="sr-only sr-only-focusable aurora-skip"><FormattedMessage id="languageSelection" /></h2>
+                <p className="sr-only sr-only-focusable aurora-skip"><FormattedMessage id="languageSelection" /></p>
                 <SelectLanguage langs={langs} />
               </>
             }
