@@ -17,8 +17,6 @@ import { FaExclamationTriangle } from 'react-icons/fa';
 const RatesChecker = () => {
     const citiesList = cities.citiesList;
     const suburbCityList = cities.suburbCityList;
-    console.log(acrdRates)
-    
 
     const [destination, setDestination] = useState('');
     const [departureDate, setDepartureDate] = useState('');
