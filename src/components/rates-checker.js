@@ -6,15 +6,19 @@ import { DateTime } from "luxon"
 import * as yup from "yup"
 import monthsContained from "./months-contained.js"
 
+import cities from "../data/cities.js"
+import acrdRates from "../data/acrdRates.js"
+
 import { FaSpinner } from 'react-icons/fa';
 import { FaExclamationTriangle } from 'react-icons/fa';
 
 // import { globalHistory } from "@reach/router"
 
 const RatesChecker = () => {
-    const [citiesList, setCitiesList] = useState([]);
-    const [citiesListArray, setCitiesListArray] = useState([]);
-    const [suburbCityList, setSuburbCityList] = useState({});
+    const citiesList = cities.citiesList;
+    const suburbCityList = cities.suburbCityList;
+    console.log(acrdRates)
+    
 
     const [destination, setDestination] = useState('');
     const [departureDate, setDepartureDate] = useState('');
@@ -30,27 +34,6 @@ const RatesChecker = () => {
 
     //   Will use later when integration language
     //   const url = globalHistory.location.pathname;
-
-    const fetchListOfCities = () => {
-        fetch('https://acrd-api.herokuapp.com/cities')
-        .then(function(response) {
-            return response.json();
-          })
-          .then(json => {
-            setCitiesListArray(json.citiesList);
-            let list = json.citiesList.map(city => {
-                return {
-                    value: city,
-                    label: city,
-                }
-            })
-            setSuburbCityList(json.suburbCityList)
-            setCitiesList(list)
-          })
-          .catch(function(error) {
-            console.log('Request failed', error)
-          });
-    }
 
     const calculateMeals = (departDate, returnDate, province) => {
         let departD = DateTime.fromISO(departDate);
@@ -81,12 +64,7 @@ const RatesChecker = () => {
             dinner,
             incidentals,
         }
-
     }
-
-    useEffect(() => {
-        fetchListOfCities();
-    }, []);
 
     const handleSubmit = (e) => {
         setLoading(true);
@@ -97,33 +75,24 @@ const RatesChecker = () => {
                 setValidationWarnings([]);
                 let city = suburbCityList[destination] || destination;
                 let province = city.slice(-2); // This is bad.  We need to change the data structure.
-                let uri = `https://acrd-api.herokuapp.com/${city.replace('/','sss')}/rules`
                 let months = monthsContained(departureDate,returnDate);
-                fetch(uri)
-                    .then(response => response.json())
-                    .then(json => {
-                        let acrdRatesFiltered = Object.keys(json)
-                        .filter(key => months.map(mon => mon.month).includes(key))
-                        .reduce((res, key) => {
-                            res[key] = json[key];
-                            return res;
-                        }, {});
+                let rates = acrdRates[destination];
+                let acrdRatesFiltered = Object.keys(rates)
+                .filter(key => months.map(mon => mon.month).includes(key))
+                .reduce((res, key) => {
+                    res[key] = rates[key];
+                    return res;
+                }, {});
 
-                        let mealsAndIncidentals = calculateMeals(departureDate, returnDate, province);
+                let mealsAndIncidentals = calculateMeals(departureDate, returnDate, province);
 
-                        setResult({
-                            acrdRatesFiltered,
-                            destination,
-                            mealsAndIncidentals,
-                        })
-                        setLoading(false);
-                        setErrorPanel(false);
-                    }).catch(err => {
-                        // handle the error.  Ask user to try again?
-                        setGeneralError(true);
-                        setLoading(false);
-                        setErrorPanel(false);
-                    })
+                setResult({
+                    acrdRatesFiltered,
+                    destination,
+                    mealsAndIncidentals,
+                })
+                setLoading(false);
+                setErrorPanel(false);
             })
             .catch(err => {
                 setLoading(false);
@@ -153,7 +122,7 @@ const RatesChecker = () => {
                     'City is valid',
                     'City is not valid.',
                     (value) => {
-                        return citiesListArray.includes(value)
+                        return citiesList.includes(value)
                     },
                   ),
             departureDate: yup
@@ -181,10 +150,10 @@ const RatesChecker = () => {
 
     return (
         <div className="mb-4">
-            <h1>Find Your Rates and Limits</h1>
+            <h2>Find Your Rates and Limits</h2>
             <p className="lead">A tool to help you easily find the limits applicable to your trip.</p>
              {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
-                <h2>Field error or required</h2>
+                <h3>Field error or required</h3>
                 <p>Please verify the following fields: </p>
                 <ul className="list-unstyled">
                     {errorList()}
