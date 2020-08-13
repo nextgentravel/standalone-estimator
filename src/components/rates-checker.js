@@ -17,6 +17,17 @@ import { FaExclamationTriangle } from 'react-icons/fa';
 const RatesChecker = () => {
     const citiesList = cities.citiesList;
     const suburbCityList = cities.suburbCityList;
+    const [filteredCitiesList, setFilteredCitiesList] = useState([]);
+
+    useEffect(() => {
+        let list = cities.citiesList.map(city => {
+            return {
+                value: city,
+                label: city,
+            }
+        })
+        setFilteredCitiesList(list);
+    }, []);
 
     const [destination, setDestination] = useState('');
     const [departureDate, setDepartureDate] = useState('');
@@ -158,7 +169,7 @@ const RatesChecker = () => {
                 </ul>
             </div>}
             <form id="rates-form" className="form-group mb-4" onSubmit={handleSubmit}>
-                <InputDatalist validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Destination" name="destination" options={citiesList} updateValue={setDestination} />
+                <InputDatalist validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Destination" name="destination" options={filteredCitiesList} updateValue={setDestination} />
                 <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Departure Date" name="departureDate" updateValue={setDepartureDate}></DatePicker>
                 <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Return Date" name="returnDate" updateValue={setReturnDate}></DatePicker>
                 <button type="submit" className="btn btn-primary">Submit</button>
