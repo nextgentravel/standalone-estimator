@@ -18,15 +18,15 @@ const IndexPage = () => (
     <div>
       <main id="main-content" role="main">
         <div className="container mt-4">
-          <h3 className="text-center mb-4 font-weight-bold">Get Started</h3>
+          <h2 className="text-center mb-4 font-weight-bold">Get Started</h2>
           <p className="text-center mb-5">Select the part of the journey you need support with or launch our travel assistant for a guided travel experience.  You can use this guide offline, even when you are not connected to the internet.</p>
           <div className="row mb-3 mt-3">
               <section className="col-sm-3 text-center mb-5">
                 <div className="h-100 d-flex flex-column">
                   <div className="icon-background icon-background-plan mt-2 mb-4">
-                    <FaClipboardList size="100" color="#fff" />
+                    <FaClipboardList size="100" color="#fff" alt="" />
                   </div>
-                  <h4 className="mb-4">Plan</h4>
+                  <h3 className="mb-4">Plan</h3>
                   <p className="mb-4">Plan ahead and get ready for your business trip</p>
                   <div className="mt-auto w-100">
                     <Link to="/en/before" className="btn btn-outline-primary px-4">Launch</Link>
@@ -39,8 +39,8 @@ const IndexPage = () => (
               </section>
               <section className="col-sm-3 text-center mb-5">
                 <div className="h-100 d-flex flex-column">
-                  <div className="icon-background icon-background-book mt-2 mb-4"><FaTicketAlt size="100" color="#fff" /></div>
-                  <h4 className="mb-4">Book</h4>
+                  <div className="icon-background icon-background-book mt-2 mb-4"><FaTicketAlt size="100" color="#fff" alt="" /></div>
+                  <h3 className="mb-4">Book</h3>
                   <p className="mb-4">
                     Secure your tickets and make travel arrangements
                   </p>
@@ -56,9 +56,9 @@ const IndexPage = () => (
               <section className="col-sm-3 text-center mb-5">
                 <div className="h-100 d-flex flex-column">
                   <div className="icon-background icon-background-travel mt-2 mb-4">
-                    <FaPlaneDeparture size="100" color="#fff" />
+                    <FaPlaneDeparture size="100" color="#fff" alt="" />
                   </div>
-                  <h4 className="mb-4">Travel</h4>
+                  <h3 className="mb-4">Travel</h3>
                   <p className="mb-4">
                     Everything you need when you're travelling
                   </p>
@@ -74,9 +74,9 @@ const IndexPage = () => (
               <section className="col-sm-3 text-center mb-5">
                 <div className="h-100 d-flex flex-column">
                   <div className="icon-background icon-background-expense mt-2 mb-4">
-                    <FaFileInvoiceDollar size="100" color="#fff" />
+                    <FaFileInvoiceDollar size="100" color="#fff" alt="" />
                   </div>
-                  <h4 className="mb-4">Expense</h4>
+                  <h3 className="mb-4">Expense</h3>
                   <p className="mb-4">Filing trip expenses and get reimbursed</p>
                   <div className="mt-auto w-100">
                     <Link to="/en/after" className="btn btn-outline-primary px-4">Launch</Link>
@@ -84,7 +84,6 @@ const IndexPage = () => (
                 </div>
               </section>
           </div>
-          <p>Looking for a specific page? Try the <a href="/en/sitemap">sitemap</a>!</p>
         </div>
         <div class="bg-light">
           <div className="container">
