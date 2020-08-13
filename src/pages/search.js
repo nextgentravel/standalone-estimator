@@ -125,12 +125,12 @@ const SearchPage = ({ data, location }) => {
         <div className="p-1">
           {!fuzzy &&
             <>
-              <p className="font-weight-bold text-secondary mt-2 mb-5">{results.length} result{results.length !== 1 ? 's' : ''} for "{searchQuery}"</p>
+              <p className="font-weight-bold mt-2 mb-5">{results.length} result{results.length !== 1 ? 's' : ''} for "{searchQuery}"</p>
             </>
           }
           {fuzzy &&
             <>
-              <p className="font-weight-bold text-secondary mt-2 mb-2">{results.length} result{results.length !== 1 ? 's' : ''} for "{correctedTerms.join(', ')}"</p>
+              <p className="font-weight-bold mt-2 mb-2">{results.length} result{results.length !== 1 ? 's' : ''} for "{correctedTerms.join(', ')}"</p>
               {results.length > 0 && <p className="font-italic text-secondary mb-5">Search instead for <a href="#" onClick={() => { searchInstead(searchQuery) }}>{searchQuery}</a>.</p>}
             </>
           }
