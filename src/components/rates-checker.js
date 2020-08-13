@@ -181,10 +181,10 @@ const RatesChecker = () => {
 
     return (
         <div className="mb-4">
-            <h1>Find Your Rates and Limits</h1>
+            <h2>Find Your Rates and Limits</h2>
             <p className="lead">A tool to help you easily find the limits applicable to your trip.</p>
              {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
-                <h2>Field error or required</h2>
+                <h3>Field error or required</h3>
                 <p>Please verify the following fields: </p>
                 <ul className="list-unstyled">
                     {errorList()}
