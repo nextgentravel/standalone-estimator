@@ -109,10 +109,69 @@ module.exports = {
         }
       }
     },
-    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "GC Travel Guide",
+        short_name: "GCTravelGuide",
+        start_url: "/",
+        background_color: "#fafafa",
+        theme_color: "#212529",
+        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+        display: "standalone",
+        icon: "src/images/tg-favicon.png", // This path is relative to the root of the site.
+        // An optional attribute which provides support for CORS check.
+        // If you do not provide a crossOrigin option, it will skip CORS for manifest.
+        // Any invalid keyword or empty string defaults to `anonymous`
+        crossOrigin: `use-credentials`,
+      },
+    },
+    {
+      resolve:`gatsby-plugin-offline`,
+      options: {
+        precachePages: [
+          `/search/*`,
+          `/en/rates/*`,
+          `/fr/rates/*`,
+          `/en/kilometrics/*`,
+          `/fr/kilometrics/*`,
+          `/en/before/*`,
+          `/fr/before/*`,
+          `/en/booktravel/*`,
+          `/fr/booktravel/*`,
+          `/en/during/*`,
+          `/fr/during/*`,
+          `/en/after/*`,
+          `/fr/after/*`,
+          `/en/*`,
+          `/fr/*`,
+        ],
+      },
+      runtimeCaching: [
+        {
+          // Use cacheFirst since these don't need to be revalidated (same RegExp
+          // and same reason as above)
+          urlPattern: /(\.js$|\.css$|static\/)/,
+          handler: `CacheFirst`,
+        },
+        {
+          // page-data.json files are not content hashed
+          urlPattern: /^https?:.*\page-data\/.*\/page-data\.json/,
+          handler: `NetworkFirst`,
+        },
+        {
+          // Add runtime caching of various other page resources
+          urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
+          handler: `StaleWhileRevalidate`,
+        },
+        {
+          // Google Fonts CSS (doesn't end in .css so we need to specify it)
+          urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/,
+          handler: `StaleWhileRevalidate`,
+        },
+      ],
+    },
     `gatsby-plugin-use-query-params`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }
