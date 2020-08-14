@@ -1,5 +1,5 @@
 ---
-slug: "en/IDTC"
+slug: "en/idtc"
 date: "2019-05-13"
 title: "Individual Designated Travel Card (IDTC)"
 heading: "Individual Designated Travel Card (IDTC)"

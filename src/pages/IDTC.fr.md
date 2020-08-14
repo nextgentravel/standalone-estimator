@@ -1,5 +1,5 @@
 ---
-slug: "fr/IDTC"
+slug: "fr/idtc"
 date: "2019-05-13"
 title: "Individual Designated Travel Card (IDTC)"
 heading: "Individual Designated Travel Card (IDTC)"
@@ -23,7 +23,7 @@ lead: ""
 [[card]]
 | [[card-body]]
 | |
-| |####For IDTC card assistance
+| |###For IDTC card assistance
 | |BMO FINANCIAL GROUP – MasterCard  
 | |Telephone:  
 | |1-866-857-3578 (toll-free from Canada and U.S.) - option 4  

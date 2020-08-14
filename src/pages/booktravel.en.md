@@ -93,7 +93,7 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 | |**Tip:** schedule up to 6 weeks in advance if signing up for these cards in order to receive them in time to travel
 | |
 | |#### Why should I use an Individual Designated Travel Card? (**IDTC**)  
-| |Individual Designated Travel Cards offer a variety of perks from insurance, to extending your payment window. To find out more about what an IDTC can do for you, please visit [our information page on IDTC](/en/IDTC)
+| |Individual Designated Travel Cards offer a variety of perks from insurance, to extending your payment window. To find out more about what an IDTC can do for you, please visit [our information page on IDTC](/en/idtc)
 | |
 
 [[card]]
