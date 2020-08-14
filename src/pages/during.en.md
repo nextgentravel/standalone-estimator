@@ -10,11 +10,20 @@ lead: "How to handle any issues with the actual trip"
 
 [[card]]
 | [[card-body]]
-| | ### In case of emergencies or changes
 | |
-| | Call HRG at xxx-xxx-xxxx
+| |[See travel advisories]()  
+| |In case of emergencies or changes
 | |
-| | [See travel advisories](/)
+| |### IN-TRANSIT TRAVEL SERVICES (24 hours)
+| |
+| |If you are currently travelling and need urgent assistance or need to book travel with a departure within the next 72 hours, press 3.  
+| |
+| |Email: travel.gc@hrgworldwide.com  
+| |Telephone:  
+| |1-866-857-3578 (toll-free from Canada and U.S.) - option 3  
+| |1-613-822-3873 (collect call from other countries)  
+| |
+| |
 
 [[card]]
 | [[card-body]]
