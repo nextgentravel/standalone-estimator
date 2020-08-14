@@ -23,7 +23,7 @@ export default ({ data }) => {
           <div className="hero-holder">
             <div className="container">
               <nav className="skiphold" aria-label="sidebar skiplink"><a className="sr-only sr-only-focusable aurora-skip skiplink" id="sidebar-skiplink" href="#sidebar"><FormattedMessage id="skipToSide"/></a></nav>
-              <h1 className="display-5">{post.frontmatter.heading}</h1>
+              <h2 className="display-5">{post.frontmatter.heading}</h2>
               <p className="lead">
                 {post.frontmatter.lead}
               </p>
