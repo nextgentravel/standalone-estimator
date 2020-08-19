@@ -8,6 +8,7 @@ import SearchForm from "../components/search-form"
 
 const Header = ({homeHeader, langs, showLanguageSelect, homeLink}) => {
   const intl = useIntl();
+  console.log(intl);
   return (
     <header className="mb-4">
       <div

@@ -12,11 +12,10 @@ import { getLangs, getUrlForLang } from 'ptz-i18n';
 const SelectLanguage = (props) => {
   const intl = useIntl()
   const url = globalHistory.location.pathname;
-  const [langKey, setLangKey] = useState(intl.locale);
+  const langKey = intl.locale;
   const { langs } = languages
   const homeLink = `/${langKey}/`
   const langsMenu = getLangs(langs, langKey, getUrlForLang(homeLink, url))
-  console.log('current langKey: ', langKey)
   const links = langsMenu
     .filter(lang => !lang.selected)
     .map((lang, idx) => {
