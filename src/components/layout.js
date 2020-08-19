@@ -7,8 +7,10 @@ import { globalHistory } from "@reach/router"
 
 const Layout = ({ children }) => {
   const url = globalHistory.location.pathname;
-  let showLanguageSelect = url === '/404/' ? showLanguageSelect = false : showLanguageSelect = true;
-  let onHomePage = url === '/en/' || url === '/fr/' ? onHomePage = true : onHomePage = false;
+  let showLanguageSelect;
+  let onHomePage;
+  showLanguageSelect = url === '/404/' ? showLanguageSelect = false : showLanguageSelect = true;
+  onHomePage = url === '/en/' || url === '/fr/' ? onHomePage = true : onHomePage = false;
   return (
     <div>
       <Header showLanguageSelect={showLanguageSelect} homeHeader={onHomePage} />
