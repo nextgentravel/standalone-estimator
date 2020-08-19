@@ -38,7 +38,7 @@ const Header = ({homeHeader, langs, showLanguageSelect, homeLink}) => {
             <a className="sr-only sr-only-focusable aurora-skip skiplink" aria-label="main skiplink" href="#main-content"><FormattedMessage id="skipToMain" /></a>
           </nav>
           <div className="goc-logo align-self-center" property="publisher" typeof="GovernmentOrganization">
-            <Link to={homeLink}>
+            <Link to='#'>
                 <Image
                   filename="sig-blk-en.svg"
                   alt={ intl.formatMessage({ id: 'governmentOfCanada' })}
@@ -46,12 +46,11 @@ const Header = ({homeHeader, langs, showLanguageSelect, homeLink}) => {
             </Link>
           </div>
           <section className='text-right align-self-center'>
-            {showLanguageSelect &&
-              <>
+            {/* {showLanguageSelect &&
+              <> */}
                 <p className="sr-only sr-only-focusable aurora-skip"><FormattedMessage id="languageSelection" /></p>
                 <SelectLanguage langs={langs} />
-              </>
-            }
+            {/* </> */}
           </section>
 
 
