@@ -12,8 +12,7 @@ import { useIntl } from 'react-intl';
 // We can access the results of the page GraphQL query via the data props
 const SearchPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-  // const intl = useIntl()
-  // console.log(intl);
+  const intl = useIntl()
   // LunrIndex is available via page query
   const { store } = data.LunrIndex
   // Lunr in action here
@@ -25,7 +24,12 @@ const SearchPage = ({ data, location }) => {
   const [searchQuery, setSearchQuery] = useQueryParam('q', StringParam)
 
   const processSearchResult = (results) => {
-    return results = results.map((result) => {
+    return results = results.filter((result) => {
+      if (!result.slug.includes(`/${intl.locale}/`)) {
+        return false;
+      }
+      return result;
+    }).map((result) => {
       let terms = Object.keys(result.metadata);
       let displayExcerpt = '';
       let foundInContent = false;
