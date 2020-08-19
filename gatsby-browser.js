@@ -10,7 +10,7 @@ import "./src/styles/style.scss"
 import React from 'react'
 import { getCurrentLangKey } from 'ptz-i18n';
 import { IntlProvider } from 'react-intl';
-import 'intl';
+
 import i18nMessages from './src/data/messages';
 import { globalHistory } from "@reach/router"
 

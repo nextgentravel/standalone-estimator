@@ -8,7 +8,6 @@ import SearchForm from "../components/search-form"
 
 const Header = ({homeHeader, langs, showLanguageSelect, homeLink}) => {
   const intl = useIntl();
-  console.log(intl);
   return (
     <header className="mb-4">
       <div
@@ -47,11 +46,8 @@ const Header = ({homeHeader, langs, showLanguageSelect, homeLink}) => {
             </Link>
           </div>
           <section className='text-right align-self-center'>
-            {/* {showLanguageSelect &&
-              <> */}
-                <p className="sr-only sr-only-focusable aurora-skip"><FormattedMessage id="languageSelection" /></p>
-                <SelectLanguage langs={langs} />
-            {/* </> */}
+            <p className="sr-only sr-only-focusable aurora-skip"><FormattedMessage id="languageSelection" /></p>
+            <SelectLanguage langs={langs} />
           </section>
 
 
