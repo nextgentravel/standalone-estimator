@@ -85,7 +85,7 @@ const IndexPage = () => (
               </section>
           </div>
         </div>
-        <div class="bg-light">
+        <div className="bg-light">
           <div className="container">
             <div className="d-flex justify-content-center">
               {/* <div className="text-center m-5">
