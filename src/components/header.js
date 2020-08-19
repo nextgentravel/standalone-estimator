@@ -37,13 +37,12 @@ const Header = ({homeHeader, langs, showLanguageSelect, homeLink}) => {
           <nav className="skiphold" id="header-skiplink">
             <a className="sr-only sr-only-focusable aurora-skip skiplink" aria-label="main skiplink" href="#main-content"><FormattedMessage id="skipToMain" /></a>
           </nav>
-          <div className="goc-logo align-self-center" property="publisher" typeof="GovernmentOrganization">
-            <Link to='#'>
-                <Image
-                  filename="sig-blk-en.svg"
-                  alt={ intl.formatMessage({ id: 'governmentOfCanada' })}
-                />
-            </Link>
+          <div className="align-self-center" property="publisher" typeof="GovernmentOrganization">
+              <Image
+                filename="sig-blk-en.svg"
+                className="goc-logo"
+                alt={ intl.formatMessage({ id: 'governmentOfCanada' })}
+              />
           </div>
           <section className='text-right align-self-center'>
             <p className="sr-only sr-only-focusable aurora-skip"><FormattedMessage id="languageSelection" /></p>
@@ -58,7 +57,7 @@ const Header = ({homeHeader, langs, showLanguageSelect, homeLink}) => {
             {!homeHeader &&
               <div className="row">
                   <div className="col-sm-6">
-                      <h1 className="text-light"><FormattedMessage id="siteTitle" /></h1>
+                      <Link to={homeLink}><h1 className="text-light"><FormattedMessage id="siteTitle" /></h1></Link>
                   </div>
                   <div className="col-sm-6">
                       <SearchForm placement="header" />
@@ -68,7 +67,7 @@ const Header = ({homeHeader, langs, showLanguageSelect, homeLink}) => {
             {homeHeader &&
               <div className="row">
                   <div className="col-sm-12">
-                      <h1 className="text-light text-center"><FormattedMessage id="siteTitle" /></h1>
+                  <Link to={homeLink}><h1 className="text-light text-center"><FormattedMessage id="siteTitle" /></h1></Link>
                   </div>
               </div>
             }
