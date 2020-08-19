@@ -21,7 +21,7 @@ const IndexPage = () => (
           <h2 className="text-center mb-4 font-weight-bold">Get Started</h2>
           <p className="text-center mb-5">Select the part of the journey you need support with or launch our travel assistant for a guided travel experience.  You can use this guide offline, even when you are not connected to the internet.</p>
           <div className="row mb-3 mt-3">
-              <section className="col-sm-3 text-center mb-5">
+              <section className="col-md-3 col-sm-6 text-center mb-5">
                 <div className="h-100 d-flex flex-column">
                   <div className="icon-background icon-background-plan mt-2 mb-4">
                     <FaClipboardList size="100" color="#fff" alt="" />
@@ -37,7 +37,7 @@ const IndexPage = () => (
                   size="30"
                 />
               </section>
-              <section className="col-sm-3 text-center mb-5">
+              <section className="col-md-3 col-sm-6 text-center mb-5">
                 <div className="h-100 d-flex flex-column">
                   <div className="icon-background icon-background-book mt-2 mb-4"><FaTicketAlt size="100" color="#fff" alt="" /></div>
                   <h3 className="mb-4">Book</h3>
@@ -49,11 +49,11 @@ const IndexPage = () => (
                   </div>
                 </div>
                 <FaChevronRight
-                  className="home-chevron d-none d-sm-block"
+                  className="home-chevron d-none d-md-block"
                   size="30"
                 />
               </section>
-              <section className="col-sm-3 text-center mb-5">
+              <section className="col-md-3 col-sm-6 text-center mb-5">
                 <div className="h-100 d-flex flex-column">
                   <div className="icon-background icon-background-travel mt-2 mb-4">
                     <FaPlaneDeparture size="100" color="#fff" alt="" />
@@ -71,7 +71,7 @@ const IndexPage = () => (
                   size="30"
                 />
               </section>
-              <section className="col-sm-3 text-center mb-5">
+              <section className="col-md-3 col-sm-6 text-center mb-5">
                 <div className="h-100 d-flex flex-column">
                   <div className="icon-background icon-background-expense mt-2 mb-4">
                     <FaFileInvoiceDollar size="100" color="#fff" alt="" />
