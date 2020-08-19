@@ -7,9 +7,13 @@ import SEO from "../components/seo"
 import 'url-search-params-polyfill';
 import { useQueryParam, StringParam } from "use-query-params";
 
+import { useIntl } from 'react-intl';
+
 // We can access the results of the page GraphQL query via the data props
 const SearchPage = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title  
+  const siteTitle = data.site.siteMetadata.title
+  // const intl = useIntl()
+  // console.log(intl);
   // LunrIndex is available via page query
   const { store } = data.LunrIndex
   // Lunr in action here
