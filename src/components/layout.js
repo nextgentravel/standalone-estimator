@@ -3,13 +3,15 @@ import PropTypes from "prop-types"
 import Header from "./header"
 import Footer from "./footer"
 import 'intl';
-
-
+import { globalHistory } from "@reach/router"
 
 const Layout = ({ children }) => {
+  const url = globalHistory.location.pathname;
+  let showLanguageSelect = url === '/404/' ? showLanguageSelect = false : showLanguageSelect = true;
+  let onHomePage = url === '/en/' || url === '/fr/' ? onHomePage = true : onHomePage = false;
   return (
     <div>
-      <Header />
+      <Header showLanguageSelect={showLanguageSelect} homeHeader={onHomePage} />
       <div>
         {children}
       </div>
