@@ -1,70 +1,43 @@
 ---
 slug: "en/before"
 date: "2019-05-13"
-title: "Before you leave"
-heading: "Decision to Travel"
-lead: "Steps: Creating your estimate > Getting pre-approval"
+title: "Plan"
+heading: "Plan"
+lead: "Here is some text describing what you will find on this web page"
 ---
-<article class="content-left col-xs-12 col-sm-12 col-md-8">
-​
+<article class="content-left col-xs-12 col-sm-12 col-md-12">
 
-[[card]]
-| [[card-body]]
-| |### *Create your estimate*  
-| |After deciding to travel, you should start by creating an estimate. The estimate should give an overall approximation of what the total cost of the trip will be, to it get approved  
-| |
-| |Include the following information in your estimate:  
-| |
-| | Objective/reason for travelling and why the activities could not be conducted virtually
-| |
-| |
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 
-[[card]]
-| [[card-body]]
-| |
-| |**Mode of transportation** - List which mode(s) of transport you will be using
-| |
-| |- Air and Rail: estimate the cost of the ticket(s)
-| |- Car rentals: calculate the total cost for the distance you will travel.  [Find your kilometric rates here](https://www.njc-cnm.gc.ca/directive/d10/v238/s658/en#s658-tc-tm)
-| |
-| |**Accommodations:** Keep within the city rate limit unless you provide reasoning for a need to go over. [Find your city rate limit here](http://travel-guidebook-staging.herokuapp.com/en/rates/)
-| |
-| |**Meals and Incidentals:** List the approximate costs of your meals (breakfast, lunch and/or dinner each day that you’re on travel status). [Find your meal allowances here](http://travel-guidebook-staging.herokuapp.com/en/rates/)
-| |
-| |
+### Submit a travel estimate
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat. Aliquam egestas, velit at condimentum placerat, sem sapien laoreet mauris, dictum porttitor lacus est nec enim. Vivamus feugiat elit lorem, eu porttitor ante ultrices id. Phasellus suscipit tellus ante, nec dignissim elit imperdiet nec. Nullam fringilla feugiat nisl. Ut pretium, metus venenatis dictum viverra, dui metus finibus enim, ac rhoncus sem lorem vitae mauris. Suspendisse ut venenatis libero. Suspendisse lorem felis, pretium in maximus id, tempor non ipsum.
+        </div>
+        <div class="col-sm-4">
+            <p class="text-center"><a href="/en/booktravel" class="btn btn-primary my-4 px-4">Trip Estimator</a></p>
+        </div>
+    </div>
+</div>
 
-[[card]]
-| [[card-body]]
-| |
-| |### *Getting preliminary approval*  
-| |
-| |Once you’ve created your estimate, submit to your approver who is usually a senior manager. Your supervisor or organizational chart can help you find them  
-| |
-| |Ensure that you give the approver enough time to approve your trip before your travel date. Somewhere between 3 to 4 weeks should be sufficient  
-| |
-| |Once you’ve gotten your approval, you may go ahead and book your trip
-| |
 
-<p class="text-center"><a href="/en/booktravel" class="btn btn-outline-primary my-4 px-4">Continue to Book</a></p>
+<div class="card p-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
+
+### Submit a travel estimate
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat. Aliquam egestas, velit at condimentum placerat, sem sapien laoreet mauris, dictum porttitor lacus est nec enim. Vivamus feugiat elit lorem, eu porttitor ante ultrices id. Phasellus suscipit tellus ante, nec dignissim elit imperdiet nec. Nullam fringilla feugiat nisl. Ut pretium, metus venenatis dictum viverra, dui metus finibus enim, ac rhoncus sem lorem vitae mauris. Suspendisse ut venenatis libero. Suspendisse lorem felis, pretium in maximus id, tempor non ipsum
+        </div>
+        <div class="col-sm-4">
+            <p class="text-center">
+                <a href="/en/booktravel" class="btn btn-primary my-4 px-4">Trip Estimator</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<p class="text-center">
+    <a href="/en/booktravel" class="btn btn-outline-primary my-4 px-4">Continue to Book</a>
+</p>
 
 </article>
-
-<section class="content-right col-xs-6 col-md-4" id="sidebar">
-
-### Resources
-* [Your Rates and Limits](/en/rates)
-* [Kilometrics Rates](/en/kilometrics)
-
-### Suggest an update
-[Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
-
-
-[[info-card]]
-| [[card-body]]
-| |
-| | ### Still have travel-related questions?
-| |
-| | Your [Designated Departmental Travel Coordinator](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) should be able to help!
-| |
-
-</section>
