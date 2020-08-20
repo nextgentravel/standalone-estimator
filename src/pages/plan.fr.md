@@ -1,8 +1,7 @@
 ---
-slug: "fr/before"
 date: "2019-05-13"
-title: "Avant que tu partes"
-heading: "Décision de voyager"
+title: "Plan"
+heading: "Plan"
 lead: "Après avoir décidé de voyager, vous devez commencer par créer un devis. L'estimation devrait donner une approximation globale du coût total du voyage, afin qu'il puisse être approuvé."
 ---
 
@@ -48,7 +47,7 @@ lead: "Après avoir décidé de voyager, vous devez commencer par créer un devi
 | | - Une fois que vous avez créé votre compte, vous pouvez configurer votre [profil de voyageur à l'aide de ces instructions](https://isuite6.hrgworldwide.com/Portals/6/docs/EN%20-%20UG%20-%20Completing% 20a% 20traveller% 20profile% 20-% 2019jui2019.pdf)
 | |
 
-[Suivant: Réservez votre voyage](/ fr / booktravel)
+[Suivant: Réservez votre voyage](/fr/book)
 
 </article>
 

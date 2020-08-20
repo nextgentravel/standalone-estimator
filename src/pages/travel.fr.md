@@ -1,8 +1,7 @@
 ---
-slug: "fr/during"
 date: "2019-05-13"
-title: "Pendant votre voyage"
-heading: "Pendant votre voyage"
+title: "Voyage"
+heading: "Voyage"
 lead: "Comment gérer tout problème avec le voyage réel"
 ---
 
@@ -31,7 +30,7 @@ lead: "Comment gérer tout problème avec le voyage réel"
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus at elementum mi. Phasellus sed vestibulum ex, et imperdiet sem.
 | |
 
-[Suivant: Après votre retour](/fr/after)
+[Suivant: Après votre retour](/fr/expense)
 
 </article>
 

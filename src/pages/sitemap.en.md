@@ -6,9 +6,9 @@ heading: "Sitemap and Knowledgebase"
 lead: "A listing of available links within the site"
 ---
 
-- [Before you travel](/en/before) - Lorem ipsum dolor sit amet
-- [Booking your travel](/en/booktravel) - Lorem ipsum dolor sit amet
-- [During your travel](/en/during) - Lorem ipsum dolor sit amet
-- [After you return](/en/after) - Lorem ipsum dolor sit amet
+- [Plan](/en/plan) - Lorem ipsum dolor sit amet
+- [Book](/en/book) - Lorem ipsum dolor sit amet
+- [Travel](/en/travel) - Lorem ipsum dolor sit amet
+- [Expense](/en/expense) - Lorem ipsum dolor sit amet
 - [Rates tool](/en/rates) - Lorem ipsum dolor sit amet
 - [Kilometrics tool](/en/kilometrics) - Lorem ipsum dolor sit amet
