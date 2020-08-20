@@ -2,8 +2,9 @@ import React from "react"
 import Image from "../components/image"
 import { FormattedMessage, useIntl } from 'react-intl';
 
-const Footer = ({ siteTitle, homeLink }) => {
+const Footer = ({ }) => {
   const intl = useIntl();
+  let homeLink = `/${intl.locale}/`;
   return (
     <footer className="footer">
       <div className="bg-dark py-5 footer-deco">
