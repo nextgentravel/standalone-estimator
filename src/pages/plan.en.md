@@ -1,8 +1,7 @@
 ---
-slug: "en/before"
 date: "2019-05-13"
-title: "Before you leave"
-heading: "Decision to Travel"
+title: "Plan"
+heading: "Plan"
 lead: "Steps: Creating your estimate > Getting pre-approval"
 ---
 <article class="content-left col-xs-12 col-sm-12 col-md-8">
@@ -45,7 +44,7 @@ lead: "Steps: Creating your estimate > Getting pre-approval"
 | |Once you’ve gotten your approval, you may go ahead and book your trip
 | |
 
-<p class="text-center"><a href="/en/booktravel" class="btn btn-outline-primary my-4 px-4">Continue to Book</a></p>
+<p class="text-center"><a href="/en/book" class="btn btn-outline-primary my-4 px-4">Continue to Book</a></p>
 
 </article>
 

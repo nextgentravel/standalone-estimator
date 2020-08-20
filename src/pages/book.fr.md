@@ -1,7 +1,7 @@
 ---
 date: "2019-05-04"
-title: "Réservation de voyage"
-heading: "Réservation de votre voyage"
+title: "Réserver"
+heading: "Réserver"
 lead: "Étapes importantes pour réserver votre voyage"
 ---
 
@@ -47,7 +47,7 @@ lead: "Étapes importantes pour réserver votre voyage"
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
 
-[Suivant: Pendant votre voyage](/fr/during)
+[Suivant: Pendant votre voyage](/fr/travel)
 
 </article>
 
