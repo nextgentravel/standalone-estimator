@@ -127,7 +127,7 @@ const SearchPage = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Search results" />
-      <main className="container px-5 py-2" id="main-content">
+      <main className="container" id="main-content">
         {searchQuery ? <h2 className="font-weight-bold">Search Results</h2> : <h2 className="font-weight-bold">What are you looking for?</h2>}
         <div className="p-1">
           {!fuzzy &&
