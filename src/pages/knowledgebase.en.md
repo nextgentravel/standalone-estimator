@@ -1,5 +1,4 @@
 ---
-slug: "en/knowledgebase"
 date: "2019-05-13"
 title: "Knowledgebase"
 heading: "Knowledgebase"
