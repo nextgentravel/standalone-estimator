@@ -1,7 +1,7 @@
 ---
 date: "2019-05-04"
-title: "Booking Travel"
-heading: "Booking your trip"
+title: "Book"
+heading: "Book"
 lead: "Steps: Register to HRG > Setup account profile > Book flight > Book car > Book rail > Book hotel > Payment Methods > Expense report (EMT) > Submit to approver"
 tags: { 'hotel': ['lodging', 'sleep'] }
 ---
@@ -129,7 +129,7 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 | |After submitting your request. Please follow up with your trip approver to get your travel request approved in a timely manner. Once your travel request is approved, you will receive a confirmation email. Approximately two buisness days later, you will receive another email from the financial team that funds have will be sent to your account
 | |
 
-<p class="text-center"><a href="/en/during" class="btn btn-outline-primary my-4 px-4">Continue to Travel</a></p>
+<p class="text-center"><a href="/en/travel" class="btn btn-outline-primary my-4 px-4">Continue to Travel</a></p>
 
 </article>
 

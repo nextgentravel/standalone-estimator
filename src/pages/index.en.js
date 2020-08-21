@@ -29,7 +29,7 @@ const IndexPage = () => (
                   <h3 className="mb-4">Plan</h3>
                   <p className="mb-4">Plan ahead and get ready for your business trip</p>
                   <div className="mt-auto w-100">
-                    <Link to="/en/before" className="btn btn-outline-primary px-4">Launch</Link>
+                    <Link to="/en/plan" className="btn btn-outline-primary px-4">Launch</Link>
                   </div>
                 </div>
                 <FaChevronRight
@@ -45,7 +45,7 @@ const IndexPage = () => (
                     Secure your tickets and make travel arrangements
                   </p>
                   <div className="mt-auto w-100">
-                    <Link to="/en/booktravel" className="btn btn-outline-primary px-4">Launch</Link>
+                    <Link to="/en/book" className="btn btn-outline-primary px-4">Launch</Link>
                   </div>
                 </div>
                 <FaChevronRight
@@ -63,7 +63,7 @@ const IndexPage = () => (
                     Everything you need when you're travelling
                   </p>
                   <div className="mt-auto w-100">
-                    <Link to="/en/during" className="btn btn-outline-primary px-4">Launch</Link>
+                    <Link to="/en/travel" className="btn btn-outline-primary px-4">Launch</Link>
                   </div>
                 </div>
                 <FaChevronRight
@@ -79,7 +79,7 @@ const IndexPage = () => (
                   <h3 className="mb-4">Expense</h3>
                   <p className="mb-4">Filing trip expenses and get reimbursed</p>
                   <div className="mt-auto w-100">
-                    <Link to="/en/after" className="btn btn-outline-primary px-4">Launch</Link>
+                    <Link to="/en/expense" className="btn btn-outline-primary px-4">Launch</Link>
                   </div>
                 </div>
               </section>
@@ -89,7 +89,7 @@ const IndexPage = () => (
           <div className="container">
             <div className="d-flex justify-content-center">
               {/* <div className="text-center m-5">
-                <Link to="/en/after">
+                <Link to="/en/expense">
                   <FaCalculator size="40" />
                   <p className="mt-2">Trip Estimator</p>
                 </Link>
