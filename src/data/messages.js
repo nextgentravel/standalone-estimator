@@ -69,6 +69,8 @@ module.exports = {
         'ratedes': 'Destination',
         'ratedep': 'Departure Date',
         'rateret': 'Return Date',
+        //misc
+        'searchsrlabel': 'Search',
     },
     'fr': {
         // header
@@ -140,5 +142,7 @@ module.exports = {
         'ratedes': 'Destination',
         'ratedep': 'Date de départ',
         'rateret': 'Date de retour',
+        //misc
+        'searchsrlabel': 'Chercher',
     }
 };

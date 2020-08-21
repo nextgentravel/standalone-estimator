@@ -10,7 +10,7 @@ const IndexPage = () => (
     <div className="card lang">
       <div className="card-body d-flex justify-content-center">
         <image></image>
-        <h1 className="sr-only">Travel guidebook language selection</h1>
+        <h1 className="sr-only">Sélection de la langue du guide de voyage / Travel guidebook language selection</h1>
         <Link to="/fr" className="btn btn-primary m-2 p-2 pl-3 pr-3">Français</Link>
         <Link to="/en" className="btn btn-primary m-2 p-2 pl-3 pr-3">English</Link>
       </div>
