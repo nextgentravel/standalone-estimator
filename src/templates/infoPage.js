@@ -17,6 +17,7 @@ export default ({ data }) => {
   const homeLink = `/${langKey}/`;
   return (
     <Layout>
+      <article class="content-left col-xs-12 col-sm-12 col-md-12">
         <main id="main-content">
           <SEO title={post.frontmatter.title} />
           <Breadcrumbs pageTitle={post.frontmatter.title} homeLink={homeLink} />
@@ -36,6 +37,7 @@ export default ({ data }) => {
             />
           </div>
         </main>
+      </article>
     </Layout>
   );
 };
