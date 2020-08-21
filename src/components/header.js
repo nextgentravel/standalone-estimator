@@ -6,8 +6,9 @@ import SelectLanguage from './languageSelect';
 import { FormattedMessage, useIntl } from 'react-intl';
 import SearchForm from "../components/search-form"
 
-const Header = ({homeHeader, langs, showLanguageSelect, homeLink}) => {
+const Header = ({homeHeader}) => {
   const intl = useIntl();
+  let homeLink = `/${intl.locale}/`;
   return (
     <header className="mb-4">
       <div
@@ -46,7 +47,7 @@ const Header = ({homeHeader, langs, showLanguageSelect, homeLink}) => {
           </div>
           <section className='text-right align-self-center'>
             <p className="sr-only sr-only-focusable aurora-skip"><FormattedMessage id="languageSelection" /></p>
-            <SelectLanguage langs={langs} />
+            <SelectLanguage />
           </section>
 
 

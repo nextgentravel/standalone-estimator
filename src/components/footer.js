@@ -2,15 +2,16 @@ import React from "react"
 import Image from "../components/image"
 import { FormattedMessage, useIntl } from 'react-intl';
 
-const Footer = ({ siteTitle, homeLink }) => {
+const Footer = ({ }) => {
   const intl = useIntl();
+  let homeLink = `/${intl.locale}/`;
   return (
     <footer className="footer">
       <div className="bg-dark py-5 footer-deco">
         <div className="container">
           <ul className="list-unstyled colcount-sm-2 colcount-md-3">
             <li>
-              <a href={`${homeLink}knowledgebase`} className="text-light">
+              <a href={`${homeLink}/knowledgebase`} className="text-light">
                <FormattedMessage id="knowledge" />
               </a>
             </li>
