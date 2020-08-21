@@ -2,14 +2,14 @@
 slug: "en/idtc"
 date: "2019-05-13"
 title: "Individual Designated Travel Card (IDTC)"
-heading: "Individual Designated Travel Card (IDTC)"
 lead: ""
 ---
 
-<article class="content-left col-xs-12 col-sm-12 col-md-8">
 
-[[card]]
-| [[card-body]]
+
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | |
 | |Prior to the trip, if you do not wish to use your own credit card for your journey you may [apply for an Individual Designated Travel Card (IDTC)](https://isuite6.hrgworldwide.com/gcportal/en-ca/travelcard/applyforanidtc.aspx)
 | |
@@ -18,8 +18,9 @@ lead: ""
 | |​If the perks of this card sound appealing, please consider and budget up to 6 weeks in your timeline to receive this card
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | |
 | |### For IDTC card assistance
 | |BMO FINANCIAL GROUP – MasterCard  
@@ -29,7 +30,7 @@ lead: ""
 | |
 | |
 
-</article>
+
 
 <section class="content-right col-xs-6 col-md-4" id="sidebar">
 

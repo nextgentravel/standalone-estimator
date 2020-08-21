@@ -1,9 +1,9 @@
 ---
+slug: "en/before"
 date: "2019-05-13"
 title: "Plan"
 lead: "Here is some text describing what you will find on this web page"
 ---
-<article class="content-left col-xs-12 col-sm-12 col-md-12">
 
 <div class="card px-4 pt-4 my-4 bg-light">
     <div class="row">
@@ -38,4 +38,3 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut 
     <a href="/en/booktravel" class="btn btn-outline-primary my-4 px-4">Continue to Book</a>
 </p>
 
-</article>

@@ -1,14 +1,14 @@
 ---
 date: "2019-05-04"
 title: "Réserver"
-heading: "Réserver"
 lead: "Étapes importantes pour réserver votre voyage"
 ---
 
-<article class="content-left col-xs-12 col-sm-12 col-md-8">
 
-[[card]]
-| [[card-body]]
+
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | | ### 1. Réserver votre voyage
 | |
 | | - Utilisation de votre numéro d'identification de voyage (TIN) [se connecter au système](https://isuite6.hrgworldwide.com/gcportal/fr-ca/sts.aspx)
@@ -16,8 +16,9 @@ lead: "Étapes importantes pour réserver votre voyage"
 | | - Lorsque vous êtes à l'étape de soumission, en demandant une approbation en ligne, essayez de soumettre à un moment où l'approbateur peut l'approuver immédiatement. Les taux de réussite des réservations sont supérieurs à 90% si les demandes sont immédiatement approuvées. Tout retard dans la soumission peut entraîner l'échec du processus, vous obligeant à redémarrer le processus de réservation en ligne.
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | | ### 2. Réservez votre hébergement
 | |
 | |Sed quis purus in felis vulputate tempor et eu lectus. Suspendisse quis metus eu justo lobortis commodo vitae et purus. Vestibulum odio velit, euismod quis mi tempus, bibendum fermentum diam.
@@ -26,22 +27,25 @@ lead: "Étapes importantes pour réserver votre voyage"
 | |
 | | [Politique: Répertoire d'hébergement et de location de voitures](https://rehelv-acrd.tpsgc-pwgsc.gc.ca/acrds/index-fra.aspx)
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | | ### 3. Réservez vos locations de voiture si besoin
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | | ### 4. Saisissez vos dépenses potentielles
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | | ### 5. Soumettre pour approbation et réserver
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
@@ -49,7 +53,7 @@ lead: "Étapes importantes pour réserver votre voyage"
 
 [Suivant: Pendant votre voyage](/fr/travel)
 
-</article>
+
 
 <section class="content-right col-xs-6 col-md-4" id="sidebar">
 

@@ -1,14 +1,14 @@
 ---
 date: "2019-05-13"
 title: "Travel"
-heading: "Travel"
 lead: "How to handle any issues with the actual trip"
 ---
 
-<article class="content-left col-xs-12 col-sm-12 col-md-8">
 
-[[card]]
-| [[card-body]]
+
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | |
 | |[See travel advisories]()  
 | |In case of emergencies or changes
@@ -24,16 +24,18 @@ lead: "How to handle any issues with the actual trip"
 | |
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | | ### Entitlements
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
 | | [See entitlement information](/)
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | | ### Keep your receipts
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus at elementum mi. Phasellus sed vestibulum ex, et imperdiet sem.
@@ -41,7 +43,7 @@ lead: "How to handle any issues with the actual trip"
 
 <p class="text-center"><a href="/en/expense" class="btn btn-outline-primary my-4 px-4">Continue to Expense</a></p>
 
-</article>
+
 
 <section class="content-right col-xs-6 col-md-4" id="sidebar">
 

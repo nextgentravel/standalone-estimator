@@ -1,42 +1,45 @@
 ---
 date: "2019-05-13"
 title: "Frais"
-heading: "Frais"
 lead: "Assurer un remboursement rapide"
 ---
 
-<article class="content-left col-xs-12 col-sm-12 col-md-8">
 
-[[card]]
-| [[card-body]]
+
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | | ### 1. Rassemblez vos reçus
 | |
 | | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra tempus dapibus.
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | | ### 2. Soumettre un rapport de dépenses
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
 | | [Ouvrir le portail HRG](/)
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | | ### 3. Attendez votre remboursement
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | | ### 4. Si vous rencontrez des problèmes de remboursement
 | |
 | | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
 | |
 
-</article>
+
 
 <section class="content-right col-xs-6 col-md-4" id="sidebar">
 
