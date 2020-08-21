@@ -3,63 +3,39 @@ date: "2019-05-13"
 title: "Travel"
 lead: "How to handle any issues with the actual trip"
 ---
-
-
-
-<div class="card px-4 pt-4 my-4 bg-light">
-    <div class="row">
-        <div class="col-sm-8">
-| |
-| |[See travel advisories]()  
-| |In case of emergencies or changes
-| |
-| |### IN-TRANSIT TRAVEL SERVICES (24 hours)
-| |
-| |If you are currently travelling and need urgent assistance or need to book travel with a departure within the next 72 hours, press 3.  
-| |
-| |Email: travel.gc@hrgworldwide.com  
-| |Telephone:  
-| |1-866-857-3578 (toll-free from Canada and U.S.) - option 3  
-| |1-613-822-3873 (collect call from other countries)  
-| |
-| |
+<article class="content-left col-xs-12 col-sm-12 col-md-12">
 
 <div class="card px-4 pt-4 my-4 bg-light">
     <div class="row">
         <div class="col-sm-8">
-| | ### Entitlements
-| |
-| | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
-| |
-| | [See entitlement information](/)
 
-<div class="card px-4 pt-4 my-4 bg-light">
+### How to travel
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat. Aliquam egestas, velit at condimentum placerat, sem sapien laoreet mauris, dictum porttitor lacus est nec enim. Vivamus feugiat elit lorem, eu porttitor ante ultrices id. Phasellus suscipit tellus ante, nec dignissim elit imperdiet nec. Nullam fringilla feugiat nisl. Ut pretium, metus venenatis dictum viverra, dui metus finibus enim, ac rhoncus sem lorem vitae mauris. Suspendisse ut venenatis libero. Suspendisse lorem felis, pretium in maximus id, tempor non ipsum.
+        </div>
+        <div class="col-sm-4">
+            <p class="text-center"><a href="/en/book" class="btn btn-primary my-4 px-4">Tool</a></p>
+        </div>
+    </div>
+</div>
+
+
+<div class="card p-4 my-4 bg-light">
     <div class="row">
         <div class="col-sm-8">
-| | ### Keep your receipts
-| |
-| | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus at elementum mi. Phasellus sed vestibulum ex, et imperdiet sem.
-| |
 
-<p class="text-center"><a href="/en/expense" class="btn btn-outline-primary my-4 px-4">Continue to Expense</a></p>
+### Disruptions
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat. Aliquam egestas, velit at condimentum placerat, sem sapien laoreet mauris, dictum porttitor lacus est nec enim. Vivamus feugiat elit lorem, eu porttitor ante ultrices id. Phasellus suscipit tellus ante, nec dignissim elit imperdiet nec. Nullam fringilla feugiat nisl. Ut pretium, metus venenatis dictum viverra, dui metus finibus enim, ac rhoncus sem lorem vitae mauris. Suspendisse ut venenatis libero. Suspendisse lorem felis, pretium in maximus id, tempor non ipsum
+        </div>
+        <div class="col-sm-4">
+            <p class="text-center">
+                <a href="/en/tripestimator" class="btn btn-primary my-4 px-4">Tool</a>
+            </p>
+        </div>
+    </div>
+</div>
 
+<p class="text-center">
+    <a href="/en/expense" class="btn btn-outline-primary my-4 px-4">Continue to Expense</a>
+</p>
 
-
-<section class="content-right col-xs-6 col-md-4" id="sidebar">
-
-### Resources
-* [Option One](/)
-* [Option Two](/)
-
-### Suggest an update
-[Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
-
-[[info-card]]
-| [[card-body]]
-| |
-| | ### Still have travel-related questions?
-| |
-| | Your [Designated Departmental Travel Coordinator](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) should be able to help!
-| |
-
-</section>
+</article>
