@@ -1,7 +1,7 @@
 ---
 date: "2019-05-13"
 title: "Plan"
-lead: "Here is some text describing what you will find on this web page"
+lead: "Whether you are planning your trip to include in your department's Travel Plan or travelling ad-hoc, the following steps offer guidance to begin your journey"
 ---
 <article class="content-left col-xs-12 col-sm-12 col-md-12">
 
@@ -9,11 +9,12 @@ lead: "Here is some text describing what you will find on this web page"
     <div class="row">
         <div class="col-sm-8">
 
-### Submit a travel estimate
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat. Aliquam egestas, velit at condimentum placerat, sem sapien laoreet mauris, dictum porttitor lacus est nec enim. Vivamus feugiat elit lorem, eu porttitor ante ultrices id. Phasellus suscipit tellus ante, nec dignissim elit imperdiet nec. Nullam fringilla feugiat nisl. Ut pretium, metus venenatis dictum viverra, dui metus finibus enim, ac rhoncus sem lorem vitae mauris. Suspendisse ut venenatis libero. Suspendisse lorem felis, pretium in maximus id, tempor non ipsum.
+### Create an Estimate
+
+You will need to estimate the cost of your trip to get approved to travel and to include your trip in your department's travel plan. To make this process easier we have created a Trip Estimator. Click on the link to create and submit your travel estimate.
         </div>
         <div class="col-sm-4">
-            <p class="text-center"><a href="/en/booktravel" class="btn btn-primary my-4 px-4">Trip Estimator</a></p>
+            <p class="text-center"><a href="https://gc-travel-estimator.herokuapp.com/" class="btn btn-primary my-4 px-4">Trip Estimator</a></p>
         </div>
     </div>
 </div>
@@ -23,19 +24,21 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut 
     <div class="row">
         <div class="col-sm-8">
 
-### Submit a travel estimate
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat. Aliquam egestas, velit at condimentum placerat, sem sapien laoreet mauris, dictum porttitor lacus est nec enim. Vivamus feugiat elit lorem, eu porttitor ante ultrices id. Phasellus suscipit tellus ante, nec dignissim elit imperdiet nec. Nullam fringilla feugiat nisl. Ut pretium, metus venenatis dictum viverra, dui metus finibus enim, ac rhoncus sem lorem vitae mauris. Suspendisse ut venenatis libero. Suspendisse lorem felis, pretium in maximus id, tempor non ipsum
+### Get Preliminary Approval
+Plan ahead and provide your approver 3 to 4 weeks to approve your travel estimate. Once you have approval you can go ahead and book your trip. 
+
+Don’t know who needs to approve your estimate? See [PSPC Organization Chart](https://www.tpsgc-pwgsc.gc.ca/apropos-about/org-eng.html).
         </div>
         <div class="col-sm-4">
-            <p class="text-center">
-                <a href="/en/booktravel" class="btn btn-primary my-4 px-4">Trip Estimator</a>
-            </p>
+            <!-- <p class="text-center">
+                <a href="/en/book" class="btn btn-primary my-4 px-4">Trip Estimator</a>
+            </p> -->
         </div>
     </div>
 </div>
 
 <p class="text-center">
-    <a href="/en/booktravel" class="btn btn-outline-primary my-4 px-4">Continue to Book</a>
+    <a href="/en/book" class="btn btn-outline-primary my-4 px-4">Continue to Book</a>
 </p>
 
 </article>
