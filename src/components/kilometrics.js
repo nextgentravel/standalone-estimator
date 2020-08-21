@@ -4,6 +4,7 @@ import TextInput from "./input-text.js";
 import InputDatalist from "./input-datalist.js"
 import * as yup from "yup"
 import { FaSpinner } from 'react-icons/fa';
+import { FormattedMessage } from "react-intl";
 
 const Kilometrics = () => {
 
@@ -34,10 +35,10 @@ const Kilometrics = () => {
         let schema = yup.object().shape({
             province: yup
                 .string()
-                .required('Province is a required field')
+                .required(<FormattedMessage id="kiloreqprov"/>)
                 .test(
-                    'Province is valid',
-                    'Province is not valid.',
+                    <FormattedMessage id="kiloprovnotval"/>,
+                    <FormattedMessage id="kiloprovval"/>,
                     (value) => {
                         return provinceKeys.includes(value)
                     },
@@ -45,8 +46,8 @@ const Kilometrics = () => {
             distance: yup
                 .number()
                 .integer()
-                .typeError('Kilometres Travelled must be a number')
-                .required('Distance is a required field'),
+                .typeError(<FormattedMessage id="kilomustnum"/>)
+                .required(<FormattedMessage id="kilodisreq"/>),
         });
         return schema.validate(target, {abortEarly: false})
     }
@@ -95,11 +96,11 @@ const Kilometrics = () => {
     return (
         <>
             <div className="mb-4">
-                <h2>Find the correct rate for your kilometrics</h2>
-                <p className="lead">Taking your personal vehicle on a government trip? Refer to these rates.</p>
+                <h2><FormattedMessage id="kilotitle" /></h2>
+                <p className="lead"><FormattedMessage id="kilolead" /></p>
                 {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
-                    <h2>Field error or required</h2>
-                    <p>Please verify the following fields: </p>
+                    <h2><FormattedMessage id="kiloerrortitle" /></h2>
+                    <p><FormattedMessage id="kiloerrortext" /></p>
                     <ul className="list-unstyled">
                         {errorList()}
                     </ul>
@@ -108,7 +109,7 @@ const Kilometrics = () => {
                     <InputDatalist
                         validationWarnings={validationWarnings}
                         setValidationWarnings={setValidationWarnings}
-                        label="Province/Territory of Travel"
+                        label={<FormattedMessage id="provlabel" />}
                         name="province"
                         options={provinces}
                         updateValue={setProvinceValue}
@@ -117,19 +118,19 @@ const Kilometrics = () => {
                     <TextInput
                         validationWarnings={validationWarnings}
                         setValidationWarnings={setValidationWarnings}
-                        label="Kilometres Travelled"
+                        label={<FormattedMessage id="travelledlabel" />}
                         name="distance"
                         updateValue={setDistance}
                         clearForm={clearForm}
                     />
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                    <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}>Clear</button>
+                    <button type="submit" className="btn btn-primary"><FormattedMessage id="submit" /></button>
+                    <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}><FormattedMessage id="clear" /></button>
                     {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
                 </form>
                 {!loading && Object.keys(result).length !== 0 &&
                 <>
-                    <p>The kilometric rate for <strong>{result.province}</strong> is <strong>{result.provinceRate}</strong> cents per kilometre</p>
-                    <p>For your trip of <strong>{result.distance}</strong> kilometres you would be reimbursed <strong>${result.total}</strong></p>
+                    <p><FormattedMessage id="results1" /><strong>{result.province}</strong><FormattedMessage id="results2" /><strong>{result.provinceRate}</strong><FormattedMessage id="results3" /></p>
+                    <p><FormattedMessage id="results4" /><strong>{result.distance}</strong><FormattedMessage id="results5" /><strong>${result.total}</strong></p>
                 </>}
             </div>
         </>
