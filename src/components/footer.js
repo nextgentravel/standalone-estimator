@@ -11,7 +11,7 @@ const Footer = ({ }) => {
         <div className="container">
           <ul className="list-unstyled colcount-sm-2 colcount-md-3">
             <li>
-              <a href={`${homeLink}knowledgebase`} className="text-light">
+              <a href={`${homeLink}/knowledgebase`} className="text-light">
                <FormattedMessage id="knowledge" />
               </a>
             </li>
