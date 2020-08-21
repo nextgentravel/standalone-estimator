@@ -5,10 +5,11 @@ heading: "Plan"
 lead: "Après avoir décidé de voyager, vous devez commencer par créer un devis. L'estimation devrait donner une approximation globale du coût total du voyage, afin qu'il puisse être approuvé."
 ---
 
-<article class="content-left col-xs-12 col-sm-12 col-md-8">
 
-[[card]]
-| [[card-body]]
+
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | | ### Création de votre devis
 | |
 | | Les informations suivantes doivent être incluses dans un devis:
@@ -29,8 +30,9 @@ lead: "Après avoir décidé de voyager, vous devez commencer par créer un devi
 | | - **Frais accessoires et autres frais** - Énumérez les coûts approximatifs de vos frais accessoires. [Trouvez votre indemnité accessoire ici](https://www.njc-cnm.gc.ca/directive/d10/v238/s659/en#s659-tc-tm)
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | | ### Obtenir une approbation préliminaire
 | |
 | | - Une fois que vous avez créé votre estimation, soumettez-la à votre approbateur qui est généralement un cadre supérieur. Votre superviseur ou votre organigramme peut vous aider à les trouver
@@ -38,8 +40,9 @@ lead: "Après avoir décidé de voyager, vous devez commencer par créer un devi
 | | - Une fois que vous avez obtenu votre approbation, vous pouvez continuer et réserver votre voyage
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | | ### Création d'un compte dans HRG
 | |
 | | - Si vous n'avez jamais voyagé auparavant, le gouvernement du Canada utilise un outil de réservation en ligne. Le lien suivant vous amène à [l'outil de réservation en ligne](https://isuite6.hrgworldwide.com/gcportal/en-ca/sts.aspx)
@@ -49,7 +52,7 @@ lead: "Après avoir décidé de voyager, vous devez commencer par créer un devi
 
 [Suivant: Réservez votre voyage](/fr/book)
 
-</article>
+
 
 <section class="content-right col-xs-6 col-md-4" id="sidebar">
 

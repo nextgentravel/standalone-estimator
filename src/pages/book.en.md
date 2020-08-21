@@ -1,38 +1,41 @@
 ---
 date: "2019-05-04"
 title: "Book"
-heading: "Book"
 lead: "Steps: Register to HRG > Setup account profile > Book flight > Book car > Book rail > Book hotel > Payment Methods > Expense report (EMT) > Submit to approver"
 tags: { 'hotel': ['lodging', 'sleep'] }
 ---
 
-<article class="content-left col-xs-12 col-sm-12 col-md-8">
 
-[[card]]
-| [[card-body]]
+
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | |
 | |### *Register to HRG*  
 | |[Register your profile here](https://isuite6.hrgworldwide.com/Portals/6/docs/EN%20-%20UG%20-%20Registering%20for%20the%20Portal-19jul2019.pdf)
 | |
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | |
 | |### *Setup or change account profile*  
 | |Once you’ve created your account, you can setup or change your traveller profile using [these instructions](https://isuite6.hrgworldwide.com/Portals/6/docs/EN%20-%20UG%20-%20Completing%20a%20traveller%20profile%20-%2019jui2019.pdf)
 | |
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | |
 | |### *Log into HRG*  
 | |To begin the booking process, please log into HRG by following [this link](https://isuite6.hrgworldwide.com/gcportal/en-ca/sts.aspx)
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | |
 | |### *How to Book*  
 | |In the system, use [these instructions](https://isuite6.hrgworldwide.com/Portals/6/ENG%20FULL%20-%20Available%20resources%20for%20travellers%20and%20travel%20arrangers_.pdf) to book your trip. You can reference your estimates previously created. Link to the HRG instructions  
@@ -40,8 +43,9 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 | |When at the submitting stage, requesting for online approval, try to submit at a time where the approver can approve it immediately. Success rates for bookings are much higher if requests are immediately approved. Delaying submissions can cause the process to fail, causing you to restart the online booking process
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | |
 | |### *Booking Help*  
 | |
@@ -51,15 +55,17 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 | |
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | |
 | |### *Booking Flights*  
 | |**Tip:** it may be a good idea to do an external flight search on another website such as google flights to see all the flights scheduled for that day, to find your ideal time. You can then go back into HRG and select a date and time which align with the best flight for your needs
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | |
 | |### *Booking Car Rentals*  
 | |
@@ -67,15 +73,17 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 | |and to make a [search for your vehicle](https://rehelv-acrd.tpsgc-pwgsc.gc.ca/ACRDS/rechercher-search-4-eng.aspx)
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | |
 | |### *Booking Rail*  
 | |**Tip:** it may be a good idea to do an external rail search on another website such as VIA rail to see all the scheduled trains for that day, to find your ideal time. You can then go back into HRG and select a date and time related to the best train for your needs
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | |
 | |### *Booking Hotels*  
 | |Please visit and follow the [Accommodation and Car Rental Directory](https://rehelv-acrd.tpsgc-pwgsc.gc.ca/acrds/index-eng.aspx)  
@@ -83,8 +91,9 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 | |**Tip:** when beginning your search, it may be a good idea to call the hotel directly and speak to a booking member. Be sure to ask about any applicable discounted rates or offers for federal employees which you may be eligible for that are not included in HRG
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | |
 | |### *Payment methods*  
 | |- **Transportation:** the Departmental Travel Expense Card (**DTEC**) should appear as the payment method
@@ -96,22 +105,25 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 | |Individual Designated Travel Cards offer a variety of perks from insurance, to extending your payment window. To find out more about what an IDTC can do for you, please visit [our information page on IDTC](/en/idtc)
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | |
 | |### *Creating an expense report*  
 | |To create an expense report, please visit and follow [this training guide](https://hrg.exceedlms.com/student/activity/220777-en-ug-creating-an-expense-report)
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | |
 | |### *Out-of pocket expenses*  
 | |Please see [these HRG instructions](https://hrg.exceedlms.com/student/activity/220777-en-ug-creating-an-expense-report) to add your out of pocket expenses
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | |
 | |### *Meals, Incidentals & Private Accommodation*  
 | |- For travel within Canada or transboarder please find your meal rates specified under [Appendix C of the NJC](https://www.njc-cnm.gc.ca/directive/d10/v238/s659/en)
@@ -121,8 +133,9 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 | |**Note:** if you are not responsible to pay for one or more meals during your time away, please do not include it as an expense. For example: meals that would be included in the airfare or if you are a guest at an event that is providing food
 | |
 
-[[card]]
-| [[card-body]]
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 | |
 | |### *Submit for approval*  
 | |
@@ -131,7 +144,7 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 
 <p class="text-center"><a href="/en/travel" class="btn btn-outline-primary my-4 px-4">Continue to Travel</a></p>
 
-</article>
+
 
 <section class="content-right col-xs-6 col-md-4" id="sidebar">
 
