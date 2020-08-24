@@ -1,15 +1,15 @@
 import React from "react"
 import Layout from "../components/layout"
+import SEO from "../components/seo";
+import ContentPanel from "../components/content-panel";
+import ToolPanel from "../components/tool-panel";
+import { FormattedMessage } from "react-intl";
 import { FaClipboardList } from 'react-icons/fa';
 import { FaTicketAlt } from 'react-icons/fa';
 import { FaPlaneDeparture } from 'react-icons/fa';
 import { FaFileInvoiceDollar } from 'react-icons/fa';
-import { FaChevronRight } from 'react-icons/fa';
-// import { FaCalculator } from 'react-icons/fa';
 import { FaMapMarker } from 'react-icons/fa';
 import { FaCar } from 'react-icons/fa';
-import SEO from "../components/seo"
-import { Link } from "gatsby"
 
 const IndexPage = () => (
   <Layout>
@@ -18,94 +18,20 @@ const IndexPage = () => (
     <div>
       <main id="main-content" role="main">
         <div className="container mt-4">
-          <h2 className="text-center mb-4 font-weight-bold">Get Started</h2>
-          <p className="text-center mb-5">Select the part of the journey you need support with or launch our travel assistant for a guided travel experience.  You can use this guide offline, even when you are not connected to the internet.</p>
+          <h2 className="text-center mb-4 font-weight-bold"><FormattedMessage id="indextitle" /></h2>
+          <p className="text-center mb-5"><FormattedMessage id="indexlead"/></p>
           <div className="row mb-3 mt-3">
-              <section className="col-md-3 col-sm-6 text-center mb-5">
-                <div className="h-100 d-flex flex-column">
-                  <div className="icon-background icon-background-plan mt-2 mb-4">
-                    <FaClipboardList size="100" color="#fff" alt="" />
-                  </div>
-                  <h3 className="mb-4">Plan</h3>
-                  <p className="mb-4">Plan ahead and get ready for your business trip</p>
-                  <div className="mt-auto w-100">
-                    <Link to="/en/plan" className="btn btn-outline-primary px-4">Launch</Link>
-                  </div>
-                </div>
-                <FaChevronRight
-                  className="home-chevron d-none d-sm-block"
-                  size="30"
-                />
-              </section>
-              <section className="col-md-3 col-sm-6 text-center mb-5">
-                <div className="h-100 d-flex flex-column">
-                  <div className="icon-background icon-background-book mt-2 mb-4"><FaTicketAlt size="100" color="#fff" alt="" /></div>
-                  <h3 className="mb-4">Book</h3>
-                  <p className="mb-4">
-                    Secure your tickets and make travel arrangements
-                  </p>
-                  <div className="mt-auto w-100">
-                    <Link to="/en/book" className="btn btn-outline-primary px-4">Launch</Link>
-                  </div>
-                </div>
-                <FaChevronRight
-                  className="home-chevron d-none d-md-block"
-                  size="30"
-                />
-              </section>
-              <section className="col-md-3 col-sm-6 text-center mb-5">
-                <div className="h-100 d-flex flex-column">
-                  <div className="icon-background icon-background-travel mt-2 mb-4">
-                    <FaPlaneDeparture size="100" color="#fff" alt="" />
-                  </div>
-                  <h3 className="mb-4">Travel</h3>
-                  <p className="mb-4">
-                    Everything you need when you're travelling
-                  </p>
-                  <div className="mt-auto w-100">
-                    <Link to="/en/travel" className="btn btn-outline-primary px-4">Launch</Link>
-                  </div>
-                </div>
-                <FaChevronRight
-                  className="home-chevron d-none d-sm-block"
-                  size="30"
-                />
-              </section>
-              <section className="col-md-3 col-sm-6 text-center mb-5">
-                <div className="h-100 d-flex flex-column">
-                  <div className="icon-background icon-background-expense mt-2 mb-4">
-                    <FaFileInvoiceDollar size="100" color="#fff" alt="" />
-                  </div>
-                  <h3 className="mb-4">Expense</h3>
-                  <p className="mb-4">Filing trip expenses and get reimbursed</p>
-                  <div className="mt-auto w-100">
-                    <Link to="/en/expense" className="btn btn-outline-primary px-4">Launch</Link>
-                  </div>
-                </div>
-              </section>
+              <ContentPanel title="plan" icon={<FaClipboardList size="100" color="#fff" alt="" />} linkto="/en/plan" />
+              <ContentPanel title="book" icon={<FaTicketAlt size="100" color="#fff" alt="" />} linkto="/en/book" />
+              <ContentPanel title="travel" icon={<FaPlaneDeparture size="100" color="#fff" alt="" />} linkto="/en/travel" />
+              <ContentPanel title="expense" icon={<FaFileInvoiceDollar size="100" color="#fff" alt="" />} linkto="/en/expense" />
           </div>
         </div>
         <div className="bg-light">
           <div className="container">
             <div className="d-flex justify-content-center">
-              {/* <div className="text-center m-5">
-                <Link to="/en/expense">
-                  <FaCalculator size="40" />
-                  <p className="mt-2">Trip Estimator</p>
-                </Link>
-              </div> */}
-              <div className="tool-link-item text-center m-5">
-                <Link to="/en/rates">
-                  <FaMapMarker size="40" />
-                  <p className="mt-2">City Rates and Limits</p>
-                </Link>
-              </div>
-              <div className="tool-link-item text-center m-5">
-                <Link to="/en/kilometrics">
-                  <FaCar size="40" />
-                  <p className="mt-2">Kilometric Rates</p>
-                </Link>
-              </div>
+              <ToolPanel title="rates" icon={<FaMapMarker size="40" />} linkto="/en/rates" />
+              <ToolPanel title="kilometrics" icon={<FaCar size="40" />} linkto="/en/kilometrics" />
             </div>
           </div>
         </div>
