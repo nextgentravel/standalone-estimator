@@ -2,7 +2,6 @@
 slug: "fr/sitemap"
 date: "2019-05-13"
 title: "Plan du site et base de connaissances"
-heading: "Plan du site et base de connaissances"
 lead: "Une liste des liens disponibles sur le site"
 ---
 

@@ -1,58 +1,36 @@
 ---
 date: "2019-05-13"
-title: "Frais"
-heading: "Frais"
-lead: "Assurer un remboursement rapide"
+title: "Dépenses"
+lead: "Assurer le remboursement dans les délais"
 ---
 
-<article class="content-left col-xs-12 col-sm-12 col-md-8">
+<article class="content-left col-xs-12 col-sm-12 col-md-12">
 
-[[card]]
-| [[card-body]]
-| | ### 1. Rassemblez vos reçus
-| |
-| | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra tempus dapibus.
-| |
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 
-[[card]]
-| [[card-body]]
-| | ### 2. Soumettre un rapport de dépenses
-| |
-| | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
-| |
-| | [Ouvrir le portail HRG](/)
+### Reçus
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat. Aliquam egestas, velit at condimentum placerat, sem sapien laoreet mauris, dictum porttitor lacus est nec enim. Vivamus feugiat elit lorem, ue porttitor ante ultrices id. Phasellus suscipit tellus ante, nec dignissim elit imperdiet nca. Nullam fringilla feugiat nisl. Ut pretium, metus venenatis dictum viverra, dui metus finibus enim, ac rhoncus sem lorem vitae mauris. Suspendisse ut venenatis libero. Suspendisse lorem felis, pretium in maximus id, tempor non ipsum.
+        </div>
+        <div class="col-sm-4">
+            <p class="text-center"> <a href="/fr/book" class="btn btn-primary my-4 px-4"> Outil </a> </p>
+        </div>
+    </div>
+</div>
 
-[[card]]
-| [[card-body]]
-| | ### 3. Attendez votre remboursement
-| |
-| | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
-| |
 
-[[card]]
-| [[card-body]]
-| | ### 4. Si vous rencontrez des problèmes de remboursement
-| |
-| | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
-| |
+<div class="card p-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 
-</article>
-
-<section class="content-right col-xs-6 col-md-4" id="sidebar">
-
-#### Ressources
-* [Première option](/)
-* [Deuxième option](/)
-
-#### Suggérer une mise à jour
-[Envoyez des commentaires anonymes ici](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
-
-[[info-card]]
-| [[card-body]]
-| |
-| | ### Vous avez encore des questions liées au voyage?
-| |
-| | Votre [coordonnateur ministériel des voyages](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) désigné devrait être en mesure d'aider!
-| |
-
-</section>
+### Remboursements
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat. Aliquam egestas, velit at condimentum placerat, sem sapien laoreet mauris, dictum porttitor lacus est nec enim. Vivamus feugiat elit lorem, ue porttitor ante ultrices id. Phasellus suscipit tellus ante, nec dignissim elit imperdiet nca. Nullam fringilla feugiat nisl. Ut pretium, metus venenatis dictum viverra, dui metus finibus enim, ac rhoncus sem lorem vitae mauris. Suspendisse ut venenatis libero. Suspendisse lorem felis, pretium in maximus id, tempor non ipsum
+        </div>
+        <div class="col-sm-4">
+            <p class="text-center">
+                <a href="/fr/tripestimator" class="btn btn-primary my-4 px-4"> Outil </a>
+            </p>
+        </div>
+    </div>
+</div>
