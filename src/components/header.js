@@ -38,24 +38,13 @@ const Header = ({homeHeader}) => {
           <nav className="skiphold" id="header-skiplink">
             <a className="sr-only sr-only-focusable aurora-skip skiplink" aria-label="main skiplink" href="#main-content"><FormattedMessage id="skipToMain" /></a>
           </nav>
-          {homeLink == "/en/" &&
-            <div className="align-self-center" property="publisher" typeof="GovernmentOrganization">
+          <div className="align-self-center" property="publisher" typeof="GovernmentOrganization">
               <Image
                 filename="sig-blk-en.svg"
                 className="goc-logo"
                 alt={ intl.formatMessage({ id: 'governmentOfCanada' })}
               />
-            </div>
-          }
-          {homeLink == "/fr/" &&
-            <div className="align-self-center" property="publisher" typeof="GovernmentOrganization">
-              <Image
-                filename="sig-blk-fr.svg"
-                className="goc-logo"
-                alt={ intl.formatMessage({ id: 'governmentOfCanada' })}
-              />
-            </div>
-          }
+          </div>
           <section className='text-right align-self-center'>
             <p className="sr-only sr-only-focusable aurora-skip"><FormattedMessage id="languageSelection" /></p>
             <SelectLanguage />
