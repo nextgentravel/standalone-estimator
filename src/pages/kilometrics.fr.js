@@ -7,11 +7,11 @@ import Kilometrics from "../components/kilometrics"
 const KilometricsPage = () => {
   return (
     <Layout>
-      <SEO title="Kilometric Rates" />
+      <SEO title="Tarifs kilométriques" />
       <w-screen mt-4="true" fluid="true" id="container">
         <div>
           <main id="main-content" role="main">
-            <Breadcrumbs pageTitle={'Kilometric Rates'} homeLink={'/en/'} />
+            <Breadcrumbs pageTitle={'Tarifs kilométriques'} homeLink={'/fr/'} />
             <div className="container mt-4">
               <Kilometrics />
             </div>
