@@ -191,7 +191,7 @@ const RatesChecker = () => {
             {!loading && 'acrdRatesFiltered' in result &&
                 <>
                     <h3><FormattedMessage id="raterestitle" /></h3>
-                    <p className="lead"><FormattedMessage id="ratelead" /><strong>{result.destination}</strong>.</p>
+                    <p className="lead"><FormattedMessage id="rateleadres" /><strong>{result.destination}</strong>.</p>
                     <div className="table-responsive">
                         <table className="table">
                             <thead>
@@ -203,7 +203,7 @@ const RatesChecker = () => {
                             <tbody>
                             {Object.keys(result.acrdRatesFiltered).map((month) => (
                                 <tr key={month}>
-                                    <th scope="row">{month}</th>
+                                    <th scope="row"><FormattedMessage id={month} /></th>
                                     <td>{result.acrdRatesFiltered[month]}</td>
                                 </tr>
                             ))}
