@@ -21,7 +21,7 @@ const IndexPage = () => (
           <h2 className="text-center mb-4 font-weight-bold">Get Started</h2>
           <p className="text-center mb-5">Select the part of the journey you need support with or launch our travel assistant for a guided travel experience.  You can use this guide offline, even when you are not connected to the internet.</p>
           <div className="row mb-3 mt-3">
-              <section className="col-sm-3 text-center mb-5">
+              <section className="col-md-3 col-sm-6 text-center mb-5">
                 <div className="h-100 d-flex flex-column">
                   <div className="icon-background icon-background-plan mt-2 mb-4">
                     <FaClipboardList size="100" color="#fff" alt="" />
@@ -29,7 +29,7 @@ const IndexPage = () => (
                   <h3 className="mb-4">Plan</h3>
                   <p className="mb-4">Plan ahead and get ready for your business trip</p>
                   <div className="mt-auto w-100">
-                    <Link to="/en/before" className="btn btn-outline-primary px-4">Launch</Link>
+                    <Link to="/en/plan" className="btn btn-outline-primary px-4">Launch</Link>
                   </div>
                 </div>
                 <FaChevronRight
@@ -37,7 +37,7 @@ const IndexPage = () => (
                   size="30"
                 />
               </section>
-              <section className="col-sm-3 text-center mb-5">
+              <section className="col-md-3 col-sm-6 text-center mb-5">
                 <div className="h-100 d-flex flex-column">
                   <div className="icon-background icon-background-book mt-2 mb-4"><FaTicketAlt size="100" color="#fff" alt="" /></div>
                   <h3 className="mb-4">Book</h3>
@@ -45,15 +45,15 @@ const IndexPage = () => (
                     Secure your tickets and make travel arrangements
                   </p>
                   <div className="mt-auto w-100">
-                    <Link to="/en/booktravel" className="btn btn-outline-primary px-4">Launch</Link>
+                    <Link to="/en/book" className="btn btn-outline-primary px-4">Launch</Link>
                   </div>
                 </div>
                 <FaChevronRight
-                  className="home-chevron d-none d-sm-block"
+                  className="home-chevron d-none d-md-block"
                   size="30"
                 />
               </section>
-              <section className="col-sm-3 text-center mb-5">
+              <section className="col-md-3 col-sm-6 text-center mb-5">
                 <div className="h-100 d-flex flex-column">
                   <div className="icon-background icon-background-travel mt-2 mb-4">
                     <FaPlaneDeparture size="100" color="#fff" alt="" />
@@ -63,7 +63,7 @@ const IndexPage = () => (
                     Everything you need when you're travelling
                   </p>
                   <div className="mt-auto w-100">
-                    <Link to="/en/during" className="btn btn-outline-primary px-4">Launch</Link>
+                    <Link to="/en/travel" className="btn btn-outline-primary px-4">Launch</Link>
                   </div>
                 </div>
                 <FaChevronRight
@@ -71,7 +71,7 @@ const IndexPage = () => (
                   size="30"
                 />
               </section>
-              <section className="col-sm-3 text-center mb-5">
+              <section className="col-md-3 col-sm-6 text-center mb-5">
                 <div className="h-100 d-flex flex-column">
                   <div className="icon-background icon-background-expense mt-2 mb-4">
                     <FaFileInvoiceDollar size="100" color="#fff" alt="" />
@@ -79,17 +79,17 @@ const IndexPage = () => (
                   <h3 className="mb-4">Expense</h3>
                   <p className="mb-4">Filing trip expenses and get reimbursed</p>
                   <div className="mt-auto w-100">
-                    <Link to="/en/after" className="btn btn-outline-primary px-4">Launch</Link>
+                    <Link to="/en/expense" className="btn btn-outline-primary px-4">Launch</Link>
                   </div>
                 </div>
               </section>
           </div>
         </div>
-        <div class="bg-light">
+        <div className="bg-light">
           <div className="container">
             <div className="d-flex justify-content-center">
               {/* <div className="text-center m-5">
-                <Link to="/en/after">
+                <Link to="/en/expense">
                   <FaCalculator size="40" />
                   <p className="mt-2">Trip Estimator</p>
                 </Link>
