@@ -83,6 +83,20 @@ module.exports = {
         'December':'December',
         //misc
         'searchsrlabel': 'Search',
+        //index
+        'plan': 'Plan',
+        'planlead': 'Plan ahead and get ready for your business trip',
+        'book': 'Book',
+        'booklead': 'Secure your tickets and make travel arrangements',
+        'travel': 'Travel',
+        'travellead': "Everything you need when you're travelling",
+        'expense': 'Expense',
+        'expenselead': 'Filing trip expenses and get reimbursed',
+        'launch': 'Launch',
+        'indextitle': 'Get Started',
+        'indexlead': 'Select the part of the journey you need support with or launch our travel assistant for a guided travel experience.  You can use this guide offline, even when you are not connected to the internet.',
+        'rates': 'City Rates and Limits',
+        'kilometrics': 'Kilometric Rates',
     },
     'fr': {
         // header
@@ -168,5 +182,19 @@ module.exports = {
         'December':'Décembre',
         //misc
         'searchsrlabel': 'Chercher',
+        //index
+        'plan': 'Plan',
+        'planlead': "Planifiez à l'avance et préparez-vous pour votre voyage d'affaires",
+        'book': 'Réserve',
+        'booklead': 'Sécurisez vos billets et organisez votre voyage',
+        'travel': 'Voyage',
+        'travellead': "Tout ce dont vous avez besoin lorsque vous voyagez",
+        'expense': 'Frais',
+        'expenselead': 'Déposer les frais de voyage et se faire rembourser',
+        'launch': 'Commencer',
+        'indextitle': 'Commencer',
+        'indexlead': "Sélectionnez la partie du voyage avec laquelle vous avez besoin d'aide ou lancez notre assistant de voyage pour une expérience de voyage guidée. Vous pouvez utiliser ce guide hors ligne, même lorsque vous n'êtes pas connecté à Internet.",
+        'rates': 'Tarifs et limites de la ville',
+        'kilometrics': 'Tarifs kilométriques',
     }
 };
