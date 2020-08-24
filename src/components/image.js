@@ -34,7 +34,7 @@ const Image = props => (
       }
 
       if (!image.node.childImageSharp && image.node.extension === 'svg') {
-        return <img alt={props.alt} src={image.node.publicURL} />
+        return <img alt={props.alt} className={props.className} src={image.node.publicURL} />
       }
 
       //const imageSizes = image.node.childImageSharp.sizes; sizes={imageSizes}
