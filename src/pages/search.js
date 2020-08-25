@@ -7,9 +7,12 @@ import SEO from "../components/seo"
 import 'url-search-params-polyfill';
 import { useQueryParam, StringParam } from "use-query-params";
 
+import { useIntl } from 'react-intl';
+
 // We can access the results of the page GraphQL query via the data props
 const SearchPage = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title  
+  const siteTitle = data.site.siteMetadata.title
+  const intl = useIntl()
   // LunrIndex is available via page query
   const { store } = data.LunrIndex
   // Lunr in action here
@@ -21,7 +24,12 @@ const SearchPage = ({ data, location }) => {
   const [searchQuery, setSearchQuery] = useQueryParam('q', StringParam)
 
   const processSearchResult = (results) => {
-    return results = results.map((result) => {
+    return results = results.filter((result) => {
+      if (!result.slug.includes(`/${intl.locale}/`)) {
+        return false;
+      }
+      return result;
+    }).map((result) => {
       let terms = Object.keys(result.metadata);
       let displayExcerpt = '';
       let foundInContent = false;
@@ -119,7 +127,7 @@ const SearchPage = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Search results" />
-      <main className="container px-5 py-2" id="main-content">
+      <main className="container" id="main-content">
         {searchQuery ? <h2 className="font-weight-bold">Search Results</h2> : <h2 className="font-weight-bold">What are you looking for?</h2>}
         <div className="p-1">
           {!fuzzy &&

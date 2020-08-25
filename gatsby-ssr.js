@@ -5,3 +5,10 @@
  */
 
 // You can delete this file if you're not using it
+
+const React = require("react")
+var reactIntl = require("react-intl");
+
+exports.wrapPageElement = ({ element }) => {
+  return <reactIntl.IntlProvider locale="en">{element}</reactIntl.IntlProvider>
+}
