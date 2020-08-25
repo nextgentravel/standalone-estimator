@@ -39,7 +39,7 @@ const SearchForm = ({ initialQuery = "", placement = "header" }) => {
           id={`search-input-${placement}`}
           type="search"
           value={query}
-          placeholder="Search GC Travel Guide"
+          placeholder={<FormattedMessage id="searchPlaceholder" />}
           onChange={handleChange}
         />
         <div className="input-group-append">
