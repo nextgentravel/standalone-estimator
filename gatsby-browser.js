@@ -12,24 +12,18 @@ import { getCurrentLangKey } from 'ptz-i18n';
 import { IntlProvider } from 'react-intl';
 
 import i18nMessages from './src/data/messages';
-import { Location } from "@reach/router"
+import { useLocation } from "@reach/router"
 
 import languages from './src/data/languages'
 
 export const wrapPageElement = ({ element }) => {
-
+    const location = useLocation()
+    const { langs, defaultLangKey } = languages;
+    const pathname = location.pathname
+    const langKey = getCurrentLangKey(langs, defaultLangKey, pathname);
     return (
-        <Location>
-            {props => {
-                const pathname = props.location.pathname;
-                const { langs, defaultLangKey } = languages;
-                const langKey = getCurrentLangKey(langs, defaultLangKey, pathname);
-                return (
-                    <IntlProvider locale={langKey} messages={i18nMessages[langKey]}>
-                        {element}
-                    </IntlProvider>
-                )
-            }}
-        </Location>
+        <IntlProvider locale={langKey} messages={i18nMessages[langKey]}>
+            {element}
+        </IntlProvider>
     )
 }
