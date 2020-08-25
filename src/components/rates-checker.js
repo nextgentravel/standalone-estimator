@@ -11,7 +11,6 @@ import acrdRates from "../data/acrdRates.js"
 
 import { FaSpinner } from 'react-icons/fa';
 import { FaExclamationTriangle } from 'react-icons/fa';
-import { FormattedMessage } from "react-intl";
 
 // import { globalHistory } from "@reach/router"
 
@@ -127,24 +126,24 @@ const RatesChecker = () => {
         let schema = yup.object().shape({
             destination: yup
                 .string()
-                .required(<FormattedMessage id="ratedesreq" />)
+                .required('Destination is a required field')
                 .test(
-                    <FormattedMessage id="ratecitval" />,
-                    <FormattedMessage id="ratecitnval" />,
+                    'City is valid',
+                    'City is not valid.',
                     (value) => {
                         return citiesList.includes(value)
                     },
                   ),
             departureDate: yup
                 .date()
-                .typeError(<FormattedMessage id="ratedatforsta" />)
+                .typeError('Start Date must be in DD-MM-YYYY format')
                 .required(),
             returnDate: yup
                 .date()
-                .typeError(<FormattedMessage id="ratedatforret" />)
+                .typeError('Return Date must be in DD-MM-YYYY format')
                 .required().min(
                 yup.ref('departureDate'),
-                <FormattedMessage id="notimetravel" />
+                "End date cannot be before start date"
             )
         });
         return schema.validate(target, {abortEarly: false})
@@ -160,21 +159,21 @@ const RatesChecker = () => {
 
     return (
         <div className="mb-4">
-            <h2><FormattedMessage id="ratetitle" /></h2>
-            <p className="lead"><FormattedMessage id="ratelead" /></p>
+            <h2>Find Your Rates and Limits</h2>
+            <p className="lead">A tool to help you easily find the limits applicable to your trip.</p>
              {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
-                <h3><FormattedMessage id="rateerrortitle" /></h3>
-                <p><FormattedMessage id="rateerrorlead" /></p>
+                <h3>Field error or required</h3>
+                <p>Please verify the following fields: </p>
                 <ul className="list-unstyled">
                     {errorList()}
                 </ul>
             </div>}
             <form id="rates-form" className="form-group mb-4" onSubmit={handleSubmit}>
-                <InputDatalist validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="ratedes" />} name="destination" options={filteredCitiesList} updateValue={setDestination} />
-                <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="ratedep" />} name="departureDate" updateValue={setDepartureDate}></DatePicker>
-                <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="rateret" />} name="returnDate" updateValue={setReturnDate}></DatePicker>
-                <button type="submit" className="btn btn-primary"><FormattedMessage id="submit"/></button>
-                <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}><FormattedMessage id="clear"/></button>
+                <InputDatalist validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Destination" name="destination" options={filteredCitiesList} updateValue={setDestination} />
+                <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Departure Date" name="departureDate" updateValue={setDepartureDate}></DatePicker>
+                <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Return Date" name="returnDate" updateValue={setReturnDate}></DatePicker>
+                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}>Clear</button>
                 {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
             </form>
 
@@ -183,8 +182,8 @@ const RatesChecker = () => {
                     <FaExclamationTriangle size="24" />
                 </div>
                 <div className="message">
-                    <h3><FormattedMessage id="rateapperror" /></h3>
-                    <p><FormattedMessage id="rateapperrortext" /></p>
+                    <h3>Application Error</h3>
+                    <p>Unable to load rates and limits.</p>
                 </div>
             </div>}
 
@@ -196,8 +195,8 @@ const RatesChecker = () => {
                         <table className="table">
                             <thead>
                                 <tr>
-                                    <th scope="col"><FormattedMessage id="ratetablehm" /></th>
-                                    <th scope="col"><FormattedMessage id="ratetablehr" /></th>
+                                    <th scope="col">Month</th>
+                                    <th scope="col">Rate</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -214,9 +213,9 @@ const RatesChecker = () => {
             }
             {!loading && 'mealsAndIncidentals' in result &&
                 <>
-                    <h3><FormattedMessage id="ratemititle" /></h3>
-                    <p className="lead"><FormattedMessage id="ratemilead" /></p>
-                    <p><FormattedMessage id="ratemitext1" /><strong>${result.mealsAndIncidentals.dailyTotal.toFixed(2)}</strong><FormattedMessage id="ratemitext2" /></p>
+                    <h3>Meals and Incidentals</h3>
+                    <p className="lead">These rates help determine reasonable meal costs. </p>
+                    <p>You can spend <strong>${result.mealsAndIncidentals.dailyTotal.toFixed(2)}</strong> on meals and incidentals per day.</p>
                 </>
             }
 

@@ -125,7 +125,6 @@ module.exports = {
         //infoPage
         'skipToSide': 'Passer à la barre latérale',
         'breadCrumbAria': 'Tu es là: ',
-        //kilometrics
         'kilotitle': 'Trouvez le bon taux pour vos kilomètres',
         'kilolead': "Vous emmenez votre véhicule personnel lors d'un voyage gouvernemental? Reportez-vous à ces tarifs.",
         'kiloerrortitle': 'Erreur de champ ou obligatoire',
