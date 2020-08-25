@@ -44,7 +44,7 @@ const SearchForm = ({ initialQuery = "", placement = "header" }) => {
         />
         <div className="input-group-append">
           <button type="submit" className={`btn ${placement !== 'header' ? ` btn-dark` : ` btn-light`}`}><FaSearch />
-            <span className="sr-only"><FormattedMessage id="searchsrlabel"/></span>
+            <span className="sr-only"><FormattedMessage id="searchScreenReaderLabel"/></span>
           </button>
         </div>
       </div>
