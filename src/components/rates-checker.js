@@ -5,6 +5,7 @@ import mealAllowances from "../data/meals"
 import { DateTime } from "luxon"
 import * as yup from "yup"
 import monthsContained from "./months-contained.js"
+import { FormattedMessage } from 'react-intl';
 
 import cities from "../data/cities.js"
 import acrdRates from "../data/acrdRates.js"

@@ -7,14 +7,17 @@ import { Location } from "@reach/router"
 
 const Layout = ({ children }) => {
   let showLanguageSelect;
+  let onHomePage;
   return (
     <div>
       <Location>
         {props => {
           const pathname = props.location.pathname;
+          console.log('pathname ', pathname)
           showLanguageSelect = pathname === '/404/' ? showLanguageSelect = false : showLanguageSelect = true;
+          onHomePage = pathname === '/en/' || pathname === '/fr/' ? onHomePage = true : onHomePage = false;
           return (
-            <Header showLanguageSelect={showLanguageSelect} homeHeader={pathname} />
+            <Header showLanguageSelect={showLanguageSelect} homeHeader={onHomePage} />
           )
         }}
       </Location>
