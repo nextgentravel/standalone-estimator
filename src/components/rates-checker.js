@@ -127,24 +127,24 @@ const RatesChecker = () => {
         let schema = yup.object().shape({
             destination: yup
                 .string()
-                .required(<FormattedMessage id="ratedesreq" />)
+                .required(<FormattedMessage id="rateDestinationRequired" />)
                 .test(
-                    <FormattedMessage id="ratecitval" />,
-                    <FormattedMessage id="ratecitnval" />,
+                    <FormattedMessage id="rateCityValid" />,
+                    <FormattedMessage id="rateCityNotValid" />,
                     (value) => {
                         return citiesList.includes(value)
                     },
                   ),
             departureDate: yup
                 .date()
-                .typeError(<FormattedMessage id="ratedatforsta" />)
+                .typeError(<FormattedMessage id="rateDateFormatStart" />)
                 .required(),
             returnDate: yup
                 .date()
-                .typeError(<FormattedMessage id="ratedatforret" />)
+                .typeError(<FormattedMessage id="rateDateFormatReturn" />)
                 .required().min(
                 yup.ref('departureDate'),
-                <FormattedMessage id="notimetravel" />
+                <FormattedMessage id="noTimeTravel" />
             )
         });
         return schema.validate(target, {abortEarly: false})
@@ -160,19 +160,19 @@ const RatesChecker = () => {
 
     return (
         <div className="mb-4">
-            <h2><FormattedMessage id="ratetitle" /></h2>
-            <p className="lead"><FormattedMessage id="ratelead" /></p>
+            <h2><FormattedMessage id="rateTitle" /></h2>
+            <p className="lead"><FormattedMessage id="rateLead" /></p>
              {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
-                <h3><FormattedMessage id="rateerrortitle" /></h3>
-                <p><FormattedMessage id="rateerrorlead" /></p>
+                <h3><FormattedMessage id="rateErrorTitle" /></h3>
+                <p><FormattedMessage id="rateErrorLead" /></p>
                 <ul className="list-unstyled">
                     {errorList()}
                 </ul>
             </div>}
             <form id="rates-form" className="form-group mb-4" onSubmit={handleSubmit}>
-                <InputDatalist validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="ratedes" />} name="destination" options={filteredCitiesList} updateValue={setDestination} />
-                <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="ratedep" />} name="departureDate" updateValue={setDepartureDate}></DatePicker>
-                <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="rateret" />} name="returnDate" updateValue={setReturnDate}></DatePicker>
+                <InputDatalist validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="rateDestination" />} name="destination" options={filteredCitiesList} updateValue={setDestination} />
+                <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="rateDepart" />} name="departureDate" updateValue={setDepartureDate}></DatePicker>
+                <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="rateReturn" />} name="returnDate" updateValue={setReturnDate}></DatePicker>
                 <button type="submit" className="btn btn-primary"><FormattedMessage id="submit"/></button>
                 <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}><FormattedMessage id="clear"/></button>
                 {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
@@ -183,21 +183,21 @@ const RatesChecker = () => {
                     <FaExclamationTriangle size="24" />
                 </div>
                 <div className="message">
-                    <h3><FormattedMessage id="rateapperror" /></h3>
-                    <p><FormattedMessage id="rateapperrortext" /></p>
+                    <h3><FormattedMessage id="rateApplicationError" /></h3>
+                    <p><FormattedMessage id="rateApplicationErrorText" /></p>
                 </div>
             </div>}
 
             {!loading && 'acrdRatesFiltered' in result &&
                 <>
-                    <h3><FormattedMessage id="raterestitle" /></h3>
-                    <p className="lead"><FormattedMessage id="rateleadres" /><strong>{result.destination}</strong>.</p>
+                    <h3><FormattedMessage id="rateResultTitle" /></h3>
+                    <p className="lead"><FormattedMessage id="rateLeadResult" /><strong>{result.destination}</strong>.</p>
                     <div className="table-responsive">
                         <table className="table">
                             <thead>
                                 <tr>
-                                    <th scope="col"><FormattedMessage id="ratetablehm" /></th>
-                                    <th scope="col"><FormattedMessage id="ratetablehr" /></th>
+                                    <th scope="col"><FormattedMessage id="rateTableHeadMonth" /></th>
+                                    <th scope="col"><FormattedMessage id="rateTableHeadRate" /></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -214,9 +214,9 @@ const RatesChecker = () => {
             }
             {!loading && 'mealsAndIncidentals' in result &&
                 <>
-                    <h3><FormattedMessage id="ratemititle" /></h3>
-                    <p className="lead"><FormattedMessage id="ratemilead" /></p>
-                    <p><FormattedMessage id="ratemitext1" /><strong>${result.mealsAndIncidentals.dailyTotal.toFixed(2)}</strong><FormattedMessage id="ratemitext2" /></p>
+                    <h3><FormattedMessage id="rateMealsTitle" /></h3>
+                    <p className="lead"><FormattedMessage id="rateMealsLead" /></p>
+                    <p><FormattedMessage id="rateMealsText1" /><strong>${result.mealsAndIncidentals.dailyTotal.toFixed(2)}</strong><FormattedMessage id="rateMealsText2" /></p>
                 </>
             }
 
