@@ -81,6 +81,7 @@ module.exports = {
         'December':'December',
         //misc
         'searchScreenReaderLabel': 'Search',
+        "searchPlaceholder": 'Search GC Travel Guide',
         'submit': 'Submit',
         'clear': 'Clear',
         //index
@@ -179,7 +180,8 @@ module.exports = {
         'November':'Novembre',
         'December':'Décembre',
         //misc
-        'searchsrlabel': 'Chercher',
+        'searchScreenReaderLabel': 'Chercher',
+        "searchPlaceholder": 'Rechercher le guide de voyage GC',
         'submit': 'Soumettre',
         'clear': 'Clair',
         //index
