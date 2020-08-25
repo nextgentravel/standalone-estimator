@@ -35,10 +35,10 @@ const Kilometrics = () => {
         let schema = yup.object().shape({
             province: yup
                 .string()
-                .required(<FormattedMessage id="kiloreqprov"/>)
+                .required(<FormattedMessage id="kilometricsRequireProvince"/>)
                 .test(
-                    <FormattedMessage id="kiloprovnotval"/>,
-                    <FormattedMessage id="kiloprovval"/>,
+                    <FormattedMessage id="kilometricsProvinceNotValid"/>,
+                    <FormattedMessage id="kilometricsProvinceValid"/>,
                     (value) => {
                         return provinceKeys.includes(value)
                     },
@@ -46,8 +46,8 @@ const Kilometrics = () => {
             distance: yup
                 .number()
                 .integer()
-                .typeError(<FormattedMessage id="kilomustnum"/>)
-                .required(<FormattedMessage id="kilodisreq"/>),
+                .typeError(<FormattedMessage id="kilometricsMustBeNumber"/>)
+                .required(<FormattedMessage id="kilometricsDistanceRequired"/>),
         });
         return schema.validate(target, {abortEarly: false})
     }
@@ -96,11 +96,11 @@ const Kilometrics = () => {
     return (
         <>
             <div className="mb-4">
-                <h2><FormattedMessage id="kilotitle" /></h2>
-                <p className="lead"><FormattedMessage id="kilolead" /></p>
+                <h2><FormattedMessage id="kilometricsTitle" /></h2>
+                <p className="lead"><FormattedMessage id="kilometricsLead" /></p>
                 {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
-                    <h2><FormattedMessage id="kiloerrortitle" /></h2>
-                    <p><FormattedMessage id="kiloerrortext" /></p>
+                    <h2><FormattedMessage id="kilometricsErrorTitle" /></h2>
+                    <p><FormattedMessage id="kilometricsErrorText" /></p>
                     <ul className="list-unstyled">
                         {errorList()}
                     </ul>
@@ -109,7 +109,7 @@ const Kilometrics = () => {
                     <InputDatalist
                         validationWarnings={validationWarnings}
                         setValidationWarnings={setValidationWarnings}
-                        label={<FormattedMessage id="provlabel" />}
+                        label={<FormattedMessage id="provinceLabel" />}
                         name="province"
                         options={provinces}
                         updateValue={setProvinceValue}
@@ -118,7 +118,7 @@ const Kilometrics = () => {
                     <TextInput
                         validationWarnings={validationWarnings}
                         setValidationWarnings={setValidationWarnings}
-                        label={<FormattedMessage id="travelledlabel" />}
+                        label={<FormattedMessage id="travelledLabel" />}
                         name="distance"
                         updateValue={setDistance}
                         clearForm={clearForm}
