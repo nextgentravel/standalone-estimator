@@ -42,3 +42,4 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_BLUE_DUNE_0A7B2B910 }}
           action: "close"
+
