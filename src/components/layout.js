@@ -6,12 +6,13 @@ import 'intl';
 import { Location } from "@reach/router"
 
 const Layout = ({ children }) => {
+  let showLanguageSelect;
   return (
     <div>
       <Location>
         {props => {
           const pathname = props.location.pathname;
-          let showLanguageSelect = pathname === '/404/' ? showLanguageSelect = false : showLanguageSelect = true;
+          showLanguageSelect = pathname === '/404/' ? showLanguageSelect = false : showLanguageSelect = true;
           return (
             <Header showLanguageSelect={showLanguageSelect} homeHeader={pathname} />
           )
