@@ -1,7 +1,7 @@
 ---
 date: "2019-05-13"
-title: "Expense"
-lead: "Ensuring timely reimbursement"
+title: "Expensing your Travel"
+lead: "Expensing your Travel"
 ---
 
 <article class="content-left col-xs-12 col-sm-12 col-md-12">
@@ -10,27 +10,22 @@ lead: "Ensuring timely reimbursement"
     <div class="row">
         <div class="col-sm-8">
 
-### Receipts
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat. Aliquam egestas, velit at condimentum placerat, sem sapien laoreet mauris, dictum porttitor lacus est nec enim. Vivamus feugiat elit lorem, eu porttitor ante ultrices id. Phasellus suscipit tellus ante, nec dignissim elit imperdiet nec. Nullam fringilla feugiat nisl. Ut pretium, metus venenatis dictum viverra, dui metus finibus enim, ac rhoncus sem lorem vitae mauris. Suspendisse ut venenatis libero. Suspendisse lorem felis, pretium in maximus id, tempor non ipsum.
+### Expensing your Travel
+
+Before expensing your trip, it is important to first verify payment methods are setup correctly
+To report and request reimbursement for the expenses incurred during your business travel, please locate your Travel Request in HRG and follow [this guide to create an expense report](https://exceed-primary-production-main.s3.us-east-1.amazonaws.com/uploads/resource_pdfs/targets/1296197/original/en-ug-creating-an-expense-report-13jan2020.pdf?response-cache-control=private%2C%20max-age%3D0&response-content-disposition=inline%3B%20filename%3Den-ug-creating-an-expense-report-13jan2020.pdf&response-content-type=application%2Fpdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJXIVQ57FEF3S4FFA%2F20200826%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200826T131822Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=e067eaae1f64e72298ebc9f3ed1705997df5befe308b94e36b95459ca1a184fb)
+​
+
+It is important to file your expenses as soon as possible, with as much detail as needed so that you can be reimbursed quickly.
+
+
+Please contact the finance team if you are having any trouble with expensing
+
+​
+**Note:** If you have chosen to use your Individual Designated Travel Card (IDTC) as your payment method, you will be allowed a larger pay window without interest. However, after 30 days there will be a suspension of cash withdrawal privileges
         </div>
         <div class="col-sm-4">
-            <p class="text-center"><a href="/en/book" class="btn btn-primary my-4 px-4">Tool</a></p>
         </div>
     </div>
 </div>
 
-
-<div class="card p-4 my-4 bg-light">
-    <div class="row">
-        <div class="col-sm-8">
-
-### Reimbursements
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat. Aliquam egestas, velit at condimentum placerat, sem sapien laoreet mauris, dictum porttitor lacus est nec enim. Vivamus feugiat elit lorem, eu porttitor ante ultrices id. Phasellus suscipit tellus ante, nec dignissim elit imperdiet nec. Nullam fringilla feugiat nisl. Ut pretium, metus venenatis dictum viverra, dui metus finibus enim, ac rhoncus sem lorem vitae mauris. Suspendisse ut venenatis libero. Suspendisse lorem felis, pretium in maximus id, tempor non ipsum
-        </div>
-        <div class="col-sm-4">
-            <p class="text-center">
-                <a href="/en/tripestimator" class="btn btn-primary my-4 px-4">Tool</a>
-            </p>
-        </div>
-    </div>
-</div>
