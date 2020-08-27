@@ -27,7 +27,7 @@ need to book travel with a departure within the next 72 hours, press 3 when call
 [travel.gc@hrgworldwide.com](mailto:travel.gc@hrgworldwide.com)
 ​
 
-For questions based on Emergencies, Illnesses, Injuries and Death while in Travel Status Please visit [the NJC directive](mailto:travel.gc@hrgworldwide.com).
+For questions based on Emergencies, Illnesses, Injuries and Death while in Travel Status Please visit [the NJC directive](https://www.njc-cnm.gc.ca/directive/d10/v238/s646/en).
         </div>
         <div class="col-sm-4">
         </div>
@@ -39,7 +39,7 @@ For questions based on Emergencies, Illnesses, Injuries and Death while in Trave
         <div class="col-sm-8">
 
 ### Travel advisories
-To view the government of Canada’s up-to-date information on the latest health and safety notices [follow this page](https://travel.gc.ca/travelling/health-safety/travel-health-notices/221).
+View the Government of Canada’s up-to-date information on the [latest health and safety notices](https://travel.gc.ca/travelling/health-safety/travel-health-notices/221).
         </div>
         <div class="col-sm-4">
         </div>
