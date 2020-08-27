@@ -27,7 +27,7 @@ Please contact the finance team if you are having any trouble with expensing.
         </div>
         <div class="col-sm-4">
             <p class="text-center">
-                <a href="https://isuite6.hrgworldwide.com/gcportal/en-ca/sts.aspx" class="btn btn-primary my-4 px-4">Login to HRG</a>
+                <a href="https://isuite6.hrgworldwide.com/gcportal/en-ca/sts.aspx"  class="btn btn-primary my-4 px-4" target="_blank">Login to HRG</a>
             </p>
         </div>
     </div>
