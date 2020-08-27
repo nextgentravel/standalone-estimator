@@ -1,4 +1,7 @@
-import React from "react"
+import 'react-dates/initialize';
+import React, {useState} from "react"
+import { SingleDatePicker} from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
 
 const DatePicker = ({validationWarnings, setValidationWarnings, label, name, updateValue}) => {
     let showValidationWarning = false;
@@ -9,6 +12,9 @@ const DatePicker = ({validationWarnings, setValidationWarnings, label, name, upd
         }
     })
 
+    const [datestate, setDate] = useState('');
+    const [focusstate, setFocus] = useState('');
+
     if (componentWarnings.length > 0) {
         showValidationWarning = true;
     }
@@ -16,7 +22,17 @@ const DatePicker = ({validationWarnings, setValidationWarnings, label, name, upd
     return (
         <div className="mb-4">
 	        <label htmlFor={name}>{label}</label>
-            <input
+            <br/>
+            <SingleDatePicker
+                date={datestate}
+                onDateChange={date => setDate(date)}
+                focused={focusstate}
+                onFocusChange={({ focused }) => setFocus(focused)}
+                id={name}
+                showClearDate="true"
+                reopenPickerOnClearDate="true"
+            />
+            {/* <input
                 aria-describedby={`${name}-error`}
                 className={showValidationWarning ? 'form-control is-invalid' : 'form-control' }
                 type="date"
@@ -25,7 +41,7 @@ const DatePicker = ({validationWarnings, setValidationWarnings, label, name, upd
                 onChange={event => {
                     updateValue(event.target.value)
                 }}
-            />
+            /> */}
             {componentWarnings.map((warning, index) => (
                 <small key={index} id={`${name}-error`} className="invalid-feedback">{warning.message}</small>
             ))}
