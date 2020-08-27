@@ -22,7 +22,7 @@ Once you’ve created your account, setup or change your traveller profile using
 To book your trip, please login to HRG.
         </div>
         <div class="col-sm-4">
-            <p class="text-center"><a href="https://isuite6.hrgworldwide.com/gcportal/en-ca/sts.aspx" class="btn btn-primary my-4 px-4">Login to HRG</a></p>
+            <p class="text-center"><a href="https://isuite6.hrgworldwide.com/gcportal/en-ca/sts.aspx"  class="btn btn-primary my-4 px-4" target="_blank">Login to HRG</a></p>
         </div>
     </div>
 </div>
@@ -84,7 +84,7 @@ It is possible to book a hotel which is above your city rate limit, as there are
 If you chose to book private accommodations instead, please include this in the Expense Management Tool as an Out-of-Pocket expense. Do keep in mind that private accommodations are still subject to [NJC policy under Appendix D](https://www.njc-cnm.gc.ca/directive/app_d/en).
         </div>
         <div class="col-sm-4">
-            <p class="text-center"><a href="/en/rates/" class="btn btn-primary my-4 px-4">Calculate rates and limits</a><p>
+            <p class="text-center"><a href="/en/rates/"  class="btn btn-primary my-4 px-4">Calculate rates and limits</a><p>
         </div>
     </div>
 </div>
@@ -135,7 +135,7 @@ To include expenses for meals, incidentals and private accommodations expenses w
 **Note:** if you are not responsible to pay for one or more meals during your time away, please do not include it as an expense. For example: meals that would be included in the airfare or if you are a guest at an event that is providing food.
 ​    </div>
     <div class="col-sm-4">
-        <p class="text-center"><a href="/en/rates/" class="btn btn-primary my-4 px-4">Calculate rates and limits</a></p>
+        <p class="text-center"><a href="/en/rates/"  class="btn btn-primary my-4 px-4">Calculate rates and limits</a></p>
     </div>
 </div>
 </div>
