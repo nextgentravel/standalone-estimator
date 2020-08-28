@@ -5,6 +5,7 @@ import mealAllowances from "../data/meals"
 import { DateTime } from "luxon"
 import * as yup from "yup"
 import monthsContained from "./months-contained.js"
+import { FormattedMessage } from 'react-intl';
 
 import cities from "../data/cities.js"
 import acrdRates from "../data/acrdRates.js"
@@ -189,8 +190,8 @@ const RatesChecker = () => {
 
             {!loading && 'acrdRatesFiltered' in result &&
                 <>
-                    <h3>Accommodation Rate Limits</h3>
-                    <p className="lead">These limits help determine reasonable accommodation costs for <strong>{result.destination}</strong>.</p>
+                    <h3><FormattedMessage id="raterestitle" /></h3>
+                    <p className="lead"><FormattedMessage id="rateleadres" /><strong>{result.destination}</strong>.</p>
                     <div className="table-responsive">
                         <table className="table">
                             <thead>
@@ -202,7 +203,7 @@ const RatesChecker = () => {
                             <tbody>
                             {Object.keys(result.acrdRatesFiltered).map((month) => (
                                 <tr key={month}>
-                                    <th scope="row">{month}</th>
+                                    <th scope="row"><FormattedMessage id={month} /></th>
                                     <td>{result.acrdRatesFiltered[month]}</td>
                                 </tr>
                             ))}

@@ -1,8 +1,17 @@
 import React from "react"
 import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
-import { Link } from "gatsby"
+// import { FaCalculator } from 'react-icons/fa';
+import SEO from "../components/seo";
+import { Link } from "gatsby";
+import ContentPanel from "../components/content-panel";
+import ToolPanel from "../components/tool-panel";
+import { FormattedMessage } from "react-intl";
+import { FaClipboardList } from 'react-icons/fa';
+import { FaTicketAlt } from 'react-icons/fa';
+import { FaPlaneDeparture } from 'react-icons/fa';
+import { FaFileInvoiceDollar } from 'react-icons/fa';
+import { FaMapMarker } from 'react-icons/fa';
+import { FaCar } from 'react-icons/fa';
 
 const IndexPage = () => (
   <Layout>
@@ -11,68 +20,21 @@ const IndexPage = () => (
     <div>
       <main id="main-content" role="main">
         <div className="container mt-4">
-
-          <div className="card-deck mb-3 mt-3">
-              <section className="card mb-2">
-                <div className="card-img-top">
-                  <Image
-                    filename="002D42-1.png"
-                    alt=""
-                  />
-                </div>
-
-                <div className="card-body d-flex flex-column">
-                  <h2 className="card-title h5">Avant votre voyage</h2>
-                  <p className="card-text">Préparez-vous pour votre voyage d'affaires.</p>
-                  <div className="mt-auto w-100">
-                    <Link to="/fr/plan" className="btn btn-primary">Pretravel</Link>
-                  </div>
-                </div>
-              </section>
-
-              <section className="card mb-2">
-                <Image
-                  filename="137991-1.png"
-                  alt=""
-                />
-                <div className="card-body d-flex flex-column">
-                  <h2 className="card-title h5">Réservation de votre voyage</h2>
-                  <p className="card-text">
-                    Prendre les dispositions nécessaires à votre voyage.
-                  </p>
-                  <div className="mt-auto w-100">
-                    <Link to="/fr/book" className="btn btn-primary">Réservations</Link>
-                  </div>
-                </div>
-              </section>
-              <section className="card mb-2">
-                <Image
-                  filename="15A3A6-1.png"
-                  alt=""
-                />
-                <div className="card-body d-flex flex-column">
-                  <h2 className="card-title h5">Pendant votre voyage</h2>
-                  <p className="card-text">
-                    Informations utiles lors d'un voyage.
-                  </p>
-                  <div className="mt-auto w-100">
-                    <Link to="/fr/travel" className="btn btn-primary">En voyage</Link>
-                  </div>
-                </div>
-              </section>
-              <section className="card mb-2">
-                <Image
-                  filename="6DD2DA-1.png"
-                  alt=""
-                />
-                <div className="card-body d-flex flex-column">
-                  <h2 className="card-title h5">Après votre retour</h2>
-                  <p className="card-text">Organiser le remboursement.</p>
-                  <div className="mt-auto w-100">
-                    <Link to="/fr/expense" className="btn btn-primary">Revenir</Link>
-                  </div>
-                </div>
-              </section>
+          <h2 className="text-center mb-4 font-weight-bold"><FormattedMessage id="indextitle" /></h2>
+          <p className="text-center mb-5"><FormattedMessage id="indexlead"/></p>
+          <div className="row mb-3 mt-3">
+              <ContentPanel title="plan" icon={<FaClipboardList size="100" color="#fff" alt="" />} linkto="/fr/plan" />
+              <ContentPanel title="book" icon={<FaTicketAlt size="100" color="#fff" alt="" />} linkto="/fr/book" />
+              <ContentPanel title="travel" icon={<FaPlaneDeparture size="100" color="#fff" alt="" />} linkto="/fr/travel" />
+              <ContentPanel title="expense" icon={<FaFileInvoiceDollar size="100" color="#fff" alt="" />} linkto="/fr/expense" />
+          </div>
+        </div>
+        <div className="bg-light">
+          <div className="container">
+            <div className="d-flex justify-content-center">
+              <ToolPanel title="rates" icon={<FaMapMarker size="40" />} linkto="/fr/rates" />
+              <ToolPanel title="kilometrics" icon={<FaCar size="40" />} linkto="/fr/kilometrics" />
+            </div>
           </div>
         </div>
       </main>
@@ -82,3 +44,4 @@ const IndexPage = () => (
 )
 
 export default IndexPage
+
