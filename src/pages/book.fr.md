@@ -26,7 +26,7 @@ Une fois connecté à HRG, suivez [ces étapes](https://isuite6.hrgworldwide.com
 - [Configurer ou modifier le profil de votre compte](https://isuite6.hrgworldwide.com/gcportal/fr-ca/sts.aspx)
         </div>
         <div class="col-sm-4">
-            <p class="text-center"> <a href="https://isuite6.hrgworldwide.com/gcportal/STS/tabid/291/language/fr-CA/Default.aspx?returnurl=%2fgcportal%2fen-ca%2fhome.aspx" class="btn btn-primary my-4 px-4">Ouvrir HRG </a> </p>
+            <p class="text-center"> <a href="https://isuite6.hrgworldwide.com/gcportal/STS/tabid/291/language/fr-CA/Default.aspx?returnurl=%2fgcportal%2fen-ca%2fhome.aspx"  class="btn btn-primary my-4 px-4" target="_blank">Ouvrir HRG </a> </p>
         </div>
     </div>
 </div>
