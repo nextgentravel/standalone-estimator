@@ -11,6 +11,16 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
         }
     })
 
+    function suggest (query, syncResults) {
+        var results = options;
+        syncResults(query
+          ? results.filter(function (result) {
+              return result.toLowerCase().indexOf(query.toLowerCase()) !== -1
+            })
+          : []
+        )
+      }
+
     if (componentWarnings.length > 0) {
         showValidationWarning = true;
     }
@@ -21,7 +31,7 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
             <div id={`${name}container`}>
                 <Autocomplete
                     id={name}
-                    source={locations}
+                    source={suggest}
                     element={`${name}container`}
                     displayValue="overlay"
 

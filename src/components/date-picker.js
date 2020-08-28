@@ -2,6 +2,7 @@ import 'react-dates/initialize';
 import React, {useState} from "react"
 import { SingleDatePicker} from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
+import { DateTime } from "luxon";
 
 const DatePicker = ({validationWarnings, setValidationWarnings, label, name, updateValue}) => {
     let showValidationWarning = false;
@@ -12,8 +13,10 @@ const DatePicker = ({validationWarnings, setValidationWarnings, label, name, upd
         }
     })
 
+    let aday = DateTime;
+
     const [datestate, setDate] = useState('');
-    const [focusstate, setFocus] = useState('');
+    const [focusstate, setFocus] = useState(false);
 
     if (componentWarnings.length > 0) {
         showValidationWarning = true;
@@ -29,12 +32,12 @@ const DatePicker = ({validationWarnings, setValidationWarnings, label, name, upd
                 focused={focusstate}
                 onFocusChange={({ focused }) => setFocus(focused)}
                 id={name}
-                showClearDate="true"
-                reopenPickerOnClearDate="true"
+                showClearDate={true}
+                reopenPickerOnClearDate={true}
+                className={showValidationWarning ? 'form-control is-invalid' : 'form-control' }
             />
             {/* <input
                 aria-describedby={`${name}-error`}
-                className={showValidationWarning ? 'form-control is-invalid' : 'form-control' }
                 type="date"
                 id={name}
                 name={name}
