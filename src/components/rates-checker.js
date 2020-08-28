@@ -79,9 +79,9 @@ const RatesChecker = () => {
         setLoading(true);
         setGeneralError(false);
         e.preventDefault();
-        handleValidation()
-            .then((valid) => {
-                setValidationWarnings([]);
+       /*  handleValidation()
+            .then((valid) => { */
+                //setValidationWarnings([]);
                 let city = suburbCityList[destination] || destination;
                 let province = city.slice(-2); // This is bad.  We need to change the data structure.
                 let months = monthsContained(departureDate,returnDate);
@@ -102,12 +102,12 @@ const RatesChecker = () => {
                 })
                 setLoading(false);
                 setErrorPanel(false);
-            })
+/*             })
             .catch(err => {
                 setLoading(false);
                 setValidationWarnings(err.inner);
                 setErrorPanel(true);
-            });
+            }); */
     }
 
     const clearForm = () => {
