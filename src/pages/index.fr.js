@@ -23,17 +23,17 @@ const IndexPage = () => (
           <h2 className="text-center mb-4 font-weight-bold"><FormattedMessage id="indextitle" /></h2>
           <p className="text-center mb-5"><FormattedMessage id="indexlead"/></p>
           <div className="row mb-3 mt-3">
-              <ContentPanel title="plan" icon={<FaClipboardList size="100" color="#fff" alt="" />} linkto="/fr/plan" />
-              <ContentPanel title="book" icon={<FaTicketAlt size="100" color="#fff" alt="" />} linkto="/fr/book" />
-              <ContentPanel title="travel" icon={<FaPlaneDeparture size="100" color="#fff" alt="" />} linkto="/fr/travel" />
-              <ContentPanel title="expense" icon={<FaFileInvoiceDollar size="100" color="#fff" alt="" />} linkto="/fr/expense" />
+              <ContentPanel title="plan" icon={<FaClipboardList size="100" color="#fff" alt="" />} linkTo="/fr/plan" />
+              <ContentPanel title="book" icon={<FaTicketAlt size="100" color="#fff" alt="" />} linkTo="/fr/book" />
+              <ContentPanel title="travel" icon={<FaPlaneDeparture size="100" color="#fff" alt="" />} linkTo="/fr/travel" />
+              <ContentPanel title="expense" icon={<FaFileInvoiceDollar size="100" color="#fff" alt="" />} linkTo="/fr/expense" />
           </div>
         </div>
         <div className="bg-light">
           <div className="container">
             <div className="d-flex justify-content-center">
-              <ToolPanel title="rates" icon={<FaMapMarker size="40" />} linkto="/fr/rates" />
-              <ToolPanel title="kilometrics" icon={<FaCar size="40" />} linkto="/fr/kilometrics" />
+              <ToolPanel title="rates" icon={<FaMapMarker size="40" />} linkTo="/fr/rates" />
+              <ToolPanel title="kilometrics" icon={<FaCar size="40" />} linkTo="/fr/kilometrics" />
             </div>
           </div>
         </div>
