@@ -20,15 +20,16 @@ const Kilometrics = () => {
     const [errorPanel, setErrorPanel] = useState(false);
 
     useEffect(() => {
-        let provinceOptions = Object.keys(locations).map(location => {
-            return locations[location].label;
+        let provinceOptions = Object.keys(locations)
+        .map(location => {
+            return `${locations[location].label} (${location})`;
         })
         setProvinces(provinceOptions);
     }, []);
 
     const handleValidation = () => {
-        let provinceKeys = Object.keys(locations);
         let target = {province, distance};
+        console.log('target', target)
         let schema = yup.object().shape({
             province: yup
                 .string()
@@ -37,7 +38,7 @@ const Kilometrics = () => {
                     <FormattedMessage id="kilometricsProvinceNotValid"/>,
                     <FormattedMessage id="kilometricsProvinceValid"/>,
                     (value) => {
-                        return provinceKeys.includes(value)
+                        return provinces.includes(value)
                     },
                   ),
             distance: yup
