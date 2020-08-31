@@ -33,10 +33,12 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
                     id={name}
                     source={suggest}
                     element={`${name}container`}
+                    confirmOnBlur={false}
                     displayValue="overlay"
-                    // onChange={event => {
-                    //     updateValue(event.target.value)
-                    // }}
+                    onConfirm={value => {
+                        console.log('value', value)
+                        updateValue(value)
+                    }}
                     aria-describedby={`${name}-error`}
                     className={showValidationWarning ? 'form-control is-invalid' : 'form-control' }
                 />
