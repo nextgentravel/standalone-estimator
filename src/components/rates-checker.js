@@ -80,9 +80,9 @@ const RatesChecker = () => {
         setLoading(true);
         setGeneralError(false);
         e.preventDefault();
-        handleValidation()
-            .then((valid) => {
-                setValidationWarnings([]);
+       /*  handleValidation()
+            .then((valid) => { */
+                //setValidationWarnings([]);
                 let city = suburbCityList[destination] || destination;
                 let province = city.slice(-2); // This is bad.  We need to change the data structure.
                 let months = monthsContained(departureDate,returnDate);
@@ -103,12 +103,12 @@ const RatesChecker = () => {
                 })
                 setLoading(false);
                 setErrorPanel(false);
-            })
+/*             })
             .catch(err => {
                 setLoading(false);
                 setValidationWarnings(err.inner);
                 setErrorPanel(true);
-            });
+            }); */
     }
 
     const clearForm = () => {
@@ -170,7 +170,7 @@ const RatesChecker = () => {
                 </ul>
             </div>}
             <form id="rates-form" className="form-group mb-4" onSubmit={handleSubmit}>
-                <InputDatalist validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Destination" name="destination" options={filteredCitiesList} updateValue={setDestination} />
+                <InputDatalist validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Destination" name="destination" options={citiesList} updateValue={setDestination} />
                 <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Departure Date" name="departureDate" updateValue={setDepartureDate}></DatePicker>
                 <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Return Date" name="returnDate" updateValue={setReturnDate}></DatePicker>
                 <button type="submit" className="btn btn-primary">Submit</button>
