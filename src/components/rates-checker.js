@@ -127,24 +127,24 @@ const RatesChecker = () => {
         let schema = yup.object().shape({
             destination: yup
                 .string()
-                .required('Destination is a required field')
+                .required(<FormattedMessage id="rateDestinationRequired" />)
                 .test(
-                    'City is valid',
-                    'City is not valid.',
+                    <FormattedMessage id="rateCityValid" />,
+                    <FormattedMessage id="rateCityNotValid" />,
                     (value) => {
                         return citiesList.includes(value)
                     },
                   ),
             departureDate: yup
                 .date()
-                .typeError('Start Date must be in DD-MM-YYYY format')
+                .typeError(<FormattedMessage id="rateDateFormatStart" />)
                 .required(),
             returnDate: yup
                 .date()
-                .typeError('Return Date must be in DD-MM-YYYY format')
+                .typeError(<FormattedMessage id="rateDateFormatReturn" />)
                 .required().min(
                 yup.ref('departureDate'),
-                "End date cannot be before start date"
+                <FormattedMessage id="noTimeTravel" />
             )
         });
         return schema.validate(target, {abortEarly: false})
@@ -160,21 +160,21 @@ const RatesChecker = () => {
 
     return (
         <div className="mb-4">
-            <h2>Find Your Rates and Limits</h2>
-            <p className="lead">A tool to help you easily find the limits applicable to your trip.</p>
+            <h2><FormattedMessage id="rateTitle" /></h2>
+            <p className="lead"><FormattedMessage id="rateLead" /></p>
              {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
-                <h3>Field error or required</h3>
-                <p>Please verify the following fields: </p>
+                <h3><FormattedMessage id="rateErrorTitle" /></h3>
+                <p><FormattedMessage id="rateErrorLead" /></p>
                 <ul className="list-unstyled">
                     {errorList()}
                 </ul>
             </div>}
             <form id="rates-form" className="form-group mb-4" onSubmit={handleSubmit}>
-                <InputDatalist validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Destination" name="destination" options={citiesList} updateValue={setDestination} />
-                <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Departure Date" name="departureDate" updateValue={setDepartureDate}></DatePicker>
-                <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label="Return Date" name="returnDate" updateValue={setReturnDate}></DatePicker>
-                <button type="submit" className="btn btn-primary">Submit</button>
-                <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}>Clear</button>
+                <InputDatalist validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="rateDestination" />} name="destination" options={filteredCitiesList} updateValue={setDestination} />
+                <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="rateDepart" />} name="departureDate" updateValue={setDepartureDate}></DatePicker>
+                <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="rateReturn" />} name="returnDate" updateValue={setReturnDate}></DatePicker>
+                <button type="submit" className="btn btn-primary"><FormattedMessage id="submit"/></button>
+                <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}><FormattedMessage id="clear"/></button>
                 {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
             </form>
 
@@ -183,21 +183,21 @@ const RatesChecker = () => {
                     <FaExclamationTriangle size="24" />
                 </div>
                 <div className="message">
-                    <h3>Application Error</h3>
-                    <p>Unable to load rates and limits.</p>
+                    <h3><FormattedMessage id="rateApplicationError" /></h3>
+                    <p><FormattedMessage id="rateApplicationErrorText" /></p>
                 </div>
             </div>}
 
             {!loading && 'acrdRatesFiltered' in result &&
                 <>
-                    <h3><FormattedMessage id="raterestitle" /></h3>
-                    <p className="lead"><FormattedMessage id="rateleadres" /><strong>{result.destination}</strong>.</p>
+                    <h3><FormattedMessage id="rateResultTitle" /></h3>
+                    <p className="lead"><FormattedMessage id="rateLeadResult" /><strong>{result.destination}</strong>.</p>
                     <div className="table-responsive">
                         <table className="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Month</th>
-                                    <th scope="col">Rate</th>
+                                    <th scope="col"><FormattedMessage id="rateTableHeadMonth" /></th>
+                                    <th scope="col"><FormattedMessage id="rateTableHeadRate" /></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -214,9 +214,9 @@ const RatesChecker = () => {
             }
             {!loading && 'mealsAndIncidentals' in result &&
                 <>
-                    <h3>Meals and Incidentals</h3>
-                    <p className="lead">These rates help determine reasonable meal costs. </p>
-                    <p>You can spend <strong>${result.mealsAndIncidentals.dailyTotal.toFixed(2)}</strong> on meals and incidentals per day.</p>
+                    <h3><FormattedMessage id="rateMealsTitle" /></h3>
+                    <p className="lead"><FormattedMessage id="rateMealsLead" /></p>
+                    <p><FormattedMessage id="rateMealsText1" /><strong>${result.mealsAndIncidentals.dailyTotal.toFixed(2)}</strong><FormattedMessage id="rateMealsText2" /></p>
                 </>
             }
 
