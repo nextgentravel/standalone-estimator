@@ -20,10 +20,7 @@ const Kilometrics = () => {
 
     useEffect(() => {
         let provinceOptions = Object.keys(locations).map(location => {
-            return {
-                label: locations[location].label,
-                value: location,
-            }
+            return locations[location].label;
         })
         setProvinces(provinceOptions);
     }, []);
