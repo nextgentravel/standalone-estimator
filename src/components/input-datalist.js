@@ -4,14 +4,14 @@ import Autocomplete from 'accessible-autocomplete/react'
 const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, options, updateValue}) => {
     let showValidationWarning = false;
     let componentWarnings = [];
-    const locations = options;
     validationWarnings.forEach(warning => {
         if (warning.path === name) {
             componentWarnings.push(warning);
         }
     })
 
-    function suggest (query, syncResults) {
+    function suggest(query, syncResults) {
+        console.log(results);
         var results = options;
         syncResults(query
           ? results.filter(function (result) {
@@ -19,7 +19,7 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
             })
           : []
         )
-      }
+    }
 
     if (componentWarnings.length > 0) {
         showValidationWarning = true;
@@ -34,10 +34,9 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
                     source={suggest}
                     element={`${name}container`}
                     displayValue="overlay"
-
-                    onChange={event => {
-                        updateValue(event.target.value)
-                    }}
+                    // onChange={event => {
+                    //     updateValue(event.target.value)
+                    // }}
                     aria-describedby={`${name}-error`}
                     className={showValidationWarning ? 'form-control is-invalid' : 'form-control' }
                 />
