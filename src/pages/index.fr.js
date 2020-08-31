@@ -20,8 +20,8 @@ const IndexPage = () => (
     <div>
       <main id="main-content" role="main">
         <div className="container mt-4">
-          <h2 className="text-center mb-4 font-weight-bold"><FormattedMessage id="indextitle" /></h2>
-          <p className="text-center mb-5"><FormattedMessage id="indexlead"/></p>
+          <h2 className="text-center mb-4 font-weight-bold"><FormattedMessage id="indexTitle" /></h2>
+          <p className="text-center mb-5"><FormattedMessage id="indexLead"/></p>
           <div className="row mb-3 mt-3">
               <ContentPanel title="plan" icon={<FaClipboardList size="100" color="#fff" alt="" />} linkTo="/fr/plan" />
               <ContentPanel title="book" icon={<FaTicketAlt size="100" color="#fff" alt="" />} linkTo="/fr/book" />

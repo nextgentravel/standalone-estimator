@@ -2,11 +2,14 @@
 import React, { useState, useRef } from "react"
 import { navigate } from "@reach/router"
 import { FaSearch } from 'react-icons/fa';
+import {FormattedMessage, useIntl} from 'react-intl'; 
 
 const SearchForm = ({ initialQuery = "", placement = "header" }) => {
   // Create a piece of state, and initialize it to initialQuery
   // query will hold the current value of the state,
   // and setQuery will let us change it
+
+  const intl = useIntl();
   const [query, setQuery] = useState(initialQuery)
   
   // We need to get reference to the search input element
@@ -38,7 +41,7 @@ const SearchForm = ({ initialQuery = "", placement = "header" }) => {
           id={`search-input-${placement}`}
           type="search"
           value={query}
-          placeholder={<FormattedMessage id="searchPlaceholder" />}
+          placeholder={intl.formatMessage({ id: 'searchPlaceholder' })}
           onChange={handleChange}
         />
         <div className="input-group-append">
