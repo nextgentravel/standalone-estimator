@@ -4,7 +4,6 @@ import TextInput from "./input-text.js";
 import InputDatalist from "./input-datalist.js"
 import * as yup from "yup"
 import { FaSpinner } from 'react-icons/fa';
-import { FormattedMessage } from "react-intl";
 
 const Kilometrics = () => {
 
@@ -123,14 +122,14 @@ const Kilometrics = () => {
                         updateValue={setDistance}
                         clearForm={clearForm}
                     />
-                    <button type="submit" className="btn btn-primary"><FormattedMessage id="submit" /></button>
-                    <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}><FormattedMessage id="clear" /></button>
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}>Clear</button>
                     {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
                 </form>
                 {!loading && Object.keys(result).length !== 0 &&
                 <>
-                    <p><FormattedMessage id="results1" /><strong>{result.province}</strong><FormattedMessage id="results2" /><strong>{result.provinceRate}</strong><FormattedMessage id="results3" /></p>
-                    <p><FormattedMessage id="results4" /><strong>{result.distance}</strong><FormattedMessage id="results5" /><strong>${result.total}</strong></p>
+                    <p>The kilometric rate for <strong>{result.province}</strong> is <strong>{result.provinceRate}</strong> cents per kilometre</p>
+                    <p>For your trip of <strong>{result.distance}</strong> kilometres you would be reimbursed <strong>${result.total}</strong></p>
                 </>}
             </div>
         </>
