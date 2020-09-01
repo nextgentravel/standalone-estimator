@@ -15,7 +15,7 @@ lead: "Après avoir décidé de voyager, vous devez commencer par créer un devi
 Vous devrez estimer le coût de votre voyage pour être approuvé et inclure votre voyage dans le plan de voyage de votre département. Pour faciliter ce processus, nous avons créé un Estimateur de trajet. Cliquez sur le lien pour créer et soumettre votre devis de voyage.
         </div>
         <div class="col-sm-4">
-            <p class="text-center"><a href="https://gc-travel-estimator.herokuapp.com/" class="btn btn-primary my-4 px-4">Estimateur de voyage</a></p>
+            <p class="text-center"><a href="https://gc-travel-estimator.herokuapp.com/"  class="btn btn-primary my-4 px-4" target="_blank">Estimateur de voyage</a></p>
         </div>
     </div>
 </div>
@@ -33,7 +33,7 @@ Vous ne savez pas qui doit approuver votre estimation? Voir [Organigramme de SPA
         </div>
         <div class="col-sm-4">
             <!-- <p class="text-center">
-                <a href="/fr/book" class="btn btn-primary my-4 px-4">Estimateur de voyage</a>
+                <a href="/fr/book"  class="btn btn-primary my-4 px-4" target="_blank">Estimateur de voyage</a>
             </p> -->
         </div>
     </div>

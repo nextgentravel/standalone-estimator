@@ -15,7 +15,7 @@ After deciding to travel, you should start by creating an estimate. The estimate
 
 The following tools are also available to you to perform searches on individual rate amounts:
 - [Total for meals and incidentals](/en/rates/)
-- [Accomodation (City Limit) Rates](https://blue-dune-0a7b2b910.azurestaticapps.net/en/rates/)
+- [Accomodation (City Limit) Rates](/en/rates/)
 - [Rates for Private Motor Vehicle (Kilometrics)](/en/kilometrics)
 
 Refer to Part III - Travel Modules of the [NJC Travel Directive](https://www.njc-cnm.gc.ca/directive/d10/v238/en) for items to consider as part of your estimate.
@@ -30,7 +30,7 @@ Your approver will review your travel proposal and sign off. Let them know when 
 Once you’ve gotten your approval, you may go ahead and book your trip.
         </div>
         <div class="col-sm-4">
-            <p class="text-center"><a href="https://gc-travel-estimator.herokuapp.com/" class="btn btn-primary my-4 px-4">Trip Estimator</a></p>
+            <p class="text-center"><a href="https://gc-travel-estimator.herokuapp.com/"  class="btn btn-primary my-4 px-4" target="_blank">Trip Estimator</a></p>
         </div>
     </div>
 </div>
@@ -57,7 +57,7 @@ Some items you may want to have ready are:
         </div>
         <div class="col-sm-4">
             <!-- <p class="text-center">
-                <a href="/en/book" class="btn btn-primary my-4 px-4">Trip Estimator</a>
+                <a href="/en/book"  class="btn btn-primary my-4 px-4" target="_blank">Trip Estimator</a>
             </p> -->
         </div>
     </div>
