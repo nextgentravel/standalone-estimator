@@ -27,14 +27,18 @@ const DatePicker = ({validationWarnings, setValidationWarnings, label, name, upd
 	        <label htmlFor={name}>{label}</label>
             <br/>
             <SingleDatePicker
-                date={datestate}
-                onDateChange={date => setDate(date)}
+                date={null}
+                onDateChange={date => {
+                    console.log('date: ', date);
+                    setDate(date)
+                }}
                 focused={focusstate}
                 onFocusChange={({ focused }) => setFocus(focused)}
                 id={name}
                 showClearDate={true}
                 reopenPickerOnClearDate={true}
-                className={showValidationWarning ? 'form-control is-invalid' : 'form-control' }
+                // How do we pass a className to this component?
+                // className={showValidationWarning ? 'form-control is-invalid' : 'form-control' }
             />
             {/* <input
                 aria-describedby={`${name}-error`}

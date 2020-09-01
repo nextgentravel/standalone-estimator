@@ -11,7 +11,6 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
     })
 
     function suggest(query, syncResults) {
-        console.log(results);
         var results = options;
         syncResults(query
           ? results.filter(function (result) {
@@ -33,11 +32,12 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
                     id={name}
                     source={suggest}
                     element={`${name}container`}
-                    confirmOnBlur={true}
+                    confirmOnBlur={false}
                     displayValue="overlay"
                     onConfirm={value => {
                         // do our validation here?
                         // if this is a valid option, then:
+                        console.log('value', value)
                         updateValue(value)
                         // if not, set it to blank, so it will fail validation
                     }}
