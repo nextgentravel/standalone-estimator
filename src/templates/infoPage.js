@@ -17,25 +17,25 @@ export default ({ data }) => {
   const homeLink = `/${langKey}/`;
   return (
     <Layout>
-        <main id="main-content">
-          <SEO title={post.frontmatter.title} />
-          <Breadcrumbs pageTitle={post.frontmatter.title} homeLink={homeLink} />
-          <div className="hero-holder">
-            <div className="container">
-              <a className="sr-only sr-only-focusable aurora-skip skiplink" href="#sidebar"><FormattedMessage id="skipToSide"/></a>
-              <h1 className="display-5">{post.frontmatter.heading}</h1>
-              <p className="lead">
-                {post.frontmatter.lead}
-              </p>
-            </div>
+      <main id="main-content">
+        <SEO title={post.frontmatter.title} />
+        <Breadcrumbs pageTitle={post.frontmatter.title} homeLink={homeLink} />
+        <div className="hero-holder">
+          <div className="container">
+            <nav className="skiphold" aria-label="sidebar skiplink"><a className="sr-only sr-only-focusable aurora-skip skiplink" id="sidebar-skiplink" href="#sidebar"><FormattedMessage id="skipToSide"/></a></nav>
+            <h2 className="display-5">{post.frontmatter.title}</h2>
+            <p className="lead">
+              {post.frontmatter.lead}
+            </p>
           </div>
-          <article className="container">
-            <div
-              className="row"
-              dangerouslySetInnerHTML={{ __html: post.html }}
-            />
-          </article>
-        </main>
+        </div>
+        <div className="container">
+          <div
+            className="row"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+        </div>
+      </main>
     </Layout>
   );
 };
@@ -54,7 +54,6 @@ export const query = graphql`
       html
       frontmatter {
         title
-        heading
         lead
       }
     }

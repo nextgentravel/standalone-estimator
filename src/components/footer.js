@@ -1,35 +1,103 @@
 import React from "react"
-import { Link } from "gatsby"
+import Image from "../components/image"
+import { FormattedMessage, useIntl } from 'react-intl';
 
-import { FormattedMessage } from 'react-intl';
+const Footer = ({ }) => {
+  const intl = useIntl();
+  let homeLink = `/${intl.locale}/`;
+  return (
+    <footer className="footer">
+      <div className="bg-dark py-5 footer-deco">
+        <div className="container">
+          <ul className="list-unstyled colcount-sm-2 colcount-md-3">
+            <li>
+              <a href={`${homeLink}knowledgebase`} className="text-light">
+               <FormattedMessage id="knowledge" />
+              </a>
+            </li>
+            <li>
+              <a href={`${homeLink}sitemap`} className="text-light">
+                <FormattedMessage id="training" />
+              </a>
+            </li>
+            <li>
+              <a href="/" className="text-light">
+                <FormattedMessage id="submitquestion" />
+              </a>
+            </li>
+            <li>
+              <a href="/" className="text-light">
+              <FormattedMessage id="contact" />
+              </a>
+            </li>
+            <li>
+              <a href="/" className="text-light">
+                <FormattedMessage id="nextgen" />
+              </a>
+            </li>
+            <li>
+              <a href="/" className="text-light">
+                <FormattedMessage id="travelcard" />
+              </a>
+            </li>
+            <li>
+              <a href="/" className="text-light">
+                <FormattedMessage id="travelcontacts" />
+              </a>
+            </li>
+            <li>
+              <a href="/" className="text-light">
+                <FormattedMessage id="advisories" />
+              </a>
+            </li>
+            <li>
+              <a href="/" className="text-light">
+                <FormattedMessage id="estimator" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-const Footer = ({ siteTitle, homeLink }) => (
-  <footer className="footer">
-    <div className="container">
-      <ul className="pl-0">
-        <li>
-          <Link to={`${homeLink}`}><FormattedMessage id="home" /></Link>
-        </li>
-        <li>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform?usp=sf_link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FormattedMessage id="suggestAnUpdate" />
-          </a>
-        </li>
-      </ul>
-      
-      <ul className="pl-0">
-        <li>
-          <a href="https://github.com/nextgentravel/travel-guidebook-client">
-            <small><FormattedMessage id="viewThisPageOnGithub" /></small>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </footer>
-)
+      <div className="bg-light py-3">
+        <div className="container">
+          <div className="row h-100">
+            <div className="col-sm-6">
+              <ul className="list-unstyled colcount-sm-2 colcount-md-2 my-auto">
+                  <li className="dot">
+                    <a href="/">
+                      <FormattedMessage id="socialmedia" />
+                    </a>
+                  </li>
+                  <li className="dot">
+                    <a href="/">
+                      <FormattedMessage id="mobileapp" />
+                    </a>
+                  </li>
+                  <li className="dot">
+                    <a href="/">
+                      <FormattedMessage id="terms" />
+                    </a>
+                  </li>
+                  <li className="dot">
+                    <a href="/">
+                      <FormattedMessage id="privacy" />
+                    </a>
+                  </li>
+              </ul>
+            </div>
+            <div className="col-sm-6 canada-logo text-right my-auto">
+              <Image
+                className=""
+                filename="footer-tag.svg"
+                alt={ intl.formatMessage({ id: 'footer-alt' })}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}
 
 export default Footer
