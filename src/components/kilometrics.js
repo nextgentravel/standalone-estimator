@@ -56,7 +56,8 @@ const Kilometrics = () => {
         handleValidation()
             .then((valid) => {
                 setValidationWarnings([]);
-                let provinceRate = locations[province].rateCents
+                let provinceAbbreviation = province.substr(province.lastIndexOf('(') + 1, 2)
+                let provinceRate = locations[provinceAbbreviation].rateCents
                 let rateCalc = parseInt(provinceRate) * parseInt(distance) / 100;
                 setResult({
                     total: rateCalc.toFixed(2),
