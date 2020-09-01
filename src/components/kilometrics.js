@@ -4,7 +4,6 @@ import TextInput from "./input-text.js";
 import InputDatalist from "./input-datalist.js"
 import * as yup from "yup"
 import { FaSpinner } from 'react-icons/fa';
-import { FaExclamationTriangle } from 'react-icons/fa';
 
 const Kilometrics = () => {
 
@@ -15,7 +14,6 @@ const Kilometrics = () => {
     const [result, setResult] = useState({});
 
     const [loading, setLoading] = useState(false);
-    const [generalError, setGeneralError] = useState(false);
 
     const [validationWarnings, setValidationWarnings] = useState([]);
     const [errorPanel, setErrorPanel] = useState(false);
@@ -65,6 +63,7 @@ const Kilometrics = () => {
                     total: rateCalc.toFixed(2),
                     provinceRate,
                     distance,
+                    province,
                 });
                 setLoading(false);
                 setErrorPanel(false);
@@ -96,7 +95,7 @@ const Kilometrics = () => {
     return (
         <>
             <div className="mb-4">
-                <h1>Find the correct rate for your kilometrics</h1>
+                <h2>Find the correct rate for your kilometrics</h2>
                 <p className="lead">Taking your personal vehicle on a government trip? Refer to these rates.</p>
                 {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
                     <h2>Field error or required</h2>
@@ -127,15 +126,6 @@ const Kilometrics = () => {
                     <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}>Clear</button>
                     {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
                 </form>
-                {generalError && <div className="alert-icon alert-danger" role="alert">
-                    <div className="icon" aria-hidden="true">
-                        <FaExclamationTriangle size="24" />
-                    </div>
-                    <div className="message">
-                        <h3>Application Error</h3>
-                        <p>Unable to load rates and limits.</p>
-                    </div>
-                </div>}
                 {!loading && Object.keys(result).length !== 0 &&
                 <>
                     <p>The kilometric rate for <strong>{result.province}</strong> is <strong>{result.provinceRate}</strong> cents per kilometre</p>

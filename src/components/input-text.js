@@ -15,10 +15,6 @@ const TextInput = ({validationWarnings, setValidationWarnings, label, name, upda
         showValidationWarning = true;
     }
 
-    const handleRemoveError = name => {
-        setValidationWarnings(validationWarnings.filter(item => item.path !== name))
-    }
-
     return (
         <div className="mb-4">
             <label htmlFor={name}>{label}</label>
