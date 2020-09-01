@@ -1,69 +1,70 @@
 ---
 date: "2019-05-13"
 title: "Plan"
-heading: "Plan"
-lead: "Steps: Creating your estimate > Getting pre-approval"
+lead: "Whether you are planning your trip to include in your department's Travel Plan or travelling ad-hoc, follow these steps to plan, estimate and request approval for your trip"
 ---
-<article class="content-left col-xs-12 col-sm-12 col-md-8">
+<article class="content-left col-xs-12 col-sm-12 col-md-12">
+
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
+
+### Create your estimate
+
+After deciding to travel, you should start by creating an estimate. The estimate provides an overall approximation of what the total cost of the trip will be to your approver in order to approve your travel request. Estimate the cost of your trip by clicking the Trip Estimator.
+
+The following tools are also available to you to perform searches on individual rate amounts:
+- [Total for meals and incidentals](/en/rates/)
+- [Accomodation (City Limit) Rates](/en/rates/)
+- [Rates for Private Motor Vehicle (Kilometrics)](/en/kilometrics)
+
+Refer to Part III - Travel Modules of the [NJC Travel Directive](https://www.njc-cnm.gc.ca/directive/d10/v238/en) for items to consider as part of your estimate.
+
+
+#### Getting preliminary approval
+
+Once you’ve created your estimate, submit to your approver who is usually a senior manager. You can identify your approver by speaking with your supervisor or referring to your organizational chart.
+
+Your approver will review your travel proposal and sign off. Let them know when your trip is, and how urgent your request is. Ensure that you give the approver enough time to approve your trip before your travel date. Between 3 to 4 weeks should be a sufficient time frame.
+
+Once you’ve gotten your approval, you may go ahead and book your trip.
+        </div>
+        <div class="col-sm-4">
+            <p class="text-center"><a href="https://gc-travel-estimator.herokuapp.com/"  class="btn btn-primary my-4 px-4" target="_blank">Trip Estimator</a></p>
+        </div>
+    </div>
+</div>
+
+
+<div class="card p-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
+
+### Items to get ready
+Some items you may want to have ready are:
+- a driver's license
+- transportation tickets (with a paper backup)
+- personal identification
+- personal credit card
+- personal health card
+- Individual Designated Travel Card (IDTC)
 ​
 
-[[card]]
-| [[card-body]]
-| |### *Create your estimate*  
-| |After deciding to travel, you should start by creating an estimate. The estimate should give an overall approximation of what the total cost of the trip will be, to it get approved  
-| |
-| |Include the following information in your estimate:  
-| |
-| | Objective/reason for travelling and why the activities could not be conducted virtually
-| |
-| |
+**Individual Designated Travel Cards** are government issued credit cards that offer a variety of perks from insurance, to extending your interest free payment window. To find out more about what an IDTC can do for you, please visit the [IDTC knowledge base page](/en/knowledgebase/idtc).
+​
 
-[[card]]
-| [[card-body]]
-| |
-| |**Mode of transportation** - List which mode(s) of transport you will be using
-| |
-| |- Air and Rail: estimate the cost of the ticket(s)
-| |- Car rentals: calculate the total cost for the distance you will travel.  [Find your kilometric rates here](https://www.njc-cnm.gc.ca/directive/d10/v238/s658/en#s658-tc-tm)
-| |
-| |**Accommodations:** Keep within the city rate limit unless you provide reasoning for a need to go over. [Find your city rate limit here](http://travel-guidebook-staging.herokuapp.com/en/rates/)
-| |
-| |**Meals and Incidentals:** List the approximate costs of your meals (breakfast, lunch and/or dinner each day that you’re on travel status). [Find your meal allowances here](http://travel-guidebook-staging.herokuapp.com/en/rates/)
-| |
-| |
+**Tip:** schedule up to 6 weeks in advance if signing up for these cards in order to receive them in time to travel.
+        </div>
+        <div class="col-sm-4">
+            <!-- <p class="text-center">
+                <a href="/en/book"  class="btn btn-primary my-4 px-4" target="_blank">Trip Estimator</a>
+            </p> -->
+        </div>
+    </div>
+</div>
 
-[[card]]
-| [[card-body]]
-| |
-| |### *Getting preliminary approval*  
-| |
-| |Once you’ve created your estimate, submit to your approver who is usually a senior manager. Your supervisor or organizational chart can help you find them  
-| |
-| |Ensure that you give the approver enough time to approve your trip before your travel date. Somewhere between 3 to 4 weeks should be sufficient  
-| |
-| |Once you’ve gotten your approval, you may go ahead and book your trip
-| |
-
-<p class="text-center"><a href="/en/book" class="btn btn-outline-primary my-4 px-4">Continue to Book</a></p>
+<p class="text-center">
+    <a href="/en/book" class="btn btn-outline-primary my-4 px-4">Continue to Book</a>
+</p>
 
 </article>
-
-<section class="content-right col-xs-6 col-md-4" id="sidebar">
-
-### Resources
-* [Your Rates and Limits](/en/rates)
-* [Kilometrics Rates](/en/kilometrics)
-
-### Suggest an update
-[Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
-
-
-[[info-card]]
-| [[card-body]]
-| |
-| | ### Still have travel-related questions?
-| |
-| | Your [Designated Departmental Travel Coordinator](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) should be able to help!
-| |
-
-</section>

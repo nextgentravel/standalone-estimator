@@ -2,7 +2,6 @@
 slug: "en/sitemap"
 date: "2019-05-13"
 title: "Sitemap and Knowledgebase"
-heading: "Sitemap and Knowledgebase"
 lead: "A listing of available links within the site"
 ---
 

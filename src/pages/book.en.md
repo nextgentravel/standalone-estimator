@@ -1,153 +1,163 @@
 ---
 date: "2019-05-04"
 title: "Book"
-heading: "Book"
-lead: "Steps: Register to HRG > Setup account profile > Book flight > Book car > Book rail > Book hotel > Payment Methods > Expense report (EMT) > Submit to approver"
+lead: "The following instructions are only applicable to the departments who currently use the HRG system to book their travel"
 tags: { 'hotel': ['lodging', 'sleep'] }
 ---
+<article class="content-left col-xs-12 col-sm-12 col-md-12">
 
-<article class="content-left col-xs-12 col-sm-12 col-md-8">
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 
-[[card]]
-| [[card-body]]
-| |
-| |### *Register to HRG*  
-| |[Register your profile here](https://isuite6.hrgworldwide.com/Portals/6/docs/EN%20-%20UG%20-%20Registering%20for%20the%20Portal-19jul2019.pdf)
-| |
-| |
+### HRG registration and setup
 
-[[card]]
-| [[card-body]]
-| |
-| |### *Setup or change account profile*  
-| |Once you’ve created your account, you can setup or change your traveller profile using [these instructions](https://isuite6.hrgworldwide.com/Portals/6/docs/EN%20-%20UG%20-%20Completing%20a%20traveller%20profile%20-%2019jui2019.pdf)
-| |
-| |
+Follow [these registration instructions](https://isuite6.hrgworldwide.com/Portals/6/docs/EN%20-%20UG%20-%20Registering%20for%20the%20Portal-19jul2019.pdf) if you do not have an account on HRG.
 
-[[card]]
-| [[card-body]]
-| |
-| |### *Log into HRG*  
-| |To begin the booking process, please log into HRG by following [this link](https://isuite6.hrgworldwide.com/gcportal/en-ca/sts.aspx)
-| |
+#### Setup or change account profile
 
-[[card]]
-| [[card-body]]
-| |
-| |### *How to Book*  
-| |In the system, use [these instructions](https://isuite6.hrgworldwide.com/Portals/6/ENG%20FULL%20-%20Available%20resources%20for%20travellers%20and%20travel%20arrangers_.pdf) to book your trip. You can reference your estimates previously created. Link to the HRG instructions  
-| |
-| |When at the submitting stage, requesting for online approval, try to submit at a time where the approver can approve it immediately. Success rates for bookings are much higher if requests are immediately approved. Delaying submissions can cause the process to fail, causing you to restart the online booking process
-| |
+Once you’ve created your account, setup or change your traveller profile using [these instructions](https://isuite6.hrgworldwide.com/Portals/6/docs/EN%20-%20UG%20-%20Completing%20a%20traveller%20profile%20-%2019jui2019.pdf).
 
-[[card]]
-| [[card-body]]
-| |
-| |### *Booking Help*  
-| |
-| |For any questions about the booking process, please either refer to the [HRG training system](https://isuite6.hrgworldwide.com/gcportal/en-ca/support/training.aspx) or by [contacting HRG directly](https://isuite6.hrgworldwide.com/gcportal/en-ca/contact.aspx)  
-| |
-| |You may also try one of the [departmental contacts](https://isuite6.hrgworldwide.com/gcportal/en-ca/contact/departmentalcontacts.aspx)
-| |
-| |
+#### Log into HRG
+To book your trip, please login to HRG.
+        </div>
+        <div class="col-sm-4">
+            <p class="text-center"><a href="https://isuite6.hrgworldwide.com/gcportal/en-ca/sts.aspx"  class="btn btn-primary my-4 px-4" target="_blank">Login to HRG</a></p>
+        </div>
+    </div>
+</div>
 
-[[card]]
-| [[card-body]]
-| |
-| |### *Booking Flights*  
-| |**Tip:** it may be a good idea to do an external flight search on another website such as google flights to see all the flights scheduled for that day, to find your ideal time. You can then go back into HRG and select a date and time which align with the best flight for your needs
-| |
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 
-[[card]]
-| [[card-body]]
-| |
-| |### *Booking Car Rentals*  
-| |
-| |Please visit and follow the [Accommodation and Car Rental Directory](https://rehelv-acrd.tpsgc-pwgsc.gc.ca/acrds/index-eng.aspx)
-| |and to make a [search for your vehicle](https://rehelv-acrd.tpsgc-pwgsc.gc.ca/ACRDS/rechercher-search-4-eng.aspx)
-| |
+### How to Book
+To book your trip, follow the [Creating a travel request instructions](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request).  Refer to your previously created estimate when booking so that the cost of your trip does not exceed the approved amount.
+​
+#### Useful links
+For any questions about the booking process, please refer to the following links:
+- [HRG training system](https://isuite6.hrgworldwide.com/gcportal/en-ca/support/training.aspx)
+- [HRG direct contact](https://isuite6.hrgworldwide.com/gcportal/en-ca/contact.aspx)
+- [Departmental contacts](https://isuite6.hrgworldwide.com/gcportal/en-ca/contact/departmentalcontacts.aspx)
+        </div>
+        <div class="col-sm-4">
+        </div>
+    </div>
+</div>
 
-[[card]]
-| [[card-body]]
-| |
-| |### *Booking Rail*  
-| |**Tip:** it may be a good idea to do an external rail search on another website such as VIA rail to see all the scheduled trains for that day, to find your ideal time. You can then go back into HRG and select a date and time related to the best train for your needs
-| |
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 
-[[card]]
-| [[card-body]]
-| |
-| |### *Booking Hotels*  
-| |Please visit and follow the [Accommodation and Car Rental Directory](https://rehelv-acrd.tpsgc-pwgsc.gc.ca/acrds/index-eng.aspx)  
-| |
-| |**Tip:** when beginning your search, it may be a good idea to call the hotel directly and speak to a booking member. Be sure to ask about any applicable discounted rates or offers for federal employees which you may be eligible for that are not included in HRG
-| |
+### Booking Transportation
+The Government of Canada mandates that you take the most economical means of travel. Depending on your destination and distance to travel, you may choose between air, rail, or car for your trip.
+​
+#### Booking Flights
+Air travel can be booked directly through the HRG travel system. Many users, however, choose to begin their flight search on other booking platforms. Wherever you choose to search for flights, booking them in HRG helps for a faster and more simple approval.
+​
+#### Booking Car Rentals
+You can book your car rental through HRG or through the Accommodation and Car Rental Directory (ACRD).  To find an approved car rental company in cities across Canada that has your desired vehicle type, please view the [Search for car](https://rehelv-acrd.tpsgc-pwgsc.gc.ca/ACRDS/rechercher-search-4-eng.aspx) page. The ACRD also provides you with pre-negotiated rates that you can expect to pay at your city of destination.
 
-[[card]]
-| [[card-body]]
-| |
-| |### *Payment methods*  
-| |- **Transportation:** the Departmental Travel Expense Card (**DTEC**) should appear as the payment method
-| |- **Hotel and car rental:** you must use your individual designated travel card (**IDTC**) or your personal credit card
-| |
-| |**Tip:** schedule up to 6 weeks in advance if signing up for these cards in order to receive them in time to travel
-| |
-| |#### Why should I use an Individual Designated Travel Card? (**IDTC**)  
-| |Individual Designated Travel Cards offer a variety of perks from insurance, to extending your payment window. To find out more about what an IDTC can do for you, please visit [our information page on IDTC](/en/idtc)
-| |
+**Note:** Car rentals with ACRD rates are only for domestic trips. If travelling abroad, you can book a car rental via a local company. Please do remember to keep all receipts related to your travel.
+​
+#### Booking Rail
+Domestic rail travel can be booked on HRG, however, when travelling abroad you must book train tickets outside of the system. Please do remember to keep all receipts related to your travel.
+        </div>
+        <div class="col-sm-4">
+        </div>
+    </div>
+</div>
 
-[[card]]
-| [[card-body]]
-| |
-| |### *Creating an expense report*  
-| |To create an expense report, please visit and follow [this training guide](https://hrg.exceedlms.com/student/activity/220777-en-ug-creating-an-expense-report)
-| |
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 
-[[card]]
-| [[card-body]]
-| |
-| |### *Out-of pocket expenses*  
-| |Please see [these HRG instructions](https://hrg.exceedlms.com/student/activity/220777-en-ug-creating-an-expense-report) to add your out of pocket expenses
-| |
+### Booking Accommodations
+Hotel accommodations can be searched and booked through the HRG system with pre-negotiated rates. Booking through HRG is a great option for a fast and simple solution to find and book a hotel that is within policy. To find out what policy allows, [use this tool](/en/rates/).
+​
 
-[[card]]
-| [[card-body]]
-| |
-| |### *Meals, Incidentals & Private Accommodation*  
-| |- For travel within Canada or transboarder please find your meal rates specified under [Appendix C of the NJC](https://www.njc-cnm.gc.ca/directive/d10/v238/s659/en)
-| |- For international travel, please find your meal rates specified under [Appendix D of the NJC](https://www.njc-cnm.gc.ca/directive/app_d.php?lang=en)
-| |or by using the Rates and Limits Calculator here  
-| |
-| |**Note:** if you are not responsible to pay for one or more meals during your time away, please do not include it as an expense. For example: meals that would be included in the airfare or if you are a guest at an event that is providing food
-| |
+It is possible to book a hotel which is above your city rate limit, as there are many external factors which could contribute to an increased hotel cost. In these cases, a justification for exceeding the city rate limit is needed to get your hotel choice approved.
 
-[[card]]
-| [[card-body]]
-| |
-| |### *Submit for approval*  
-| |
-| |After submitting your request. Please follow up with your trip approver to get your travel request approved in a timely manner. Once your travel request is approved, you will receive a confirmation email. Approximately two buisness days later, you will receive another email from the financial team that funds have will be sent to your account
-| |
+​
+**Tip:** when beginning your search, it may be a good idea to call the hotel directly and speak to a booking member. Be sure to ask about any applicable discounted rates or offers for federal employees which you may be eligible for that are not included in HRG.
 
-<p class="text-center"><a href="/en/travel" class="btn btn-outline-primary my-4 px-4">Continue to Travel</a></p>
+If you chose to book private accommodations instead, please include this in the Expense Management Tool as an Out-of-Pocket expense. Do keep in mind that private accommodations are still subject to [NJC policy under Appendix D](https://www.njc-cnm.gc.ca/directive/app_d/en).
+        </div>
+        <div class="col-sm-4">
+            <p class="text-center"><a href="/en/rates/"  class="btn btn-primary my-4 px-4">Calculate rates and limits</a><p>
+        </div>
+    </div>
+</div>
+
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
+
+### Payment methods
+Transportation: the Departmental Travel Expense Card (DTEC) should appear as the payment method.
+
+Hotel and car rental: you must use your Individual Designated Travel Card (IDTC) or your personal credit card. However, the IDTC card is the preferred method of payment.
+        </div>
+        <div class="col-sm-4">
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
+
+### Adding additional estimates
+
+Before your trip is finalized, you must first add all other additional estimates to your Travel Request so that your Approver may view an accurate cost estimate of your trip.
+
+
+To add additional estimates, use the [Creating a Travel Request training guide](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) and locate the section Access the Travel Request in the EMT (Expense Management Tool).
+
+#### Out-of-pocket expenses
+For more information related to specific out-of-pocket expenses, please refer to Part III - Travel Modules of the [NJC Travel Directive](https://www.njc-cnm.gc.ca/directive/d10/v238/en).
+​        </div>
+        <div class="col-sm-4">
+        </div>
+    </div>
+</div>
+
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
+
+### Meals, incidentals & private accommodation
+
+To include expenses for meals, incidentals and private accommodations expenses within HRG go to the [Creating a Travel Request training guide](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) and locate the section Add Meals, Incidentals and Private Accomodations.
+
+**Note:** if you are not responsible to pay for one or more meals during your time away, please do not include it as an expense. For example: meals that would be included in the airfare or if you are a guest at an event that is providing food.
+​    </div>
+    <div class="col-sm-4">
+        <p class="text-center"><a href="/en/rates/"  class="btn btn-primary my-4 px-4">Calculate rates and limits</a></p>
+    </div>
+</div>
+</div>
+
+
+
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
+
+### Submit for approval
+
+When at the submitting stage, requesting for online approval, try to submit at a time where the approver can approve it immediately. Success rates for bookings are much higher if requests are immediately approved. Delaying submissions can cause the process to fail, causing you to restart the online booking process.
+        </div>
+        <div class="col-sm-4">
+        </div>
+    </div>
+</div>
+
+
+<p class="text-center">
+    <a href="/en/travel" class="btn btn-outline-primary my-4 px-4">Continue to Travel</a>
+</p>
 
 </article>
-
-<section class="content-right col-xs-6 col-md-4" id="sidebar">
-
-### Resources
-* [Option One](/)
-* [Option Two](/)
-
-### Suggest an update
-[Submit anonymous feedback here](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
-
-[[info-card]]
-| [[card-body]]
-| |
-| | ### Still have travel-related questions?
-| |
-| | Your [Designated Departmental Travel Coordinator](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) should be able to help!
-| |
-
-</section>

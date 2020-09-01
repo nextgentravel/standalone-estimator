@@ -1,54 +1,43 @@
 ---
 date: "2019-05-13"
 title: "Voyage"
-heading: "Voyage"
 lead: "Comment gérer tout problème avec le voyage réel"
 ---
 
-<article class="content-left col-xs-12 col-sm-12 col-md-8">
+<article class="content-left col-xs-12 col-sm-12 col-md-12">
 
-[[card]]
-| [[card-body]]
-| | ### En cas d'urgence ou de changement
-| |
-| | Appelez HRG au xxx-xxx-xxxx
-| |
-| | [Voir les avis aux voyageurs](/)
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
 
-[[card]]
-| [[card-body]]
-| | ### Droits
-| |
-| | Quisque vel tortor id sem tincidunt euismod. Ego bonum quod homo amet. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui.
-| |
-| | [Voir les informations sur les droits](/)
+### Comment voyager
 
-[[card]]
-| [[card-body]]
-| | ### Gardez vos reçus
-| |
-| | Quisque vel tortor id sem tincidunt euismod. In sit amet ipsum non diam ultricies vestibulum sit amet vitae mi. Etiam augue diam, convallis cursus sollicitudin ac, iaculis a dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus at elementum mi. Phasellus sed vestibulum ex, et imperdiet sem.
-| |
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat. Aliquam egestas, velit at condimentum placerat, sem sapien laoreet mauris, dictum porttitor lacus est nec enim. Vivamus feugiat elit lorem, eu porttitor ante ultrices id. Phasellus suscipit tellus ante, nec dignissim elit imperdiet nec. Nullam fringilla feugiat nisl. Ut pretium, metus venenatis dictum viverra, dui metus finibus enim, ac rhoncus sem lorem vitae mauris. Suspendisse ut venenatis libero. Suspendisse lorem felis, pretium in maximus id, tempor non ipsum.
+        </div>
+        <div class="col-sm-4">
+            <p class="text-center"><a href="/fr/book"  class="btn btn-primary my-4 px-4" target="_blank">Outil</a></p>
+        </div>
+    </div>
+</div>
 
-[Suivant: Après votre retour](/fr/expense)
+
+<div class="card p-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
+
+### Les perturbations
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat. Aliquam egestas, velit at condimentum placerat, sem sapien laoreet mauris, dictum porttitor lacus est nec enim. Vivamus feugiat elit lorem, eu porttitor ante ultrices id. Phasellus suscipit tellus ante, nec dignissim elit imperdiet nec. Nullam fringilla feugiat nisl. Ut pretium, metus venenatis dictum viverra, dui metus finibus enim, ac rhoncus sem lorem vitae mauris. Suspendisse ut venenatis libero. Suspendisse lorem felis, pretium in maximus id, tempor non ipsum
+        </div>
+        <div class="col-sm-4">
+            <p class="text-center">
+                <a href="/fr/tripestimator"  class="btn btn-primary my-4 px-4" target="_blank">Outil</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<p class="text-center">
+    <a href="/fr/expense" class="btn btn-outline-primary my-4 px-4">Continuer à dépenser</a>
+</p>
 
 </article>
-
-<section class="content-right col-xs-6 col-md-4" id="sidebar">
-
-#### Ressources
-* [Première option](/)
-* [Deuxième option](/)
-
-#### Suggérer une mise à jour
-[Envoyez des commentaires anonymes ici](https://docs.google.com/forms/d/e/1FAIpQLSf9y3VY3ADLpQ4kQLGvOo4cIdEEi5Hs3en-0lWRc4wQeTRheg/viewform)
-
-[[info-card]]
-| [[card-body]]
-| |
-| | ### Vous avez encore des questions liées au voyage?
-| |
-| | Votre [Coordonnateur ministériel désigné des voyages](https://www.tbs-sct.gc.ca/ap/list-liste/dtc-cmv-eng.asp) devrait être en mesure de vous aider!
-| |
-
-</section>

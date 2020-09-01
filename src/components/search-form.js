@@ -2,7 +2,6 @@
 import React, { useState, useRef } from "react"
 import { navigate } from "@reach/router"
 import { FaSearch } from 'react-icons/fa';
-import { FormattedMessage } from "react-intl";
 
 const SearchForm = ({ initialQuery = "", placement = "header" }) => {
   // Create a piece of state, and initialize it to initialQuery
