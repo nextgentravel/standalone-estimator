@@ -38,12 +38,12 @@ const SearchForm = ({ initialQuery = "", placement = "header" }) => {
           id={`search-input-${placement}`}
           type="search"
           value={query}
-          placeholder="Search GC Travel Guide"
+          placeholder={<FormattedMessage id="searchPlaceholder" />}
           onChange={handleChange}
         />
         <div className="input-group-append">
           <button type="submit" className={`btn ${placement !== 'header' ? ` btn-dark` : ` btn-light`}`}><FaSearch />
-            <span className="sr-only">Search</span>
+            <span className="sr-only"><FormattedMessage id="searchScreenReaderLabel"/></span>
           </button>
         </div>
       </div>
