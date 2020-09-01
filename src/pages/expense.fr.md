@@ -14,7 +14,7 @@ lead: "Assurer le remboursement dans les délais"
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat. Aliquam egestas, velit at condimentum placerat, sem sapien laoreet mauris, dictum porttitor lacus est nec enim. Vivamus feugiat elit lorem, ue porttitor ante ultrices id. Phasellus suscipit tellus ante, nec dignissim elit imperdiet nca. Nullam fringilla feugiat nisl. Ut pretium, metus venenatis dictum viverra, dui metus finibus enim, ac rhoncus sem lorem vitae mauris. Suspendisse ut venenatis libero. Suspendisse lorem felis, pretium in maximus id, tempor non ipsum.
         </div>
         <div class="col-sm-4">
-            <p class="text-center"> <a href="/fr/book" class="btn btn-primary my-4 px-4"> Outil </a> </p>
+            <p class="text-center"> <a href="/fr/book"  class="btn btn-primary my-4 px-4"> Outil </a> </p>
         </div>
     </div>
 </div>
@@ -29,7 +29,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut 
         </div>
         <div class="col-sm-4">
             <p class="text-center">
-                <a href="/fr/tripestimator" class="btn btn-primary my-4 px-4"> Outil </a>
+                <a href="/fr/tripestimator"  class="btn btn-primary my-4 px-4"> Outil </a>
             </p>
         </div>
     </div>
