@@ -13,7 +13,6 @@ const Layout = ({ children }) => {
       <Location>
         {props => {
           const pathname = props.location.pathname;
-          console.log('pathname ', pathname)
           showLanguageSelect = pathname === '/404/' ? showLanguageSelect = false : showLanguageSelect = true;
           onHomePage = pathname === '/en/' || pathname === '/fr/' ? onHomePage = true : onHomePage = false;
           return (

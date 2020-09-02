@@ -2,7 +2,7 @@ import React from "react"
 import Image from "../components/image"
 import { FormattedMessage, useIntl } from 'react-intl';
 
-const Footer = ({ }) => {
+const Footer = () => {
   const intl = useIntl();
   let homeLink = `/${intl.locale}/`;
   return (
