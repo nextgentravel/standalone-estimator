@@ -12,7 +12,6 @@ const Rates = () => (
       <main id="main-content" role="main">
         <Breadcrumbs pageTitle={'Trouvez vos tarifs et limites'} homeLink={'/fr/'} />
         <div className="container mt-4">
-          <p>Developing in English, for now.</p>
           <RatesChecker />
         </div>
       </main>
