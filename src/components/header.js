@@ -40,20 +40,32 @@ const Header = ({homeHeader}) => {
           </nav>
           {homeLink === "/en/" &&
             <div className="align-self-center" property="publisher" typeof="GovernmentOrganization">
-              <Image
-                filename="sig-blk-en.svg"
-                className="goc-logo"
-                alt={ intl.formatMessage({ id: 'governmentOfCanada' })}
-              />
+              <FormattedMessage id="governmentOfCanada">
+                {(msg) => {
+                  return (
+                    <Image
+                      filename="sig-blk-en.svg"
+                      className="goc-logo"
+                      alt={msg}
+                    />
+                  )
+                }}
+              </FormattedMessage>
             </div>
           }
           {homeLink === "/fr/" &&
             <div className="align-self-center" property="publisher" typeof="GovernmentOrganization">
-              <Image
-                filename="sig-blk-fr.svg"
-                className="goc-logo"
-                alt={ intl.formatMessage({ id: 'governmentOfCanada' })}
-              />
+              <FormattedMessage id="governmentOfCanada">
+                {(msg) => {
+                  return (
+                    <Image
+                      filename="sig-blk-fr.svg"
+                      className="goc-logo"
+                      alt={msg}
+                    />
+                  )
+                }}
+              </FormattedMessage>
             </div>
           }
           <section className='text-right align-self-center'>
