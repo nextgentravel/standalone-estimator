@@ -38,7 +38,7 @@ const Header = ({homeHeader}) => {
           <nav className="skiphold" id="header-skiplink">
             <a className="sr-only sr-only-focusable aurora-skip skiplink" aria-label="main skiplink" href="#main-content"><FormattedMessage id="skipToMain" /></a>
           </nav>
-          {homeLink == "/en/" &&
+          {homeLink === "/en/" &&
             <div className="align-self-center" property="publisher" typeof="GovernmentOrganization">
               <Image
                 filename="sig-blk-en.svg"
@@ -47,7 +47,7 @@ const Header = ({homeHeader}) => {
               />
             </div>
           }
-          {homeLink == "/fr/" &&
+          {homeLink === "/fr/" &&
             <div className="align-self-center" property="publisher" typeof="GovernmentOrganization">
               <Image
                 filename="sig-blk-fr.svg"
