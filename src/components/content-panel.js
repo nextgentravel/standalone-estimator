@@ -1,35 +1,44 @@
 import React from "react";
-import { FormattedMessage } from 'react-intl';
-import { Link } from "gatsby";
-import { FaChevronRight } from 'react-icons/fa';
+import { useIntl } from 'react-intl';
+import { FaClipboardList } from 'react-icons/fa';
+import { FaTicketAlt } from 'react-icons/fa';
+import { FaPlaneDeparture } from 'react-icons/fa';
+import { FaFileInvoiceDollar } from 'react-icons/fa';
+import ContentPanelItem from './content-panel-item';
 
-const ContentPanel = ({ title, icon, linkTo, chevron }) => (
 
-<section className="col-md-3 col-sm-6 text-center mb-5">
-    <div className="h-100 d-flex flex-column">
-        <div className={`icon-background icon-background-${title} mt-2 mb-4`}>
-            {icon}
-        </div>
-        <h3 className="mb-4"><FormattedMessage id={title} /></h3>
-        <p className="mb-4"><FormattedMessage id={`${title}Lead`}/></p>
-        <div className="mt-auto w-100">
-            <Link to={linkTo} className="btn btn-outline-primary px-4"><FormattedMessage id="launch" /></Link>
-        </div>
-    </div>
-    {chevron == "sm" &&
-        <FaChevronRight
-            className="home-chevron d-none d-sm-block"
-            size="30"
-        />
-    }
-    {chevron == "md" &&
-        <FaChevronRight
-            className="home-chevron d-none d-md-block"
-            size="30"
-        />
-    }
-</section>
 
-)
+const ContentPanel = () => {
+    const intl = useIntl();
+    let homeLink = `/${intl.locale}/`;
+    return (
+        <>
+            <ContentPanelItem
+                title="plan"
+                icon={<FaClipboardList size="100" color="#fff" alt=""/>}
+                linkTo={`${homeLink}plan`}
+                chevron="sm"
+            />
+            <ContentPanelItem
+                title="book"
+                icon={<FaTicketAlt size="100" color="#fff" alt="" />}
+                linkTo={`${homeLink}book`}
+                chevron="md"
+            />
+            <ContentPanelItem
+                title="travel"
+                icon={<FaPlaneDeparture size="100" color="#fff" alt="" />}
+                linkTo={`${homeLink}travel`}
+                chevron="sm"
+            />
+            <ContentPanelItem
+                title="expense"
+                icon={<FaFileInvoiceDollar size="100" color="#fff" alt="" />}
+                linkTo={`${homeLink}expense`}
+                chevron="no"
+            />
+        </>
+    )
+}
 
 export default ContentPanel
