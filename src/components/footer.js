@@ -2,7 +2,7 @@ import React from "react"
 import Image from "../components/image"
 import { FormattedMessage, useIntl } from 'react-intl';
 
-const Footer = ({ }) => {
+const Footer = () => {
   const intl = useIntl();
   let homeLink = `/${intl.locale}/`;
   return (
@@ -87,11 +87,17 @@ const Footer = ({ }) => {
               </ul>
             </div>
             <div className="col-sm-6 canada-logo text-right my-auto">
-              <Image
-                className=""
-                filename="footer-tag.svg"
-                alt={ intl.formatMessage({ id: 'footer-alt' })}
-              />
+              <FormattedMessage id="footer-alt">
+                {(msg) => {
+                  return (
+                    <Image
+                      className=""
+                      filename="footer-tag.svg"
+                      alt={msg}
+                    />
+                  )
+                }}
+              </FormattedMessage>
             </div>
           </div>
         </div>

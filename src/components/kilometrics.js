@@ -4,6 +4,7 @@ import TextInput from "./input-text.js";
 import InputDatalist from "./input-datalist.js"
 import * as yup from "yup"
 import { FaSpinner } from 'react-icons/fa';
+import { FormattedMessage } from 'react-intl';
 
 const Kilometrics = () => {
 
@@ -34,10 +35,10 @@ const Kilometrics = () => {
         let schema = yup.object().shape({
             province: yup
                 .string()
-                .required('Province is a required field')
+                .required(<FormattedMessage id="kilometricsRequireProvince"/>)
                 .test(
-                    'Province is valid',
-                    'Province is not valid.',
+                    <FormattedMessage id="kilometricsProvinceNotValid"/>,
+                    <FormattedMessage id="kilometricsProvinceValid"/>,
                     (value) => {
                         return provinceKeys.includes(value)
                     },
@@ -45,8 +46,8 @@ const Kilometrics = () => {
             distance: yup
                 .number()
                 .integer()
-                .typeError('Kilometres Travelled must be a number')
-                .required('Distance is a required field'),
+                .typeError(<FormattedMessage id="kilometricsMustBeNumber"/>)
+                .required(<FormattedMessage id="kilometricsDistanceRequired"/>),
         });
         return schema.validate(target, {abortEarly: false})
     }
@@ -95,11 +96,11 @@ const Kilometrics = () => {
     return (
         <>
             <div className="mb-4">
-                <h2>Find the correct rate for your kilometrics</h2>
-                <p className="lead">Taking your personal vehicle on a government trip? Refer to these rates.</p>
+                <h2><FormattedMessage id="kilometricsTitle" /></h2>
+                <p className="lead"><FormattedMessage id="kilometricsLead" /></p>
                 {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
-                    <h2>Field error or required</h2>
-                    <p>Please verify the following fields: </p>
+                    <h2><FormattedMessage id="kilometricsErrorTitle" /></h2>
+                    <p><FormattedMessage id="kilometricsErrorText" /></p>
                     <ul className="list-unstyled">
                         {errorList()}
                     </ul>
@@ -108,7 +109,7 @@ const Kilometrics = () => {
                     <InputDatalist
                         validationWarnings={validationWarnings}
                         setValidationWarnings={setValidationWarnings}
-                        label="Province/Territory of Travel"
+                        label={<FormattedMessage id="provinceLabel" />}
                         name="province"
                         options={provinces}
                         updateValue={setProvinceValue}
@@ -117,7 +118,7 @@ const Kilometrics = () => {
                     <TextInput
                         validationWarnings={validationWarnings}
                         setValidationWarnings={setValidationWarnings}
-                        label="Kilometres Travelled"
+                        label={<FormattedMessage id="travelledLabel" />}
                         name="distance"
                         updateValue={setDistance}
                         clearForm={clearForm}
