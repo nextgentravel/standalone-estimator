@@ -2,6 +2,7 @@
 import React, { useState, useRef } from "react"
 import { navigate } from "@reach/router"
 import { FaSearch } from 'react-icons/fa';
+import { FormattedMessage } from 'react-intl';
 
 const SearchForm = ({ initialQuery = "", placement = "header" }) => {
   // Create a piece of state, and initialize it to initialQuery
@@ -32,18 +33,22 @@ const SearchForm = ({ initialQuery = "", placement = "header" }) => {
         Search for:
       </label>
       <div className="input-group input-group-lg">
-        <input
-          className="form-control input-lg search"
-          ref={inputEl}
-          id={`search-input-${placement}`}
-          type="search"
-          value={query}
-          placeholder="Search GC Travel Guide"
-          onChange={handleChange}
+      <FormattedMessage id="searchPlaceholder">
+        {(msg) => (
+          <input
+            className="form-control input-lg search"
+            ref={inputEl}
+            id={`search-input-${placement}`}
+            type="search"
+            value={query}
+            placeholder={msg}
+            onChange={handleChange}
         />
+        )}
+      </FormattedMessage>
         <div className="input-group-append">
           <button type="submit" className={`btn ${placement !== 'header' ? ` btn-dark` : ` btn-light`}`}><FaSearch />
-            <span className="sr-only">Search</span>
+            <span className="sr-only"><FormattedMessage id="searchScreenReaderLabel"/></span>
           </button>
         </div>
       </div>
