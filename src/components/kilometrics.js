@@ -4,6 +4,7 @@ import TextInput from "./input-text.js";
 import InputDatalist from "./input-datalist.js"
 import * as yup from "yup"
 import { FaSpinner } from 'react-icons/fa';
+import { FormattedMessage } from 'react-intl';
 
 const Kilometrics = () => {
 
