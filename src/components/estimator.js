@@ -48,6 +48,7 @@ const Estimator = () => {
     const [generalError, setGeneralError] = useState(false);
     const [errorPanel, setErrorPanel] = useState(false);
 
+    // since this function is used in two files, we should import it
     const calculateMeals = (departDate, returnDate, province) => {
         let departD = DateTime.fromISO(departDate);
         let returnD = DateTime.fromISO(returnDate);
