@@ -12,8 +12,6 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 
 ### HRG registration and setup
 
-This is a test of HackMD editing content.
-
 Follow [these registration instructions](https://isuite6.hrgworldwide.com/Portals/6/docs/EN%20-%20UG%20-%20Registering%20for%20the%20Portal-19jul2019.pdf) if you do not have an account on HRG.
 
 #### Setup or change account profile
