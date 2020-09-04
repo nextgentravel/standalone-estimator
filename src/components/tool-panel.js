@@ -1,6 +1,7 @@
 import React from "react";
 import { useIntl } from 'react-intl';
 import ToolPanelItem from './tool-panel-item';
+import { FaCalculator } from 'react-icons/fa';
 import { FaMapMarker } from 'react-icons/fa';
 import { FaCar } from 'react-icons/fa';
 
@@ -9,6 +10,7 @@ const ToolPanel = () => {
     let homeLink = `/${intl.locale}/`;
     return (
         <div className="d-flex justify-content-center">
+            <ToolPanelItem title="estimator" icon={<FaCalculator size="40" />} linkTo={`${homeLink}estimator`} />
             <ToolPanelItem title="rates" icon={<FaMapMarker size="40" />} linkTo={`${homeLink}rates`} />
             <ToolPanelItem title="kilometrics" icon={<FaCar size="40" />} linkTo={`${homeLink}kilometrics`} />
         </div>
