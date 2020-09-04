@@ -30,6 +30,7 @@ const Estimator = () => {
         setFilteredCitiesList(list);
     }, []);
 
+    // Variables/state for inputs
     const [origin, setOrigin] = useState('');
     const [destination, setDestination] = useState('');
     const [departureDate, setDepartureDate] = useState('');
@@ -178,31 +179,76 @@ const Estimator = () => {
             {true &&
                 <div className="card bg-light p-4">
                     <h3 className="mb-3"><FormattedMessage id="estimateSummaryTitle" /></h3>
-                    <div className="row align-middle pb-2">
-                        <div className="col-sm-4">
-                            <h4 className="m-0">
-                            <FaCar size="30" /> Transportation</h4>
+                    {/* Each row could be a generic componemt with props passed in to define what they are */}
+                    <div className="row mb-4">
+                        <div className="col-sm-4 align-self-center">
+                            <div className="align-self-center">
+                                <FaCar size="25" fill="#9E9E9E" />
+                                <span><FormattedMessage id="accommodation" /></span>
+                            </div>
                         </div>
-                        <div className="col-sm-2">
-                            <input></input>
+                        <div className="col-sm-2 align-self-center">
+                            <input type="text" class="form-control" id="accommodation" placeholder="0" name="accommodation"></input>
                         </div>
-                        <div className="col-sm-6">
-                            Based on an average of $50 per day for travel in Calgary, AB
-                        </div>
-                    </div>
-                    <div className="row align-middle py-5">
-                        <div className="col-sm-4">
-                            <h4 className="m-0">
-                            <FaCar size="30" /> Meals and Incidentals</h4>
-                        </div>
-                        <div className="col-sm-2">
-                            <input></input>
-                        </div>
-                        <div className="col-sm-6">
-                            Based on an average of $50 per day for travel in Calgary, AB
+                        <div className="col-sm-6 align-self-center text-wrap">
+                            <FormattedMessage id="accommodationDescription" />
                         </div>
                     </div>
-
+                    <div className="row mb-4">
+                        <div className="col-sm-4 align-self-center">
+                            <div className="align-self-center">
+                                <FaCar size="25" fill="#9E9E9E" />
+                                <span><FormattedMessage id="transportation" /></span>
+                            </div>
+                        </div>
+                        <div className="col-sm-2 align-self-center">
+                            <input type="text" class="form-control" id="transportation" placeholder="0" name="transportation"></input>
+                        </div>
+                        <div className="col-sm-6 align-self-center text-wrap">
+                        <FormattedMessage id="transportationDescription" />
+                        </div>
+                    </div>
+                    <div className="row mb-4">
+                        <div className="col-sm-4 align-self-center">
+                            <div className="align-self-center">
+                                <FaCar size="25" fill="#9E9E9E" />
+                                <span><FormattedMessage id="localTransportation" /></span>
+                            </div>
+                        </div>
+                        <div className="col-sm-2 align-self-center">
+                            <input type="text" class="form-control" id="localTransportation" placeholder="0" name="localTransportation"></input>
+                        </div>
+                        <div className="col-sm-6 align-self-center text-wrap">
+                            <FormattedMessage id="localTransportationDescription" />
+                        </div>
+                    </div>
+                    <div className="row mb-4">
+                        <div className="col-sm-4 align-self-center">
+                            <div className="align-self-center">
+                                <FaCar size="25" fill="#9E9E9E" />
+                                <span><FormattedMessage id="mealsAndIncidentals" /></span>
+                            </div>
+                        </div>
+                        <div className="col-sm-2 align-self-center">
+                            <input type="text" class="form-control" id="transportation" placeholder="0" name="transportation"></input>
+                        </div>
+                        <div className="col-sm-6 align-self-center text-wrap">
+                            <FormattedMessage id="selectMealsToInclude" />
+                        </div>
+                    </div>
+                    <div className="row mb-4">
+                        <div className="col-sm-4 align-self-center">
+                            <div className="align-self-center">
+                                <FaCar size="25" fill="#9E9E9E" />
+                                <span><FormattedMessage id="otherAllowances" /></span>
+                            </div>
+                        </div>
+                        <div className="col-sm-2 align-self-center">
+                            <input type="text" class="form-control" id="transportation" placeholder="0" name="transportation"></input>
+                        </div>
+                        <div className="col-sm-6 align-self-center text-wrap">
+                        </div>
+                    </div>
 
 
                 </div>
