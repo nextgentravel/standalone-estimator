@@ -13,7 +13,11 @@ import acrdRates from "../data/acrdRates.js"
 import { FaSpinner } from 'react-icons/fa';
 import { FaExclamationTriangle } from 'react-icons/fa';
 
-import { FaCar } from 'react-icons/fa';
+import { FaBed } from 'react-icons/fa';
+import { FaPlane } from 'react-icons/fa';
+import { FaTaxi } from 'react-icons/fa';
+import { FaUtensils } from 'react-icons/fa';
+import { FaSuitcase } from 'react-icons/fa';
 
 const Estimator = () => {
     const citiesList = cities.citiesList;
@@ -183,7 +187,7 @@ const Estimator = () => {
                     <div className="row mb-4">
                         <div className="col-sm-4 align-self-center">
                             <div className="align-self-center">
-                                <FaCar size="25" fill="#9E9E9E" />
+                                <FaBed className="mr-2" size="25" fill="#9E9E9E" />
                                 <span><FormattedMessage id="accommodation" /></span>
                             </div>
                         </div>
@@ -197,7 +201,7 @@ const Estimator = () => {
                     <div className="row mb-4">
                         <div className="col-sm-4 align-self-center">
                             <div className="align-self-center">
-                                <FaCar size="25" fill="#9E9E9E" />
+                                <FaPlane className="mr-2" size="25" fill="#9E9E9E" />
                                 <span><FormattedMessage id="transportation" /></span>
                             </div>
                         </div>
@@ -211,7 +215,7 @@ const Estimator = () => {
                     <div className="row mb-4">
                         <div className="col-sm-4 align-self-center">
                             <div className="align-self-center">
-                                <FaCar size="25" fill="#9E9E9E" />
+                                <FaTaxi className="mr-2" size="25" fill="#9E9E9E" />
                                 <span><FormattedMessage id="localTransportation" /></span>
                             </div>
                         </div>
@@ -225,7 +229,7 @@ const Estimator = () => {
                     <div className="row mb-4">
                         <div className="col-sm-4 align-self-center">
                             <div className="align-self-center">
-                                <FaCar size="25" fill="#9E9E9E" />
+                                <FaUtensils className="mr-2" size="25" fill="#9E9E9E" />
                                 <span><FormattedMessage id="mealsAndIncidentals" /></span>
                             </div>
                         </div>
@@ -239,7 +243,7 @@ const Estimator = () => {
                     <div className="row mb-4">
                         <div className="col-sm-4 align-self-center">
                             <div className="align-self-center">
-                                <FaCar size="25" fill="#9E9E9E" />
+                                <FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />
                                 <span><FormattedMessage id="otherAllowances" /></span>
                             </div>
                         </div>
@@ -249,8 +253,15 @@ const Estimator = () => {
                         <div className="col-sm-6 align-self-center text-wrap">
                         </div>
                     </div>
-
-
+                    <div className="row mb-4">
+                        <div className="col-sm-6 align-self-center text-right">
+                            <hr />
+                            {/*  */}
+                            <strong className="mr-2">Total Cost</strong>{`{total}`}
+                        </div>
+                        <div className="col-sm-6 align-self-center text-wrap">
+                        </div>
+                    </div>
                 </div>
             }
         </div>
