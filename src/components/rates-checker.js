@@ -125,6 +125,8 @@ const RatesChecker = () => {
     }
 
     const handleValidation = () => {
+        console.log('depart:', departureDate);
+        console.log('return:', returnDate);
         let target = {destination, departureDate, returnDate};
         let schema = yup.object().shape({
             destination: yup

@@ -1,10 +1,20 @@
 import 'react-dates/initialize';
 import React, {useState} from "react"
-import { SingleDatePicker} from 'react-dates';
+// import { SingleDatePicker} from 'react-dates';
+import {
+    DatePicker,
+    DatePickerCalendar,
+    DatePickerMonth,
+    DatePickerButton,
+    DatePickerTable,
+    DatePickerInput
+  } from '@reecelucas/react-datepicker';
 import 'react-dates/lib/css/_datepicker.css';
 import { DateTime } from "luxon";
+import { FormattedMessage } from 'react-intl';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-const DatePicker = ({validationWarnings, setValidationWarnings, label, name, updateValue}) => {
+const DatePickerComponent = ({validationWarnings, setValidationWarnings, label, name, updateValue}) => {
     let showValidationWarning = false;
     let componentWarnings = []
     validationWarnings.forEach(warning => {
@@ -12,11 +22,6 @@ const DatePicker = ({validationWarnings, setValidationWarnings, label, name, upd
             componentWarnings.push(warning);
         }
     })
-
-    let aday = DateTime;
-
-    const [datestate, setDate] = useState('');
-    const [focusstate, setFocus] = useState(false);
 
     if (componentWarnings.length > 0) {
         showValidationWarning = true;
@@ -26,11 +31,25 @@ const DatePicker = ({validationWarnings, setValidationWarnings, label, name, upd
         <div className="mb-4">
 	        <label htmlFor={name}>{label}</label>
             <br/>
-            <SingleDatePicker
+
+            <DatePicker  onSelect={date => updateValue(DateTime.fromJSDate(date))}>
+                <DatePickerInput className='form-control'/>
+                <DatePickerCalendar className='table'>
+                    <DatePickerButton className='btn' updateMonth={({ prev }) => prev()}>
+                        <FaChevronLeft />
+                    </DatePickerButton>
+                    <DatePickerMonth className='lead' />
+                    <DatePickerButton className='btn' updateMonth={({ next }) => next()}>
+                        <FaChevronRight />
+                    </DatePickerButton>
+                    <DatePickerTable />
+                </DatePickerCalendar>
+            </DatePicker>
+
+            {/* <SingleDatePicker
                 date={null}
                 onDateChange={date => {
-                    console.log('date: ', date);
-                    setDate(date)
+                    ;
                 }}
                 focused={focusstate}
                 onFocusChange={({ focused }) => setFocus(focused)}
@@ -39,7 +58,7 @@ const DatePicker = ({validationWarnings, setValidationWarnings, label, name, upd
                 reopenPickerOnClearDate={true}
                 // How do we pass a className to this component?
                 // className={showValidationWarning ? 'form-control is-invalid' : 'form-control' }
-            />
+            /> */}
             {/* <input
                 aria-describedby={`${name}-error`}
                 type="date"
@@ -56,4 +75,4 @@ const DatePicker = ({validationWarnings, setValidationWarnings, label, name, upd
     )
 }
 
-export default DatePicker;
+export default DatePickerComponent;

@@ -84,6 +84,8 @@ module.exports = {
         "searchPlaceholder": 'Search GC Travel Guide',
         'submit': 'Submit',
         'clear': 'Clear',
+        'datePrevious': 'Previous Month',
+        'dateNext': 'Next Month',
         //index
         'plan': 'Plan',
         'planLead': 'Plan ahead and get ready for your business trip',
@@ -184,6 +186,8 @@ module.exports = {
         "searchPlaceholder": 'Rechercher le guide de voyage GC',
         'submit': 'Soumettre',
         'clear': 'Clair',
+        'datePrevious': 'Le mois précédent',
+        'dateNext': 'Le mois prochain',
         //index
         'plan': 'Plan',
         'planLead': "Planifiez à l'avance et préparez-vous pour votre voyage d'affaires",
