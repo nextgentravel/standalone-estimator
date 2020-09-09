@@ -1,7 +1,7 @@
 ---
 date: "2019-05-13"
-title: "Plan"
-lead: "Whether you are planning your trip to include in your department's Travel Plan or travelling ad-hoc, follow these steps to plan, estimate and request approval for your trip"
+title: "Plan Travel"
+lead: "Most government travel begins by getting an approval.  This section will provide guidance on putting together a trip estimate for approval and key information to help you plan your trip."
 ---
 <article class="content-left col-xs-12 col-sm-12 col-md-12">
 
@@ -30,18 +30,49 @@ a
     <div class="row">
         <div class="col-sm-8">
 
-### Items to get ready
-Some items you may want to have ready are:
-- a driver's license
-- transportation tickets (with a paper backup)
-- personal identification
-- personal credit card
-- personal health card
-- Individual Designated Travel Card (IDTC)
+### Get things ready
+
+Before you can book your trip, make sure you have the following items ready:
+
+1. Valid personal identification (e.g. passort, drivers licence)
+2. Credit card
+3. Health card
+
+**Would you prefer to pay using a government credit card?**
+
+​
+You can apply for an *Individual Designated Travel Card (ITDC)*, commonly referred to as a Government Card.  ITDC offers a variety of perks from insurance to extending your interest free payment window.  To find out more about what an IDTC can do for you, please visit the [*IDTC knowledge base page*](/en/knowledgebase/idtc).
 ​
 
-**Individual Designated Travel Cards** are government issued credit cards that offer a variety of perks from insurance, to extending your interest free payment window. To find out more about what an IDTC can do for you, please visit the [IDTC knowledge base page](/en/knowledgebase/idtc).
-​
+**Tip:** schedule up to 6 weeks in advance if signing up for these cards in order to receive them in time to travel.
+        </div>
+        <div class="col-sm-4">
+            <!-- <p class="text-center">
+                <a href="/en/book"  class="btn btn-primary my-4 px-4" target="_blank">Trip Estimator</a>
+            </p> -->
+        </div>
+    </div>
+</div>
+
+<div class="card p-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
+
+### FAQ
+
+**How should I choose between transportation options?**
+
+The Government of Canada mandates that you take the most economical means of travel. Depending on your destination and distance to travel, you may choose between air, rail, or car for your trip. 
+
+**Can I use my own vehicle for business travel?**
+
+Yes.  Our [*Trip Estimator*](https://gc-travel-estimator.herokuapp.com/) will help you calculate the estimated amount you can expense based on the estimated kilometers you will travel.
+
+**Can I stay at an Airbnb instead of a hotel?**
+
+Yes.  Our [*Trip Estimator*](https://gc-travel-estimator.herokuapp.com/) will help you calculate the estimated amount you can expense based on existing city limit rates.
+
+
 
 **Tip:** schedule up to 6 weeks in advance if signing up for these cards in order to receive them in time to travel.
         </div>
