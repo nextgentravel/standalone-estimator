@@ -17,14 +17,7 @@ Our **Trip Estimator** will help you create an estimate and send it to your supe
 
 **Note:** Allow 3-4 weeks for your Supervisor to approve your estimate.  For urgent travel, contact your Supervisor directly and inform themt when you're submitting your estimate for approval.
 
-
-#### Getting preliminary approval
-
-Once you’ve created your estimate, submit to your approver who is usually a senior manager. You can identify your approver by speaking with your supervisor or referring to your organizational chart.
-
-Your approver will review your travel proposal and sign off. Let them know when your trip is, and how urgent your request is. Ensure that you give the approver enough time to approve your trip before your travel date. Between 3 to 4 weeks should be a sufficient time frame.
-
-Once you’ve gotten your approval, you may go ahead and book your trip.
+a
         </div>
         <div class="col-sm-4">
             <p class="text-center"><a href="https://gc-travel-estimator.herokuapp.com/"  class="btn btn-primary my-4 px-4" target="_blank">Trip Estimator</a></p>
