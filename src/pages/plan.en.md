@@ -72,9 +72,7 @@ Yes.  Our [*Trip Estimator*](https://gc-travel-estimator.herokuapp.com/) will he
 
 Yes.  Our [*Trip Estimator*](https://gc-travel-estimator.herokuapp.com/) will help you calculate the estimated amount you can expense based on existing city limit rates.
 
-
-
-**Tip:** schedule up to 6 weeks in advance if signing up for these cards in order to receive them in time to travel.
+a
         </div>
         <div class="col-sm-4">
             <!-- <p class="text-center">
