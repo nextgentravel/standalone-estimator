@@ -30,7 +30,7 @@ a
     <div class="row">
         <div class="col-sm-8">
 
-### Get things ready
+### 2. Get things ready
 
 Before you can book your trip, make sure you have the following items ready:
 
