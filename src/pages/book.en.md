@@ -16,10 +16,7 @@ Start creating your 'travel request' within HRG.  This step applies no matter wh
 
 Follow sections *2. Access the Portal* and *3. Access the Online Booking Tool* of these [Creating a travel request instructions](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) to start creating your travel request. 
 
-**Important:** refer to your previously created *trip estimate* so that the cost of your trip does not exceed the previously approved amount.
-
-a
-        </div>
+**Important:** refer to your previously created *trip estimate* so that the cost of your trip does not exceed the previously approved amount.</div>
         <div class="col-sm-4">
             <p class="text-center"><a href="https://isuite6.hrgworldwide.com/gcportal/en-ca/sts.aspx"  class="btn btn-primary my-4 px-4" target="_blank">Login to HRG</a></p>
         </div>
@@ -33,11 +30,7 @@ a
 ### 2. Book your flight
 
 
-Follow section *4. Book Flight* and *3. Access the Online Booking Tool* of these [Creating a travel request instructions](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) to start booking your flight.
-​
-
-a
-        </div>
+Follow section *4. Book Flight* and *3. Access the Online Booking Tool* of these [Creating a travel request instructions](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) to start booking your flight.</div>
         <div class="col-sm-4">
         </div>
     </div>
@@ -53,11 +46,7 @@ You can book your car rental through HRG or through the Accommodation and Car Re
 
 **Note:** Car rentals with ACRD rates are only for domestic trips. If travelling abroad, you can book a car rental via a local company. Please do remember to keep all receipts related to your travel.  
 
-Follow section *6. Book Car Rental* of these [Creating a travel request instructions](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) to start booking your car rental.
-​
-
-a
-        </div>
+Follow section *6. Book Car Rental* of these [Creating a travel request instructions](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) to start booking your car rental.</div>
         <div class="col-sm-4">
         </div>
     </div>
@@ -70,11 +59,7 @@ a
 ### 4. Book your train
  
 
-Follow section *7. Book Rail* of these [Creating a travel request instructions](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) to start booking your train.
-​
-
-a
-        </div>
+Follow section *7. Book Rail* of these [Creating a travel request instructions](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) to start booking your train.</div>
         <div class="col-sm-4">
         </div>
     </div>
@@ -94,11 +79,7 @@ Hotel accommodations can be searched and booked through the HRG system with pre-
 
 If you chose to book private accommodations instead, please include this in the Expense Management Tool as an Out-of-Pocket expense. Do keep in mind that private accommodations are still subject to [NJC policy under Appendix D](https://www.njc-cnm.gc.ca/directive/app_d/en). 
 
-Follow section *5. Book Hotel* of these [Creating a travel request instructions](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) to start booking your hotel.
-​
-
-a
-        </div>
+Follow section *5. Book Hotel* of these [Creating a travel request instructions](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) to start booking your hotel.</div>
         <div class="col-sm-4">
         </div>
     </div>
@@ -158,9 +139,7 @@ For more information related to specific out-of-pocket expenses, please refer to
 
 ### 8. Submit for approval
 
-Notify your Supervisor or approver before you submit your travel request, if it is possible. Success rates for bookings are much higher if requests are immediately approved. Delayed approvals can result in having to restart the booking process as rates may fluctuate. 
-a
-        </div>
+Notify your Supervisor or approver before you submit your travel request, if it is possible. Success rates for bookings are much higher if requests are immediately approved. Delayed approvals can result in having to restart the booking process as rates may fluctuate. </div>
         <div class="col-sm-4">
         </div>
     </div>
@@ -183,10 +162,7 @@ As an exception, you must book train tickets outside of HRG for international tr
 
 **Can I book a hotel which falls outside of policy?**
 
-Yes.  It is possible to book a hotel which is above your city rate limit, as there are many external factors which could contribute to an increased hotel cost. In these cases, a justification for exceeding the city rate limit is needed to get your hotel choice approved.
-
-a
-        </div>
+Yes.  It is possible to book a hotel which is above your city rate limit, as there are many external factors which could contribute to an increased hotel cost. In these cases, a justification for exceeding the city rate limit is needed to get your hotel choice approved.</div>
         <div class="col-sm-4">
             <!-- <p class="text-center">
                 <a href="/en/book"  class="btn btn-primary my-4 px-4" target="_blank">Trip Estimator</a>

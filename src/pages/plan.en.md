@@ -15,10 +15,7 @@ You will need preliminary approval from your Supervisor before you can book your
 
 Our **Trip Estimator** will help you create an estimate and send it to your supervisor.
 
-**Note:** Allow 3-4 weeks for your Supervisor to approve your estimate.  For urgent travel, contact your Supervisor directly and inform themt when you're submitting your estimate for approval.
-
-a
-        </div>
+**Note:** Allow 3-4 weeks for your Supervisor to approve your estimate.  For urgent travel, contact your Supervisor directly and inform themt when you're submitting your estimate for approval.</div>
         <div class="col-sm-4">
             <p class="text-center"><a href="https://gc-travel-estimator.herokuapp.com/"  class="btn btn-primary my-4 px-4" target="_blank">Trip Estimator</a></p>
         </div>
@@ -70,10 +67,7 @@ Yes.  Our [*Trip Estimator*](https://gc-travel-estimator.herokuapp.com/) will he
 
 **Can I stay at an Airbnb instead of a hotel?**
 
-Yes.  Our [*Trip Estimator*](https://gc-travel-estimator.herokuapp.com/) will help you calculate the estimated amount you can expense based on existing city limit rates.
-
-a
-        </div>
+Yes.  Our [*Trip Estimator*](https://gc-travel-estimator.herokuapp.com/) will help you calculate the estimated amount you can expense based on existing city limit rates.</div>
         <div class="col-sm-4">
             <!-- <p class="text-center">
                 <a href="/en/book"  class="btn btn-primary my-4 px-4" target="_blank">Trip Estimator</a>
