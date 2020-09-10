@@ -9,6 +9,8 @@ import { FormattedMessage } from 'react-intl';
 
 import cities from "../data/cities.js"
 import acrdRates from "../data/acrdRates.js"
+import accommodations from "../data/accommodations.js"
+import transportData from "../data/transport-data.js"
 
 import { FaSpinner } from 'react-icons/fa';
 import { FaExclamationTriangle } from 'react-icons/fa';
@@ -41,6 +43,25 @@ const Estimator = () => {
     const [returnDate, setReturnDate] = useState('');
     const [result, setResult] = useState({});
 
+    const [accommodation, setAccomodation] = useState(['Select accommodation type']);
+    const [transport, setTransport] = useState(['Select mode of transportation']);
+
+    useEffect(() => {
+        let accommodationOptions = Object.keys(accommodations).map(accommodation => {
+            return {
+                label: accommodations[accommodation].label,
+                value: accommodation,
+            }
+        })
+        setAccomodation(accommodationOptions);
+        let transportOptions = Object.keys(transportData).map(transport => {
+            return {
+                label: transportData[transport].label,
+                value: transport,
+            }
+        })
+        setTransport(transportOptions);
+    }, []);
 
     const [validationWarnings, setValidationWarnings] = useState([]);
 
@@ -188,8 +209,15 @@ const Estimator = () => {
                     <div className="row mb-4">
                         <div className="col-sm-4 align-self-center">
                             <div className="align-self-center">
-                                <FaBed className="mr-2" size="25" fill="#9E9E9E" />
-                                <span><FormattedMessage id="accommodation" /></span>
+                                <InputDatalist
+                                    validationWarnings={validationWarnings}
+                                    setValidationWarnings={setValidationWarnings}
+                                    label={<div><FaBed className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="accommodation" /></div>}
+                                    name="accommodationList"
+                                    options={accommodation}
+                                    updateValue={setAccomodation}
+                                    clearForm={clearForm}
+                                />
                             </div>
                         </div>
                         <div className="col-sm-2 align-self-center">
@@ -202,8 +230,15 @@ const Estimator = () => {
                     <div className="row mb-4">
                         <div className="col-sm-4 align-self-center">
                             <div className="align-self-center">
-                                <FaPlane className="mr-2" size="25" fill="#9E9E9E" />
-                                <span><FormattedMessage id="transportation" /></span>
+                                <InputDatalist
+                                    validationWarnings={validationWarnings}
+                                    setValidationWarnings={setValidationWarnings}
+                                    label={<div><FaPlane className="mr-2" size="25" fill="#9E9E9E" /><span><FormattedMessage id="transportation" /></span></div>}
+                                    name="transportList"
+                                    options={transport}
+                                    updateValue={setTransport}
+                                    clearForm={clearForm}
+                                />
                             </div>
                         </div>
                         <div className="col-sm-2 align-self-center">
@@ -258,7 +293,7 @@ const Estimator = () => {
                         <div className="col-sm-6 align-self-center text-right">
                             <hr />
                             {/*  */}
-                            <strong className="mr-2">Total Cost</strong>{`{total}`}
+                            <strong className="mr-2"><FormattedMessage id="totalCost" /></strong>{`{total}`}
                         </div>
                         <div className="col-sm-6 align-self-center text-wrap">
                         </div>
