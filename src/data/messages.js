@@ -98,6 +98,7 @@ module.exports = {
         'indexLead': 'Select the part of the journey you need support with or launch our travel assistant for a guided travel experience.  You can use this guide offline, even when you are not connected to the internet.',
         'rates': 'City Rates and Limits',
         'kilometrics': 'Kilometric Rates',
+        'newUser': 'First time travellers'
     },
     'fr': {
         // header
