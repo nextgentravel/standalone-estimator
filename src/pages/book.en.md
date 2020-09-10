@@ -181,7 +181,7 @@ No.  You must book transporation or accomodation within the HRG system or by con
 
 As an exception, you must book train tickets outside of HRG for international travel. 
 
-**Can I book a hotel outside which falls outside of policy?**
+**Can I book a hotel which falls outside of policy?**
 
 Yes.  It is possible to book a hotel which is above your city rate limit, as there are many external factors which could contribute to an increased hotel cost. In these cases, a justification for exceeding the city rate limit is needed to get your hotel choice approved.
 
