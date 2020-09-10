@@ -12,10 +12,7 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 
 ### 1. Create an HRG account
 
-Follow [these registration instructions](https://isuite6.hrgworldwide.com/Portals/6/docs/EN%20-%20UG%20-%20Registering%20for%20the%20Portal-19jul2019.pdf) if you do not have an account on HRG.
-
--
-        </div>
+Follow [these registration instructions](https://isuite6.hrgworldwide.com/Portals/6/docs/EN%20-%20UG%20-%20Registering%20for%20the%20Portal-19jul2019.pdf) if you do not have an account on HRG.</div>
         <div class="col-sm-4">
             <p class="text-center"></p>
         </div>
@@ -29,10 +26,7 @@ Follow [these registration instructions](https://isuite6.hrgworldwide.com/Portal
 
 ### 2. Setup or change your HRG account profile
 
-Once you’ve created your account, setup or change your traveller profile using [these instructions](https://isuite6.hrgworldwide.com/Portals/6/docs/EN%20-%20UG%20-%20Completing%20a%20traveller%20profile%20-%2019jui2019.pdf).
-
--
-        </div>
+Once you’ve created your account, setup or change your traveller profile using [these instructions](https://isuite6.hrgworldwide.com/Portals/6/docs/EN%20-%20UG%20-%20Completing%20a%20traveller%20profile%20-%2019jui2019.pdf).</div>
         <div class="col-sm-4">
             <p class="text-center"></p>
         </div>
@@ -46,10 +40,7 @@ Once you’ve created your account, setup or change your traveller profile using
 
 ### 3. Get your TIN
 
-Make sure to apply for your TIN.
-
--
-        </div>
+Make sure to apply for your TIN.</div>
         <div class="col-sm-4">
             <p class="text-center"></p>
         </div>
@@ -63,10 +54,7 @@ Make sure to apply for your TIN.
 
 ### 4. Apply for Government Credit Card
 
-You can apply for an Individual Designated Travel Card (ITDC), commonly referred to as a Government Card. ITDC offers a variety of perks from insurance to extending your interest free payment window. To find out more about what an IDTC can do for you, please visit the IDTC knowledge base page
-
--
-        </div>
+You can apply for an Individual Designated Travel Card (ITDC), commonly referred to as a Government Card. ITDC offers a variety of perks from insurance to extending your interest free payment window. To find out more about what an IDTC can do for you, please visit the IDTC knowledge base page</div>
         <div class="col-sm-4">
             <p class="text-center"></p>
         </div>
