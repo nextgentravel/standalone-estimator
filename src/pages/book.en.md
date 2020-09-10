@@ -32,7 +32,6 @@ a
 
 ### 2. Book your flight
 
-Air travel can be booked directly through the HRG travel system. Many users, however, choose to begin their flight search on other booking platforms. Wherever you choose to search for flights, booking them in HRG helps for a faster and more simple approval. 
 
 Follow section *4. Book Flight* and *3. Access the Online Booking Tool* of these [Creating a travel request instructions](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) to start booking your flight.
 ​
@@ -69,8 +68,7 @@ a
         <div class="col-sm-8">
 
 ### 4. Book your train
-
-Domestic rail travel can be booked on HRG, however, when travelling abroad you must book train tickets outside of the system. Please do remember to keep all receipts related to your travel.  
+ 
 
 Follow section *7. Book Rail* of these [Creating a travel request instructions](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) to start booking your train.
 ​
@@ -90,8 +88,6 @@ a
 
 Hotel accommodations can be searched and booked through the HRG system with pre-negotiated rates. Booking through HRG is a great option for a fast and simple solution to find and book a hotel that is within policy. To find out what policy allows, [use this tool](/en/rates/).
 ​
-
-It is possible to book a hotel which is above your city rate limit, as there are many external factors which could contribute to an increased hotel cost. In these cases, a justification for exceeding the city rate limit is needed to get your hotel choice approved.
 
 ​
 **Tip:** when beginning your search, it may be a good idea to call the hotel directly and speak to a booking member. Be sure to ask about any applicable discounted rates or offers for federal employees which you may be eligible for that are not included in HRG.
@@ -154,22 +150,6 @@ For more information related to specific out-of-pocket expenses, please refer to
     </div>
 </div>
 
-<div class="card px-4 pt-4 my-4 bg-light">
-    <div class="row">
-        <div class="col-sm-8">
-
-### Meals, incidentals & private accommodation
-
-To include expenses for meals, incidentals and private accommodations expenses within HRG go to the [Creating a Travel Request training guide](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) and locate the section Add Meals, Incidentals and Private Accomodations.
-
-**Note:** if you are not responsible to pay for one or more meals during your time away, please do not include it as an expense. For example: meals that would be included in the airfare or if you are a guest at an event that is providing food.
-​    </div>
-    <div class="col-sm-4">
-        <p class="text-center"><a href="/en/rates/"  class="btn btn-primary my-4 px-4">Calculate rates and limits</a></p>
-    </div>
-</div>
-</div>
-
 
 
 <div class="card px-4 pt-4 my-4 bg-light">
@@ -182,6 +162,35 @@ Notify your Supervisor or approver before you submit your travel request, if it 
 a
         </div>
         <div class="col-sm-4">
+        </div>
+    </div>
+</div>
+
+<div class="card p-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
+
+### FAQ
+
+**What happens if the cost of my trip exceeds my previously approved trip estimate?**
+
+
+**Can I book transportation or accomodation outside of HRG?**
+
+No.  You must book transporation or accomodation within the HRG system or by contacting HRG directly.
+
+As an exception, you must book train tickets outside of HRG for international travel. 
+
+**Can I book a hotel outside which falls outside of policy?**
+
+Yes.  It is possible to book a hotel which is above your city rate limit, as there are many external factors which could contribute to an increased hotel cost. In these cases, a justification for exceeding the city rate limit is needed to get your hotel choice approved.
+
+a
+        </div>
+        <div class="col-sm-4">
+            <!-- <p class="text-center">
+                <a href="/en/book"  class="btn btn-primary my-4 px-4" target="_blank">Trip Estimator</a>
+            </p> -->
         </div>
     </div>
 </div>
