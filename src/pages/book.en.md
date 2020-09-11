@@ -38,10 +38,11 @@ To book your flight:
 1. Select the flight option within the Online Booking Tool.
 2. Search for a listing of flight options by availability.
 3. Select your departure and return flight.
-4. Perform a search and review flight options.
-4. Select desired flights and proceed with selection.
-5. Review fare rules associated with your selected flights.
-6. Accept the terms and conditions and add to your itinerary.
+5. Perform a search and review flight options.
+6. Select desired flights and proceed with selection.
+7. Review fare rules associated with your selected flights.
+8. Accept the terms and conditions and add to your itinerary.
+9. Select Complete trip details only if you have completd all necessary booking.
 
 To assist you, follow section *4. Book Flight* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook. </div>
         <div class="col-sm-4">
@@ -64,6 +65,7 @@ To book a car rental:
 4. Perform a search, choose desired car, and review rate options.
 5. Add membership number if applicable
 6. Accept terms and conditions and add to itinerary.
+7. Select Complete trip details only if you have completd all necessary booking.
 
 
 To assist you, follow section *6. Book Car Rental* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook.</div>
@@ -84,6 +86,7 @@ To book your train:
 3. Review Total Cost and Terms and conditions of carriage.
 4. Accept Terms and conditions of carriage and continue.
 5. Review Inbound/Outbound restrictions and Add to itinerary.
+6. Select Complete trip details only if you have completd all necessary booking.
  
 
 To assist you, follow section *7. Book Rail* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook.</div>
@@ -109,6 +112,7 @@ To book a hotel:
 3. Select desired room.
 4. Review hotel detail and add memembership number if applicable.
 5. Review cancellation rules and add to itinerary.
+6. Select Complete trip details only if you have completd all necessary booking.
 
 To assist you, follow section *5. Book Hotel* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook.</div>
         <div class="col-sm-4">
