@@ -22,7 +22,7 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
                 type="text"
                 id={name}
                 name={name}
-                list={`suggestions-${name}`}
+                list={`${name}-options`}
                 onChange={event => {
                     updateValue(event.target.value)
                 }}
@@ -30,7 +30,7 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
             {componentWarnings.map((warning, index) => (
                 <small key={index} id={`${name}-error`} className="invalid-feedback">{warning.message}</small>
             ))}
-            <datalist id={`suggestions-${name}`}>
+            <datalist id={`${name}-options`}>
                 {/* TODO <!--[if lte IE 9]><select><![endif]--> */}
                 {options.map((option, index) =>
                     <option key={index} label={option.label} value={option.value}></option>
