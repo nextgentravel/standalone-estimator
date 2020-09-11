@@ -92,7 +92,7 @@ module.exports = {
         'travel': 'During Travel',
         'travelLead': "Useful information for when you are travelling",
         'expense': 'Submit Expenses',
-        'expenseLead': 'Steps required to s ubmit expenses and get reimbursed',
+        'expenseLead': 'Steps required to submit expenses and get reimbursed',
         'launch': 'Explore',
         'indexTitle': 'Get Started',
         'indexLead': 'Select the part of the journey you need support with or launch our travel assistant for a guided travel experience.  You can use this guide offline, even when you are not connected to the internet.',
