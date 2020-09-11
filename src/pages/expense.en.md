@@ -10,12 +10,12 @@ lead: "Once your travel is complete you will need to complete a few steps to cor
     <div class="row">
         <div class="col-sm-8">
 
-### 1. Getting ready
+### 1. Prepare
 
 Before you begin creating your expense report, make sure you have the following items ready:
-1. Ensure that you have receipts of all your expenses during your trip (except for meals, which are a flat sum under your per diem).
-2. Seperate out your receipts by expense type. 
-3. Make sure you verify payment methods are setup correctly.
+1. Ensure that you have receipts of all your expenses (except for meals, which are a flat sum under your per diem).
+2. Seperate receipts by expense type. 
+3. Make sure you verify that payment methods are set up correctly.
 
 **Note:** It is important to file your expenses as soon as possible, with as much detail as needed so that you can be reimbursed quickly. </div>
         <div class="col-sm-4">
@@ -29,14 +29,13 @@ Before you begin creating your expense report, make sure you have the following 
     <div class="row">
         <div class="col-sm-8">
 
-### 2. Start creating expense report
+### 2. Create an expense report
 
-Creating and submitting the expense report is done within the Expense Management Tool (EMT) located within HRG. 
+Creating an expense report within the Expense Management Tool (EMT) located in HRG using the following steps. 
 
-To begin:
-1. Login to HRG
-2. Locate the EMT Tool within HRG
-3. Locate your Travel Request in the EMT
+1. Login to HRG.
+2. Locate the EMT Tool within HRG.
+3. Locate your Travel Request in the EMT.
 
 To assist you, follow section *3. Locate your Travel Request* within the [Creating an Expense Report](https://hrg.exceedlms.com/student/activity/220777-creating-an-expense-report-ug) guidebook.
 </div>
@@ -54,9 +53,8 @@ To assist you, follow section *3. Locate your Travel Request* within the [Creati
 
 ### 3. Add credit card transactions
 
-Credit charges incurred on the DTEA and IDTC cards are populated into the EMT.  The EMT tool will allow you to locate and add DTEA and IDTC credit card expenses incurred while on Government of Canada business travel to the expense report.
+Credit charges incurred on the DTEA and IDTC cards are populated into the EMT.  The EMT tool will allow you to locate and add DTEA and IDTC credit card expenses incurred while on Government of Canada business travel to the expense report:
 
-You will need to
 1. Select the appropriate credit card account.
 2. Select the appropriate card statement period.
 3. Select the appropriate credit card transactions.
@@ -76,9 +74,8 @@ To assist you, follow section *4. Add Credit Card Transactions* within the [Crea
 
 ### 4. Assign expense categories
 
-All credit card transactions need an expense category assigned to them before they can be submitted as part of the expense report.
+All credit card transactions need an expense category assigned to them before they can be submitted as part of the expense report.  For each transaction:
 
-You will need to for each transaction:
 1. Select an expense type.
 2. Enter the amount to be claimed.
 3. Enter comments if required.
@@ -96,11 +93,10 @@ To assist you, follow section *5. Assign Expense Categories to Credit Card Tranr
     <div class="row">
         <div class="col-sm-8">
 
-### 5. Add out of pocket expenses
+### 5. Add out-of-pocket expenses
 
-You need to add any out of pocket expenses incurred during your travel.
+To add out-of-pocket expenses incurred during your travel.
 
-You will need to for each out of pocket expense:
 1. Fill out the relevant expense (example: type of expense and date expense was incurred)
 2. Select the relevant expense type.
 3. Enter the amount to be claimed.
@@ -138,7 +134,7 @@ To assist you, follow section *8. Finalize Expense Report* within the [Creating 
 
 ### 7. Add and link receipts
 
-You can now upload your receipts to the EMT and associte each one to a specific expense.
+Upload your receipts to the EMT and associate each to their respective expense item.
 
 To assist you, follow section *9. Add Receipt Images* and *10. Linking Receipt Images* within the [Creating an Expense Report](https://hrg.exceedlms.com/student/activity/220777-creating-an-expense-report-ug) guidebook.
 </div>
@@ -155,7 +151,7 @@ To assist you, follow section *9. Add Receipt Images* and *10. Linking Receipt I
 
 ### 8. Submit expense report
 
-You can now submit your expenses for approval.
+Submit your expenses for approval:
 
 Perform the following steps:
 1. Verify the approver.
@@ -163,7 +159,7 @@ Perform the following steps:
 
 To assist you, follow section *12. Verify Approver and Submit Expense Report for Approval* within the [Creating an Expense Report](https://hrg.exceedlms.com/student/activity/220777-creating-an-expense-report-ug) guidebook.
 
-**Note:** If this is your first time travelling you should be contacted by the finance team in your department who will help you with the reimbursemeent process.  This will likely involve a form to fill out to provide your banking information.  Submit the form ASAP to avoid delays in your reimbursement. 
+**Note:** If this is your first time travelling you should be contacted by the finance team in your department who will help you with the reimbursement process.  This will likely involve a form to fill out to provide your banking information.  Submit the form ASAP to avoid delays in your reimbursement. 
 </div>
         <div class="col-sm-4">
             <p class="text-center">
