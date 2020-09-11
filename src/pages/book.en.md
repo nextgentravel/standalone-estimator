@@ -55,7 +55,7 @@ To assist you, follow section *4. Book Flight* within the [Creating a travel req
 
 ### 3. Book your car rental
 
-You can book your car rental through HRG or through the Accommodation and Car Rental Directory (ACRD).  To find an approved car rental company in cities across Canada that has your desired vehicle type, please view the [Search for car](https://rehelv-acrd.tpsgc-pwgsc.gc.ca/ACRDS/rechercher-search-4-eng.aspx) page. The ACRD also provides you with pre-negotiated rates that you can expect to pay at your city of destination.
+You must book your car rental through HRG.  To find appropriate rates and approved car rental companies in cities across Canada that has your desired vehicle type, please view the [Search for car](https://rehelv-acrd.tpsgc-pwgsc.gc.ca/ACRDS/rechercher-search-4-eng.aspx) page. The ACRD also provides you with pre-negotiated rates that you can expect to pay at your city of destination.
 
 To book a car rental:
 1. Select the car rental option within the Online Booking Tool.
@@ -77,9 +77,16 @@ To assist you, follow section *6. Book Car Rental* within the [Creating a travel
         <div class="col-sm-8">
 
 ### 4. Book your train
+
+To book your train:
+1. Select the rail option within the Online Booking Tool.
+2. Search for train options and choose preferred Outbound/Inbound journeys.
+3. Review Total Cost and Terms and conditions of carriage.
+4. Accept Terms and conditions of carriage and continue.
+5. Review Inbound/Outbound restrictions and Add to itinerary.
  
 
-Follow section *7. Book Rail* of these [Creating a travel request instructions](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) to start booking your train.</div>
+To assist you, follow section *7. Book Rail* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook.</div>
         <div class="col-sm-4">
         </div>
     </div>
@@ -92,14 +99,18 @@ Follow section *7. Book Rail* of these [Creating a travel request instructions](
 ### 5. Book your hotel
 
 Hotel accommodations can be searched and booked through the HRG system with pre-negotiated rates. Booking through HRG is a great option for a fast and simple solution to find and book a hotel that is within policy. To find out what policy allows, [use this tool](/en/rates/).
-​
 
-​
+
 **Tip:** when beginning your search, it may be a good idea to call the hotel directly and speak to a booking member. Be sure to ask about any applicable discounted rates or offers for federal employees which you may be eligible for that are not included in HRG.
 
-If you chose to book private accommodations instead, please include this in the Expense Management Tool as an Out-of-Pocket expense. Do keep in mind that private accommodations are still subject to [NJC policy under Appendix D](https://www.njc-cnm.gc.ca/directive/app_d/en). 
+To book a hotel:
+1. Click the hotel option in the Online Booking Tool.
+2. Search for hotel options and choose desired hotel.
+3. Select desired room.
+4. Review hotel detail and add memembership number if applicable.
+5. Review cancellation rules and add to itinerary.
 
-Follow section *5. Book Hotel* of these [Creating a travel request instructions](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) to start booking your hotel.</div>
+To assist you, follow section *5. Book Hotel* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook.</div>
         <div class="col-sm-4">
         </div>
     </div>
@@ -186,7 +197,13 @@ Yes.  It is possible to book a hotel which is above your city rate limit, as the
 
 **4. Are ACRD car rental rates applicable for internationanl travel?**
 
-No.  ACRD car rental rates are only applicable to domestic travel.</div>
+No.  ACRD car rental rates are only applicable to domestic travel.
+
+**5. Can I get reimbursed for staying in private accomodations?**
+
+Yes.  If you chose to book private accommodations instead, please include this in the Expense Management Tool as an Out-of-Pocket expense. Do keep in mind that private accommodations are still subject to [NJC policy under Appendix D](https://www.njc-cnm.gc.ca/directive/app_d/en). 
+
+</div>
         <div class="col-sm-4">
             <!-- <p class="text-center">
                 <a href="/en/book"  class="btn btn-primary my-4 px-4" target="_blank">Trip Estimator</a>
