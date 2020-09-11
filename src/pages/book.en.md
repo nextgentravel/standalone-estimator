@@ -42,7 +42,7 @@ To book your flight:
 6. Select desired flights and proceed with selection.
 7. Review fare rules associated with your selected flights.
 8. Accept the terms and conditions and add to your itinerary.
-9. Select Complete trip details only if you have completd all necessary booking.
+9. Select Complete trip details only if you have completed all necessary booking.
 
 To assist you, follow section *4. Book Flight* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook. </div>
         <div class="col-sm-4">
@@ -65,7 +65,7 @@ To book a car rental:
 4. Perform a search, choose desired car, and review rate options.
 5. Add membership number if applicable
 6. Accept terms and conditions and add to itinerary.
-7. Select Complete trip details only if you have completd all necessary booking.
+7. Select Complete trip details only if you have completed all necessary booking.
 
 
 To assist you, follow section *6. Book Car Rental* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook.</div>
@@ -86,7 +86,7 @@ To book your train:
 3. Review Total Cost and Terms and conditions of carriage.
 4. Accept Terms and conditions of carriage and continue.
 5. Review Inbound/Outbound restrictions and Add to itinerary.
-6. Select Complete trip details only if you have completd all necessary booking.
+6. Select Complete trip details only if you have completed all necessary booking.
  
 
 To assist you, follow section *7. Book Rail* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook.</div>
@@ -112,7 +112,7 @@ To book a hotel:
 3. Select desired room.
 4. Review hotel detail and add memembership number if applicable.
 5. Review cancellation rules and add to itinerary.
-6. Select Complete trip details only if you have completd all necessary booking.
+6. Select Complete trip details only if you have completed all necessary booking.
 
 To assist you, follow section *5. Book Hotel* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook.</div>
         <div class="col-sm-4">
@@ -128,11 +128,15 @@ To assist you, follow section *5. Book Hotel* within the [Creating a travel requ
 
 ### 6. Payment methods
 
-Follow section *9. Account/Payment Details* of these [Creating a travel request instructions](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) to complete the Accounting/Payment Details information
+To complete accounting and payment details:
+1. Review the payment informaiton and modify if required modify the personal credit card.
+2. Complete the company accounting details page.
+3. Review travel request details and enter trip name.
+4. Create the travel request.
 
-Transportation: the Departmental Travel Expense Card (DTEC) should appear as the payment method.
+To assist you, follow section *9. Accounting/Payment Details* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook.
 
-Hotel and car rental: you must use your Individual Designated Travel Card (IDTC) or your personal credit card. However, the IDTC card is the preferred method of payment.
+**Note:** For transportation the Departmental Travel Expense Card (DTEC) should appear as the payment method.  For hotel and car rental: you must use your Individual Designated Travel Card (IDTC) or your personal credit card. However, the IDTC card is the preferred method of payment.
         </div>
         <div class="col-sm-4">
         </div>
@@ -149,17 +153,22 @@ Hotel and car rental: you must use your Individual Designated Travel Card (IDTC)
 
 Before your trip is finalized, you must first add all other additional estimates to your Travel Request so that your Approver may view an accurate cost estimate of your trip.
 
+To add additional estimates:
+1. Access the Expense Management Tool (EMT).
+2. Choose the appropriate expense item.
+3. Enter the amount and any other necessary details.
+4. Save all expenses entered once complete.
 
-To add additional estimates, use the [Creating a Travel Request training guide](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) and locate the section Access the Travel Request in the EMT (Expense Management Tool).
+
+To assist you, follow section *10. Access the Travel Request in the EMT (Expense Management Tool)* and *11. Add Additional Estimates* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook.
 
 #### Meals, incidentals & private accommodation
 
-To include expenses for meals, incidentals and private accommodations expenses within HRG go to the [Creating a Travel Request training guide](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) and locate the section Add Meals, Incidentals and Private Accomodations.
+To assist you in including meals, incidentals & private accomodations expenses, follow section *12. Add Meals, Incidentals and Private Accomodations* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook.
 
 **Note:** if you are not responsible to pay for one or more meals during your time away, please do not include it as an expense. For example: meals that would be included in the airfare or if you are a guest at an event that is providing food.
 
-#### Out-of-pocket expenses
-For more information related to specific out-of-pocket expenses, please refer to Part III - Travel Modules of the [NJC Travel Directive](https://www.njc-cnm.gc.ca/directive/d10/v238/en).
+
 ​        </div>
         <div class="col-sm-4">
         </div>
@@ -174,7 +183,11 @@ For more information related to specific out-of-pocket expenses, please refer to
 
 ### 8. Submit for approval
 
-Notify your Supervisor or approver before you submit your travel request, if it is possible. Success rates for bookings are much higher if requests are immediately approved. Delayed approvals can result in having to restart the booking process as rates may fluctuate. </div>
+Notify your Supervisor or approver before you submit your travel request, if it is possible. Success rates for bookings are much higher if requests are immediately approved. Delayed approvals can result in having to restart the booking process as rates may fluctuate. 
+
+To assist you, follow section *17. Submit for Approval * within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook.
+
+</div>
         <div class="col-sm-4">
         </div>
     </div>
@@ -205,7 +218,11 @@ No.  ACRD car rental rates are only applicable to domestic travel.
 
 **5. Can I get reimbursed for staying in private accomodations?**
 
-Yes.  If you chose to book private accommodations instead, please include this in the Expense Management Tool as an Out-of-Pocket expense. Do keep in mind that private accommodations are still subject to [NJC policy under Appendix D](https://www.njc-cnm.gc.ca/directive/app_d/en). 
+Yes.  If you chose to book private accommodations instead, please include this in the Expense Management Tool as an Out-of-Pocket expense. Do keep in mind that private accommodations are still subject to [NJC policy under Appendix D](https://www.njc-cnm.gc.ca/directive/app_d/en).
+
+**6. What are the various types of out-of-pocket expenses I can claim?**
+
+For more information related to specific out-of-pocket expenses, please refer to Part III - Travel Modules of the [NJC Travel Directive](https://www.njc-cnm.gc.ca/directive/d10/v238/en).
 
 </div>
         <div class="col-sm-4">
