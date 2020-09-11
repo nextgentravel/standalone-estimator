@@ -6,6 +6,8 @@ import { DateTime } from "luxon"
 import * as yup from "yup"
 import monthsContained from "./months-contained.js"
 import { FormattedMessage } from 'react-intl';
+import EstimatorRow from "./estimator-row.js";
+import EstimatorRowDropdown from "./estimator-row-dropdown.js";
 
 import cities from "../data/cities.js"
 import acrdRates from "../data/acrdRates.js"
@@ -206,76 +208,10 @@ const Estimator = () => {
                 <div className="card bg-light p-4">
                     <h3 className="mb-3"><FormattedMessage id="estimateSummaryTitle" /></h3>
                     {/* Each row could be a generic componemt with props passed in to define what they are */}
-                    <div className="row mb-4">
-                        <div className="col-sm-4 align-self-center">
-                            <div className="align-self-center">
-                                <InputDatalist
-                                    validationWarnings={validationWarnings}
-                                    setValidationWarnings={setValidationWarnings}
-                                    label={<div><FaBed className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="accommodation" /></div>}
-                                    name="accommodationList"
-                                    options={accommodation}
-                                    updateValue={setAccomodation}
-                                    clearForm={clearForm}
-                                />
-                            </div>
-                        </div>
-                        <div className="col-sm-2 align-self-center">
-                            <input type="text" class="form-control" id="accommodation" placeholder="0" name="accommodation"></input>
-                        </div>
-                        <div className="col-sm-6 align-self-center text-wrap">
-                            <FormattedMessage id="accommodationDescription" />
-                        </div>
-                    </div>
-                    <div className="row mb-4">
-                        <div className="col-sm-4 align-self-center">
-                            <div className="align-self-center">
-                                <InputDatalist
-                                    validationWarnings={validationWarnings}
-                                    setValidationWarnings={setValidationWarnings}
-                                    label={<div><FaPlane className="mr-2" size="25" fill="#9E9E9E" /><span><FormattedMessage id="transportation" /></span></div>}
-                                    name="transportList"
-                                    options={transport}
-                                    updateValue={setTransport}
-                                    clearForm={clearForm}
-                                />
-                            </div>
-                        </div>
-                        <div className="col-sm-2 align-self-center">
-                            <input type="text" class="form-control" id="transportation" placeholder="0" name="transportation"></input>
-                        </div>
-                        <div className="col-sm-6 align-self-center text-wrap">
-                        <FormattedMessage id="transportationDescription" />
-                        </div>
-                    </div>
-                    <div className="row mb-4">
-                        <div className="col-sm-4 align-self-center">
-                            <div className="align-self-center">
-                                <FaTaxi className="mr-2" size="25" fill="#9E9E9E" />
-                                <span><FormattedMessage id="localTransportation" /></span>
-                            </div>
-                        </div>
-                        <div className="col-sm-2 align-self-center">
-                            <input type="text" class="form-control" id="localTransportation" placeholder="0" name="localTransportation"></input>
-                        </div>
-                        <div className="col-sm-6 align-self-center text-wrap">
-                            <FormattedMessage id="localTransportationDescription" />
-                        </div>
-                    </div>
-                    <div className="row mb-4">
-                        <div className="col-sm-4 align-self-center">
-                            <div className="align-self-center">
-                                <FaUtensils className="mr-2" size="25" fill="#9E9E9E" />
-                                <span><FormattedMessage id="mealsAndIncidentals" /></span>
-                            </div>
-                        </div>
-                        <div className="col-sm-2 align-self-center">
-                            <input type="text" class="form-control" id="transportation" placeholder="0" name="transportation"></input>
-                        </div>
-                        <div className="col-sm-6 align-self-center text-wrap">
-                            <FormattedMessage id="selectMealsToInclude" />
-                        </div>
-                    </div>
+                    <EstimatorRowDropdown validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<div><FaBed className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="accommodation" /></div>} name="accommodation" option={accommodation} updateValue={setAccomodation} clearForm={clearForm} id="accommodation" description="accommodationDescription" />
+                    <EstimatorRowDropdown validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<div><FaPlane className="mr-2" size="25" fill="#9E9E9E" /><span><FormattedMessage id="transportation" /></span></div>} name="transportation" option={transport} updateValue={setTransport} clearForm={clearForm} id="transportation" description="transportationDescription" />
+                    <EstimatorRow name="localTransportation" id="localTransportation" description="localTransportationDescription" icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />} title="localTransportation"/>
+                    <EstimatorRow name="mealsAndIncidentals" id="mealsAndIncidentals" description="selectMealsToInclude" icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />} title="mealsAndIncidentals"/>
                     <div className="row mb-4">
                         <div className="col-sm-4 align-self-center">
                             <div className="align-self-center">
