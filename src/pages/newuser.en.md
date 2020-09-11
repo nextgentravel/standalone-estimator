@@ -12,7 +12,7 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 
 ### 1. Create an HRG account
 
-Follow [these registration instructions](https://isuite6.hrgworldwide.com/Portals/6/docs/EN%20-%20UG%20-%20Registering%20for%20the%20Portal-19jul2019.pdf) if you do not have an account on HRG.</div>
+Follow the [Registering for the Portal](https://isuite6.hrgworldwide.com/Portals/6/docs/EN%20-%20UG%20-%20Registering%20for%20the%20Portal-19jul2019.pdf) instructions if you do not have an account on HRG.  You will be provided with a identifier called a TIN which will act as a username.  </div>
         <div class="col-sm-4">
             <p class="text-center"></p>
         </div>
@@ -38,23 +38,9 @@ Once you’ve created your account, setup or change your traveller profile using
         <div class="col-sm-8">
 
 
-### 3. Get your TIN
-
-Make sure to apply for your TIN.</div>
-        <div class="col-sm-4">
-            <p class="text-center"></p>
-        </div>
-    </div>
-</div>
-
-<div class="card px-4 pt-4 my-4 bg-light">
-    <div class="row">
-        <div class="col-sm-8">
-
-
 ### 4. Apply for Government Credit Card
 
-You can apply for an Individual Designated Travel Card (ITDC), commonly referred to as a Government Card. ITDC offers a variety of perks from insurance to extending your interest free payment window. To find out more about what an IDTC can do for you, please visit the IDTC knowledge base page</div>
+You can apply for an Individual Designated Travel Card (ITDC), commonly referred to as a Government Card. ITDC offers a variety of perks from insurance to extending your interest free payment window. To find out more about what an IDTC can do for you, please visit the [*IDTC knowledge base page*](/en/knowledgebase/idtc)</div>
         <div class="col-sm-4">
             <p class="text-center"></p>
         </div>
@@ -75,7 +61,7 @@ You can apply for an Individual Designated Travel Card (ITDC), commonly referred
 
 
 <p class="text-center">
-    <a href="/en/travel" class="btn btn-outline-primary my-4 px-4">Continue to Travel</a>
+    <a href="/en/plan" class="btn btn-outline-primary my-4 px-4">Start Planning</a>
 </p>
 
 </article>

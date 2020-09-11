@@ -22,8 +22,6 @@ HRG Travel Specialist can be reached 24/7.
 
 [travel.gc@hrgworldwide.com](mailto:travel.gc@hrgworldwide.com)
 ​
-
-For questions based on Emergencies, Illnesses, Injuries and Death while in Travel Status Please visit [the NJC directive](https://www.njc-cnm.gc.ca/directive/d10/v238/s646/en).
         </div>
         <div class="col-sm-4">
         </div>
@@ -42,10 +40,23 @@ View the Government of Canada’s up-to-date information on the [latest health a
     </div>
 </div>
 
+<div class="card px-4 pt-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
+
+### Emergencies
+For information regarding Emergencies, Illnesses, Injuries and Death while in Travel Status Please visit [the NJC directive](https://www.njc-cnm.gc.ca/directive/d10/v238/s646/en).
+        </div>
+        <div class="col-sm-4">
+        </div>
+    </div>
+</div>
+
 
 <div class="card px-4 pt-4 my-4 bg-light">
     <div class="row">
         <div class="col-sm-8">
+
 
 ### Things to Remember
 1. **Save all receipts for items that you wish to expense.**  Meals receipts are not needed however, as you will be reimbursed per meal with, or without a receipt, based on your bookings within HRG.
