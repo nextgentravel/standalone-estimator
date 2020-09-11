@@ -14,7 +14,12 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 
 Start creating your 'travel request' within HRG.  This step applies no matter where you choose to stay or how you choose to travel to and from your destination.
 
-Follow sections *2. Access the Portal* and *3. Access the Online Booking Tool* of these [Creating a travel request instructions](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) to start creating your travel request. 
+1. Login to HRG.
+2. Access the Online Booking Tool.
+3. Select who you wish to book travel for.
+4. Choose the appropriate Travel Directive Module. 
+
+To assist you, follow sections *2. Access the Portal* and *3. Access the Online Booking Tool* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook. 
 
 **Important:** refer to your previously created *trip estimate* so that the cost of your trip does not exceed the previously approved amount.</div>
         <div class="col-sm-4">
@@ -29,8 +34,16 @@ Follow sections *2. Access the Portal* and *3. Access the Online Booking Tool* o
 
 ### 2. Book your flight
 
+To book your flight:
+1. Select the flight option within the Online Booking Tool.
+2. Search for a listing of flight options by availability.
+3. Select your departure and return flight.
+4. Perform a search and review flight options.
+4. Select desired flights and proceed with selection.
+5. Review fare rules associated with your selected flights.
+6. Accept the terms and conditions and add to your itinerary.
 
-Follow section *4. Book Flight* and *3. Access the Online Booking Tool* of these [Creating a travel request instructions](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) to start booking your flight.</div>
+To assist you, follow section *4. Book Flight* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook. </div>
         <div class="col-sm-4">
         </div>
     </div>
@@ -44,9 +57,16 @@ Follow section *4. Book Flight* and *3. Access the Online Booking Tool* of these
 
 You can book your car rental through HRG or through the Accommodation and Car Rental Directory (ACRD).  To find an approved car rental company in cities across Canada that has your desired vehicle type, please view the [Search for car](https://rehelv-acrd.tpsgc-pwgsc.gc.ca/ACRDS/rechercher-search-4-eng.aspx) page. The ACRD also provides you with pre-negotiated rates that you can expect to pay at your city of destination.
 
-**Note:** Car rentals with ACRD rates are only for domestic trips. If travelling abroad, you can book a car rental via a local company. Please do remember to keep all receipts related to your travel.  
+To book a car rental:
+1. Select the car rental option within the Online Booking Tool.
+2. Enter a pickup location.
+3. Choose additional preferences in compliance with the ACRD.
+4. Perform a search, choose desired car, and review rate options.
+5. Add membership number if applicable
+6. Accept terms and conditions and add to itinerary.
 
-Follow section *6. Book Car Rental* of these [Creating a travel request instructions](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) to start booking your car rental.</div>
+
+To assist you, follow section *6. Book Car Rental* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook.</div>
         <div class="col-sm-4">
         </div>
     </div>
@@ -158,11 +178,15 @@ Notify your Supervisor or approver before you submit your travel request, if it 
 
 No.  You must book transporation or accomodation within the HRG system or by contacting HRG directly.
 
-As an exception, you must book train tickets outside of HRG for international travel. 
+As an exception, you must book train tickets and car rentals outside of HRG for international travel. 
 
 **3. Can I book a hotel which falls outside of policy?**
 
-Yes.  It is possible to book a hotel which is above your city rate limit, as there are many external factors which could contribute to an increased hotel cost. In these cases, a justification for exceeding the city rate limit is needed to get your hotel choice approved.</div>
+Yes.  It is possible to book a hotel which is above your city rate limit, as there are many external factors which could contribute to an increased hotel cost. In these cases, a justification for exceeding the city rate limit is needed to get your hotel choice approved.
+
+**4. Are ACRD car rental rates applicable for internationanl travel?**
+
+No.  ACRD car rental rates are only applicable to domestic travel.</div>
         <div class="col-sm-4">
             <!-- <p class="text-center">
                 <a href="/en/book"  class="btn btn-primary my-4 px-4" target="_blank">Trip Estimator</a>
