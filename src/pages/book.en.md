@@ -151,16 +151,16 @@ Notify your Supervisor or approver before you submit your travel request, if it 
 
 ### FAQ
 
-**What happens if the cost of my trip exceeds my previously approved trip estimate?**
+**1. What happens if the cost of my trip exceeds my previously approved trip estimate?**
 
 
-**Can I book transportation or accomodation outside of HRG?**
+**2. Can I book transportation or accomodation outside of HRG?**
 
 No.  You must book transporation or accomodation within the HRG system or by contacting HRG directly.
 
 As an exception, you must book train tickets outside of HRG for international travel. 
 
-**Can I book a hotel which falls outside of policy?**
+**3. Can I book a hotel which falls outside of policy?**
 
 Yes.  It is possible to book a hotel which is above your city rate limit, as there are many external factors which could contribute to an increased hotel cost. In these cases, a justification for exceeding the city rate limit is needed to get your hotel choice approved.</div>
         <div class="col-sm-4">

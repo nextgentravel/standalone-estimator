@@ -57,15 +57,15 @@ You can apply for an *Individual Designated Travel Card (ITDC)*, commonly referr
 
 ### FAQ
 
-**How should I choose between transportation options?**
+**1. How should I choose between transportation options?**
 
 The Government of Canada mandates that you take the most economical means of travel. Depending on your destination and distance to travel, you may choose between air, rail, or car for your trip. 
 
-**Can I use my own vehicle for business travel?**
+**2. Can I use my own vehicle for business travel?**
 
 Yes.  Our [*Trip Estimator*](https://gc-travel-estimator.herokuapp.com/) will help you calculate the estimated amount you can expense based on the estimated kilometers you will travel.
 
-**Can I stay at an Airbnb instead of a hotel?**
+**3. Can I stay at an Airbnb instead of a hotel?**
 
 Yes.  Our [*Trip Estimator*](https://gc-travel-estimator.herokuapp.com/) will help you calculate the estimated amount you can expense based on existing city limit rates.</div>
         <div class="col-sm-4">
