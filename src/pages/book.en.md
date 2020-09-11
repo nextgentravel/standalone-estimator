@@ -220,7 +220,7 @@ No.  ACRD car rental rates are only applicable to domestic travel.
 
 Yes.  If you chose to book private accommodations instead, please include this in the Expense Management Tool as an Out-of-Pocket expense. Do keep in mind that private accommodations are still subject to [NJC policy under Appendix D](https://www.njc-cnm.gc.ca/directive/app_d/en).
 
-**6. What are the various types of out-of-pocket expenses I can claim?**
+**6. What kind of out-of-pocket expenses can I can claim?**
 
 For more information related to specific out-of-pocket expenses, please refer to Part III - Travel Modules of the [NJC Travel Directive](https://www.njc-cnm.gc.ca/directive/d10/v238/en).
 
