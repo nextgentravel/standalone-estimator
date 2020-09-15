@@ -33,7 +33,7 @@ const DatePickerComponent = ({validationWarnings, setValidationWarnings, label, 
             <br/>
 
             <DatePicker  onSelect={date => updateValue(DateTime.fromJSDate(date))}>
-                <DatePickerInput className='form-control'/>
+                <DatePickerInput className={showValidationWarning ? 'form-control is-invalid' : 'form-control' }/>
                 <DatePickerCalendar className='table'>
                     <DatePickerButton className='btn' updateMonth={({ prev }) => prev()}>
                         <FaChevronLeft />
