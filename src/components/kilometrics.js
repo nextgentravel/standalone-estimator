@@ -4,7 +4,7 @@ import TextInput from "./input-text.js";
 import InputDatalist from "./input-datalist.js"
 import * as yup from "yup"
 import { FaSpinner } from 'react-icons/fa';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage } from "react-intl";
 
 const Kilometrics = () => {
 
@@ -20,18 +20,16 @@ const Kilometrics = () => {
     const [errorPanel, setErrorPanel] = useState(false);
 
     useEffect(() => {
-        let provinceOptions = Object.keys(locations).map(location => {
-            return {
-                label: locations[location].label,
-                value: location,
-            }
+        let provinceOptions = Object.keys(locations)
+        .map(location => {
+            return `${locations[location].label} (${location})`;
         })
         setProvinces(provinceOptions);
     }, []);
 
     const handleValidation = () => {
-        let provinceKeys = Object.keys(locations);
         let target = {province, distance};
+        console.log('target', target)
         let schema = yup.object().shape({
             province: yup
                 .string()
@@ -40,7 +38,7 @@ const Kilometrics = () => {
                     <FormattedMessage id="kilometricsProvinceNotValid"/>,
                     <FormattedMessage id="kilometricsProvinceValid"/>,
                     (value) => {
-                        return provinceKeys.includes(value)
+                        return provinces.includes(value)
                     },
                   ),
             distance: yup
@@ -58,7 +56,8 @@ const Kilometrics = () => {
         handleValidation()
             .then((valid) => {
                 setValidationWarnings([]);
-                let provinceRate = locations[province].rateCents
+                let provinceAbbreviation = province.substr(province.lastIndexOf('(') + 1, 2)
+                let provinceRate = locations[provinceAbbreviation].rateCents
                 let rateCalc = parseInt(provinceRate) * parseInt(distance) / 100;
                 setResult({
                     total: rateCalc.toFixed(2),
@@ -123,14 +122,14 @@ const Kilometrics = () => {
                         updateValue={setDistance}
                         clearForm={clearForm}
                     />
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                    <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}>Clear</button>
+                    <button type="submit" className="btn btn-primary"><FormattedMessage id="submit" /></button>
+                    <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}><FormattedMessage id="clear" /></button>
                     {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
                 </form>
                 {!loading && Object.keys(result).length !== 0 &&
                 <>
-                    <p>The kilometric rate for <strong>{result.province}</strong> is <strong>{result.provinceRate}</strong> cents per kilometre</p>
-                    <p>For your trip of <strong>{result.distance}</strong> kilometres you would be reimbursed <strong>${result.total}</strong></p>
+                    <p><FormattedMessage id="results1" /><strong>{result.province}</strong><FormattedMessage id="results2" /><strong>{result.provinceRate}</strong><FormattedMessage id="results3" /></p>
+                    <p><FormattedMessage id="results4" /><strong>{result.distance}</strong><FormattedMessage id="results5" /><strong>${result.total}</strong></p>
                 </>}
             </div>
         </>
