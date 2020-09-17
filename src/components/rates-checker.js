@@ -22,10 +22,11 @@ const RatesChecker = () => {
 
     useEffect(() => {
         let list = cities.citiesList.map(city => {
-            return {
-                value: city,
-                label: city,
-            }
+            return city
+            // return {
+            //     value: city,
+            //     label: city,
+            // }
         })
         setFilteredCitiesList(list);
     }, []);
@@ -83,6 +84,7 @@ const RatesChecker = () => {
         handleValidation()
             .then((valid) => {
                 setValidationWarnings([]);
+                console.log('destination: ', destination)
                 let city = suburbCityList[destination] || destination;
                 let province = city.slice(-2); // This is bad.  We need to change the data structure.
                 let months = monthsContained(departureDate,returnDate);
@@ -103,7 +105,7 @@ const RatesChecker = () => {
                 })
                 setLoading(false);
                 setErrorPanel(false);
-            })
+                 })
             .catch(err => {
                 setLoading(false);
                 setValidationWarnings(err.inner);
@@ -123,6 +125,8 @@ const RatesChecker = () => {
     }
 
     const handleValidation = () => {
+        console.log('depart:', departureDate);
+        console.log('return:', returnDate);
         let target = {destination, departureDate, returnDate};
         let schema = yup.object().shape({
             destination: yup
@@ -170,9 +174,27 @@ const RatesChecker = () => {
                 </ul>
             </div>}
             <form id="rates-form" className="form-group mb-4" onSubmit={handleSubmit}>
-                <InputDatalist validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="rateDestination" />} name="destination" options={filteredCitiesList} updateValue={setDestination} />
-                <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="rateDepart" />} name="departureDate" updateValue={setDepartureDate}></DatePicker>
-                <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="rateReturn" />} name="returnDate" updateValue={setReturnDate}></DatePicker>
+                <InputDatalist
+                    validationWarnings={validationWarnings}
+                    setValidationWarnings={setValidationWarnings}
+                    label={<FormattedMessage id="rateDestination"/>}
+                    name="destination"
+                    options={filteredCitiesList}
+                    updateValue={setDestination}
+                />
+                <DatePicker validationWarnings={validationWarnings}
+                    setValidationWarnings={setValidationWarnings}
+                    label={<FormattedMessage id="rateDepart" />}
+                    name="departureDate"
+                    updateValue={setDepartureDate}
+                />
+                <DatePicker
+                    validationWarnings={validationWarnings}
+                    setValidationWarnings={setValidationWarnings}
+                    label={<FormattedMessage id="rateReturn" />}
+                    name="returnDate"
+                    updateValue={setReturnDate}
+                />
                 <button type="submit" className="btn btn-primary"><FormattedMessage id="submit"/></button>
                 <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}><FormattedMessage id="clear"/></button>
                 {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
