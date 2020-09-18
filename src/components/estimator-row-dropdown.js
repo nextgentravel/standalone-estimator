@@ -7,6 +7,7 @@ const EstimatorRowDropdown = ({ validationWarnings, setValidationWarnings, label
     <div className="row mb-4">
         <div className="col-sm-4 align-self-center">
             <div className="align-self-center">
+                {/* i'm not sure how to set this up so that one of the options is a default/placeholder */}
                 <InputDatalist
                     validationWarnings={validationWarnings}
                     setValidationWarnings={setValidationWarnings}
