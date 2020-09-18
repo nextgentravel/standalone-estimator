@@ -71,6 +71,13 @@ const Estimator = () => {
     const [generalError, setGeneralError] = useState(false);
     const [errorPanel, setErrorPanel] = useState(false);
 
+    const [accommodationCost, setAccomodationCost] = useState(0);
+    const [transportationCost, setTransportationCost] = useState(0);
+    const [localCost, setLocalCost] = useState(0);
+    const [mealCost, setMealCost] = useState(0);
+    const [otherCost, setOtherCost] = useState(0);
+    const [summaryCost, setSummaryCost] = useState(accommodationCost + transportationCost + localCost + mealCost + otherCost);
+
     // since this function is used in two files, we should import it
     const calculateMeals = (departDate, returnDate, province) => {
         let departD = DateTime.fromISO(departDate);
@@ -184,10 +191,34 @@ const Estimator = () => {
                 </ul>
             </div>}
             <form id="estimates-form" className="form-group mb-4" onSubmit={handleSubmit}>
-                <InputDatalist validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="estimateOrigin" />} name="origin" options={filteredCitiesList} updateValue={setOrigin} />
-                <InputDatalist validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="estimateDestination" />} name="destination" options={filteredCitiesList} updateValue={setDestination} />
-                <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="estimateDepartureDate" />} name="departureDate" updateValue={setDepartureDate}></DatePicker>
-                <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="estimateReturnDate" />} name="returnDate" updateValue={setReturnDate}></DatePicker>
+                <InputDatalist
+                    validationWarnings={validationWarnings}
+                    setValidationWarnings={setValidationWarnings}
+                    label={<FormattedMessage id="estimateOrigin" />}
+                    name="origin"
+                    options={filteredCitiesList}
+                    updateValue={setOrigin} />
+                <InputDatalist
+                    validationWarnings={validationWarnings}
+                    setValidationWarnings={setValidationWarnings}
+                    label={<FormattedMessage id="estimateDestination" />}
+                    name="destination"
+                    options={filteredCitiesList}
+                    updateValue={setDestination} />
+                <DatePicker
+                    validationWarnings={validationWarnings}
+                    setValidationWarnings={setValidationWarnings}
+                    label={<FormattedMessage id="estimateDepartureDate" />}
+                    name="departureDate"
+                    updateValue={setDepartureDate}
+                ></DatePicker>
+                <DatePicker
+                    validationWarnings={validationWarnings}
+                    setValidationWarnings={setValidationWarnings}
+                    label={<FormattedMessage id="estimateReturnDate" />}
+                    name="returnDate"
+                    updateValue={setReturnDate}
+                ></DatePicker>
                 <button type="submit" className="btn btn-primary"><FormattedMessage id="estimate"/></button>
                 <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}><FormattedMessage id="clear"/></button>
                 {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
@@ -208,28 +239,51 @@ const Estimator = () => {
                 <div className="card bg-light p-4">
                     <h3 className="mb-3"><FormattedMessage id="estimateSummaryTitle" /></h3>
                     {/* Each row could be a generic componemt with props passed in to define what they are */}
-                    <EstimatorRowDropdown validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<div><FaBed className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="accommodation" /></div>} name="accommodation" option={accommodation} updateValue={setAccomodation} clearForm={clearForm} id="accommodation" description="accommodationDescription" />
-                    <EstimatorRowDropdown validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<div><FaPlane className="mr-2" size="25" fill="#9E9E9E" /><span><FormattedMessage id="transportation" /></span></div>} name="transportation" option={transport} updateValue={setTransport} clearForm={clearForm} id="transportation" description="transportationDescription" />
-                    <EstimatorRow name="localTransportation" id="localTransportation" description="localTransportationDescription" icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />} title="localTransportation"/>
-                    <EstimatorRow name="mealsAndIncidentals" id="mealsAndIncidentals" description="selectMealsToInclude" icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />} title="mealsAndIncidentals"/>
-                    <div className="row mb-4">
-                        <div className="col-sm-4 align-self-center">
-                            <div className="align-self-center">
-                                <FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />
-                                <span><FormattedMessage id="otherAllowances" /></span>
-                            </div>
-                        </div>
-                        <div className="col-sm-2 align-self-center">
-                            <input type="text" class="form-control" id="transportation" placeholder="0" name="transportation"></input>
-                        </div>
-                        <div className="col-sm-6 align-self-center text-wrap">
-                        </div>
-                    </div>
+                    <EstimatorRowDropdown
+                        validationWarnings={validationWarnings}
+                        setValidationWarnings={setValidationWarnings}
+                        label={<div><FaBed className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="accommodation" /></div>} 
+                        name="accommodation"
+                        option={accommodation}
+                        updateValue={setAccomodation}
+                        id="accommodation"
+                        description="accommodationDescription"
+                        updateCost={setAccomodationCost} />
+                    <EstimatorRowDropdown
+                        validationWarnings={validationWarnings}
+                        setValidationWarnings={setValidationWarnings}
+                        label={<div><FaPlane className="mr-2" size="25" fill="#9E9E9E" /><span><FormattedMessage id="transportation" /></span></div>} 
+                        name="transportation"
+                        option={transport}
+                        updateValue={setTransport}
+                        id="transportation"
+                        description="transportationDescription"
+                        updateCost={setTransportationCost} />
+                    <EstimatorRow
+                        name="localTransportation"
+                        id="localTransportation"
+                        description="localTransportationDescription"
+                        icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
+                        title="localTransportation"
+                        updateCost={setLocalCost}/>
+                    <EstimatorRow
+                        name="mealsAndIncidentals"
+                        id="mealsAndIncidentals"
+                        description="selectMealsToInclude"
+                        icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
+                        title="mealsAndIncidentals"
+                        updateCost={setMealCost}/>
+                    <EstimatorRow
+                        name="otherAllowances"
+                        id="otherAllowances"
+                        description="otherDescription"
+                        icon={<FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />}
+                        title="otherAllowances"
+                        updateCost={setOtherCost}/>
                     <div className="row mb-4">
                         <div className="col-sm-6 align-self-center text-right">
                             <hr />
-                            {/*  */}
-                            <strong className="mr-2"><FormattedMessage id="totalCost" /></strong>{`{total}`}
+                            <strong className="mr-2"><FormattedMessage id="totalCost" /></strong>{`${summaryCost}`}
                         </div>
                         <div className="col-sm-6 align-self-center text-wrap">
                         </div>

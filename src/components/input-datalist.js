@@ -11,7 +11,8 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
     })
 
     function suggest(query, syncResults) {
-        var results = options;
+        var results = options.map((option) => option.label);
+        console.log(results);
         syncResults(query
           ? results.filter(function (result) {
               return result.toLowerCase().indexOf(query.toLowerCase()) !== -1

@@ -122,6 +122,7 @@ module.exports = {
         "mealsAndIncidentals": "Meals and Incidentals",
         "selectMealsToInclude": "Select travel dates to see allowance for meals and incidentals",
         "otherAllowances": "Other allowances (total)",
+        "otherDescription": " ",
         "totalCost": "Total Cost",
         "estimateOriginDestinationRequired": "Origin is a required field",
         "estimateOriginCityValid": "Origin city is valid",
