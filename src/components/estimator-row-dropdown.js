@@ -19,7 +19,7 @@ const EstimatorRowDropdown = ({ validationWarnings, setValidationWarnings, label
             </div>
         </div>
         <div className="col-sm-2 align-self-center">
-            <input type="text" className="form-control" id={id} placeholder="0" name={name} onChange={updateCost}></input>
+            <input type="text" className="form-control" id={`${id}_dropdown`} placeholder="0" name={name} onChange={updateCost}></input>
         </div>
         <div className="col-sm-6 align-self-center text-wrap">
             <FormattedMessage id={description} />
