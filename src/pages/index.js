@@ -9,7 +9,7 @@ const IndexPage = () => (
     <SEO title="Travel Guide - Language Select" />
     <div className="card lang">
       <div className="card-body d-flex justify-content-center">
-        <image></image>
+        {/* <image></image> */}
         <h1 className="sr-only">Travel guidebook language selection</h1>
         <Link to="/fr" className="btn btn-primary m-2 p-2 pl-3 pr-3">Français</Link>
         <Link to="/en" className="btn btn-primary m-2 p-2 pl-3 pr-3">English</Link>
@@ -21,7 +21,7 @@ const IndexPage = () => (
           <a className="text-dark" href="/">Terms and conditions</a>
         </div>
         <div className="col-6">
-          <image></image>
+          {/* <image></image> */}
         </div>
       </div>
     </div>
