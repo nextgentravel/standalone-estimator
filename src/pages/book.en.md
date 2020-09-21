@@ -219,6 +219,10 @@ Yes.  If you chose to book private accommodations instead, please include this i
 
 For more information related to specific out-of-pocket expenses, please refer to Part III - Travel Modules of the [NJC Travel Directive](https://www.njc-cnm.gc.ca/directive/d10/v238/en).
 
+**7. Do I need to submit my travel request in HRG even if I am not booking any services through this platform?**
+
+Yes.  For example if you are using your own car and staying in private accommodations you would still need to submit your travel request.
+
 </div>
         <div class="col-sm-4">
             <!-- <p class="text-center">

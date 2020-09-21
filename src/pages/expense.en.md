@@ -194,6 +194,10 @@ To assist you, follow section *13. Print, Export or Delete an Expense Report* wi
 
 If you have chosen to use your Individual Designated Travel Card (IDTC) as your payment method, you will be allowed a larger pay window without interest. However, after 30 days there will be a suspension of cash withdrawal privileges.
 
+**5. Do I need to submit my expenses in the EMT tool (in HRG) even if I have not booked any services through this platform?**
+
+Yes.  For example if you used your own car you would still need to submit the kilomterics expense in the EMT Tool.
+
 </div>
         <div class="col-sm-4">
             <p class="text-center">
