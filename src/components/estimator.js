@@ -7,7 +7,7 @@ import * as yup from "yup"
 import monthsContained from "./months-contained.js"
 import { FormattedMessage } from 'react-intl';
 import EstimatorRow from "./estimator-row.js";
-import EstimatorRowDropdown from "./estimator-row-dropdown.js";
+// import EstimatorRowDropdown from "./estimator-row-dropdown.js";
 
 import cities from "../data/cities.js"
 import acrdRates from "../data/acrdRates.js"
@@ -76,7 +76,7 @@ const Estimator = () => {
     const [localCost, setLocalCost] = useState(0);
     const [mealCost, setMealCost] = useState(0);
     const [otherCost, setOtherCost] = useState(0);
-    const [summaryCost, setSummaryCost] = useState(accommodationCost + transportationCost + localCost + mealCost + otherCost);
+    const [summaryCost, setSummaryCost] = useState(0);
 
     // since this function is used in two files, we should import it
     const calculateMeals = (departDate, returnDate, province) => {
@@ -179,6 +179,12 @@ const Estimator = () => {
         return list;
     }
 
+    const calculateTotal =() => {
+        let total = parseInt(accommodationCost) + parseInt(transportationCost) + parseInt(localCost) + parseInt(mealCost) + parseInt(otherCost);
+        setSummaryCost(total)
+    }
+
+
     return (
         <div className="mb-4">
             <h2><FormattedMessage id="estimateTitle" /></h2>
@@ -239,32 +245,69 @@ const Estimator = () => {
                 <div className="card bg-light p-4">
                     <h3 className="mb-3"><FormattedMessage id="estimateSummaryTitle" /></h3>
                     {/* Each row could be a generic componemt with props passed in to define what they are */}
-                    <EstimatorRowDropdown
-                        validationWarnings={validationWarnings}
-                        setValidationWarnings={setValidationWarnings}
-                        label={<div><FaBed className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="accommodation" /></div>} 
-                        name="accommodation"
-                        option={accommodation}
-                        updateValue={setAccomodation}
-                        id="accommodation"
-                        description="accommodationDescription"
-                        updateCost={setAccomodationCost} />
-                    <EstimatorRowDropdown
-                        validationWarnings={validationWarnings}
-                        setValidationWarnings={setValidationWarnings}
-                        label={<div><FaPlane className="mr-2" size="25" fill="#9E9E9E" /><span><FormattedMessage id="transportation" /></span></div>} 
-                        name="transportation"
-                        option={transport}
-                        updateValue={setTransport}
-                        id="transportation"
-                        description="transportationDescription"
-                        updateCost={setTransportationCost} />
+
+                    <div className="row mb-4">
+                        <div className="col-sm-12 mb-2">
+                            <div><FaBed className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="accommodation" /></div>
+                        </div>
+                        <div className="col-sm-4 align-self-center">
+                            <div className="align-self-center">
+                                <div>
+                                    {/* <label htmlFor={name}>{label}</label> */}
+                                    <div id={`accommodation_container`}>
+                                    <select className="custom-select">
+                                        <option defaultValue>Select accommodation type</option>
+                                        <option value="1">Hotel</option>
+                                        <option value="2">Private Accommodation</option>
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-sm-2 align-self-center">
+                            <input type="text" className="form-control" id={`accommodation_select`} placeholder="0" name={'accommodation'} onChange={(e) => {setAccomodationCost(e.target.value)}} onBlur={calculateTotal}></input>
+                        </div>
+                        <div className="col-sm-6 align-self-center text-wrap">
+                            <FormattedMessage id='accommodationDescription' />
+                        </div>
+                    </div>
+
+                    <div className="row mb-4">
+                        <div className="col-sm-12 mb-2">
+                            <div><FaBed className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="transportation" /></div>
+                        </div>
+                        <div className="col-sm-4 align-self-center">
+                            <div className="align-self-center">
+                                <div>
+                                    {/* <label htmlFor={name}>{label}</label> */}
+                                    <div id={`transportation_container`}>
+                                    <select className="custom-select">
+                                        <option defaultValue>Select transportation type</option>
+                                        <option value="1">Flight</option>
+                                        <option value="2">Train</option>
+                                        <option value="3">Rental Car</option>
+                                        <option value="2">Private Vehicle</option>
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-sm-2 align-self-center">
+                            <input type="text" className="form-control" id={`transportation_select`} placeholder="0" name={'transportation'} onChange={(e) => {setTransportationCost(e.target.value)}} onBlur={calculateTotal}></input>
+                        </div>
+                        <div className="col-sm-6 align-self-center text-wrap">
+                            <FormattedMessage id='transportationDescription' />
+                        </div>
+                    </div>
+
+
                     <EstimatorRow
                         name="localTransportation"
                         id="localTransportation"
                         description="localTransportationDescription"
                         icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
                         title="localTransportation"
+                        calculateTotal={calculateTotal}
                         updateCost={setLocalCost}/>
                     <EstimatorRow
                         name="mealsAndIncidentals"
@@ -272,6 +315,7 @@ const Estimator = () => {
                         description="selectMealsToInclude"
                         icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
                         title="mealsAndIncidentals"
+                        calculateTotal={calculateTotal}
                         updateCost={setMealCost}/>
                     <EstimatorRow
                         name="otherAllowances"
@@ -279,6 +323,7 @@ const Estimator = () => {
                         description="otherDescription"
                         icon={<FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />}
                         title="otherAllowances"
+                        calculateTotal={calculateTotal}
                         updateCost={setOtherCost}/>
                     <div className="row mb-4">
                         <div className="col-sm-6 align-self-center text-right">
