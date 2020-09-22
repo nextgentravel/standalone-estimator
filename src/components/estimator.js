@@ -75,6 +75,22 @@ const Estimator = () => {
         }
     }, [accommodation, transport])
 
+    useEffect(() => {
+        if (transport === 'flight') {
+            setTransportationCost(1000)
+            console.log("flight");
+        } else if (transport === 'train') {
+            setTransportationCost(500)
+            console.log("train");
+        } else if (transport === 'rental') {
+            setTransportationCost(100)
+            console.log("rental");
+        } else if (transport === 'private') {
+            setTransportationCost(40)
+            console.log("private");
+        }
+    }, [transport])
+
     const updateMealCost = (newValue) => {
         setMealCost(newValue)
     }
@@ -118,10 +134,6 @@ const Estimator = () => {
         handleValidation()
             .then((valid) => {
                 setValidationWarnings([]);
-                console.log('origin: ', origin)
-                console.log('destination: ', destination)
-                console.log('departureDate: ', departureDate)
-                console.log('returnDate: ', returnDate)
                 let city = suburbCityList[destination] || destination;
                 let province = city.slice(-2); // This is bad.  We need to change the data structure.
                 let months = monthsContained(departureDate,returnDate);
@@ -291,7 +303,16 @@ const Estimator = () => {
                             </div>
                         </div>
                         <div className="col-sm-2 align-self-center">
-                            <input type="text" className="form-control" id={`accommodation_select`} placeholder="0" name={'accommodation'} onChange={(e) => {setAccomodationCost(e.target.value)}} onBlur={calculateTotal} value={accommodationCost}></input>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id={`accommodation_select`}
+                                placeholder="0"
+                                name={'accommodation'}
+                                onChange={(e) => {setAccomodationCost(e.target.value)}}
+                                onBlur={calculateTotal}
+                                value={accommodationCost}>
+                            </input>
                         </div>
                         <div className="col-sm-6 align-self-center text-wrap">
                             <FormattedMessage id='accommodationDescription' />
@@ -307,19 +328,32 @@ const Estimator = () => {
                                 <div>
                                     {/* <label htmlFor={name}>{label}</label> */}
                                     <div id={`transportation_container`}>
-                                    <select className="custom-select">
+                                    <select
+                                        className="custom-select"
+                                        onChange={e => {setTransport(e.target.value)}}
+                                    >
                                         <option defaultValue>Select transportation type</option>
-                                        <option value="1">Flight</option>
-                                        <option value="2">Train</option>
-                                        <option value="3">Rental Car</option>
-                                        <option value="2">Private Vehicle</option>
+                                        <option value="flight">Flight</option>
+                                        <option value="train">Train</option>
+                                        <option value="rental">Rental Car</option>
+                                        <option value="private">Private Vehicle</option>
                                     </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="col-sm-2 align-self-center">
-                            <input type="text" className="form-control" id={`transportation_select`} placeholder="0" name={'transportation'} onChange={(e) => {setTransportationCost(e.target.value)}} onBlur={calculateTotal}></input>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id={`transportation_select`}
+                                placeholder="0"
+                                name={'transportation'}
+                                onChange={(e)  => {setTransportationCost(e.target.value)}}
+                                onBlur={calculateTotal}
+                                value={transportationCost}
+                            >
+                            </input>
                         </div>
                         <div className="col-sm-6 align-self-center text-wrap">
                             <FormattedMessage id='transportationDescription' />
