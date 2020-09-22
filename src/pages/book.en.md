@@ -1,7 +1,7 @@
 ---
 date: "2019-05-04"
 title: "Book Travel"
-lead: "At this stage you have a preliminary approval to travel from your Supervisor and are ready to book your transporation, accomodation, and other services.  This guide is appliacle only to those departments that currently use the HRG system to book travel."
+lead: "At this stage you have a preliminary approval to travel from your Supervisor and are ready to book your transporation, accomodation, and other services.  This guide is applicable only to those departments that currently use the HRG system to book travel."
 tags: { 'hotel': ['lodging', 'sleep'] }
 --- 
 <article class="content-left col-xs-12 col-sm-12 col-md-12">
@@ -14,10 +14,10 @@ tags: { 'hotel': ['lodging', 'sleep'] }
 
 Start creating your 'travel request' within HRG.  This step applies no matter where you choose to stay or how you choose to travel to and from your destination.
 
-1. Login to HRG.
-2. Access the Online Booking Tool.
-3. Select who you wish to book travel for.
-4. Choose the appropriate Travel Directive Module. 
+1. Login to HRG
+2. Access the Online Booking Tool
+3. Select who you wish to book travel for
+4. Choose the appropriate Travel Directive Module 
 
 To assist you, follow sections *2. Access the Portal* and *3. Access the Online Booking Tool* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook. 
 
@@ -35,12 +35,12 @@ To assist you, follow sections *2. Access the Portal* and *3. Access the Online 
 ### 2. Book your flight
 
 To book your flight:
-1. Select the *Flight* option within the Online Booking Tool.
-2. Search for flight options by availability.
-3. Choose your desired departure/return flights and proceed with selection.
-4. Review fare rules associated with your selected flights.
-5. Accept the terms and conditions and add flights to your itinerary.
-6. Complete trip details only if you have completed all necessary booking.
+1. Select the *Flight* option within the Online Booking Tool
+2. Search for flight options by availability
+3. Choose your desired departure/return flights and proceed with selection
+4. Review fare rules associated with your selected flights
+5. Accept the terms and conditions and add flights to your itinerary
+6. Complete trip details only if you have completed all necessary booking
 
 To assist you, follow section *4. Book Flight* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook. </div>
         <div class="col-sm-4">
@@ -57,13 +57,13 @@ To assist you, follow section *4. Book Flight* within the [Creating a travel req
 You must book your car rental through HRG.  To find appropriate rates and approved car rental companies in cities across Canada that has your desired vehicle type, please view the [Search for car](https://rehelv-acrd.tpsgc-pwgsc.gc.ca/ACRDS/rechercher-search-4-eng.aspx) page. The ACRD also provides you with pre-negotiated rates that you can expect to pay at your city of destination.
 
 To book a car rental:
-1. Select the *Car Rental* option within the Online Booking Tool.
-2. Search for car rental options. **Note:** Any additional preferences selected should comply with the ACRD.
-3. Choose desired car and review rate options.
-4. Select desired rate option.
-5. Review car rental details. **Note:** Add membership number if applicable.
-6. Accept terms and conditions and add car rental to itinerary.
-7. Complete trip details only if you have completed all necessary booking.
+1. Select the *Car Rental* option within the Online Booking Tool
+2. Search for car rental options. **Note:** Any additional preferences selected should comply with the ACRD
+3. Choose desired car and review rate options
+4. Select desired rate option
+5. Review car rental details. **Note:** Add membership number if applicable
+6. Accept terms and conditions and add car rental to your itinerary
+7. Complete trip details only if you have completed all necessary booking
 
 
 To assist you, follow section *6. Book Car Rental* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook.</div>
@@ -79,13 +79,13 @@ To assist you, follow section *6. Book Car Rental* within the [Creating a travel
 ### 4. Book your train
 
 To book your train:
-1. Select the *Rail* option within the Online Booking Tool.
-2. Search for train options.
-3. Choose preferred Outbound/Inbound journeys.
-4. Review Total Cost and Terms and conditions of carriage.
-5. Accept Terms and conditions of carriage and continue.
-6. Review Inbound/Outbound restrictions and Add train to itinerary.
-7. Complete trip details only if you have completed all necessary booking.
+1. Select the *Rail* option within the Online Booking Tool
+2. Search for train options
+3. Choose preferred Outbound/Inbound journeys
+4. Review Total Cost and Terms and conditions of carriage
+5. Accept Terms and conditions of carriage and continue
+6. Review Inbound/Outbound restrictions and Add train to your itinerary
+7. Complete trip details only if you have completed all necessary booking
  
 
 To assist you, follow section *7. Book Rail* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook.</div>
@@ -106,13 +106,13 @@ Hotel accommodations can be searched and booked through the HRG system with pre-
 **Tip:** when beginning your search, it may be a good idea to call the hotel directly and speak to a booking member. Be sure to ask about any applicable discounted rates or offers for federal employees which you may be eligible for that are not included in HRG.
 
 To book a hotel:
-1. Click the *Hotel* option in the Online Booking Tool.
-2. Search for hotel options.
-3. Choose desired hotel and review rate options.
-3. Select desired room.
-4. Review hotel details. **Note:** add memembership number if applicable.
-5. Review cancellation rules and add hotel to itinerary.
-6. Complete trip details only if you have completed all necessary booking.
+1. Click the *Hotel* option in the Online Booking Tool
+2. Search for hotel options
+3. Choose desired hotel and review rate options
+3. Select desired room
+4. Review hotel details **Note:** add membership number if applicable
+5. Review cancellation rules and add hotel option to your itinerary
+6. Complete trip details only if you have completed all necessary booking
 
 To assist you, follow section *5. Book Hotel* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook.</div>
         <div class="col-sm-4">
@@ -129,10 +129,10 @@ To assist you, follow section *5. Book Hotel* within the [Creating a travel requ
 ### 6. Payment methods
 
 To complete accounting and payment details:
-1. Review the payment information.  **Note:** Modify the personal credit card if required.
-2. Complete the company accounting details page.
-3. Review travel request details and enter trip name.
-4. Create the travel request.
+1. Review the payment information  **Note:** Modify the personal credit card if you would prefer to use an IDTC card
+2. Complete the company accounting details page
+3. Review travel request details and enter trip name
+4. Create the travel request
 
 To assist you, follow section *9. Accounting/Payment Details* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook.
 
@@ -152,10 +152,10 @@ To assist you, follow section *9. Accounting/Payment Details* within the [Creati
 
 Before your trip is finalized, you must first add all other additional estimates to your Travel Request so that your Approver may view an accurate cost estimate of your trip.  To add additional estimates:
 
-1. Access the Expense Management Tool (EMT).
-2. Choose the appropriate expense item.
-3. Enter the amount and any other necessary details.
-4. Save all expenses entered once you are finsished.
+1. Access the Expense Management Tool (EMT)
+2. Choose the appropriate expense item
+3. Enter the amount and any other necessary details
+4. Save all expenses entered once you are finsished
 
 
 To assist you, follow section *10. Access the Travel Request in the EMT (Expense Management Tool)* and *11. Add Additional Estimates* within the [Creating a travel request](https://hrg.exceedlms.com/student/activity/220776-en-ug-creating-a-travel-request) guidebook.
@@ -196,6 +196,7 @@ To assist you, follow section *17. Submit for Approval* within the [Creating a t
 
 **1. What happens if the cost of my trip exceeds my previously approved trip estimate?**
 
+Depending on your departments set allowances, budget, and your supervisor's discretion, your trip may be booked as expected. Otherwise you may have to re-book.
 
 **2. Can I book transportation or accomodation outside of HRG?**
 
@@ -205,7 +206,7 @@ As an exception, you must book train tickets and car rentals outside of HRG for 
 
 **3. Can I book a hotel which falls outside of policy?**
 
-Yes.  It is possible to book a hotel which is above your city rate limit, as there are many external factors which could contribute to an increased hotel cost. In these cases, a justification for exceeding the city rate limit is needed to get your hotel choice approved.
+Yes.  It is possible to book a hotel which is above your city rate limit, as there are many external factors which could contribute to an increased hotel cost. In these cases, a short justification for exceeding the city rate limit is needed to get your hotel choice approved.
 
 **4. Are ACRD car rental rates applicable for internationanl travel?**
 
