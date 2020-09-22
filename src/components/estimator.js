@@ -38,12 +38,15 @@ const Estimator = () => {
         setFilteredCitiesList(list);
     }, []);
 
+    useEffect(() => {
+        calculateTotal()
+    }, [])
+
     // Variables/state for inputs
     const [origin, setOrigin] = useState('');
     const [destination, setDestination] = useState('');
     const [departureDate, setDepartureDate] = useState('');
     const [returnDate, setReturnDate] = useState('');
-    const [result, setResult] = useState({});
 
     const [accommodation, setAccomodation] = useState(['Select accommodation type']);
     const [transport, setTransport] = useState(['Select mode of transportation']);
@@ -117,9 +120,35 @@ const Estimator = () => {
         handleValidation()
             .then((valid) => {
                 setValidationWarnings([]);
-                setResult({
-                    destination,
-                })
+                console.log('origin: ', origin)
+                console.log('destination: ', destination)
+                console.log('departureDate: ', departureDate)
+                console.log('returnDate: ', returnDate)
+                let city = suburbCityList[destination] || destination;
+                let province = city.slice(-2); // This is bad.  We need to change the data structure.
+                let months = monthsContained(departureDate,returnDate);
+                let rates = acrdRates[destination];
+                let acrdRatesFiltered = Object.keys(rates)
+                .filter(key => months.map(mon => mon.month).includes(key))
+                .reduce((res, key) => {
+                    res[key] = rates[key];
+                    return res;
+                }, {});
+
+                let mealsAndIncidentals = calculateMeals(departureDate, returnDate, province);
+
+                console.log(mealsAndIncidentals)
+                setMealCost(mealsAndIncidentals.total)
+
+                calculateTotal()
+
+                // Calculate number of days 
+
+                // get ACRD rate for destination
+
+                // calculate meals for destination
+
+
                 setLoading(false);
                 setErrorPanel(false);
             })
@@ -302,6 +331,7 @@ const Estimator = () => {
 
 
                     <EstimatorRow
+                        value={localCost}
                         name="localTransportation"
                         id="localTransportation"
                         description="localTransportationDescription"
@@ -310,6 +340,7 @@ const Estimator = () => {
                         calculateTotal={calculateTotal}
                         updateCost={setLocalCost}/>
                     <EstimatorRow
+                        value={mealCost}
                         name="mealsAndIncidentals"
                         id="mealsAndIncidentals"
                         description="selectMealsToInclude"
@@ -318,6 +349,7 @@ const Estimator = () => {
                         calculateTotal={calculateTotal}
                         updateCost={setMealCost}/>
                     <EstimatorRow
+                        value={otherCost}
                         name="otherAllowances"
                         id="otherAllowances"
                         description="otherDescription"
