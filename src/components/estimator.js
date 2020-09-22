@@ -38,9 +38,6 @@ const Estimator = () => {
         setFilteredCitiesList(list);
     }, []);
 
-    useEffect(() => {
-        calculateTotal()
-    }, [])
 
     // Variables/state for inputs
     const [origin, setOrigin] = useState('');
@@ -48,25 +45,8 @@ const Estimator = () => {
     const [departureDate, setDepartureDate] = useState('');
     const [returnDate, setReturnDate] = useState('');
 
-    const [accommodation, setAccomodation] = useState(['Select accommodation type']);
-    const [transport, setTransport] = useState(['Select mode of transportation']);
-
-    useEffect(() => {
-        let accommodationOptions = Object.keys(accommodations).map(accommodation => {
-            return {
-                label: accommodations[accommodation].label,
-                value: accommodation,
-            }
-        })
-        setAccomodation(accommodationOptions);
-        let transportOptions = Object.keys(transportData).map(transport => {
-            return {
-                label: transportData[transport].label,
-                value: transport,
-            }
-        })
-        setTransport(transportOptions);
-    }, []);
+    const [accommodation, setAccomodation] = useState('hotel');
+    const [transport, setTransport] = useState('flight');
 
     const [validationWarnings, setValidationWarnings] = useState([]);
 
@@ -80,6 +60,24 @@ const Estimator = () => {
     const [mealCost, setMealCost] = useState(0);
     const [otherCost, setOtherCost] = useState(0);
     const [summaryCost, setSummaryCost] = useState(0);
+
+    useEffect(() => {
+        calculateTotal()
+    }, [accommodationCost, transportationCost, localCost, mealCost, otherCost])
+
+    useEffect(() => {
+        if (accommodation === 'hotel') {
+            setAccomodationCost(600)
+            console.log("update to ACRD rates");
+        } else if (accommodation === 'private') {
+            setAccomodationCost(50)
+            console.log("update to private rates");
+        }
+    }, [accommodation, transport])
+
+    const updateMealCost = (newValue) => {
+        setMealCost(newValue)
+    }
 
     // since this function is used in two files, we should import it
     const calculateMeals = (departDate, returnDate, province) => {
@@ -113,7 +111,7 @@ const Estimator = () => {
         }
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit =  async(e) => {
         setLoading(true);
         setGeneralError(false);
         e.preventDefault();
@@ -138,16 +136,13 @@ const Estimator = () => {
                 let mealsAndIncidentals = calculateMeals(departureDate, returnDate, province);
 
                 console.log(mealsAndIncidentals)
-                setMealCost(mealsAndIncidentals.total)
-
-                calculateTotal()
+                updateMealCost(mealsAndIncidentals.total)
 
                 // Calculate number of days 
 
                 // get ACRD rate for destination
 
                 // calculate meals for destination
-
 
                 setLoading(false);
                 setErrorPanel(false);
@@ -208,9 +203,9 @@ const Estimator = () => {
         return list;
     }
 
-    const calculateTotal =() => {
+    const calculateTotal = async () => {
         let total = parseInt(accommodationCost) + parseInt(transportationCost) + parseInt(localCost) + parseInt(mealCost) + parseInt(otherCost);
-        setSummaryCost(total)
+        await setSummaryCost(total)
     }
 
 
@@ -284,17 +279,19 @@ const Estimator = () => {
                                 <div>
                                     {/* <label htmlFor={name}>{label}</label> */}
                                     <div id={`accommodation_container`}>
-                                    <select className="custom-select">
-                                        <option defaultValue>Select accommodation type</option>
-                                        <option value="1">Hotel</option>
-                                        <option value="2">Private Accommodation</option>
+                                    <select
+                                        className="custom-select"
+                                        onChange={e => {setAccomodation(e.target.value)}}
+                                    >
+                                        <option value="hotel" defaultValue={accommodation}>Hotel</option>
+                                        <option value="private">Private Accommodation</option>
                                     </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="col-sm-2 align-self-center">
-                            <input type="text" className="form-control" id={`accommodation_select`} placeholder="0" name={'accommodation'} onChange={(e) => {setAccomodationCost(e.target.value)}} onBlur={calculateTotal}></input>
+                            <input type="text" className="form-control" id={`accommodation_select`} placeholder="0" name={'accommodation'} onChange={(e) => {setAccomodationCost(e.target.value)}} onBlur={calculateTotal} value={accommodationCost}></input>
                         </div>
                         <div className="col-sm-6 align-self-center text-wrap">
                             <FormattedMessage id='accommodationDescription' />
