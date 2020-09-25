@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react"
 import InputDatalist from "./input-datalist.js"
 import DatePicker from "./date-picker.js"
 import mealAllowances from "../data/meals"
-import { DateTime } from "luxon"
+import { DateTime, Interval, Info } from "luxon"
 import * as yup from "yup"
 import monthsContained from "./months-contained.js"
 import { FormattedMessage } from 'react-intl';
@@ -45,7 +45,7 @@ const Estimator = () => {
     const [departureDate, setDepartureDate] = useState('');
     const [returnDate, setReturnDate] = useState('');
 
-    const [accommodation, setAccomodation] = useState('hotel');
+    const [accommodation, setAccomodation] = useState('');
     const [transport, setTransport] = useState('flight');
 
     const [validationWarnings, setValidationWarnings] = useState([]);
@@ -67,10 +67,39 @@ const Estimator = () => {
 
     useEffect(() => {
         if (accommodation === 'hotel') {
-            setAccomodationCost(600)
+
+            let months = monthsContained(departureDate,returnDate);
+            let rates = acrdRates[destination];
+            let acrdRatesFiltered = Object.keys(rates)
+                .filter(key => months.map(mon => mon.month).includes(key))
+                .reduce((res, key) => {
+                    res[key] = rates[key];
+                    return res;
+                }, {});
+
+            try {
+                let rates = rateDaysByMonth(departureDate, returnDate, acrdRatesFiltered)
+                console.log(rates);
+
+                let total = 0;
+
+                for (const month in rates) {
+                    console.log(rates[month].monthTotal)
+                    total = total + rates[month].monthTotal
+                }
+
+                setAccomodationCost(total)
+            } catch (error) {
+                console.log(error);
+            }
+
+
             console.log("update to ACRD rates");
         } else if (accommodation === 'private') {
             setAccomodationCost(50)
+            console.log("update to private rates");
+        } else {
+            setAccomodationCost(0)
             console.log("update to private rates");
         }
     }, [accommodation, transport])
@@ -127,6 +156,46 @@ const Estimator = () => {
         }
     }
 
+    const rateDaysByMonth = (departureDate, returnDate, rates) => {
+        // get all the dates in range
+
+        let dates = Interval.fromDateTimes(
+            departureDate.startOf("day"), 
+            returnDate.endOf("day"))
+            .splitBy({days: 1}).map(d => d.start)
+        
+        // remove the last date, since we won't need accommodation on that day
+
+        dates.pop();
+
+        // get month/year from each date object
+
+        let months = dates.map((date) => {
+            return date.month + '-' + date.year;
+        });
+
+        // count occurrences of each month
+
+        var monthYearCount = months.reduce(function(obj, b) {
+            obj[b] = ++obj[b] || 1;
+            return obj;
+        }, {});
+
+        let result = {}
+
+        for (const monthYear in monthYearCount) {
+            let split = monthYear.split('-');
+            let monthName = Info.months()[split[0] - 1]
+            result[monthYear] = {
+                dayCount: monthYearCount[monthYear],
+                rate: rates[monthName],
+                monthTotal: monthYearCount[monthYear] * rates[monthName],
+            }
+        }
+
+        return result;
+    }
+
     const handleSubmit =  async(e) => {
         setLoading(true);
         setGeneralError(false);
@@ -136,21 +205,17 @@ const Estimator = () => {
                 setValidationWarnings([]);
                 let city = suburbCityList[destination] || destination;
                 let province = city.slice(-2); // This is bad.  We need to change the data structure.
-                let months = monthsContained(departureDate,returnDate);
-                let rates = acrdRates[destination];
-                let acrdRatesFiltered = Object.keys(rates)
-                .filter(key => months.map(mon => mon.month).includes(key))
-                .reduce((res, key) => {
-                    res[key] = rates[key];
-                    return res;
-                }, {});
 
                 let mealsAndIncidentals = calculateMeals(departureDate, returnDate, province);
 
                 console.log(mealsAndIncidentals)
                 updateMealCost(mealsAndIncidentals.total)
 
-                // Calculate number of days 
+                // Calculate number of days
+                console.log('departureDate', departureDate)
+                console.log('returnDate', returnDate)
+
+
 
                 // get ACRD rate for destination
 
@@ -295,6 +360,7 @@ const Estimator = () => {
                                         className="custom-select"
                                         onChange={e => {setAccomodation(e.target.value)}}
                                     >
+                                        <option value="select" defaultValue>Select accommodation type</option>
                                         <option value="hotel" defaultValue={accommodation}>Hotel</option>
                                         <option value="private">Private Accommodation</option>
                                     </select>

@@ -22,11 +22,10 @@ const RatesChecker = () => {
 
     useEffect(() => {
         let list = cities.citiesList.map(city => {
-            return city
-            // return {
-            //     value: city,
-            //     label: city,
-            // }
+            return {
+                value: city,
+                label: city,
+            }
         })
         setFilteredCitiesList(list);
     }, []);
@@ -226,7 +225,7 @@ const RatesChecker = () => {
                             {Object.keys(result.acrdRatesFiltered).map((month) => (
                                 <tr key={month}>
                                     <th scope="row"><FormattedMessage id={month} /></th>
-                                    <td>{result.acrdRatesFiltered[month]}</td>
+                                    <td>${result.acrdRatesFiltered[month]}</td>
                                 </tr>
                             ))}
                             </tbody>
