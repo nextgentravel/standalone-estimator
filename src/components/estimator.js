@@ -46,7 +46,7 @@ const Estimator = () => {
     const [returnDate, setReturnDate] = useState('');
 
     const [accommodation, setAccomodation] = useState('');
-    const [transport, setTransport] = useState('flight');
+    const [transport, setTransport] = useState('');
 
     const [validationWarnings, setValidationWarnings] = useState([]);
 
@@ -96,7 +96,9 @@ const Estimator = () => {
 
             console.log("update to ACRD rates");
         } else if (accommodation === 'private') {
-            setAccomodationCost(50)
+            let rate = (Interval.fromDateTimes(departureDate, returnDate).count('days') - 1) * 50;
+            
+            setAccomodationCost(rate)
             console.log("update to private rates");
         } else {
             setAccomodationCost(0)
@@ -106,16 +108,16 @@ const Estimator = () => {
 
     useEffect(() => {
         if (transport === 'flight') {
-            setTransportationCost(1000)
+            setTransportationCost(987)
             console.log("flight");
         } else if (transport === 'train') {
-            setTransportationCost(500)
+            setTransportationCost(436)
             console.log("train");
         } else if (transport === 'rental') {
-            setTransportationCost(100)
+            setTransportationCost(348)
             console.log("rental");
         } else if (transport === 'private') {
-            setTransportationCost(40)
+            setTransportationCost(203)
             console.log("private");
         }
     }, [transport])
