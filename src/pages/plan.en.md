@@ -1,7 +1,7 @@
 ---
 date: "2019-05-13"
-title: "Plan"
-lead: "Whether you are planning your trip to include in your department's Travel Plan or travelling ad-hoc, follow these steps to plan, estimate and request approval for your trip"
+title: "Plan Travel"
+lead: "Most government travel begins by getting an approval.  This section will provide guidance on putting together a trip estimate for approval and key information to help you plan your trip."
 ---
 <article class="content-left col-xs-12 col-sm-12 col-md-12">
 
@@ -9,26 +9,13 @@ lead: "Whether you are planning your trip to include in your department's Travel
     <div class="row">
         <div class="col-sm-8">
 
-### Create your estimate
+### 1. Get preliminary approval
 
-After deciding to travel, you should start by creating an estimate. The estimate provides an overall approximation of what the total cost of the trip will be to your approver in order to approve your travel request. Estimate the cost of your trip by clicking the Trip Estimator.
+You will need preliminary approval from your Supervisor before you can book your trip.  To get this approval you must create and submit a *Travel Estimate* and have your supervisor approve it.
 
-The following tools are also available to you to perform searches on individual rate amounts:
-- [Total for meals and incidentals](/en/rates/)
-- [Accomodation (City Limit) Rates](/en/rates/)
-- [Rates for Private Motor Vehicle (Kilometrics)](/en/kilometrics)
+Our **Trip Estimator** will help you create an estimate and send it to your supervisor.
 
-Refer to Part III - Travel Modules of the [NJC Travel Directive](https://www.njc-cnm.gc.ca/directive/d10/v238/en) for items to consider as part of your estimate.
-
-
-#### Getting preliminary approval
-
-Once you’ve created your estimate, submit to your approver who is usually a senior manager. You can identify your approver by speaking with your supervisor or referring to your organizational chart.
-
-Your approver will review your travel proposal and sign off. Let them know when your trip is, and how urgent your request is. Ensure that you give the approver enough time to approve your trip before your travel date. Between 3 to 4 weeks should be a sufficient time frame.
-
-Once you’ve gotten your approval, you may go ahead and book your trip.
-        </div>
+**Note:** Allow 3-4 weeks for your Supervisor to approve your estimate.  For urgent travel, contact your Supervisor directly and inform themt when you're submitting your estimate for approval.</div>
         <div class="col-sm-4">
             <p class="text-center"><a href="https://gc-travel-estimator.herokuapp.com/"  class="btn btn-primary my-4 px-4" target="_blank">Trip Estimator</a></p>
         </div>
@@ -40,21 +27,47 @@ Once you’ve gotten your approval, you may go ahead and book your trip.
     <div class="row">
         <div class="col-sm-8">
 
-### Items to get ready
-Some items you may want to have ready are:
-- a driver's license
-- transportation tickets (with a paper backup)
-- personal identification
-- personal credit card
-- personal health card
-- Individual Designated Travel Card (IDTC)
-​
+### 2. Get things ready
 
-**Individual Designated Travel Cards** are government issued credit cards that offer a variety of perks from insurance, to extending your interest free payment window. To find out more about what an IDTC can do for you, please visit the [IDTC knowledge base page](/en/knowledgebase/idtc).
+Before you can book your trip, make sure you have the following items ready:
+
+1. Valid personal identification (e.g. passort, drivers licence)
+2. Credit card
+3. Health card
+
+**Would you prefer to pay using a government credit card?**
+
+​
+You can apply for an *Individual Designated Travel Card (ITDC)*, commonly referred to as a Government Card.  ITDC offers a variety of perks from insurance to extending your interest free payment window.  To find out more about what an IDTC can do for you, please visit the [*IDTC knowledge base page*](/en/knowledgebase/idtc).
 ​
 
 **Tip:** schedule up to 6 weeks in advance if signing up for these cards in order to receive them in time to travel.
         </div>
+        <div class="col-sm-4">
+            <!-- <p class="text-center">
+                <a href="/en/book"  class="btn btn-primary my-4 px-4" target="_blank">Trip Estimator</a>
+            </p> -->
+        </div>
+    </div>
+</div>
+
+<div class="card p-4 my-4 bg-light">
+    <div class="row">
+        <div class="col-sm-8">
+
+### FAQ
+
+**1. How should I choose between transportation options?**
+
+The Government of Canada mandates that you take the most economical means of travel. Depending on your destination and distance to travel, you may choose between air, rail, or car for your trip. 
+
+**2. Can I use my own vehicle for business travel?**
+
+Yes.  Our [*Trip Estimator*](https://gc-travel-estimator.herokuapp.com/) will help you calculate the estimated amount you can expense based on the estimated kilometers you will travel.
+
+**3. Can I stay at an Airbnb instead of a hotel?**
+
+Yes.  Our [*Trip Estimator*](https://gc-travel-estimator.herokuapp.com/) will help you calculate the estimated amount you can expense based on existing city limit rates.</div>
         <div class="col-sm-4">
             <!-- <p class="text-center">
                 <a href="/en/book"  class="btn btn-primary my-4 px-4" target="_blank">Trip Estimator</a>
