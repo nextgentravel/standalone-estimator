@@ -8,6 +8,90 @@ import {FaArrowAltCircleUp} from 'react-icons/fa';
 import {FormattedMessage} from 'react-intl';
 
 const BookingPage = () => {
+  let faqInitialState = [
+    {
+      question: 'What happens if the cost of my trip exceeds my previously approved trip estimate?',
+      answer: (
+        <React.Fragment>
+          Depending on your departments set allowances, budget, and your supervisor's discretion, your trip may be booked as expected. Otherwise you may have to re-book.
+        </React.Fragment>
+      ),
+      order: 0,
+      collapsed: true,
+    },
+    {
+      question: 'Can I book transportation or accomodation outside of HRG?',
+      answer: (
+        <React.Fragment>
+          No. You must book transporation or accomodation within the HRG system or by contacting HRG directly.
+
+          As an exception, you must book train tickets and car rentals outside of HRG for international travel.
+        </React.Fragment>
+      ),
+      order: 1,
+      collapsed: true,
+    },
+    {
+      question: 'Can I book a hotel which falls outside of policy?',
+      answer: (
+        <React.Fragment>
+          Yes. It is possible to book a hotel which is above your city rate limit, as there are many external factors which could contribute to an increased hotel cost. In these cases, a short justification for exceeding the city rate limit is needed to get your hotel choice approved.
+        </React.Fragment>
+      ),
+      order: 2,
+      collapsed: true,
+    },
+    {
+      question: 'Are ACRD car rental rates applicable for internationanl travel?',
+      answer: (
+        <React.Fragment>
+          No. ACRD car rental rates are only applicable to domestic travel.
+        </React.Fragment>
+      ),
+      order: 3,
+      collapsed: true,
+    },
+    {
+      question: 'Can I get reimbursed for staying in private accomodations?',
+      answer: (
+        <React.Fragment>
+          Yes. If you chose to book private accommodations instead, please include this in the Expense Management Tool as an Out-of-Pocket expense. Do keep in mind that private accommodations are still subject to
+          {' '}
+          <a href="https://www.njc-cnm.gc.ca/directive/d10/v238/en">
+            NJC policy under Appendix D
+          </a>
+          .
+        </React.Fragment>
+      ),
+      order: 4,
+      collapsed: true,
+    },
+    {
+      question: 'What kind of out-of-pocket expenses can I can claim?',
+      answer: (
+        <React.Fragment>
+          For more information related to specific out-of-pocket expenses, please refer to Part III - Travel Modules of the
+          {' '}
+          <a href="https://www.njc-cnm.gc.ca/directive/d10/v238/en">
+            NJC Travel Directive
+          </a>
+          .
+        </React.Fragment>
+      ),
+      order: 5,
+      collapsed: true,
+    },
+    {
+      question: 'Do I need to submit my travel request in HRG even if I am not booking any services through this platform?',
+      answer: (
+        <React.Fragment>
+          Yes. For example if you are using your own car and staying in private accommodations you would still need to submit your travel request.
+        </React.Fragment>
+      ),
+      order: 6,
+      collapsed: true,
+    },
+  ];
   let contentItemsInitialState = [
     {
       name: 'startTravelRequest',
@@ -57,10 +141,10 @@ const BookingPage = () => {
       ),
       sideBar: (
         <React.Fragment>
-          <p class="text-center">
+          <p className="text-center">
             <a
               href="https://isuite6.hrgworldwide.com/gcportal/en-ca/sts.aspx"
-              class="btn btn-primary my-4 px-4"
+              className="btn btn-primary my-4 px-4"
               target="_blank"
             >
               Login to HRG
@@ -423,7 +507,7 @@ const BookingPage = () => {
   ];
 
   let [contentItems, setContentItems] = useState (contentItemsInitialState);
-
+  let [faqItems, setFaqItems] = useState (faqInitialState);
   const [flightChecked, setFlightChecked] = useState (false);
   const handleFlightClick = () => setFlightChecked (!flightChecked);
 
@@ -434,11 +518,11 @@ const BookingPage = () => {
   const handleRentalCarClick = () => setRentalCarChecked (!rentalCarChecked);
 
   const [
-    notApplicableTransitChecked,
-    setNotApplicableTransitChecked,
+    privateVehicleChecked,
+    setPrivateVehicleChecked,
   ] = useState (false);
-  const handleNotApplicableTransitClick = () =>
-    setNotApplicableTransitChecked (!notApplicableTransitChecked);
+  const handlePrivateVehicleClick = () =>
+    setPrivateVehicleChecked (!privateVehicleChecked);
 
   const [hotelChecked, setHotelChecked] = useState (false);
   const handleHotelClick = () => setHotelChecked (!hotelChecked);
@@ -451,37 +535,60 @@ const BookingPage = () => {
     setPrivateAccommodationChecked (!privateAccommodationChecked);
 
   const [
-    notApplicableAccommodationChecked,
-    setNotApplicableAccommodationChecked,
+    accommodationNotRequiredChecked,
+    setAccommodationNotRequiredChecked,
   ] = useState (false);
-  const handleNotApplicableAccommodationClick = () => {
-    setNotApplicableAccommodationChecked (!notApplicableAccommodationChecked);
-    setPrivateAccommodationChecked(false)
-    setHotelChecked(false)
-  }
+  const handleAccommodationNotRequiredClick = () => {
+    setAccommodationNotRequiredChecked (!accommodationNotRequiredChecked);
+    setPrivateAccommodationChecked (false);
+    setHotelChecked (false);
+  };
 
   useEffect (
     () => {
-      const filterContent = (item) => {
+      const filterContent = item => {
         return (
-          ((flightChecked || rentalCarChecked || notApplicableTransitChecked || trainChecked || hotelChecked || privateAccommodationChecked || notApplicableAccommodationChecked) && item.display.includes ('always')) ||
+          ((flightChecked ||
+            rentalCarChecked ||
+            privateVehicleChecked ||
+            trainChecked ||
+            hotelChecked ||
+            privateAccommodationChecked ||
+            accommodationNotRequiredChecked) &&
+            item.display.includes ('always')) ||
           (flightChecked ? item.display.includes ('flight') : false) ||
           (rentalCarChecked ? item.display.includes ('rentalCar') : false) ||
           (trainChecked ? item.display.includes ('train') : false) ||
           (hotelChecked ? item.display.includes ('hotel') : false) ||
-          (privateAccommodationChecked ? item.display.includes ('privateAccommodation') : false)
-        )
+          (privateAccommodationChecked
+            ? item.display.includes ('privateAccommodation')
+            : false)
+        );
       };
       let filtered = contentItemsInitialState.filter (filterContent);
       setContentItems (filtered);
     },
-    [flightChecked, rentalCarChecked, notApplicableTransitChecked, trainChecked, hotelChecked, privateAccommodationChecked, notApplicableAccommodationChecked]
+    [
+      flightChecked,
+      rentalCarChecked,
+      privateVehicleChecked,
+      trainChecked,
+      hotelChecked,
+      privateAccommodationChecked,
+      accommodationNotRequiredChecked,
+    ]
   );
 
   const toggleAccordian = index => {
     let newArr = [...contentItems];
     newArr[index].collapsed = !contentItems[index].collapsed;
     setContentItems (newArr);
+  };
+
+  const toggleFaqAccordian = index => {
+    let newArr = [...faqItems];
+    newArr[index].collapsed = !faqItems[index].collapsed;
+    setFaqItems (newArr);
   };
 
   return (
@@ -559,15 +666,15 @@ const BookingPage = () => {
                   className="form-check-input"
                   type="checkbox"
                   value=""
-                  id="notApplicableTransitCheck"
-                  onClick={handleNotApplicableTransitClick}
-                  checked={notApplicableTransitChecked}
+                  id="privateVehicleCheck"
+                  onClick={handlePrivateVehicleClick}
+                  checked={privateVehicleChecked}
                 />
                 <label
                   className="form-check-label"
-                  for="notApplicableTransitCheck"
+                  for="privateVehicleCheck"
                 >
-                  Not Applicable
+                  Private Vehicle
                 </label>
               </div>
               <h4>Where will you stay?</h4>
@@ -605,176 +712,131 @@ const BookingPage = () => {
                   className="form-check-input"
                   type="checkbox"
                   value=""
-                  id="notApplicableAccommodationCheck"
-                  onClick={handleNotApplicableAccommodationClick}
-                  checked={notApplicableAccommodationChecked}
+                  id="accommodationNotRequiredCheck"
+                  onClick={handleAccommodationNotRequiredClick}
+                  checked={accommodationNotRequiredChecked}
                 />
                 <label
                   className="form-check-label"
-                  for="notApplicableAccommodationCheck"
+                  for="accommodationNotRequiredCheck"
                 >
-                  Not Applicable
+                  Not Required
                 </label>
               </div>
-              <div className="row">
-                <article class="content-left col-xs-12 col-sm-12 col-md-12">
+              <div className="row mt-5">
+                <article className="content-left col-xs-12 col-sm-12 col-md-12">
                   {contentItems.length === 0 &&
-                      <div class="card px-4 pt-4 pb-3 my-4 bg-light">
-                      <div class="row">
-                        <div class="col-sm-12">
+                    <div className="card px-4 pt-4 pb-3 my-4 bg-light">
+                      <div className="row">
+                        <div className="col-sm-12">
                           <p className="lead">
-                              <FaArrowAltCircleUp className="text-secondary mr-3" />Select travel options to view booking instructions</p>
-                        </div>
-                      </div>
-                    </div>
-                  }
-                  {contentItems.length > 0 && contentItems.map ((item, index) => {
-                    if (!item.display) return;
-                    return (
-                      <div class="card px-4 pt-4 pb-3 my-4 bg-light">
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <h3>
-                              <span className="text-secondary pr-3">
-                                Step {index + 1}
-                              </span>
-                              {item.header}
-                            </h3>
-                            {item.collapsed &&
-                              <FaCaretDown
-                                style={{
-                                  position: 'absolute',
-                                  right: 15,
-                                  top: 10,
-                                }}
-                                onClick={() => toggleAccordian (index)}
-                              />}
-                            {!item.collapsed &&
-                              <FaCaretUp
-                                style={{
-                                  position: 'absolute',
-                                  right: 15,
-                                  top: 10,
-                                }}
-                                onClick={() => toggleAccordian (index)}
-                              />}
-                          </div>
-                          {!item.collapsed &&
-                            <React.Fragment>
-                              <div class="col-sm-8">
-                                {item.content}
-                              </div>
-                              <div class="col-sm-4">
-                                {item.sideBar}
-                              </div>
-                            </React.Fragment>}
-                          {item.collapsed &&
-                            <React.Fragment>
-                              <div class="col-sm-12" />
-                            </React.Fragment>}
-                        </div>
-                      </div>
-                    );
-                  })}
-
-                  <div class="card p-4 my-4 bg-light">
-                    <div class="row">
-                      <div class="col-sm-8">
-
-                        <h3>Frequently Asked Questions</h3>
-
-                        <p>
-                          <strong>
-                            1. What happens if the cost of my trip exceeds my previously approved trip estimate?
-                          </strong>
-                        </p>
-
-                        <p>
-                          <p>
-                            <strong>
-                              2. Can I book transportation or accomodation outside of HRG?
-                            </strong>
+                            <FaArrowAltCircleUp className="text-secondary mr-3" />
+                            Select travel options to view booking instructions
                           </p>
-                        </p>
-
-                        <p>
-                          No.  You must book transporation or accomodation within the HRG system or by contacting HRG directly.
-                        </p>
-
-                        <p>
-                          As an exception, you must book train tickets and car rentals outside of HRG for international travel.
-                          {' '}
-                        </p>
-
-                        <p>
-                          <strong>
-                            3. Can I book a hotel which falls outside of policy?
-                          </strong>
-                        </p>
-
-                        <p>
-                          Yes.  It is possible to book a hotel which is above your city rate limit, as there are many external factors which could contribute to an increased hotel cost. In these cases, a justification for exceeding the city rate limit is needed to get your hotel choice approved.
-                        </p>
-
-                        <p>
-                          <strong>
-                            4. Are ACRD car rental rates applicable for internationanl travel?
-                          </strong>
-                        </p>
-
-                        <p>
-                          No.  ACRD car rental rates are only applicable to domestic travel.
-                        </p>
-
-                        <p>
-                          <strong>
-                            5. Can I get reimbursed for staying in private accomodations?
-                          </strong>
-                        </p>
-
-                        <p>
-                          Yes.  If you chose to book private accommodations instead, please include this in the Expense Management Tool as an Out-of-Pocket expense. Do keep in mind that private accommodations are still subject to
-                          {' '}
-                          <a href="https://www.njc-cnm.gc.ca/directive/app_d/en">
-                            NJC policy under Appendix D
-                          </a>
-                          .
-                        </p>
-
-                        <p>
-                          <strong>
-                            6. What kind of out-of-pocket expenses can I can claim?
-                          </strong>
-                        </p>
-
-                        <p>
-                          For more information related to specific out-of-pocket expenses, please refer to Part III - Travel Modules of the
-                          {' '}
-                          <a href="https://www.njc-cnm.gc.ca/directive/d10/v238/en">
-                            NJC Travel Directive
-                          </a>
-                          .
-                        </p>
-
-                        <p>
-                          <strong>
-                            7. Do I need to submit my travel request in HRG even if I am not booking any services through this platform?
-                          </strong>
-                        </p>
-
-                        <p>
-                          Yes.  For example if you are using your own car and staying in private accommodations you would still need to submit your travel request.
-                        </p>
-
+                        </div>
                       </div>
-                      <div class="col-sm-4" />
-                    </div>
-                  </div>
+                    </div>}
+                  {contentItems.length > 0 &&
+                    contentItems.map ((item, index) => {
+                      if (!item.display) return;
+                      return (
+                        <div
+                          className="card px-4 pt-4 pb-3 my-4 bg-light"
+                          onClick={() => toggleAccordian (index)}
+                        >
+                          <div className="row">
+                            <div className="col-sm-12">
+                              <h3>
+                                <span className="text-secondary pr-3">
+                                  Step {index + 1}
+                                </span>
+                                {item.header}
+                              </h3>
+                              {item.collapsed &&
+                                <FaCaretDown
+                                  style={{
+                                    position: 'absolute',
+                                    right: 15,
+                                    top: 10,
+                                  }}
+                                />}
+                              {!item.collapsed &&
+                                <FaCaretUp
+                                  style={{
+                                    position: 'absolute',
+                                    right: 15,
+                                    top: 10,
+                                  }}
+                                  // onClick={() => toggleAccordian (index)}
+                                />}
+                            </div>
+                            {!item.collapsed &&
+                              <React.Fragment>
+                                <div className="col-sm-8">
+                                  {item.content}
+                                </div>
+                                <div className="col-sm-4">
+                                  {item.sideBar}
+                                </div>
+                              </React.Fragment>}
+                            {item.collapsed &&
+                              <React.Fragment>
+                                <div className="col-sm-12" />
+                              </React.Fragment>}
+                          </div>
+                        </div>
+                      );
+                    })}
+                    <h3 className="pt-5">Frequently Asked Questions</h3>
+                    {faqItems.length > 0 &&
+                    faqItems.map ((item, index) => {
+                      return (
+                        <div
+                          className="card px-4 pt-4 pb-3 my-4"
+                          onClick={() => toggleFaqAccordian (index)}
+                        >
+                          <div className="row">
+                            <div className="col-sm-12">
+                              <p className="lead mb-1">
+                                {item.question}
+                              </p>
+                              {item.collapsed &&
+                                <FaCaretDown
+                                  style={{
+                                    position: 'absolute',
+                                    right: 15,
+                                    top: 10,
+                                  }}
+                                />}
+                              {!item.collapsed &&
+                                <FaCaretUp
+                                  style={{
+                                    position: 'absolute',
+                                    right: 15,
+                                    top: 10,
+                                  }}
+                                />}
+                            </div>
+                            {!item.collapsed &&
+                              <React.Fragment>
+                                <div className="col-sm-12 mt-2">
+                                  {item.answer}
+                                </div>
+                              </React.Fragment>}
+                            {item.collapsed &&
+                              <React.Fragment>
+                                <div className="col-sm-12" />
+                              </React.Fragment>}
+                          </div>
+                        </div>
+                      );
+                    })}
 
-                  <p class="text-center">
+
+                  <p className="text-center">
                     <a
                       href="/en/travel"
-                      class="btn btn-outline-primary my-4 px-4"
+                      className="btn btn-outline-primary my-4 px-4"
                     >
                       Continue to Travel
                     </a>
