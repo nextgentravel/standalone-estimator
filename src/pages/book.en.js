@@ -741,7 +741,7 @@ const BookingPage = () => {
                       if (!item.display) return;
                       return (
                         <div
-                          className="card px-4 pt-4 pb-3 my-4 bg-light"
+                          className={`card px-4 pt-4 pb-3 my-4 ${item.collapsed ? 'bg-light': ''}`}
                           onClick={() => toggleAccordian (index)}
                         >
                           <div className="row">
