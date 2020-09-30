@@ -525,14 +525,22 @@ const BookingPage = () => {
     setPrivateVehicleChecked (!privateVehicleChecked);
 
   const [hotelChecked, setHotelChecked] = useState (false);
-  const handleHotelClick = () => setHotelChecked (!hotelChecked);
+  const handleHotelClick = () => {
+    setHotelChecked (!hotelChecked);
+    setPrivateAccommodationChecked (false);
+    setAccommodationNotRequiredChecked (false);
+  }
 
   const [
     privateAccommodationChecked,
     setPrivateAccommodationChecked,
   ] = useState (false);
-  const handlePrivateAccommodationClick = () =>
+  const handlePrivateAccommodationClick = () => {
     setPrivateAccommodationChecked (!privateAccommodationChecked);
+    setAccommodationNotRequiredChecked (false);
+    setHotelChecked (false);
+  }
+    
 
   const [
     accommodationNotRequiredChecked,
@@ -746,7 +754,7 @@ const BookingPage = () => {
                         >
                           <div className="row">
                             <div className="col-sm-12">
-                              <h3>
+                              <h3 className={`${!item.collapsed ? 'pb-3' : ''}`}>
                                 <span className="text-secondary pr-3">
                                   Step {index + 1}
                                 </span>
