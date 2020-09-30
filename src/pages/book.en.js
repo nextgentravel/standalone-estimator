@@ -6,8 +6,10 @@ import {FaCaretDown} from 'react-icons/fa';
 import {FaCaretUp} from 'react-icons/fa';
 import {FaArrowAltCircleUp} from 'react-icons/fa';
 import {FormattedMessage} from 'react-intl';
+import { navigate } from "gatsby"
 
 const BookingPage = () => {
+  const jumpToLinks = [{ label: 'Plan Travel', link: '/en/plan' }, { label: 'During Travel', link: '/en/travel' }, { label: 'Submit Expenses', link: '/en/expense' }]
   let faqInitialState = [
     {
       question: 'What happens if the cost of my trip exceeds my previously approved trip estimate?',
@@ -599,6 +601,14 @@ const BookingPage = () => {
     setFaqItems (newArr);
   };
 
+  const jumpTo = (e) => {
+    navigate(
+      e.target.value,
+      { replace: true }
+    )
+  }
+
+
   return (
     <Layout>
       <SEO title="Book Travel" />
@@ -617,7 +627,21 @@ const BookingPage = () => {
                     <FormattedMessage id="skipToSide" />
                   </a>
                 </nav>
-                <h2 className="display-5">Book Travel</h2>
+                <div className="row mb-4">
+                  <div className="col-sm-8"><h2 className="display-5">Book Travel</h2></div>
+                  <div className="col-sm-2 ml-auto">
+                    <div class="form-group">
+                      <select onChange={jumpTo} class="custom-select text-secondary align-middle">
+                        <option value="">Jump to...</option>
+                        {jumpToLinks.map((item) => {
+                          return (
+                            <option value={`${item.link}`}>{item.label}</option>
+                          )
+                        })}
+                      </select>
+                    </div>
+                  </div>
+                </div>
                 <p className="lead">
                   At this stage you have a
                   {' '}
