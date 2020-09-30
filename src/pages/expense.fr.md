@@ -1,5 +1,6 @@
 ---
-date: "2019-05-13"
+jumpTo: [{ label: 'Plan Travel', link: 'plan' }, { label: 'Book Travel', link: 'book' }, { label: 'During Travel', link: 'travel' }, { label: 'Expense Travel', link: 'expense' }]
+date:  "2019-05-13"
 title: "Dépenses"
 lead: "Assurer le remboursement dans les délais"
 ---

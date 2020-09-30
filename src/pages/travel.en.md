@@ -1,5 +1,6 @@
 ---
-date: "2019-05-13"
+jumpTo: [{ label: 'Plan Travel', link: 'plan' }, { label: 'Book Travel', link: 'book' }, { label: 'During Travel', link: 'travel' }, { label: 'Expense Travel', link: 'expense' }]
+date:  "2019-05-13"
 title: "During Travel"
 lead: "During travel the key things to remember are to keep a copy of your receipts and keep your documents safe and with you at all times.  In case of an unexpected emergency or if you need travel related information, please contact HRG travel specialists via the information provided on this page."
 ---
