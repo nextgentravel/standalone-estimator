@@ -1,5 +1,5 @@
 ---
-jumpTo: [{ label: 'Plan Travel', link: 'plan' }, { label: 'Book Travel', link: 'book' }, { label: 'During Travel', link: 'travel' }, { label: 'Expense Travel', link: 'expense' }]
+jumpTo: [{ label: 'Plan Travel', link: 'plan' }, { label: 'Book Travel', link: 'book' }, { label: 'During Travel', link: 'travel' }, { label: 'Submit Expenses', link: 'expense' }]
 date:  "2019-05-04"
 title: "First time travelers"
 lead: "To make government travel a friendly experience here's a few things you can do before planning your first trip."
