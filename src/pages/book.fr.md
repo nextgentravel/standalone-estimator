@@ -1,5 +1,6 @@
 ---
-date: "2019-05-04"
+jumpTo: [{ label: 'Book', link: 'book' }]
+date:  "2019-05-04"
 title: "Book"
 lead: "Les étapes décrites ici fournissent des conseils sur la façon de réserver votre voyage une fois que vous avez obtenu l'approbation. Ce guide ne prend en charge que les départements qui utilisent actuellement HRG pour réserver des voyages. Nous avons également inclus d'autres sites Web gouvernementaux pour la réservation de transports et d'hébergement qui ne peuvent pas être réservés sur HRG."
 tags: { 'hotel': ['lodging', 'sleep'] }
