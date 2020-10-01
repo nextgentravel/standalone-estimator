@@ -12,7 +12,6 @@ const ToolPanel = () => {
     return (
         <div className="d-flex justify-content-center">
             <ToolPanelItem title="estimator" icon={<FaCalculator size="40" />} linkTo={`${homeLink}estimator`} />
-            <ToolPanelItem title="newUser" icon={<MdFiberNew size="40" />} linkTo={`${homeLink}newuser`} />
             <ToolPanelItem title="rates" icon={<FaMapMarker size="40" />} linkTo={`${homeLink}rates`} />
             <ToolPanelItem title="kilometrics" icon={<FaCar size="40" />} linkTo={`${homeLink}kilometrics`} />
         </div>
