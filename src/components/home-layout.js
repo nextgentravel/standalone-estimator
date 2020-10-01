@@ -56,7 +56,9 @@ const HomeLayout = () => {
               +1 613-822-3873 (Other countries)</p>
 
               <p><strong>TTY</strong><br />
-              1-866-857-3578 (Canada & U.S.)</p>
+              1-855-462-8870 (Canada & U.S.)
+              1-704-417-5877 (collect call from other countries)
+              </p>
 
               <p><strong>Email</strong><br />
               <a href="mailto:travel.gc@hrgworldwide.com">travel.gc@hrgworldwide.com</a></p>
