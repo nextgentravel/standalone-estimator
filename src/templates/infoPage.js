@@ -34,8 +34,8 @@ export default ({ data }) => {
             <div className="row mb-4">
               <div className="col-sm-8"><h2 className="display-5">{post.frontmatter.title}</h2></div>
               {post.frontmatter.jumpTo && <div className="col-sm-2 ml-auto">
-                <div class="form-group">
-                  <select onChange={jumpTo} class="custom-select text-secondary align-middle">
+                <div className="form-group">
+                  <select onChange={jumpTo} className="custom-select text-secondary align-middle">
                     <option value="">Jump to...</option>
                     {post.frontmatter.jumpTo.map((item) => {
                       return (

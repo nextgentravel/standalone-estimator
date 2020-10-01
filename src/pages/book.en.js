@@ -633,12 +633,12 @@ const BookingPage = () => {
                 <div className="row mb-4">
                   <div className="col-sm-8"><h2 className="display-5">Book Trip</h2></div>
                   <div className="col-sm-2 ml-auto">
-                    <div class="form-group">
-                      <select onChange={jumpTo} class="custom-select text-secondary align-middle">
+                    <div className="form-group">
+                      <select onChange={jumpTo} className="custom-select text-secondary align-middle">
                         <option value="">Jump to...</option>
-                        {jumpToLinks.map((item) => {
+                        {jumpToLinks.map((item, index) => {
                           return (
-                            <option value={`${item.link}`}>{item.label}</option>
+                            <option key={index} value={`${item.link}`}>{item.label}</option>
                           )
                         })}
                       </select>
@@ -656,24 +656,25 @@ const BookingPage = () => {
             </div>
 
             <div className="container mt-4">
+              <p className="lead font-weight-bold">Select travel options to view instructions:</p>
               <p className="mb-2 lead"><FaBed className="mr-2" size="25" fill="#9E9E9E" /> Accommodation</p>
               <button
                 type="button"
-                class={`btn ${privateAccommodationChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
+                className={`btn ${privateAccommodationChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
                 onClick={handlePrivateAccommodationClick}
               >
                   Private Accommodation
               </button>
               <button
                 type="button"
-                class={`btn ${hotelChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
+                className={`btn ${hotelChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
                 onClick={handleHotelClick}
               >
                   Hotel
               </button>
               <button
                 type="button"
-                class={`btn ${accommodationNotRequiredChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
+                className={`btn ${accommodationNotRequiredChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
                 onClick={handleAccommodationNotRequiredClick}
               >
                   Not Required
@@ -682,28 +683,28 @@ const BookingPage = () => {
               <p className="mb-2 mt-4 lead"><FaPlaneDeparture className="mr-2" size="25" fill="#9E9E9E" /> Transportation</p>
               <button
                 type="button"
-                class={`btn ${flightChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
+                className={`btn ${flightChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
                 onClick={handleFlightClick}
               >
                   Flight
               </button>
               <button
                 type="button"
-                class={`btn ${trainChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
+                className={`btn ${trainChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
                 onClick={handleTrainClick}
               >
                   Train
               </button>
               <button
                 type="button"
-                class={`btn ${rentalCarChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
+                className={`btn ${rentalCarChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
                 onClick={handleRentalCarClick}
               >
                   Rental Car
               </button>
               <button
                 type="button"
-                class={`btn ${privateVehicleChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
+                className={`btn ${privateVehicleChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
                 onClick={handlePrivateVehicleClick}
               >
                   Private Vehicle
@@ -729,6 +730,7 @@ const BookingPage = () => {
                         <div
                           className={`card px-4 pt-4 pb-3 my-4 ${item.collapsed ? 'bg-light': ''}`}
                           onClick={() => toggleAccordian (index)}
+                          key={index}
                         >
                           <div className="row">
                             <div className="col-sm-12">
@@ -780,6 +782,7 @@ const BookingPage = () => {
                         <div
                           className="card px-4 pt-4 pb-3 my-4"
                           onClick={() => toggleFaqAccordian (index)}
+                          key={index}
                         >
                           <div className="row">
                             <div className="col-sm-12">
