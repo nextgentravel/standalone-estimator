@@ -65,34 +65,38 @@ const Estimator = () => {
         calculateTotal()
     }, [accommodationCost, transportationCost, localCost, mealCost, otherCost])
 
+    const fetchHotelCost = () => {
+        let months = monthsContained(departureDate,returnDate);
+        let rates = acrdRates[destination];
+        let acrdRatesFiltered = Object.keys(rates)
+            .filter(key => months.map(mon => mon.month).includes(key))
+            .reduce((res, key) => {
+                res[key] = rates[key];
+                return res;
+            }, {});
+
+        try {
+            let rates = rateDaysByMonth(departureDate, returnDate, acrdRatesFiltered)
+            console.log(rates);
+
+            let total = 0;
+
+            for (const month in rates) {
+                console.log(rates[month].monthTotal)
+                total = total + rates[month].monthTotal
+            }
+
+            setAccomodationCost(total)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     useEffect(() => {
         if (accommodation === 'hotel') {
 
-            let months = monthsContained(departureDate,returnDate);
-            let rates = acrdRates[destination];
-            let acrdRatesFiltered = Object.keys(rates)
-                .filter(key => months.map(mon => mon.month).includes(key))
-                .reduce((res, key) => {
-                    res[key] = rates[key];
-                    return res;
-                }, {});
 
-            try {
-                let rates = rateDaysByMonth(departureDate, returnDate, acrdRatesFiltered)
-                console.log(rates);
-
-                let total = 0;
-
-                for (const month in rates) {
-                    console.log(rates[month].monthTotal)
-                    total = total + rates[month].monthTotal
-                }
-
-                setAccomodationCost(total)
-            } catch (error) {
-                console.log(error);
-            }
-
+            fetchHotelCost()
 
             console.log("update to ACRD rates");
         } else if (accommodation === 'private') {
@@ -106,9 +110,13 @@ const Estimator = () => {
         }
     }, [accommodation, transport])
 
+    const fetchFlightCost = () => {
+        setTransportationCost(987);
+    }
+
     useEffect(() => {
         if (transport === 'flight') {
-            setTransportationCost(987)
+            fetchFlightCost()
             console.log("flight");
         } else if (transport === 'train') {
             setTransportationCost(436)
@@ -210,9 +218,9 @@ const Estimator = () => {
 
                 let mealsAndIncidentals = calculateMeals(departureDate, returnDate, province);
 
-                console.log(mealsAndIncidentals)
                 updateMealCost(mealsAndIncidentals.total)
-
+                fetchFlightCost()
+                fetchHotelCost()
                 // Calculate number of days
                 console.log('departureDate', departureDate)
                 console.log('returnDate', returnDate)
@@ -362,8 +370,7 @@ const Estimator = () => {
                                         className="custom-select"
                                         onChange={e => {setAccomodation(e.target.value)}}
                                     >
-                                        <option value="select" defaultValue>Select accommodation type</option>
-                                        <option value="hotel" defaultValue={accommodation}>Hotel</option>
+                                        <option value="hotel">Hotel</option>
                                         <option value="private">Private Accommodation</option>
                                     </select>
                                     </div>
@@ -389,7 +396,7 @@ const Estimator = () => {
 
                     <div className="row mb-4">
                         <div className="col-sm-12 mb-2">
-                            <div><FaBed className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="transportation" /></div>
+                            <div><FaPlane className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="transportation" /></div>
                         </div>
                         <div className="col-sm-4 align-self-center">
                             <div className="align-self-center">
@@ -400,8 +407,7 @@ const Estimator = () => {
                                         className="custom-select"
                                         onChange={e => {setTransport(e.target.value)}}
                                     >
-                                        <option defaultValue>Select transportation type</option>
-                                        <option value="flight">Flight</option>
+                                        <option value="flight" >Flight</option>
                                         <option value="train">Train</option>
                                         <option value="rental">Rental Car</option>
                                         <option value="private">Private Vehicle</option>
@@ -459,7 +465,7 @@ const Estimator = () => {
                     <div className="row mb-4">
                         <div className="col-sm-6 align-self-center text-right">
                             <hr />
-                            <strong className="mr-2"><FormattedMessage id="totalCost" /></strong>{`${summaryCost}`}
+                            <strong className="mr-2"><FormattedMessage id="totalCost" /></strong>{`$${summaryCost}`}
                         </div>
                         <div className="col-sm-6 align-self-center text-wrap">
                         </div>
