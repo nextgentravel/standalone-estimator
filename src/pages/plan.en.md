@@ -1,5 +1,5 @@
 ---
-jumpTo: [{ label: 'Book Travel', link: 'book' }, { label: 'During Travel', link: 'travel' }, { label: 'Submit Expenses', link: 'expense' }]
+jumpTo: [{ label: 'Book Trip', link: 'book' }, { label: 'During Travel', link: 'travel' }, { label: 'Expense Claims', link: 'expense' }]
 date:  "2019-05-13"
 title: "Plan Travel"
 lead: "Most government travel begins by getting an approval.  This section will provide guidance on putting together a trip estimate for approval and key information to help you plan your trip."
@@ -78,7 +78,7 @@ Yes.  Our [*Trip Estimator*](https://gc-travel-estimator.herokuapp.com/) will he
 </div>
 
 <p class="text-center">
-    <a href="/en/book" class="btn btn-primary my-4 px-4">View Book Travel</a>
+    <a href="/en/book" class="btn btn-primary my-4 px-4">View Book Trip</a>
 </p>
 
 </article>

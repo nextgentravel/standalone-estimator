@@ -1,7 +1,7 @@
 ---
-jumpTo: [{ label: 'Plan Travel', link: 'plan' }, { label: 'Book Travel', link: 'book' }, { label: 'During Travel', link: 'travel' }]
+jumpTo: [{ label: 'Plan Travel', link: 'plan' }, { label: 'Book Trip', link: 'book' }, { label: 'During Travel', link: 'travel' }]
 date:  "2019-05-13"
-title: "Submit Expenses"
+title: "Expense Claims"
 lead: "Once your travel is complete you will need to complete a few steps to correctly submit an expense report and get reimbursed."
 ---
 

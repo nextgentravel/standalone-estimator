@@ -1,5 +1,5 @@
 ---
-jumpTo: [{ label: 'Plan Travel', link: 'plan' }, { label: 'Book Travel', link: 'book' }, { label: 'Submit Expenses', link: 'expense' }]
+jumpTo: [{ label: 'Plan Travel', link: 'plan' }, { label: 'Book Trip', link: 'book' }, { label: 'Expense Claims', link: 'expense' }]
 date:  "2019-05-13"
 title: "During Travel"
 lead: "During travel the key things to remember are to keep a copy of your receipts and keep your documents safe and with you at all times.  In case of an unexpected emergency or if you need travel related information, please contact HRG travel specialists via the information provided on this page."
@@ -73,8 +73,8 @@ For information regarding Emergencies, Illnesses, Injuries and Death while in Tr
 
 
 <p class="text-center">
-    <a href="/en/expense" class="btn btn-primary my-4 px-4 mr-4">View Submit Expenses</a>
-    <a href="/en/book" class="btn btn-outline-primary my-4 px-4">Back to Book Travel</a>
+    <a href="/en/expense" class="btn btn-primary my-4 px-4 mr-4">View Expense Claims</a>
+    <a href="/en/book" class="btn btn-outline-primary my-4 px-4">Back to Book Trip</a>
 </p>
 
 </article>
