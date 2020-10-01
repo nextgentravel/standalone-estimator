@@ -33,7 +33,7 @@ export default ({ data }) => {
             <nav className="skiphold" aria-label="sidebar skiplink"><a className="sr-only sr-only-focusable aurora-skip skiplink" id="sidebar-skiplink" href="#sidebar"><FormattedMessage id="skipToSide"/></a></nav>
             <div className="row mb-4">
               <div className="col-sm-8"><h2 className="display-5">{post.frontmatter.title}</h2></div>
-              <div className="col-sm-2 ml-auto">
+              {post.frontmatter.jumpTo && <div className="col-sm-2 ml-auto">
                 <div class="form-group">
                   <select onChange={jumpTo} class="custom-select text-secondary align-middle">
                     <option value="">Jump to...</option>
@@ -44,7 +44,7 @@ export default ({ data }) => {
                     })}
                   </select>
                 </div>
-              </div>
+              </div>}
             </div>
             
             <p className="lead">
