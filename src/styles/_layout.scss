@@ -167,6 +167,32 @@ a:focus {
 	}
 }
 
+.floating-contact {
+    top: auto !important;
+    right: 2em !important;
+    bottom: 2em !important;
+    left: auto !important;
+    position: fixed !important;
+    z-index: 5;
+    height: 60px;
+    width: 60px;
+}
+
+.floating-contact-box {
+    top: auto !important;
+    right: 2em !important;
+    bottom: 2em !important;
+    left: auto !important;
+    position: fixed !important;
+    z-index: 5;
+    height: 25em !important;;
+    width: 20em  !important;;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
 /* body {
     padding-top: 0px;
 }
