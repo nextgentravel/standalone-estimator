@@ -73,7 +73,8 @@ For information regarding Emergencies, Illnesses, Injuries and Death while in Tr
 
 
 <p class="text-center">
-    <a href="/en/expense" class="btn btn-outline-primary my-4 px-4">Continue to Expense</a>
+    <a href="/en/expense" class="btn btn-primary my-4 px-4 mr-4">View Submit Expenses</a>
+    <a href="/en/book" class="btn btn-outline-primary my-4 px-4">Back to Book Travel</a>
 </p>
 
 </article>
