@@ -8,6 +8,9 @@ import {FaArrowAltCircleUp} from 'react-icons/fa';
 import {FormattedMessage} from 'react-intl';
 import { navigate } from "gatsby"
 
+import { FaBed } from 'react-icons/fa';
+import { FaPlaneDeparture } from 'react-icons/fa';
+
 const BookingPage = () => {
   const jumpToLinks = [{ label: 'Plan Travel', link: '/en/plan' }, { label: 'During Travel', link: '/en/travel' }, { label: 'Expense Claims', link: '/en/expense' }]
   let faqInitialState = [
@@ -653,108 +656,59 @@ const BookingPage = () => {
             </div>
 
             <div className="container mt-4">
-              <h4>How will you travel?</h4>
-              <div className="form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flightCheck"
-                  onClick={handleFlightClick}
-                  checked={flightChecked}
-                />
-                <label className="form-check-label" for="flightCheck">
-                  Flight
-                </label>
-              </div>
-              <div className="form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="trainCheck"
-                  onClick={handleTrainClick}
-                  checked={trainChecked}
-                />
-                <label className="form-check-label" for="trainCheck">
-                  Train
-                </label>
-              </div>
-              <div className="form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="rentalCarCheck"
-                  onClick={handleRentalCarClick}
-                  checked={rentalCarChecked}
-                />
-                <label className="form-check-label" for="rentalCarCheck">
-                  Rental Car
-                </label>
-              </div>
-              <div className="form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="privateVehicleCheck"
-                  onClick={handlePrivateVehicleClick}
-                  checked={privateVehicleChecked}
-                />
-                <label
-                  className="form-check-label"
-                  for="privateVehicleCheck"
-                >
-                  Private Vehicle
-                </label>
-              </div>
-              <h4>Where will you stay?</h4>
-              <div className="form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="privateAccommodationCheck"
-                  onClick={handlePrivateAccommodationClick}
-                  checked={privateAccommodationChecked}
-                />
-                <label
-                  className="form-check-label"
-                  for="privateAccommodationCheck"
-                >
+              <p className="mb-2 lead"><FaBed className="mr-2" size="25" fill="#9E9E9E" /> Accommodation</p>
+              <button
+                type="button"
+                class={`btn ${privateAccommodationChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
+                onClick={handlePrivateAccommodationClick}
+              >
                   Private Accommodation
-                </label>
-              </div>
-              <div className="form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="hotelCheck"
-                  onClick={handleHotelClick}
-                  checked={hotelChecked}
-                />
-                <label className="form-check-label" for="hotelCheck">
+              </button>
+              <button
+                type="button"
+                class={`btn ${hotelChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
+                onClick={handleHotelClick}
+              >
                   Hotel
-                </label>
-              </div>
-              <div className="form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="accommodationNotRequiredCheck"
-                  onClick={handleAccommodationNotRequiredClick}
-                  checked={accommodationNotRequiredChecked}
-                />
-                <label
-                  className="form-check-label"
-                  for="accommodationNotRequiredCheck"
-                >
+              </button>
+              <button
+                type="button"
+                class={`btn ${accommodationNotRequiredChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
+                onClick={handleAccommodationNotRequiredClick}
+              >
                   Not Required
-                </label>
-              </div>
+              </button>
+
+              <p className="mb-2 mt-4 lead"><FaPlaneDeparture className="mr-2" size="25" fill="#9E9E9E" /> Transportation</p>
+              <button
+                type="button"
+                class={`btn ${flightChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
+                onClick={handleFlightClick}
+              >
+                  Flight
+              </button>
+              <button
+                type="button"
+                class={`btn ${trainChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
+                onClick={handleTrainClick}
+              >
+                  Train
+              </button>
+              <button
+                type="button"
+                class={`btn ${rentalCarChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
+                onClick={handleRentalCarClick}
+              >
+                  Rental Car
+              </button>
+              <button
+                type="button"
+                class={`btn ${privateVehicleChecked ? 'btn-primary' : 'btn-outline-primary'} btn-sm rounded-pill mr-3`}
+                onClick={handlePrivateVehicleClick}
+              >
+                  Private Vehicle
+              </button>
+
               <div className="row mt-5">
                 <article className="content-left col-xs-12 col-sm-12 col-md-12">
                   {contentItems.length === 0 &&
