@@ -12,7 +12,7 @@ const ContentPanelItem = ({ title, icon, linkTo, chevron }) => (
             <h3 className="mb-4"><FormattedMessage id={title} /></h3>
             <p className="mb-4"><FormattedMessage id={`${title}Lead`}/></p>
             <div className="mt-auto w-100">
-                <Link to={linkTo} className="btn btn-outline-primary px-4"><FormattedMessage id="launch" /></Link>
+                <Link to={linkTo} className="btn btn-outline-primary px-4"><FormattedMessage id="view" /></Link>
             </div>
         </div>
         {chevron === "sm" &&

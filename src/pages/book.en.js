@@ -9,7 +9,7 @@ import {FormattedMessage} from 'react-intl';
 import { navigate } from "gatsby"
 
 const BookingPage = () => {
-  const jumpToLinks = [{ label: 'Plan Travel', link: '/en/plan' }, { label: 'During Travel', link: '/en/travel' }, { label: 'Submit Expenses', link: '/en/expense' }]
+  const jumpToLinks = [{ label: 'Plan Travel', link: '/en/plan' }, { label: 'During Travel', link: '/en/travel' }, { label: 'Expense Claims', link: '/en/expense' }]
   let faqInitialState = [
     {
       question: 'What happens if the cost of my trip exceeds my previously approved trip estimate?',
@@ -611,11 +611,11 @@ const BookingPage = () => {
 
   return (
     <Layout>
-      <SEO title="Book Travel" />
+      <SEO title="Book Trip" />
       <w-screen mt-4="true" fluid="true" id="container">
         <div>
           <main id="main-content" role="main">
-            <Breadcrumbs pageTitle={'Book Travel'} homeLink={'/en/'} />
+            <Breadcrumbs pageTitle={'Book Trip'} homeLink={'/en/'} />
             <div className="hero-holder">
               <div className="container">
                 <nav className="skiphold" aria-label="sidebar skiplink">
@@ -628,7 +628,7 @@ const BookingPage = () => {
                   </a>
                 </nav>
                 <div className="row mb-4">
-                  <div className="col-sm-8"><h2 className="display-5">Book Travel</h2></div>
+                  <div className="col-sm-8"><h2 className="display-5">Book Trip</h2></div>
                   <div className="col-sm-2 ml-auto">
                     <div class="form-group">
                       <select onChange={jumpTo} class="custom-select text-secondary align-middle">

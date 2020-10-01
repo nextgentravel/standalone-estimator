@@ -14,8 +14,13 @@ const HomeLayout = () => {
           <div>
             <main id="main-content" role="main">
               <div className="container mt-4">
-                <h2 className="text-center mb-4 font-weight-bold"><FormattedMessage id="indexTitle" /></h2>
-                <p className="text-center mb-5"><FormattedMessage id="indexLead"/></p>
+                <h2 className="mb-4 font-weight-bold"><FormattedMessage id="indexTitle" /></h2>
+                <FormattedMessage
+                  id="indexLead"
+                  values={{
+                    strong: chunks => <strong>{chunks}</strong>,
+                  }}
+                />
                 <div className="row mb-3 mt-3">
                   <ContentPanel />
                 </div>
