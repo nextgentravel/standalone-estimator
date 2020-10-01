@@ -16,14 +16,16 @@ const DoormatPanel = () => {
                 <DoormatPanelItem
                     image="first-time-traveller.jpeg"
                     alt=""
-                    linkTo={`${homeLink}plan`}
+                    linkTo={`${homeLink}newuser`}
+                    linkNewWindow={false}
                     title="New to GC Travel?"
                     content="If you are about to travel for the first time on behalf of the Government of Canada, set up your traveler profile using this guide for 'first time travelers'."
                 />
                 <DoormatPanelItem
                     image="covid19.jpeg"
                     alt=""
-                    linkTo={`${homeLink}book`}
+                    linkNewWindow={true}
+                    linkTo={`https://travel.gc.ca/travelling/health-safety/travel-health-notices/221`}
                     title="Covid-19 Travel Information"
                     content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat."
                 />
