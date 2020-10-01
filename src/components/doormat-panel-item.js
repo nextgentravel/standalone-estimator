@@ -5,7 +5,7 @@ import { Card } from "react-bootstrap"
 import Image from "../components/image";
 import { FaChevronRight } from 'react-icons/fa';
 
-const DoormatPanelItem = ({ title, content, linkTo, image, alt }) => (
+const DoormatPanelItem = ({ title, content, linkTo, image, alt, linkNewWindow }) => (
     <div className="col-sm-6">
         <Card className="bg-light  h-100">
             <Image
@@ -14,7 +14,7 @@ const DoormatPanelItem = ({ title, content, linkTo, image, alt }) => (
                 alt={alt}
             />
             <Card.Body>
-                <Card.Title><Link to="#">{title}</Link></Card.Title>
+                <Card.Title><Link to={linkTo} target={linkNewWindow ? '_blank' : ''}>{title}</Link></Card.Title>
                 <Card.Text>
                     {content}
                 </Card.Text>
