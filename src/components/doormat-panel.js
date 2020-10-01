@@ -14,7 +14,7 @@ const DoormatPanel = () => {
             <h3 className="mb-4">Get more out of GC Travel Guide</h3>
             <div className="row mb-5">
                 <DoormatPanelItem
-                    image="first-time-traveller.jpeg"
+                    image="newtotravel.jpg"
                     alt=""
                     linkTo={`${homeLink}newuser`}
                     linkNewWindow={false}
