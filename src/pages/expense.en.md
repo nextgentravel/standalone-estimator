@@ -206,3 +206,9 @@ Yes.  For example if you used your own car you would still need to submit the ki
         </div>
     </div>
 </div>
+
+<p class="text-center">
+    <a href="/en/travel" class="btn btn-outline-primary my-4 px-4">Back to During Travel</a>
+</p>
+
+</article>

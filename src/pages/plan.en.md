@@ -78,7 +78,7 @@ Yes.  Our [*Trip Estimator*](https://gc-travel-estimator.herokuapp.com/) will he
 </div>
 
 <p class="text-center">
-    <a href="/en/book" class="btn btn-outline-primary my-4 px-4">Continue to Book</a>
+    <a href="/en/book" class="btn btn-primary my-4 px-4">View Book Travel</a>
 </p>
 
 </article>
