@@ -868,9 +868,15 @@ const BookingPage = () => {
                   <p className="text-center">
                     <a
                       href="/en/travel"
+                      className="btn btn-primary my-4 px-4 mr-4"
+                    >
+                      View During Travel
+                    </a>
+                    <a
+                      href="/en/plan"
                       className="btn btn-outline-primary my-4 px-4"
                     >
-                      Continue to Travel
+                      Back to Plan Travel
                     </a>
                   </p>
 
