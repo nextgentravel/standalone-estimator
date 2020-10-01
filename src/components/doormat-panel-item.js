@@ -5,15 +5,16 @@ import { Card } from "react-bootstrap"
 import Image from "../components/image";
 import { FaChevronRight } from 'react-icons/fa';
 
-const DoormatPanelItem = ({ title, content, linkTo }) => (
+const DoormatPanelItem = ({ title, content, linkTo, image, alt }) => (
     <div className="col-sm-6">
-        <Card>
+        <Card className="bg-light  h-100">
             <Image
-                filename="sp-bg-3-1-min.jpg"
-                className="goc-logo"
+                className="m-2"
+                filename={image}
+                alt={alt}
             />
             <Card.Body>
-                <Card.Title>{title}</Card.Title>
+                <Card.Title><Link to="#">{title}</Link></Card.Title>
                 <Card.Text>
                     {content}
                 </Card.Text>
