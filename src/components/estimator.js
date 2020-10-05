@@ -131,7 +131,7 @@ const Estimator = () => {
     }, [transport])
 
     const updateMealCost = (newValue) => {
-        setMealCost(newValue)
+        setMealCost(newValue.toFixed(2))
     }
 
     // since this function is used in two files, we should import it
@@ -452,7 +452,8 @@ const Estimator = () => {
                         icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
                         title="mealsAndIncidentals"
                         calculateTotal={calculateTotal}
-                        updateCost={setMealCost}/>
+                        updateCost={setMealCost}
+                    />
                     <EstimatorRow
                         value={otherCost}
                         name="otherAllowances"
