@@ -87,15 +87,15 @@ module.exports = {
         'datePrevious': 'Previous Month',
         'dateNext': 'Next Month',
         //index
-        'plan': 'Plan',
-        'planLead': 'Plan ahead and get ready for your business trip',
-        'book': 'Book',
-        'bookLead': 'Secure your tickets and make travel arrangements',
-        'travel': 'Travel',
-        'travelLead': "Everything you need when you're travelling",
-        'expense': 'Expense',
-        'expenseLead': 'Filing trip expenses and get reimbursed',
-        'launch': 'Launch',
+        'plan': 'Plan Travel',
+        'planLead': 'What you need to know to estimate and plan your trip',
+        'book': 'Book Travel',
+        'bookLead': 'Steps required to book your trip',
+        'travel': 'During Travel',
+        'travelLead': "Useful information for when you are travelling",
+        'expense': 'Submit Expenses',
+        'expenseLead': 'Steps required to submit expenses and get reimbursed',
+        'launch': 'Explore',
         'indexTitle': 'Get Started',
         'indexLead': 'Select the part of the journey you need support with or launch our travel assistant for a guided travel experience.  You can use this guide offline, even when you are not connected to the internet.',
         'rates': 'City Rates and Limits',
@@ -132,6 +132,7 @@ module.exports = {
         "estimateDestinationCityNotValid": "Destination city is not valid",
         "estimateDepartureDateNotValid": "Departure date must be in DD-MM-YYYY format",
         "estimateReturnDateNotValid": "Return date must be in DD-MM-YYYY format",
+        'newUser': 'First time travellers'
     },
     'fr': {
         // header
