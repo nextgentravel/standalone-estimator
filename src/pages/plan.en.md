@@ -1,7 +1,7 @@
 ---
 date: "2019-05-13"
 title: "Plan Travel"
-lead: "Most government travel begins by getting an approval.  This section will provide guidance on putting together a trip estimate for approval and key information to help you plan your trip."
+lead: "Most government travel begins by getting an approval.  This section will provide guidance on putting together a trip estimate for approval and key information to help plan your trip."
 ---
 <article class="content-left col-xs-12 col-sm-12 col-md-12">
 
@@ -11,7 +11,7 @@ lead: "Most government travel begins by getting an approval.  This section will 
 
 ### 1. Get preliminary approval
 
-You will need preliminary approval from your Supervisor before you can book your trip.  To get this approval you must create and submit a *Travel Estimate* and have your supervisor approve it.
+You will need preliminary approval from your Supervisor before you can book your trip.  To get approved you must create and submit a *Travel Estimate* and have your supervisor's approval.
 
 Our **Trip Estimator** will help you create an estimate and send it to your supervisor.
 
@@ -29,13 +29,13 @@ Our **Trip Estimator** will help you create an estimate and send it to your supe
 
 ### 2. Get things ready
 
-Before you can book your trip, make sure you have the following items ready:
+Before booking your trip, make sure you have the following items ready:
 
 1. Valid personal identification (e.g. passort, drivers licence)
 2. Credit card
 3. Health card
 
-**Would you prefer to pay using a government credit card?**
+**Would you prefer to pay using a Government travel card?**
 
 ​
 You can apply for an *Individual Designated Travel Card (ITDC)*, commonly referred to as a Government Card.  ITDC offers a variety of perks from insurance to extending your interest free payment window.  To find out more about what an IDTC can do for you, please visit the [*IDTC knowledge base page*](/en/knowledgebase/idtc).
