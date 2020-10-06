@@ -26,7 +26,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="/" className="text-light">
+              <a href={`${homeLink}contactus`} className="text-light">
               <FormattedMessage id="contact" />
               </a>
             </li>
