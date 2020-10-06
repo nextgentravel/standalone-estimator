@@ -18,6 +18,12 @@ HRG Travel Specialist can be reached 24/7.
 1-866-857-3578 (toll-free from Canada and U.S.) - option 3  
 1-613-822-3873 (collect call from other countries)
 
+Below are numbers for those with hearing or speech impairments and who use a TTY. An agent will be able to assist you with all of the HRG travel services.
+ 
+1-855-462-8870 (toll-free from Canada and the United States)  
+1-704-417-5877 (collect call from other countries)
+
+
 **Email:** 
 
 [travel.gc@hrgworldwide.com](mailto:travel.gc@hrgworldwide.com)
