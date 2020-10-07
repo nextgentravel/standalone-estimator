@@ -94,16 +94,16 @@ const Estimator = () => {
         }
     }
 
+    const fetchLocalTransportationRate = (numberOfDays) => {
+        setLocalCost(100 + 50 * (numberOfDays))
+    }
+
     useEffect(() => {
         if (accommodation === 'hotel') {
-
-
             fetchHotelCost()
-
             console.log("update to ACRD rates");
         } else if (accommodation === 'private') {
             let rate = (Interval.fromDateTimes(departureDate, returnDate).count('days') - 1) * 50;
-            
             setAccomodationCost(rate)
             console.log("update to private rates");
         } else {
@@ -215,6 +215,13 @@ const Estimator = () => {
         handleValidation()
             .then((valid) => {
                 setValidationWarnings([]);
+
+                let numberOfDays = Interval.fromDateTimes(
+                    departureDate, 
+                    returnDate)
+                    .count('days')
+
+
                 let city = suburbCityList[destination] || destination;
                 let province = city.slice(-2); // This is bad.  We need to change the data structure.
 
@@ -223,6 +230,7 @@ const Estimator = () => {
                 updateMealCost(mealsAndIncidentals.total)
                 fetchFlightCost()
                 fetchHotelCost()
+                fetchLocalTransportationRate(numberOfDays)
                 // Calculate number of days
                 console.log('departureDate', departureDate)
                 console.log('returnDate', returnDate)
