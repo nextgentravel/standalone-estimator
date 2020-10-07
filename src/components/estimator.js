@@ -51,6 +51,7 @@ const Estimator = () => {
     const [validationWarnings, setValidationWarnings] = useState([]);
 
     const [loading, setLoading] = useState(false);
+    const [result, setResult] = useState(false);
     const [generalError, setGeneralError] = useState(false);
     const [errorPanel, setErrorPanel] = useState(false);
 
@@ -94,21 +95,12 @@ const Estimator = () => {
 
     useEffect(() => {
         if (accommodation === 'hotel') {
-
-
             fetchHotelCost()
-
-            console.log("update to ACRD rates");
         } else if (accommodation === 'private') {
             let rate = (Interval.fromDateTimes(departureDate, returnDate).count('days') - 1) * 50;
-            
             setAccomodationCost(rate)
-            console.log("update to private rates");
-        } else {
-            setAccomodationCost(0)
-            console.log("update to private rates");
         }
-    }, [accommodation, transport])
+    }, [accommodation])
 
     const fetchFlightCost = () => {
         setTransportationCost(987);
@@ -225,12 +217,10 @@ const Estimator = () => {
                 console.log('departureDate', departureDate)
                 console.log('returnDate', returnDate)
 
-
-
                 // get ACRD rate for destination
 
                 // calculate meals for destination
-
+                setResult(true);
                 setLoading(false);
                 setErrorPanel(false);
             })
@@ -351,8 +341,7 @@ const Estimator = () => {
                 </div>
             </div>}
 
-            {/* {!loading && result && */}
-            {true &&
+            {!loading && result &&
                 <div className="card bg-light p-4">
                     <h3 className="mb-3"><FormattedMessage id="estimateSummaryTitle" /></h3>
                     {/* Each row could be a generic componemt with props passed in to define what they are */}
