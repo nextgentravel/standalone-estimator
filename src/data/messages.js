@@ -132,7 +132,8 @@ module.exports = {
         "estimateDestinationCityNotValid": "Destination city is not valid",
         "estimateDepartureDateNotValid": "Departure date must be in DD-MM-YYYY format",
         "estimateReturnDateNotValid": "Return date must be in DD-MM-YYYY format",
-        "newUser": "First time travellers"
+        "newUser": "First time travellers",
+        "mealsTooltipText": "Provide a total for all other expenses that apply, for example: extra luggage, child care, etc.)"
     },
     'fr': {
         // header
@@ -266,5 +267,6 @@ module.exports = {
         "estimateDestinationCityNotValid": "La ville de destination n'est pas valide",
         "estimateDepartureDateNotValid": "La date de départ doit être au format JJ-MM-AAAA",
         "estimateReturnDateNotValid": "La date de retour doit être au format JJ-MM-AAAA",
+        "mealsTooltipText": "Provide a total for all other expenses that apply, for example: extra luggage, child care, etc.)"
     }
 };

@@ -7,6 +7,7 @@ import * as yup from "yup"
 import monthsContained from "./months-contained.js"
 import { FormattedMessage } from 'react-intl';
 import EstimatorRow from "./estimator-row.js";
+import Tooltip from 'react-bootstrap/Tooltip'
 // import EstimatorRowDropdown from "./estimator-row-dropdown.js";
 
 import cities from "../data/cities.js"
@@ -15,6 +16,7 @@ import accommodations from "../data/accommodations.js"
 import transportData from "../data/transport-data.js"
 
 import { FaSpinner } from 'react-icons/fa';
+import { FaQuestionCircle } from 'react-icons/fa';
 import { FaExclamationTriangle } from 'react-icons/fa';
 
 import { FaBed } from 'react-icons/fa';
@@ -443,7 +445,8 @@ const Estimator = () => {
                         icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
                         title="localTransportation"
                         calculateTotal={calculateTotal}
-                        updateCost={setLocalCost}/>
+                        updateCost={setLocalCost} 
+                    />
                     <EstimatorRow
                         value={mealCost}
                         name="mealsAndIncidentals"
@@ -452,7 +455,8 @@ const Estimator = () => {
                         icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
                         title="mealsAndIncidentals"
                         calculateTotal={calculateTotal}
-                        updateCost={setMealCost}/>
+                        updateCost={setMealCost}
+                    />
                     <EstimatorRow
                         value={otherCost}
                         name="otherAllowances"
@@ -461,7 +465,10 @@ const Estimator = () => {
                         icon={<FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />}
                         title="otherAllowances"
                         calculateTotal={calculateTotal}
-                        updateCost={setOtherCost}/>
+                        updateCost={setOtherCost}
+                        tooltipIcon={FaQuestionCircle}
+                        tooltipText={<FormattedMessage id="mealsTooltipText" />}
+                    />
                     <div className="row mb-4">
                         <div className="col-sm-6 align-self-center text-right">
                             <hr />
