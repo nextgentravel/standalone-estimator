@@ -79,12 +79,10 @@ const Estimator = () => {
 
         try {
             let rates = rateDaysByMonth(departureDate, returnDate, acrdRatesFiltered)
-            console.log(rates);
 
             let total = 0;
 
             for (const month in rates) {
-                console.log(rates[month].monthTotal)
                 total = total + rates[month].monthTotal
             }
 
@@ -101,14 +99,11 @@ const Estimator = () => {
     useEffect(() => {
         if (accommodation === 'hotel') {
             fetchHotelCost()
-            console.log("update to ACRD rates");
         } else if (accommodation === 'private') {
             let rate = (Interval.fromDateTimes(departureDate, returnDate).count('days') - 1) * 50;
             setAccomodationCost(rate)
-            console.log("update to private rates");
         } else {
             setAccomodationCost(0)
-            console.log("update to private rates");
         }
     }, [accommodation, transport])
 
@@ -119,16 +114,12 @@ const Estimator = () => {
     useEffect(() => {
         if (transport === 'flight') {
             fetchFlightCost()
-            console.log("flight");
         } else if (transport === 'train') {
             setTransportationCost(436)
-            console.log("train");
         } else if (transport === 'rental') {
             setTransportationCost(348)
-            console.log("rental");
         } else if (transport === 'private') {
             setTransportationCost(203)
-            console.log("private");
         }
     }, [transport])
 
@@ -231,11 +222,6 @@ const Estimator = () => {
                 fetchFlightCost()
                 fetchHotelCost()
                 fetchLocalTransportationRate(numberOfDays)
-                // Calculate number of days
-                console.log('departureDate', departureDate)
-                console.log('returnDate', returnDate)
-
-
 
                 // get ACRD rate for destination
 
