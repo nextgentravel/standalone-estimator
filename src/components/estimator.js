@@ -53,6 +53,7 @@ const Estimator = () => {
     const [validationWarnings, setValidationWarnings] = useState([]);
 
     const [loading, setLoading] = useState(false);
+    const [result, setResult] = useState(false);
     const [generalError, setGeneralError] = useState(false);
     const [errorPanel, setErrorPanel] = useState(false);
 
@@ -105,7 +106,11 @@ const Estimator = () => {
         } else {
             setAccomodationCost(0)
         }
-    }, [accommodation, transport])
+    }, [accommodation])
+
+    const fetchFlightCost = () => {
+        setTransportationCost(987);
+    }
 
     const fetchFlightCost = () => {
         setTransportationCost(987);
@@ -124,7 +129,7 @@ const Estimator = () => {
     }, [transport])
 
     const updateMealCost = (newValue) => {
-        setMealCost(newValue)
+        setMealCost(newValue.toFixed(2))
     }
 
     // since this function is used in two files, we should import it
@@ -226,7 +231,7 @@ const Estimator = () => {
                 // get ACRD rate for destination
 
                 // calculate meals for destination
-
+                setResult(true);
                 setLoading(false);
                 setErrorPanel(false);
             })
@@ -347,8 +352,7 @@ const Estimator = () => {
                 </div>
             </div>}
 
-            {/* {!loading && result && */}
-            {true &&
+            {!loading && result &&
                 <div className="card bg-light p-4">
                     <h3 className="mb-3"><FormattedMessage id="estimateSummaryTitle" /></h3>
                     {/* Each row could be a generic componemt with props passed in to define what they are */}
