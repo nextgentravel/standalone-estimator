@@ -7,6 +7,7 @@ import * as yup from "yup"
 import monthsContained from "./months-contained.js"
 import { FormattedMessage } from 'react-intl';
 import EstimatorRow from "./estimator-row.js";
+import Tooltip from 'react-bootstrap/Tooltip'
 // import EstimatorRowDropdown from "./estimator-row-dropdown.js";
 
 import cities from "../data/cities.js"
@@ -15,6 +16,7 @@ import accommodations from "../data/accommodations.js"
 import transportData from "../data/transport-data.js"
 
 import { FaSpinner } from 'react-icons/fa';
+import { FaQuestionCircle } from 'react-icons/fa';
 import { FaExclamationTriangle } from 'react-icons/fa';
 
 import { FaBed } from 'react-icons/fa';
@@ -78,12 +80,10 @@ const Estimator = () => {
 
         try {
             let rates = rateDaysByMonth(departureDate, returnDate, acrdRatesFiltered)
-            console.log(rates);
 
             let total = 0;
 
             for (const month in rates) {
-                console.log(rates[month].monthTotal)
                 total = total + rates[month].monthTotal
             }
 
@@ -93,12 +93,18 @@ const Estimator = () => {
         }
     }
 
+    const fetchLocalTransportationRate = (numberOfDays) => {
+        setLocalCost(100 + 50 * (numberOfDays))
+    }
+
     useEffect(() => {
         if (accommodation === 'hotel') {
             fetchHotelCost()
         } else if (accommodation === 'private') {
             let rate = (Interval.fromDateTimes(departureDate, returnDate).count('days') - 1) * 50;
             setAccomodationCost(rate)
+        } else {
+            setAccomodationCost(0)
         }
     }, [accommodation])
 
@@ -109,16 +115,12 @@ const Estimator = () => {
     useEffect(() => {
         if (transport === 'flight') {
             fetchFlightCost()
-            console.log("flight");
         } else if (transport === 'train') {
             setTransportationCost(436)
-            console.log("train");
         } else if (transport === 'rental') {
             setTransportationCost(348)
-            console.log("rental");
         } else if (transport === 'private') {
             setTransportationCost(203)
-            console.log("private");
         }
     }, [transport])
 
@@ -205,6 +207,13 @@ const Estimator = () => {
         handleValidation()
             .then((valid) => {
                 setValidationWarnings([]);
+
+                let numberOfDays = Interval.fromDateTimes(
+                    departureDate, 
+                    returnDate)
+                    .count('days')
+
+
                 let city = suburbCityList[destination] || destination;
                 let province = city.slice(-2); // This is bad.  We need to change the data structure.
 
@@ -213,9 +222,7 @@ const Estimator = () => {
                 updateMealCost(mealsAndIncidentals.total)
                 fetchFlightCost()
                 fetchHotelCost()
-                // Calculate number of days
-                console.log('departureDate', departureDate)
-                console.log('returnDate', returnDate)
+                fetchLocalTransportationRate(numberOfDays)
 
                 // get ACRD rate for destination
 
@@ -432,7 +439,8 @@ const Estimator = () => {
                         icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
                         title="localTransportation"
                         calculateTotal={calculateTotal}
-                        updateCost={setLocalCost}/>
+                        updateCost={setLocalCost} 
+                    />
                     <EstimatorRow
                         value={mealCost}
                         name="mealsAndIncidentals"
@@ -451,7 +459,10 @@ const Estimator = () => {
                         icon={<FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />}
                         title="otherAllowances"
                         calculateTotal={calculateTotal}
-                        updateCost={setOtherCost}/>
+                        updateCost={setOtherCost}
+                        tooltipIcon={FaQuestionCircle}
+                        tooltipText={<FormattedMessage id="otherTooltipText" />}
+                    />
                     <div className="row mb-4">
                         <div className="col-sm-6 align-self-center text-right">
                             <hr />
