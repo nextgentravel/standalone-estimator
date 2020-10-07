@@ -112,10 +112,6 @@ const Estimator = () => {
         setTransportationCost(987);
     }
 
-    const fetchFlightCost = () => {
-        setTransportationCost(987);
-    }
-
     useEffect(() => {
         if (transport === 'flight') {
             fetchFlightCost()
