@@ -467,7 +467,7 @@ const Estimator = () => {
                         calculateTotal={calculateTotal}
                         updateCost={setOtherCost}
                         tooltipIcon={FaQuestionCircle}
-                        tooltipText={<FormattedMessage id="mealsTooltipText" />}
+                        tooltipText={<FormattedMessage id="otherTooltipText" />}
                     />
                     <div className="row mb-4">
                         <div className="col-sm-6 align-self-center text-right">
