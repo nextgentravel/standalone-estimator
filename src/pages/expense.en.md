@@ -34,9 +34,9 @@ Before you begin creating your expense report, make sure you have the following 
 
 Creating an expense report within the Expense Management Tool (EMT) located in HRG using the following steps. 
 
-1. Login to HRG.
-2. Locate the EMT Tool within HRG.
-3. Locate your Travel Request in the EMT.
+1. Login to HRG
+2. Locate the EMT Tool within HRG
+3. Locate your Travel Request in the EMT
 
 To assist you, follow section *3. Locate your Travel Request* within the [Creating an Expense Report](https://hrg.exceedlms.com/student/activity/220777-creating-an-expense-report-ug) guidebook.
 </div>
@@ -56,9 +56,9 @@ To assist you, follow section *3. Locate your Travel Request* within the [Creati
 
 Credit charges incurred on the DTEA and IDTC cards are populated into the EMT.  The EMT tool will allow you to locate and add DTEA and IDTC credit card expenses incurred while on Government of Canada business travel to the expense report:
 
-1. Select the appropriate credit card account.
-2. Select the appropriate card statement period.
-3. Select the appropriate credit card transactions.
+1. Select the appropriate credit card account
+2. Select the appropriate card statement period
+3. Select the appropriate credit card transactions
 
 To assist you, follow section *4. Add Credit Card Transactions* within the [Creating an Expense Report](https://hrg.exceedlms.com/student/activity/220777-creating-an-expense-report-ug) guidebook.
 </div>
@@ -77,9 +77,9 @@ To assist you, follow section *4. Add Credit Card Transactions* within the [Crea
 
 All credit card transactions need an expense category assigned to them before they can be submitted as part of the expense report.  For each transaction:
 
-1. Select an expense type.
-2. Enter the amount to be claimed.
-3. Enter comments if required.
+1. Select an expense type
+2. Enter the amount to be claimed
+3. Enter comments if required
 
 To assist you, follow section *5. Assign Expense Categories to Credit Card Tranrsactions* within the [Creating an Expense Report](https://hrg.exceedlms.com/student/activity/220777-creating-an-expense-report-ug) guidebook.
 </div>
@@ -99,9 +99,9 @@ To assist you, follow section *5. Assign Expense Categories to Credit Card Tranr
 To add out-of-pocket expenses incurred during your travel.
 
 1. Fill out the relevant expense (example: type of expense and date expense was incurred)
-2. Select the relevant expense type.
-3. Enter the amount to be claimed.
-4. Enter comments if required.
+2. Select the relevant expense type
+3. Enter the amount to be claimed
+4. Enter comments if required
 
 To assist you, follow section *6. Add out of pocket expenses* within the [Creating an Expense Report](https://hrg.exceedlms.com/student/activity/220777-creating-an-expense-report-ug) guidebook.
 </div>
@@ -155,8 +155,8 @@ To assist you, follow section *9. Add Receipt Images* and *10. Linking Receipt I
 Submit your expenses for approval:
 
 Perform the following steps:
-1. Verify the approver.
-2. Submit for approval.
+1. Verify the approver
+2. Submit for approval
 
 To assist you, follow section *12. Verify Approver and Submit Expense Report for Approval* within the [Creating an Expense Report](https://hrg.exceedlms.com/student/activity/220777-creating-an-expense-report-ug) guidebook.
 

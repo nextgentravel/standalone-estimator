@@ -11,6 +11,7 @@ const Kilometrics = () => {
     const [province, setProvinceValue] = useState('');
     const [distance, setDistance] = useState('');
     const [provinces, setProvinces] = useState([]);
+    const [provinceCheck, setProvinceCheck] = useState([]);
 
     const [result, setResult] = useState({});
 
@@ -22,9 +23,17 @@ const Kilometrics = () => {
     useEffect(() => {
         let provinceOptions = Object.keys(locations)
         .map(location => {
-            return `${locations[location].label} (${location})`;
+            return {
+               value: `${locations[location].label} (${location})`,
+               label: `${locations[location].label} (${location})`,
+            }
         })
         setProvinces(provinceOptions);
+        provinceOptions = Object.keys(locations)
+        .map(location => {
+            return `${locations[location].label} (${location})`;
+        })
+        setProvinceCheck(provinceOptions);
     }, []);
 
     const handleValidation = () => {
@@ -38,7 +47,7 @@ const Kilometrics = () => {
                     <FormattedMessage id="kilometricsProvinceNotValid"/>,
                     <FormattedMessage id="kilometricsProvinceValid"/>,
                     (value) => {
-                        return provinces.includes(value)
+                        return provinceCheck.includes(value)
                     },
                   ),
             distance: yup
@@ -56,6 +65,7 @@ const Kilometrics = () => {
         handleValidation()
             .then((valid) => {
                 setValidationWarnings([]);
+                console.log(province.lastIndexOf('(') + 1, 2);
                 let provinceAbbreviation = province.substr(province.lastIndexOf('(') + 1, 2)
                 let provinceRate = locations[provinceAbbreviation].rateCents
                 let rateCalc = parseInt(provinceRate) * parseInt(distance) / 100;

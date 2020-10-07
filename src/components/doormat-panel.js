@@ -1,9 +1,5 @@
 import React from "react";
 import { useIntl } from 'react-intl';
-import { FaClipboardList } from 'react-icons/fa';
-import { FaTicketAlt } from 'react-icons/fa';
-import { FaPlaneDeparture } from 'react-icons/fa';
-import { FaFileInvoiceDollar } from 'react-icons/fa';
 import DoormatPanelItem from './doormat-panel-item';
 
 const DoormatPanel = () => {

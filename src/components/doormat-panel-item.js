@@ -1,9 +1,7 @@
 import React from "react";
-import { FormattedMessage } from 'react-intl';
 import { Link } from "gatsby";
 import { Card } from "react-bootstrap"
 import Image from "../components/image";
-import { FaChevronRight } from 'react-icons/fa';
 
 const DoormatPanelItem = ({ title, content, linkTo, image, alt, linkNewWindow }) => (
     <div className="col-sm-6">
