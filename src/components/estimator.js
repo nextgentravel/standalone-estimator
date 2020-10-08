@@ -59,6 +59,8 @@ const Estimator = () => {
 
     const [accommodationCost, setAccommodationCost] = useState(0);
     const [accommodationMessage, setAccommodationMessage] = useState({ element: <FormattedMessage id='accommodationDescription' />, style: 'primary' });
+    const [transportationMessage, setTransportationMessage] = useState({ element: <FormattedMessage id='transportationDescription' />, style: 'primary' });
+    const [localTransportationMessage, setLocalTransportationMessage] = useState({ element: <FormattedMessage id='localTransportationDescription' />, style: 'primary' });
     const [transportationCost, setTransportationCost] = useState(0);
     const [localCost, setLocalCost] = useState(0);
     const [mealCost, setMealCost] = useState(0);
@@ -84,18 +86,31 @@ const Estimator = () => {
 
             let total = 0;
 
+            let applicableRates = []
+
             for (const month in rates) {
                 total = total + rates[month].monthTotal
+                applicableRates.push({
+                    month: month,
+                    rate: rates[month].rate
+                })
             }
 
             setAccommodationCost(total)
+            console.log(JSON.stringify(applicableRates))
+            setAccommodationMessage({ element: <FormattedMessage id="hotelAccommodationMessage" values={{
+                destination,
+                rate: applicableRates[0].rate,
+            }} />  })
         } catch (error) {
             console.log(error);
         }
     }
 
     const fetchLocalTransportationRate = (numberOfDays) => {
-        setLocalCost(100 + 50 * (numberOfDays))
+        let cost = 100 + 50 * (numberOfDays)
+        setLocalCost(cost)
+        setLocalTransportationMessage({ element: <FormattedMessage id="localTransportationMessage" />  })
     }
 
     useEffect(() => {
@@ -103,6 +118,7 @@ const Estimator = () => {
             fetchHotelCost()
         } else if (accommodation === 'private') {
             let rate = (Interval.fromDateTimes(departureDate, returnDate).count('days') - 1) * 50;
+            setAccommodationMessage({ element: <FormattedMessage id="privateAccommodationMessage" />  })
             setAccommodationCost(rate)
         } else {
             setAccommodationCost(0)
@@ -111,6 +127,7 @@ const Estimator = () => {
 
     const fetchFlightCost = () => {
         setTransportationCost(987);
+        setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessage" />  })
     }
 
     useEffect(() => {
@@ -118,10 +135,13 @@ const Estimator = () => {
             fetchFlightCost()
         } else if (transport === 'train') {
             setTransportationCost(436)
+            setTransportationMessage({ element: <FormattedMessage id="transportationTrainMessage" />  })
         } else if (transport === 'rental') {
             setTransportationCost(348)
+            setTransportationMessage({ element: <FormattedMessage id="transportationRentalCarMessage" />  })
         } else if (transport === 'private') {
             setTransportationCost(203)
+            setTransportationMessage({ element: <FormattedMessage id="transportationPrivateVehicleMessage" />  })
         }
     }, [transport])
 
@@ -443,7 +463,7 @@ const Estimator = () => {
                             </input>
                         </div>
                         <div className="col-sm-6 align-self-center text-wrap">
-                            <FormattedMessage id='transportationDescription' />
+                            {transportationMessage.element}
                         </div>
                     </div>
 
@@ -456,7 +476,8 @@ const Estimator = () => {
                         icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
                         title="localTransportation"
                         calculateTotal={calculateTotal}
-                        updateCost={setLocalCost} 
+                        updateCost={setLocalCost}
+                        message={localTransportationMessage}
                     />
                     <EstimatorRow
                         value={mealCost}
@@ -472,7 +493,7 @@ const Estimator = () => {
                         value={otherCost}
                         name="otherAllowances"
                         id="otherAllowances"
-                        description="otherDescription"
+                        message={{ element: <FormattedMessage id="otherAllowancesMessage" />}}
                         icon={<FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />}
                         title="otherAllowances"
                         calculateTotal={calculateTotal}
