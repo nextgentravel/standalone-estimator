@@ -133,7 +133,19 @@ module.exports = {
         "estimateDepartureDateNotValid": "Departure date must be in DD-MM-YYYY format",
         "estimateReturnDateNotValid": "Return date must be in DD-MM-YYYY format",
         "newUser": "First time travellers",
-        "otherTooltipText": "Provide a total for all other expenses that apply, for example: extra luggage, child care, etc.)"
+        "otherTooltipText": "Provide a total for all other expenses that apply, for example: extra luggage, child care, etc.)",
+        "hotelAccommodationMessage": "City rate limit for {destination} during your chosen dates is ${rate} per night",
+        "privateAccommodationMessage": "You will receive $50 per night",
+        "privateDescription": "Select mode of transportation to see estimate",
+        "transportationDescription": "Select mode of transportation to see estimate",
+        "localTransportationDescription": "Select city to see estimate for local transportation",
+        "localTransportationSetDescription": "Based on an average of $50 per day for travel in {destination}",
+        "transportationFlightMessage": "Lowest published airfare on {date}",
+        "transportationTrainMessage": "Lowest published train fare on {date}",
+        "transportationRentalCarMessage": "Lowest priced medium sized car on {date}",
+        "transportationPrivateVehicleMessage": "{price}/km based on an average of {kilometres} return trip",
+        "localTransportationMessage": "Based on an average of {cost} per day for travel in {destination}",
+        "otherAllowancesMessage": "Amount is a total of all additional expenses"
     },
     'fr': {
         // header

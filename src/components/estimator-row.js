@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import Tooltip from 'react-bootstrap/Tooltip'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Button from 'react-bootstrap/Button'
-const EstimatorRow = ({ name, id, description, icon, title, updateCost, calculateTotal, value, tooltipIcon, tooltipText }) => {
+const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTotal, value, tooltipIcon, tooltipText }) => {
     const [showTooltip, setShowTooltip] = useState(false);
     const target = useRef(null);
 
@@ -45,7 +45,7 @@ const EstimatorRow = ({ name, id, description, icon, title, updateCost, calculat
                     onChange={(e) => {updateCost(e.target.value)}} onBlur={calculateTotal}></input>
             </div>
             <div className="col-sm-6 align-self-center text-wrap">
-                <FormattedMessage id={description} />
+                {message && message.element}
             </div>
         </div>
     
