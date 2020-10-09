@@ -25,6 +25,8 @@ import { FaTaxi } from 'react-icons/fa';
 import { FaUtensils } from 'react-icons/fa';
 import { FaSuitcase } from 'react-icons/fa';
 
+import amadeusFlightOffer from '../api-calls/amadeusFlightOffer'
+
 const Estimator = () => {
     const citiesList = cities.citiesList;
     const suburbCityList = cities.suburbCityList;
@@ -66,10 +68,24 @@ const Estimator = () => {
     const [mealCost, setMealCost] = useState(0);
     const [otherCost, setOtherCost] = useState(0);
     const [summaryCost, setSummaryCost] = useState(0);
+    const [amadeusAccessToken, setAmadeusAccessToken] = useState('')
 
     useEffect(() => {
         calculateTotal()
     }, [accommodationCost, transportationCost, localCost, mealCost, otherCost])
+
+    useEffect(() => {
+        async function fetchAmadeusToken() {
+            await fetch(`/api/FetchAmadeusToken`)
+                .then(response => response.json())
+                .then(result => {
+                    console.log('Fetched Access Token!!!', result);
+                    setAmadeusAccessToken(result.access_token)
+                })
+                .catch(error => { console.log('error', error) });
+        }
+        fetchAmadeusToken();
+    }, [])
 
     const fetchHotelCost = () => {
         let months = monthsContained(departureDate,returnDate);
@@ -126,8 +142,15 @@ const Estimator = () => {
     }, [accommodation])
 
     const fetchFlightCost = () => {
-        setTransportationCost(987);
-        setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessage" />  })
+        const departureDateISODate = departureDate.toISODate()
+        const returnDateISODate = returnDate.toISODate()
+        amadeusFlightOffer('YOW', 'YVR', departureDateISODate, returnDateISODate, amadeusAccessToken)
+            .then(response => response.json())
+            .then(result => {
+                setTransportationCost(987);
+                setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessage" />  })
+            })
+            .catch(error => error);
     }
 
     useEffect(() => {
@@ -153,6 +176,7 @@ const Estimator = () => {
     const calculateMeals = (departDate, returnDate, province) => {
         let departD = DateTime.fromISO(departDate);
         let returnD = DateTime.fromISO(returnDate);
+        
         let duration = returnD.diff(departD, 'days')
         let provinceAllowances = Object.keys(mealAllowances);
 
