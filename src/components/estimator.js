@@ -47,7 +47,7 @@ const Estimator = () => {
     const [departureDate, setDepartureDate] = useState('');
     const [returnDate, setReturnDate] = useState('');
 
-    const [accommodation, setAccomodation] = useState('');
+    const [accommodation, setAccommodation] = useState('');
     const [transport, setTransport] = useState('');
 
     const [validationWarnings, setValidationWarnings] = useState([]);
@@ -57,7 +57,10 @@ const Estimator = () => {
     const [generalError, setGeneralError] = useState(false);
     const [errorPanel, setErrorPanel] = useState(false);
 
-    const [accommodationCost, setAccomodationCost] = useState(0);
+    const [accommodationCost, setAccommodationCost] = useState(0);
+    const [accommodationMessage, setAccommodationMessage] = useState({ element: <FormattedMessage id='accommodationDescription' />, style: 'primary' });
+    const [transportationMessage, setTransportationMessage] = useState({ element: <FormattedMessage id='transportationDescription' />, style: 'primary' });
+    const [localTransportationMessage, setLocalTransportationMessage] = useState({ element: <FormattedMessage id='localTransportationDescription' />, style: 'primary' });
     const [transportationCost, setTransportationCost] = useState(0);
     const [localCost, setLocalCost] = useState(0);
     const [mealCost, setMealCost] = useState(0);
@@ -83,18 +86,31 @@ const Estimator = () => {
 
             let total = 0;
 
+            let applicableRates = []
+
             for (const month in rates) {
                 total = total + rates[month].monthTotal
+                applicableRates.push({
+                    month: month,
+                    rate: rates[month].rate
+                })
             }
 
-            setAccomodationCost(total)
+            setAccommodationCost(total)
+            console.log(JSON.stringify(applicableRates))
+            setAccommodationMessage({ element: <FormattedMessage id="hotelAccommodationMessage" values={{
+                destination,
+                rate: applicableRates[0].rate,
+            }} />  })
         } catch (error) {
             console.log(error);
         }
     }
 
     const fetchLocalTransportationRate = (numberOfDays) => {
-        setLocalCost(100 + 50 * (numberOfDays))
+        let cost = 100 + 50 * (numberOfDays)
+        setLocalCost(cost)
+        setLocalTransportationMessage({ element: <FormattedMessage id="localTransportationMessage" />  })
     }
 
     useEffect(() => {
@@ -102,14 +118,16 @@ const Estimator = () => {
             fetchHotelCost()
         } else if (accommodation === 'private') {
             let rate = (Interval.fromDateTimes(departureDate, returnDate).count('days') - 1) * 50;
-            setAccomodationCost(rate)
+            setAccommodationMessage({ element: <FormattedMessage id="privateAccommodationMessage" />  })
+            setAccommodationCost(rate)
         } else {
-            setAccomodationCost(0)
+            setAccommodationCost(0)
         }
     }, [accommodation])
 
     const fetchFlightCost = () => {
         setTransportationCost(987);
+        setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessage" />  })
     }
 
     useEffect(() => {
@@ -117,10 +135,13 @@ const Estimator = () => {
             fetchFlightCost()
         } else if (transport === 'train') {
             setTransportationCost(436)
+            setTransportationMessage({ element: <FormattedMessage id="transportationTrainMessage" />  })
         } else if (transport === 'rental') {
             setTransportationCost(348)
+            setTransportationMessage({ element: <FormattedMessage id="transportationRentalCarMessage" />  })
         } else if (transport === 'private') {
             setTransportationCost(203)
+            setTransportationMessage({ element: <FormattedMessage id="transportationPrivateVehicleMessage" />  })
         }
     }, [transport])
 
@@ -304,38 +325,54 @@ const Estimator = () => {
                     {errorList()}
                 </ul>
             </div>}
-            <form id="estimates-form" className="form-group mb-4" onSubmit={handleSubmit}>
-                <InputDatalist
-                    validationWarnings={validationWarnings}
-                    setValidationWarnings={setValidationWarnings}
-                    label={<FormattedMessage id="estimateOrigin" />}
-                    name="origin"
-                    options={filteredCitiesList}
-                    updateValue={setOrigin} />
-                <InputDatalist
-                    validationWarnings={validationWarnings}
-                    setValidationWarnings={setValidationWarnings}
-                    label={<FormattedMessage id="estimateDestination" />}
-                    name="destination"
-                    options={filteredCitiesList}
-                    updateValue={setDestination} />
-                <DatePicker
-                    validationWarnings={validationWarnings}
-                    setValidationWarnings={setValidationWarnings}
-                    label={<FormattedMessage id="estimateDepartureDate" />}
-                    name="departureDate"
-                    updateValue={setDepartureDate}
-                ></DatePicker>
-                <DatePicker
-                    validationWarnings={validationWarnings}
-                    setValidationWarnings={setValidationWarnings}
-                    label={<FormattedMessage id="estimateReturnDate" />}
-                    name="returnDate"
-                    updateValue={setReturnDate}
-                ></DatePicker>
-                <button type="submit" className="btn btn-primary"><FormattedMessage id="estimate"/></button>
-                <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}><FormattedMessage id="clear"/></button>
-                {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
+            <form id="estimates-form" className="form-group row mb-4" onSubmit={handleSubmit}>
+                <div className="col-sm-6">
+                    <InputDatalist
+                        validationWarnings={validationWarnings}
+                        setValidationWarnings={setValidationWarnings}
+                        label={<FormattedMessage id="estimateOrigin" />}
+                        name="origin"
+                        options={filteredCitiesList}
+                        updateValue={setOrigin}
+                    />
+                </div>
+                <div className="col-sm-6"></div>
+                <div className="col-sm-6">
+                    <InputDatalist
+                        validationWarnings={validationWarnings}
+                        setValidationWarnings={setValidationWarnings}
+                        label={<FormattedMessage id="estimateDestination" />}
+                        name="destination"
+                        options={filteredCitiesList}
+                        updateValue={setDestination}
+                        className="col-sm-6"
+                    />
+                </div>
+                <div className="col-sm-6"></div>
+                <div className="col-sm-3">
+                    <DatePicker
+                        validationWarnings={validationWarnings}
+                        setValidationWarnings={setValidationWarnings}
+                        label={<FormattedMessage id="estimateDepartureDate" />}
+                        name="departureDate"
+                        updateValue={setDepartureDate}
+                    ></DatePicker>
+                </div>
+                <div className="col-sm-3">
+                    <DatePicker
+                        validationWarnings={validationWarnings}
+                        setValidationWarnings={setValidationWarnings}
+                        label={<FormattedMessage id="estimateReturnDate" />}
+                        name="returnDate"
+                        updateValue={setReturnDate}
+                    ></DatePicker>
+                </div>
+                <div className="col-sm-3"></div>
+                <div className="col-sm-6">
+                    <button type="submit" className="btn btn-primary"><FormattedMessage id="estimate"/></button>
+                    <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}><FormattedMessage id="clear"/></button>
+                    {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
+                </div>
             </form>
 
             {generalError && <div className="alert-icon alert-danger" role="alert">
@@ -364,7 +401,7 @@ const Estimator = () => {
                                     <div id={`accommodation_container`}>
                                     <select
                                         className="custom-select"
-                                        onChange={e => {setAccomodation(e.target.value)}}
+                                        onChange={e => {setAccommodation(e.target.value)}}
                                     >
                                         <option value="hotel">Hotel</option>
                                         <option value="private">Private Accommodation</option>
@@ -380,13 +417,13 @@ const Estimator = () => {
                                 id={`accommodation_select`}
                                 placeholder="0"
                                 name={'accommodation'}
-                                onChange={(e) => {setAccomodationCost(e.target.value)}}
+                                onChange={(e) => {setAccommodationCost(e.target.value)}}
                                 onBlur={calculateTotal}
                                 value={accommodationCost}>
                             </input>
                         </div>
                         <div className="col-sm-6 align-self-center text-wrap">
-                            <FormattedMessage id='accommodationDescription' />
+                            {accommodationMessage.element}
                         </div>
                     </div>
 
@@ -426,7 +463,7 @@ const Estimator = () => {
                             </input>
                         </div>
                         <div className="col-sm-6 align-self-center text-wrap">
-                            <FormattedMessage id='transportationDescription' />
+                            {transportationMessage.element}
                         </div>
                     </div>
 
@@ -439,7 +476,8 @@ const Estimator = () => {
                         icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
                         title="localTransportation"
                         calculateTotal={calculateTotal}
-                        updateCost={setLocalCost} 
+                        updateCost={setLocalCost}
+                        message={localTransportationMessage}
                     />
                     <EstimatorRow
                         value={mealCost}
@@ -455,7 +493,7 @@ const Estimator = () => {
                         value={otherCost}
                         name="otherAllowances"
                         id="otherAllowances"
-                        description="otherDescription"
+                        message={{ element: <FormattedMessage id="otherAllowancesMessage" />}}
                         icon={<FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />}
                         title="otherAllowances"
                         calculateTotal={calculateTotal}
