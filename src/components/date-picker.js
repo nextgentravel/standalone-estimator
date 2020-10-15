@@ -11,7 +11,7 @@ import {
   } from '@reecelucas/react-datepicker';
 import { DateTime } from "luxon";
 import { FormattedMessage } from 'react-intl';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight, FaCalendar } from 'react-icons/fa';
 
 const DatePickerComponent = ({validationWarnings, setValidationWarnings, label, name, updateValue}) => {
     let showValidationWarning = false;
@@ -36,7 +36,17 @@ const DatePickerComponent = ({validationWarnings, setValidationWarnings, label, 
             <DatePicker className="dp-wrapper"
                 minDate={today}
                 onSelect={date => updateValue(DateTime.fromJSDate(date))}>
-                <DatePickerInput className="form-control" />
+
+
+                <div className="input-group mb-3">
+                    <DatePickerInput className="form-control" />
+                    <div className="input-group-append">
+                        <span className="input-group-text bg-light" id="calendar"><FaCalendar /></span>
+                    </div>
+                </div>
+
+
+                
 
                 <DatePickerCalendar className="dp-calendar">
                 <div className="dp-top-bar">
