@@ -407,7 +407,7 @@ const Estimator = () => {
                     {errorList()}
                 </ul>
             </div>}
-            <form id="estimates-form" className="form-group row mb-4" onSubmit={handleSubmit}>
+            <form id="estimates-form" className="form-group row mb-5" onSubmit={handleSubmit}>
                 <div className="col-sm-6">
                     <InputDatalist
                         validationWarnings={validationWarnings}
@@ -467,8 +467,7 @@ const Estimator = () => {
                 </div>
             </div>}
 
-            {/* {!loading && result && */}
-            {true &&
+            {!loading && result &&
                 <div className="card bg-light p-4">
                     <h3 className="mb-3"><FormattedMessage id="estimateSummaryTitle" /></h3>
                     {/* Each row could be a generic componemt with props passed in to define what they are */}
@@ -495,7 +494,7 @@ const Estimator = () => {
                         </div>
                         <div className="col-sm-2 align-self-center">
                             <input
-                                type="number"
+                                type="text"
                                 className="form-control"
                                 id={`accommodation_select`}
                                 name={'accommodation'}
@@ -533,7 +532,7 @@ const Estimator = () => {
                         </div>
                         <div className="col-sm-2 align-self-center">
                             <input
-                                type="number"
+                                type="text"
                                 className="form-control"
                                 id={`transportation_select`}
                                 name={'transportation'}

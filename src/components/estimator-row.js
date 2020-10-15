@@ -36,7 +36,7 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
             </div>
             <div className="col-sm-2 align-self-center">
                 <input
-                    type="number"
+                    type="text"
                     value={value}
                     className="form-control"
                     id={id}
