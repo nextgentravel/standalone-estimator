@@ -33,22 +33,6 @@ const DatePickerComponent = ({validationWarnings, setValidationWarnings, label, 
         <div className="mb-4">
 	        <label htmlFor={name}>{label}</label>
             <br/>
-
-            {/* <DatePicker onSelect={date => updateValue(DateTime.fromJSDate(date))} className="dp-calendar">
-                <DatePickerInput className={showValidationWarning ? 'form-control is-invalid' : 'form-control' }/>
-                <DatePickerCalendar className='table'>
-                    <DatePickerButton className='btn' updateMonth={({ prev }) => prev()}>
-                        <FaChevronLeft />
-                    </DatePickerButton>
-                    <DatePickerMonth className='lead' />
-                    <DatePickerButton className='btn' updateMonth={({ next }) => next()}>
-                        <FaChevronRight />
-                    </DatePickerButton>
-                    <DatePickerTable />
-                </DatePickerCalendar>
-            </DatePicker> */}
-
-
             <DatePicker className="dp-wrapper"
                 minDate={today}
                 onSelect={date => updateValue(DateTime.fromJSDate(date))}>
