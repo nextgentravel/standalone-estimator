@@ -397,7 +397,7 @@ const Estimator = () => {
     }
 
     const calculateTotal = async () => {
-        let total = parseFloat(accommodationCost) + parseFloat(transportationCost) + parseFloat(localTransportationCost) + parseFloat(mealCost) + parseFloat(otherCost);
+        let total = parseFloat(accommodationCost || 0) + parseFloat(transportationCost || 0) + parseFloat(localTransportationCost || 0) + parseFloat(mealCost || 0) + parseFloat(otherCost || 0);
         await updateSummaryCost(total)
     }
 
@@ -574,7 +574,7 @@ const Estimator = () => {
                         icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
                         title="localTransportation"
                         calculateTotal={calculateTotal}
-                        updateCost={updateLocalTransportationCost}
+                        updateCost={setLocalTransportationCost}
                         message={localTransportationMessage}
                     />
                     <EstimatorRow
@@ -585,7 +585,7 @@ const Estimator = () => {
                         icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
                         title="mealsAndIncidentals"
                         calculateTotal={calculateTotal}
-                        updateCost={updateMealCost}
+                        updateCost={setMealCost}
                     />
                     <EstimatorRow
                         value={otherCost}
@@ -595,7 +595,7 @@ const Estimator = () => {
                         icon={<FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />}
                         title="otherAllowances"
                         calculateTotal={calculateTotal}
-                        updateCost={updateOtherCost}
+                        updateCost={setOtherCost}
                         tooltipIcon={FaQuestionCircle}
                         tooltipText={<FormattedMessage id="otherTooltipText" />}
                     />
