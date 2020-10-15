@@ -500,6 +500,7 @@ const Estimator = () => {
                         </div>
                         <div className="col-sm-2 align-self-center">
                             <input
+                                disabled={accommodation === "private"}
                                 type="text"
                                 className="form-control"
                                 id={`accommodation_select`}
