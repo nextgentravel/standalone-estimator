@@ -19,6 +19,8 @@ import { FaSpinner } from 'react-icons/fa';
 import { FaQuestionCircle } from 'react-icons/fa';
 import { FaExclamationTriangle } from 'react-icons/fa';
 
+import { Spinner } from 'react-bootstrap';
+
 import { FaBed } from 'react-icons/fa';
 import { FaPlane } from 'react-icons/fa';
 import { FaTaxi } from 'react-icons/fa';
@@ -64,7 +66,7 @@ const Estimator = () => {
     const [transportationMessage, setTransportationMessage] = useState({ element: <FormattedMessage id='transportationDescription' />, style: 'primary' });
     const [localTransportationMessage, setLocalTransportationMessage] = useState({ element: <FormattedMessage id='localTransportationDescription' />, style: 'primary' });
     const [transportationCost, setTransportationCost] = useState(0);
-    const [localCost, setLocalCost] = useState(0);
+    const [localTransportationCost, setLocalTransportationCost] = useState(0);
     const [mealCost, setMealCost] = useState(0);
     const [otherCost, setOtherCost] = useState(0);
     const [summaryCost, setSummaryCost] = useState(0);
@@ -72,7 +74,7 @@ const Estimator = () => {
 
     useEffect(() => {
         calculateTotal()
-    }, [accommodationCost, transportationCost, localCost, mealCost, otherCost])
+    }, [accommodationCost, transportationCost, localTransportationCost, mealCost, otherCost])
 
     useEffect(() => {
         async function fetchAmadeusToken() {
@@ -125,7 +127,7 @@ const Estimator = () => {
 
     const fetchLocalTransportationRate = (numberOfDays) => {
         let cost = 100 + 50 * (numberOfDays)
-        setLocalCost(cost)
+        setLocalTransportationCost(cost)
         setLocalTransportationMessage({ element: <FormattedMessage id="localTransportationMessage" />  })
     }
 
@@ -142,7 +144,15 @@ const Estimator = () => {
     }, [accommodation])
 
     const fetchFlightCost = () => {
-        setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessageLoading" />  })
+        setTransportationMessage({ element: 
+            <>
+                <Spinner animation="border" role="status" size="sm">
+                    <span className="sr-only">Loading...</span>
+                </Spinner>{' '}
+                <FormattedMessage id="transportationFlightMessageLoading" />
+            </>
+            
+        })
         const departureDateISODate = departureDate.toISODate()
         const returnDateISODate = returnDate.toISODate()
         amadeusFlightOffer('YOW', 'YVR', departureDateISODate, returnDateISODate, amadeusAccessToken)
@@ -185,8 +195,26 @@ const Estimator = () => {
         }
     }, [transport])
 
+
+
+    const updateAccommodationCost = (newValue) => {
+        setAccommodationCost(newValue.toFixed(2))
+    }
+
+    const updateTransportationCost = (newValue) => {
+        setTransportationCost(newValue.toFixed(2))
+    }
+
+    const updateLocalTransportationCost = (newValue) => {
+        setLocalTransportationCost(newValue.toFixed(2))
+    }
+
     const updateMealCost = (newValue) => {
         setMealCost(newValue.toFixed(2))
+    }
+
+    const updateOtherCost = (newValue) => {
+        setOtherCost(newValue.toFixed(2))
     }
 
     // since this function is used in two files, we should import it
@@ -356,7 +384,7 @@ const Estimator = () => {
     }
 
     const calculateTotal = async () => {
-        let total = parseInt(accommodationCost) + parseInt(transportationCost) + parseInt(localCost) + parseInt(mealCost) + parseInt(otherCost);
+        let total = parseInt(accommodationCost) + parseInt(transportationCost) + parseInt(localTransportationCost) + parseInt(mealCost) + parseInt(otherCost);
         await setSummaryCost(total)
     }
 
@@ -516,14 +544,14 @@ const Estimator = () => {
 
 
                     <EstimatorRow
-                        value={localCost}
+                        value={localTransportationCost}
                         name="localTransportation"
                         id="localTransportation"
                         description="localTransportationDescription"
                         icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
                         title="localTransportation"
                         calculateTotal={calculateTotal}
-                        updateCost={setLocalCost}
+                        updateCost={setLocalTransportationCost}
                         message={localTransportationMessage}
                     />
                     <EstimatorRow
