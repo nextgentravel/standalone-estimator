@@ -147,7 +147,8 @@ module.exports = {
         "transportationRentalCarMessage": "Lowest priced medium sized car on {date}",
         "transportationPrivateVehicleMessage": "{price}/km based on an average of {kilometres} return trip",
         "localTransportationMessage": "Based on an average of {cost} per day for travel in {destination}",
-        "otherAllowancesMessage": "Amount is a total of all additional expenses"
+        "otherAllowancesMessage": "Amount is a total of all additional expenses",
+        "accommodationWarning": "You've exceed the recommended total of ${acrdTotal} for your trip",
     },
     'fr': {
         // header
