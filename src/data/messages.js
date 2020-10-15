@@ -142,7 +142,7 @@ module.exports = {
         "localTransportationSetDescription": "Based on an average of $50 per day for travel in {destination}",
         "transportationFlightMessage": "Average published airfare on <strong>{date}</strong>",
         "transportationFlightMessageCouldNotLoad": "Could not estimate flight price.  Please enter your flight price manually.",
-        "transportationFlightMessageLoading": "Loading flight price",
+        "transportationFlightMessageLoading": "Loading latest rates...",
         "transportationTrainMessage": "Lowest published train fare on {date}",
         "transportationRentalCarMessage": "Lowest priced medium sized car on {date}",
         "transportationPrivateVehicleMessage": "{price}/km based on an average of {kilometres} return trip",
