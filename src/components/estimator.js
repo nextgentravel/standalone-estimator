@@ -142,15 +142,32 @@ const Estimator = () => {
     }, [accommodation])
 
     const fetchFlightCost = () => {
+        setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessageLoading" />  })
         const departureDateISODate = departureDate.toISODate()
         const returnDateISODate = returnDate.toISODate()
         amadeusFlightOffer('YOW', 'YVR', departureDateISODate, returnDateISODate, amadeusAccessToken)
             .then(response => response.json())
             .then(result => {
-                setTransportationCost(987);
-                setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessage" />  })
+
+                const allPrices = [];
+
+                result.data.forEach(itinerary => {
+                    allPrices.push(parseInt(itinerary.price.grandTotal))
+                });
+                
+                const sum = allPrices.reduce((a, b) => a + b, 0);
+                const avg = (sum / allPrices.length) || 0;
+
+                setTransportationCost(avg);
+                setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessage" values={{
+                    date: DateTime.local().toFormat("yyyy-MM-dd' at 'hh:mm a"),
+                    strong: chunks => <strong>{chunks}</strong>,
+                  }} />  })
             })
-            .catch(error => error);
+            .catch(error => {
+                setTransportationCost(0);
+                setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessageCouldNotLoad" />  })
+            });
     }
 
     useEffect(() => {
@@ -284,6 +301,12 @@ const Estimator = () => {
     }
 
     const clearForm = () => {
+        console.log('clear')
+        setDestination('')
+        setOrigin('')
+
+        console.log(destination)
+        console.log(origin)
     }
 
     const handleValidation = () => {
