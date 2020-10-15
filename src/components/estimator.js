@@ -341,13 +341,14 @@ const Estimator = () => {
             });
     }
 
-    const clearForm = () => {
-        console.log('clear')
-        setDestination('')
-        setOrigin('')
-
-        console.log(destination)
-        console.log(origin)
+    const clearForm = async () => {
+        await setOrigin('')
+        await setDestination('')
+        document.querySelector('#origin').value = ""
+        document.querySelector('#destination').value = ""
+        setDepartureDate('')
+        setReturnDate('');
+        // setResult(false)
     }
 
     const handleValidation = () => {
