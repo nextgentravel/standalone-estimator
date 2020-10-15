@@ -62,6 +62,7 @@ const Estimator = () => {
     const [errorPanel, setErrorPanel] = useState(false);
 
     const [accommodationCost, setAccommodationCost] = useState(0.00);
+    const [acrdTotal, setAcrdTotal] = useState(0.00);
     const [accommodationMessage, setAccommodationMessage] = useState({ element: <FormattedMessage id='accommodationDescription' />, style: 'primary' });
     const [transportationMessage, setTransportationMessage] = useState({ element: <FormattedMessage id='transportationDescription' />, style: 'primary' });
     const [localTransportationMessage, setLocalTransportationMessage] = useState({ element: <FormattedMessage id='localTransportationDescription' />, style: 'primary' });
@@ -124,6 +125,7 @@ const Estimator = () => {
             }
 
             updateAccommodationCost(total)
+            setAcrdTotal(total);
             setAccommodationMessage({ element: <FormattedMessage id="hotelAccommodationMessage" values={{
                 destination,
                 rate: applicableRates[0].rate,
@@ -222,6 +224,10 @@ const Estimator = () => {
 
     const updateOtherCost = (newValue) => {
         setOtherCost(newValue.toFixed(2))
+    }
+
+    const updateSummaryCost = (newValue) => {
+        setSummaryCost(newValue.toFixed(2))
     }
 
     // since this function is used in two files, we should import it
@@ -392,7 +398,7 @@ const Estimator = () => {
 
     const calculateTotal = async () => {
         let total = parseFloat(accommodationCost) + parseFloat(transportationCost) + parseFloat(localTransportationCost) + parseFloat(mealCost) + parseFloat(otherCost);
-        await setSummaryCost(total)
+        await updateSummaryCost(total)
     }
 
 
@@ -498,7 +504,19 @@ const Estimator = () => {
                                 className="form-control"
                                 id={`accommodation_select`}
                                 name={'accommodation'}
-                                onChange={(e) => {setAccommodationCost(e.target.value)}}
+                                onChange={(e) => {
+                                    if (parseFloat(e.target.value) > acrdTotal) {
+                                        setAccommodationCost(e.target.value)
+                                        setAccommodationMessage({ element: 
+                                        <div className="alert alert-warning mb-0" role="alert">
+                                            <FormattedMessage id='accommodationWarning' values={{ acrdTotal }} />
+                                        </div>
+
+                                        , style: 'warn' });
+                                    } else {
+                                        setAccommodationCost(e.target.value)
+                                    }
+                                }}
                                 onBlur={calculateTotal}
                                 value={accommodationCost}>
                             </input>
