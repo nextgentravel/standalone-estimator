@@ -489,7 +489,7 @@ const Estimator = () => {
                                     <div id={`accommodation_container`}>
                                     <select
                                         className="custom-select"
-                                        onChange={e => {setAccommodation(e.target.value)}}
+                                        onChange={e => setAccommodation(e.target.value)}
                                     >
                                         <option value="hotel">Hotel</option>
                                         <option value="private">Private Accommodation</option>
@@ -537,7 +537,13 @@ const Estimator = () => {
                                     <div id={`transportation_container`}>
                                     <select
                                         className="custom-select"
-                                        onChange={e => {setTransport(e.target.value)}}
+                                        onChange={e => {
+                                            setTransport(e.target.value)
+                                            if (e.target.value === 'private') {
+                                                console.log('here')
+                                                updateLocalTransportationCost(0)
+                                            };
+                                        }}
                                     >
                                         <option value="flight" >Flight</option>
                                         <option value="train">Train</option>
