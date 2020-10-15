@@ -36,11 +36,10 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
             </div>
             <div className="col-sm-2 align-self-center">
                 <input
-                    type="text"
+                    type="number"
                     value={value}
                     className="form-control"
                     id={id}
-                    placeholder="0"
                     name={name}
                     onChange={(e) => {updateCost(e.target.value)}} onBlur={calculateTotal}></input>
             </div>

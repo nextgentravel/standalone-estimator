@@ -61,15 +61,15 @@ const Estimator = () => {
     const [generalError, setGeneralError] = useState(false);
     const [errorPanel, setErrorPanel] = useState(false);
 
-    const [accommodationCost, setAccommodationCost] = useState(0);
+    const [accommodationCost, setAccommodationCost] = useState(0.00);
     const [accommodationMessage, setAccommodationMessage] = useState({ element: <FormattedMessage id='accommodationDescription' />, style: 'primary' });
     const [transportationMessage, setTransportationMessage] = useState({ element: <FormattedMessage id='transportationDescription' />, style: 'primary' });
     const [localTransportationMessage, setLocalTransportationMessage] = useState({ element: <FormattedMessage id='localTransportationDescription' />, style: 'primary' });
-    const [transportationCost, setTransportationCost] = useState(0);
-    const [localTransportationCost, setLocalTransportationCost] = useState(0);
-    const [mealCost, setMealCost] = useState(0);
-    const [otherCost, setOtherCost] = useState(0);
-    const [summaryCost, setSummaryCost] = useState(0);
+    const [transportationCost, setTransportationCost] = useState(0.00);
+    const [localTransportationCost, setLocalTransportationCost] = useState(0.00);
+    const [mealCost, setMealCost] = useState(0.00);
+    const [otherCost, setOtherCost] = useState(0.00);
+    const [summaryCost, setSummaryCost] = useState(0.00);
     const [amadeusAccessToken, setAmadeusAccessToken] = useState('')
 
     useEffect(() => {
@@ -89,6 +89,15 @@ const Estimator = () => {
         fetchAmadeusToken();
     }, [])
 
+    useEffect(() => {
+        updateAccommodationCost(0.00)
+        updateTransportationCost(0.00)
+        updateLocalTransportationCost(0.00)
+        updateMealCost(0.00)
+        updateOtherCost(0.00)
+    }, [])
+
+
     const fetchHotelCost = () => {
         let months = monthsContained(departureDate,returnDate);
         let rates = acrdRates[destination];
@@ -102,7 +111,7 @@ const Estimator = () => {
         try {
             let rates = rateDaysByMonth(departureDate, returnDate, acrdRatesFiltered)
 
-            let total = 0;
+            let total = 0.00;
 
             let applicableRates = []
 
@@ -114,8 +123,7 @@ const Estimator = () => {
                 })
             }
 
-            setAccommodationCost(total)
-            console.log(JSON.stringify(applicableRates))
+            updateAccommodationCost(total)
             setAccommodationMessage({ element: <FormattedMessage id="hotelAccommodationMessage" values={{
                 destination,
                 rate: applicableRates[0].rate,
@@ -127,7 +135,7 @@ const Estimator = () => {
 
     const fetchLocalTransportationRate = (numberOfDays) => {
         let cost = 100 + 50 * (numberOfDays)
-        setLocalTransportationCost(cost)
+        updateLocalTransportationCost(cost)
         setLocalTransportationMessage({ element: <FormattedMessage id="localTransportationMessage" />  })
     }
 
@@ -137,21 +145,20 @@ const Estimator = () => {
         } else if (accommodation === 'private') {
             let rate = (Interval.fromDateTimes(departureDate, returnDate).count('days') - 1) * 50;
             setAccommodationMessage({ element: <FormattedMessage id="privateAccommodationMessage" />  })
-            setAccommodationCost(rate)
+            updateAccommodationCost(rate)
         } else {
-            setAccommodationCost(0)
+            updateAccommodationCost(0.00)
         }
     }, [accommodation])
 
     const fetchFlightCost = () => {
-        setTransportationMessage({ element: 
+        setTransportationMessage({ element:
             <>
                 <Spinner animation="border" role="status" size="sm">
                     <span className="sr-only">Loading...</span>
                 </Spinner>{' '}
                 <FormattedMessage id="transportationFlightMessageLoading" />
             </>
-            
         })
         const departureDateISODate = departureDate.toISODate()
         const returnDateISODate = returnDate.toISODate()
@@ -162,20 +169,20 @@ const Estimator = () => {
                 const allPrices = [];
 
                 result.data.forEach(itinerary => {
-                    allPrices.push(parseInt(itinerary.price.grandTotal))
+                    allPrices.push(parseFloat(itinerary.price.grandTotal))
                 });
                 
                 const sum = allPrices.reduce((a, b) => a + b, 0);
                 const avg = (sum / allPrices.length) || 0;
 
-                setTransportationCost(avg);
+                updateTransportationCost(avg);
                 setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessage" values={{
                     date: DateTime.local().toFormat("yyyy-MM-dd' at 'hh:mm a"),
                     strong: chunks => <strong>{chunks}</strong>,
                   }} />  })
             })
             .catch(error => {
-                setTransportationCost(0);
+                updateTransportationCost(0.00);
                 setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessageCouldNotLoad" />  })
             });
     }
@@ -184,13 +191,13 @@ const Estimator = () => {
         if (transport === 'flight') {
             fetchFlightCost()
         } else if (transport === 'train') {
-            setTransportationCost(436)
+            updateTransportationCost(436)
             setTransportationMessage({ element: <FormattedMessage id="transportationTrainMessage" />  })
         } else if (transport === 'rental') {
-            setTransportationCost(348)
+            updateTransportationCost(348)
             setTransportationMessage({ element: <FormattedMessage id="transportationRentalCarMessage" />  })
         } else if (transport === 'private') {
-            setTransportationCost(203)
+            updateTransportationCost(203)
             setTransportationMessage({ element: <FormattedMessage id="transportationPrivateVehicleMessage" />  })
         }
     }, [transport])
@@ -384,7 +391,7 @@ const Estimator = () => {
     }
 
     const calculateTotal = async () => {
-        let total = parseInt(accommodationCost) + parseInt(transportationCost) + parseInt(localTransportationCost) + parseInt(mealCost) + parseInt(otherCost);
+        let total = parseFloat(accommodationCost) + parseFloat(transportationCost) + parseFloat(localTransportationCost) + parseFloat(mealCost) + parseFloat(otherCost);
         await setSummaryCost(total)
     }
 
@@ -460,7 +467,8 @@ const Estimator = () => {
                 </div>
             </div>}
 
-            {!loading && result &&
+            {/* {!loading && result && */}
+            {true &&
                 <div className="card bg-light p-4">
                     <h3 className="mb-3"><FormattedMessage id="estimateSummaryTitle" /></h3>
                     {/* Each row could be a generic componemt with props passed in to define what they are */}
@@ -487,10 +495,9 @@ const Estimator = () => {
                         </div>
                         <div className="col-sm-2 align-self-center">
                             <input
-                                type="text"
+                                type="number"
                                 className="form-control"
                                 id={`accommodation_select`}
-                                placeholder="0"
                                 name={'accommodation'}
                                 onChange={(e) => {setAccommodationCost(e.target.value)}}
                                 onBlur={calculateTotal}
@@ -526,10 +533,9 @@ const Estimator = () => {
                         </div>
                         <div className="col-sm-2 align-self-center">
                             <input
-                                type="text"
+                                type="number"
                                 className="form-control"
                                 id={`transportation_select`}
-                                placeholder="0"
                                 name={'transportation'}
                                 onChange={(e)  => {setTransportationCost(e.target.value)}}
                                 onBlur={calculateTotal}
@@ -551,7 +557,7 @@ const Estimator = () => {
                         icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
                         title="localTransportation"
                         calculateTotal={calculateTotal}
-                        updateCost={setLocalTransportationCost}
+                        updateCost={updateLocalTransportationCost}
                         message={localTransportationMessage}
                     />
                     <EstimatorRow
@@ -562,7 +568,7 @@ const Estimator = () => {
                         icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
                         title="mealsAndIncidentals"
                         calculateTotal={calculateTotal}
-                        updateCost={setMealCost}
+                        updateCost={updateMealCost}
                     />
                     <EstimatorRow
                         value={otherCost}
@@ -572,7 +578,7 @@ const Estimator = () => {
                         icon={<FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />}
                         title="otherAllowances"
                         calculateTotal={calculateTotal}
-                        updateCost={setOtherCost}
+                        updateCost={updateOtherCost}
                         tooltipIcon={FaQuestionCircle}
                         tooltipText={<FormattedMessage id="otherTooltipText" />}
                     />
