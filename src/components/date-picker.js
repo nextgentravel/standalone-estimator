@@ -39,7 +39,7 @@ const DatePickerComponent = ({validationWarnings, setValidationWarnings, label, 
 
 
                 <div className="input-group mb-3">
-                    <DatePickerInput className="form-control" dateFormat={'yyyy-MM-dd'} />
+                    <DatePickerInput id={name} className="form-control" dateFormat={'yyyy-MM-dd'} />
                     <div className="input-group-append">
                         <span className="input-group-text bg-light" id="calendar"><FaCalendar /></span>
                     </div>

@@ -348,7 +348,8 @@ const Estimator = () => {
         document.querySelector('#destination').value = ""
         setDepartureDate('')
         setReturnDate('');
-        // setResult(false)
+        // document.querySelector('#departureDate').value = ""
+        // document.querySelector('#returnDate').value = ""
     }
 
     const handleValidation = () => {
