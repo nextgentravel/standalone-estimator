@@ -96,8 +96,8 @@ const Estimator = () => {
         updateLocalTransportationCost(0.00)
         updateMealCost(0.00)
         updateOtherCost(0.00)
+        clearForm()
     }, [])
-
 
     const fetchHotelCost = () => {
         let months = monthsContained(departureDate,returnDate);
@@ -459,7 +459,7 @@ const Estimator = () => {
                 <div className="col-sm-3"></div>
                 <div className="col-sm-6">
                     <button type="submit" className="btn btn-primary"><FormattedMessage id="estimate"/></button>
-                    <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}><FormattedMessage id="clear"/></button>
+                    <button type="button" className="btn btn-secondary ml-2" onClick={() => {clearForm()}}><FormattedMessage id="clear"/></button>
                     {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
                 </div>
             </form>
