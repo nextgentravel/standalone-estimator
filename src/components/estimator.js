@@ -11,6 +11,7 @@ import Tooltip from 'react-bootstrap/Tooltip'
 // import EstimatorRowDropdown from "./estimator-row-dropdown.js";
 
 import cities from "../data/cities.js"
+import geocodedCities from "../data/geocodedCities"
 import acrdRates from "../data/acrdRates.js"
 import accommodations from "../data/accommodations.js"
 import transportData from "../data/transport-data.js"
@@ -28,6 +29,7 @@ import { FaUtensils } from 'react-icons/fa';
 import { FaSuitcase } from 'react-icons/fa';
 
 import amadeusFlightOffer from '../api-calls/amadeusFlightOffer'
+import amadeusAirportCode from '../api-calls/amadeusAirportCode'
 
 const Estimator = () => {
     const citiesList = cities.citiesList;
@@ -35,21 +37,48 @@ const Estimator = () => {
     const [filteredCitiesList, setFilteredCitiesList] = useState([]);
 
     useEffect(() => {
-        let list = cities.citiesList.map(city => {
-            return {
-                value: city,
-                label: city,
-            }
-        })
+        let list = []
+        for (let city in geocodedCities) {
+            list.push({
+                value: geocodedCities[city].google_place_id,
+                label: geocodedCities[city].acrdName,
+            })
+        }
         setFilteredCitiesList(list);
     }, []);
-
 
     // Variables/state for inputs
     const [origin, setOrigin] = useState('');
     const [destination, setDestination] = useState('');
+    const [originData, setOriginData] = useState({});
+    const [destinationData, setDestinationData] = useState({});
     const [departureDate, setDepartureDate] = useState('');
     const [returnDate, setReturnDate] = useState('');
+
+    useEffect((() => {
+        const data = geocodedCities[origin]
+
+        const getClosestsAirports = async () => {
+            await amadeusAccessTokenCheck();
+            let response = await amadeusAirportCode(data.geometry.location.lat, data.geometry.location.lng, amadeusAccessToken.token)
+            return response;
+        }
+
+        if (data && Object.keys(data).length !== 0) {
+            getClosestsAirports()
+            .then((response) => {
+                console.log('closestAirports response', response)
+            })
+        }
+
+        setOriginData(data);
+
+    }), [origin])
+
+    useEffect((() => {
+        const data = geocodedCities[destination]
+        setDestinationData(data);
+    }), [destination])
 
     const [accommodation, setAccommodation] = useState('');
     const [transport, setTransport] = useState('');
@@ -71,22 +100,25 @@ const Estimator = () => {
     const [mealCost, setMealCost] = useState(0.00);
     const [otherCost, setOtherCost] = useState(0.00);
     const [summaryCost, setSummaryCost] = useState(0.00);
-    const [amadeusAccessToken, setAmadeusAccessToken] = useState('')
+    const [amadeusAccessToken, setAmadeusAccessToken] = useState({})
 
     useEffect(() => {
         calculateTotal()
     }, [accommodationCost, transportationCost, localTransportationCost, mealCost, otherCost])
 
+    async function fetchAmadeusToken() {
+        await fetch(`/api/FetchAmadeusToken`)
+            .then(response => response.json())
+            .then(result => {
+                console.log('Fetched Access Token!!!', result);
+                let expiryTime = new Date();
+                expiryTime.setSeconds(expiryTime.getSeconds() + result.expires_in);
+                setAmadeusAccessToken({ token: result.access_token, expiryTime: expiryTime.getTime() });
+            })
+            .catch(error => { console.log('error', error) });
+    }
+
     useEffect(() => {
-        async function fetchAmadeusToken() {
-            await fetch(`/api/FetchAmadeusToken`)
-                .then(response => response.json())
-                .then(result => {
-                    console.log('Fetched Access Token!!!', result);
-                    setAmadeusAccessToken(result.access_token)
-                })
-                .catch(error => { console.log('error', error) });
-        }
         fetchAmadeusToken();
     }, [])
 
@@ -153,7 +185,16 @@ const Estimator = () => {
         }
     }, [accommodation])
 
-    const fetchFlightCost = () => {
+    const amadeusAccessTokenCheck = () => {
+        if (Date.now() >= amadeusAccessToken.expiryTime) {
+            fetchAmadeusToken()
+            console.log("Fetching new token.")
+        } else {
+            console.log("Token is good!")
+        }
+    }
+
+    const fetchFlightCost = async () => {
         setTransportationMessage({ element:
             <>
                 <Spinner animation="border" role="status" size="sm">
@@ -164,7 +205,10 @@ const Estimator = () => {
         })
         const departureDateISODate = departureDate.toISODate()
         const returnDateISODate = returnDate.toISODate()
-        amadeusFlightOffer('YOW', 'YVR', departureDateISODate, returnDateISODate, amadeusAccessToken)
+
+        await amadeusAccessTokenCheck();
+
+        amadeusFlightOffer('YOW', 'YVR', departureDateISODate, returnDateISODate, amadeusAccessToken.token)
             .then(response => response.json())
             .then(result => {
 
