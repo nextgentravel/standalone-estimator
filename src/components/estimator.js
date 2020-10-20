@@ -386,12 +386,12 @@ const Estimator = () => {
     }
 
     const clearForm = async () => {
-        await setOrigin('')
-        await setDestination('')
+        setOrigin('')
+        setDestination('')
         document.querySelector('#origin').value = ""
         document.querySelector('#destination').value = ""
-        setDepartureDate('')
-        setReturnDate('');
+        // setDepartureDate('')
+        // setReturnDate('');
         // document.querySelector('#departureDate').value = ""
         // document.querySelector('#returnDate').value = ""
     }
