@@ -40,7 +40,6 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                     value={value}
                     className="form-control"
                     id={id}
-                    placeholder="0"
                     name={name}
                     onChange={(e) => {updateCost(e.target.value)}} onBlur={calculateTotal}></input>
             </div>
@@ -55,4 +54,3 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
 
 
 export default EstimatorRow
-

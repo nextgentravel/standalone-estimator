@@ -11,6 +11,7 @@ import Tooltip from 'react-bootstrap/Tooltip'
 // import EstimatorRowDropdown from "./estimator-row-dropdown.js";
 
 import cities from "../data/cities.js"
+import geocodedCities from "../data/geocodedCities"
 import acrdRates from "../data/acrdRates.js"
 import accommodations from "../data/accommodations.js"
 import transportData from "../data/transport-data.js"
@@ -19,11 +20,16 @@ import { FaSpinner } from 'react-icons/fa';
 import { FaQuestionCircle } from 'react-icons/fa';
 import { FaExclamationTriangle } from 'react-icons/fa';
 
+import { Spinner } from 'react-bootstrap';
+
 import { FaBed } from 'react-icons/fa';
 import { FaPlane } from 'react-icons/fa';
 import { FaTaxi } from 'react-icons/fa';
 import { FaUtensils } from 'react-icons/fa';
 import { FaSuitcase } from 'react-icons/fa';
+
+import amadeusFlightOffer from '../api-calls/amadeusFlightOffer'
+import amadeusAirportCode from '../api-calls/amadeusAirportCode'
 
 const Estimator = () => {
     const citiesList = cities.citiesList;
@@ -31,21 +37,48 @@ const Estimator = () => {
     const [filteredCitiesList, setFilteredCitiesList] = useState([]);
 
     useEffect(() => {
-        let list = cities.citiesList.map(city => {
-            return {
-                value: city,
-                label: city,
-            }
-        })
+        let list = []
+        for (let city in geocodedCities) {
+            list.push({
+                value: geocodedCities[city].google_place_id,
+                label: geocodedCities[city].acrdName,
+            })
+        }
         setFilteredCitiesList(list);
     }, []);
-
 
     // Variables/state for inputs
     const [origin, setOrigin] = useState('');
     const [destination, setDestination] = useState('');
+    const [originData, setOriginData] = useState({});
+    const [destinationData, setDestinationData] = useState({});
     const [departureDate, setDepartureDate] = useState('');
     const [returnDate, setReturnDate] = useState('');
+
+    useEffect((() => {
+        const data = geocodedCities[origin]
+
+        const getClosestsAirports = async () => {
+            await amadeusAccessTokenCheck();
+            let response = await amadeusAirportCode(data.geometry.location.lat, data.geometry.location.lng, amadeusAccessToken.token)
+            return response;
+        }
+
+        if (data && Object.keys(data).length !== 0) {
+            getClosestsAirports()
+            .then((response) => {
+                console.log('closestAirports response', response)
+            })
+        }
+
+        setOriginData(data);
+
+    }), [origin])
+
+    useEffect((() => {
+        const data = geocodedCities[destination]
+        setDestinationData(data);
+    }), [destination])
 
     const [accommodation, setAccommodation] = useState('');
     const [transport, setTransport] = useState('');
@@ -57,19 +90,46 @@ const Estimator = () => {
     const [generalError, setGeneralError] = useState(false);
     const [errorPanel, setErrorPanel] = useState(false);
 
-    const [accommodationCost, setAccommodationCost] = useState(0);
+    const [accommodationCost, setAccommodationCost] = useState(0.00);
+    const [acrdTotal, setAcrdTotal] = useState(0.00);
     const [accommodationMessage, setAccommodationMessage] = useState({ element: <FormattedMessage id='accommodationDescription' />, style: 'primary' });
     const [transportationMessage, setTransportationMessage] = useState({ element: <FormattedMessage id='transportationDescription' />, style: 'primary' });
     const [localTransportationMessage, setLocalTransportationMessage] = useState({ element: <FormattedMessage id='localTransportationDescription' />, style: 'primary' });
-    const [transportationCost, setTransportationCost] = useState(0);
-    const [localCost, setLocalCost] = useState(0);
-    const [mealCost, setMealCost] = useState(0);
-    const [otherCost, setOtherCost] = useState(0);
-    const [summaryCost, setSummaryCost] = useState(0);
+    const [transportationCost, setTransportationCost] = useState(0.00);
+    const [localTransportationCost, setLocalTransportationCost] = useState(0.00);
+    const [mealCost, setMealCost] = useState(0.00);
+    const [otherCost, setOtherCost] = useState(0.00);
+    const [summaryCost, setSummaryCost] = useState(0.00);
+    const [amadeusAccessToken, setAmadeusAccessToken] = useState({})
 
     useEffect(() => {
         calculateTotal()
-    }, [accommodationCost, transportationCost, localCost, mealCost, otherCost])
+    }, [accommodationCost, transportationCost, localTransportationCost, mealCost, otherCost])
+
+    async function fetchAmadeusToken() {
+        await fetch(`/api/FetchAmadeusToken`)
+            .then(response => response.json())
+            .then(result => {
+                console.log('Fetched Access Token!!!', result);
+                let expiryTime = new Date();
+                expiryTime.setSeconds(expiryTime.getSeconds() + result.expires_in);
+                setAmadeusAccessToken({ token: result.access_token, expiryTime: expiryTime.getTime() });
+            })
+            .catch(error => { console.log('error', error) });
+    }
+
+    useEffect(() => {
+        fetchAmadeusToken();
+    }, [])
+
+    useEffect(() => {
+        updateAccommodationCost(0.00)
+        updateTransportationCost(0.00)
+        updateLocalTransportationCost(0.00)
+        updateMealCost(0.00)
+        updateOtherCost(0.00)
+        clearForm()
+    }, [])
 
     const fetchHotelCost = () => {
         let months = monthsContained(departureDate,returnDate);
@@ -84,7 +144,9 @@ const Estimator = () => {
         try {
             let rates = rateDaysByMonth(departureDate, returnDate, acrdRatesFiltered)
 
-            let total = 0;
+            let total = 0.00;
+
+            let applicableRates = []
 
             let applicableRates = []
 
@@ -96,8 +158,8 @@ const Estimator = () => {
                 })
             }
 
-            setAccommodationCost(total)
-            console.log(JSON.stringify(applicableRates))
+            updateAccommodationCost(total)
+            setAcrdTotal(total);
             setAccommodationMessage({ element: <FormattedMessage id="hotelAccommodationMessage" values={{
                 destination,
                 rate: applicableRates[0].rate,
@@ -109,7 +171,7 @@ const Estimator = () => {
 
     const fetchLocalTransportationRate = (numberOfDays) => {
         let cost = 100 + 50 * (numberOfDays)
-        setLocalCost(cost)
+        updateLocalTransportationCost(cost)
         setLocalTransportationMessage({ element: <FormattedMessage id="localTransportationMessage" />  })
     }
 
@@ -119,40 +181,106 @@ const Estimator = () => {
         } else if (accommodation === 'private') {
             let rate = (Interval.fromDateTimes(departureDate, returnDate).count('days') - 1) * 50;
             setAccommodationMessage({ element: <FormattedMessage id="privateAccommodationMessage" />  })
-            setAccommodationCost(rate)
+            updateAccommodationCost(rate)
         } else {
-            setAccommodationCost(0)
+            updateAccommodationCost(0.00)
         }
     }, [accommodation])
 
-    const fetchFlightCost = () => {
-        setTransportationCost(987);
-        setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessage" />  })
+    const amadeusAccessTokenCheck = () => {
+        if (Date.now() >= amadeusAccessToken.expiryTime) {
+            fetchAmadeusToken()
+            console.log("Fetching new token.")
+        } else {
+            console.log("Token is good!")
+        }
+    }
+
+    const fetchFlightCost = async () => {
+        setTransportationMessage({ element:
+            <>
+                <Spinner animation="border" role="status" size="sm">
+                    <span className="sr-only">Loading...</span>
+                </Spinner>{' '}
+                <FormattedMessage id="transportationFlightMessageLoading" />
+            </>
+        })
+        const departureDateISODate = departureDate.toISODate()
+        const returnDateISODate = returnDate.toISODate()
+
+        await amadeusAccessTokenCheck();
+
+        amadeusFlightOffer('YOW', 'YVR', departureDateISODate, returnDateISODate, amadeusAccessToken.token)
+            .then(response => response.json())
+            .then(result => {
+
+                const allPrices = [];
+
+                result.data.forEach(itinerary => {
+                    allPrices.push(parseFloat(itinerary.price.grandTotal))
+                });
+                
+                const sum = allPrices.reduce((a, b) => a + b, 0);
+                const avg = (sum / allPrices.length) || 0;
+
+                updateTransportationCost(avg);
+                setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessage" values={{
+                    date: DateTime.local().toFormat("yyyy-MM-dd' at 'hh:mm a"),
+                    strong: chunks => <strong>{chunks}</strong>,
+                  }} />  })
+            })
+            .catch(error => {
+                updateTransportationCost(0.00);
+                setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessageCouldNotLoad" />  })
+            });
     }
 
     useEffect(() => {
         if (transport === 'flight') {
             fetchFlightCost()
         } else if (transport === 'train') {
-            setTransportationCost(436)
+            updateTransportationCost(436)
             setTransportationMessage({ element: <FormattedMessage id="transportationTrainMessage" />  })
         } else if (transport === 'rental') {
-            setTransportationCost(348)
+            updateTransportationCost(348)
             setTransportationMessage({ element: <FormattedMessage id="transportationRentalCarMessage" />  })
         } else if (transport === 'private') {
-            setTransportationCost(203)
+            updateTransportationCost(203)
             setTransportationMessage({ element: <FormattedMessage id="transportationPrivateVehicleMessage" />  })
         }
     }, [transport])
 
+
+
+    const updateAccommodationCost = (newValue) => {
+        setAccommodationCost(newValue.toFixed(2))
+    }
+
+    const updateTransportationCost = (newValue) => {
+        setTransportationCost(newValue.toFixed(2))
+    }
+
+    const updateLocalTransportationCost = (newValue) => {
+        setLocalTransportationCost(newValue.toFixed(2))
+    }
+
     const updateMealCost = (newValue) => {
         setMealCost(newValue.toFixed(2))
+    }
+
+    const updateOtherCost = (newValue) => {
+        setOtherCost(newValue.toFixed(2))
+    }
+
+    const updateSummaryCost = (newValue) => {
+        setSummaryCost(newValue.toFixed(2))
     }
 
     // since this function is used in two files, we should import it
     const calculateMeals = (departDate, returnDate, province) => {
         let departD = DateTime.fromISO(departDate);
         let returnD = DateTime.fromISO(returnDate);
+        
         let duration = returnD.diff(departD, 'days')
         let provinceAllowances = Object.keys(mealAllowances);
 
@@ -259,7 +387,15 @@ const Estimator = () => {
             });
     }
 
-    const clearForm = () => {
+    const clearForm = async () => {
+        await setOrigin('')
+        await setDestination('')
+        document.querySelector('#origin').value = ""
+        document.querySelector('#destination').value = ""
+        setDepartureDate('')
+        setReturnDate('');
+        // document.querySelector('#departureDate').value = ""
+        // document.querySelector('#returnDate').value = ""
     }
 
     const handleValidation = () => {
@@ -309,8 +445,8 @@ const Estimator = () => {
     }
 
     const calculateTotal = async () => {
-        let total = parseInt(accommodationCost) + parseInt(transportationCost) + parseInt(localCost) + parseInt(mealCost) + parseInt(otherCost);
-        await setSummaryCost(total)
+        let total = parseFloat(accommodationCost || 0) + parseFloat(transportationCost || 0) + parseFloat(localTransportationCost || 0) + parseFloat(mealCost || 0) + parseFloat(otherCost || 0);
+        await updateSummaryCost(total)
     }
 
 
@@ -325,7 +461,7 @@ const Estimator = () => {
                     {errorList()}
                 </ul>
             </div>}
-            <form id="estimates-form" className="form-group row mb-4" onSubmit={handleSubmit}>
+            <form id="estimates-form" className="form-group row mb-5" onSubmit={handleSubmit}>
                 <div className="col-sm-6">
                     <InputDatalist
                         validationWarnings={validationWarnings}
@@ -370,7 +506,7 @@ const Estimator = () => {
                 <div className="col-sm-3"></div>
                 <div className="col-sm-6">
                     <button type="submit" className="btn btn-primary"><FormattedMessage id="estimate"/></button>
-                    <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}><FormattedMessage id="clear"/></button>
+                    <button type="button" className="btn btn-secondary ml-2" onClick={() => {clearForm()}}><FormattedMessage id="clear"/></button>
                     {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
                 </div>
             </form>
@@ -401,7 +537,7 @@ const Estimator = () => {
                                     <div id={`accommodation_container`}>
                                     <select
                                         className="custom-select"
-                                        onChange={e => {setAccommodation(e.target.value)}}
+                                        onChange={e => setAccommodation(e.target.value)}
                                     >
                                         <option value="hotel">Hotel</option>
                                         <option value="private">Private Accommodation</option>
@@ -412,12 +548,24 @@ const Estimator = () => {
                         </div>
                         <div className="col-sm-2 align-self-center">
                             <input
+                                disabled={accommodation === "private"}
                                 type="text"
                                 className="form-control"
                                 id={`accommodation_select`}
-                                placeholder="0"
                                 name={'accommodation'}
-                                onChange={(e) => {setAccommodationCost(e.target.value)}}
+                                onChange={(e) => {
+                                    if (parseFloat(e.target.value) > acrdTotal) {
+                                        setAccommodationCost(e.target.value)
+                                        setAccommodationMessage({ element: 
+                                        <div className="alert alert-warning mb-0" role="alert">
+                                            <FormattedMessage id='accommodationWarning' values={{ acrdTotal }} />
+                                        </div>
+
+                                        , style: 'warn' });
+                                    } else {
+                                        setAccommodationCost(e.target.value)
+                                    }
+                                }}
                                 onBlur={calculateTotal}
                                 value={accommodationCost}>
                             </input>
@@ -438,7 +586,13 @@ const Estimator = () => {
                                     <div id={`transportation_container`}>
                                     <select
                                         className="custom-select"
-                                        onChange={e => {setTransport(e.target.value)}}
+                                        onChange={e => {
+                                            setTransport(e.target.value)
+                                            if (e.target.value === 'private') {
+                                                console.log('here')
+                                                updateLocalTransportationCost(0)
+                                            };
+                                        }}
                                     >
                                         <option value="flight" >Flight</option>
                                         <option value="train">Train</option>
@@ -454,7 +608,6 @@ const Estimator = () => {
                                 type="text"
                                 className="form-control"
                                 id={`transportation_select`}
-                                placeholder="0"
                                 name={'transportation'}
                                 onChange={(e)  => {setTransportationCost(e.target.value)}}
                                 onBlur={calculateTotal}
@@ -469,14 +622,14 @@ const Estimator = () => {
 
 
                     <EstimatorRow
-                        value={localCost}
+                        value={localTransportationCost}
                         name="localTransportation"
                         id="localTransportation"
                         description="localTransportationDescription"
                         icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
                         title="localTransportation"
                         calculateTotal={calculateTotal}
-                        updateCost={setLocalCost}
+                        updateCost={setLocalTransportationCost}
                         message={localTransportationMessage}
                     />
                     <EstimatorRow
