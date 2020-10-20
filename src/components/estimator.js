@@ -148,8 +148,6 @@ const Estimator = () => {
 
             let applicableRates = []
 
-            let applicableRates = []
-
             for (const month in rates) {
                 total = total + rates[month].monthTotal
                 applicableRates.push({
