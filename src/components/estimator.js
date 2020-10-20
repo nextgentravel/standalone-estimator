@@ -369,7 +369,7 @@ const Estimator = () => {
                 updateMealCost(mealsAndIncidentals.total)
                 fetchFlightCost()
                 fetchHotelCost()
-                fetchLocalTransportationRate(numberOfDays)
+                fetchLocalTransportationRate(numberOfDays - 1)
 
                 // get ACRD rate for destination
 
