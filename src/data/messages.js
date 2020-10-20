@@ -140,12 +140,15 @@ module.exports = {
         "transportationDescription": "Select mode of transportation to see estimate",
         "localTransportationDescription": "Select city to see estimate for local transportation",
         "localTransportationSetDescription": "Based on an average of $50 per day for travel in {destination}",
-        "transportationFlightMessage": "Lowest published airfare on {date}",
+        "transportationFlightMessage": "Average published airfare on <strong>{date}</strong>",
+        "transportationFlightMessageCouldNotLoad": "Could not estimate flight price.  Please enter your flight price manually.",
+        "transportationFlightMessageLoading": "Loading latest rates...",
         "transportationTrainMessage": "Lowest published train fare on {date}",
         "transportationRentalCarMessage": "Lowest priced medium sized car on {date}",
         "transportationPrivateVehicleMessage": "{price}/km based on an average of {kilometres} return trip",
         "localTransportationMessage": "Based on an average of {cost} per day for travel in {destination}",
-        "otherAllowancesMessage": "Amount is a total of all additional expenses"
+        "otherAllowancesMessage": "Amount is a total of all additional expenses",
+        "accommodationWarning": "You've exceed the recommended total of ${acrdTotal} for your trip",
     },
     'fr': {
         // header
