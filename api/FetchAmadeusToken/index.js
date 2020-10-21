@@ -29,6 +29,7 @@ module.exports = async function (context, req) {
                 body: result
             };
         })
-        .catch(error => context.log('error', error));
-
+        .catch(error => context.res = {
+            body: error
+        })
 }
