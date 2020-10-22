@@ -298,6 +298,8 @@ const Estimator = () => {
         }
     }
 
+    const [haveFlightCost, setHaveFlightCost] = useState(false)
+
     const fetchFlightCost = async () => {
         setTransportationMessage({ element:
             <>
@@ -330,6 +332,7 @@ const Estimator = () => {
                     date: DateTime.local().toFormat("yyyy-MM-dd' at 'hh:mm a"),
                     strong: chunks => <strong>{chunks}</strong>,
                   }} />  })
+                setHaveFlightCost(true);
             })
             .catch(error => {
                 updateTransportationCost(0.00);
@@ -339,7 +342,7 @@ const Estimator = () => {
 
     useEffect(() => {
         if (transportationType === 'flight') {
-            fetchFlightCost()
+            if(!haveFlightCost) fetchFlightCost();
         } else if (transportationType === 'train') {
             updateTransportationCost(436)
             setTransportationMessage({ element: <FormattedMessage id="transportationTrainMessage" />  })
@@ -472,7 +475,6 @@ const Estimator = () => {
                 let mealsAndIncidentals = calculateMeals(departureDate, returnDate, province);
 
                 updateMealCost(mealsAndIncidentals.total)
-                fetchFlightCost()
                 fetchHotelCost()
                 fetchLocalTransportationRate(numberOfDays)
 
