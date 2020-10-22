@@ -149,6 +149,18 @@ module.exports = {
         "localTransportationMessage": "Based on an average of {cost} per day for travel in {destination}",
         "otherAllowancesMessage": "Amount is a total of all additional expenses",
         "accommodationWarning": "You've exceed the recommended total of ${acrdTotal} for your trip",
+        "email": "Email",
+        "tripName": "Trip Name",
+        "tripNamePlaceholder": "e.g. Land survey - Vancouver",
+        "travellersName": "Traveller's name",
+        "travellersNamePlaceholder": "e.g. John Doe",
+        "travellersEmail": "Traveller's email",
+        "travellersEmailPlaceholder": "e.g. john.doe@canada.ca",
+        "approversName": "Approver's name",
+        "approversNamePlaceholder": "e.g. Jane Dee",
+        "approversEmail": "Approvers's email",
+        "approversEmailPlaceholder": "e.g. jane.dee@canada.ca",
+        "notes": "",
     },
     'fr': {
         // header
