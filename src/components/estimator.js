@@ -8,6 +8,11 @@ import monthsContained from "./months-contained.js"
 import { FormattedMessage } from 'react-intl';
 import EstimatorRow from "./estimator-row.js";
 import Tooltip from 'react-bootstrap/Tooltip'
+import Modal from 'react-bootstrap/Modal'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 // import EstimatorRowDropdown from "./estimator-row-dropdown.js";
 
 import cities from "../data/cities.js"
@@ -447,9 +452,106 @@ const Estimator = () => {
         await updateSummaryCost(total)
     }
 
+    const sendEmail = async () => {
+        fetch('/api/sendEstimateEmail', {
+            method: 'post',
+            body: JSON.stringify({
+                to: 'kinetic@icloud.com'
+            })
+          }).then(function(response) {
+            return response.json()
+          }).then(function(data) {
+            console.log('email service: ', data);
+          });
+    }
+
+    const [emailModalShow, setEmailModalShow] = React.useState(false);
+
+    const [tripName, setTripName] = useState('');
+    const [travellersName, setTravellersName] = useState('');
+    const [travellersEmail, setTravellersEmail] = useState('');
+    const [approversName, setApproversName] = useState('');
+    const [approversEmail, setApproversEmail] = useState('');
+    const [tripNotes, setNotes] = useState('');
+
+    const EmailModal = (props) => {
+        return (
+            <Modal
+                {...props}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title id="contained-modal-title-vcenter">
+                        Email Estimate
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form>
+                        <Form.Group as={Row} controlId="formPlaintextPassword">
+                            <Form.Label column sm="3">
+                                Trip Name
+                            </Form.Label>
+                            <Col sm="9">
+                                <Form.Control type="text" placeholder="e.g. Land survey - Vancouver" />
+                            </Col>
+                        </Form.Group>
+                        <Form.Group as={Row} controlId="formPlaintextPassword">
+                            <Form.Label column sm="3">
+                                Traveller's name
+                            </Form.Label>
+                            <Col sm="9">
+                                <Form.Control type="text" placeholder="e.g. John Doe" />
+                            </Col>
+                        </Form.Group>
+                        <Form.Group as={Row} controlId="formPlaintextPassword">
+                            <Form.Label column sm="3">
+                                Traveller's email
+                            </Form.Label>
+                            <Col sm="9">
+                                <Form.Control type="text" placeholder="e.g. john.doe@canada.ca" />
+                            </Col>
+                        </Form.Group>
+                        <Form.Group as={Row} controlId="formPlaintextPassword">
+                            <Form.Label column sm="3">
+                                Approver's name
+                            </Form.Label>
+                            <Col sm="9">
+                                <Form.Control type="text" placeholder="e.g. Jane Dee" />
+                            </Col>
+                        </Form.Group>
+                        <Form.Group as={Row} controlId="formPlaintextPassword">
+                            <Form.Label column sm="3">
+                                Approver's email
+                            </Form.Label>
+                            <Col sm="9">
+                                <Form.Control type="text" placeholder="e.g. jane.dee@canada.ca" />
+                            </Col>
+                        </Form.Group>
+                        <Form.Group as={Row} controlId="formPlaintextPassword">
+                            <Form.Label column sm="3">
+                                Notes
+                            </Form.Label>
+                            <Col sm="9">
+                                <Form.Control as="textarea" rows={3} />
+                            </Col>
+                        </Form.Group>
+                    </Form>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={sendEmail}>Submit</Button>
+                </Modal.Footer>
+          </Modal>
+        )
+    }
 
     return (
         <div className="mb-4">
+            <EmailModal
+                show={emailModalShow}
+                onHide={() => setEmailModalShow(false)}
+            />
             <h2><FormattedMessage id="estimateTitle" /></h2>
             <p className="lead"><FormattedMessage id="estimateLead" /></p>
              {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
@@ -520,147 +622,152 @@ const Estimator = () => {
             </div>}
 
             {!loading && result &&
-                <div className="card bg-light p-4">
-                    <h3 className="mb-3"><FormattedMessage id="estimateSummaryTitle" /></h3>
-                    {/* Each row could be a generic componemt with props passed in to define what they are */}
+                <>
+                    <div className="card bg-light p-4 mb-4">
+                        <h3 className="mb-3"><FormattedMessage id="estimateSummaryTitle" /></h3>
+                        {/* Each row could be a generic componemt with props passed in to define what they are */}
 
-                    <div className="row mb-4">
-                        <div className="col-sm-12 mb-2">
-                            <div><FaBed className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="accommodation" /></div>
-                        </div>
-                        <div className="col-sm-4 align-self-center">
-                            <div className="align-self-center">
-                                <div>
-                                    {/* <label htmlFor={name}>{label}</label> */}
-                                    <div id={`accommodation_container`}>
-                                    <select
-                                        className="custom-select"
-                                        onChange={e => setAccommodation(e.target.value)}
-                                    >
-                                        <option value="hotel">Hotel</option>
-                                        <option value="private">Private Accommodation</option>
-                                    </select>
-                                    </div>
-                                </div>
+                        <div className="row mb-4">
+                            <div className="col-sm-12 mb-2">
+                                <div><FaBed className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="accommodation" /></div>
                             </div>
-                        </div>
-                        <div className="col-sm-2 align-self-center">
-                            <input
-                                disabled={accommodation === "private"}
-                                type="text"
-                                className="form-control"
-                                id={`accommodation_select`}
-                                name={'accommodation'}
-                                onChange={(e) => {
-                                    if (parseFloat(e.target.value) > acrdTotal) {
-                                        setAccommodationCost(e.target.value)
-                                        setAccommodationMessage({ element: 
-                                        <div className="alert alert-warning mb-0" role="alert">
-                                            <FormattedMessage id='accommodationWarning' values={{ acrdTotal }} />
+                            <div className="col-sm-4 align-self-center">
+                                <div className="align-self-center">
+                                    <div>
+                                        {/* <label htmlFor={name}>{label}</label> */}
+                                        <div id={`accommodation_container`}>
+                                        <select
+                                            className="custom-select mb-2"
+                                            onChange={e => setAccommodation(e.target.value)}
+                                        >
+                                            <option value="hotel">Hotel</option>
+                                            <option value="private">Private Accommodation</option>
+                                        </select>
                                         </div>
-
-                                        , style: 'warn' });
-                                    } else {
-                                        setAccommodationCost(e.target.value)
-                                    }
-                                }}
-                                onBlur={calculateTotal}
-                                value={accommodationCost}>
-                            </input>
-                        </div>
-                        <div className="col-sm-6 align-self-center text-wrap">
-                            {accommodationMessage.element}
-                        </div>
-                    </div>
-
-                    <div className="row mb-4">
-                        <div className="col-sm-12 mb-2">
-                            <div><FaPlane className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="transportation" /></div>
-                        </div>
-                        <div className="col-sm-4 align-self-center">
-                            <div className="align-self-center">
-                                <div>
-                                    {/* <label htmlFor={name}>{label}</label> */}
-                                    <div id={`transportation_container`}>
-                                    <select
-                                        className="custom-select"
-                                        onChange={e => {
-                                            setTransport(e.target.value)
-                                            if (e.target.value === 'private') {
-                                                console.log('here')
-                                                updateLocalTransportationCost(0)
-                                            };
-                                        }}
-                                    >
-                                        <option value="flight" >Flight</option>
-                                        <option value="train">Train</option>
-                                        <option value="rental">Rental Car</option>
-                                        <option value="private">Private Vehicle</option>
-                                    </select>
                                     </div>
                                 </div>
                             </div>
+                            <div className="col-sm-2 align-self-center">
+                                <input
+                                    disabled={accommodation === "private"}
+                                    type="text"
+                                    className="form-control mb-2"
+                                    id={`accommodation_select`}
+                                    name={'accommodation'}
+                                    onChange={(e) => {
+                                        if (parseFloat(e.target.value) > acrdTotal) {
+                                            setAccommodationCost(e.target.value)
+                                            setAccommodationMessage({ element: 
+                                            <div className="alert alert-warning mb-0" role="alert">
+                                                <FormattedMessage id='accommodationWarning' values={{ acrdTotal }} />
+                                            </div>
+
+                                            , style: 'warn' });
+                                        } else {
+                                            setAccommodationCost(e.target.value)
+                                        }
+                                    }}
+                                    onBlur={calculateTotal}
+                                    value={accommodationCost}>
+                                </input>
+                            </div>
+                            <div className="col-sm-6 align-self-center text-wrap mb-2">
+                                {accommodationMessage.element}
+                            </div>
                         </div>
-                        <div className="col-sm-2 align-self-center">
-                            <input
-                                type="text"
-                                className="form-control"
-                                id={`transportation_select`}
-                                name={'transportation'}
-                                onChange={(e)  => {setTransportationCost(e.target.value)}}
-                                onBlur={calculateTotal}
-                                value={transportationCost}
-                            >
-                            </input>
+
+                        <div className="row mb-4">
+                            <div className="col-sm-12 mb-2">
+                                <div><FaPlane className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="transportation" /></div>
+                            </div>
+                            <div className="col-sm-4 align-self-center">
+                                <div className="align-self-center">
+                                    <div>
+                                        {/* <label htmlFor={name}>{label}</label> */}
+                                        <div id={`transportation_container`}>
+                                        <select
+                                            className="custom-select mb-2"
+                                            onChange={e => {
+                                                setTransport(e.target.value)
+                                                if (e.target.value === 'private') {
+                                                    console.log('here')
+                                                    updateLocalTransportationCost(0)
+                                                };
+                                            }}
+                                        >
+                                            <option value="flight" >Flight</option>
+                                            <option value="train">Train</option>
+                                            <option value="rental">Rental Car</option>
+                                            <option value="private">Private Vehicle</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-sm-2 align-self-center">
+                                <input
+                                    type="text"
+                                    className="form-control mb-2"
+                                    id={`transportation_select`}
+                                    name={'transportation'}
+                                    onChange={(e)  => {setTransportationCost(e.target.value)}}
+                                    onBlur={calculateTotal}
+                                    value={transportationCost}
+                                >
+                                </input>
+                            </div>
+                            <div className="col-sm-6 align-self-center text-wrap mb-2">
+                                {transportationMessage.element}
+                            </div>
                         </div>
-                        <div className="col-sm-6 align-self-center text-wrap">
-                            {transportationMessage.element}
-                        </div>
-                    </div>
 
 
-                    <EstimatorRow
-                        value={localTransportationCost}
-                        name="localTransportation"
-                        id="localTransportation"
-                        description="localTransportationDescription"
-                        icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
-                        title="localTransportation"
-                        calculateTotal={calculateTotal}
-                        updateCost={setLocalTransportationCost}
-                        message={localTransportationMessage}
-                    />
-                    <EstimatorRow
-                        value={mealCost}
-                        name="mealsAndIncidentals"
-                        id="mealsAndIncidentals"
-                        description="selectMealsToInclude"
-                        icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
-                        title="mealsAndIncidentals"
-                        calculateTotal={calculateTotal}
-                        updateCost={setMealCost}
-                    />
-                    <EstimatorRow
-                        value={otherCost}
-                        name="otherAllowances"
-                        id="otherAllowances"
-                        message={{ element: <FormattedMessage id="otherAllowancesMessage" />}}
-                        icon={<FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />}
-                        title="otherAllowances"
-                        calculateTotal={calculateTotal}
-                        updateCost={setOtherCost}
-                        tooltipIcon={FaQuestionCircle}
-                        tooltipText={<FormattedMessage id="otherTooltipText" />}
-                    />
-                    <div className="row mb-4">
-                        <div className="col-sm-6 align-self-center text-right">
-                            <hr />
-                            <strong className="mr-2"><FormattedMessage id="totalCost" /></strong>{`$${summaryCost}`}
-                        </div>
-                        <div className="col-sm-6 align-self-center text-wrap">
+                        <EstimatorRow
+                            value={localTransportationCost}
+                            name="localTransportation"
+                            id="localTransportation"
+                            description="localTransportationDescription"
+                            icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
+                            title="localTransportation"
+                            calculateTotal={calculateTotal}
+                            updateCost={setLocalTransportationCost}
+                            message={localTransportationMessage}
+                        />
+                        <EstimatorRow
+                            value={mealCost}
+                            name="mealsAndIncidentals"
+                            id="mealsAndIncidentals"
+                            description="selectMealsToInclude"
+                            icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
+                            title="mealsAndIncidentals"
+                            calculateTotal={calculateTotal}
+                            updateCost={setMealCost}
+                        />
+                        <EstimatorRow
+                            value={otherCost}
+                            name="otherAllowances"
+                            id="otherAllowances"
+                            message={{ element: <FormattedMessage id="otherAllowancesMessage" />}}
+                            icon={<FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />}
+                            title="otherAllowances"
+                            calculateTotal={calculateTotal}
+                            updateCost={setOtherCost}
+                            tooltipIcon={FaQuestionCircle}
+                            tooltipText={<FormattedMessage id="otherTooltipText" />}
+                        />
+                        <div className="row mb-4">
+                            <div className="col-sm-6 align-self-center text-right">
+                                <hr />
+                                <strong className="mr-2"><FormattedMessage id="totalCost" /></strong>{`$${summaryCost}`}
+                            </div>
+                            <div className="col-sm-6 align-self-center text-wrap">
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div className="row ml-1">
+                        <Button className="px-5" onClick={() => { setEmailModalShow(true) }}>Email</Button>
+                    </div>
+                </>
             }
         </div>
     )

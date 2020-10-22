@@ -11,18 +11,18 @@ module.exports = async function (context, req) {
       html: '<strong>Here it is!</strong>',
     }
 
-    sgMail
+    await sgMail
         .send(msg)
         .then(() => {
             context.res = {
                 // status: 200, /* Defaults to 200 */
-                body: 'email sent'
+                body: JSON.stringify({ message: 'email sent' })
             };
         })
         .catch((error) => {
             context.res = {
                 // status: 200, /* Defaults to 200 */
-                body: error
+                body: JSON.stringify({ error: error })
             };
         })
 }
