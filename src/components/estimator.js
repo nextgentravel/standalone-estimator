@@ -36,6 +36,85 @@ import { FaSuitcase } from 'react-icons/fa';
 import amadeusFlightOffer from '../api-calls/amadeusFlightOffer'
 import amadeusAirportCode from '../api-calls/amadeusAirportCode'
 
+const EmailModal = (props) => {
+    return (
+        <Modal
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+            show={props.show}
+            onHide={props.onHide}
+        >
+            <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-vcenter">
+                    Email Estimate
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <EmailForm {...props} />
+            </Modal.Body>
+            <Modal.Footer>
+                <Button onClick={props.sendEmail}>Submit</Button>
+            </Modal.Footer>
+      </Modal>
+    )
+}
+
+const EmailForm = (props) => {
+    return (
+        <Form>
+            <Form.Group as={Row} controlId="formPlaintextPassword">
+                <Form.Label column sm="3">
+                    Trip Name
+                </Form.Label>
+                <Col sm="9">
+                    <Form.Control value={props.tripName} onChange={(e) => { props.setTripName(e.target.value) }} type="text" placeholder="e.g. Land survey - Vancouver" />
+                </Col>
+            </Form.Group>
+            <Form.Group as={Row} controlId="formPlaintextPassword">
+                <Form.Label column sm="3">
+                    Traveller's name
+                </Form.Label>
+                <Col sm="9">
+                    <Form.Control value={props.travellersName} onChange={(e) => { props.setTravellersName(e.target.value) }} type="text" placeholder="e.g. John Doe" />
+                </Col>
+            </Form.Group>
+            <Form.Group as={Row} controlId="formPlaintextPassword">
+                <Form.Label column sm="3">
+                    Traveller's email
+                </Form.Label>
+                <Col sm="9">
+                    <Form.Control value={props.travellersEmail} onChange={(e) => { props.setTravellersEmail(e.target.value) }} type="text" placeholder="e.g. john.doe@canada.ca" />
+                </Col>
+            </Form.Group>
+            <Form.Group as={Row} controlId="formPlaintextPassword">
+                <Form.Label column sm="3">
+                    Approver's name
+                </Form.Label>
+                <Col sm="9">
+                    <Form.Control value={props.approversName} onChange={(e) => { props.setApproversName(e.target.value) }} type="text" placeholder="e.g. Jane Dee" />
+                </Col>
+            </Form.Group>
+            <Form.Group as={Row} controlId="formPlaintextPassword">
+                <Form.Label column sm="3">
+                    Approver's email
+                </Form.Label>
+                <Col sm="9">
+                    <Form.Control value={props.approversEmail} onChange={(e) => { props.setApproversEmail(e.target.value) }} type="text" placeholder="e.g. jane.dee@canada.ca" />
+                </Col>
+            </Form.Group>
+            <Form.Group as={Row} controlId="formPlaintextPassword">
+                <Form.Label column sm="3">
+                    Notes
+                </Form.Label>
+                <Col sm="9">
+                    <Form.Control value={props.tripNotes} onChange={(e) => { props.setTripNotes(e.target.value) }} value={props.tripNotes} as="textarea" rows={3} />
+                </Col>
+            </Form.Group>
+        </Form>
+    )
+}
+
 const Estimator = () => {
     const citiesList = cities.citiesList;
     const suburbCityList = cities.suburbCityList;
@@ -85,8 +164,8 @@ const Estimator = () => {
         setDestinationData(data);
     }), [destination])
 
-    const [accommodation, setAccommodation] = useState('');
-    const [transport, setTransport] = useState('');
+    const [accommodationType, setAccommodationType] = useState('hotel');
+    const [transportationType, setTransportationType] = useState('flight');
 
     const [validationWarnings, setValidationWarnings] = useState([]);
 
@@ -179,7 +258,7 @@ const Estimator = () => {
     }
 
     useEffect(() => {
-        if (accommodation === 'hotel') {
+        if (accommodationType === 'hotel') {
             fetchHotelCost()
         } else if (accommodation === 'private') {
             let rate = (Interval.fromDateTimes(departureDate, returnDate).count('days') - 1) * 50;
@@ -188,7 +267,7 @@ const Estimator = () => {
         } else {
             updateAccommodationCost(0.00)
         }
-    }, [accommodation])
+    }, [accommodationType])
 
     const amadeusAccessTokenCheck = () => {
         if (Date.now() >= amadeusAccessToken.expiryTime) {
@@ -239,19 +318,19 @@ const Estimator = () => {
     }
 
     useEffect(() => {
-        if (transport === 'flight') {
+        if (transportationType === 'flight') {
             fetchFlightCost()
-        } else if (transport === 'train') {
+        } else if (transportationType === 'train') {
             updateTransportationCost(436)
             setTransportationMessage({ element: <FormattedMessage id="transportationTrainMessage" />  })
-        } else if (transport === 'rental') {
+        } else if (transportationType === 'rental') {
             updateTransportationCost(348)
             setTransportationMessage({ element: <FormattedMessage id="transportationRentalCarMessage" />  })
-        } else if (transport === 'private') {
+        } else if (transportationType === 'private') {
             updateTransportationCost(203)
             setTransportationMessage({ element: <FormattedMessage id="transportationPrivateVehicleMessage" />  })
         }
-    }, [transport])
+    }, [transportationType])
 
 
 
@@ -456,7 +535,27 @@ const Estimator = () => {
         fetch('/api/sendEstimateEmail', {
             method: 'post',
             body: JSON.stringify({
-                to: 'kinetic@icloud.com'
+                departureDate: departureDate.toISODate(),
+                returnDate: returnDate.toISODate(),
+                origin,
+                destination,
+                accommodationType,
+                accommodationCost,
+                accommodationMessage,
+                transport: transportationType,
+                transportationCost,
+                transportationMessage,
+                localTransportationCost,
+                localTransportationMessage,
+                mealCost,
+                otherCost,
+                tripName,
+                travellersName,
+                travellersEmail,
+                approversName,
+                approversEmail,
+                tripNotes,
+                summaryCost,
             })
           }).then(function(response) {
             return response.json()
@@ -472,85 +571,26 @@ const Estimator = () => {
     const [travellersEmail, setTravellersEmail] = useState('');
     const [approversName, setApproversName] = useState('');
     const [approversEmail, setApproversEmail] = useState('');
-    const [tripNotes, setNotes] = useState('');
-
-    const EmailModal = (props) => {
-        return (
-            <Modal
-                {...props}
-                size="lg"
-                aria-labelledby="contained-modal-title-vcenter"
-                centered
-            >
-                <Modal.Header closeButton>
-                    <Modal.Title id="contained-modal-title-vcenter">
-                        Email Estimate
-                    </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form>
-                        <Form.Group as={Row} controlId="formPlaintextPassword">
-                            <Form.Label column sm="3">
-                                Trip Name
-                            </Form.Label>
-                            <Col sm="9">
-                                <Form.Control type="text" placeholder="e.g. Land survey - Vancouver" />
-                            </Col>
-                        </Form.Group>
-                        <Form.Group as={Row} controlId="formPlaintextPassword">
-                            <Form.Label column sm="3">
-                                Traveller's name
-                            </Form.Label>
-                            <Col sm="9">
-                                <Form.Control type="text" placeholder="e.g. John Doe" />
-                            </Col>
-                        </Form.Group>
-                        <Form.Group as={Row} controlId="formPlaintextPassword">
-                            <Form.Label column sm="3">
-                                Traveller's email
-                            </Form.Label>
-                            <Col sm="9">
-                                <Form.Control type="text" placeholder="e.g. john.doe@canada.ca" />
-                            </Col>
-                        </Form.Group>
-                        <Form.Group as={Row} controlId="formPlaintextPassword">
-                            <Form.Label column sm="3">
-                                Approver's name
-                            </Form.Label>
-                            <Col sm="9">
-                                <Form.Control type="text" placeholder="e.g. Jane Dee" />
-                            </Col>
-                        </Form.Group>
-                        <Form.Group as={Row} controlId="formPlaintextPassword">
-                            <Form.Label column sm="3">
-                                Approver's email
-                            </Form.Label>
-                            <Col sm="9">
-                                <Form.Control type="text" placeholder="e.g. jane.dee@canada.ca" />
-                            </Col>
-                        </Form.Group>
-                        <Form.Group as={Row} controlId="formPlaintextPassword">
-                            <Form.Label column sm="3">
-                                Notes
-                            </Form.Label>
-                            <Col sm="9">
-                                <Form.Control as="textarea" rows={3} />
-                            </Col>
-                        </Form.Group>
-                    </Form>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button onClick={sendEmail}>Submit</Button>
-                </Modal.Footer>
-          </Modal>
-        )
-    }
+    const [tripNotes, setTripNotes] = useState('');
 
     return (
         <div className="mb-4">
             <EmailModal
                 show={emailModalShow}
                 onHide={() => setEmailModalShow(false)}
+                sendEmail={() => sendEmail()}
+                tripName={tripName}
+                setTripName={setTripName}
+                travellersName={travellersName}
+                setTravellersName={setTravellersName}
+                travellersEmail={travellersEmail}
+                setTravellersEmail={setTravellersEmail}
+                approversName={approversName}
+                setApproversName={setApproversName}
+                approversEmail={approversEmail}
+                setApproversEmail={setApproversEmail}
+                setTripNotes={setTripNotes}
+                tripNotes={tripNotes}
             />
             <h2><FormattedMessage id="estimateTitle" /></h2>
             <p className="lead"><FormattedMessage id="estimateLead" /></p>
@@ -638,7 +678,7 @@ const Estimator = () => {
                                         <div id={`accommodation_container`}>
                                         <select
                                             className="custom-select mb-2"
-                                            onChange={e => setAccommodation(e.target.value)}
+                                            onChange={e => setAccommodationType(e.target.value)}
                                         >
                                             <option value="hotel">Hotel</option>
                                             <option value="private">Private Accommodation</option>
@@ -649,7 +689,7 @@ const Estimator = () => {
                             </div>
                             <div className="col-sm-2 align-self-center">
                                 <input
-                                    disabled={accommodation === "private"}
+                                    disabled={accommodationType === "private"}
                                     type="text"
                                     className="form-control mb-2"
                                     id={`accommodation_select`}
@@ -688,7 +728,7 @@ const Estimator = () => {
                                         <select
                                             className="custom-select mb-2"
                                             onChange={e => {
-                                                setTransport(e.target.value)
+                                                setTransportationType(e.target.value)
                                                 if (e.target.value === 'private') {
                                                     console.log('here')
                                                     updateLocalTransportationCost(0)
