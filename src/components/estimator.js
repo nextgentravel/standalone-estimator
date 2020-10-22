@@ -764,8 +764,13 @@ const Estimator = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="row ml-1">
+                    <div className="row ml-1 mb-5">
                         <Button className="px-5" onClick={() => { setEmailModalShow(true) }}>Email</Button>
+                    </div>
+                    <div>
+                        <h3>How did we get these numbers?</h3>
+                        <p>City rate limits are outlined in the <a href="https://rehelv-acrd.tpsgc-pwgsc.gc.ca/index-eng.aspx">Accommodation and Car Rental Directory</a></p>
+                        <p>Non-commercial accommodation, meals and incidental allowances are outlined in the <a href="https://www.njc-cnm.gc.ca/directive/d10/v238/s659/en">National Joint Council Travel Directive - Appendix C</a></p>
                     </div>
                 </>
             }
