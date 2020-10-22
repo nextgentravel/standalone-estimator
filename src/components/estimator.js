@@ -47,14 +47,14 @@ const EmailModal = (props) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Email Estimate
+                    <FormattedMessage id="emailEstimate" />
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <EmailForm {...props} />
             </Modal.Body>
             <Modal.Footer>
-                <Button onClick={props.sendEmail}>Submit</Button>
+                <Button onClick={props.sendEmail}><FormattedMessage id="submit" /></Button>
             </Modal.Footer>
       </Modal>
     )
@@ -63,49 +63,69 @@ const EmailModal = (props) => {
 const EmailForm = (props) => {
     return (
         <Form>
-            <Form.Group as={Row} controlId="formPlaintextPassword">
+            <Form.Group as={Row} controlId="tripName">
                 <Form.Label column sm="3">
-                    Trip Name
+                    <FormattedMessage id="tripName" />
                 </Form.Label>
                 <Col sm="9">
-                    <Form.Control value={props.tripName} onChange={(e) => { props.setTripName(e.target.value) }} type="text" placeholder="e.g. Land survey - Vancouver" />
+                    <FormattedMessage id="tripNamePlaceholder">
+                        {msg =>
+                            <Form.Control value={props.tripName} onChange={(e) => { props.setTripName(e.target.value) }} type="text" placeholder={msg} />
+                        }
+                    </FormattedMessage>
                 </Col>
             </Form.Group>
-            <Form.Group as={Row} controlId="formPlaintextPassword">
+            <Form.Group as={Row} controlId="travellersName">
                 <Form.Label column sm="3">
-                    Traveller's name
+                    <FormattedMessage id="travellersName" />
                 </Form.Label>
                 <Col sm="9">
-                    <Form.Control value={props.travellersName} onChange={(e) => { props.setTravellersName(e.target.value) }} type="text" placeholder="e.g. John Doe" />
+                    <FormattedMessage id="travellersNamePlaceholder">
+                        {msg =>
+                            <Form.Control value={props.travellersName} onChange={(e) => { props.setTravellersName(e.target.value) }} type="text" placeholder={msg} />
+                        }
+                    </FormattedMessage>
                 </Col>
             </Form.Group>
-            <Form.Group as={Row} controlId="formPlaintextPassword">
+            <Form.Group as={Row} controlId="travellersEmail">
                 <Form.Label column sm="3">
-                    Traveller's email
+                    <FormattedMessage id="travellersEmail" />
                 </Form.Label>
                 <Col sm="9">
-                    <Form.Control value={props.travellersEmail} onChange={(e) => { props.setTravellersEmail(e.target.value) }} type="text" placeholder="e.g. john.doe@canada.ca" />
+                    <FormattedMessage id="travellersEmailPlaceholder">
+                        {msg =>
+                            <Form.Control value={props.travellersEmail} onChange={(e) => { props.setTravellersEmail(e.target.value) }} type="text" placeholder={msg} />
+                        }
+                    </FormattedMessage>
                 </Col>
             </Form.Group>
-            <Form.Group as={Row} controlId="formPlaintextPassword">
+            <Form.Group as={Row} controlId="approversName">
                 <Form.Label column sm="3">
-                    Approver's name
+                    <FormattedMessage id="approversName" />
                 </Form.Label>
                 <Col sm="9">
-                    <Form.Control value={props.approversName} onChange={(e) => { props.setApproversName(e.target.value) }} type="text" placeholder="e.g. Jane Dee" />
+                    <FormattedMessage id="approversNamePlaceholder">
+                        {msg =>
+                            <Form.Control value={props.approversName} onChange={(e) => { props.setApproversName(e.target.value) }} type="text" placeholder={msg} />
+                        }
+                    </FormattedMessage>
                 </Col>
             </Form.Group>
-            <Form.Group as={Row} controlId="formPlaintextPassword">
+            <Form.Group as={Row} controlId="approversEmail">
                 <Form.Label column sm="3">
-                    Approver's email
+                    <FormattedMessage id="approversEmail" />
                 </Form.Label>
                 <Col sm="9">
-                    <Form.Control value={props.approversEmail} onChange={(e) => { props.setApproversEmail(e.target.value) }} type="text" placeholder="e.g. jane.dee@canada.ca" />
+                    <FormattedMessage id="approversEmailPlaceholder">
+                        {msg =>
+                            <Form.Control value={props.approversEmail} onChange={(e) => { props.setApproversEmail(e.target.value) }} type="text" placeholder={msg} />
+                        }
+                    </FormattedMessage>
                 </Col>
             </Form.Group>
-            <Form.Group as={Row} controlId="formPlaintextPassword">
+            <Form.Group as={Row} controlId="notes">
                 <Form.Label column sm="3">
-                    Notes
+                    <FormattedMessage id="notes" />
                 </Form.Label>
                 <Col sm="9">
                     <Form.Control value={props.tripNotes} onChange={(e) => { props.setTripNotes(e.target.value) }} value={props.tripNotes} as="textarea" rows={3} />
@@ -164,8 +184,8 @@ const Estimator = () => {
         setDestinationData(data);
     }), [destination])
 
-    const [accommodationType, setAccommodationType] = useState('hotel');
-    const [transportationType, setTransportationType] = useState('flight');
+    const [accommodationType, setAccommodationType] = useState('');
+    const [transportationType, setTransportationType] = useState('');
 
     const [validationWarnings, setValidationWarnings] = useState([]);
 
@@ -260,7 +280,7 @@ const Estimator = () => {
     useEffect(() => {
         if (accommodationType === 'hotel') {
             fetchHotelCost()
-        } else if (accommodation === 'private') {
+        } else if (accommodationType === 'private') {
             let rate = (Interval.fromDateTimes(departureDate, returnDate).count('days') - 1) * 50;
             setAccommodationMessage({ element: <FormattedMessage id="privateAccommodationMessage" />  })
             updateAccommodationCost(rate)
@@ -438,7 +458,8 @@ const Estimator = () => {
         handleValidation()
             .then((valid) => {
                 setValidationWarnings([]);
-
+                setTransportationType('flight')
+                setAccommodationType('hotel')
                 let numberOfDays = Interval.fromDateTimes(
                     departureDate, 
                     returnDate)
@@ -542,7 +563,7 @@ const Estimator = () => {
                 accommodationType,
                 accommodationCost,
                 accommodationMessage,
-                transport: transportationType,
+                transportationType,
                 transportationCost,
                 transportationMessage,
                 localTransportationCost,
@@ -805,7 +826,7 @@ const Estimator = () => {
                         </div>
                     </div>
                     <div className="row ml-1 mb-5">
-                        <Button className="px-5" onClick={() => { setEmailModalShow(true) }}>Email</Button>
+                        <Button className="px-5" onClick={() => { setEmailModalShow(true) }}><FormattedMessage id="email" /></Button>
                     </div>
                     <div>
                         <h3>How did we get these numbers?</h3>
