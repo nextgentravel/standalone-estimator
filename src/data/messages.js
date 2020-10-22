@@ -160,7 +160,8 @@ module.exports = {
         "approversNamePlaceholder": "e.g. Jane Dee",
         "approversEmail": "Approvers's email",
         "approversEmailPlaceholder": "e.g. jane.dee@canada.ca",
-        "notes": "",
+        "notes": "Notes",
+        "emailEstimate": "Email Estimate"
     },
     'fr': {
         // header
