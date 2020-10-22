@@ -3,12 +3,14 @@ module.exports = async function (context, req) {
 
     const sgMail = require('@sendgrid/mail')
     sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+
+    let string = JSON.stringify(req.body, null, 2);
+
     const msg = {
-      to: req.body.to, // Change to your recipient
-      from: 'gctravelapp@gmail.com', // Change to your verified sender
-      subject: 'Travel Estimate',
-      text: 'Here it is!',
-      html: '<strong>Here it is!</strong>',
+      to: req.body.travellersEmail,
+      from: 'gctravelapp@gmail.com',
+      templateId: 'd-24d85019add04cf7aae35bbd3448f1b6',
+      dynamicTemplateData: req.body,
     }
 
     await sgMail
