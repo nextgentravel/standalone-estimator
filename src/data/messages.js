@@ -145,7 +145,7 @@ module.exports = {
         "transportationFlightMessageLoading": "Loading latest rates...",
         "transportationTrainMessage": "Lowest published train fare on {date}",
         "transportationRentalCarMessage": "Lowest priced medium sized car on {date}",
-        "transportationPrivateVehicleMessage": "{price}/km based on an average of {kilometres} return trip",
+        "transportationPrivateVehicleMessage": "{rate} cents/km based on an average of {kilometres}km return trip",
         "localTransportationMessage": "Based on an average of {cost} per day for travel in {destination}",
         "otherAllowancesMessage": "Amount is a total of all additional expenses",
         "accommodationWarning": "You've exceed the recommended total of ${acrdTotal} for your trip",

@@ -20,6 +20,7 @@ import geocodedCities from "../data/geocodedCities"
 import acrdRates from "../data/acrdRates.js"
 import accommodations from "../data/accommodations.js"
 import transportData from "../data/transport-data.js"
+import locations from "../data/locations.js"
 
 import { FaSpinner } from 'react-icons/fa';
 import { FaQuestionCircle } from 'react-icons/fa';
@@ -158,9 +159,15 @@ const Estimator = () => {
     const [destinationData, setDestinationData] = useState({});
     const [departureDate, setDepartureDate] = useState('');
     const [returnDate, setReturnDate] = useState('');
+    const [privateVehicleRate, setPrivateVehicleRate] = useState('');
 
     useEffect((() => {
         const data = geocodedCities[origin]
+        if (origin !== '') {
+            let provinceAbbreviation = origin.slice(-2);
+            let provinceRate = locations[provinceAbbreviation].rateCents
+            setPrivateVehicleRate(provinceRate);
+        }
 
         const getClosestsAirports = async () => {
             await amadeusAccessTokenCheck();
@@ -205,6 +212,13 @@ const Estimator = () => {
     const [otherCost, setOtherCost] = useState(0.00);
     const [summaryCost, setSummaryCost] = useState(0.00);
     const [amadeusAccessToken, setAmadeusAccessToken] = useState({})
+    const [enterKilometricsDistanceManually, setEnterKilometricsDistanceManually] = useState(false)
+    const [privateKilometricsValue, setPrivateKilometricsValue] = useState('');
+
+    useEffect(() => {
+        let calculateKilometrics = privateKilometricsValue * (privateVehicleRate / 100);
+        setTransportationCost(calculateKilometrics)
+    }, [privateKilometricsValue])
 
     useEffect(() => {
         calculateTotal()
@@ -351,7 +365,7 @@ const Estimator = () => {
             setTransportationMessage({ element: <FormattedMessage id="transportationRentalCarMessage" />  })
         } else if (transportationType === 'private') {
             updateTransportationCost(203)
-            setTransportationMessage({ element: <FormattedMessage id="transportationPrivateVehicleMessage" />  })
+            setTransportationMessage({ element: <FormattedMessage id="transportationPrivateVehicleMessage" values={{ rate: privateVehicleRate, kilometres: privateKilometricsValue }} />  })
         }
     }, [transportationType])
 
@@ -782,6 +796,30 @@ const Estimator = () => {
                             <div className="col-sm-6 align-self-center text-wrap mb-2">
                                 {transportationMessage.element}
                             </div>
+                        </div>
+
+                        <div className="row mb-4">
+                            {transportationType === 'private' &&
+                                <div className="col-sm-4 align-self-center text-wrap mb-2">
+                                    <Form inline>
+                                        <Form.Group controlId="kilometricsManually">
+                                            <Form.Check
+                                                type="checkbox"
+                                                className="mr-2" 
+                                                aria-label="Enter Kilometrics Manually"
+                                                value={enterKilometricsDistanceManually}
+                                                onChange={(e) => setEnterKilometricsDistanceManually(!enterKilometricsDistanceManually)}
+                                            />
+                                                {enterKilometricsDistanceManually && 
+                                                    <Form.Control type="privateKilometrics" value={privateKilometricsValue} onChange={(e) => {setPrivateKilometricsValue(e.target.value)}} />
+                                                }
+                                                {!enterKilometricsDistanceManually &&
+                                                    <span>Enter distance manually</span>
+                                                }
+                                        </Form.Group>
+                                    </Form>
+                                </div>
+                            }
                         </div>
 
 
