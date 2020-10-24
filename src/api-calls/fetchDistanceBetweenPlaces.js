@@ -1,3 +1,3 @@
 module.exports = async function (origin, destination) {
-    return fetch(`/api/fetchDistanceBetweenPlaces?units=metric&origins=${origin}&destinations=${destination}`)
-}6
+    return fetch(`/api/fetchDistanceBetweenPlaces?origin=${origin}&destination=${destination}`)
+}

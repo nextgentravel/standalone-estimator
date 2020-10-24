@@ -36,6 +36,7 @@ import { FaSuitcase } from 'react-icons/fa';
 
 import amadeusFlightOffer from '../api-calls/amadeusFlightOffer'
 import amadeusAirportCode from '../api-calls/amadeusAirportCode'
+import fetchDistanceBetweenPlaces from '../api-calls/fetchDistanceBetweenPlaces'
 
 const EmailModal = (props) => {
     return (
@@ -214,6 +215,32 @@ const Estimator = () => {
     const [amadeusAccessToken, setAmadeusAccessToken] = useState({})
     const [enterKilometricsDistanceManually, setEnterKilometricsDistanceManually] = useState(false)
     const [privateKilometricsValue, setPrivateKilometricsValue] = useState('');
+    const [returnDistance, setReturnDistance] = useState('');
+
+    const transportationEstimatesInitialState = {
+        flight: {
+            estimatedValue: 0,
+            responseBody: '',
+            estimatedValueMessage: <></>,
+        },
+        train: {
+            estimatedValue: 0,
+            responseBody: '',
+            estimatedValueMessage: <></>,
+        },
+        rentalCar: {
+            estimatedValue: 0,
+            responseBody: '',
+            estimatedValueMessage: <></>,
+        },
+        privateVehicle: {
+            estimatedValue: 0,
+            responseBody: '',
+            estimatedValueMessage: <></>,
+        }
+    }
+
+    const [transporationEstimates, setTransportationEstimates] = useState(transportationEstimatesInitialState);
 
     useEffect(() => {
         let calculateKilometrics = privateKilometricsValue * (privateVehicleRate / 100);
@@ -341,11 +368,21 @@ const Estimator = () => {
                 const sum = allPrices.reduce((a, b) => a + b, 0);
                 const avg = (sum / allPrices.length) || 0;
 
-                updateTransportationCost(avg);
-                setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessage" values={{
+                let FlightMessage = <FormattedMessage id="transportationFlightMessage" values={{
                     date: DateTime.local().toFormat("yyyy-MM-dd' at 'hh:mm a"),
                     strong: chunks => <strong>{chunks}</strong>,
-                  }} />  })
+                  }} />
+
+                updateTransportationCost(avg);
+                setTransportationEstimates({
+                    ...transporationEstimates,
+                    flight: {
+                        estimatedValue: avg,
+                        estimatedValueMessage: FlightMessage,
+                        responseBody: result,
+                    }
+                })
+                setTransportationMessage({ element: FlightMessage  })
                 setHaveFlightCost(true);
             })
             .catch(error => {
@@ -357,6 +394,9 @@ const Estimator = () => {
     useEffect(() => {
         if (transportationType === 'flight') {
             if(!haveFlightCost) fetchFlightCost();
+            updateTransportationCost(transporationEstimates.flight.estimatedValue)
+            console.log('transporationEstimates.flight', transporationEstimates.flight);
+            setTransportationMessage({ element: transporationEstimates.flight.estimatedValueMessage})
         } else if (transportationType === 'train') {
             updateTransportationCost(436)
             setTransportationMessage({ element: <FormattedMessage id="transportationTrainMessage" />  })
@@ -364,8 +404,8 @@ const Estimator = () => {
             updateTransportationCost(348)
             setTransportationMessage({ element: <FormattedMessage id="transportationRentalCarMessage" />  })
         } else if (transportationType === 'private') {
-            updateTransportationCost(203)
-            setTransportationMessage({ element: <FormattedMessage id="transportationPrivateVehicleMessage" values={{ rate: privateVehicleRate, kilometres: privateKilometricsValue }} />  })
+            setPrivateKilometricsValue((returnDistance / 1000).toFixed(2));
+            setTransportationMessage({ element: <FormattedMessage id="transportationPrivateVehicleMessage" values={{ rate: privateVehicleRate, kilometres: (returnDistance / 1000).toFixed(0) }} />  })
         }
     }, [transportationType])
 
@@ -473,7 +513,7 @@ const Estimator = () => {
         setGeneralError(false);
         e.preventDefault();
         handleValidation()
-            .then((valid) => {
+            .then(async (valid) => {
                 setValidationWarnings([]);
                 setTransportationType('flight')
                 setAccommodationType('hotel')
@@ -487,6 +527,19 @@ const Estimator = () => {
                 let province = city.slice(-2); // This is bad.  We need to change the data structure.
 
                 let mealsAndIncidentals = calculateMeals(departureDate, returnDate, province);
+
+                let distanceBetweenPlaces = await fetchDistanceBetweenPlaces(origin, destination);
+                let distanceBetweenPlacesBody = await distanceBetweenPlaces.json()
+
+                try {
+                    let drivingDistance = distanceBetweenPlacesBody.rows[0].elements[0].distance.value;
+                    let returnCalc = drivingDistance * 2;
+                    setReturnDistance(returnCalc);
+                } catch (error) {
+                    console.log(error)
+                }
+
+                
 
                 updateMealCost(mealsAndIncidentals.total)
                 fetchHotelCost()
