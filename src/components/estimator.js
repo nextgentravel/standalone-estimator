@@ -8,6 +8,11 @@ import monthsContained from "./months-contained.js"
 import { FormattedMessage } from 'react-intl';
 import EstimatorRow from "./estimator-row.js";
 import Tooltip from 'react-bootstrap/Tooltip'
+import Modal from 'react-bootstrap/Modal'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 // import EstimatorRowDropdown from "./estimator-row-dropdown.js";
 
 import cities from "../data/cities.js"
@@ -15,6 +20,7 @@ import geocodedCities from "../data/geocodedCities"
 import acrdRates from "../data/acrdRates.js"
 import accommodations from "../data/accommodations.js"
 import transportData from "../data/transport-data.js"
+import locations from "../data/locations.js"
 
 import { FaSpinner } from 'react-icons/fa';
 import { FaQuestionCircle } from 'react-icons/fa';
@@ -30,6 +36,106 @@ import { FaSuitcase } from 'react-icons/fa';
 
 import amadeusFlightOffer from '../api-calls/amadeusFlightOffer'
 import amadeusAirportCode from '../api-calls/amadeusAirportCode'
+import fetchDistanceBetweenPlaces from '../api-calls/fetchDistanceBetweenPlaces'
+
+const EmailModal = (props) => {
+    return (
+        <Modal
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+            show={props.show}
+            onHide={props.onHide}
+        >
+            <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-vcenter">
+                    <FormattedMessage id="emailEstimate" />
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <EmailForm {...props} />
+            </Modal.Body>
+            <Modal.Footer>
+                <Button onClick={props.sendEmail}><FormattedMessage id="submit" /></Button>
+            </Modal.Footer>
+      </Modal>
+    )
+}
+
+const EmailForm = (props) => {
+    return (
+        <Form>
+            <Form.Group as={Row} controlId="tripName">
+                <Form.Label column sm="3">
+                    <FormattedMessage id="tripName" />
+                </Form.Label>
+                <Col sm="9">
+                    <FormattedMessage id="tripNamePlaceholder">
+                        {msg =>
+                            <Form.Control value={props.tripName} onChange={(e) => { props.setTripName(e.target.value) }} type="text" placeholder={msg} />
+                        }
+                    </FormattedMessage>
+                </Col>
+            </Form.Group>
+            <Form.Group as={Row} controlId="travellersName">
+                <Form.Label column sm="3">
+                    <FormattedMessage id="travellersName" />
+                </Form.Label>
+                <Col sm="9">
+                    <FormattedMessage id="travellersNamePlaceholder">
+                        {msg =>
+                            <Form.Control value={props.travellersName} onChange={(e) => { props.setTravellersName(e.target.value) }} type="text" placeholder={msg} />
+                        }
+                    </FormattedMessage>
+                </Col>
+            </Form.Group>
+            <Form.Group as={Row} controlId="travellersEmail">
+                <Form.Label column sm="3">
+                    <FormattedMessage id="travellersEmail" />
+                </Form.Label>
+                <Col sm="9">
+                    <FormattedMessage id="travellersEmailPlaceholder">
+                        {msg =>
+                            <Form.Control value={props.travellersEmail} onChange={(e) => { props.setTravellersEmail(e.target.value) }} type="text" placeholder={msg} />
+                        }
+                    </FormattedMessage>
+                </Col>
+            </Form.Group>
+            <Form.Group as={Row} controlId="approversName">
+                <Form.Label column sm="3">
+                    <FormattedMessage id="approversName" />
+                </Form.Label>
+                <Col sm="9">
+                    <FormattedMessage id="approversNamePlaceholder">
+                        {msg =>
+                            <Form.Control value={props.approversName} onChange={(e) => { props.setApproversName(e.target.value) }} type="text" placeholder={msg} />
+                        }
+                    </FormattedMessage>
+                </Col>
+            </Form.Group>
+            <Form.Group as={Row} controlId="approversEmail">
+                <Form.Label column sm="3">
+                    <FormattedMessage id="approversEmail" />
+                </Form.Label>
+                <Col sm="9">
+                    <FormattedMessage id="approversEmailPlaceholder">
+                        {msg =>
+                            <Form.Control value={props.approversEmail} onChange={(e) => { props.setApproversEmail(e.target.value) }} type="text" placeholder={msg} />
+                        }
+                    </FormattedMessage>
+                </Col>
+            </Form.Group>
+            <Form.Group as={Row} controlId="notes">
+                <Form.Label column sm="3">
+                    <FormattedMessage id="notes" />
+                </Form.Label>
+                <Col sm="9">
+                    <Form.Control value={props.tripNotes} onChange={(e) => { props.setTripNotes(e.target.value) }} value={props.tripNotes} as="textarea" rows={3} />
+                </Col>
+            </Form.Group>
+        </Form>
+    )
+}
 
 const Estimator = () => {
     const citiesList = cities.citiesList;
@@ -54,9 +160,15 @@ const Estimator = () => {
     const [destinationData, setDestinationData] = useState({});
     const [departureDate, setDepartureDate] = useState('');
     const [returnDate, setReturnDate] = useState('');
+    const [privateVehicleRate, setPrivateVehicleRate] = useState('');
 
     useEffect((() => {
         const data = geocodedCities[origin]
+        if (origin !== '') {
+            let provinceAbbreviation = origin.slice(-2);
+            let provinceRate = locations[provinceAbbreviation].rateCents
+            setPrivateVehicleRate(provinceRate);
+        }
 
         const getClosestsAirports = async () => {
             await amadeusAccessTokenCheck();
@@ -80,8 +192,8 @@ const Estimator = () => {
         setDestinationData(data);
     }), [destination])
 
-    const [accommodation, setAccommodation] = useState('');
-    const [transport, setTransport] = useState('');
+    const [accommodationType, setAccommodationType] = useState('');
+    const [transportationType, setTransportationType] = useState('');
 
     const [validationWarnings, setValidationWarnings] = useState([]);
 
@@ -101,6 +213,39 @@ const Estimator = () => {
     const [otherCost, setOtherCost] = useState(0.00);
     const [summaryCost, setSummaryCost] = useState(0.00);
     const [amadeusAccessToken, setAmadeusAccessToken] = useState({})
+    const [enterKilometricsDistanceManually, setEnterKilometricsDistanceManually] = useState(false)
+    const [privateKilometricsValue, setPrivateKilometricsValue] = useState('');
+    const [returnDistance, setReturnDistance] = useState('');
+
+    const transportationEstimatesInitialState = {
+        flight: {
+            estimatedValue: 0,
+            responseBody: '',
+            estimatedValueMessage: <></>,
+        },
+        train: {
+            estimatedValue: 0,
+            responseBody: '',
+            estimatedValueMessage: <></>,
+        },
+        rentalCar: {
+            estimatedValue: 0,
+            responseBody: '',
+            estimatedValueMessage: <></>,
+        },
+        privateVehicle: {
+            estimatedValue: 0,
+            responseBody: '',
+            estimatedValueMessage: <></>,
+        }
+    }
+
+    const [transporationEstimates, setTransportationEstimates] = useState(transportationEstimatesInitialState);
+
+    useEffect(() => {
+        let calculateKilometrics = privateKilometricsValue * (privateVehicleRate / 100);
+        setTransportationCost(calculateKilometrics)
+    }, [privateKilometricsValue])
 
     useEffect(() => {
         calculateTotal()
@@ -174,16 +319,16 @@ const Estimator = () => {
     }
 
     useEffect(() => {
-        if (accommodation === 'hotel') {
+        if (accommodationType === 'hotel') {
             fetchHotelCost()
-        } else if (accommodation === 'private') {
+        } else if (accommodationType === 'private') {
             let rate = (Interval.fromDateTimes(departureDate, returnDate).count('days') - 1) * 50;
             setAccommodationMessage({ element: <FormattedMessage id="privateAccommodationMessage" />  })
             updateAccommodationCost(rate)
         } else {
             updateAccommodationCost(0.00)
         }
-    }, [accommodation])
+    }, [accommodationType])
 
     const amadeusAccessTokenCheck = () => {
         if (Date.now() >= amadeusAccessToken.expiryTime) {
@@ -193,6 +338,8 @@ const Estimator = () => {
             console.log("Token is good!")
         }
     }
+
+    const [haveFlightCost, setHaveFlightCost] = useState(false)
 
     const fetchFlightCost = async () => {
         setTransportationMessage({ element:
@@ -221,11 +368,22 @@ const Estimator = () => {
                 const sum = allPrices.reduce((a, b) => a + b, 0);
                 const avg = (sum / allPrices.length) || 0;
 
-                updateTransportationCost(avg);
-                setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessage" values={{
+                let FlightMessage = <FormattedMessage id="transportationFlightMessage" values={{
                     date: DateTime.local().toFormat("yyyy-MM-dd' at 'hh:mm a"),
                     strong: chunks => <strong>{chunks}</strong>,
-                  }} />  })
+                  }} />
+
+                updateTransportationCost(avg);
+                setTransportationEstimates({
+                    ...transporationEstimates,
+                    flight: {
+                        estimatedValue: avg,
+                        estimatedValueMessage: FlightMessage,
+                        responseBody: result,
+                    }
+                })
+                setTransportationMessage({ element: FlightMessage  })
+                setHaveFlightCost(true);
             })
             .catch(error => {
                 updateTransportationCost(0.00);
@@ -234,19 +392,22 @@ const Estimator = () => {
     }
 
     useEffect(() => {
-        if (transport === 'flight') {
-            fetchFlightCost()
-        } else if (transport === 'train') {
+        if (transportationType === 'flight') {
+            if(!haveFlightCost) fetchFlightCost();
+            updateTransportationCost(transporationEstimates.flight.estimatedValue)
+            console.log('transporationEstimates.flight', transporationEstimates.flight);
+            setTransportationMessage({ element: transporationEstimates.flight.estimatedValueMessage})
+        } else if (transportationType === 'train') {
             updateTransportationCost(436)
             setTransportationMessage({ element: <FormattedMessage id="transportationTrainMessage" />  })
-        } else if (transport === 'rental') {
+        } else if (transportationType === 'rental') {
             updateTransportationCost(348)
             setTransportationMessage({ element: <FormattedMessage id="transportationRentalCarMessage" />  })
-        } else if (transport === 'private') {
-            updateTransportationCost(203)
-            setTransportationMessage({ element: <FormattedMessage id="transportationPrivateVehicleMessage" />  })
+        } else if (transportationType === 'private') {
+            setPrivateKilometricsValue((returnDistance / 1000).toFixed(2));
+            setTransportationMessage({ element: <FormattedMessage id="transportationPrivateVehicleMessage" values={{ rate: privateVehicleRate, kilometres: (returnDistance / 1000).toFixed(0) }} />  })
         }
-    }, [transport])
+    }, [transportationType])
 
 
 
@@ -352,9 +513,10 @@ const Estimator = () => {
         setGeneralError(false);
         e.preventDefault();
         handleValidation()
-            .then((valid) => {
+            .then(async (valid) => {
                 setValidationWarnings([]);
-
+                setTransportationType('flight')
+                setAccommodationType('hotel')
                 let numberOfDays = Interval.fromDateTimes(
                     departureDate, 
                     returnDate)
@@ -366,8 +528,20 @@ const Estimator = () => {
 
                 let mealsAndIncidentals = calculateMeals(departureDate, returnDate, province);
 
+                let distanceBetweenPlaces = await fetchDistanceBetweenPlaces(origin, destination);
+                let distanceBetweenPlacesBody = await distanceBetweenPlaces.json()
+
+                try {
+                    let drivingDistance = distanceBetweenPlacesBody.rows[0].elements[0].distance.value;
+                    let returnCalc = drivingDistance * 2;
+                    setReturnDistance(returnCalc);
+                } catch (error) {
+                    console.log(error)
+                }
+
+                
+
                 updateMealCost(mealsAndIncidentals.total)
-                fetchFlightCost()
                 fetchHotelCost()
                 fetchLocalTransportationRate(numberOfDays - 1)
 
@@ -447,9 +621,67 @@ const Estimator = () => {
         await updateSummaryCost(total)
     }
 
+    const sendEmail = async () => {
+        fetch('/api/sendEstimateEmail', {
+            method: 'post',
+            body: JSON.stringify({
+                departureDate: departureDate.toISODate(),
+                returnDate: returnDate.toISODate(),
+                origin,
+                destination,
+                accommodationType,
+                accommodationCost,
+                accommodationMessage,
+                transportationType,
+                transportationCost,
+                transportationMessage,
+                localTransportationCost,
+                localTransportationMessage,
+                mealCost,
+                otherCost,
+                tripName,
+                travellersName,
+                travellersEmail,
+                approversName,
+                approversEmail,
+                tripNotes,
+                summaryCost,
+            })
+          }).then(function(response) {
+            return response.json()
+          }).then(function(data) {
+            console.log('email service: ', data);
+          });
+    }
+
+    const [emailModalShow, setEmailModalShow] = React.useState(false);
+
+    const [tripName, setTripName] = useState('');
+    const [travellersName, setTravellersName] = useState('');
+    const [travellersEmail, setTravellersEmail] = useState('');
+    const [approversName, setApproversName] = useState('');
+    const [approversEmail, setApproversEmail] = useState('');
+    const [tripNotes, setTripNotes] = useState('');
 
     return (
         <div className="mb-4">
+            <EmailModal
+                show={emailModalShow}
+                onHide={() => setEmailModalShow(false)}
+                sendEmail={() => sendEmail()}
+                tripName={tripName}
+                setTripName={setTripName}
+                travellersName={travellersName}
+                setTravellersName={setTravellersName}
+                travellersEmail={travellersEmail}
+                setTravellersEmail={setTravellersEmail}
+                approversName={approversName}
+                setApproversName={setApproversName}
+                approversEmail={approversEmail}
+                setApproversEmail={setApproversEmail}
+                setTripNotes={setTripNotes}
+                tripNotes={tripNotes}
+            />
             <h2><FormattedMessage id="estimateTitle" /></h2>
             <p className="lead"><FormattedMessage id="estimateLead" /></p>
              {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
@@ -520,147 +752,181 @@ const Estimator = () => {
             </div>}
 
             {!loading && result &&
-                <div className="card bg-light p-4">
-                    <h3 className="mb-3"><FormattedMessage id="estimateSummaryTitle" /></h3>
-                    {/* Each row could be a generic componemt with props passed in to define what they are */}
+                <>
+                    <div className="card bg-light p-4 mb-4">
+                        <h3 className="mb-3"><FormattedMessage id="estimateSummaryTitle" /></h3>
+                        {/* Each row could be a generic componemt with props passed in to define what they are */}
 
-                    <div className="row mb-4">
-                        <div className="col-sm-12 mb-2">
-                            <div><FaBed className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="accommodation" /></div>
-                        </div>
-                        <div className="col-sm-4 align-self-center">
-                            <div className="align-self-center">
-                                <div>
-                                    {/* <label htmlFor={name}>{label}</label> */}
-                                    <div id={`accommodation_container`}>
-                                    <select
-                                        className="custom-select"
-                                        onChange={e => setAccommodation(e.target.value)}
-                                    >
-                                        <option value="hotel">Hotel</option>
-                                        <option value="private">Private Accommodation</option>
-                                    </select>
-                                    </div>
-                                </div>
+                        <div className="row mb-4">
+                            <div className="col-sm-12 mb-2">
+                                <div><FaBed className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="accommodation" /></div>
                             </div>
-                        </div>
-                        <div className="col-sm-2 align-self-center">
-                            <input
-                                disabled={accommodation === "private"}
-                                type="text"
-                                className="form-control"
-                                id={`accommodation_select`}
-                                name={'accommodation'}
-                                onChange={(e) => {
-                                    if (parseFloat(e.target.value) > acrdTotal) {
-                                        setAccommodationCost(e.target.value)
-                                        setAccommodationMessage({ element: 
-                                        <div className="alert alert-warning mb-0" role="alert">
-                                            <FormattedMessage id='accommodationWarning' values={{ acrdTotal }} />
+                            <div className="col-sm-4 align-self-center">
+                                <div className="align-self-center">
+                                    <div>
+                                        {/* <label htmlFor={name}>{label}</label> */}
+                                        <div id={`accommodation_container`}>
+                                        <select
+                                            className="custom-select mb-2"
+                                            onChange={e => setAccommodationType(e.target.value)}
+                                        >
+                                            <option value="hotel">Hotel</option>
+                                            <option value="private">Private Accommodation</option>
+                                        </select>
                                         </div>
-
-                                        , style: 'warn' });
-                                    } else {
-                                        setAccommodationCost(e.target.value)
-                                    }
-                                }}
-                                onBlur={calculateTotal}
-                                value={accommodationCost}>
-                            </input>
-                        </div>
-                        <div className="col-sm-6 align-self-center text-wrap">
-                            {accommodationMessage.element}
-                        </div>
-                    </div>
-
-                    <div className="row mb-4">
-                        <div className="col-sm-12 mb-2">
-                            <div><FaPlane className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="transportation" /></div>
-                        </div>
-                        <div className="col-sm-4 align-self-center">
-                            <div className="align-self-center">
-                                <div>
-                                    {/* <label htmlFor={name}>{label}</label> */}
-                                    <div id={`transportation_container`}>
-                                    <select
-                                        className="custom-select"
-                                        onChange={e => {
-                                            setTransport(e.target.value)
-                                            if (e.target.value === 'private') {
-                                                console.log('here')
-                                                updateLocalTransportationCost(0)
-                                            };
-                                        }}
-                                    >
-                                        <option value="flight" >Flight</option>
-                                        <option value="train">Train</option>
-                                        <option value="rental">Rental Car</option>
-                                        <option value="private">Private Vehicle</option>
-                                    </select>
                                     </div>
                                 </div>
                             </div>
+                            <div className="col-sm-2 align-self-center">
+                                <input
+                                    disabled={accommodationType === "private"}
+                                    type="text"
+                                    className="form-control mb-2"
+                                    id={`accommodation_select`}
+                                    name={'accommodation'}
+                                    onChange={(e) => {
+                                        if (parseFloat(e.target.value) > acrdTotal) {
+                                            setAccommodationCost(e.target.value)
+                                            setAccommodationMessage({ element: 
+                                            <div className="alert alert-warning mb-0" role="alert">
+                                                <FormattedMessage id='accommodationWarning' values={{ acrdTotal }} />
+                                            </div>
+
+                                            , style: 'warn' });
+                                        } else {
+                                            setAccommodationCost(e.target.value)
+                                        }
+                                    }}
+                                    onBlur={calculateTotal}
+                                    value={accommodationCost}>
+                                </input>
+                            </div>
+                            <div className="col-sm-6 align-self-center text-wrap mb-2">
+                                {accommodationMessage.element}
+                            </div>
                         </div>
-                        <div className="col-sm-2 align-self-center">
-                            <input
-                                type="text"
-                                className="form-control"
-                                id={`transportation_select`}
-                                name={'transportation'}
-                                onChange={(e)  => {setTransportationCost(e.target.value)}}
-                                onBlur={calculateTotal}
-                                value={transportationCost}
-                            >
-                            </input>
+
+                        <div className="row mb-4">
+                            <div className="col-sm-12 mb-2">
+                                <div><FaPlane className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="transportation" /></div>
+                            </div>
+                            <div className="col-sm-4 align-self-center">
+                                <div className="align-self-center">
+                                    <div>
+                                        {/* <label htmlFor={name}>{label}</label> */}
+                                        <div id={`transportation_container`}>
+                                        <select
+                                            className="custom-select mb-2"
+                                            onChange={e => {
+                                                setTransportationType(e.target.value)
+                                                if (e.target.value === 'private') {
+                                                    console.log('here')
+                                                    updateLocalTransportationCost(0)
+                                                };
+                                            }}
+                                        >
+                                            <option value="flight" >Flight</option>
+                                            <option value="train">Train</option>
+                                            <option value="rental">Rental Car</option>
+                                            <option value="private">Private Vehicle</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-sm-2 align-self-center">
+                                <input
+                                    type="text"
+                                    className="form-control mb-2"
+                                    id={`transportation_select`}
+                                    name={'transportation'}
+                                    onChange={(e)  => {setTransportationCost(e.target.value)}}
+                                    onBlur={calculateTotal}
+                                    value={transportationCost}
+                                >
+                                </input>
+                            </div>
+                            <div className="col-sm-6 align-self-center text-wrap mb-2">
+                                {transportationMessage.element}
+                            </div>
                         </div>
-                        <div className="col-sm-6 align-self-center text-wrap">
-                            {transportationMessage.element}
+
+                        <div className="row mb-4">
+                            {transportationType === 'private' &&
+                                <div className="col-sm-4 align-self-center text-wrap mb-2">
+                                    <Form inline>
+                                        <Form.Group controlId="kilometricsManually">
+                                            <Form.Check
+                                                type="checkbox"
+                                                className="mr-2" 
+                                                aria-label="Enter Kilometrics Manually"
+                                                value={enterKilometricsDistanceManually}
+                                                onChange={(e) => setEnterKilometricsDistanceManually(!enterKilometricsDistanceManually)}
+                                            />
+                                                {enterKilometricsDistanceManually && 
+                                                    <Form.Control type="privateKilometrics" value={privateKilometricsValue} onChange={(e) => {setPrivateKilometricsValue(e.target.value)}} />
+                                                }
+                                                {!enterKilometricsDistanceManually &&
+                                                    <span>Enter distance manually</span>
+                                                }
+                                        </Form.Group>
+                                    </Form>
+                                </div>
+                            }
                         </div>
-                    </div>
 
 
-                    <EstimatorRow
-                        value={localTransportationCost}
-                        name="localTransportation"
-                        id="localTransportation"
-                        description="localTransportationDescription"
-                        icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
-                        title="localTransportation"
-                        calculateTotal={calculateTotal}
-                        updateCost={setLocalTransportationCost}
-                        message={localTransportationMessage}
-                    />
-                    <EstimatorRow
-                        value={mealCost}
-                        name="mealsAndIncidentals"
-                        id="mealsAndIncidentals"
-                        description="selectMealsToInclude"
-                        icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
-                        title="mealsAndIncidentals"
-                        calculateTotal={calculateTotal}
-                        updateCost={setMealCost}
-                    />
-                    <EstimatorRow
-                        value={otherCost}
-                        name="otherAllowances"
-                        id="otherAllowances"
-                        message={{ element: <FormattedMessage id="otherAllowancesMessage" />}}
-                        icon={<FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />}
-                        title="otherAllowances"
-                        calculateTotal={calculateTotal}
-                        updateCost={setOtherCost}
-                        tooltipIcon={FaQuestionCircle}
-                        tooltipText={<FormattedMessage id="otherTooltipText" />}
-                    />
-                    <div className="row mb-4">
-                        <div className="col-sm-6 align-self-center text-right">
-                            <hr />
-                            <strong className="mr-2"><FormattedMessage id="totalCost" /></strong>{`$${summaryCost}`}
-                        </div>
-                        <div className="col-sm-6 align-self-center text-wrap">
+                        <EstimatorRow
+                            value={localTransportationCost}
+                            name="localTransportation"
+                            id="localTransportation"
+                            description="localTransportationDescription"
+                            icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
+                            title="localTransportation"
+                            calculateTotal={calculateTotal}
+                            updateCost={setLocalTransportationCost}
+                            message={localTransportationMessage}
+                        />
+                        <EstimatorRow
+                            value={mealCost}
+                            name="mealsAndIncidentals"
+                            id="mealsAndIncidentals"
+                            description="selectMealsToInclude"
+                            icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
+                            title="mealsAndIncidentals"
+                            calculateTotal={calculateTotal}
+                            updateCost={setMealCost}
+                        />
+                        <EstimatorRow
+                            value={otherCost}
+                            name="otherAllowances"
+                            id="otherAllowances"
+                            message={{ element: <FormattedMessage id="otherAllowancesMessage" />}}
+                            icon={<FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />}
+                            title="otherAllowances"
+                            calculateTotal={calculateTotal}
+                            updateCost={setOtherCost}
+                            tooltipIcon={FaQuestionCircle}
+                            tooltipText={<FormattedMessage id="otherTooltipText" />}
+                        />
+                        <div className="row mb-4">
+                            <div className="col-sm-6 align-self-center text-right">
+                                <hr />
+                                <strong className="mr-2"><FormattedMessage id="totalCost" /></strong>{`$${summaryCost}`}
+                            </div>
+                            <div className="col-sm-6 align-self-center text-wrap">
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div className="row ml-1 mb-5">
+                        <Button className="px-5" onClick={() => { setEmailModalShow(true) }}><FormattedMessage id="email" /></Button>
+                    </div>
+                    <div>
+                        <h3>How did we get these numbers?</h3>
+                        <p>City rate limits are outlined in the <a href="https://rehelv-acrd.tpsgc-pwgsc.gc.ca/index-eng.aspx">Accommodation and Car Rental Directory</a></p>
+                        <p>Non-commercial accommodation, meals and incidental allowances are outlined in the <a href="https://www.njc-cnm.gc.ca/directive/d10/v238/s659/en">National Joint Council Travel Directive - Appendix C</a></p>
+                    </div>
+                </>
             }
         </div>
     )
