@@ -240,7 +240,7 @@ const Estimator = () => {
         }
     }
 
-    const [transporationEstimates, setTransportationEstimates] = useState(transportationEstimatesInitialState);
+    const [transportationEstimates, setTransportationEstimates] = useState(transportationEstimatesInitialState);
 
     useEffect(() => {
         let calculateKilometrics = privateKilometricsValue * (privateVehicleRate / 100);
@@ -375,7 +375,7 @@ const Estimator = () => {
 
                 updateTransportationCost(avg);
                 setTransportationEstimates({
-                    ...transporationEstimates,
+                    ...transportationEstimates,
                     flight: {
                         estimatedValue: avg,
                         estimatedValueMessage: FlightMessage,
@@ -394,9 +394,9 @@ const Estimator = () => {
     useEffect(() => {
         if (transportationType === 'flight') {
             if(!haveFlightCost) fetchFlightCost();
-            updateTransportationCost(transporationEstimates.flight.estimatedValue)
-            console.log('transporationEstimates.flight', transporationEstimates.flight);
-            setTransportationMessage({ element: transporationEstimates.flight.estimatedValueMessage})
+            updateTransportationCost(transportationEstimates.flight.estimatedValue)
+            console.log('transporationEstimates.flight', transportationEstimates.flight);
+            setTransportationMessage({ element: transportationEstimates.flight.estimatedValueMessage})
         } else if (transportationType === 'train') {
             updateTransportationCost(436)
             setTransportationMessage({ element: <FormattedMessage id="transportationTrainMessage" />  })
