@@ -7,10 +7,10 @@ import * as yup from "yup"
 import monthsContained from "./months-contained.js"
 import { FormattedMessage } from 'react-intl';
 import EstimatorRow from "./estimator-row.js";
+import EmailModal from "./email-modal.js";
+import EmailForm from "./email-form.js";
+
 import Tooltip from 'react-bootstrap/Tooltip'
-import Modal from 'react-bootstrap/Modal'
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { Spinner } from 'react-bootstrap';
@@ -28,105 +28,6 @@ import { FaSpinner, FaQuestionCircle, FaExclamationTriangle, FaBed, FaPlane, FaT
 import amadeusFlightOffer from '../api-calls/amadeusFlightOffer'
 import amadeusAirportCode from '../api-calls/amadeusAirportCode'
 import fetchDistanceBetweenPlaces from '../api-calls/fetchDistanceBetweenPlaces'
-
-const EmailModal = (props) => {
-    return (
-        <Modal
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-            show={props.show}
-            onHide={props.onHide}
-        >
-            <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-vcenter">
-                    <FormattedMessage id="emailEstimate" />
-                </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <EmailForm {...props} />
-            </Modal.Body>
-            <Modal.Footer>
-                <Button onClick={props.sendEmail}><FormattedMessage id="submit" /></Button>
-            </Modal.Footer>
-      </Modal>
-    )
-}
-
-const EmailForm = (props) => {
-    return (
-        <Form>
-            <Form.Group as={Row} controlId="tripName">
-                <Form.Label column sm="3">
-                    <FormattedMessage id="tripName" />
-                </Form.Label>
-                <Col sm="9">
-                    <FormattedMessage id="tripNamePlaceholder">
-                        {msg =>
-                            <Form.Control value={props.tripName} onChange={(e) => { props.setTripName(e.target.value) }} type="text" placeholder={msg} />
-                        }
-                    </FormattedMessage>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row} controlId="travellersName">
-                <Form.Label column sm="3">
-                    <FormattedMessage id="travellersName" />
-                </Form.Label>
-                <Col sm="9">
-                    <FormattedMessage id="travellersNamePlaceholder">
-                        {msg =>
-                            <Form.Control value={props.travellersName} onChange={(e) => { props.setTravellersName(e.target.value) }} type="text" placeholder={msg} />
-                        }
-                    </FormattedMessage>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row} controlId="travellersEmail">
-                <Form.Label column sm="3">
-                    <FormattedMessage id="travellersEmail" />
-                </Form.Label>
-                <Col sm="9">
-                    <FormattedMessage id="travellersEmailPlaceholder">
-                        {msg =>
-                            <Form.Control value={props.travellersEmail} onChange={(e) => { props.setTravellersEmail(e.target.value) }} type="text" placeholder={msg} />
-                        }
-                    </FormattedMessage>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row} controlId="approversName">
-                <Form.Label column sm="3">
-                    <FormattedMessage id="approversName" />
-                </Form.Label>
-                <Col sm="9">
-                    <FormattedMessage id="approversNamePlaceholder">
-                        {msg =>
-                            <Form.Control value={props.approversName} onChange={(e) => { props.setApproversName(e.target.value) }} type="text" placeholder={msg} />
-                        }
-                    </FormattedMessage>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row} controlId="approversEmail">
-                <Form.Label column sm="3">
-                    <FormattedMessage id="approversEmail" />
-                </Form.Label>
-                <Col sm="9">
-                    <FormattedMessage id="approversEmailPlaceholder">
-                        {msg =>
-                            <Form.Control value={props.approversEmail} onChange={(e) => { props.setApproversEmail(e.target.value) }} type="text" placeholder={msg} />
-                        }
-                    </FormattedMessage>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row} controlId="notes">
-                <Form.Label column sm="3">
-                    <FormattedMessage id="notes" />
-                </Form.Label>
-                <Col sm="9">
-                    <Form.Control value={props.tripNotes} onChange={(e) => { props.setTripNotes(e.target.value) }} value={props.tripNotes} as="textarea" rows={3} />
-                </Col>
-            </Form.Group>
-        </Form>
-    )
-}
 
 const Estimator = () => {
     const citiesList = cities.citiesList;
