@@ -13,6 +13,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import { Spinner } from 'react-bootstrap';
 // import EstimatorRowDropdown from "./estimator-row-dropdown.js";
 
 import cities from "../data/cities.js"
@@ -22,17 +23,7 @@ import accommodations from "../data/accommodations.js"
 import transportData from "../data/transport-data.js"
 import locations from "../data/locations.js"
 
-import { FaSpinner } from 'react-icons/fa';
-import { FaQuestionCircle } from 'react-icons/fa';
-import { FaExclamationTriangle } from 'react-icons/fa';
-
-import { Spinner } from 'react-bootstrap';
-
-import { FaBed } from 'react-icons/fa';
-import { FaPlane } from 'react-icons/fa';
-import { FaTaxi } from 'react-icons/fa';
-import { FaUtensils } from 'react-icons/fa';
-import { FaSuitcase } from 'react-icons/fa';
+import { FaSpinner, FaQuestionCircle, FaExclamationTriangle, FaBed, FaPlane, FaTaxi, FaUtensils, FaSuitcase } from 'react-icons/fa';
 
 import amadeusFlightOffer from '../api-calls/amadeusFlightOffer'
 import amadeusAirportCode from '../api-calls/amadeusAirportCode'
