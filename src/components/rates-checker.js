@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from "react"
 import InputDatalist from "./input-datalist.js"
 import DatePicker from "./date-picker.js"
-import mealAllowances from "../data/meals"
-import { DateTime } from "luxon"
+import calculateMeals from "./calculate-meals.js"
 import * as yup from "yup"
 import monthsContained from "./months-contained.js"
 import { FormattedMessage } from 'react-intl';
@@ -44,37 +43,6 @@ const RatesChecker = () => {
 
     //   Will use later when integration language
     //   const url = globalHistory.location.pathname;
-
-    const calculateMeals = (departDate, returnDate, province) => {
-        let departD = DateTime.fromISO(departDate);
-        let returnD = DateTime.fromISO(returnDate);
-        let duration = returnD.diff(departD, 'days')
-        let provinceAllowances = Object.keys(mealAllowances);
-
-        let ratesForProvince = {};
-
-        if (provinceAllowances.includes(province)) {
-            ratesForProvince = mealAllowances[province];
-        } else {
-            ratesForProvince = mealAllowances['CAN'];
-        };
-
-        let breakfast = ratesForProvince.breakfast;
-        let lunch = ratesForProvince.lunch;
-        let dinner = ratesForProvince.dinner;
-        let incidentals = ratesForProvince.incidentals;
-        let dailyTotal = breakfast + lunch + dinner + incidentals;
-        let total = dailyTotal * duration.values.days;
-
-        return {
-            dailyTotal,
-            total,
-            breakfast,
-            lunch,
-            dinner,
-            incidentals,
-        }
-    }
 
     const handleSubmit = (e) => {
         setLoading(true);

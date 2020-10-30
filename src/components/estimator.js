@@ -1,14 +1,13 @@
 import React, {useState, useEffect} from "react"
 import InputDatalist from "./input-datalist.js"
 import DatePicker from "./date-picker.js"
-import mealAllowances from "../data/meals"
+import calculateMeals from "./calculate-meals.js";
 import { DateTime, Interval, Info } from "luxon"
 import * as yup from "yup"
 import monthsContained from "./months-contained.js"
 import { FormattedMessage } from 'react-intl';
 import EstimatorRow from "./estimator-row.js";
 import EmailModal from "./email-modal.js";
-import EmailForm from "./email-form.js";
 
 import Tooltip from 'react-bootstrap/Tooltip'
 import Form from 'react-bootstrap/Form'
@@ -50,11 +49,12 @@ const Estimator = () => {
     const [destination, setDestination] = useState('');
     const [originData, setOriginData] = useState({});
     const [destinationData, setDestinationData] = useState({});
-    const [departureDate, setDepartureDate] = useState('');
-    const [returnDate, setReturnDate] = useState('');
+    const [departureDate, setDepartureDate] = useState(DateTime.local());
+    const [returnDate, setReturnDate] = useState(DateTime.local());
     const [privateVehicleRate, setPrivateVehicleRate] = useState('');
 
     useEffect((() => {
+        console.log(departureDate);
         const data = geocodedCities[origin]
         if (origin !== '') {
             let provinceAbbreviation = origin.slice(-2);
@@ -244,6 +244,7 @@ const Estimator = () => {
         })
         const departureDateISODate = departureDate.toISODate()
         const returnDateISODate = returnDate.toISODate()
+        
 
         await amadeusAccessTokenCheck();
 
@@ -325,39 +326,6 @@ const Estimator = () => {
 
     const updateSummaryCost = (newValue) => {
         setSummaryCost(newValue.toFixed(2))
-    }
-
-    // since this function is used in two files, we should import it
-    const calculateMeals = (departDate, returnDate, province) => {
-        let departD = DateTime.fromISO(departDate);
-        let returnD = DateTime.fromISO(returnDate);
-        
-        let duration = returnD.diff(departD, 'days')
-        let provinceAllowances = Object.keys(mealAllowances);
-
-        let estimatesForProvince = {};
-
-        if (provinceAllowances.includes(province)) {
-            estimatesForProvince = mealAllowances[province];
-        } else {
-            estimatesForProvince = mealAllowances['CAN'];
-        };
-
-        let breakfast = estimatesForProvince.breakfast;
-        let lunch = estimatesForProvince.lunch;
-        let dinner = estimatesForProvince.dinner;
-        let incidentals = estimatesForProvince.incidentals;
-        let dailyTotal = breakfast + lunch + dinner + incidentals;
-        let total = dailyTotal * duration.values.days;
-
-        return {
-            dailyTotal,
-            total,
-            breakfast,
-            lunch,
-            dinner,
-            incidentals,
-        }
     }
 
     const rateDaysByMonth = (departureDate, returnDate, rates) => {
@@ -463,6 +431,7 @@ const Estimator = () => {
     }
 
     const handleValidation = () => {
+        console.log(departureDate);
         let target = {origin, destination, departureDate, returnDate};
         let schema = yup.object().shape({
             origin: yup
