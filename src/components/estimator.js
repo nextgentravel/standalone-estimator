@@ -244,7 +244,6 @@ const Estimator = () => {
         })
         const departureDateISODate = departureDate.toISODate()
         const returnDateISODate = returnDate.toISODate()
-        
 
         await amadeusAccessTokenCheck();
 
