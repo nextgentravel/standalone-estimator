@@ -1,0 +1,37 @@
+{
+    "Main" : {
+      "travel_section_title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading2",
+          "label" : "travel_section_title"
+        }
+      },
+      "travel_section_lead" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "paragraph, strong, em",
+          "label" : "travel_section_lead"
+        }
+      },
+      "travel_section_colour" : {
+        "type" : "Color",
+        "config" : {
+          "label" : "travel_section_colour"
+        }
+      },
+      "travel_section_relationship" : {
+        "type" : "Link",
+        "config" : {
+          "select" : "document",
+          "label" : "travel_section_relationship"
+        }
+      },
+      "uid" : {
+        "type" : "UID",
+        "config" : {
+          "label" : "slug"
+        }
+      }
+    }
+  }
