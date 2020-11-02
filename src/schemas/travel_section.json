@@ -1,37 +1,60 @@
 {
-    "Main" : {
-      "travel_section_title" : {
-        "type" : "StructuredText",
-        "config" : {
-          "single" : "heading2",
-          "label" : "travel_section_title"
-        }
-      },
-      "travel_section_lead" : {
-        "type" : "StructuredText",
-        "config" : {
-          "single" : "paragraph, strong, em",
-          "label" : "travel_section_lead"
-        }
-      },
-      "travel_section_colour" : {
-        "type" : "Color",
-        "config" : {
-          "label" : "travel_section_colour"
-        }
-      },
-      "travel_section_relationship" : {
-        "type" : "Link",
-        "config" : {
-          "select" : "document",
-          "label" : "travel_section_relationship"
-        }
-      },
-      "uid" : {
-        "type" : "UID",
-        "config" : {
-          "label" : "slug"
-        }
+  "Content" : {
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading2",
+        "label" : "title"
+      }
+    },
+    "lead" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "paragraph, strong, em",
+        "label" : "lead"
+      }
+    },
+    "homepage_lead" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, strong, em",
+        "label" : "homepage_lead"
+      }
+    }
+  },
+  "Developer" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "slug"
+      }
+    },
+    "chevron" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "chevron",
+        "placeholder" : "sm or md"
+      }
+    },
+    "icon" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "icon",
+        "placeholder" : "react-icons icon name"
+      }
+    },
+    "colour" : {
+      "type" : "Color",
+      "config" : {
+        "label" : "colour"
+      }
+    },
+    "order" : {
+      "type" : "Number",
+      "config" : {
+        "label" : "order",
+        "placeholder" : "content will appear in this order"
       }
     }
   }
+}
