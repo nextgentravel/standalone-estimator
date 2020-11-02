@@ -10,7 +10,8 @@ import 'intl';
 import { globalHistory } from "@reach/router"
 
 export default ({ data }) => {
-  const post = data.markdownRemark;
+  console.log('data', data)
+  const travelStep = data.allPrismicTravelStep;
   const url = globalHistory.location.pathname;
   const { langs, defaultLangKey } = data.site.siteMetadata.languages;
   const langKey = getCurrentLangKey(langs, defaultLangKey, url);
@@ -26,18 +27,18 @@ export default ({ data }) => {
   return (
     <Layout>
       <main id="main-content">
-        <Breadcrumbs pageTitle={post.frontmatter.title} homeLink={homeLink} />
-        <SEO title={post.frontmatter.title} />
+        <Breadcrumbs pageTitle={travelStep.title} homeLink={homeLink} />
+        <SEO title={travelStep.title} />
         <div className="hero-holder">
           <div className="container">
             <nav className="skiphold" aria-label="sidebar skiplink"><a className="sr-only sr-only-focusable aurora-skip skiplink" id="sidebar-skiplink" href="#sidebar"><FormattedMessage id="skipToSide"/></a></nav>
             <div className="row mb-4">
-              <div className="col-sm-8"><h2 className="display-5">{post.frontmatter.title}</h2></div>
-              {post.frontmatter.jumpTo && <div className="col-sm-2 ml-auto">
+              <div className="col-sm-8"><h2 className="display-5">{travelStep.title}</h2></div>
+              {travelStep.jumpTo && <div className="col-sm-2 ml-auto">
                 <div className="form-group">
                   <select onChange={jumpTo} className="custom-select text-secondary align-middle">
                     <option value="">Jump to...</option>
-                    {post.frontmatter.jumpTo.map((item) => {
+                    {travelStep.jumpTo.map((item) => {
                       return (
                         <option value={`${homeLink}${item.link}`}>{item.label}</option>
                       )
@@ -48,14 +49,14 @@ export default ({ data }) => {
             </div>
             
             <p className="lead">
-              {post.frontmatter.lead}
+              {travelStep.lead}
             </p>
           </div>
         </div>
         <div className="container">
           <div
             className="row"
-            dangerouslySetInnerHTML={{ __html: post.html }}
+            dangerouslySetInnerHTML={{ __html: travelStep.html }}
           />
         </div>
       </main>
@@ -64,7 +65,7 @@ export default ({ data }) => {
 };
 
 export const query = graphql`
-  query PageQuery($slug: String!) {
+  query PageQuery($uid: String!) {
     site {
       siteMetadata {
         languages {
@@ -73,14 +74,15 @@ export const query = graphql`
         }      
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-        lead
-        jumpTo {
-          label
-          link
+    allPrismicTravelStep(filter: {data: {belongs_to: {uid: {eq: $uid}}}}) {
+      nodes {
+        data {
+          action_title {
+            text
+          }
+          belongs_to {
+            slug
+          }
         }
       }
     }
