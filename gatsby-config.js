@@ -201,23 +201,6 @@ module.exports = {
         langKeyForNull: 'any',
         useLangKeyLayout: false,
         prefixDefault: true,
-        markdownRemark: {
-          postPage: 'src/templates/infoPage.js',
-          query: `
-          {
-              allMarkdownRemark {
-                  edges {
-                  node {
-                      fields {
-                      slug,
-                      langKey
-                      }
-                  }
-                  }
-              }
-          }
-          `
-        }
       }
     },
     {

@@ -9,37 +9,77 @@
 const { GraphQLJSONObject } = require(`graphql-type-json`)
 const striptags = require(`striptags`)
 const lunr = require(`lunr`)
+const path = require('path')
 
-exports.createPages = ({ graphql, actions }) => {
+// exports.createPages = ({ graphql, actions }) => {
+//   const { createPage } = actions
+//   return new Promise((resolve, reject) => {
+//     graphql(`
+//       {
+//         allMarkdownRemark {
+//           edges {
+//             node {
+//               fields {
+//                 slug
+//               }
+//             }
+//           }
+//         }
+//       }
+//     `).then(result => {
+//       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+//         createPage({
+//           path: node.fields.slug,
+//           component: require.resolve(`./src/templates/infoPage.js`),
+//           context: {
+//             // Data passed to context is available in page queries as GraphQL variables.
+//             slug: node.fields.slug,
+//           },
+//         })
+//       })
+//       resolve()
+//     })
+//   })
+// };
+
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  return new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allMarkdownRemark {
-          edges {
-            node {
-              fields {
-                slug
-              }
+
+  // Query all Pages with their IDs and template data.
+  const pages = await graphql(`
+    {
+      allPrismicTravelSection {
+        nodes {
+          id
+          uid
+          lang
+          data {
+            title {
+              text
+            }
+            lead {
+              html
             }
           }
         }
       }
-    `).then(result => {
-      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        createPage({
-          path: node.fields.slug,
-          component: require.resolve(`./src/templates/infoPage.js`),
-          context: {
-            // Data passed to context is available in page queries as GraphQL variables.
-            slug: node.fields.slug,
-          },
-        })
-      })
-      resolve()
+    }  
+  `)
+
+  const pageTemplate = require.resolve(`./src/templates/infoPage.js`)
+
+  // Create pages for each Page in Prismic using the selected template.
+  pages.data.allPrismicTravelSection.nodes.forEach((node) => {
+    const language = node.lang.substring(0, 2)
+    createPage({
+      path: `${language}/${node.uid}`,
+      component: pageTemplate,
+      context: {
+        id: node.id,
+      },
     })
   })
-};
+}
 
 exports.createResolvers = ({ cache, createResolvers }) => {
   createResolvers({
