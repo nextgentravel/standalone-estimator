@@ -55,6 +55,12 @@
         "label" : "order",
         "placeholder" : "content will appear in this order"
       }
+    },
+    "link" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "link"
+      }
     }
   }
 }

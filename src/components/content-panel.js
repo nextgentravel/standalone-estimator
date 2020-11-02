@@ -23,23 +23,31 @@ const ContentPanel = () => {
         <StaticQuery query = {
             graphql `
                 query getTravelSections {
-                    allPrismicTravelSection(filter: {lang: {eq: "en-ca"}}, sort: {fields: data___order}) {
-                        edges {
-                        node {
-                            data {
-                            colour
-                            homepage_lead {
-                                html
-                            }
-                            title {
-                                html
-                                text
-                            }
-                            icon
-                            order
-                            }
-                            lang
+                    allPrismicTravelSection(filter: {
+                        lang: {
+                            eq: "en-ca"
                         }
+                    }, sort: {
+                        fields: data___order
+                    }) {
+                        edges {
+                            node {
+                                data {
+                                    colour
+                                    homepage_lead {
+                                        html
+                                    }
+                                    title {
+                                        html
+                                        text
+                                    }
+                                    icon
+                                    order
+                                    chevron
+                                    link
+                                }
+                                lang
+                            }
                         }
                     }
                 }
@@ -56,8 +64,8 @@ const ContentPanel = () => {
                             lead={data.homepage_lead.html}
                             iconName={data.icon}
                             iconColour={data.colour}
-                            linkTo={`${homeLink}plan`}
-                            chevron={data.title.chevron}
+                            linkTo={`${homeLink}${data.link}`}
+                            chevron={data.chevron}
                         />
                     )
                 })
