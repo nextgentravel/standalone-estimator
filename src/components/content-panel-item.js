@@ -8,7 +8,7 @@ const ContentPanelItem = ({ title, lead, iconName, iconColour, linkTo, chevron }
     const Icon = props => {
         const { iconName, size, color } = props;
         const icon = React.createElement(FontAwesome[iconName]);
-        return <span style={{ fontSize: size, color: color, lineHeight: 1.25 }}>{icon}</span>;
+        return <span style={{ fontSize: size, color: color, lineHeight: .5 }}>{icon}</span>;
       };
 
     return (
