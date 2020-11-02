@@ -1,47 +1,47 @@
 {
-    "Main" : {
-      "step_title" : {
-        "type" : "StructuredText",
-        "config" : {
-          "single" : "heading3",
-          "label" : "step_title"
-        }
-      },
-      "step_content" : {
-        "type" : "StructuredText",
-        "config" : {
-          "multi" : "paragraph, preformatted, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-          "allowTargetBlank" : true,
-          "label" : "step_content"
-        }
-      },
-      "step_belongs_to" : {
-        "type" : "Link",
-        "config" : {
-          "select" : "document",
-          "customtypes" : [ "travel_section" ],
-          "label" : "step_belongs_to"
-        }
-      },
-      "step_action" : {
-        "type" : "Link",
-        "config" : {
-          "allowTargetBlank" : true,
-          "label" : "step_action_link"
-        }
-      },
-      "step_action_title" : {
-        "type" : "StructuredText",
-        "config" : {
-          "single" : "paragraph",
-          "label" : "step_action_title"
-        }
-      },
-      "order" : {
-        "type" : "Number",
-        "config" : {
-          "label" : "order"
-        }
+  "Main": {
+    "step_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "step_title"
+      }
+    },
+    "step_content": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "allowTargetBlank": true,
+        "label": "step_content"
+      }
+    },
+    "step_belongs_to": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["travel_section"],
+        "label": "step_belongs_to"
+      }
+    },
+    "step_action": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "step_action_link"
+      }
+    },
+    "step_action_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "step_action_title"
+      }
+    },
+    "order": {
+      "type": "Number",
+      "config": {
+        "label": "order"
       }
     }
   }
+}

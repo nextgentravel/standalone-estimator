@@ -37,9 +37,13 @@ module.exports = {
         // provided to the function, as seen below. This allows you to use
         // different link resolver logic for each field if necessary.
         // See: https://prismic.io/docs/javascript/query-the-api/link-resolving
-        // linkResolver: ({ node, key, value }) => (doc) => {
-        // Your link resolver
-        // },
+        linkResolver: ({ node, key, value }) => (doc) => {	
+          // Pretty URLs for known types
+          if (doc.type === 'blog') return "/post/" + doc.uid;
+          if (doc.type === 'page') return "/" + doc.uid;
+          // Fallback for other types, in case new custom types get created
+          return "/doc/" + doc.id;
+        },
 
         // Set a list of links to fetch and be made available in your link
         // resolver function.
@@ -55,18 +59,12 @@ module.exports = {
         // provided to the function, as seen below. This allows you to use
         // different HTML serializer logic for each field if necessary.
         // See: https://prismic.io/docs/nodejs/beyond-the-api/html-serializer
-        htmlSerializer: ({
-          node,
-          key,
-          value
-        }) => (
+        htmlSerializer: ({ node, key, value }) => (
           type,
           element,
           content,
           children,
-        ) => {
-          // Your HTML serializer
-        },
+      ) => {},
 
         // Provide an object of Prismic custom type JSON schemas to load into
         // Gatsby. This is required.
