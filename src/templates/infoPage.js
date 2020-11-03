@@ -86,5 +86,17 @@ export const query = graphql`
         }
       }
     }
+    prismicTravelSection(uid: {eq: $uid}) {
+      data {
+        lead {
+          html
+        }
+        title {
+          text
+        }
+    }
+  }
+
+
   }
 `;
