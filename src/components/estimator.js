@@ -18,6 +18,8 @@ import { Spinner } from 'react-bootstrap';
 import cities from "../data/cities.js"
 import geocodedCities from "../data/geocodedCities"
 import acrdRates from "../data/acrdRates.js"
+import accommodations from "../data/accommodations.js"
+import transportData from "../data/transport-data.js"
 import locations from "../data/locations.js"
 
 import { FaSpinner, FaQuestionCircle, FaExclamationTriangle, FaBed, FaPlane, FaTaxi, FaUtensils, FaSuitcase } from 'react-icons/fa';
@@ -254,7 +256,7 @@ const Estimator = () => {
                 result.data.forEach(itinerary => {
                     allPrices.push(parseFloat(itinerary.price.grandTotal))
                 });
-
+                
                 const sum = allPrices.reduce((a, b) => a + b, 0);
                 const avg = (sum / allPrices.length) || 0;
 
@@ -615,7 +617,7 @@ const Estimator = () => {
 
                         <div className="row mb-4">
                             <div className="col-sm-12 mb-2">
-                                <div><FaBed className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="accommodation" /></div>
+                                <label htmlFor="accommodation_select"><FaBed className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="accommodation" /></label>
                             </div>
                             <div className="col-sm-4 align-self-center">
                                 <div className="align-self-center">
@@ -664,7 +666,7 @@ const Estimator = () => {
 
                         <div className="row mb-4">
                             <div className="col-sm-12 mb-2">
-                                <div><FaPlane className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="transportation" /></div>
+                                <label htmlFor="transportation_select"><FaPlane className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="transportation" /></label>
                             </div>
                             <div className="col-sm-4 align-self-center">
                                 <div className="align-self-center">
@@ -714,7 +716,7 @@ const Estimator = () => {
                                         <Form.Group controlId="kilometricsManually">
                                             <Form.Check
                                                 type="checkbox"
-                                                className="mr-2"
+                                                className="mr-2" 
                                                 aria-label="Enter Kilometrics Manually"
                                                 value={enterKilometricsDistanceManually}
                                                 onChange={(e) => setEnterKilometricsDistanceManually(!enterKilometricsDistanceManually)}
