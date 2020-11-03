@@ -22,13 +22,6 @@
         "label" : "belongs_to"
       }
     },
-    "action" : {
-      "type" : "Link",
-      "config" : {
-        "allowTargetBlank" : true,
-        "label" : "action_link"
-      }
-    },
     "action_title" : {
       "type" : "StructuredText",
       "config" : {
@@ -40,6 +33,22 @@
       "type" : "Number",
       "config" : {
         "label" : "order"
+      }
+    },
+    "action_link" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "action_link",
+        "placeholder" : "URL for action"
+      }
+    },
+    "action_new_window" : {
+      "type" : "Boolean",
+      "config" : {
+        "placeholder_false" : "link will open in same window",
+        "placeholder_true" : "link will open in new window",
+        "default_value" : false,
+        "label" : "action_new_window"
       }
     }
   }
