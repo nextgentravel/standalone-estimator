@@ -10,8 +10,10 @@ import 'intl';
 import { globalHistory } from "@reach/router"
 
 export default ({ data }) => {
-  console.log('data', data)
-  const travelStep = data.allPrismicTravelStep;
+  const travelSteps = data.allPrismicTravelStep;
+  
+  const travelSection = data.prismicTravelSection.data;
+  console.log('travelSection', travelSection)
   const url = globalHistory.location.pathname;
   const { langs, defaultLangKey } = data.site.siteMetadata.languages;
   const langKey = getCurrentLangKey(langs, defaultLangKey, url);
@@ -27,37 +29,77 @@ export default ({ data }) => {
   return (
     <Layout>
       <main id="main-content">
-        <Breadcrumbs pageTitle={travelStep.title} homeLink={homeLink} />
-        <SEO title={travelStep.title} />
+        <Breadcrumbs pageTitle={travelSection.title.text} homeLink={homeLink} />
+        <SEO title={travelSection.title.text} />
         <div className="hero-holder">
           <div className="container">
             <nav className="skiphold" aria-label="sidebar skiplink"><a className="sr-only sr-only-focusable aurora-skip skiplink" id="sidebar-skiplink" href="#sidebar"><FormattedMessage id="skipToSide"/></a></nav>
             <div className="row mb-4">
-              <div className="col-sm-8"><h2 className="display-5">{travelStep.title}</h2></div>
-              {travelStep.jumpTo && <div className="col-sm-2 ml-auto">
+              <div className="col-sm-8"><h2 className="display-5">{travelSection.title.text}</h2></div>
+              {travelSection.jumpTo && <div className="col-sm-2 ml-auto">
                 <div className="form-group">
                   <select onChange={jumpTo} className="custom-select text-secondary align-middle">
                     <option value="">Jump to...</option>
-                    {travelStep.jumpTo.map((item) => {
+                    {/* {travelSection.jumpTo.map((item) => {
                       return (
                         <option value={`${homeLink}${item.link}`}>{item.label}</option>
                       )
-                    })}
+                    })} */}
                   </select>
                 </div>
               </div>}
             </div>
             
-            <p className="lead">
-              {travelStep.lead}
-            </p>
+            <div className="lead" dangerouslySetInnerHTML={{ __html: travelSection.lead.html }}>
+            </div>
           </div>
         </div>
-        <div className="container">
-          <div
-            className="row"
-            dangerouslySetInnerHTML={{ __html: travelStep.html }}
-          />
+        <div className="container p-0">
+          <article className="content-left col-xs-12 col-sm-12 col-md-12">
+            {travelSteps.nodes.map((node, index) => {
+              return (
+                <div className="card px-4 pt-4 my-4 bg-light">
+                  <div className="row">
+                    <div className="col-sm-8">
+                      <h3>{index + 1}. {node.data.title.text}</h3>
+                      <div dangerouslySetInnerHTML={{ __html: node.data.content.html }}></div>
+                    </div>
+                    <div className="col-sm-4">
+                        {node.data.action_link &&
+                          <p className="text-center">
+                            <a
+                              href={node.data.action_link}
+                              className="btn btn-primary my-4 px-4"
+                              target={node.data.action_new_window ? '_blank' : '' }
+                            >
+                              {node.data.action_title.text}
+                            </a>
+                          </p>
+                        }
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+            <p className="text-center">
+              {travelSection.next_section.document &&
+                <a
+                  href={`${homeLink}${travelSection.next_section.document.uid}`}
+                  className="btn btn-primary my-4 px-4 mr-4"
+                >
+                  View {travelSection.next_section.document.data.title.text}
+                </a>
+              }
+              {travelSection.previous_section.document &&
+                <a
+                  href={`${homeLink}${travelSection.previous_section.document.uid}`}
+                  className="btn btn-outline-primary my-4 px-4"
+                >
+                  Back to {travelSection.previous_section.document.data.title.text}
+                </a>
+              }
+            </p>
+          </article>
         </div>
       </main>
     </Layout>
@@ -80,8 +122,15 @@ export const query = graphql`
           action_title {
             text
           }
+          action_link
           belongs_to {
             slug
+          }
+          title {
+            text
+          }
+          content {
+            html
           }
         }
       }
@@ -93,6 +142,30 @@ export const query = graphql`
         }
         title {
           text
+        }
+        next_section {
+          document {
+            ... on PrismicTravelSection {
+              data {
+                title {
+                  text
+                }
+              }
+              uid
+            }
+          }
+        }
+        previous_section {
+          document {
+            ... on PrismicTravelSection {
+              data {
+                title {
+                  text
+                }
+              }
+              uid
+            }
+          }
         }
     }
   }

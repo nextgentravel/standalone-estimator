@@ -61,6 +61,22 @@
       "config" : {
         "label" : "link"
       }
+    },
+    "previous_section" : {
+      "type" : "Link",
+      "config" : {
+        "select" : "document",
+        "customtypes" : [ "travel_section" ],
+        "label" : "previous_section"
+      }
+    },
+    "next_section" : {
+      "type" : "Link",
+      "config" : {
+        "select" : "document",
+        "customtypes" : [ "travel_section" ],
+        "label" : "next_section"
+      }
     }
   }
 }
