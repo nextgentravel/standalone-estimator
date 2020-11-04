@@ -11,9 +11,9 @@ import { globalHistory } from "@reach/router"
 
 export default ({ data }) => {
   const travelSteps = data.allPrismicTravelStep;
-  
   const travelSection = data.prismicTravelSection.data;
-  console.log('travelSection', travelSection)
+  const faqItems = data.allPrismicFaqQuestion.nodes;
+  console.log('faqItems', faqItems)
   const url = globalHistory.location.pathname;
   const { langs, defaultLangKey } = data.site.siteMetadata.languages;
   const langKey = getCurrentLangKey(langs, defaultLangKey, url);
@@ -61,7 +61,14 @@ export default ({ data }) => {
                 <div className="card px-4 pt-4 my-4 bg-light">
                   <div className="row">
                     <div className="col-sm-8">
-                      <h3>{index + 1}. {node.data.title.text}</h3>
+                      <h3 className="mb-3">
+                        {node.data.show_step_number &&
+                          <span className="text-secondary pr-3">
+                            Step {index + 1}
+                          </span>
+                        }
+                        {node.data.title.text}
+                      </h3>
                       <div dangerouslySetInnerHTML={{ __html: node.data.content.html }}></div>
                     </div>
                     <div className="col-sm-4">
@@ -81,6 +88,36 @@ export default ({ data }) => {
                 </div>
               )
             })}
+
+            
+            {faqItems.length > 0 &&
+              <>
+                <h3 className="pt-5">Frequently Asked Questions</h3>
+
+                {faqItems.map ((item, index) => {
+                  return (
+                    <div
+                      className="card px-4 pt-4 pb-3 my-4"
+                      key={index}
+                    >
+                      <div className="row">
+                        <div className="col-sm-12">
+                          <p className="lead mb-1">
+                            {item.data.question.text}
+                          </p>
+                        </div>
+                        <React.Fragment>
+                          <div className="col-sm-12 mt-2">
+                            {item.data.answer.text}
+                          </div>
+                        </React.Fragment>
+                      </div>
+                    </div>
+                  );
+                })}
+              </>
+            }
+
             <p className="text-center">
               {travelSection.next_section.document &&
                 <a
@@ -116,7 +153,7 @@ export const query = graphql`
         }      
       }
     }
-    allPrismicTravelStep(filter: {data: {belongs_to: {uid: {eq: $uid}}}}) {
+    allPrismicTravelStep(filter: {data: {belongs_to: {uid: {eq: $uid}}}}, sort: {fields: data___order}) {
       nodes {
         data {
           action_title {
@@ -131,6 +168,19 @@ export const query = graphql`
           }
           content {
             html
+          }
+          show_step_number
+        }
+      }
+    }
+    allPrismicFaqQuestion(filter: {data: {belongs_to: {uid: {eq: $uid}}}}, sort: {fields: data___order}) {
+      nodes {
+        data {
+          answer {
+            text
+          }
+          question {
+            text
           }
         }
       }
