@@ -73,6 +73,7 @@ module.exports = {
           travel_section: require('./src/schemas/travel_section.json'),
           faq_question: require('./src/schemas/faq_question.json'),
           homepage: require('./src/schemas/homepage.json'),
+          doormat: require('./src/schemas/doormat.json'),
         },
 
         // Set a default language when fetching documents. The default value is
