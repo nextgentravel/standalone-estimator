@@ -72,6 +72,7 @@ module.exports = {
           travel_step: require('./src/schemas/travel_step.json'),
           travel_section: require('./src/schemas/travel_section.json'),
           faq_question: require('./src/schemas/faq_question.json'),
+          homepage: require('./src/schemas/homepage.json'),
         },
 
         // Set a default language when fetching documents. The default value is
@@ -90,9 +91,9 @@ module.exports = {
         // provided to the function, as seen below. This allows you to use
         // different logic for each field if necessary.
         // This defaults to always return false.
-        // shouldDownloadImage: ({ node, key, value }) => {
-        // Return true to download the image or false to skip.
-        // },
+        shouldDownloadImage: ({ node, key, value }) => {
+          return true;
+        },
 
         // Provide a default set of Imgix image transformations applied to
         // Imgix-backed gatsby-image fields. These options will override the

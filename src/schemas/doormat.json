@@ -1,0 +1,50 @@
+{
+    "Main" : {
+      "title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading4",
+          "label" : "title"
+        }
+      },
+      "lead" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph, strong, em",
+          "label" : "lead"
+        }
+      },
+      "link" : {
+        "type" : "Text",
+        "config" : {
+          "label" : "link"
+        }
+      },
+      "order" : {
+        "type" : "Number",
+        "config" : {
+          "label" : "order"
+        }
+      },
+      "link_new_window" : {
+        "type" : "Boolean",
+        "config" : {
+          "placeholder_false" : "open in same window",
+          "placeholder_true" : "open in new window",
+          "default_value" : false,
+          "label" : "link_new_window"
+        }
+      },
+      "image" : {
+        "type" : "Image",
+        "config" : {
+          "constraint" : {
+            "width" : 530,
+            "height" : 200
+          },
+          "thumbnails" : [ ],
+          "label" : "image"
+        }
+      }
+    }
+  }
