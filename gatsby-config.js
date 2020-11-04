@@ -71,6 +71,7 @@ module.exports = {
         schemas: {
           travel_step: require('./src/schemas/travel_step.json'),
           travel_section: require('./src/schemas/travel_section.json'),
+          faq_question: require('./src/schemas/faq_question.json'),
         },
 
         // Set a default language when fetching documents. The default value is

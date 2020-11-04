@@ -4,7 +4,8 @@
       "type" : "StructuredText",
       "config" : {
         "single" : "heading3",
-        "label" : "title"
+        "label" : "title",
+        "placeholder" : "Title, without step number"
       }
     },
     "content" : {
@@ -19,6 +20,7 @@
       "type" : "Link",
       "config" : {
         "select" : "document",
+        "customtypes" : [ "travel_section" ],
         "label" : "belongs_to"
       }
     },
@@ -42,6 +44,15 @@
         "placeholder" : "URL for action"
       }
     },
+    "show_step_number" : {
+      "type" : "Boolean",
+      "config" : {
+        "placeholder_false" : "Show \"Step #\" before title",
+        "placeholder_true" : "Show title text only",
+        "default_value" : false,
+        "label" : "show_step_number"
+      }
+    },
     "action_new_window" : {
       "type" : "Boolean",
       "config" : {
@@ -49,6 +60,13 @@
         "placeholder_true" : "link will open in new window",
         "default_value" : false,
         "label" : "action_new_window"
+      }
+    },
+    "show_if_selected" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "flight", "train", "car rental", "private accommodation", "hotel", "always" ],
+        "label" : "show_if_selected"
       }
     }
   }
