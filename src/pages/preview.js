@@ -5,7 +5,7 @@ import { withPreviewResolver } from 'gatsby-source-prismic'
 
 // import { linkResolver } from '../linkResolver'
 
-import { Layout } from '../components/Layout'
+import { Layout } from '../components/layout'
 
 const PreviewPage = ({ isPreview, isLoading }) => {
   if (isPreview === false) return 'Not a preview!'
