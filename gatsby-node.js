@@ -4,8 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-// You can delete this file if you're not using it
-
 const { GraphQLJSONObject } = require(`graphql-type-json`)
 const striptags = require(`striptags`)
 const lunr = require(`lunr`)
@@ -35,7 +33,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }  
   `)
 
-  const pageTemplate = require.resolve(`./src/templates/travelPage.js`)
+  const pageTemplate = require.resolve(`./src/templates/travelSection.js`)
 
   // Create pages for each Page in Prismic using the selected template.
   pages.data.allPrismicTravelSection.nodes.forEach((node) => {
