@@ -11,37 +11,6 @@ const striptags = require(`striptags`)
 const lunr = require(`lunr`)
 const path = require('path')
 
-// exports.createPages = ({ graphql, actions }) => {
-//   const { createPage } = actions
-//   return new Promise((resolve, reject) => {
-//     graphql(`
-//       {
-//         allMarkdownRemark {
-//           edges {
-//             node {
-//               fields {
-//                 slug
-//               }
-//             }
-//           }
-//         }
-//       }
-//     `).then(result => {
-//       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-//         createPage({
-//           path: node.fields.slug,
-//           component: require.resolve(`./src/templates/infoPage.js`),
-//           context: {
-//             // Data passed to context is available in page queries as GraphQL variables.
-//             slug: node.fields.slug,
-//           },
-//         })
-//       })
-//       resolve()
-//     })
-//   })
-// };
-
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
@@ -66,12 +35,11 @@ exports.createPages = async ({ graphql, actions }) => {
     }  
   `)
 
-  const pageTemplate = require.resolve(`./src/templates/infoPage.js`)
+  const pageTemplate = require.resolve(`./src/templates/travelPage.js`)
 
   // Create pages for each Page in Prismic using the selected template.
   pages.data.allPrismicTravelSection.nodes.forEach((node) => {
     const language = node.lang.substring(0, 2)
-    console.log('node', JSON.stringify(node, null, 2))
     if (!node.uid) return;
     createPage({
       path: `${language}/${node.uid}`,
