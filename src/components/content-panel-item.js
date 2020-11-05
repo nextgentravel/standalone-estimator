@@ -18,7 +18,7 @@ const ContentPanelItem = ({ title, lead, iconName, iconColour, linkTo, chevron }
                     <Icon iconName={iconName} size={100} color="#FFF" />
                 </div>
                 <h3 className="mb-4">{title}</h3>
-                <p className="mb-4" dangerouslySetInnerHTML={{ __html: lead }}></p>
+                <div className="mb-4" dangerouslySetInnerHTML={{ __html: lead }}></div>
                 <div className="mt-auto w-100">
                     <Link to={linkTo} className="btn btn-outline-primary px-4"><FormattedMessage id="view" /></Link>
                 </div>
