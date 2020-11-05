@@ -8,8 +8,9 @@ import { navigate } from "gatsby"
 import { getCurrentLangKey } from 'ptz-i18n';
 import 'intl';
 import { globalHistory } from "@reach/router"
+import { withPreview } from 'gatsby-source-prismic'
 
-export default ({ data }) => {
+const TravelSection = ({ data }) => {
   const travelSteps = data.allPrismicTravelStep;
   const travelSection = data.prismicTravelSection.data;
   const faqItems = data.allPrismicFaqQuestion.nodes;
@@ -142,6 +143,8 @@ export default ({ data }) => {
     </Layout>
   );
 };
+
+export default withPreview(TravelSection)
 
 export const query = graphql`
   query PageQuery($uid: String!) {
