@@ -19,7 +19,11 @@ const PreviewPage = ({ isPreview, isLoading }) => {
 export default withPreviewResolver(PreviewPage, {
   repositoryName: "gctravelapp",
   linkResolver: ({ node, key, link }) => doc => {
+    console.log('doc', doc)
+    console.log('node', node)
+    console.log('key', key)
+    console.log('link', link)
     if (doc.type === "home") return `/`
-    return `/${doc.uid}`
+    return `/en/${doc.uid}`
   },
 })

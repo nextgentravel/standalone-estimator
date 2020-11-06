@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import { Link } from "gatsby"
 import { withUnpublishedPreview } from 'gatsby-source-prismic'
 
-import { GenericTemplate } from '../templates/genericTemplate'
+import { PageTemplate } from '../templates/page'
 
 import { FaExclamationTriangle } from 'react-icons/fa';
 
@@ -32,6 +32,6 @@ const NotFoundPage = () => (
 // If an unpublished `page` document is previewed, GenericTemplate will be rendered.
 export default withUnpublishedPreview(NotFoundPage, {
   templateMap: {
-    page: GenericTemplate,
+    travel_step: PageTemplate,
   },
 })
