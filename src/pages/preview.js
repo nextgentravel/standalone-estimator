@@ -2,13 +2,11 @@
 
 import * as React from 'react'
 import { withPreviewResolver } from 'gatsby-source-prismic'
-
-// import { linkResolver } from '../linkResolver'
-
-import { Layout } from '../components/layout'
+import { linkResolver } from '../config/linkresolver'
+import Layout from '../components/layout'
 
 const PreviewPage = ({ isPreview, isLoading }) => {
-  if (isPreview === false) return 'Not a preview!'
+  if (isPreview === false) return (<p>Not a preview!</p>)
 
   return (
     <Layout>
@@ -17,7 +15,11 @@ const PreviewPage = ({ isPreview, isLoading }) => {
   )
 }
 
+
 export default withPreviewResolver(PreviewPage, {
-  repositoryName: process.env.GATSBY_PRISMIC_REPOSITORY_NAME,
-//   linkResolver,
+  repositoryName: "gctravelapp",
+  linkResolver: ({ node, key, link }) => doc => {
+    if (doc.type === "home") return `/`
+    return `/${doc.uid}`
+  },
 })
