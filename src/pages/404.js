@@ -33,5 +33,6 @@ const NotFoundPage = () => (
 export default withUnpublishedPreview(NotFoundPage, {
   templateMap: {
     travel_step: PageTemplate,
+    travel_section: PageTemplate,
   },
 })
