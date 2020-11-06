@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { withPreviewResolver } from 'gatsby-source-prismic'
 
-// import { linkResolver } from '../linkResolver'
+import { linkResolver } from '../config/linkresolver'
 
 import { Layout } from '../components/layout'
 
@@ -17,5 +17,5 @@ const GenericTemplate = ({ isPreview, isLoading }) => {
 
 export default withPreviewResolver(GenericTemplate, {
   repositoryName: process.env.GATSBY_PRISMIC_REPOSITORY_NAME,
-//   linkResolver,
+  linkResolver,
 })
