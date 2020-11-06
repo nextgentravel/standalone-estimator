@@ -12,10 +12,10 @@ import { withPreview } from 'gatsby-source-prismic'
 import usePreviewData from '../utils/usePreviewData'
 
 const TravelSection = ({ data }) => {
-  const liveData = usePreviewData(data);
-  const travelSteps = data.allPrismicTravelStep;
-  const travelSection = data.prismicTravelSection.data;
-  const faqItems = data.allPrismicFaqQuestion.nodes;
+  const liveData = usePreviewData(data)
+  const travelSteps = liveData.allPrismicTravelStep;
+  const travelSection = liveData.prismicTravelSection.data;
+  const faqItems = liveData.allPrismicFaqQuestion.nodes;
   console.log('faqItems', faqItems)
   const url = globalHistory.location.pathname;
   const { langs, defaultLangKey } = data.site.siteMetadata.languages;
