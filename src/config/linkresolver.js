@@ -2,10 +2,10 @@ const linkResolver = ({ node, key, value }) => doc => {
     if (doc.type === "event") {
       return `/events/${doc.uid}`
     }
-    if (doc.type === "page") {
-      return `/${doc.uid}`
+    if (doc.type === "travel_step") {
+      return `/en/${doc.uid}`
     }  
-    return `/${doc.uid}`
+    return `/en/${doc.uid}`
   }
   
   module.exports = linkResolver
