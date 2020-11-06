@@ -12,6 +12,8 @@ import { IntlProvider } from 'react-intl';
 
 import i18nMessages from './src/data/messages';
 import languages from './src/data/languages'
+import 'babel-polyfill'
+import 'gatsby-plugin-polyfill-io'
 
 const getLanguageFromPath = (path, languages) => {
     if (!path) {
