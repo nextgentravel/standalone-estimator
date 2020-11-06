@@ -4,6 +4,9 @@ const linkResolver = ({ node, key, value }) => doc => {
     }
     if (doc.type === "travel_step") {
       return `/en/${doc.uid}`
+    }
+    if (doc.type === "travel_section") {
+      return `/en/${doc.uid}`
     }  
     return `/en/${doc.uid}`
   }
