@@ -9,8 +9,10 @@ import { getCurrentLangKey } from 'ptz-i18n';
 import 'intl';
 import { globalHistory } from "@reach/router"
 import { withPreview } from 'gatsby-source-prismic'
+import usePreviewData from '../utils/usePreviewData'
 
 const TravelSection = ({ data }) => {
+  const liveData = usePreviewData(data);
   const travelSteps = data.allPrismicTravelStep;
   const travelSection = data.prismicTravelSection.data;
   const faqItems = data.allPrismicFaqQuestion.nodes;
