@@ -22,5 +22,13 @@ export const query = graphql`
         }
       }
     }
+    prismicTravelStep(uid: { eq: $uid }) {
+      data {
+        title {
+          text
+        }
+      }
+    }
+
   }
 `
