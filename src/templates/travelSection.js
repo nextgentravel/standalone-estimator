@@ -13,6 +13,7 @@ import usePreviewData from '../utils/usePreviewData'
 
 const TravelSection = ({ data }) => {
   const liveData = usePreviewData(data)
+  console.log('liveData', liveData)
   const travelSteps = liveData.allPrismicTravelStep;
   const travelSection = liveData.prismicTravelSection.data;
   const faqItems = liveData.allPrismicFaqQuestion.nodes;
