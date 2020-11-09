@@ -2,19 +2,20 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { withPreview } from 'gatsby-source-prismic'
 
-import { Layout } from '../components/layout'
+import Layout from '../components/layout'
 
 // `data` will automatically include preview data when previewing from Prismic.
-const PageTemplate = ({ data }) => (
-  <Layout>
-    <h1>{data.prismicTravelSection.data.title.text}</h1>
-  </Layout>
-)
-
-export default withPreview(PageTemplate)
+const Template = ({ data }) => {
+  console.log(data);
+  return (
+    <Layout>
+      <h1></h1>
+    </Layout>
+  )
+}
 
 export const query = graphql`
-  query PageTemplate($uid: String!) {
+  query Steps($uid: String!) {
     prismicTravelSection(uid: { eq: $uid }) {
       data {
         title {
@@ -45,3 +46,5 @@ export const query = graphql`
     }
   }
 `
+
+export default withPreview(Template)
