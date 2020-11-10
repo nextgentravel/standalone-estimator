@@ -63,16 +63,21 @@ const Estimator = () => {
         }
 
         const getClosestsAirports = async () => {
-            await amadeusAccessTokenCheck();
-            let response = await amadeusAirportCode(data.geometry.location.lat, data.geometry.location.lng, amadeusAccessToken.token)
-            return response;
+            try {
+                await amadeusAccessTokenCheck();
+                let response = await amadeusAirportCode(data.geometry.location.lat, data.geometry.location.lng, amadeusAccessToken.token)
+                return response;  
+            } catch (error) {
+                console.log('getClosestsAirports: ', error);
+            }
+
         }
 
         if (data && Object.keys(data).length !== 0) {
             getClosestsAirports()
             .then((response) => {
                 console.log('closestAirports response', response)
-            })
+            }).catch((err) => console.log('getClosestsAirports', err))
         }
 
         setOriginData(data);
@@ -113,22 +118,22 @@ const Estimator = () => {
         flight: {
             estimatedValue: 0,
             responseBody: '',
-            estimatedValueMessage: <></>,
+            estimatedValueMessage: '',
         },
         train: {
             estimatedValue: 0,
             responseBody: '',
-            estimatedValueMessage: <></>,
+            estimatedValueMessage: '',
         },
         rentalCar: {
             estimatedValue: 0,
             responseBody: '',
-            estimatedValueMessage: <></>,
+            estimatedValueMessage: '',
         },
         privateVehicle: {
             estimatedValue: 0,
             responseBody: '',
-            estimatedValueMessage: <></>,
+            estimatedValueMessage: '',
         }
     }
 
@@ -144,15 +149,15 @@ const Estimator = () => {
     }, [accommodationCost, transportationCost, localTransportationCost, mealCost, otherCost])
 
     async function fetchAmadeusToken() {
-        await fetch(`/api/FetchAmadeusToken`)
+        await fetch("/api/FetchAmadeusToken")
             .then(response => response.json())
             .then(result => {
-                console.log('Fetched Access Token!!!', result);
+                console.log('Fetched Access Token: ', result);
                 let expiryTime = new Date();
                 expiryTime.setSeconds(expiryTime.getSeconds() + result.expires_in);
                 setAmadeusAccessToken({ token: result.access_token, expiryTime: expiryTime.getTime() });
             })
-            .catch(error => { console.log('error', error) });
+            .catch(error => { console.log('FetchAmadeusToken error', error) });
     }
 
     useEffect(() => {
@@ -200,7 +205,7 @@ const Estimator = () => {
                 rate: applicableRates[0].rate,
             }} />  })
         } catch (error) {
-            console.log(error);
+            console.log('fetchHotelHostError', error);
         }
     }
 
@@ -245,7 +250,11 @@ const Estimator = () => {
         const departureDateISODate = departureDate.toISODate()
         const returnDateISODate = returnDate.toISODate()
 
-        await amadeusAccessTokenCheck();
+        try {
+            await amadeusAccessTokenCheck();
+        } catch (error) {
+            console.log('amadeusAccessTokenCheck', error)
+        }
 
         amadeusFlightOffer('YOW', 'YVR', departureDateISODate, returnDateISODate, amadeusAccessToken.token)
             .then(response => response.json())
@@ -278,6 +287,7 @@ const Estimator = () => {
                 setHaveFlightCost(true);
             })
             .catch(error => {
+                console.log('amadeus flight offer error', error);
                 updateTransportationCost(0.00);
                 setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessageCouldNotLoad" />  })
             });
@@ -387,15 +397,18 @@ const Estimator = () => {
 
                 let mealsAndIncidentals = calculateMeals(departureDate, returnDate, province);
 
-                let distanceBetweenPlaces = await fetchDistanceBetweenPlaces(origin, destination);
-                let distanceBetweenPlacesBody = await distanceBetweenPlaces.json()
+
 
                 try {
+                    let distanceBetweenPlaces = await fetchDistanceBetweenPlaces(origin, destination);
+                    let distanceBetweenPlacesBody = await distanceBetweenPlaces.json()
+
+
                     let drivingDistance = distanceBetweenPlacesBody.rows[0].elements[0].distance.value;
                     let returnCalc = drivingDistance * 2;
                     setReturnDistance(returnCalc);
                 } catch (error) {
-                    console.log(error)
+                    console.log('distanceBetweenPlaces error', error)
                 }
 
                 updateMealCost(mealsAndIncidentals.total)
@@ -466,10 +479,10 @@ const Estimator = () => {
         return schema.validate(target, {abortEarly: false})
     }
 
-    const errorList =() => {
+    const errorList = () => {
         let list = [];
         list = validationWarnings.map((error, index) =>
-            <li key={index}><a className="alert-link" href={`#${error.path}`}>{error.errors}</a></li>
+            <li key={index}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
         );
         return list;
     }
@@ -509,7 +522,8 @@ const Estimator = () => {
             return response.json()
           }).then(function(data) {
             console.log('email service: ', data);
-          });
+          })
+          .catch((err) => console.log('send email error: ', err));
     }
 
     const [emailModalShow, setEmailModalShow] = React.useState(false);
@@ -623,7 +637,7 @@ const Estimator = () => {
                                 <div className="align-self-center">
                                     <div>
                                         {/* <label htmlFor={name}>{label}</label> */}
-                                        <div id={`accommodation_container`}>
+                                        <div id={"accommodation_container"}>
                                         <select
                                             className="custom-select mb-2"
                                             onChange={e => setAccommodationType(e.target.value)}
@@ -640,7 +654,7 @@ const Estimator = () => {
                                     disabled={accommodationType === "private"}
                                     type="text"
                                     className="form-control mb-2"
-                                    id={`accommodation_select`}
+                                    id={"accommodation_select"}
                                     name={'accommodation'}
                                     onChange={(e) => {
                                         if (parseFloat(e.target.value) > acrdTotal) {
@@ -672,7 +686,7 @@ const Estimator = () => {
                                 <div className="align-self-center">
                                     <div>
                                         {/* <label htmlFor={name}>{label}</label> */}
-                                        <div id={`transportation_container`}>
+                                        <div id={"transportation_container"}>
                                         <select
                                             className="custom-select mb-2"
                                             onChange={e => {
@@ -696,7 +710,7 @@ const Estimator = () => {
                                 <input
                                     type="text"
                                     className="form-control mb-2"
-                                    id={`transportation_select`}
+                                    id={"transportation_select"}
                                     name={'transportation'}
                                     onChange={(e)  => {setTransportationCost(e.target.value)}}
                                     onBlur={calculateTotal}
@@ -770,7 +784,7 @@ const Estimator = () => {
                         <div className="row mb-4">
                             <div className="col-sm-6 align-self-center text-right">
                                 <hr />
-                                <strong className="mr-2"><FormattedMessage id="totalCost" /></strong>{`$${summaryCost}`}
+                                <strong className="mr-2"><FormattedMessage id="totalCost" /></strong>{'$ ' + summaryCost}
                             </div>
                             <div className="col-sm-6 align-self-center text-wrap">
                             </div>
@@ -790,4 +804,4 @@ const Estimator = () => {
     )
 }
 
-export default Estimator;
+export default Estimator;;;
