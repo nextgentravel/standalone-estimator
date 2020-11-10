@@ -144,15 +144,20 @@ const Estimator = () => {
     }, [accommodationCost, transportationCost, localTransportationCost, mealCost, otherCost])
 
     async function fetchAmadeusToken() {
-        await fetch(`/api/FetchAmadeusToken`)
+        await fetch("/api/FetchAmadeusToken", {
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+            })
             .then(response => response.json())
             .then(result => {
-                console.log('Fetched Access Token!!!', result);
+                console.log('Fetched Access Token: ', result);
                 let expiryTime = new Date();
                 expiryTime.setSeconds(expiryTime.getSeconds() + result.expires_in);
                 setAmadeusAccessToken({ token: result.access_token, expiryTime: expiryTime.getTime() });
             })
-            .catch(error => { console.log('error', error) });
+            .catch(error => { console.log('FetchAmadeusToken error', error) });
     }
 
     useEffect(() => {
