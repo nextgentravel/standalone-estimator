@@ -149,7 +149,12 @@ const Estimator = () => {
     }, [accommodationCost, transportationCost, localTransportationCost, mealCost, otherCost])
 
     async function fetchAmadeusToken() {
-        await fetch("/api/FetchAmadeusToken")
+        await fetch("/api/FetchAmadeusToken", {
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+            }))
             .then(response => response.json())
             .then(result => {
                 console.log('Fetched Access Token: ', result);
