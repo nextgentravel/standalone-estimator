@@ -14,9 +14,17 @@ export const UnpublishedPage = (props) => {
     case 'prismicTravelStep':
       return <div className="container"><TravelStep index={0} data={previewData[previewType].data} /></div>
       break;
-      case 'prismicFaqQuestion':
+    case 'prismicFaqQuestion':
         return <div className="container"><FaqQuestion index={0} data={previewData[previewType].data} /></div>
         break;
+    case 'prismicTravelSection':
+      return (
+        <div className="container">
+          <h2>{previewData[previewType].data.title.text}</h2>
+          <div className="lead" dangerouslySetInnerHTML={{ __html: previewData[previewType].data.lead.html }} />
+        </div>
+      )
+      break;
     default:
       return <div className="container"><p>Unknown Preview Type</p></div>
       break;
