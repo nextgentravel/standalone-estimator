@@ -11,13 +11,17 @@ import { globalHistory } from "@reach/router"
 import { withPreview } from 'gatsby-source-prismic'
 import usePreviewData from '../utils/usePreviewData'
 
+import TravelStep from '../components/travel-step'
+
+import FaqItem from '../components/faq-question'
+
+
 const TravelSection = ({ data }) => {
   const liveData = usePreviewData(data)
   console.log('liveData', liveData)
   const travelSteps = liveData.allPrismicTravelStep;
   const travelSection = liveData.prismicTravelSection.data;
   const faqItems = liveData.allPrismicFaqQuestion.nodes;
-  console.log('faqItems', faqItems)
   const url = globalHistory.location.pathname;
   const { langs, defaultLangKey } = data.site.siteMetadata.languages;
   const langKey = getCurrentLangKey(langs, defaultLangKey, url);
@@ -62,34 +66,7 @@ const TravelSection = ({ data }) => {
           <article className="content-left col-xs-12 col-sm-12 col-md-12">
             {travelSteps.nodes.map((node, index) => {
               return (
-                <div className="card px-4 pt-4 my-4 bg-light">
-                  <div className="row">
-                    <div className="col-sm-8">
-                      <h3 className="mb-3">
-                        {node.data.show_step_number &&
-                          <span className="text-secondary pr-3">
-                            Step {index + 1}
-                          </span>
-                        }
-                        {node.data.title.text}
-                      </h3>
-                      <div dangerouslySetInnerHTML={{ __html: node.data.content.html }}></div>
-                    </div>
-                    <div className="col-sm-4">
-                        {node.data.action_link &&
-                          <p className="text-center">
-                            <a
-                              href={node.data.action_link}
-                              className="btn btn-primary my-4 px-4"
-                              target={node.data.action_new_window ? '_blank' : '' }
-                            >
-                              {node.data.action_title.text}
-                            </a>
-                          </p>
-                        }
-                    </div>
-                  </div>
-                </div>
+                <TravelStep data={node.data} index={index} />
               )
             })}
 
@@ -100,23 +77,7 @@ const TravelSection = ({ data }) => {
 
                 {faqItems.map ((item, index) => {
                   return (
-                    <div
-                      className="card px-4 pt-4 pb-3 my-4"
-                      key={index}
-                    >
-                      <div className="row">
-                        <div className="col-sm-12">
-                          <p className="lead mb-1">
-                            {item.data.question.text}
-                          </p>
-                        </div>
-                        <React.Fragment>
-                          <div className="col-sm-12 mt-2">
-                            {item.data.answer.text}
-                          </div>
-                        </React.Fragment>
-                      </div>
-                    </div>
+                    <FaqItem data={item.data} index={index} />
                   );
                 })}
               </>
