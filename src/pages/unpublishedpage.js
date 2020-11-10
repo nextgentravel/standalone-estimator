@@ -5,7 +5,7 @@ import TravelStep from '../components/travel-step'
 import FaqQuestion from '../components/faq-question'
 
 export const UnpublishedPage = (props) => {
-  const previewData = {}
+  let previewData = {}
   if (typeof window !== `undefined`) {
     previewData = window.__PRISMIC_PREVIEW_DATA__
   }
