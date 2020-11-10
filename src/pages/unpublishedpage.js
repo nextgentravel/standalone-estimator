@@ -5,7 +5,10 @@ import TravelStep from '../components/travel-step'
 import FaqQuestion from '../components/faq-question'
 
 export const UnpublishedPage = (props) => {
-  const previewData = window.__PRISMIC_PREVIEW_DATA__
+  const previewData = {}
+  if (typeof window !== `undefined`) {
+    previewData = window.__PRISMIC_PREVIEW_DATA__
+  }
   // => Perform any logic from previewData to determine the correct page or template component to use.
 
   let previewType = Object.keys(previewData)[0];
