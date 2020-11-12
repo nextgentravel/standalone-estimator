@@ -39,6 +39,11 @@ const PreviewPage = ({ location }) => {
     // We'll just put it on window.
     window.__PRISMIC_PREVIEW_DATA__ = previewData
 
+    console.log('allPaths: ', allPaths)
+    console.log('path: ', path)
+    console.log('previewData: ', previewData)
+    console.log('isPreview: ', isPreview)
+
     // Navigate to the document's page if page exists.
     if (allPaths.includes(path)) {
       navigate(path)
