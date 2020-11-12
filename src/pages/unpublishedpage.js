@@ -11,6 +11,12 @@ export const UnpublishedPage = (props) => {
   }
   // => Perform any logic from previewData to determine the correct page or template component to use.
 
+  if (!previewData || Object.keys(previewData) < 1) {
+    return (
+      <div className="container"><p>No Preview Data</p></div>
+    )
+  }
+
   let previewType = Object.keys(previewData)[0];
 
   switch (previewType) {
