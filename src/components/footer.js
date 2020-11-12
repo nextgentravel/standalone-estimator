@@ -51,7 +51,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="/" className="text-light">
+              <a href="/en/estimator" className="text-light">
                 <FormattedMessage id="estimator" />
               </a>
             </li>
