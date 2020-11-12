@@ -111,7 +111,7 @@ const TravelSection = ({ data }) => {
 export default withPreview(TravelSection)
 
 export const query = graphql`
-  query PageQuery($uid: String!) {
+  query PageQuery($uid: String!, $lang: String!) {
     site {
       siteMetadata {
         languages {
@@ -120,7 +120,7 @@ export const query = graphql`
         }      
       }
     }
-    allPrismicTravelStep(filter: {data: {belongs_to: {uid: {eq: $uid}}}}, sort: {fields: data___order}) {
+    allPrismicTravelStep(filter: {data: {belongs_to: {uid: {eq: $uid}}}, lang: {eq: $lang}}, sort: {fields: data___order}) {
       nodes {
         data {
           action_title {
@@ -140,7 +140,7 @@ export const query = graphql`
         }
       }
     }
-    allPrismicFaqQuestion(filter: {data: {belongs_to: {uid: {eq: $uid}}}}, sort: {fields: data___order}) {
+    allPrismicFaqQuestion(filter: {data: {belongs_to: {uid: {eq: $uid}}}, lang: {eq: $lang}}, sort: {fields: data___order}) {
       nodes {
         data {
           answer {
@@ -152,7 +152,7 @@ export const query = graphql`
         }
       }
     }
-    prismicTravelSection(uid: {eq: $uid}) {
+    prismicTravelSection(uid: {eq: $uid}, lang: {eq: $lang}) {
       data {
         lead {
           html

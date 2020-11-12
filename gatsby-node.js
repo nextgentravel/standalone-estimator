@@ -54,6 +54,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create pages for each Page in Prismic using the selected template.
   pages.data.allPrismicTravelSection.nodes.forEach((node) => {
+    console.log(JSON.stringify(node, null, 2));
     const language = node.lang.substring(0, 2)
     if (!node.uid) return;
     createPage({
@@ -61,6 +62,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: travelSectionTemplate,
       context: {
         uid: node.uid,
+        lang: node.lang,
       },
     })
   })
