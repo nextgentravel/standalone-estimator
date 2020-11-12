@@ -84,7 +84,7 @@ module.exports = {
         // Add the Prismic Toolbar script to the site. Defaults to false.
         // Set to "legacy" if your repository requires the older toolbar script.
         // See: https://prismic.io/docs/rest-api/beyond-the-api/the-preview-feature
-        prismicToolbar: true,
+        prismicToolbar: false,
 
         // Set a function to determine if images are downloaded locally and made
         // available for gatsby-transformer-sharp for use with gatsby-image.
