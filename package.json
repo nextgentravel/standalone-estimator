@@ -12,7 +12,6 @@
     "accessible-autocomplete": "^2.0.3",
     "axe-core": "3.5.3",
     "axios": "^0.19.2",
-    "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.5.1",
     "bufferutil": "^4.0.1",
     "cypress": "^4.6.0",
