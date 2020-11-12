@@ -15,6 +15,21 @@ exports.createPages = async ({ graphql, actions }) => {
   // Query all Pages with their IDs and template data.
   const pages = await graphql(`
     {
+      allPrismicGenericContentPage {
+        nodes {
+          id
+          uid
+          lang
+          data {
+            content {
+              html
+            }
+            title {
+              text
+            }
+          }
+        }
+      }
       allPrismicTravelSection {
         nodes {
           id
@@ -33,7 +48,9 @@ exports.createPages = async ({ graphql, actions }) => {
     }  
   `)
 
-  const pageTemplate = require.resolve(`./src/templates/travelSection.js`)
+  const travelSectionTemplate = require.resolve(`./src/templates/travelSection.js`)
+
+  const genericPageTemplate = require.resolve(`./src/templates/genericPageTemplate.js`)
 
   // Create pages for each Page in Prismic using the selected template.
   pages.data.allPrismicTravelSection.nodes.forEach((node) => {
@@ -41,12 +58,27 @@ exports.createPages = async ({ graphql, actions }) => {
     if (!node.uid) return;
     createPage({
       path: `${language}/${node.uid}`,
-      component: pageTemplate,
+      component: travelSectionTemplate,
       context: {
         uid: node.uid,
       },
     })
   })
+
+
+  pages.data.allPrismicGenericContentPage.nodes.forEach((node) => {
+    const language = node.lang.substring(0, 2)
+    if (!node.uid) return;
+    createPage({
+      path: `${language}/${node.uid}`,
+      component: genericPageTemplate,
+      context: {
+        uid: node.uid,
+      },
+    })
+  })
+
+
 }
 
 exports.createResolvers = ({ cache, createResolvers }) => {

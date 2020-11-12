@@ -74,6 +74,7 @@ module.exports = {
           faq_question: require('./src/schemas/faq_question.json'),
           homepage: require('./src/schemas/homepage.json'),
           doormat: require('./src/schemas/doormat.json'),
+          generic_content_page: require('./src/schemas/generic_content_page.json')
         },
 
         // Set a default language when fetching documents. The default value is
