@@ -26,8 +26,7 @@ const GenericPageTemplate = ({ data }) => {
             <div className="row mb-4">
               <div className="col-sm-8"><h2 className="display-5">{page.title.text}</h2></div>
             </div>
-            <div className="lead">
-              Add lead text
+            <div className="lead" dangerouslySetInnerHTML={{ __html: page.lead.html }}>
             </div>
           </div>
         </div>
@@ -55,6 +54,9 @@ export const query = graphql`
     prismicGenericContentPage(uid: {eq: $uid}) {
       data {
         content {
+          html
+        }
+        lead {
           html
         }
         title {
