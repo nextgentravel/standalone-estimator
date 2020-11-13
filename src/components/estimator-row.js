@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { FormattedMessage } from 'react-intl';
 import Tooltip from 'react-bootstrap/Tooltip'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
-import Button from 'react-bootstrap/Button'
+
 const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTotal, value, tooltipIcon, tooltipText }) => {
     const [showTooltip, setShowTooltip] = useState(false);
     const target = useRef(null);
@@ -21,7 +21,7 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
             <div className="col-sm-4 align-self-center mb-2">
                 <div className="align-self-center">
                     {icon}
-                        <span><FormattedMessage id={title} />
+                        <label htmlFor={id}><FormattedMessage id={title} />
                         {tooltipIcon &&
                             <OverlayTrigger
                                 placement="top"
@@ -31,7 +31,7 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                                 <TooltipIcon className="ml-2" size="15" fill="#9E9E9E" />
                             </OverlayTrigger>
                         }
-                        </span>
+                        </label>
                 </div>
             </div>
             <div className="col-sm-2 align-self-center">

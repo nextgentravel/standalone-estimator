@@ -10,8 +10,14 @@ import "./src/styles/style.scss"
 import React from 'react'
 import { IntlProvider } from 'react-intl';
 
+import 'core-js/modules/es6.set'
+import 'core-js/modules/es6.map'
+import 'raf/polyfill'
+
 import i18nMessages from './src/data/messages';
 import languages from './src/data/languages'
+import '@babel/polyfill'
+import 'gatsby-plugin-polyfill-io'
 
 const getLanguageFromPath = (path, languages) => {
     if (!path) {
