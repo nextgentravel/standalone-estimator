@@ -13,7 +13,6 @@ import Tooltip from 'react-bootstrap/Tooltip'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { Spinner } from 'react-bootstrap';
-// import EstimatorRowDropdown from "./estimator-row-dropdown.js";
 
 import cities from "../data/cities.js"
 import geocodedCities from "../data/geocodedCities"
@@ -118,22 +117,22 @@ const Estimator = () => {
         flight: {
             estimatedValue: 0,
             responseBody: '',
-            estimatedValueMessage: '',
+            estimatedValueMessage: <></>,
         },
         train: {
             estimatedValue: 0,
             responseBody: '',
-            estimatedValueMessage: '',
+            estimatedValueMessage: <></>,
         },
         rentalCar: {
             estimatedValue: 0,
             responseBody: '',
-            estimatedValueMessage: '',
+            estimatedValueMessage: <></>,
         },
         privateVehicle: {
             estimatedValue: 0,
             responseBody: '',
-            estimatedValueMessage: '',
+            estimatedValueMessage: <></>,
         }
     }
 
@@ -302,8 +301,6 @@ const Estimator = () => {
         if (transportationType === 'flight') {
             if(!haveFlightCost) fetchFlightCost();
             updateTransportationCost(transportationEstimates.flight.estimatedValue)
-            console.log('transporationEstimates.flight', transportationEstimates.flight);
-            setTransportationMessage({ element: transportationEstimates.flight.estimatedValueMessage})
         } else if (transportationType === 'train') {
             updateTransportationCost(436)
             setTransportationMessage({ element: <FormattedMessage id="transportationTrainMessage" />  })
