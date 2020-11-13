@@ -1,19 +1,18 @@
 import React, {useState, useEffect} from "react"
 import InputDatalist from "./input-datalist.js"
 import DatePicker from "./date-picker.js"
-import mealAllowances from "../data/meals"
+import calculateMeals from "./calculate-meals.js";
 import { DateTime, Interval, Info } from "luxon"
 import * as yup from "yup"
 import monthsContained from "./months-contained.js"
 import { FormattedMessage } from 'react-intl';
 import EstimatorRow from "./estimator-row.js";
+import EmailModal from "./email-modal.js";
+
 import Tooltip from 'react-bootstrap/Tooltip'
-import Modal from 'react-bootstrap/Modal'
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-// import EstimatorRowDropdown from "./estimator-row-dropdown.js";
+import { Spinner } from 'react-bootstrap';
 
 import cities from "../data/cities.js"
 import geocodedCities from "../data/geocodedCities"
@@ -22,120 +21,11 @@ import accommodations from "../data/accommodations.js"
 import transportData from "../data/transport-data.js"
 import locations from "../data/locations.js"
 
-import { FaSpinner } from 'react-icons/fa';
-import { FaQuestionCircle } from 'react-icons/fa';
-import { FaExclamationTriangle } from 'react-icons/fa';
-
-import { Spinner } from 'react-bootstrap';
-
-import { FaBed } from 'react-icons/fa';
-import { FaPlane } from 'react-icons/fa';
-import { FaTaxi } from 'react-icons/fa';
-import { FaUtensils } from 'react-icons/fa';
-import { FaSuitcase } from 'react-icons/fa';
+import { FaSpinner, FaQuestionCircle, FaExclamationTriangle, FaBed, FaPlane, FaTaxi, FaUtensils, FaSuitcase } from 'react-icons/fa';
 
 import amadeusFlightOffer from '../api-calls/amadeusFlightOffer'
 import amadeusAirportCode from '../api-calls/amadeusAirportCode'
 import fetchDistanceBetweenPlaces from '../api-calls/fetchDistanceBetweenPlaces'
-
-const EmailModal = (props) => {
-    return (
-        <Modal
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-            show={props.show}
-            onHide={props.onHide}
-        >
-            <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-vcenter">
-                    <FormattedMessage id="emailEstimate" />
-                </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <EmailForm {...props} />
-            </Modal.Body>
-            <Modal.Footer>
-                <Button onClick={props.sendEmail}><FormattedMessage id="submit" /></Button>
-            </Modal.Footer>
-      </Modal>
-    )
-}
-
-const EmailForm = (props) => {
-    return (
-        <Form>
-            <Form.Group as={Row} controlId="tripName">
-                <Form.Label column sm="3">
-                    <FormattedMessage id="tripName" />
-                </Form.Label>
-                <Col sm="9">
-                    <FormattedMessage id="tripNamePlaceholder">
-                        {msg =>
-                            <Form.Control value={props.tripName} onChange={(e) => { props.setTripName(e.target.value) }} type="text" placeholder={msg} />
-                        }
-                    </FormattedMessage>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row} controlId="travellersName">
-                <Form.Label column sm="3">
-                    <FormattedMessage id="travellersName" />
-                </Form.Label>
-                <Col sm="9">
-                    <FormattedMessage id="travellersNamePlaceholder">
-                        {msg =>
-                            <Form.Control value={props.travellersName} onChange={(e) => { props.setTravellersName(e.target.value) }} type="text" placeholder={msg} />
-                        }
-                    </FormattedMessage>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row} controlId="travellersEmail">
-                <Form.Label column sm="3">
-                    <FormattedMessage id="travellersEmail" />
-                </Form.Label>
-                <Col sm="9">
-                    <FormattedMessage id="travellersEmailPlaceholder">
-                        {msg =>
-                            <Form.Control value={props.travellersEmail} onChange={(e) => { props.setTravellersEmail(e.target.value) }} type="text" placeholder={msg} />
-                        }
-                    </FormattedMessage>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row} controlId="approversName">
-                <Form.Label column sm="3">
-                    <FormattedMessage id="approversName" />
-                </Form.Label>
-                <Col sm="9">
-                    <FormattedMessage id="approversNamePlaceholder">
-                        {msg =>
-                            <Form.Control value={props.approversName} onChange={(e) => { props.setApproversName(e.target.value) }} type="text" placeholder={msg} />
-                        }
-                    </FormattedMessage>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row} controlId="approversEmail">
-                <Form.Label column sm="3">
-                    <FormattedMessage id="approversEmail" />
-                </Form.Label>
-                <Col sm="9">
-                    <FormattedMessage id="approversEmailPlaceholder">
-                        {msg =>
-                            <Form.Control value={props.approversEmail} onChange={(e) => { props.setApproversEmail(e.target.value) }} type="text" placeholder={msg} />
-                        }
-                    </FormattedMessage>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row} controlId="notes">
-                <Form.Label column sm="3">
-                    <FormattedMessage id="notes" />
-                </Form.Label>
-                <Col sm="9">
-                    <Form.Control value={props.tripNotes} onChange={(e) => { props.setTripNotes(e.target.value) }} value={props.tripNotes} as="textarea" rows={3} />
-                </Col>
-            </Form.Group>
-        </Form>
-    )
-}
 
 const Estimator = () => {
     const citiesList = cities.citiesList;
@@ -158,11 +48,12 @@ const Estimator = () => {
     const [destination, setDestination] = useState('');
     const [originData, setOriginData] = useState({});
     const [destinationData, setDestinationData] = useState({});
-    const [departureDate, setDepartureDate] = useState('');
-    const [returnDate, setReturnDate] = useState('');
+    const [departureDate, setDepartureDate] = useState(DateTime.local());
+    const [returnDate, setReturnDate] = useState(DateTime.local());
     const [privateVehicleRate, setPrivateVehicleRate] = useState('');
 
     useEffect((() => {
+        console.log(departureDate);
         const data = geocodedCities[origin]
         if (origin !== '') {
             let provinceAbbreviation = origin.slice(-2);
@@ -171,16 +62,21 @@ const Estimator = () => {
         }
 
         const getClosestsAirports = async () => {
-            await amadeusAccessTokenCheck();
-            let response = await amadeusAirportCode(data.geometry.location.lat, data.geometry.location.lng, amadeusAccessToken.token)
-            return response;
+            try {
+                await amadeusAccessTokenCheck();
+                let response = await amadeusAirportCode(data.geometry.location.lat, data.geometry.location.lng, amadeusAccessToken.token)
+                return response;  
+            } catch (error) {
+                console.log('getClosestsAirports: ', error);
+            }
+
         }
 
         if (data && Object.keys(data).length !== 0) {
             getClosestsAirports()
             .then((response) => {
                 console.log('closestAirports response', response)
-            })
+            }).catch((err) => console.log('getClosestsAirports', err))
         }
 
         setOriginData(data);
@@ -240,7 +136,7 @@ const Estimator = () => {
         }
     }
 
-    const [transporationEstimates, setTransportationEstimates] = useState(transportationEstimatesInitialState);
+    const [transportationEstimates, setTransportationEstimates] = useState(transportationEstimatesInitialState);
 
     useEffect(() => {
         let calculateKilometrics = privateKilometricsValue * (privateVehicleRate / 100);
@@ -252,15 +148,20 @@ const Estimator = () => {
     }, [accommodationCost, transportationCost, localTransportationCost, mealCost, otherCost])
 
     async function fetchAmadeusToken() {
-        await fetch(`/api/FetchAmadeusToken`)
+        await fetch("/api/FetchAmadeusToken", {
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+            })
             .then(response => response.json())
             .then(result => {
-                console.log('Fetched Access Token!!!', result);
+                console.log('Fetched Access Token: ', result);
                 let expiryTime = new Date();
                 expiryTime.setSeconds(expiryTime.getSeconds() + result.expires_in);
                 setAmadeusAccessToken({ token: result.access_token, expiryTime: expiryTime.getTime() });
             })
-            .catch(error => { console.log('error', error) });
+            .catch(error => { console.log('FetchAmadeusToken error', error) });
     }
 
     useEffect(() => {
@@ -308,7 +209,7 @@ const Estimator = () => {
                 rate: applicableRates[0].rate,
             }} />  })
         } catch (error) {
-            console.log(error);
+            console.log('fetchHotelHostError', error);
         }
     }
 
@@ -353,7 +254,11 @@ const Estimator = () => {
         const departureDateISODate = departureDate.toISODate()
         const returnDateISODate = returnDate.toISODate()
 
-        await amadeusAccessTokenCheck();
+        try {
+            await amadeusAccessTokenCheck();
+        } catch (error) {
+            console.log('amadeusAccessTokenCheck', error)
+        }
 
         amadeusFlightOffer('YOW', 'YVR', departureDateISODate, returnDateISODate, amadeusAccessToken.token)
             .then(response => response.json())
@@ -375,7 +280,7 @@ const Estimator = () => {
 
                 updateTransportationCost(avg);
                 setTransportationEstimates({
-                    ...transporationEstimates,
+                    ...transportationEstimates,
                     flight: {
                         estimatedValue: avg,
                         estimatedValueMessage: FlightMessage,
@@ -386,6 +291,7 @@ const Estimator = () => {
                 setHaveFlightCost(true);
             })
             .catch(error => {
+                console.log('amadeus flight offer error', error);
                 updateTransportationCost(0.00);
                 setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessageCouldNotLoad" />  })
             });
@@ -394,9 +300,7 @@ const Estimator = () => {
     useEffect(() => {
         if (transportationType === 'flight') {
             if(!haveFlightCost) fetchFlightCost();
-            updateTransportationCost(transporationEstimates.flight.estimatedValue)
-            console.log('transporationEstimates.flight', transporationEstimates.flight);
-            setTransportationMessage({ element: transporationEstimates.flight.estimatedValueMessage})
+            updateTransportationCost(transportationEstimates.flight.estimatedValue)
         } else if (transportationType === 'train') {
             updateTransportationCost(436)
             setTransportationMessage({ element: <FormattedMessage id="transportationTrainMessage" />  })
@@ -433,39 +337,6 @@ const Estimator = () => {
 
     const updateSummaryCost = (newValue) => {
         setSummaryCost(newValue.toFixed(2))
-    }
-
-    // since this function is used in two files, we should import it
-    const calculateMeals = (departDate, returnDate, province) => {
-        let departD = DateTime.fromISO(departDate);
-        let returnD = DateTime.fromISO(returnDate);
-        
-        let duration = returnD.diff(departD, 'days')
-        let provinceAllowances = Object.keys(mealAllowances);
-
-        let estimatesForProvince = {};
-
-        if (provinceAllowances.includes(province)) {
-            estimatesForProvince = mealAllowances[province];
-        } else {
-            estimatesForProvince = mealAllowances['CAN'];
-        };
-
-        let breakfast = estimatesForProvince.breakfast;
-        let lunch = estimatesForProvince.lunch;
-        let dinner = estimatesForProvince.dinner;
-        let incidentals = estimatesForProvince.incidentals;
-        let dailyTotal = breakfast + lunch + dinner + incidentals;
-        let total = dailyTotal * duration.values.days;
-
-        return {
-            dailyTotal,
-            total,
-            breakfast,
-            lunch,
-            dinner,
-            incidentals,
-        }
     }
 
     const rateDaysByMonth = (departureDate, returnDate, rates) => {
@@ -528,18 +399,19 @@ const Estimator = () => {
 
                 let mealsAndIncidentals = calculateMeals(departureDate, returnDate, province);
 
-                let distanceBetweenPlaces = await fetchDistanceBetweenPlaces(origin, destination);
-                let distanceBetweenPlacesBody = await distanceBetweenPlaces.json()
+
 
                 try {
+                    let distanceBetweenPlaces = await fetchDistanceBetweenPlaces(origin, destination);
+                    let distanceBetweenPlacesBody = await distanceBetweenPlaces.json()
+
+
                     let drivingDistance = distanceBetweenPlacesBody.rows[0].elements[0].distance.value;
                     let returnCalc = drivingDistance * 2;
                     setReturnDistance(returnCalc);
                 } catch (error) {
-                    console.log(error)
+                    console.log('distanceBetweenPlaces error', error)
                 }
-
-                
 
                 updateMealCost(mealsAndIncidentals.total)
                 fetchHotelCost()
@@ -571,6 +443,7 @@ const Estimator = () => {
     }
 
     const handleValidation = () => {
+        console.log(departureDate);
         let target = {origin, destination, departureDate, returnDate};
         let schema = yup.object().shape({
             origin: yup
@@ -608,10 +481,10 @@ const Estimator = () => {
         return schema.validate(target, {abortEarly: false})
     }
 
-    const errorList =() => {
+    const errorList = () => {
         let list = [];
         list = validationWarnings.map((error, index) =>
-            <li key={index}><a className="alert-link" href={`#${error.path}`}>{error.errors}</a></li>
+            <li key={index}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
         );
         return list;
     }
@@ -651,7 +524,8 @@ const Estimator = () => {
             return response.json()
           }).then(function(data) {
             console.log('email service: ', data);
-          });
+          })
+          .catch((err) => console.log('send email error: ', err));
     }
 
     const [emailModalShow, setEmailModalShow] = React.useState(false);
@@ -759,13 +633,13 @@ const Estimator = () => {
 
                         <div className="row mb-4">
                             <div className="col-sm-12 mb-2">
-                                <div><FaBed className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="accommodation" /></div>
+                                <label htmlFor="accommodation_select"><FaBed className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="accommodation" /></label>
                             </div>
                             <div className="col-sm-4 align-self-center">
                                 <div className="align-self-center">
                                     <div>
                                         {/* <label htmlFor={name}>{label}</label> */}
-                                        <div id={`accommodation_container`}>
+                                        <div id={"accommodation_container"}>
                                         <select
                                             className="custom-select mb-2"
                                             onChange={e => setAccommodationType(e.target.value)}
@@ -782,7 +656,7 @@ const Estimator = () => {
                                     disabled={accommodationType === "private"}
                                     type="text"
                                     className="form-control mb-2"
-                                    id={`accommodation_select`}
+                                    id={"accommodation_select"}
                                     name={'accommodation'}
                                     onChange={(e) => {
                                         if (parseFloat(e.target.value) > acrdTotal) {
@@ -808,13 +682,13 @@ const Estimator = () => {
 
                         <div className="row mb-4">
                             <div className="col-sm-12 mb-2">
-                                <div><FaPlane className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="transportation" /></div>
+                                <label htmlFor="transportation_select"><FaPlane className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="transportation" /></label>
                             </div>
                             <div className="col-sm-4 align-self-center">
                                 <div className="align-self-center">
                                     <div>
                                         {/* <label htmlFor={name}>{label}</label> */}
-                                        <div id={`transportation_container`}>
+                                        <div id={"transportation_container"}>
                                         <select
                                             className="custom-select mb-2"
                                             onChange={e => {
@@ -838,7 +712,7 @@ const Estimator = () => {
                                 <input
                                     type="text"
                                     className="form-control mb-2"
-                                    id={`transportation_select`}
+                                    id={"transportation_select"}
                                     name={'transportation'}
                                     onChange={(e)  => {setTransportationCost(e.target.value)}}
                                     onBlur={calculateTotal}
@@ -912,7 +786,7 @@ const Estimator = () => {
                         <div className="row mb-4">
                             <div className="col-sm-6 align-self-center text-right">
                                 <hr />
-                                <strong className="mr-2"><FormattedMessage id="totalCost" /></strong>{`$${summaryCost}`}
+                                <strong className="mr-2"><FormattedMessage id="totalCost" /></strong>{'$ ' + summaryCost}
                             </div>
                             <div className="col-sm-6 align-self-center text-wrap">
                             </div>
@@ -932,4 +806,4 @@ const Estimator = () => {
     )
 }
 
-export default Estimator;
+export default Estimator;;;
