@@ -12,23 +12,24 @@ export default () => {
       <StaticQuery query = {
         graphql `
             query doormats {
-                allPrismicDoormat {
+                allPrismicDoormat(sort: {fields: data___order}, filter: {lang: {eq: "en-ca"}}) {
                     nodes {
-                        data {
-                            image {
-                                    localFile {
-                                        publicURL
-                                    }
-                                }
-                            lead {
-                                text
-                            }
-                            link
-                            link_new_window
-                            title {
-                                text
-                            }
+                    data {
+                        image {
+                        localFile {
+                            publicURL
                         }
+                        }
+                        lead {
+                            text
+                        }
+                        link
+                        link_new_window
+                        title {
+                            text
+                        }
+                    }
+                    lang
                     }
                 }
             }
