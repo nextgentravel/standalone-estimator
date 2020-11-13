@@ -76,6 +76,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: genericPageTemplate,
       context: {
         uid: node.uid,
+        lang: node.lang,
       },
     })
   })

@@ -42,7 +42,7 @@ const GenericPageTemplate = ({ data }) => {
 export default GenericPageTemplate
 
 export const query = graphql`
-  query GenericContent($uid: String!) {
+  query GenericContent($uid: String!, $lang: String!) {
     site {
       siteMetadata {
         languages {
@@ -51,7 +51,7 @@ export const query = graphql`
         }      
       }
     }
-    prismicGenericContentPage(uid: {eq: $uid}) {
+    prismicGenericContentPage(uid: {eq: $uid}, lang: {eq: $lang}) {
       data {
         content {
           html
