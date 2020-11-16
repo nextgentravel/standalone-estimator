@@ -161,7 +161,8 @@ module.exports = {
         "approversEmail": "Approvers's email",
         "approversEmailPlaceholder": "e.g. jane.dee@canada.ca",
         "notes": "Notes",
-        "emailEstimate": "Email Estimate"
+        "emailEstimate": "Email Estimate",
+        "print": "Print",
     },
     'fr': {
         // header
