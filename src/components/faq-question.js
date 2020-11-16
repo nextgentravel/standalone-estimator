@@ -1,22 +1,47 @@
 import React from "react";
+import {FaCaretDown, FaCaretUp} from 'react-icons/fa';
 
-const FaqItem = ({data, index}) => {
+const FaqItem = ({data, index, collapsed, toggleFaqAccordian}) => {
     return (
         <div
             className="card px-4 pt-4 pb-3 my-4"
-            key={index}
         >
             <div className="row">
-            <div className="col-sm-12">
-                <p className="lead mb-1">
-                    {data.question.text}
-                </p>
-            </div>
-            <React.Fragment>
-                <div className="col-sm-12 mt-2">
-                {data.answer.text}
+                <div className="col-sm-12">
+                    <p className="lead mb-1" onClick={() => toggleFaqAccordian(index)}>
+                        {data.question.text}
+                    </p>
+                    {collapsed &&
+                        <FaCaretDown
+                            style={{
+                                position: 'absolute',
+                                right: 15,
+                                top: 10,
+                            }}
+                            onClick={() => toggleFaqAccordian(index)}
+                    />}
+                    {!collapsed &&
+                        <FaCaretUp
+                            style={{
+                                position: 'absolute',
+                                right: 15,
+                                top: 10,
+                            }}
+                        />
+                    }
                 </div>
-            </React.Fragment>
+                {!collapsed &&
+                    <React.Fragment>
+                        <div className="col-sm-12 mt-2">
+                            {data.answer.text}
+                        </div>
+                    </React.Fragment>
+                }
+                {collapsed &&
+                    <React.Fragment>
+                        <div className="col-sm-12" />
+                    </React.Fragment>
+                }
             </div>
         </div>
     )

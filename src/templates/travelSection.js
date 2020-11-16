@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql } from 'gatsby'
 import Layout from "../components/layout"
 import Breadcrumbs from "../components/breadcrumb"
@@ -18,14 +18,22 @@ import FaqItem from '../components/faq-question'
 
 const TravelSection = ({ data }) => {
   const liveData = usePreviewData(data)
-  console.log('liveData', liveData)
   const travelSteps = liveData.allPrismicTravelStep;
   const travelSection = liveData.prismicTravelSection.data;
-  const faqItems = liveData.allPrismicFaqQuestion.nodes;
+  const faqItemsInitialState = liveData.allPrismicFaqQuestion.nodes.map((item) => {
+    return {
+      ...item,
+      collapsed: true
+    }
+  });
+
+  let [faqItems, setFaqItems] = useState(faqItemsInitialState);
+
   const url = globalHistory.location.pathname;
   const { langs, defaultLangKey } = data.site.siteMetadata.languages;
   const langKey = getCurrentLangKey(langs, defaultLangKey, url);
   const homeLink = `/${langKey}/`;
+
 
   const jumpTo = (e) => {
     navigate(
@@ -33,6 +41,13 @@ const TravelSection = ({ data }) => {
       { replace: true }
     )
   }
+
+  const toggleFaqAccordian = index => {
+    let newArr = [...faqItems];
+    newArr[index].collapsed = !faqItems[index].collapsed;
+    setFaqItems(newArr);
+  };
+
 
   return (
     <Layout>
@@ -77,7 +92,7 @@ const TravelSection = ({ data }) => {
 
                 {faqItems.map ((item, index) => {
                   return (
-                    <FaqItem data={item.data} index={index} />
+                    <FaqItem data={item.data} index={index} collapsed={item.collapsed} toggleFaqAccordian={toggleFaqAccordian} />
                   );
                 })}
               </>
