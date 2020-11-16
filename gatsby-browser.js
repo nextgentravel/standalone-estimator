@@ -19,6 +19,9 @@ import languages from './src/data/languages'
 import '@babel/polyfill'
 import 'gatsby-plugin-polyfill-io'
 
+import { PreviewStoreProvider } from 'gatsby-source-prismic'
+
+
 const getLanguageFromPath = (path, languages) => {
     if (!path) {
       return languages[0]
@@ -30,8 +33,10 @@ const getLanguageFromPath = (path, languages) => {
 export const wrapPageElement = ({ element, props }) => {
     const languageKey = getLanguageFromPath(props.location.pathname, languages.langs)
     return (
-        <IntlProvider locale={languageKey} messages={i18nMessages[languageKey]}>
-            {element}
-        </IntlProvider>
+        <PreviewStoreProvider>
+            <IntlProvider locale={languageKey} messages={i18nMessages[languageKey]}>
+                {element}
+            </IntlProvider>
+        </PreviewStoreProvider>
     )
 }

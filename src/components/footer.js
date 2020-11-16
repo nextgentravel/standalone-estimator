@@ -26,7 +26,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href={`${homeLink}contactus`} className="text-light">
+              <a href={`${homeLink}contact-us`} className="text-light">
               <FormattedMessage id="contact" />
               </a>
             </li>
@@ -51,7 +51,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="/" className="text-light">
+              <a href="/en/estimator" className="text-light">
                 <FormattedMessage id="estimator" />
               </a>
             </li>

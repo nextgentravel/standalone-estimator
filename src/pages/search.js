@@ -152,7 +152,7 @@ const SearchPage = ({ data, location }) => {
                         {result.title || result.slug}
                       </Link>
                     </h3>
-                    <p dangerouslySetInnerHTML={{__html: result.displayExcerpt}}></p>
+                    <div dangerouslySetInnerHTML={{__html: result.displayExcerpt}}></div>
                   </article>
                 </React.Fragment>
               )
