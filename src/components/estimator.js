@@ -43,17 +43,21 @@ const Estimator = () => {
         setFilteredCitiesList(list);
     }, []);
 
+    let initialDates = {
+        departure: DateTime.local(),
+        return: DateTime.local().plus({ days: 1 }),
+    }
+
     // Variables/state for inputs
     const [origin, setOrigin] = useState('');
     const [destination, setDestination] = useState('');
     const [originData, setOriginData] = useState({});
     const [destinationData, setDestinationData] = useState({});
-    const [departureDate, setDepartureDate] = useState(DateTime.local());
-    const [returnDate, setReturnDate] = useState(DateTime.local());
+    const [departureDate, setDepartureDate] = useState(initialDates.departure);
+    const [returnDate, setReturnDate] = useState(initialDates.return);
     const [privateVehicleRate, setPrivateVehicleRate] = useState('');
 
     useEffect((() => {
-        console.log(departureDate);
         const data = geocodedCities[origin]
         if (origin !== '') {
             let provinceAbbreviation = origin.slice(-2);
@@ -65,7 +69,7 @@ const Estimator = () => {
             try {
                 await amadeusAccessTokenCheck();
                 let response = await amadeusAirportCode(data.geometry.location.lat, data.geometry.location.lng, amadeusAccessToken.token)
-                return response;  
+                return response;
             } catch (error) {
                 console.log('getClosestsAirports: ', error);
             }
@@ -174,7 +178,6 @@ const Estimator = () => {
         updateLocalTransportationCost(0.00)
         updateMealCost(0.00)
         updateOtherCost(0.00)
-        clearForm()
     }, [])
 
     const fetchHotelCost = () => {
@@ -415,7 +418,7 @@ const Estimator = () => {
 
                 updateMealCost(mealsAndIncidentals.total)
                 fetchHotelCost()
-                fetchLocalTransportationRate(numberOfDays)
+                fetchLocalTransportationRate(numberOfDays - 1)
 
                 // get ACRD rate for destination
 
@@ -432,14 +435,38 @@ const Estimator = () => {
     }
 
     const clearForm = async () => {
-        await setOrigin('')
-        await setDestination('')
-        document.querySelector('#origin').value = ""
-        document.querySelector('#destination').value = ""
-        setDepartureDate('')
+        setOrigin('')
+        setDestination('')
+        setDepartureDate('');
         setReturnDate('');
-        // document.querySelector('#departureDate').value = ""
-        // document.querySelector('#returnDate').value = ""
+
+        // START OF HACK This is a hack to programatically clear the autocomplete inputs
+
+        let originElement = document.querySelector('#autocomplete-origin')
+        let destinationElement = document.querySelector('#autocomplete-destination')
+        let clearFormButton = document.querySelector('#clear-button')
+        let datePickerDepart = document.querySelector('#departureDate')
+        let datePickerReturn = document.querySelector('#returnDate')
+
+        destinationElement.value = "";
+        destinationElement.click();
+        destinationElement.focus();
+        destinationElement.blur();
+        originElement.value = "";
+        originElement.click();
+        originElement.focus();
+        originElement.blur();
+
+        setTimeout(function(){ 
+            if(originElement){
+                originElement.focus();
+            }
+            datePickerDepart.value = '';
+            datePickerReturn.value = '';
+        },0);
+
+        // END OF HACK
+
     }
 
     const handleValidation = () => {
@@ -448,7 +475,6 @@ const Estimator = () => {
         let schema = yup.object().shape({
             origin: yup
                 .string()
-                .required(<FormattedMessage id="estimateOriginDestinationRequired" />)
                 .test(
                     <FormattedMessage id="estimateOriginCityValid" />,
                     <FormattedMessage id="estimateOriginCityNotValid" />,
@@ -458,7 +484,6 @@ const Estimator = () => {
                   ),
             destination: yup
                 .string()
-                .required(<FormattedMessage id="estimateDestinationRequired" />)
                 .test(
                     <FormattedMessage id="estimateDestinationCityValid" />,
                     <FormattedMessage id="estimateDestinationCityNotValid" />,
@@ -595,6 +620,7 @@ const Estimator = () => {
                         setValidationWarnings={setValidationWarnings}
                         label={<FormattedMessage id="estimateDepartureDate" />}
                         name="departureDate"
+                        initialDate={initialDates.departure}
                         updateValue={setDepartureDate}
                     ></DatePicker>
                 </div>
@@ -604,13 +630,14 @@ const Estimator = () => {
                         setValidationWarnings={setValidationWarnings}
                         label={<FormattedMessage id="estimateReturnDate" />}
                         name="returnDate"
+                        initialDate={initialDates.return}
                         updateValue={setReturnDate}
                     ></DatePicker>
                 </div>
                 <div className="col-sm-3"></div>
                 <div className="col-sm-6">
                     <button type="submit" className="btn btn-primary"><FormattedMessage id="estimate"/></button>
-                    <button type="button" className="btn btn-secondary ml-2" onClick={() => {clearForm()}}><FormattedMessage id="clear"/></button>
+                    <button type="button" id="clear-button" className="btn btn-secondary ml-2" onClick={() => {clearForm()}}><FormattedMessage id="clear"/></button>
                     {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
                 </div>
             </form>
