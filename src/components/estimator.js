@@ -43,13 +43,20 @@ const Estimator = () => {
         setFilteredCitiesList(list);
     }, []);
 
+    let initialDates = {
+        departure: DateTime.local(),
+        return: DateTime.local().plus({ days: 5 }),
+    }
+
+    console.log(initialDates);
+
     // Variables/state for inputs
     const [origin, setOrigin] = useState('');
     const [destination, setDestination] = useState('');
     const [originData, setOriginData] = useState({});
     const [destinationData, setDestinationData] = useState({});
-    const [departureDate, setDepartureDate] = useState(DateTime.local());
-    const [returnDate, setReturnDate] = useState(DateTime.local());
+    const [departureDate, setDepartureDate] = useState(initialDates.departure);
+    const [returnDate, setReturnDate] = useState(initialDates.return);
     const [privateVehicleRate, setPrivateVehicleRate] = useState('');
 
     useEffect((() => {
@@ -615,6 +622,7 @@ const Estimator = () => {
                         setValidationWarnings={setValidationWarnings}
                         label={<FormattedMessage id="estimateDepartureDate" />}
                         name="departureDate"
+                        initialDate={initialDates.departure}
                         updateValue={setDepartureDate}
                     ></DatePicker>
                 </div>
@@ -624,6 +632,7 @@ const Estimator = () => {
                         setValidationWarnings={setValidationWarnings}
                         label={<FormattedMessage id="estimateReturnDate" />}
                         name="returnDate"
+                        initialDate={initialDates.return}
                         updateValue={setReturnDate}
                     ></DatePicker>
                 </div>
