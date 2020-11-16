@@ -13,7 +13,7 @@ import { DateTime } from "luxon";
 import { FormattedMessage } from 'react-intl';
 import { FaChevronLeft, FaChevronRight, FaCalendar } from 'react-icons/fa';
 
-const DatePickerComponent = ({validationWarnings, setValidationWarnings, label, name, updateValue}) => {
+const DatePickerComponent = ({validationWarnings, setValidationWarnings, label, name, updateValue, initialDate}) => {
     let showValidationWarning = false;
     let componentWarnings = []
     validationWarnings.forEach(warning => {
@@ -27,7 +27,8 @@ const DatePickerComponent = ({validationWarnings, setValidationWarnings, label, 
     }
 
     let today = new Date()
-    let tomorrow = today.setDate(today.getDate() + 1);
+
+    console.log('initialDate: ', initialDate)
 
     return (
         <div className="mb-4">
@@ -37,6 +38,7 @@ const DatePickerComponent = ({validationWarnings, setValidationWarnings, label, 
                 className="dp-wrapper"
                 id={`datepicker-${name}`}
                 minDate={today}
+                initialDate={initialDate.toJSDate()}
                 onSelect={date => updateValue(DateTime.fromJSDate(date))}
             >
                 <div className="input-group mb-3">
