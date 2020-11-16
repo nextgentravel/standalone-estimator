@@ -29,7 +29,7 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
             <label htmlFor={name}>{label}</label>
             <div id={`${name}container`}>
                 <Autocomplete
-                    id={name}
+                    id={`autocomplete-${name}`}
                     source={suggest}
                     element={`${name}container`}
                     confirmOnBlur={false}
