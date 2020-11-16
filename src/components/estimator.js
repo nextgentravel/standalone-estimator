@@ -53,7 +53,6 @@ const Estimator = () => {
     const [privateVehicleRate, setPrivateVehicleRate] = useState('');
 
     useEffect((() => {
-        console.log(departureDate);
         const data = geocodedCities[origin]
         if (origin !== '') {
             let provinceAbbreviation = origin.slice(-2);
@@ -65,7 +64,7 @@ const Estimator = () => {
             try {
                 await amadeusAccessTokenCheck();
                 let response = await amadeusAirportCode(data.geometry.location.lat, data.geometry.location.lng, amadeusAccessToken.token)
-                return response;  
+                return response;
             } catch (error) {
                 console.log('getClosestsAirports: ', error);
             }
@@ -174,7 +173,6 @@ const Estimator = () => {
         updateLocalTransportationCost(0.00)
         updateMealCost(0.00)
         updateOtherCost(0.00)
-        clearForm()
     }, [])
 
     const fetchHotelCost = () => {
@@ -434,12 +432,36 @@ const Estimator = () => {
     const clearForm = async () => {
         setOrigin('')
         setDestination('')
-        document.querySelector('#origin').value = ""
-        document.querySelector('#destination').value = ""
-        // setDepartureDate('')
-        // setReturnDate('');
-        // document.querySelector('#departureDate').value = ""
-        // document.querySelector('#returnDate').value = ""
+        setDepartureDate('');
+        setReturnDate('');
+
+        // START OF HACK This is a hack to programatically clear the autocomplete inputs
+
+        let originElement = document.querySelector('#autocomplete-origin')
+        let destinationElement = document.querySelector('#autocomplete-destination')
+        let clearFormButton = document.querySelector('#clear-button')
+        let datePickerDepart = document.querySelector('#departureDate')
+        let datePickerReturn = document.querySelector('#returnDate')
+
+        destinationElement.value = "";
+        destinationElement.click();
+        destinationElement.focus();
+        destinationElement.blur();
+        originElement.value = "";
+        originElement.click();
+        originElement.focus();
+        originElement.blur();
+
+        setTimeout(function(){ 
+            if(originElement){
+                originElement.focus();
+            }
+            datePickerDepart.value = '';
+            datePickerReturn.value = '';
+        },0);
+
+        // END OF HACK
+
     }
 
     const handleValidation = () => {
@@ -610,7 +632,7 @@ const Estimator = () => {
                 <div className="col-sm-3"></div>
                 <div className="col-sm-6">
                     <button type="submit" className="btn btn-primary"><FormattedMessage id="estimate"/></button>
-                    <button type="button" className="btn btn-secondary ml-2" onClick={() => {clearForm()}}><FormattedMessage id="clear"/></button>
+                    <button type="button" id="clear-button" className="btn btn-secondary ml-2" onClick={() => {clearForm()}}><FormattedMessage id="clear"/></button>
                     {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
                 </div>
             </form>
