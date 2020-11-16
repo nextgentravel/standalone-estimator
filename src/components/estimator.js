@@ -45,10 +45,8 @@ const Estimator = () => {
 
     let initialDates = {
         departure: DateTime.local(),
-        return: DateTime.local().plus({ days: 5 }),
+        return: DateTime.local().plus({ days: 1 }),
     }
-
-    console.log(initialDates);
 
     // Variables/state for inputs
     const [origin, setOrigin] = useState('');
