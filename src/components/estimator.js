@@ -144,7 +144,13 @@ const Estimator = () => {
 
     useEffect(() => {
         let calculateKilometrics = privateKilometricsValue * (privateVehicleRate / 100);
-        setTransportationCost(calculateKilometrics)
+        setTransportationCost(calculateKilometrics.toFixed(2))
+        setTransportationEstimates({
+            ...transportationEstimates,
+            rentalCar: {
+                estimatedValue: calculateKilometrics,
+            }
+        })
     }, [privateKilometricsValue])
 
     useEffect(() => {
@@ -246,14 +252,6 @@ const Estimator = () => {
     const [haveFlightCost, setHaveFlightCost] = useState(false)
 
     const fetchFlightCost = async () => {
-        setTransportationMessage({ element:
-            <>
-                <Spinner animation="border" role="status" size="sm">
-                    <span className="sr-only">Loading...</span>
-                </Spinner>{' '}
-                <FormattedMessage id="transportationFlightMessageLoading" />
-            </>
-        })
         const departureDateISODate = departureDate.toISODate()
         const returnDateISODate = returnDate.toISODate()
 
@@ -302,8 +300,21 @@ const Estimator = () => {
 
     useEffect(() => {
         if (transportationType === 'flight') {
-            if(!haveFlightCost) fetchFlightCost();
+            if(!haveFlightCost) {
+                fetchFlightCost()
+                setTransportationMessage({ element:
+                    <>
+                        <Spinner animation="border" role="status" size="sm">
+                            <span className="sr-only">Loading...</span>
+                        </Spinner>{' '}
+                        <FormattedMessage id="transportationFlightMessageLoading" />
+                    </>
+                })
+            } else {
+                setTransportationMessage({ element: transportationEstimates.flight.estimatedValueMessage })
+            };
             updateTransportationCost(transportationEstimates.flight.estimatedValue)
+            
         } else if (transportationType === 'train') {
             updateTransportationCost(436)
             setTransportationMessage({ element: <FormattedMessage id="transportationTrainMessage" />  })
@@ -312,6 +323,7 @@ const Estimator = () => {
             setTransportationMessage({ element: <FormattedMessage id="transportationRentalCarMessage" />  })
         } else if (transportationType === 'private') {
             setPrivateKilometricsValue((returnDistance / 1000).toFixed(2));
+            updateTransportationCost(transportationEstimates.rentalCar.estimatedValue)
             setTransportationMessage({ element: <FormattedMessage id="transportationPrivateVehicleMessage" values={{ rate: privateVehicleRate, kilometres: (returnDistance / 1000).toFixed(0) }} />  })
         }
     }, [transportationType])
