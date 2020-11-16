@@ -470,7 +470,6 @@ const Estimator = () => {
         let schema = yup.object().shape({
             origin: yup
                 .string()
-                .required(<FormattedMessage id="estimateOriginDestinationRequired" />)
                 .test(
                     <FormattedMessage id="estimateOriginCityValid" />,
                     <FormattedMessage id="estimateOriginCityNotValid" />,
@@ -480,7 +479,6 @@ const Estimator = () => {
                   ),
             destination: yup
                 .string()
-                .required(<FormattedMessage id="estimateDestinationRequired" />)
                 .test(
                     <FormattedMessage id="estimateDestinationCityValid" />,
                     <FormattedMessage id="estimateDestinationCityNotValid" />,
