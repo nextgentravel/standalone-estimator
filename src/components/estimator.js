@@ -27,6 +27,8 @@ import amadeusFlightOffer from '../api-calls/amadeusFlightOffer'
 import amadeusAirportCode from '../api-calls/amadeusAirportCode'
 import fetchDistanceBetweenPlaces from '../api-calls/fetchDistanceBetweenPlaces'
 
+import './extra/estimator-print.css';
+
 const Estimator = () => {
     const citiesList = cities.citiesList;
     const suburbCityList = cities.suburbCityList;
@@ -833,6 +835,7 @@ const Estimator = () => {
                     </div>
                     <div className="row ml-1 mb-5">
                         <Button className="px-5" onClick={() => { setEmailModalShow(true) }}><FormattedMessage id="email" /></Button>
+                        <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}><FormattedMessage id="print" /></Button>
                     </div>
                     <div>
                         <h3>How did we get these numbers?</h3>
