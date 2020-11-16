@@ -6,6 +6,8 @@ import * as yup from "yup"
 import monthsContained from "./months-contained.js"
 import { FormattedMessage } from 'react-intl';
 
+import { DateTime } from "luxon"
+
 import cities from "../data/cities.js"
 import acrdRates from "../data/acrdRates.js"
 
@@ -34,6 +36,10 @@ const RatesChecker = () => {
     const [returnDate, setReturnDate] = useState('');
     const [result, setResult] = useState({});
 
+    let initialDates = {
+        departure: DateTime.local(),
+        return: DateTime.local().plus({ days: 1 }),
+    }
 
     const [validationWarnings, setValidationWarnings] = useState([]);
 
@@ -154,6 +160,7 @@ const RatesChecker = () => {
                     label={<FormattedMessage id="rateDepart" />}
                     name="departureDate"
                     updateValue={setDepartureDate}
+                    initialDate={initialDates.return}
                 />
                 <DatePicker
                     validationWarnings={validationWarnings}
@@ -161,6 +168,7 @@ const RatesChecker = () => {
                     label={<FormattedMessage id="rateReturn" />}
                     name="returnDate"
                     updateValue={setReturnDate}
+                    initialDate={initialDates.return}
                 />
                 <button type="submit" className="btn btn-primary"><FormattedMessage id="submit"/></button>
                 <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}><FormattedMessage id="clear"/></button>
