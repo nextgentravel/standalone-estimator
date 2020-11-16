@@ -28,8 +28,6 @@ const DatePickerComponent = ({validationWarnings, setValidationWarnings, label, 
 
     let today = new Date()
 
-    console.log('initialDate: ', initialDate)
-
     return (
         <div className="mb-4">
 	        <label htmlFor={name}>{label}</label>
