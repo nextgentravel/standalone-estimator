@@ -1,18 +1,18 @@
 import React, {useState, useEffect} from "react"
 import InputDatalist from "./input-datalist.js"
 import DatePicker from "./date-picker.js"
-import calculateMeals from "./calculate-meals.js";
+import calculateMeals from "./calculate-meals.js"
 import { DateTime, Interval, Info } from "luxon"
 import * as yup from "yup"
 import monthsContained from "./months-contained.js"
-import { FormattedMessage } from 'react-intl';
-import EstimatorRow from "./estimator-row.js";
-import EmailModal from "./email-modal.js";
+import { FormattedMessage } from 'react-intl'
+import EstimatorRow from "./estimator-row.js"
+import EmailModal from "./email-modal.js"
 
 import Tooltip from 'react-bootstrap/Tooltip'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import { Spinner } from 'react-bootstrap';
+import { Spinner } from 'react-bootstrap'
 
 import cities from "../data/cities.js"
 import geocodedCities from "../data/geocodedCities"
@@ -21,13 +21,13 @@ import accommodations from "../data/accommodations.js"
 import transportData from "../data/transport-data.js"
 import locations from "../data/locations.js"
 
-import { FaSpinner, FaQuestionCircle, FaExclamationTriangle, FaBed, FaPlane, FaTaxi, FaUtensils, FaSuitcase } from 'react-icons/fa';
+import { FaSpinner, FaQuestionCircle, FaExclamationTriangle, FaBed, FaPlane, FaTaxi, FaUtensils, FaSuitcase } from 'react-icons/fa'
 
 import amadeusFlightOffer from '../api-calls/amadeusFlightOffer'
 import amadeusAirportCode from '../api-calls/amadeusAirportCode'
 import fetchDistanceBetweenPlaces from '../api-calls/fetchDistanceBetweenPlaces'
 
-import './extra/estimator-print.css';
+import './extra/estimator-print.css'
 
 const Estimator = () => {
     const citiesList = cities.citiesList;
@@ -274,7 +274,7 @@ const Estimator = () => {
                 result.data.forEach(itinerary => {
                     allPrices.push(parseFloat(itinerary.price.grandTotal))
                 });
-                
+
                 const sum = allPrices.reduce((a, b) => a + b, 0);
                 const avg = (sum / allPrices.length) || 0;
 
@@ -348,10 +348,10 @@ const Estimator = () => {
         // get all the dates in range
 
         let dates = Interval.fromDateTimes(
-            departureDate.startOf("day"), 
+            departureDate.startOf("day"),
             returnDate.endOf("day"))
             .splitBy({days: 1}).map(d => d.start)
-        
+
         // remove the last date, since we won't need accommodation on that day
 
         dates.pop();
@@ -394,7 +394,7 @@ const Estimator = () => {
                 setTransportationType('flight')
                 setAccommodationType('hotel')
                 let numberOfDays = Interval.fromDateTimes(
-                    departureDate, 
+                    departureDate,
                     returnDate)
                     .count('days')
 
@@ -658,7 +658,6 @@ const Estimator = () => {
                 <>
                     <div className="card bg-light p-4 mb-4">
                         <h3 className="mb-3"><FormattedMessage id="estimateSummaryTitle" /></h3>
-                        {/* Each row could be a generic componemt with props passed in to define what they are */}
 
                         <div className="row mb-4">
                             <div className="col-sm-12 mb-2">
