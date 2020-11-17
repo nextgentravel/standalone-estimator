@@ -119,6 +119,9 @@ const Estimator = () => {
     const [privateKilometricsValue, setPrivateKilometricsValue] = useState('');
     const [returnDistance, setReturnDistance] = useState('');
 
+    const [mealsByDay, setMealsByDay] = useState({});
+    const [province, setProvince] = useState('');
+
     const transportationEstimatesInitialState = {
         flight: {
             estimatedValue: 0,
@@ -152,6 +155,11 @@ const Estimator = () => {
     useEffect(() => {
         calculateTotal()
     }, [accommodationCost, transportationCost, localTransportationCost, mealCost, otherCost])
+
+    useEffect(() => {
+        let mealTotals = calculateMeals(mealsByDay, province)
+        setMealCost(mealTotals.total)
+    }, [mealsByDay]);
 
     async function fetchAmadeusToken() {
         await fetch("/api/FetchAmadeusToken", {
@@ -419,9 +427,10 @@ const Estimator = () => {
                     .count('days')
 
                 let city = suburbCityList[destination] || destination;
-                let province = city.slice(-2); // This is bad.  We need to change the data structure.
+                let provinceCode = city.slice(-2); // This is bad.  We need to change the data structure.
 
-                let mealsAndIncidentals = calculateMeals(departureDate, returnDate, province);
+                setMealsByDay(dailyMealTemplate(departureDate, returnDate))
+                setProvince(provinceCode)
 
                 try {
                     let distanceBetweenPlaces = await fetchDistanceBetweenPlaces(origin, destination);
@@ -435,7 +444,6 @@ const Estimator = () => {
                     console.log('distanceBetweenPlaces error', error)
                 }
 
-                updateMealCost(mealsAndIncidentals.total)
                 fetchHotelCost()
                 fetchLocalTransportationRate(numberOfDays - 1)
 
