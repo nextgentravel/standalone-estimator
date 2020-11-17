@@ -7,8 +7,8 @@ const FaqItem = ({data, index, collapsed, toggleFaqAccordian}) => {
             className="card px-4 pt-4 pb-3 my-4"
         >
             <div className="row">
-                <div className="col-sm-12">
-                    <p className="lead mb-1" onClick={() => toggleFaqAccordian(index)}>
+                <div className="col-sm-12" onClick={() => toggleFaqAccordian(index)}>
+                    <p className="lead mb-1">
                         {data.question.text}
                     </p>
                     {collapsed &&
@@ -18,7 +18,6 @@ const FaqItem = ({data, index, collapsed, toggleFaqAccordian}) => {
                                 right: 15,
                                 top: 10,
                             }}
-                            onClick={() => toggleFaqAccordian(index)}
                     />}
                     {!collapsed &&
                         <FaCaretUp
