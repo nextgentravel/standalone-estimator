@@ -384,6 +384,26 @@ const Estimator = () => {
         return result;
     }
 
+    let dailyMealTemplate = (departureDate, returnDate) => {
+        let dates = Interval.fromDateTimes(
+            departureDate.startOf("day"), 
+            returnDate.endOf("day"))
+            .splitBy({days: 1}).map(d => d.start)
+        let travelDays = {}
+        dates.forEach((date) => {
+            date = date.toISODate();
+            travelDays[date] = {
+                breakfast: true,
+                lunch: true,
+                dinner: true,
+                incidentals: true,
+            }
+        })
+
+        return travelDays
+    }
+
+
     const handleSubmit =  async(e) => {
         setLoading(true);
         setGeneralError(false);
@@ -398,13 +418,10 @@ const Estimator = () => {
                     returnDate)
                     .count('days')
 
-
                 let city = suburbCityList[destination] || destination;
                 let province = city.slice(-2); // This is bad.  We need to change the data structure.
 
                 let mealsAndIncidentals = calculateMeals(departureDate, returnDate, province);
-
-
 
                 try {
                     let distanceBetweenPlaces = await fetchDistanceBetweenPlaces(origin, destination);
