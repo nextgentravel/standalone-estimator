@@ -112,7 +112,7 @@ const Estimator = () => {
     const [localTransportationMessage, setLocalTransportationMessage] = useState({ element: <FormattedMessage id='localTransportationDescription' />, style: 'primary' });
     const [transportationCost, setTransportationCost] = useState(0.00);
     const [localTransportationCost, setLocalTransportationCost] = useState(0.00);
-    const [mealCost, setMealCost] = useState(0.00);
+    const [mealCost, setMealCost] = useState({ total: 0.00 });
     const [otherCost, setOtherCost] = useState(0.00);
     const [summaryCost, setSummaryCost] = useState(0.00);
     const [amadeusAccessToken, setAmadeusAccessToken] = useState({})
@@ -159,8 +159,7 @@ const Estimator = () => {
 
     useEffect(() => {
         let mealTotals = calculateMeals(mealsByDay, province)
-        setMealCost(mealTotals.total)
-        console.log('mealsByDay: ', mealsByDay)
+        setMealCost(mealTotals)
     }, [mealsByDay]);
 
     const [mealsModalShow, setMealsModalShow] = React.useState(false);
@@ -506,7 +505,6 @@ const Estimator = () => {
     }
 
     const handleValidation = () => {
-        console.log(departureDate);
         let target = {origin, destination, departureDate, returnDate};
         let schema = yup.object().shape({
             origin: yup
@@ -551,7 +549,7 @@ const Estimator = () => {
     }
 
     const calculateTotal = async () => {
-        let total = parseFloat(accommodationCost || 0) + parseFloat(transportationCost || 0) + parseFloat(localTransportationCost || 0) + parseFloat(mealCost || 0) + parseFloat(otherCost || 0);
+        let total = parseFloat(accommodationCost || 0) + parseFloat(transportationCost || 0) + parseFloat(localTransportationCost || 0) + parseFloat(mealCost.total || 0) + parseFloat(otherCost || 0);
         await updateSummaryCost(total)
     }
 
@@ -619,6 +617,7 @@ const Estimator = () => {
             />
             <MealsModal
                 mealsByDay={mealsByDay}
+                mealCost={mealCost}
                 show={mealsModalShow}
                 onHide={() => setMealsModalShow(false)}
                 setMealsByDay={setMealsByDay}
@@ -762,7 +761,6 @@ const Estimator = () => {
                                             onChange={e => {
                                                 setTransportationType(e.target.value)
                                                 if (e.target.value === 'private') {
-                                                    console.log('here')
                                                     updateLocalTransportationCost(0)
                                                 };
                                             }}
@@ -830,7 +828,7 @@ const Estimator = () => {
                             message={localTransportationMessage}
                         />
                         <EstimatorRow
-                            value={mealCost}
+                            value={mealCost.total}
                             name="mealsAndIncidentals"
                             id="mealsAndIncidentals"
                             description="selectMealsToInclude"
