@@ -2,14 +2,12 @@ import React, {useState, useEffect} from "react"
 import { DateTime } from "luxon"
 import mealAllowances from "../data/meals"
 
-const calculateMeals = (departDate, returnDate, province) => {
-    let departD = DateTime.fromISO(departDate);
-    let returnD = DateTime.fromISO(returnDate);
-    
-    let duration = returnD.diff(departD, 'days')
+const calculateMeals = (mealsByDay, province) => {
     let provinceAllowances = Object.keys(mealAllowances);
 
     let estimatesForProvince = {};
+
+    let mealsTotal = 0;
 
     if (provinceAllowances.includes(province)) {
         estimatesForProvince = mealAllowances[province];
@@ -22,16 +20,24 @@ const calculateMeals = (departDate, returnDate, province) => {
     let dinner = estimatesForProvince.dinner;
     let incidentals = estimatesForProvince.incidentals;
     let dailyTotal = breakfast + lunch + dinner + incidentals;
-    let total = dailyTotal * duration.values.days;
 
-    return {
-        dailyTotal,
-        total,
+    for (let [date, mealsSelected] of Object.entries(mealsByDay)) {
+        mealsSelected.breakfast ? (mealsTotal = mealsTotal + breakfast) : mealsTotal = mealsTotal
+        mealsSelected.lunch ? (mealsTotal = mealsTotal + lunch) : mealsTotal = mealsTotal
+        mealsSelected.dinner ? (mealsTotal = mealsTotal + dinner) : mealsTotal = mealsTotal
+        mealsSelected.incidentals ? (mealsTotal = mealsTotal + incidentals) : mealsTotal = mealsTotal
+    }
+
+    let result = {
         breakfast,
         lunch,
         dinner,
         incidentals,
+        dailyTotal,
+        total: mealsTotal.toFixed(2),
     }
+
+    return result;
 }
 
 export default calculateMeals;

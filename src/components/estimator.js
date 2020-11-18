@@ -1,18 +1,19 @@
 import React, {useState, useEffect} from "react"
 import InputDatalist from "./input-datalist.js"
 import DatePicker from "./date-picker.js"
-import calculateMeals from "./calculate-meals.js";
+import calculateMeals from "./calculate-meals.js"
 import { DateTime, Interval, Info } from "luxon"
 import * as yup from "yup"
 import monthsContained from "./months-contained.js"
-import { FormattedMessage } from 'react-intl';
-import EstimatorRow from "./estimator-row.js";
-import EmailModal from "./email-modal.js";
+import { FormattedMessage } from 'react-intl'
+import EstimatorRow from "./estimator-row.js"
+import EmailModal from "./email-modal.js"
+import MealsModal from "./meals-modal.js"
 
 import Tooltip from 'react-bootstrap/Tooltip'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import { Spinner } from 'react-bootstrap';
+import { Spinner } from 'react-bootstrap'
 
 import cities from "../data/cities.js"
 import geocodedCities from "../data/geocodedCities"
@@ -21,13 +22,13 @@ import accommodations from "../data/accommodations.js"
 import transportData from "../data/transport-data.js"
 import locations from "../data/locations.js"
 
-import { FaSpinner, FaQuestionCircle, FaExclamationTriangle, FaBed, FaPlane, FaTaxi, FaUtensils, FaSuitcase } from 'react-icons/fa';
+import { FaSpinner, FaQuestionCircle, FaExclamationTriangle, FaBed, FaPlane, FaTaxi, FaUtensils, FaSuitcase } from 'react-icons/fa'
 
 import amadeusFlightOffer from '../api-calls/amadeusFlightOffer'
 import amadeusAirportCode from '../api-calls/amadeusAirportCode'
 import fetchDistanceBetweenPlaces from '../api-calls/fetchDistanceBetweenPlaces'
 
-import './extra/estimator-print.css';
+import './extra/estimator-print.css'
 
 const Estimator = () => {
     const citiesList = cities.citiesList;
@@ -111,13 +112,16 @@ const Estimator = () => {
     const [localTransportationMessage, setLocalTransportationMessage] = useState({ element: <FormattedMessage id='localTransportationDescription' />, style: 'primary' });
     const [transportationCost, setTransportationCost] = useState(0.00);
     const [localTransportationCost, setLocalTransportationCost] = useState(0.00);
-    const [mealCost, setMealCost] = useState(0.00);
+    const [mealCost, setMealCost] = useState({ total: 0.00 });
     const [otherCost, setOtherCost] = useState(0.00);
     const [summaryCost, setSummaryCost] = useState(0.00);
     const [amadeusAccessToken, setAmadeusAccessToken] = useState({})
     const [enterKilometricsDistanceManually, setEnterKilometricsDistanceManually] = useState(false)
     const [privateKilometricsValue, setPrivateKilometricsValue] = useState('');
     const [returnDistance, setReturnDistance] = useState('');
+
+    const [mealsByDay, setMealsByDay] = useState({});
+    const [province, setProvince] = useState('');
 
     const transportationEstimatesInitialState = {
         flight: {
@@ -158,6 +162,18 @@ const Estimator = () => {
     useEffect(() => {
         calculateTotal()
     }, [accommodationCost, transportationCost, localTransportationCost, mealCost, otherCost])
+
+    useEffect(() => {
+        let mealTotals = calculateMeals(mealsByDay, province)
+        setMealCost(mealTotals)
+    }, [mealsByDay]);
+
+    const [mealsModalShow, setMealsModalShow] = React.useState(false);
+
+    let handleMealsModalShow = (e) => {
+        e.preventDefault()
+        setMealsModalShow(true)
+    };
 
     async function fetchAmadeusToken() {
         await fetch("/api/FetchAmadeusToken", {
@@ -272,7 +288,7 @@ const Estimator = () => {
                 result.data.forEach(itinerary => {
                     allPrices.push(parseFloat(itinerary.price.grandTotal))
                 });
-                
+
                 const sum = allPrices.reduce((a, b) => a + b, 0);
                 const avg = (sum / allPrices.length) || 0;
 
@@ -360,10 +376,10 @@ const Estimator = () => {
         // get all the dates in range
 
         let dates = Interval.fromDateTimes(
-            departureDate.startOf("day"), 
+            departureDate.startOf("day"),
             returnDate.endOf("day"))
             .splitBy({days: 1}).map(d => d.start)
-        
+
         // remove the last date, since we won't need accommodation on that day
 
         dates.pop();
@@ -396,6 +412,26 @@ const Estimator = () => {
         return result;
     }
 
+    let dailyMealTemplate = (departureDate, returnDate) => {
+        let dates = Interval.fromDateTimes(
+            departureDate.startOf("day"), 
+            returnDate.endOf("day"))
+            .splitBy({days: 1}).map(d => d.start)
+        let travelDays = {}
+        dates.forEach((date) => {
+            date = date.toISODate();
+            travelDays[date] = {
+                breakfast: true,
+                lunch: true,
+                dinner: true,
+                incidentals: true,
+            }
+        })
+
+        return travelDays
+    }
+
+
     const handleSubmit =  async(e) => {
         setLoading(true);
         setGeneralError(false);
@@ -406,17 +442,15 @@ const Estimator = () => {
                 setTransportationType('flight')
                 setAccommodationType('hotel')
                 let numberOfDays = Interval.fromDateTimes(
-                    departureDate, 
+                    departureDate,
                     returnDate)
                     .count('days')
 
-
                 let city = suburbCityList[destination] || destination;
-                let province = city.slice(-2); // This is bad.  We need to change the data structure.
+                let provinceCode = city.slice(-2); // This is bad.  We need to change the data structure.
 
-                let mealsAndIncidentals = calculateMeals(departureDate, returnDate, province);
-
-
+                setMealsByDay(dailyMealTemplate(departureDate, returnDate))
+                setProvince(provinceCode)
 
                 try {
                     let distanceBetweenPlaces = await fetchDistanceBetweenPlaces(origin, destination);
@@ -430,7 +464,6 @@ const Estimator = () => {
                     console.log('distanceBetweenPlaces error', error)
                 }
 
-                updateMealCost(mealsAndIncidentals.total)
                 fetchHotelCost()
                 fetchLocalTransportationRate(numberOfDays - 1)
 
@@ -484,7 +517,6 @@ const Estimator = () => {
     }
 
     const handleValidation = () => {
-        console.log(departureDate);
         let target = {origin, destination, departureDate, returnDate};
         let schema = yup.object().shape({
             origin: yup
@@ -529,7 +561,7 @@ const Estimator = () => {
     }
 
     const calculateTotal = async () => {
-        let total = parseFloat(accommodationCost || 0) + parseFloat(transportationCost || 0) + parseFloat(localTransportationCost || 0) + parseFloat(mealCost || 0) + parseFloat(otherCost || 0);
+        let total = parseFloat(accommodationCost || 0) + parseFloat(transportationCost || 0) + parseFloat(localTransportationCost || 0) + parseFloat(mealCost.total || 0) + parseFloat(otherCost || 0);
         await updateSummaryCost(total)
     }
 
@@ -594,6 +626,13 @@ const Estimator = () => {
                 setApproversEmail={setApproversEmail}
                 setTripNotes={setTripNotes}
                 tripNotes={tripNotes}
+            />
+            <MealsModal
+                mealsByDay={mealsByDay}
+                mealCost={mealCost}
+                show={mealsModalShow}
+                onHide={() => setMealsModalShow(false)}
+                setMealsByDay={setMealsByDay}
             />
             <h2><FormattedMessage id="estimateTitle" /></h2>
             <p className="lead"><FormattedMessage id="estimateLead" /></p>
@@ -670,7 +709,6 @@ const Estimator = () => {
                 <>
                     <div className="card bg-light p-4 mb-4">
                         <h3 className="mb-3"><FormattedMessage id="estimateSummaryTitle" /></h3>
-                        {/* Each row could be a generic componemt with props passed in to define what they are */}
 
                         <div className="row mb-4">
                             <div className="col-sm-12 mb-2">
@@ -735,7 +773,6 @@ const Estimator = () => {
                                             onChange={e => {
                                                 setTransportationType(e.target.value)
                                                 if (e.target.value === 'private') {
-                                                    console.log('here')
                                                     updateLocalTransportationCost(0)
                                                 };
                                             }}
@@ -803,10 +840,13 @@ const Estimator = () => {
                             message={localTransportationMessage}
                         />
                         <EstimatorRow
-                            value={mealCost}
+                            value={mealCost.total}
                             name="mealsAndIncidentals"
                             id="mealsAndIncidentals"
                             description="selectMealsToInclude"
+                            message={{
+                                element: <a href="#" onClick={(e) => { handleMealsModalShow(e) }}>Select meals to include</a>
+                            }}
                             icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
                             title="mealsAndIncidentals"
                             calculateTotal={calculateTotal}
