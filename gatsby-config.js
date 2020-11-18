@@ -185,18 +185,14 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [{
-            family: `Nunito Sans`,
-            variants: ['300', '400', '600', '700']
-          },
-          {
-            family: `Rubik`,
-            variants: ['300', '400', '600', '700']
-          },
+        fonts: [
+          `Nunito Sans\:300,400,600,700`,
+          `Rubik\:300,400,600,700`,
         ],
-      },
+        display: 'swap'
+      }
     },
     {
       resolve: 'gatsby-plugin-i18n',
