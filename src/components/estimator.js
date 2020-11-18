@@ -8,6 +8,7 @@ import monthsContained from "./months-contained.js"
 import { FormattedMessage } from 'react-intl'
 import EstimatorRow from "./estimator-row.js"
 import EmailModal from "./email-modal.js"
+import MealsModal from "./meals-modal.js"
 
 import Tooltip from 'react-bootstrap/Tooltip'
 import Form from 'react-bootstrap/Form'
@@ -159,7 +160,15 @@ const Estimator = () => {
     useEffect(() => {
         let mealTotals = calculateMeals(mealsByDay, province)
         setMealCost(mealTotals.total)
+        console.log('mealsByDay: ', mealsByDay)
     }, [mealsByDay]);
+
+    const [mealsModalShow, setMealsModalShow] = React.useState(false);
+
+    let handleMealsModalShow = (e) => {
+        e.preventDefault()
+        setMealsModalShow(true)
+    };
 
     async function fetchAmadeusToken() {
         await fetch("/api/FetchAmadeusToken", {
@@ -608,6 +617,12 @@ const Estimator = () => {
                 setTripNotes={setTripNotes}
                 tripNotes={tripNotes}
             />
+            <MealsModal
+                mealsByDay={mealsByDay}
+                show={mealsModalShow}
+                onHide={() => setMealsModalShow(false)}
+                setMealsByDay={setMealsByDay}
+            />
             <h2><FormattedMessage id="estimateTitle" /></h2>
             <p className="lead"><FormattedMessage id="estimateLead" /></p>
              {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
@@ -819,6 +834,9 @@ const Estimator = () => {
                             name="mealsAndIncidentals"
                             id="mealsAndIncidentals"
                             description="selectMealsToInclude"
+                            message={{
+                                element: <a href="#" onClick={(e) => { handleMealsModalShow(e) }}>Select meals to include</a>
+                            }}
                             icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
                             title="mealsAndIncidentals"
                             calculateTotal={calculateTotal}
