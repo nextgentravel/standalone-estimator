@@ -6,6 +6,8 @@ import { FormattedMessage } from 'react-intl';
 const MealsModal = (props) => {
     let keys = Object.keys(props.mealsByDay);
 
+    let mealCost = props.mealCost
+
     let items = keys.map((key) => {
         return {
             meals: props.mealsByDay[key],
@@ -53,7 +55,7 @@ const MealsModal = (props) => {
                                     onChange={handleChange}
                                 />
                                 <label>
-                                    Breakfast <small></small>
+                                    Breakfast <small>${mealCost.breakfast}</small>
                                 </label>
                             </div>
                             <div className="col-sm">
@@ -65,7 +67,7 @@ const MealsModal = (props) => {
                                     onChange={handleChange}
                                 />
                                 <label>
-                                    Lunch <small></small>
+                                    Lunch <small>${mealCost.lunch}</small>
                                 </label>
                             </div>
                             <div className="col-sm">
@@ -77,7 +79,7 @@ const MealsModal = (props) => {
                                     onChange={handleChange}
                                 />
                                 <label>
-                                    Dinner <small></small>
+                                    Dinner <small>${mealCost.dinner}</small>
                                 </label>
                             </div>
                             <div className="col-sm">
@@ -89,7 +91,7 @@ const MealsModal = (props) => {
                                     onChange={handleChange}
                                 />
                                 <label>
-                                    Incidental <small></small>
+                                    Incidental <small>${mealCost.incidentals}</small>
                                 </label>
                             </div>
                         </div>
@@ -97,7 +99,7 @@ const MealsModal = (props) => {
                 })}
             </Modal.Body>
             <Modal.Footer>
-                <div className="mb-2"></div>
+                <div className="mb-2 mr-3">${mealCost.total}</div>
                 <button type="button" className="btn btn-primary" onClick={() => { props.onHide() }}>Done</button>
             </Modal.Footer>
       </Modal>
