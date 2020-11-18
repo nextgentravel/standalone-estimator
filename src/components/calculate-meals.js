@@ -34,9 +34,9 @@ const calculateMeals = (mealsByDay, province) => {
         dinner,
         incidentals,
         dailyTotal,
-        total: mealsTotal,
+        total: mealsTotal.toFixed(2),
     }
-    
+
     return result;
 }
 
