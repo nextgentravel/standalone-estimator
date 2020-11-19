@@ -10,6 +10,8 @@ import EstimatorRow from "./estimator-row.js"
 import EmailModal from "./email-modal.js"
 import MealsModal from "./meals-modal.js"
 
+import { dailyMealTemplate } from "./functions/dailyMealTemplate"
+
 import Tooltip from 'react-bootstrap/Tooltip'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -412,26 +414,6 @@ const Estimator = () => {
         return result;
     }
 
-    let dailyMealTemplate = (departureDate, returnDate) => {
-        let dates = Interval.fromDateTimes(
-            departureDate.startOf("day"), 
-            returnDate.endOf("day"))
-            .splitBy({days: 1}).map(d => d.start)
-        let travelDays = {}
-        dates.forEach((date) => {
-            date = date.toISODate();
-            travelDays[date] = {
-                breakfast: true,
-                lunch: true,
-                dinner: true,
-                incidentals: true,
-            }
-        })
-
-        return travelDays
-    }
-
-
     const handleSubmit =  async(e) => {
         setLoading(true);
         setGeneralError(false);
@@ -475,6 +457,7 @@ const Estimator = () => {
                 setErrorPanel(false);
             })
             .catch(err => {
+                console.log("ERROR", err)
                 setLoading(false);
                 setValidationWarnings(err.inner);
                 setErrorPanel(true);

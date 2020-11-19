@@ -14,9 +14,15 @@ import acrdRates from "../data/acrdRates.js"
 import { FaSpinner } from 'react-icons/fa';
 import { FaExclamationTriangle } from 'react-icons/fa';
 
-// import { globalHistory } from "@reach/router"
+import {dailyMealTemplate} from "./functions/dailyMealTemplate"
 
 const RatesChecker = () => {
+
+    let initialDates = {
+        departure: DateTime.local(),
+        return: DateTime.local().plus({ days: 1 }),
+    }
+
     const citiesList = cities.citiesList;
     const suburbCityList = cities.suburbCityList;
     const [filteredCitiesList, setFilteredCitiesList] = useState([]);
@@ -32,14 +38,10 @@ const RatesChecker = () => {
     }, []);
 
     const [destination, setDestination] = useState('');
-    const [departureDate, setDepartureDate] = useState('');
-    const [returnDate, setReturnDate] = useState('');
+    const [departureDate, setDepartureDate] = useState(initialDates.departure);
+    const [returnDate, setReturnDate] = useState(initialDates.return);
     const [result, setResult] = useState({});
-
-    let initialDates = {
-        departure: DateTime.local(),
-        return: DateTime.local().plus({ days: 1 }),
-    }
+    const [mealsByDay, setMealsByDay] = useState({});
 
     const [validationWarnings, setValidationWarnings] = useState([]);
 
@@ -69,7 +71,9 @@ const RatesChecker = () => {
                     return res;
                 }, {});
 
-                let mealsAndIncidentals = calculateMeals(departureDate, returnDate, province);
+                setMealsByDay(dailyMealTemplate(departureDate, returnDate))
+
+                let mealsAndIncidentals = calculateMeals(mealsByDay, province);
 
                 setResult({
                     acrdRatesFiltered,
