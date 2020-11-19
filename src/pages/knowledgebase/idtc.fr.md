@@ -1,5 +1,6 @@
 ---
-date: "2019-05-04"
+jumpTo: [{ label: 'Plan Travel', link: 'plan' }, { label: 'Book Trip', link: 'book' }, { label: 'During Travel', link: 'travel' }, { label: 'Expense Claims', link: 'expense' }]
+date:  "2019-05-04"
 title: "Individual Designated Travel Card (IDTC)"
 lead: ""
 tags: {}

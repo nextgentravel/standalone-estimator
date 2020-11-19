@@ -8,23 +8,35 @@
 
 import "./src/styles/style.scss"
 import React from 'react'
-import { getCurrentLangKey } from 'ptz-i18n';
 import { IntlProvider } from 'react-intl';
 
+import 'core-js/modules/es6.set'
+import 'core-js/modules/es6.map'
+import 'raf/polyfill'
+
 import i18nMessages from './src/data/messages';
-
-import { globalHistory } from "@reach/router"
-
 import languages from './src/data/languages'
+import '@babel/polyfill'
+import 'gatsby-plugin-polyfill-io'
 
-export const wrapPageElement = ({ element }) => {
+import { PreviewStoreProvider } from 'gatsby-source-prismic'
 
-    const url = globalHistory.location.pathname;
-    const { langs, defaultLangKey } = languages;
-    const langKey = getCurrentLangKey(langs, defaultLangKey, url);
+
+const getLanguageFromPath = (path, languages) => {
+    if (!path) {
+      return languages[0]
+    }
+    const langPart = path.split('/')[1]
+    return languages.includes(langPart) ? langPart : languages[0]
+}
+
+export const wrapPageElement = ({ element, props }) => {
+    const languageKey = getLanguageFromPath(props.location.pathname, languages.langs)
     return (
-        <IntlProvider locale={langKey} messages={i18nMessages[langKey]}>
-            {element}
-        </IntlProvider>
+        <PreviewStoreProvider>
+            <IntlProvider locale={languageKey} messages={i18nMessages[languageKey]}>
+                {element}
+            </IntlProvider>
+        </PreviewStoreProvider>
     )
 }

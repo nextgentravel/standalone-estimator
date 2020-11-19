@@ -1,16 +1,21 @@
 import React from "react";
-import { FormattedMessage } from 'react-intl';
-import { Link } from "gatsby";
+import { useIntl } from 'react-intl';
+import ToolPanelItem from './tool-panel-item';
+import { FaCalculator } from 'react-icons/fa';
+import { FaMapMarker } from 'react-icons/fa';
+import { FaCar } from 'react-icons/fa';
+import { MdFiberNew } from 'react-icons/md';
 
-const ToolPanel = ({ title, icon, linkTo }) => (
-
-<div className="tool-link-item text-center m-5">
-    <Link to={linkTo}>
-    {icon}
-      <p className="mt-2"><FormattedMessage id={title} /></p>
-    </Link>
-</div>
-
-)
+const ToolPanel = () => {
+    const intl = useIntl();
+    let homeLink = `/${intl.locale}/`;
+    return (
+        <div className="d-flex justify-content-center">
+            <ToolPanelItem title="estimator" icon={<FaCalculator size="40" />} linkTo={`${homeLink}estimator`} />
+            <ToolPanelItem title="rates" icon={<FaMapMarker size="40" />} linkTo={`${homeLink}rates`} />
+            <ToolPanelItem title="kilometrics" icon={<FaCar size="40" />} linkTo={`${homeLink}kilometrics`} />
+        </div>
+    )
+}
 
 export default ToolPanel

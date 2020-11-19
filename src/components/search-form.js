@@ -2,11 +2,14 @@
 import React, { useState, useRef } from "react"
 import { navigate } from "@reach/router"
 import { FaSearch } from 'react-icons/fa';
+import {FormattedMessage, useIntl} from 'react-intl'; 
 
 const SearchForm = ({ initialQuery = "", placement = "header" }) => {
   // Create a piece of state, and initialize it to initialQuery
   // query will hold the current value of the state,
   // and setQuery will let us change it
+
+  const intl = useIntl();
   const [query, setQuery] = useState(initialQuery)
   
   // We need to get reference to the search input element
@@ -32,15 +35,19 @@ const SearchForm = ({ initialQuery = "", placement = "header" }) => {
         Search for:
       </label>
       <div className="input-group input-group-lg">
-        <input
-          className="form-control input-lg search"
-          ref={inputEl}
-          id={`search-input-${placement}`}
-          type="search"
-          value={query}
-          placeholder={<FormattedMessage id="searchPlaceholder" />}
-          onChange={handleChange}
+      <FormattedMessage id="searchPlaceholder">
+        {(msg) => (
+          <input
+            className="form-control input-lg search"
+            ref={inputEl}
+            id={`search-input-${placement}`}
+            type="search"
+            value={query}
+            placeholder={msg}
+            onChange={handleChange}
         />
+        )}
+      </FormattedMessage>
         <div className="input-group-append">
           <button type="submit" className={`btn ${placement !== 'header' ? ` btn-dark` : ` btn-light`}`}><FaSearch />
             <span className="sr-only"><FormattedMessage id="searchScreenReaderLabel"/></span>
