@@ -299,7 +299,8 @@ module.exports = {
         anonymize: true,
         // Setting this parameter is also optional
         respectDNT: true,
-      },2
+      },
+    },
     {
       resolve: `gatsby-plugin-compile-es6-packages`,
       options: {
