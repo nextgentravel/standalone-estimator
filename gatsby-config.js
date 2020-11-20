@@ -279,6 +279,13 @@ module.exports = {
         },
       ],
     },
+    {
+      resolve: `gatsby-plugin-hotjar`,
+      options: {
+        id: process.env.HOTJAR_ID,
+        sv: process.env.HOTJAR_SNIPPET_VERSION
+      },
+    },
     `gatsby-plugin-use-query-params`,
     "gatsby-plugin-use-query-params",
     {
@@ -292,8 +299,7 @@ module.exports = {
         anonymize: true,
         // Setting this parameter is also optional
         respectDNT: true,
-      },
-    },
+      },2
     {
       resolve: `gatsby-plugin-compile-es6-packages`,
       options: {
