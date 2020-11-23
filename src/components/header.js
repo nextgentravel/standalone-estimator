@@ -34,7 +34,7 @@ const Header = ({homeHeader}) => {
       </div>
 
       <div className="container">
-        <div className="d-flex justify-content-between my-4">
+        <div className="row my-4 mx-2">
           <nav className="skiphold" id="header-skiplink">
             <a className="sr-only sr-only-focusable aurora-skip skiplink" aria-label="main skiplink" href="#main-content"><FormattedMessage id="skipToMain" /></a>
           </nav>
@@ -68,7 +68,7 @@ const Header = ({homeHeader}) => {
               </FormattedMessage>
             </div>
           }
-          <section className='text-right align-self-center'>
+          <section className='text-right align-self-center ml-auto'>
             <p className="sr-only sr-only-focusable aurora-skip"><FormattedMessage id="languageSelection" /></p>
             <SelectLanguage />
           </section>
