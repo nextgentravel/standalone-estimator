@@ -16,7 +16,7 @@ jobs:
     name: Build and Deploy Job
     env:
       GA_TRACKING_ID: "G-HFFQEDF1CK"
-      HOTJAR_ID: "1974954"
+      HOTJAR_ID: "2116736"
       HOTJAR_SNIPPET_VERSION: "6"
     steps:
       - uses: actions/checkout@v2
