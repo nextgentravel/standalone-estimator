@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from "react"
 import InputDatalist from "./input-datalist.js"
 import DatePicker from "./date-picker.js"
-import mealAllowances from "../data/meals"
-import { DateTime } from "luxon"
+import calculateMeals from "./calculate-meals.js"
 import * as yup from "yup"
 import monthsContained from "./months-contained.js"
 import { FormattedMessage } from 'react-intl';
+
+import { DateTime } from "luxon"
 
 import cities from "../data/cities.js"
 import acrdRates from "../data/acrdRates.js"
@@ -13,9 +14,15 @@ import acrdRates from "../data/acrdRates.js"
 import { FaSpinner } from 'react-icons/fa';
 import { FaExclamationTriangle } from 'react-icons/fa';
 
-// import { globalHistory } from "@reach/router"
+import {dailyMealTemplate} from "./functions/dailyMealTemplate"
 
 const RatesChecker = () => {
+
+    let initialDates = {
+        departure: DateTime.local(),
+        return: DateTime.local().plus({ days: 1 }),
+    }
+
     const citiesList = cities.citiesList;
     const suburbCityList = cities.suburbCityList;
     const [filteredCitiesList, setFilteredCitiesList] = useState([]);
@@ -31,10 +38,10 @@ const RatesChecker = () => {
     }, []);
 
     const [destination, setDestination] = useState('');
-    const [departureDate, setDepartureDate] = useState('');
-    const [returnDate, setReturnDate] = useState('');
+    const [departureDate, setDepartureDate] = useState(initialDates.departure);
+    const [returnDate, setReturnDate] = useState(initialDates.return);
     const [result, setResult] = useState({});
-
+    const [mealsByDay, setMealsByDay] = useState({});
 
     const [validationWarnings, setValidationWarnings] = useState([]);
 
@@ -45,37 +52,6 @@ const RatesChecker = () => {
     //   Will use later when integration language
     //   const url = globalHistory.location.pathname;
 
-    const calculateMeals = (departDate, returnDate, province) => {
-        let departD = DateTime.fromISO(departDate);
-        let returnD = DateTime.fromISO(returnDate);
-        let duration = returnD.diff(departD, 'days')
-        let provinceAllowances = Object.keys(mealAllowances);
-
-        let ratesForProvince = {};
-
-        if (provinceAllowances.includes(province)) {
-            ratesForProvince = mealAllowances[province];
-        } else {
-            ratesForProvince = mealAllowances['CAN'];
-        };
-
-        let breakfast = ratesForProvince.breakfast;
-        let lunch = ratesForProvince.lunch;
-        let dinner = ratesForProvince.dinner;
-        let incidentals = ratesForProvince.incidentals;
-        let dailyTotal = breakfast + lunch + dinner + incidentals;
-        let total = dailyTotal * duration.values.days;
-
-        return {
-            dailyTotal,
-            total,
-            breakfast,
-            lunch,
-            dinner,
-            incidentals,
-        }
-    }
-
     const handleSubmit = (e) => {
         setLoading(true);
         setGeneralError(false);
@@ -83,6 +59,7 @@ const RatesChecker = () => {
         handleValidation()
             .then((valid) => {
                 setValidationWarnings([]);
+                console.log('destination: ', destination)
                 let city = suburbCityList[destination] || destination;
                 let province = city.slice(-2); // This is bad.  We need to change the data structure.
                 let months = monthsContained(departureDate,returnDate);
@@ -94,7 +71,9 @@ const RatesChecker = () => {
                     return res;
                 }, {});
 
-                let mealsAndIncidentals = calculateMeals(departureDate, returnDate, province);
+                setMealsByDay(dailyMealTemplate(departureDate, returnDate))
+
+                let mealsAndIncidentals = calculateMeals(mealsByDay, province);
 
                 setResult({
                     acrdRatesFiltered,
@@ -103,7 +82,7 @@ const RatesChecker = () => {
                 })
                 setLoading(false);
                 setErrorPanel(false);
-            })
+                 })
             .catch(err => {
                 setLoading(false);
                 setValidationWarnings(err.inner);
@@ -123,6 +102,8 @@ const RatesChecker = () => {
     }
 
     const handleValidation = () => {
+        console.log('depart:', departureDate);
+        console.log('return:', returnDate);
         let target = {destination, departureDate, returnDate};
         let schema = yup.object().shape({
             destination: yup
@@ -170,9 +151,29 @@ const RatesChecker = () => {
                 </ul>
             </div>}
             <form id="rates-form" className="form-group mb-4" onSubmit={handleSubmit}>
-                <InputDatalist validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="rateDestination" />} name="destination" options={filteredCitiesList} updateValue={setDestination} />
-                <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="rateDepart" />} name="departureDate" updateValue={setDepartureDate}></DatePicker>
-                <DatePicker validationWarnings={validationWarnings} setValidationWarnings={setValidationWarnings} label={<FormattedMessage id="rateReturn" />} name="returnDate" updateValue={setReturnDate}></DatePicker>
+                <InputDatalist
+                    validationWarnings={validationWarnings}
+                    setValidationWarnings={setValidationWarnings}
+                    label={<FormattedMessage id="rateDestination"/>}
+                    name="destination"
+                    options={filteredCitiesList}
+                    updateValue={setDestination}
+                />
+                <DatePicker validationWarnings={validationWarnings}
+                    setValidationWarnings={setValidationWarnings}
+                    label={<FormattedMessage id="rateDepart" />}
+                    name="departureDate"
+                    updateValue={setDepartureDate}
+                    initialDate={initialDates.return}
+                />
+                <DatePicker
+                    validationWarnings={validationWarnings}
+                    setValidationWarnings={setValidationWarnings}
+                    label={<FormattedMessage id="rateReturn" />}
+                    name="returnDate"
+                    updateValue={setReturnDate}
+                    initialDate={initialDates.return}
+                />
                 <button type="submit" className="btn btn-primary"><FormattedMessage id="submit"/></button>
                 <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}><FormattedMessage id="clear"/></button>
                 {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
@@ -204,7 +205,7 @@ const RatesChecker = () => {
                             {Object.keys(result.acrdRatesFiltered).map((month) => (
                                 <tr key={month}>
                                     <th scope="row"><FormattedMessage id={month} /></th>
-                                    <td>{result.acrdRatesFiltered[month]}</td>
+                                    <td>${result.acrdRatesFiltered[month]}</td>
                                 </tr>
                             ))}
                             </tbody>

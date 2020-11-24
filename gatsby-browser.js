@@ -10,8 +10,17 @@ import "./src/styles/style.scss"
 import React from 'react'
 import { IntlProvider } from 'react-intl';
 
+import 'core-js/modules/es6.set'
+import 'core-js/modules/es6.map'
+import 'raf/polyfill'
+
 import i18nMessages from './src/data/messages';
 import languages from './src/data/languages'
+import '@babel/polyfill'
+import 'gatsby-plugin-polyfill-io'
+
+import { PreviewStoreProvider } from 'gatsby-source-prismic'
+
 
 const getLanguageFromPath = (path, languages) => {
     if (!path) {
@@ -24,8 +33,10 @@ const getLanguageFromPath = (path, languages) => {
 export const wrapPageElement = ({ element, props }) => {
     const languageKey = getLanguageFromPath(props.location.pathname, languages.langs)
     return (
-        <IntlProvider locale={languageKey} messages={i18nMessages[languageKey]}>
-            {element}
-        </IntlProvider>
+        <PreviewStoreProvider>
+            <IntlProvider locale={languageKey} messages={i18nMessages[languageKey]}>
+                {element}
+            </IntlProvider>
+        </PreviewStoreProvider>
     )
 }

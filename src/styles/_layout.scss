@@ -45,22 +45,7 @@ h4 {
     margin: auto;
     text-align: center;
     vertical-align: middle;
-}
-
-.icon-background-plan {
     background-color: #E7A948;
-}
-
-.icon-background-book {
-    background-color: #CC4859;
-}
-
-.icon-background-travel {
-    background-color: #047789;
-}
-
-.icon-background-expense {
-    background-color: #043B59;
 }
 
 .home-chevron {
@@ -167,6 +152,51 @@ a:focus {
 	}
 }
 
+.floating-contact {
+    top: auto !important;
+    right: 2em !important;
+    bottom: 2em !important;
+    left: auto !important;
+    position: fixed !important;
+    z-index: 5;
+    height: 60px;
+    width: 60px;
+}
+
+.floating-contact-box {
+    top: auto !important;
+    right: 2em !important;
+    bottom: 2em !important;
+    left: auto !important;
+    position: fixed !important;
+    z-index: 5;
+    height: 25em !important;;
+    width: 20em  !important;;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.fa-spin {
+    animation: fa-spin 2s infinite linear;
+  }
+  @keyframes fa-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(359deg);
+    }
+  }
+
+.doormat-image {
+    height: auto;
+    max-width: 100%;
+    position: relative;
+    width: auto;
+}
+
 /* body {
     padding-top: 0px;
 }
@@ -271,15 +301,5 @@ a:focus {
 
 
 
-.fa-spin {
-    animation: fa-spin 2s infinite linear;
-  }
-  @keyframes fa-spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(359deg);
-    }
-  }
+
  */

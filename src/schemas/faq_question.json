@@ -1,0 +1,36 @@
+{
+    "Main" : {
+      "question" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading3",
+          "label" : "question",
+          "placeholder" : "Question"
+        }
+      },
+      "answer" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph, preformatted, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+          "allowTargetBlank" : true,
+          "label" : "answer",
+          "placeholder" : "Answer"
+        }
+      },
+      "order" : {
+        "type" : "Number",
+        "config" : {
+          "label" : "order"
+        }
+      },
+      "belongs_to" : {
+        "type" : "Link",
+        "config" : {
+          "select" : "document",
+          "customtypes" : [ "travel_section" ],
+          "label" : "belongs_to",
+          "placeholder" : "Section this FAQ question belongs to"
+        }
+      }
+    }
+  }

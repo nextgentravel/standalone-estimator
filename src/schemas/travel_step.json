@@ -1,0 +1,79 @@
+{
+  "Main" : {
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading3",
+        "label" : "title",
+        "placeholder" : "Title, without step number"
+      }
+    },
+    "show_step_number" : {
+      "type" : "Boolean",
+      "config" : {
+        "placeholder_false" : "Show title text only",
+        "placeholder_true" : "Show \"Step #\" before title",
+        "default_value" : false,
+        "label" : "show_step_number"
+      }
+    },
+    "content" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "allowTargetBlank" : true,
+        "label" : "content"
+      }
+    },
+    "belongs_to" : {
+      "type" : "Link",
+      "config" : {
+        "select" : "document",
+        "customtypes" : [ "travel_section" ],
+        "label" : "belongs_to"
+      }
+    },
+    "action_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "paragraph",
+        "label" : "action_title"
+      }
+    },
+    "order" : {
+      "type" : "Number",
+      "config" : {
+        "label" : "order"
+      }
+    },
+    "action_link" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "action_link",
+        "placeholder" : "URL for action"
+      }
+    },
+    "action_new_window" : {
+      "type" : "Boolean",
+      "config" : {
+        "placeholder_false" : "link will open in same window",
+        "placeholder_true" : "link will open in new window",
+        "default_value" : false,
+        "label" : "action_new_window"
+      }
+    },
+    "show_if_selected" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "flight", "train", "car rental", "private accommodation", "hotel", "always" ],
+        "label" : "show_if_selected"
+      }
+    },
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "uid"
+      }
+    }
+  }
+}
