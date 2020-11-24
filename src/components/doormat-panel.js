@@ -1,5 +1,4 @@
 import React from "react";
-import { useIntl } from 'react-intl';
 import DoormatPanelItem from './doormat-panel-item';
 
 import {
