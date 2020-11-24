@@ -41,6 +41,7 @@ module.exports = {
           // Pretty URLs for known types
           let lang = node.lang === 'en-ca' ? 'en' : 'fr';
           if (doc.type === 'generic_content_page') return "/" + lang + "/" + doc.uid;
+          if (doc.type === 'tool') return "/" + lang + "/" + doc.uid;
           // Fallback for other types, in case new custom types get created
           return lang + "/doc/" + doc.id;
         },
