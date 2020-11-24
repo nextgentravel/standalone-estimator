@@ -87,7 +87,7 @@ const Estimator = () => {
         }
 
         setOriginData(data);
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }), [origin])
 
     useEffect((() => {
@@ -157,15 +157,18 @@ const Estimator = () => {
                 estimatedValue: calculateKilometrics,
             }
         })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [privateKilometricsValue])
 
     useEffect(() => {
         calculateTotal()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [accommodationCost, transportationCost, localTransportationCost, mealCost, otherCost])
 
     useEffect(() => {
         let mealTotals = calculateMeals(mealsByDay, province)
         setMealCost(mealTotals)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [mealsByDay]);
 
     const [mealsModalShow, setMealsModalShow] = React.useState(false);
