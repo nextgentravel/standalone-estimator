@@ -17,8 +17,8 @@ const SearchPage = ({ data, location }) => {
   // const { store } = data.LunrIndex
   // Lunr in action here
   let [results, setResults] = useState([]);
-  let [fuzzy, setFuzzy] = useState(false);
-  let [correctedTerms, setCorrectedTerms] = useState([]);
+  // let [fuzzy, setFuzzy] = useState(false);
+  // let [correctedTerms, setCorrectedTerms] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [searchQuery, setSearchQuery] = useQueryParam('q', StringParam)
 
@@ -146,17 +146,6 @@ const SearchPage = ({ data, location }) => {
       <main className="container" id="main-content">
         {searchQuery ? <h2 className="font-weight-bold">Search Results</h2> : <h2 className="font-weight-bold">What are you looking for?</h2>}
         <div className="p-1">
-          {!fuzzy &&
-            <>
-              <p className="font-weight-bold mt-2 mb-5">{results.length} result{results.length !== 1 ? 's' : ''} for "{searchQuery}"</p>
-            </>
-          }
-          {fuzzy &&
-            <>
-              <p className="font-weight-bold mt-2 mb-2">{results.length} result{results.length !== 1 ? 's' : ''} for "{correctedTerms.join(', ')}"</p>
-              {/* {results.length > 0 && <p className="font-italic text-secondary mb-5">Search instead for <a href="#" onClick={() => { searchInstead(searchQuery) }}>{searchQuery}</a>.</p>} */}
-            </>
-          }
           {results.length ? (
               results.map((result, index) => {
               return (
