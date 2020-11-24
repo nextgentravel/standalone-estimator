@@ -581,7 +581,7 @@ const Estimator = () => {
                 transportationMessage,
                 localTransportationCost,
                 localTransportationMessage,
-                mealCost,
+                mealCost: mealCost.total,
                 otherCost,
                 tripName,
                 travellersName,
