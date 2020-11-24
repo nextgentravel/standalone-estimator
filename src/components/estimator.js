@@ -12,7 +12,6 @@ import MealsModal from "./meals-modal.js"
 
 import { dailyMealTemplate } from "./functions/dailyMealTemplate"
 
-import Tooltip from 'react-bootstrap/Tooltip'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { Spinner } from 'react-bootstrap'
@@ -20,8 +19,6 @@ import { Spinner } from 'react-bootstrap'
 import cities from "../data/cities.js"
 import geocodedCities from "../data/geocodedCities"
 import acrdRates from "../data/acrdRates.js"
-import accommodations from "../data/accommodations.js"
-import transportData from "../data/transport-data.js"
 import locations from "../data/locations.js"
 
 import { FaSpinner, FaQuestionCircle, FaExclamationTriangle, FaBed, FaPlane, FaTaxi, FaUtensils, FaSuitcase } from 'react-icons/fa'
@@ -56,6 +53,7 @@ const Estimator = () => {
     // Variables/state for inputs
     const [origin, setOrigin] = useState('');
     const [destination, setDestination] = useState('');
+    // These will be used by the API's later.
     const [originData, setOriginData] = useState({});
     const [destinationData, setDestinationData] = useState({});
     const [departureDate, setDepartureDate] = useState(initialDates.departure);

@@ -12,6 +12,7 @@ import { DateTime } from "luxon";
 import { FaCalendar } from 'react-icons/fa';
 
 const DatePickerComponent = ({validationWarnings, setValidationWarnings, label, name, updateValue, initialDate}) => {
+    let showValidationWarning = false;
     let componentWarnings = []
     validationWarnings.forEach(warning => {
         if (warning.path === name) {
