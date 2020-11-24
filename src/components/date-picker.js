@@ -1,6 +1,5 @@
 import 'react-dates/initialize';
-import React, {useState} from "react"
-// import { SingleDatePicker} from 'react-dates';
+import React from "react"
 import {
     DatePicker,
     DatePickerCalendar,
@@ -10,11 +9,9 @@ import {
     DatePickerInput
   } from '@reecelucas/react-datepicker';
 import { DateTime } from "luxon";
-import { FormattedMessage } from 'react-intl';
-import { FaChevronLeft, FaChevronRight, FaCalendar } from 'react-icons/fa';
+import { FaCalendar } from 'react-icons/fa';
 
 const DatePickerComponent = ({validationWarnings, setValidationWarnings, label, name, updateValue, initialDate}) => {
-    let showValidationWarning = false;
     let componentWarnings = []
     validationWarnings.forEach(warning => {
         if (warning.path === name) {
