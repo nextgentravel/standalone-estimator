@@ -2,12 +2,6 @@ import React from "react";
 import {
     useIntl
 } from 'react-intl';
-import {
-    FaClipboardList,
-    FaTicketAlt,
-    FaPlaneDeparture,
-    FaFileInvoiceDollar
-} from 'react-icons/fa';
 
 import ContentPanelItem from './content-panel-item';
 
