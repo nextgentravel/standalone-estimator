@@ -2,32 +2,64 @@ import React from "react";
 import { useIntl } from 'react-intl';
 import DoormatPanelItem from './doormat-panel-item';
 
-const DoormatPanel = () => {
-    const intl = useIntl();
-    let homeLink = `/${intl.locale}/`;
-    return (
-        <React.Fragment>
-            <h3 className="mb-4">Get more out of GC Travel Guide</h3>
-            <div className="row mb-5">
-                <DoormatPanelItem
-                    image="newtotravel.jpg"
-                    alt=""
-                    linkTo={`${homeLink}newuser`}
-                    linkNewWindow={false}
-                    title="New to GC Travel?"
-                    content="If you are about to travel for the first time on behalf of the Government of Canada, set up your traveler profile using this guide for 'first time travelers'."
-                />
-                <DoormatPanelItem
-                    image="covid19.jpeg"
-                    alt=""
-                    linkNewWindow={true}
-                    linkTo={`https://travel.gc.ca/travelling/health-safety/travel-health-notices/221`}
-                    title="Covid-19 Travel Information"
-                    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat."
-                />
-            </div>
-        </React.Fragment>
-    )
-}
+import {
+    StaticQuery,
+    graphql
+  } from 'gatsby';
 
-export default DoormatPanel
+export default () => {
+    return (
+      <StaticQuery query = {
+        graphql `
+            query doormats {
+                allPrismicDoormat(sort: {fields: data___order}, filter: {lang: {eq: "en-ca"}}) {
+                    nodes {
+                    data {
+                        image {
+                        localFile {
+                            publicURL
+                        }
+                        }
+                        lead {
+                            text
+                        }
+                        link
+                        link_new_window
+                        title {
+                            text
+                        }
+                    }
+                    lang
+                    }
+                }
+            }
+        `
+      }
+      render = {
+        data => {
+          const doormats = data.allPrismicDoormat.nodes;
+          console.log(doormats)
+          return (
+            <React.Fragment>
+                <div className="row mb-5">
+                    {doormats.map((item, index) => {
+                        return (
+                            <DoormatPanelItem
+                                image={item.data.image.localFile.publicURL}
+                                alt=""
+                                linkTo={item.data.link}
+                                linkNewWindow={item.data.link_new_window}
+                                title={item.data.title.text}
+                                content={item.data.lead.text}
+                            />
+                        )
+                    })}
+                </div>
+
+            </React.Fragment>
+          )
+        }
+      }
+    />
+  )
+}
