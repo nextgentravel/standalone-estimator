@@ -11,6 +11,7 @@ import EmailModal from "./email-modal.js"
 import MealsModal from "./meals-modal.js"
 
 import Tooltip from 'react-bootstrap/Tooltip'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { Spinner } from 'react-bootstrap'
@@ -608,6 +609,12 @@ const Estimator = () => {
     const [approversEmail, setApproversEmail] = useState('');
     const [tripNotes, setTripNotes] = useState('');
 
+    const renderAccommodationTooltip = (props) => (
+        <Tooltip id="button-tooltip" {...props}>
+            <FormattedMessage id="accommodationTooltip" />
+        </Tooltip>
+    );
+
     return (
         <div className="mb-4">
             <EmailModal
@@ -741,8 +748,17 @@ const Estimator = () => {
                                         if (parseFloat(e.target.value) > acrdTotal) {
                                             setAccommodationCost(e.target.value)
                                             setAccommodationMessage({ element: 
-                                            <div className="alert alert-warning mb-0" role="alert">
-                                                <FormattedMessage id='accommodationWarning' values={{ acrdTotal }} />
+                                            <div className="mb-0 text-danger" role="alert">
+                                                <>
+                                                    <FormattedMessage id='accommodationWarning' values={{ acrdTotal }} />
+                                                    <OverlayTrigger
+                                                        placement="top"
+                                                        delay={{ show: 250, hide: 400 }}
+                                                        overlay={renderAccommodationTooltip}
+                                                    >
+                                                        <FaQuestionCircle className="ml-2" size="15" fill="#9E9E9E" />
+                                                    </OverlayTrigger>
+                                                </>
                                             </div>
 
                                             , style: 'warn' });
