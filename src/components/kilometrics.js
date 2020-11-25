@@ -86,12 +86,25 @@ const Kilometrics = () => {
     }
 
     const clearForm = () => {
-        document.getElementById("kilometrics-form").reset();
         setProvinceValue('');
         setDistance('');
         setResult({});
         setValidationWarnings([]);
         setErrorPanel(false);
+        document.getElementById("kilometrics-form").reset();
+        // START OF HACK This is a hack to programatically clear the autocomplete inputs
+
+        let destinationElement = document.querySelector('#autocomplete-province')
+        let clearFormButton = document.querySelector('#clear-button')
+
+        destinationElement.value = "";
+        destinationElement.click();
+        destinationElement.focus();
+        destinationElement.blur();
+
+        // END OF HACK
+
+
     }
 
     const errorList =() => {
