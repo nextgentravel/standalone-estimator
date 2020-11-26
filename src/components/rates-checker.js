@@ -14,9 +14,15 @@ import acrdRates from "../data/acrdRates.js"
 import { FaSpinner } from 'react-icons/fa';
 import { FaExclamationTriangle } from 'react-icons/fa';
 
-// import { globalHistory } from "@reach/router"
+import {dailyMealTemplate} from "./functions/dailyMealTemplate"
 
 const RatesChecker = () => {
+
+    let initialDates = {
+        departure: DateTime.local(),
+        return: DateTime.local().plus({ days: 1 }),
+    }
+
     const citiesList = cities.citiesList;
     const suburbCityList = cities.suburbCityList;
     const [filteredCitiesList, setFilteredCitiesList] = useState([]);
@@ -32,14 +38,10 @@ const RatesChecker = () => {
     }, []);
 
     const [destination, setDestination] = useState('');
-    const [departureDate, setDepartureDate] = useState('');
-    const [returnDate, setReturnDate] = useState('');
+    const [departureDate, setDepartureDate] = useState(initialDates.departure);
+    const [returnDate, setReturnDate] = useState(initialDates.return);
     const [result, setResult] = useState({});
-
-    let initialDates = {
-        departure: DateTime.local(),
-        return: DateTime.local().plus({ days: 1 }),
-    }
+    const [mealsByDay, setMealsByDay] = useState({});
 
     const [validationWarnings, setValidationWarnings] = useState([]);
 
@@ -69,7 +71,9 @@ const RatesChecker = () => {
                     return res;
                 }, {});
 
-                let mealsAndIncidentals = calculateMeals(departureDate, returnDate, province);
+                setMealsByDay(dailyMealTemplate(departureDate, returnDate))
+
+                let mealsAndIncidentals = calculateMeals(mealsByDay, province);
 
                 setResult({
                     acrdRatesFiltered,
@@ -87,10 +91,24 @@ const RatesChecker = () => {
     }
 
     const clearForm = () => {
-        document.getElementById("rates-form").reset();
-        setDepartureDate('');
-        setReturnDate('');
-        setDestination('');
+        // START OF HACK This is a hack to programatically clear the autocomplete inputs
+
+        let destinationElement = document.querySelector('#autocomplete-destination')
+        let clearFormButton = document.querySelector('#clear-button')
+        let datePickerDepart = document.querySelector('#departureDate')
+        let datePickerReturn = document.querySelector('#returnDate')
+
+        destinationElement.value = "";
+        destinationElement.click();
+        destinationElement.focus();
+        destinationElement.blur();
+
+        setTimeout(function(){ 
+            datePickerDepart.value = '';
+            datePickerReturn.value = '';
+        },0);
+
+        // END OF HACK
         setValidationWarnings([])
         setGeneralError(false);
         setErrorPanel(false);

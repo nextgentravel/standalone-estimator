@@ -10,7 +10,10 @@ import EstimatorRow from "./estimator-row.js"
 import EmailModal from "./email-modal.js"
 import MealsModal from "./meals-modal.js"
 
+import { dailyMealTemplate } from "./functions/dailyMealTemplate"
+
 import Tooltip from 'react-bootstrap/Tooltip'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { Spinner } from 'react-bootstrap'
@@ -412,26 +415,6 @@ const Estimator = () => {
         return result;
     }
 
-    let dailyMealTemplate = (departureDate, returnDate) => {
-        let dates = Interval.fromDateTimes(
-            departureDate.startOf("day"), 
-            returnDate.endOf("day"))
-            .splitBy({days: 1}).map(d => d.start)
-        let travelDays = {}
-        dates.forEach((date) => {
-            date = date.toISODate();
-            travelDays[date] = {
-                breakfast: true,
-                lunch: true,
-                dinner: true,
-                incidentals: true,
-            }
-        })
-
-        return travelDays
-    }
-
-
     const handleSubmit =  async(e) => {
         setLoading(true);
         setGeneralError(false);
@@ -475,6 +458,7 @@ const Estimator = () => {
                 setErrorPanel(false);
             })
             .catch(err => {
+                console.log("ERROR", err)
                 setLoading(false);
                 setValidationWarnings(err.inner);
                 setErrorPanel(true);
@@ -581,7 +565,7 @@ const Estimator = () => {
                 transportationMessage,
                 localTransportationCost,
                 localTransportationMessage,
-                mealCost,
+                mealCost: mealCost.total,
                 otherCost,
                 tripName,
                 travellersName,
@@ -607,6 +591,12 @@ const Estimator = () => {
     const [approversName, setApproversName] = useState('');
     const [approversEmail, setApproversEmail] = useState('');
     const [tripNotes, setTripNotes] = useState('');
+
+    const renderAccommodationTooltip = (props) => (
+        <Tooltip id="button-tooltip" {...props}>
+            <FormattedMessage id="accommodationTooltip" />
+        </Tooltip>
+    );
 
     return (
         <div className="mb-4">
@@ -741,8 +731,17 @@ const Estimator = () => {
                                         if (parseFloat(e.target.value) > acrdTotal) {
                                             setAccommodationCost(e.target.value)
                                             setAccommodationMessage({ element: 
-                                            <div className="alert alert-warning mb-0" role="alert">
-                                                <FormattedMessage id='accommodationWarning' values={{ acrdTotal }} />
+                                            <div className="mb-0 text-danger" role="alert">
+                                                <>
+                                                    <FormattedMessage id='accommodationWarning' values={{ acrdTotal }} />
+                                                    <OverlayTrigger
+                                                        placement="top"
+                                                        delay={{ show: 250, hide: 400 }}
+                                                        overlay={renderAccommodationTooltip}
+                                                    >
+                                                        <FaQuestionCircle className="ml-2" size="15" fill="#9E9E9E" />
+                                                    </OverlayTrigger>
+                                                </>
                                             </div>
 
                                             , style: 'warn' });

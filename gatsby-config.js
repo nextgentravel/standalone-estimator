@@ -37,12 +37,13 @@ module.exports = {
         // provided to the function, as seen below. This allows you to use
         // different link resolver logic for each field if necessary.
         // See: https://prismic.io/docs/javascript/query-the-api/link-resolving
-        linkResolver: ({ node, key, value }) => (doc) => {	
+        linkResolver: ({ node, key, value }) => (doc) => {
           // Pretty URLs for known types
-          if (doc.type === 'blog') return "/post/" + doc.uid;
-          if (doc.type === 'page') return "/" + doc.uid;
+          let lang = node.lang === 'en-ca' ? 'en' : 'fr';
+          if (doc.type === 'generic_content_page') return "/" + lang + "/" + doc.uid;
+          if (doc.type === 'tool') return "/" + lang + "/" + doc.uid;
           // Fallback for other types, in case new custom types get created
-          return "/doc/" + doc.id;
+          return lang + "/doc/" + doc.id;
         },
 
         // Set a list of links to fetch and be made available in your link
@@ -59,12 +60,16 @@ module.exports = {
         // provided to the function, as seen below. This allows you to use
         // different HTML serializer logic for each field if necessary.
         // See: https://prismic.io/docs/nodejs/beyond-the-api/html-serializer
-        htmlSerializer: ({ node, key, value }) => (
+        htmlSerializer: ({
+          node,
+          key,
+          value
+        }) => (
           type,
           element,
           content,
           children,
-      ) => {},
+        ) => {},
 
         // Provide an object of Prismic custom type JSON schemas to load into
         // Gatsby. This is required.
@@ -93,7 +98,11 @@ module.exports = {
         // provided to the function, as seen below. This allows you to use
         // different logic for each field if necessary.
         // This defaults to always return false.
-        shouldDownloadImage: ({ node, key, value }) => {
+        shouldDownloadImage: ({
+          node,
+          key,
+          value
+        }) => {
           return true;
         },
 
@@ -267,6 +276,13 @@ module.exports = {
         },
       ],
     },
+    {
+      resolve: `gatsby-plugin-hotjar`,
+      options: {
+        id: process.env.HOTJAR_ID,
+        sv: process.env.HOTJAR_SNIPPET_VERSION
+      },
+    },
     `gatsby-plugin-use-query-params`,
     "gatsby-plugin-use-query-params",
     {
@@ -287,7 +303,60 @@ module.exports = {
       options: {
         modules: [`luxon`]
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-lunr`,
+      options: {
+        languages: [{
+            name: 'en',
+            filterNodes: node => {
+              if (!node.lang) return;
+              return node.lang === 'en-ca'
+            },
+            customEntries: [],
+          },
+          {
+            name: 'fr',
+            filterNodes: node => {
+              if (!node.lang) return;
+              return node.lang === 'fr-ca'
+            },
+          },
+        ],
+        fields: [{
+            name: 'title',
+            store: true,
+            attributes: {
+              boost: 20
+            }
+          },
+          {
+            name: 'content',
+            store: true
+          },
+          {
+            name: 'url',
+            store: true
+          },
+          {
+            name: 'parent_page',
+            store: true
+          },
+        ],
+        resolvers: {
+          PrismicTravelStep: {
+            title: node => node.data.title.text,
+            content: node => node.data.content.text,
+            url: node => node.url,
+            parent_page: node => node.data.belongs_to.uid,
+          },
+        },
+        filename: 'search_index.json',
+        fetchOptions: {
+          credentials: 'same-origin'
+        },
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
