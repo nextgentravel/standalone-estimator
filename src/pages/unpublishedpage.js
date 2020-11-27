@@ -21,8 +21,6 @@ export const UnpublishedPage = (props) => {
 
   let previewType = Object.keys(previewData)[0];
 
-  console.log(previewType)
-
   switch (previewType) {
     case 'prismicTravelStep':
       return <div className="container"><TravelStep index={0} data={previewData[previewType].data} /></div>
