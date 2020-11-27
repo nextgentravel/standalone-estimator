@@ -4,7 +4,6 @@ import SEO from "../components/seo";
 import ContentPanel from "../components/content-panel";
 import ToolPanel from "../components/tool-panel";
 import DoormatPanel from "../components/doormat-panel";
-import { FormattedMessage } from 'react-intl';
 import { RiQuestionnaireLine } from 'react-icons/ri';
 import { FaMinus } from 'react-icons/fa';
 
