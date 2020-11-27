@@ -9,7 +9,7 @@ const Template = ({ data }) => {
   console.log(data);
   return (
     <Layout>
-      <h1></h1>
+      <h1>Preview</h1>
     </Layout>
   )
 }
