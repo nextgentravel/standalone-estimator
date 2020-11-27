@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { navigate, useStaticQuery } from 'gatsby'
+import { navigate, graphql, useStaticQuery } from 'gatsby'
 import { usePrismicPreview } from 'gatsby-source-prismic'
 
 // Note that the `location` prop is taken and provided to the `usePrismicPreview` hook.
@@ -45,6 +45,7 @@ const PreviewPage = ({ location }) => {
     } else {
       navigate('/unpublishedpage')
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPreview, previewData, path])
 
   // Tell the user if this is not a preview.
