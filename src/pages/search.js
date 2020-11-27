@@ -1,7 +1,6 @@
 /* src/pages/search.js */
 import React, {useState, useEffect} from "react"
 import { Link, graphql } from "gatsby"
-import { Index } from "lunr"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import 'url-search-params-polyfill';
