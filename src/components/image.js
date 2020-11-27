@@ -8,16 +8,26 @@ const Image = props => (
   <StaticQuery
     query={graphql`
       query {
-        images: allFile(filter:{ extension: { regex: "/jpeg|jpg|png|gif/"}}) {
+        images: allFile(filter: {extension: {regex: "/jpeg|jpg|png|gif/"}}) {
           edges {
             node {
               relativePath
               name
               childImageSharp {
                 fluid(maxWidth: 600) {
-                  ...GatsbyImageSharpFluid
+                  aspectRatio
                 }
               }
+              extension
+              publicURL
+            }
+          }
+        }
+        svgs: allFile(filter: {extension: {regex: "/svg/"}}) {
+          edges {
+            node {
+              relativePath
+              name
               extension
               publicURL
             }
@@ -29,15 +39,19 @@ const Image = props => (
       const image = data.images.edges.find(n => {
         return n.node.relativePath.includes(props.filename);
       });
-      if (!image) {
+
+      const svg = data.svgs.edges.find(n => {
+        return n.node.relativePath.includes(props.filename);
+      });
+
+      if (!image && !svg) {
         return null;
       }
 
-      if (!image.node.childImageSharp && image.node.extension === 'svg') {
-        return <img alt={props.alt} className={props.className} src={image.node.publicURL} />
+      if (svg && svg.node.extension === 'svg') {
+        return <img alt={props.alt} className={props.className} src={svg.node.publicURL} />
       }
 
-      //const imageSizes = image.node.childImageSharp.sizes; sizes={imageSizes}
       return <Img alt={props.alt} className={props.className} fluid={image.node.childImageSharp.fluid} />;
     }}
   />
