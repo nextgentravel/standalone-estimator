@@ -174,7 +174,9 @@ const RatesChecker = () => {
                     updateValue={setReturnDate}
                     initialDate={initialDates.return}
                 />
+                {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                 <button type="submit" className="btn btn-primary"><FormattedMessage id="submit"/></button>
+                {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                 <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}><FormattedMessage id="clear"/></button>
                 {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
             </form>
@@ -197,13 +199,16 @@ const RatesChecker = () => {
                         <table className="table">
                             <thead>
                                 <tr>
+                                    {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                                     <th scope="col"><FormattedMessage id="rateTableHeadMonth" /></th>
+                                    {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                                     <th scope="col"><FormattedMessage id="rateTableHeadRate" /></th>
                                 </tr>
                             </thead>
                             <tbody>
                             {Object.keys(result.acrdRatesFiltered).map((month) => (
                                 <tr key={month}>
+                                    {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                                     <th scope="row"><FormattedMessage id={month} /></th>
                                     <td>${result.acrdRatesFiltered[month]}</td>
                                 </tr>
