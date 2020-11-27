@@ -12,8 +12,11 @@ import MealsModal from "./meals-modal.js"
 
 import { dailyMealTemplate } from "./functions/dailyMealTemplate"
 
+<<<<<<< HEAD
 import Tooltip from 'react-bootstrap/Tooltip'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+=======
+>>>>>>> bugs/dev-cleanup
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { Spinner } from 'react-bootstrap'
@@ -21,8 +24,6 @@ import { Spinner } from 'react-bootstrap'
 import cities from "../data/cities.js"
 import geocodedCities from "../data/geocodedCities"
 import acrdRates from "../data/acrdRates.js"
-import accommodations from "../data/accommodations.js"
-import transportData from "../data/transport-data.js"
 import locations from "../data/locations.js"
 
 import { FaSpinner, FaQuestionCircle, FaExclamationTriangle, FaBed, FaPlane, FaTaxi, FaUtensils, FaSuitcase } from 'react-icons/fa'
@@ -57,7 +58,10 @@ const Estimator = () => {
     // Variables/state for inputs
     const [origin, setOrigin] = useState('');
     const [destination, setDestination] = useState('');
+    // These will be used by the API's later.
+    // eslint-disable-next-line no-unused-vars
     const [originData, setOriginData] = useState({});
+    // eslint-disable-next-line no-unused-vars
     const [destinationData, setDestinationData] = useState({});
     const [departureDate, setDepartureDate] = useState(initialDates.departure);
     const [returnDate, setReturnDate] = useState(initialDates.return);
@@ -90,7 +94,7 @@ const Estimator = () => {
         }
 
         setOriginData(data);
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }), [origin])
 
     useEffect((() => {
@@ -160,15 +164,18 @@ const Estimator = () => {
                 estimatedValue: calculateKilometrics,
             }
         })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [privateKilometricsValue])
 
     useEffect(() => {
         calculateTotal()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [accommodationCost, transportationCost, localTransportationCost, mealCost, otherCost])
 
     useEffect(() => {
         let mealTotals = calculateMeals(mealsByDay, province)
         setMealCost(mealTotals)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [mealsByDay]);
 
     const [mealsModalShow, setMealsModalShow] = React.useState(false);
@@ -259,6 +266,7 @@ const Estimator = () => {
         } else {
             updateAccommodationCost(0.00)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [accommodationType])
 
     const amadeusAccessTokenCheck = () => {
@@ -347,6 +355,7 @@ const Estimator = () => {
             updateTransportationCost(transportationEstimates.rentalCar.estimatedValue)
             setTransportationMessage({ element: <FormattedMessage id="transportationPrivateVehicleMessage" values={{ rate: privateVehicleRate, kilometres: (returnDistance / 1000).toFixed(0) }} />  })
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [transportationType])
 
 
@@ -475,7 +484,6 @@ const Estimator = () => {
 
         let originElement = document.querySelector('#autocomplete-origin')
         let destinationElement = document.querySelector('#autocomplete-destination')
-        let clearFormButton = document.querySelector('#clear-button')
         let datePickerDepart = document.querySelector('#departureDate')
         let datePickerReturn = document.querySelector('#returnDate')
 
@@ -679,7 +687,9 @@ const Estimator = () => {
                 </div>
                 <div className="col-sm-3"></div>
                 <div className="col-sm-6">
+                    {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                     <button type="submit" className="btn btn-primary"><FormattedMessage id="estimate"/></button>
+                    {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                     <button type="button" id="clear-button" className="btn btn-secondary ml-2" onClick={() => {clearForm()}}><FormattedMessage id="clear"/></button>
                     {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
                 </div>
@@ -711,7 +721,7 @@ const Estimator = () => {
                                         <div id={"accommodation_container"}>
                                         <select
                                             className="custom-select mb-2"
-                                            onChange={e => setAccommodationType(e.target.value)}
+                                            onBlur={e => setAccommodationType(e.target.value)}
                                         >
                                             <option value="hotel">Hotel</option>
                                             <option value="private">Private Accommodation</option>
@@ -769,7 +779,7 @@ const Estimator = () => {
                                         <div id={"transportation_container"}>
                                         <select
                                             className="custom-select mb-2"
-                                            onChange={e => {
+                                            onBlur={e => {
                                                 setTransportationType(e.target.value)
                                                 if (e.target.value === 'private') {
                                                     updateLocalTransportationCost(0)
@@ -844,7 +854,7 @@ const Estimator = () => {
                             id="mealsAndIncidentals"
                             description="selectMealsToInclude"
                             message={{
-                                element: <a href="#" onClick={(e) => { handleMealsModalShow(e) }}>Select meals to include</a>
+                                element: <a href="/" onClick={(e) => { handleMealsModalShow(e) }}>Select meals to include</a>
                             }}
                             icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
                             title="mealsAndIncidentals"
