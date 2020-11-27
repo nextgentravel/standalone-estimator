@@ -1,5 +1,4 @@
 import React from "react";
-import { useIntl } from 'react-intl';
 import DoormatPanelItem from './doormat-panel-item';
 
 import {
@@ -38,7 +37,6 @@ export default () => {
       render = {
         data => {
           const doormats = data.allPrismicDoormat.nodes;
-          console.log(doormats)
           return (
             <React.Fragment>
                 <div className="row mb-5">
@@ -51,6 +49,7 @@ export default () => {
                                 linkNewWindow={item.data.link_new_window}
                                 title={item.data.title.text}
                                 content={item.data.lead.text}
+                                key={index}
                             />
                         )
                     })}
