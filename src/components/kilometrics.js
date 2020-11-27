@@ -132,7 +132,9 @@ const Kilometrics = () => {
                         updateValue={setDistance}
                         clearForm={clearForm}
                     />
+                    {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                     <button type="submit" className="btn btn-primary"><FormattedMessage id="submit" /></button>
+                    {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                     <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}><FormattedMessage id="clear" /></button>
                     {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
                 </form>
