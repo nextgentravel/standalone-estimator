@@ -50,6 +50,7 @@ export default () => {
                                 linkNewWindow={item.data.link_new_window}
                                 title={item.data.title.text}
                                 content={item.data.lead.text}
+                                key={index}
                             />
                         )
                     })}
