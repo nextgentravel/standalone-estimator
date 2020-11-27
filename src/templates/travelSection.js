@@ -56,12 +56,12 @@ const TravelSection = ({ data }) => {
         <SEO title={travelSection.title.text} />
         <div className="hero-holder">
           <div className="container">
-            <nav className="skiphold" aria-label="sidebar skiplink"><a className="sr-only sr-only-focusable aurora-skip skiplink" id="sidebar-skiplink" href="#sidebar"><FormattedMessage id="skipToSide"/></a></nav>
+            <nav className="skiphold" aria-label="sidebar skiplink"><a className="sr-only sr-only-focusable aurora-skip skiplink" id="sidebar-skiplink" href="#sidebar" aria-label="skip to side"><FormattedMessage id="skipToSide"/></a></nav>
             <div className="row mb-4">
               <div className="col-sm-8"><h2 className="display-5">{travelSection.title.text}</h2></div>
               {travelSection.jumpTo && <div className="col-sm-2 ml-auto">
                 <div className="form-group">
-                  <select onChange={jumpTo} className="custom-select text-secondary align-middle">
+                  <select onBlur={jumpTo} className="custom-select text-secondary align-middle">
                     <option value="">Jump to...</option>
                     {/* {travelSection.jumpTo.map((item) => {
                       return (
