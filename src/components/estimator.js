@@ -834,7 +834,7 @@ const Estimator = () => {
                             id="mealsAndIncidentals"
                             description="selectMealsToInclude"
                             message={{
-                                element: <a href="javascript:;" onClick={(e) => { handleMealsModalShow(e) }}>Select meals to include</a>
+                                element: <a href="/" onClick={(e) => { handleMealsModalShow(e) }}>Select meals to include</a>
                             }}
                             icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
                             title="mealsAndIncidentals"
