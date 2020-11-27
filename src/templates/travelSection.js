@@ -81,7 +81,7 @@ const TravelSection = ({ data }) => {
           <article className="content-left col-xs-12 col-sm-12 col-md-12">
             {travelSteps.nodes.map((node, index) => {
               return (
-                <TravelStep data={node.data} index={index} />
+                <TravelStep data={node.data} index={index} key={index} />
               )
             })}
 
@@ -92,7 +92,7 @@ const TravelSection = ({ data }) => {
 
                 {faqItems.map ((item, index) => {
                   return (
-                    <FaqItem data={item.data} index={index} collapsed={item.collapsed} toggleFaqAccordian={toggleFaqAccordian} />
+                    <FaqItem data={item.data} index={index} collapsed={item.collapsed} toggleFaqAccordian={toggleFaqAccordian} key={index} />
                   );
                 })}
               </>
