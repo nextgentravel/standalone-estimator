@@ -710,7 +710,7 @@ const Estimator = () => {
                                         <div id={"accommodation_container"}>
                                         <select
                                             className="custom-select mb-2"
-                                            onBlurs={e => setAccommodationType(e.target.value)}
+                                            onBlur={e => setAccommodationType(e.target.value)}
                                         >
                                             <option value="hotel">Hotel</option>
                                             <option value="private">Private Accommodation</option>
@@ -834,7 +834,7 @@ const Estimator = () => {
                             id="mealsAndIncidentals"
                             description="selectMealsToInclude"
                             message={{
-                                element: <a href={() => false} onClick={(e) => { handleMealsModalShow(e) }}>Select meals to include</a>
+                                element: <a href="javascript:;" onClick={(e) => { handleMealsModalShow(e) }}>Select meals to include</a>
                             }}
                             icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
                             title="mealsAndIncidentals"
