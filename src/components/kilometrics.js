@@ -38,7 +38,6 @@ const Kilometrics = () => {
 
     const handleValidation = () => {
         let target = {province, distance};
-        console.log('target', target)
         let schema = yup.object().shape({
             province: yup
                 .string()
@@ -65,7 +64,6 @@ const Kilometrics = () => {
         handleValidation()
             .then((valid) => {
                 setValidationWarnings([]);
-                console.log(province.lastIndexOf('(') + 1, 2);
                 let provinceAbbreviation = province.substr(province.lastIndexOf('(') + 1, 2)
                 let provinceRate = locations[provinceAbbreviation].rateCents
                 let rateCalc = parseInt(provinceRate) * parseInt(distance) / 100;

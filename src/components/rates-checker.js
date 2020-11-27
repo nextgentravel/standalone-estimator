@@ -59,7 +59,6 @@ const RatesChecker = () => {
         handleValidation()
             .then((valid) => {
                 setValidationWarnings([]);
-                console.log('destination: ', destination)
                 let city = suburbCityList[destination] || destination;
                 let province = city.slice(-2); // This is bad.  We need to change the data structure.
                 let months = monthsContained(departureDate,returnDate);
@@ -102,8 +101,6 @@ const RatesChecker = () => {
     }
 
     const handleValidation = () => {
-        console.log('depart:', departureDate);
-        console.log('return:', returnDate);
         let target = {destination, departureDate, returnDate};
         let schema = yup.object().shape({
             destination: yup

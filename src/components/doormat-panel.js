@@ -37,7 +37,6 @@ export default () => {
       render = {
         data => {
           const doormats = data.allPrismicDoormat.nodes;
-          console.log(doormats)
           return (
             <React.Fragment>
                 <div className="row mb-5">
