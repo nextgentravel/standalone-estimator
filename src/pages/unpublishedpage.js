@@ -1,6 +1,5 @@
 import * as React from 'react'
 
-import PageTemplate from '../templates/page'
 import TravelStep from '../components/travel-step'
 import FaqQuestion from '../components/faq-question'
 import DoormatPanelItem from '../components/doormat-panel-item'
@@ -57,7 +56,7 @@ export const UnpublishedPage = (props) => {
           <SEO title={previewData[previewType].data.title.text} />
           <div className="hero-holder">
             <div className="container">
-              <nav className="skiphold" aria-label="sidebar skiplink"><a className="sr-only sr-only-focusable aurora-skip skiplink" id="sidebar-skiplink" href="#sidebar"></a></nav>
+              <nav className="skiphold" aria-label="sidebar skiplink"><a className="sr-only sr-only-focusable aurora-skip skiplink" id="sidebar-skiplink" href="#sidebar" aria-label="skip to content">skip to content</a></nav>
               <div className="row mb-4">
                 <div className="col-sm-8"><h2 className="display-5">{previewData[previewType].data.title.text}</h2></div>
               </div>
@@ -85,8 +84,6 @@ export const UnpublishedPage = (props) => {
     default:
       return <div className="container"><p>Unknown Preview Type</p></div>
   }
-
-  return <PageTemplate {...props} data={previewData} />
 }
 
 export default UnpublishedPage
