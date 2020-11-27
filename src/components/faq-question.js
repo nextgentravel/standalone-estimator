@@ -7,7 +7,7 @@ const FaqItem = ({data, index, collapsed, toggleFaqAccordian}) => {
             className="card px-4 pt-4 pb-3 my-4"
         >
             <div className="row">
-                <div className="col-sm-12" onClick={() => toggleFaqAccordian(index)}>
+                <button className="col-sm-12 btn btn-plain" aria-expanded="false" onClick={() => toggleFaqAccordian(index)}>
                     <p className="lead mb-1">
                         {data.question.text}
                     </p>
@@ -28,7 +28,7 @@ const FaqItem = ({data, index, collapsed, toggleFaqAccordian}) => {
                             }}
                         />
                     }
-                </div>
+                </button>
                 {!collapsed &&
                     <React.Fragment>
                         <div className="col-sm-12 mt-2">
