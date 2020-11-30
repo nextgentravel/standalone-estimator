@@ -41,3 +41,14 @@ export const wrapPageElement = ({ element, props }) => {
         </PreviewStoreProvider>
     )
 }
+
+export const onClientEntry = () => {
+    const userLang = navigator.language.substr(0, 2)
+    if (window.location.pathname === '/') {
+        if (userLang === 'en' || userLang === 'fr') {
+            window.location.pathname = '/' + userLang
+        } else {
+            window.location.pathname = '/'
+        }
+    }
+}
