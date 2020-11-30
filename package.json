@@ -97,5 +97,8 @@
   },
   "bugs": {
     "url": "https://github.com/nextgentravel/travel-guidebook-client/issues"
+  },
+  "resolutions": {
+    "cypress": "4.6.0"
   }
 }
