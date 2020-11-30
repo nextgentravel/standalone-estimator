@@ -12,11 +12,6 @@ import MealsModal from "./meals-modal.js"
 
 import { dailyMealTemplate } from "./functions/dailyMealTemplate"
 
-<<<<<<< HEAD
-import Tooltip from 'react-bootstrap/Tooltip'
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
-=======
->>>>>>> bugs/dev-cleanup
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { Spinner } from 'react-bootstrap'
