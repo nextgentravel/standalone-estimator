@@ -90,10 +90,24 @@ const RatesChecker = () => {
     }
 
     const clearForm = () => {
-        document.getElementById("rates-form").reset();
-        setDepartureDate('');
-        setReturnDate('');
-        setDestination('');
+        // START OF HACK This is a hack to programatically clear the autocomplete inputs
+
+        let destinationElement = document.querySelector('#autocomplete-destination')
+        let clearFormButton = document.querySelector('#clear-button')
+        let datePickerDepart = document.querySelector('#departureDate')
+        let datePickerReturn = document.querySelector('#returnDate')
+
+        destinationElement.value = "";
+        destinationElement.click();
+        destinationElement.focus();
+        destinationElement.blur();
+
+        setTimeout(function(){ 
+            datePickerDepart.value = '';
+            datePickerReturn.value = '';
+        },0);
+
+        // END OF HACK
         setValidationWarnings([])
         setGeneralError(false);
         setErrorPanel(false);

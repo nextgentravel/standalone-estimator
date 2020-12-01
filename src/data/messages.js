@@ -150,8 +150,8 @@ module.exports = {
         // eslint-disable-next-line no-template-curly-in-string
         "localTransportationMessage": "Based on an average of {cost} per day for travel in {destination}",
         "otherAllowancesMessage": "Amount is a total of all additional expenses",
-        // eslint-disable-next-line no-template-curly-in-string
-        "accommodationWarning": "You've exceed the recommended total of ${acrdTotal} for your trip",
+        "accommodationWarning": "You've exceeded the recommended total of ${acrdTotal} per night",
+        "accommodationTooltip": "Include justification when submitting your estimate to help your approver understand why the cost exceeds the city rate limit",
         "email": "Email",
         "tripName": "Trip Name",
         "tripNamePlaceholder": "e.g. Land survey - Vancouver",

@@ -159,7 +159,7 @@ export const query = graphql`
       nodes {
         data {
           answer {
-            text
+            html
           }
           question {
             text
