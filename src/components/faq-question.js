@@ -31,8 +31,7 @@ const FaqItem = ({data, index, collapsed, toggleFaqAccordian}) => {
                 </button>
                 {!collapsed &&
                     <React.Fragment>
-                        <div className="col-sm-12 mt-2">
-                            {data.answer.text}
+                        <div className="col-sm-12 mt-2" dangerouslySetInnerHTML={{ __html: data.answer.html }}>
                         </div>
                     </React.Fragment>
                 }
