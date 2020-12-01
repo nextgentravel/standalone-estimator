@@ -116,6 +116,15 @@ h4 {
     width: 100%;
     z-index: 3;
 }
+.btn-plain{
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: left;
+}
 
 #bg {
     height: 200%;

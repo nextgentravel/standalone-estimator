@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React from "react"
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Form from 'react-bootstrap/Form'
@@ -72,7 +72,7 @@ const EmailForm = (props) => {
                     <FormattedMessage id="notes" />
                 </Form.Label>
                 <Col sm="9">
-                    <Form.Control value={props.tripNotes} onChange={(e) => { props.setTripNotes(e.target.value) }} value={props.tripNotes} as="textarea" rows={3} />
+                    <Form.Control value={props.tripNotes} onChange={(e) => { props.setTripNotes(e.target.value) }} as="textarea" rows={3} />
                 </Col>
             </Form.Group>
         </Form>

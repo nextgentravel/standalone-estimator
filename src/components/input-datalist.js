@@ -37,7 +37,6 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
                     onConfirm={value => {
                         // do our validation here?
                         // if this is a valid option, then:
-                        console.log('value', value)
                         updateValue(value)
                         // if not, set it to blank, so it will fail validation
                     }}
