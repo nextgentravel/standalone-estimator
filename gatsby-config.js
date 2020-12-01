@@ -157,46 +157,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pages`,
-        path: `${__dirname}/src/pages`,
-      },
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [{
-            resolve: "gatsby-remark-custom-blocks",
-            options: {
-              blocks: {
-                card: {
-                  classes: "card mb-3",
-                },
-                'card-body': {
-                  classes: "card-body",
-                },
-                'info-card': {
-                  classes: "card info-card",
-                },
-                info: {
-                  classes: "info",
-                  title: "optional",
-                },
-              },
-            },
-          },
-          {
-            resolve: "gatsby-remark-external-links",
-            options: {
-              target: "_blank",
-              rel: "nofollow"
-            }
-          },
-        ],
-      },
-    },
-    {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [

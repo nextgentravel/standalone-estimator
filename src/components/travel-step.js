@@ -1,7 +1,6 @@
 import React from "react";
 
 const TravelStep = ({data, index}) => {
-    console.log('data', data)
     return (
         <div className="card px-4 pt-4 my-4 bg-light">
             <div className="row">
