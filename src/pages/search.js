@@ -32,8 +32,9 @@ const SearchPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const intl = useIntl()
   const langKey = intl.locale;
+
   // LunrIndex is available via page query
-  let lunr = window.__LUNR__[langKey];
+  let lunr = typeof window !== `undefined` ? window.__LUNR__[langKey] : '';
   const { store } = lunr
   // Lunr in action here
   const index = lunr.index
