@@ -2,12 +2,6 @@ import React from "react";
 import {
     useIntl
 } from 'react-intl';
-import {
-    FaClipboardList,
-    FaTicketAlt,
-    FaPlaneDeparture,
-    FaFileInvoiceDollar
-} from 'react-icons/fa';
 
 import ContentPanelItem from './content-panel-item';
 
@@ -55,9 +49,8 @@ const ContentPanel = () => {
         }
         render = {
             data => {
-                return data.allPrismicTravelSection.edges.map(section => {
+                return data.allPrismicTravelSection.edges.map((section, index) => {
                     const data = section.node.data;
-                    console.log('data: ', data);
                     return (
                         <ContentPanelItem
                             title={data.title.text}
@@ -66,6 +59,7 @@ const ContentPanel = () => {
                             iconColour={data.colour}
                             linkTo={`${homeLink}${data.link}`}
                             chevron={data.chevron}
+                            key={index}
                         />
                     )
                 })

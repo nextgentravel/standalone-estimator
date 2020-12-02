@@ -4,7 +4,6 @@ import ToolPanelItem from './tool-panel-item';
 import { FaCalculator } from 'react-icons/fa';
 import { FaMapMarker } from 'react-icons/fa';
 import { FaCar } from 'react-icons/fa';
-import { MdFiberNew } from 'react-icons/md';
 
 const ToolPanel = () => {
     const intl = useIntl();

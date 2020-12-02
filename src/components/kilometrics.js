@@ -38,7 +38,6 @@ const Kilometrics = () => {
 
     const handleValidation = () => {
         let target = {province, distance};
-        console.log('target', target)
         let schema = yup.object().shape({
             province: yup
                 .string()
@@ -65,7 +64,6 @@ const Kilometrics = () => {
         handleValidation()
             .then((valid) => {
                 setValidationWarnings([]);
-                console.log(province.lastIndexOf('(') + 1, 2);
                 let provinceAbbreviation = province.substr(province.lastIndexOf('(') + 1, 2)
                 let provinceRate = locations[provinceAbbreviation].rateCents
                 let rateCalc = parseInt(provinceRate) * parseInt(distance) / 100;
@@ -145,7 +143,9 @@ const Kilometrics = () => {
                         updateValue={setDistance}
                         clearForm={clearForm}
                     />
+                    {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                     <button type="submit" className="btn btn-primary"><FormattedMessage id="submit" /></button>
+                    {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                     <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}><FormattedMessage id="clear" /></button>
                     {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
                 </form>

@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import { Link } from "gatsby"
 import { withUnpublishedPreview } from 'gatsby-source-prismic'
 
-import { PageTemplate } from '../templates/page'
+import PageTemplate from '../templates/page'
 
 import { FaExclamationTriangle } from 'react-icons/fa';
 
