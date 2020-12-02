@@ -8,136 +8,105 @@ import { useQueryParam, StringParam } from "use-query-params";
 
 import { useIntl } from 'react-intl';
 
+function escapeRegExp(str) {
+  return str.replace(/[-s/\\^$*+?.()|[\]{}]/g, '\\$&');
+}
+
+const Highlighted = ({text = '', highlight = ''}) => {
+  if (!highlight.trim()) {
+    return <span>{text}</span>
+  }
+  const regex = new RegExp(`(${escapeRegExp(highlight)})`, 'gi')
+  const parts = text.split(regex)
+  return (
+    <span>
+       {parts.filter(part => part).map((part, i) => (
+           regex.test(part) ? <mark key={i}>{part}</mark> : <span key={i}>{part}</span>
+       ))}
+   </span>
+  )
+}
+
 // We can access the results of the page GraphQL query via the data props
 const SearchPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const intl = useIntl()
+  const langKey = intl.locale;
   // LunrIndex is available via page query
-  // const { store } = data.LunrIndex
+  let lunr = window.__LUNR__[langKey];
+  const { store } = lunr
   // Lunr in action here
+  const index = lunr.index
   let [results, setResults] = useState([]);
-  // let [fuzzy, setFuzzy] = useState(false);
-  // let [correctedTerms, setCorrectedTerms] = useState([]);
+  let [fuzzy, setFuzzy] = useState(false);
+  let [correctedTerms, setCorrectedTerms] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [searchQuery, setSearchQuery] = useQueryParam('q', StringParam)
 
-  useEffect(
-    () => {
-      if (!searchQuery || !window.__LUNR__) {
-        setResults([])
-        return
+  const processSearchResult = (results) => {
+    return results = results.map((result) => {
+      let terms = Object.keys(result.metadata);
+      let displayExcerpt = '';
+      let positions = [];
+
+      positions.sort((a, b) => {
+        return a - b;
+      });
+
+      let corrected = [];
+
+      terms.forEach(term => {
+        if (corrected.indexOf(term) === -1) corrected.push(term);
+      });
+
+      setCorrectedTerms(corrected)
+
+      let c = result.content;
+      displayExcerpt = `${c}`
+
+      return {
+        displayExcerpt,
+        ...result,
+        terms,
       }
-      const lunrIndex = window.__LUNR__['en']
-      const searchResults = lunrIndex.index.search(searchQuery)
-      setResults(
-        searchResults.map(({ ref }) => {
-          return lunrIndex.store[ref]
-        })
-      )
-    },
-    [searchQuery]
-  )
+    })
+  }
 
-  // const processSearchResult = (results) => {
-  //   return results = results.filter((result) => {
-  //     if (!result.slug.includes(`/${intl.locale}/`)) {
-  //       return false;
-  //     }
-  //     return result;
-  //   }).map((result) => {
-  //     let terms = Object.keys(result.metadata);
-  //     let displayExcerpt = '';
-  //     let foundInContent = false;
-  //     let foundInTags = false;
-  //     let positions = [];
-    
-  //     terms.forEach(term => {
-  //       if ('content' in result.metadata[term]) {
-  //         positions.push(result.metadata[term].content.position[0][0]);
-  //         foundInContent = true;
-  //       }
-  //       if ('tags' in result.metadata[term]) {
-  //         foundInTags = true;
-  //       }
-  //     })
-  
-  //     positions.sort((a, b) => {
-  //       return a - b;
-  //     });
+  const search = (q, fuzzy) => {
+    let query = fuzzy ? `${searchQuery}~2` : q;
+    return index.search(query).map(({ ref, matchData }) => {
+      return {
+        slug: ref,
+        metadata: matchData.metadata,
+        ...store[ref],
+      }
+    })
+  };
 
-  //     let corrected = [];
+  useEffect(() => {
+    setResults([]);
+    setFuzzy(false);
+    setCorrectedTerms([]);
+    console.log('r!!!???')
+    try {
+      let r = processSearchResult(search(searchQuery, false));
+      console.log('First result:', r)
+      if (r.length === 0) {
+        r = processSearchResult(search(searchQuery, true));
+        if (r.length > 0) setFuzzy(true);
+      }
+      setResults(r);
+    } catch (error) {
+      // console.log(error)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchQuery])
 
-  //     terms.forEach(term => {
-  //       if (foundInTags) {
-  //         let start = result.metadata[term].tags.position[0][0];
-  //         term = result.tags.substring(start, result.tags.length)
-  //       }
-
-  //       if (corrected.indexOf(term) === -1) corrected.push(term);
-  //     });
-
-  //     setCorrectedTerms(corrected)
-  
-  //     if (foundInContent) {
-  //       let firstInstance = positions[0]
-  //       let c = result.content;
-  //       let excerpt = c.substring(firstInstance - 20, firstInstance + 200);
-  //       let firstSpace = excerpt.indexOf(' ');
-  //       let excerptTruncated = excerpt.substring(firstSpace, excerpt.length);
-  //       let highlightedExcerpt = excerptTruncated;
-  //       terms.forEach(term => {
-  //         let replace = term;
-  //         let re = new RegExp(replace, 'gi');
-  //         highlightedExcerpt = highlightedExcerpt.replace(re, `<strong>${term}</strong>`);
-  //       });
-  //       displayExcerpt = `${highlightedExcerpt.trim()}`
-  //     } else if (foundInTags) {
-  //       let c = result.content;
-  //       displayExcerpt = c.substring(0, 200);
-  //       displayExcerpt = `<p class="lead">Suggestion based on <em>${searchQuery}</em></p>${displayExcerpt.trim()}...`
-  //     }
-  
-  //     return {
-  //       displayExcerpt,
-  //       ...result,
-  //       terms,
-  //     }
-  //   })
-  // }
-
-  // const search = (q, fuzzy) => {
-  //   let query = fuzzy ? `${searchQuery}~2` : q;
-  //   return index.search(query).map(({ ref, matchData }) => {
-  //     return {
-  //       slug: ref,
-  //       metadata: matchData.metadata,
-  //       ...store[ref],
-  //     }
-  //   })
-  // };
-
-  // useEffect(() => {
-  //   setResults([]);
-  //   setFuzzy(false);
-  //   setCorrectedTerms([]);
-  //   try {
-  //     let r = processSearchResult(search(searchQuery, false));
-  //     if (r.length === 0) {
-  //       r = processSearchResult(search(searchQuery, true));
-  //       if (r.length > 0) setFuzzy(true);
-  //     }
-  //     setResults(r);
-  //   } catch (error) {
-  //     // console.log(error)
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [searchQuery])
-
-  // const searchInstead = (q) => {
-  //   setFuzzy(false);
-  //   let r = processSearchResult(search(searchQuery, false));
-  //   setResults(r);
-  // }
+  const searchInstead = (q) => {
+    setFuzzy(false);
+    let r = processSearchResult(search(searchQuery, false));
+    setResults(r);
+  }
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -145,6 +114,17 @@ const SearchPage = ({ data, location }) => {
       <main className="container" id="main-content">
         {searchQuery ? <h2 className="font-weight-bold">Search Results</h2> : <h2 className="font-weight-bold">What are you looking for?</h2>}
         <div className="p-1">
+          {!fuzzy &&
+            <>
+              <p className="font-weight-bold mt-2 mb-5">{results.length} result{results.length !== 1 ? 's' : ''} for "{searchQuery}"</p>
+            </>
+          }
+          {fuzzy &&
+            <>
+              <p className="font-weight-bold mt-2 mb-2">{results.length} result{results.length !== 1 ? 's' : ''} for "{correctedTerms.join(', ')}"</p>
+              {results.length > 0 && <p className="font-italic text-secondary mb-5">Search instead for <a href="#!" onClick={() => { searchInstead(searchQuery) }}>{searchQuery}</a>.</p>}
+            </>
+          }
           {results.length ? (
               results.map((result, index) => {
               return (
@@ -152,11 +132,11 @@ const SearchPage = ({ data, location }) => {
                   <article className={index === 0 ? 'card border-dark p-3 mb-5': 'mb-5'}>
                     {index === 0 && <p className="text-secondary">Best Match</p>}
                     <h3>
-                      <Link to={`/${intl.locale}/${result.parent_page}`}>
+                      <Link to={result.slug}>
                         {result.title || result.slug}
                       </Link>
                     </h3>
-                    <div dangerouslySetInnerHTML={{__html: result.content}}></div>
+                    <Highlighted text={result.displayExcerpt} highlight={searchQuery}/>
                   </article>
                 </React.Fragment>
               )
