@@ -118,7 +118,6 @@ module.exports = {
         "transportation": "Transportation",
         "transportationDescription": "Select mode of transportation to see estimate",
         "localTransportation": "Local Transportation",
-        "localTransportationDescription": "Select city to see estimate for local transportation",
         "mealsAndIncidentals": "Meals and Incidentals",
         "selectMealsToInclude": "Select travel dates to see allowance for meals and incidentals",
         "otherAllowances": "Other allowances (total)",
@@ -134,18 +133,21 @@ module.exports = {
         "estimateReturnDateNotValid": "Return date must be in DD-MM-YYYY format",
         "newUser": "First time travellers",
         "otherTooltipText": "Provide a total for all other expenses that apply, for example: extra luggage, child care, etc.)",
+        // eslint-disable-next-line no-template-curly-in-string
         "hotelAccommodationMessage": "City rate limit for {destination} during your chosen dates is ${rate} per night",
         "privateAccommodationMessage": "You will receive $50 per night",
         "privateDescription": "Select mode of transportation to see estimate",
-        "transportationDescription": "Select mode of transportation to see estimate",
         "localTransportationDescription": "Select city to see estimate for local transportation",
+        // eslint-disable-next-line no-template-curly-in-string
         "localTransportationSetDescription": "Based on an average of $50 per day for travel in {destination}",
         "transportationFlightMessage": "Average published airfare on <strong>{date}</strong>",
         "transportationFlightMessageCouldNotLoad": "Could not estimate flight price.  Please enter your flight price manually.",
         "transportationFlightMessageLoading": "Loading latest rates...",
         "transportationTrainMessage": "Lowest published train fare on {date}",
         "transportationRentalCarMessage": "Lowest priced medium sized car on {date}",
+        // eslint-disable-next-line no-template-curly-in-string
         "transportationPrivateVehicleMessage": "{rate} cents/km based on an average of {kilometres}km return trip",
+        // eslint-disable-next-line no-template-curly-in-string
         "localTransportationMessage": "Based on an average of {cost} per day for travel in {destination}",
         "otherAllowancesMessage": "Amount is a total of all additional expenses",
         "accommodationWarning": "You've exceeded the recommended total of ${acrdTotal} per night",

@@ -1,5 +1,3 @@
-import React, {useState, useEffect} from "react"
-import { DateTime } from "luxon"
 import mealAllowances from "../data/meals"
 
 const calculateMeals = (mealsByDay, province) => {
@@ -21,11 +19,11 @@ const calculateMeals = (mealsByDay, province) => {
     let incidentals = estimatesForProvince.incidentals;
     let dailyTotal = breakfast + lunch + dinner + incidentals;
 
-    for (let [date, mealsSelected] of Object.entries(mealsByDay)) {
-        mealsSelected.breakfast ? (mealsTotal = mealsTotal + breakfast) : mealsTotal = mealsTotal
-        mealsSelected.lunch ? (mealsTotal = mealsTotal + lunch) : mealsTotal = mealsTotal
-        mealsSelected.dinner ? (mealsTotal = mealsTotal + dinner) : mealsTotal = mealsTotal
-        mealsSelected.incidentals ? (mealsTotal = mealsTotal + incidentals) : mealsTotal = mealsTotal
+    for (let [mealsSelected] of Object.entries(mealsByDay)) {
+        mealsSelected.breakfast ? (mealsTotal = mealsTotal + breakfast) : mealsTotal = mealsTotal + 0
+        mealsSelected.lunch ? (mealsTotal = mealsTotal + lunch) : mealsTotal = mealsTotal + 0
+        mealsSelected.dinner ? (mealsTotal = mealsTotal + dinner) : mealsTotal = mealsTotal + 0
+        mealsSelected.incidentals ? (mealsTotal = mealsTotal + incidentals) : mealsTotal = mealsTotal + 0
     }
 
     let result = {

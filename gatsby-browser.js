@@ -10,9 +10,10 @@ import "./src/styles/style.scss"
 import React from 'react'
 import { IntlProvider } from 'react-intl';
 
-import 'core-js/modules/es6.set'
-import 'core-js/modules/es6.map'
-import 'raf/polyfill'
+// removing these as they cause a build warning, let's see if it breaks IE.
+// import 'core-js/modules/es6.set'
+// import 'core-js/modules/es6.map'
+// import 'raf/polyfill'
 
 import i18nMessages from './src/data/messages';
 import languages from './src/data/languages'
@@ -39,4 +40,15 @@ export const wrapPageElement = ({ element, props }) => {
             </IntlProvider>
         </PreviewStoreProvider>
     )
+}
+
+export const onClientEntry = () => {
+    const userLang = navigator.language.substr(0, 2)
+    if (window.location.pathname === '/') {
+        if (userLang === 'en' || userLang === 'fr') {
+            window.location.pathname = '/' + userLang
+        } else {
+            window.location.pathname = '/'
+        }
+    }
 }
