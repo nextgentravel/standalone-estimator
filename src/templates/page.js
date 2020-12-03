@@ -6,10 +6,9 @@ import Layout from '../components/layout'
 
 // `data` will automatically include preview data when previewing from Prismic.
 const Template = ({ data }) => {
-  console.log(data);
   return (
     <Layout>
-      <h1></h1>
+      <h1>Preview</h1>
     </Layout>
   )
 }
