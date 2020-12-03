@@ -1,0 +1,9 @@
+{
+    "routes": [
+        {
+            "route": "/",
+            "serve": "/en",
+            "statusCode": 301
+          }
+    ]
+}
