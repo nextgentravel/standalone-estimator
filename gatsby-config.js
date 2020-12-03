@@ -37,16 +37,13 @@ module.exports = {
         // provided to the function, as seen below. This allows you to use
         // different link resolver logic for each field if necessary.
         // See: https://prismic.io/docs/javascript/query-the-api/link-resolving
-        linkResolver: ({
-          node,
-          key,
-          value
-        }) => (doc) => {
+        linkResolver: ({ node, key, value }) => (doc) => {
           // Pretty URLs for known types
-          if (doc.type === 'blog') return "/post/" + doc.uid;
-          if (doc.type === 'page') return "/" + doc.uid;
+          let lang = node.lang === 'en-ca' ? 'en' : 'fr';
+          if (doc.type === 'generic_content_page') return "/" + lang + "/" + doc.uid;
+          if (doc.type === 'tool') return "/" + lang + "/" + doc.uid;
           // Fallback for other types, in case new custom types get created
-          return "/doc/" + doc.id;
+          return lang + "/doc/" + doc.id;
         },
 
         // Set a list of links to fetch and be made available in your link
@@ -154,46 +151,6 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/tg-favicon.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pages`,
-        path: `${__dirname}/src/pages`,
-      },
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [{
-            resolve: "gatsby-remark-custom-blocks",
-            options: {
-              blocks: {
-                card: {
-                  classes: "card mb-3",
-                },
-                'card-body': {
-                  classes: "card-body",
-                },
-                'info-card': {
-                  classes: "card info-card",
-                },
-                info: {
-                  classes: "info",
-                  title: "optional",
-                },
-              },
-            },
-          },
-          {
-            resolve: "gatsby-remark-external-links",
-            options: {
-              target: "_blank",
-              rel: "nofollow"
-            }
-          },
-        ],
       },
     },
     {

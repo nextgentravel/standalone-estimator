@@ -59,7 +59,6 @@ const RatesChecker = () => {
         handleValidation()
             .then((valid) => {
                 setValidationWarnings([]);
-                console.log('destination: ', destination)
                 let city = suburbCityList[destination] || destination;
                 let province = city.slice(-2); // This is bad.  We need to change the data structure.
                 let months = monthsContained(departureDate,returnDate);
@@ -91,10 +90,24 @@ const RatesChecker = () => {
     }
 
     const clearForm = () => {
-        document.getElementById("rates-form").reset();
-        setDepartureDate('');
-        setReturnDate('');
-        setDestination('');
+        // START OF HACK This is a hack to programatically clear the autocomplete inputs
+
+        let destinationElement = document.querySelector('#autocomplete-destination')
+        let clearFormButton = document.querySelector('#clear-button')
+        let datePickerDepart = document.querySelector('#departureDate')
+        let datePickerReturn = document.querySelector('#returnDate')
+
+        destinationElement.value = "";
+        destinationElement.click();
+        destinationElement.focus();
+        destinationElement.blur();
+
+        setTimeout(function(){ 
+            datePickerDepart.value = '';
+            datePickerReturn.value = '';
+        },0);
+
+        // END OF HACK
         setValidationWarnings([])
         setGeneralError(false);
         setErrorPanel(false);
@@ -102,8 +115,6 @@ const RatesChecker = () => {
     }
 
     const handleValidation = () => {
-        console.log('depart:', departureDate);
-        console.log('return:', returnDate);
         let target = {destination, departureDate, returnDate};
         let schema = yup.object().shape({
             destination: yup
@@ -174,7 +185,9 @@ const RatesChecker = () => {
                     updateValue={setReturnDate}
                     initialDate={initialDates.return}
                 />
+                {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                 <button type="submit" className="btn btn-primary"><FormattedMessage id="submit"/></button>
+                {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                 <button type="button" className="btn btn-secondary ml-2" onClick={clearForm}><FormattedMessage id="clear"/></button>
                 {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
             </form>
@@ -197,13 +210,16 @@ const RatesChecker = () => {
                         <table className="table">
                             <thead>
                                 <tr>
+                                    {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                                     <th scope="col"><FormattedMessage id="rateTableHeadMonth" /></th>
+                                    {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                                     <th scope="col"><FormattedMessage id="rateTableHeadRate" /></th>
                                 </tr>
                             </thead>
                             <tbody>
                             {Object.keys(result.acrdRatesFiltered).map((month) => (
                                 <tr key={month}>
+                                    {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                                     <th scope="row"><FormattedMessage id={month} /></th>
                                     <td>${result.acrdRatesFiltered[month]}</td>
                                 </tr>
