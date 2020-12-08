@@ -63,6 +63,7 @@ const Estimator = () => {
     const [departureDate, setDepartureDate] = useState(initialDates.departure);
     const [returnDate, setReturnDate] = useState(initialDates.return);
     const [privateVehicleRate, setPrivateVehicleRate] = useState('');
+    const [dateFocused, setDateFocused] = useState(false);
 
     useEffect((() => {
         const data = geocodedCities[origin]
@@ -662,7 +663,19 @@ const Estimator = () => {
                     />
                 </div>
                 <div className="col-sm-6"></div>
-                <div className="col-sm-3">
+                <div className="col-sm-6">
+                    <DatePicker>
+                        initalStart={initialDates.departure}
+                        setStart={setDepartureDate}
+                        startlabel={<FormattedMessage id="estimateDepartureDate" />}
+                        initalEnd={initialDates.return}
+                        setEnd={setReturnDate}
+                        endLabel={<FormattedMessage id="estimateReturnDate" />}
+                        focus={dateFocused}
+                        onFocus={setDateFocused}
+                    </DatePicker>
+                </div>
+                {/* <div className="col-sm-3">
                     <DatePicker
                         validationWarnings={validationWarnings}
                         setValidationWarnings={setValidationWarnings}
@@ -681,7 +694,7 @@ const Estimator = () => {
                         initialDate={initialDates.return}
                         updateValue={setReturnDate}
                     ></DatePicker>
-                </div>
+                </div> */}
                 <div className="col-sm-3"></div>
                 <div className="col-sm-6">
                     {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}

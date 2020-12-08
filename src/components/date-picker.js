@@ -1,18 +1,32 @@
 import 'react-dates/initialize';
 import React from "react"
-import {
+import DateRangePicker from 'react-dates';
+/* import {
     DatePicker,
     DatePickerCalendar,
     DatePickerMonth,
     DatePickerButton,
     DatePickerTable,
     DatePickerInput
-  } from '@reecelucas/react-datepicker';
+  } from '@reecelucas/react-datepicker'; */
 import { DateTime } from "luxon";
 import { FaCalendar } from 'react-icons/fa';
 
-const DatePickerComponent = ({validationWarnings, setValidationWarnings, label, name, updateValue, initialDate}) => {
-    // let showValidationWarning = false;
+const DatePickerComponent = ({initalStart, setStart, startlabel, initalEnd, setEnd, endLabel, focus, onFocus}) => {
+
+    
+
+    <DateRangePicker
+        startDate={initalStart}
+        startDateId={}
+        endDate={initalEnd}
+        endDateId={}
+        OnDatesChange={setStart(startDate), setEnd(endDate)}
+        focusedInput={focus}
+        onFocusChange={onFocus}
+    />
+
+    /*     // let showValidationWarning = false;
     let componentWarnings = []
     validationWarnings.forEach(warning => {
         if (warning.path === name) {
@@ -44,9 +58,6 @@ const DatePickerComponent = ({validationWarnings, setValidationWarnings, label, 
                     </div>
                 </div>
 
-
-                
-
                 <DatePickerCalendar className="dp-calendar">
                     <div className="dp-top-bar">
                         <DatePickerButton
@@ -76,8 +87,8 @@ const DatePickerComponent = ({validationWarnings, setValidationWarnings, label, 
             {componentWarnings.map((warning, index) => (
                 <small key={index} id={`${name}-error`} className="invalid-feedback">{warning.message}</small>
             ))}
-        </div>
-    )
+        </div> */
+    //)
 }
 
 export default DatePickerComponent;
