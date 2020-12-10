@@ -15,16 +15,20 @@ import { FaCalendar } from 'react-icons/fa';
 const DatePickerComponent = ({initalStart, setStart, startlabel, initalEnd, setEnd, endLabel, focus, onFocus}) => {
 
     
-
-    <DateRangePicker
-        startDate={initalStart}
-        startDateId={}
-        endDate={initalEnd}
-        endDateId={}
-        OnDatesChange={setStart(startDate), setEnd(endDate)}
-        focusedInput={focus}
-        onFocusChange={onFocus}
-    />
+    return(
+        <div>
+            <DateRangePicker
+                startDate={initalStart} // these should work, though it also stores the dates in the same place i think?
+                startDateId={startlabel} // i think not right
+                endDate={initalEnd} // idk if anything is working
+                endDateId={endLabel} // i think not working
+                OnDatesChange={({ startDate, endDate }) => (setStart(startDate), setEnd(endDate))} //also very broken
+                focusedInput={focus} // should be working? set up like in example, but the guide is super unclear
+                onFocusChange={onFocus} // same as one above
+            />
+        </div>
+    )
+    
 
     /*     // let showValidationWarning = false;
     let componentWarnings = []
