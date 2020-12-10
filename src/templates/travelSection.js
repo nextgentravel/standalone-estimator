@@ -99,20 +99,21 @@ const TravelSection = ({ data }) => {
             }
 
             <p className="text-center">
-              {travelSection.next_section.document &&
-                <a
-                  href={`${homeLink}${travelSection.next_section.document.uid}`}
-                  className="btn btn-primary my-4 px-4 mr-4"
-                >
-                  View {travelSection.next_section.document.data.title.text}
-                </a>
-              }
               {travelSection.previous_section.document &&
                 <a
                   href={`${homeLink}${travelSection.previous_section.document.uid}`}
-                  className="btn btn-outline-primary my-4 px-4"
+                  className="btn btn-outline-primary my-4 px-4 mr-4"
                 >
                   Back to {travelSection.previous_section.document.data.title.text}
+                </a>
+              }
+
+              {travelSection.next_section.document &&
+                <a
+                  href={`${homeLink}${travelSection.next_section.document.uid}`}
+                  className="btn btn-primary my-4 px-4"
+                >
+                  View {travelSection.next_section.document.data.title.text}
                 </a>
               }
             </p>
