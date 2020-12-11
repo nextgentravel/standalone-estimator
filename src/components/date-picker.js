@@ -9,26 +9,30 @@ import DateRangePicker from 'react-dates';
     DatePickerTable,
     DatePickerInput
   } from '@reecelucas/react-datepicker'; */
-import { DateTime } from "luxon";
+ import { DateTime } from "luxon";
+import moment from 'moment';
 import { FaCalendar } from 'react-icons/fa';
-
+//this is stll broken atm but also even when it works it won't do validation beyond what's included yet, but at the same time it has a built-in required flag and won't allow dates out of order, so it should be fine
 const DatePickerComponent = ({initalStart, setStart, startlabel, initalEnd, setEnd, endLabel, focus, onFocus}) => {
-
-    
+    // i think i might be using luxon wrong?
+    let start = moment(initalStart.toJSDate()); // should work, they're luxon dates
+    let end = moment(initalEnd.toJSDate()); // current attempt here to make moment work is turn luxon to js to moment and the reverse after
+    //which is overly complex but i'm not really sure how else to do it - neither class has a direct method or anything
     return(
         <div>
             <DateRangePicker
-                startDate={initalStart} // these should work, though it also stores the dates in the same place i think?
+                startDate={start} // these should work, though it also stores the dates in the same place i think?
                 startDateId={startlabel} // i think not right
-                endDate={initalEnd} // idk if anything is working
+                endDate={end} // idk if anything is working
                 endDateId={endLabel} // i think not working
-                OnDatesChange={({ startDate, endDate }) => (setStart(startDate), setEnd(endDate))} //also very broken
+                OnDatesChange={setStart(DateTime.fromJSDate(start.toDate())), setEnd(DateTime.fromJSDate(end.toDate()))} //also very broken
                 focusedInput={focus} // should be working? set up like in example, but the guide is super unclear
                 onFocusChange={onFocus} // same as one above
+                screenReaderInputMessage="This is a date range selection tool. (insert directions on how to use here)"
+                required={true}
             />
         </div>
     )
-    
 
     /*     // let showValidationWarning = false;
     let componentWarnings = []

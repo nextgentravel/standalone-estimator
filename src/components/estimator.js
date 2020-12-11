@@ -63,7 +63,7 @@ const Estimator = () => {
     const [departureDate, setDepartureDate] = useState(initialDates.departure);
     const [returnDate, setReturnDate] = useState(initialDates.return);
     const [privateVehicleRate, setPrivateVehicleRate] = useState('');
-    const [dateFocused, setDateFocused] = useState(false);
+    const [dateFocused, setDateFocused] = useState(null);
 
     useEffect((() => {
         const data = geocodedCities[origin]
@@ -665,10 +665,10 @@ const Estimator = () => {
                 <div className="col-sm-6"></div>
                 <div className="col-sm-6">
                     <DatePicker>
-                        initalStart={initialDates.departure}
+                        initalStart={departureDate}
                         setStart={setDepartureDate}
                         startlabel={<FormattedMessage id="estimateDepartureDate" />}
-                        initalEnd={initialDates.return}
+                        initalEnd={returnDate}
                         setEnd={setReturnDate}
                         endLabel={<FormattedMessage id="estimateReturnDate" />}
                         focus={dateFocused}
