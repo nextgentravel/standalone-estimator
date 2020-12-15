@@ -675,26 +675,6 @@ const Estimator = () => {
                         onFocus={setDateFocused}
                     />
                 </div>
-                {/* <div className="col-sm-3">
-                    <DatePicker
-                        validationWarnings={validationWarnings}
-                        setValidationWarnings={setValidationWarnings}
-                        label={<FormattedMessage id="estimateDepartureDate" />}
-                        name="departureDate"
-                        initialDate={initialDates.departure}
-                        updateValue={setDepartureDate}
-                    ></DatePicker>
-                </div>
-                <div className="col-sm-3">
-                    <DatePicker
-                        validationWarnings={validationWarnings}
-                        setValidationWarnings={setValidationWarnings}
-                        label={<FormattedMessage id="estimateReturnDate" />}
-                        name="returnDate"
-                        initialDate={initialDates.return}
-                        updateValue={setReturnDate}
-                    ></DatePicker>
-                </div> */}
                 <div className="col-sm-3"></div>
                 <div className="col-sm-6">
                     {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
