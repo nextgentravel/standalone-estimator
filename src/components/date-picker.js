@@ -12,11 +12,13 @@ import DateRangePicker from 'react-dates';
  import { DateTime } from "luxon";
 import moment from 'moment';
 import { FaCalendar } from 'react-icons/fa';
+
 //this is stll broken atm but also even when it works it won't do validation beyond what's included yet, but at the same time it has a built-in required flag and won't allow dates out of order, so it should be fine
-const DatePickerComponent = ({initalStart, setStart, startlabel, initalEnd, setEnd, endLabel, focus, onFocus}) => {
+const DatePickerComponent = ({initialStart, setStart, startlabel, initialEnd, setEnd, endLabel, focus, onFocus}) => {
     // i think i might be using luxon wrong?
-    let start = moment(initalStart.toJSDate()); // should work, they're luxon dates
-    let end = moment(initalEnd.toJSDate()); // current attempt here to make moment work is turn luxon to js to moment and the reverse after
+    console.log(initialStart);
+    let start = moment(initialStart.toJSDate()); // should work, they're luxon dates
+    let end = moment(initialEnd.toJSDate()); // current attempt here to make moment work is turn luxon to js to moment and the reverse after
     //which is overly complex but i'm not really sure how else to do it - neither class has a direct method or anything
     return(
         <div>

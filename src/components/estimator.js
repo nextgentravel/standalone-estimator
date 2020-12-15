@@ -603,7 +603,7 @@ const Estimator = () => {
             <FormattedMessage id="accommodationTooltip" />
         </Tooltip>
     );
-
+        console.log("Depart: " + departureDate);
     return (
         <div className="mb-4">
             <EmailModal
@@ -664,16 +664,16 @@ const Estimator = () => {
                 </div>
                 <div className="col-sm-6"></div>
                 <div className="col-sm-6">
-                    <DatePicker>
-                        initalStart={departureDate}
+                    <DatePicker
+                        initialStart={departureDate}
                         setStart={setDepartureDate}
                         startlabel={<FormattedMessage id="estimateDepartureDate" />}
-                        initalEnd={returnDate}
+                        initialEnd={returnDate}
                         setEnd={setReturnDate}
                         endLabel={<FormattedMessage id="estimateReturnDate" />}
                         focus={dateFocused}
                         onFocus={setDateFocused}
-                    </DatePicker>
+                    />
                 </div>
                 {/* <div className="col-sm-3">
                     <DatePicker
