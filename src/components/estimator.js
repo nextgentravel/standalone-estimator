@@ -667,7 +667,7 @@ const Estimator = () => {
                     <DatePicker
                         initialStart={departureDate}
                         setStart={setDepartureDate}
-                        startlabel={<FormattedMessage id="estimateDepartureDate" />}
+                        startLabel={<FormattedMessage id="estimateDepartureDate" />}
                         initialEnd={returnDate}
                         setEnd={setReturnDate}
                         endLabel={<FormattedMessage id="estimateReturnDate" />}
