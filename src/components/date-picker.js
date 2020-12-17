@@ -5,22 +5,23 @@ import { DateRangePicker } from 'react-dates';
 import moment from 'moment';
 import { FaCalendar } from 'react-icons/fa';
 
-const DatePickerComponent = ({initialStart, setStart, startlabel, initialEnd, setEnd, endLabel, focus, onFocus}) => {
+const DatePickerComponent = ({initialStart, setStart, startLabel, initialEnd, setEnd, endLabel, focus, onFocus}) => {
     console.log(initialStart);
-    let start = moment(initialStart.toJSDate());
-    let end = moment(initialEnd.toJSDate());
     return(
         <div>
             <DateRangePicker
-                startDate={start}
+                startDate={moment(initialStart.toJSDate())}
                 startDateId="datepicker-start"
-                endDate={end}
+                startDateTitleText={startLabel}
+                endDate={moment(initialEnd.toJSDate())}
                 endDateId="datepicker-end"
-                onDatesChange={() => {setStart(DateTime.fromJSDate(start.toDate()));setEnd(DateTime.fromJSDate(end.toDate()))}}
+                endDateTitleText={endLabel}
+                onDatesChange={() => {setStart(DateTime.fromJSDate(startDate.toDate()));setEnd(DateTime.fromJSDate(endDate.toDate()))}}
                 focusedInput={focus}
                 onFocusChange={onFocus}
                 screenReaderInputMessage="This is a date range selection tool. (insert directions on how to use here)"
                 required={true}
+                small={true}
             />
         </div>
     )
