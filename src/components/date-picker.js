@@ -8,7 +8,7 @@ import { FaCalendar } from 'react-icons/fa';
 const DatePickerComponent = ({initialStart, setStart, startLabel, initialEnd, setEnd, endLabel, focus, onFocus}) => {
     console.log(initialStart);
     return(
-        <div>
+        <div className="mb-4">
             <DateRangePicker
                 startDate={moment(initialStart.toJSDate())}
                 startDateId="datepicker-start"
@@ -16,12 +16,18 @@ const DatePickerComponent = ({initialStart, setStart, startLabel, initialEnd, se
                 endDate={moment(initialEnd.toJSDate())}
                 endDateId="datepicker-end"
                 endDateTitleText={endLabel}
-                onDatesChange={() => {setStart(DateTime.fromJSDate(startDate.toDate()));setEnd(DateTime.fromJSDate(endDate.toDate()))}}
+                onDatesChange={({ startDate, endDate }) => {
+                    if(startDate){
+                        setStart(DateTime.fromJSDate(startDate.toDate()))
+                    }
+                    if(endDate){
+                        setEnd(DateTime.fromJSDate(endDate.toDate()))
+                    }
+                  }}
                 focusedInput={focus}
                 onFocusChange={onFocus}
                 screenReaderInputMessage="This is a date range selection tool. (insert directions on how to use here)"
                 required={true}
-                small={true}
             />
         </div>
     )

@@ -48,6 +48,7 @@ const RatesChecker = () => {
     const [loading, setLoading] = useState(false);
     const [generalError, setGeneralError] = useState(false);
     const [errorPanel, setErrorPanel] = useState(false);
+    const [dateFocused, setDateFocused] = useState(null);
 
     //   Will use later when integration language
     //   const url = globalHistory.location.pathname;
@@ -170,20 +171,15 @@ const RatesChecker = () => {
                     options={filteredCitiesList}
                     updateValue={setDestination}
                 />
-                <DatePicker validationWarnings={validationWarnings}
-                    setValidationWarnings={setValidationWarnings}
-                    label={<FormattedMessage id="rateDepart" />}
-                    name="departureDate"
-                    updateValue={setDepartureDate}
-                    initialDate={initialDates.return}
-                />
                 <DatePicker
-                    validationWarnings={validationWarnings}
-                    setValidationWarnings={setValidationWarnings}
-                    label={<FormattedMessage id="rateReturn" />}
-                    name="returnDate"
-                    updateValue={setReturnDate}
-                    initialDate={initialDates.return}
+                    initialStart={departureDate}
+                    setStart={setDepartureDate}
+                    startLabel={<FormattedMessage id="rateDepart" />}
+                    initialEnd={returnDate}
+                    setEnd={setReturnDate}
+                    endLabel={<FormattedMessage id="rateReturn" />}
+                    focus={dateFocused}
+                    onFocus={setDateFocused}
                 />
                 {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                 <button type="submit" className="btn btn-primary"><FormattedMessage id="submit"/></button>
