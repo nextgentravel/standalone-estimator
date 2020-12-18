@@ -90,15 +90,6 @@ h4 {
     font-weight: lighter;
 }
 
-.lang{
-    margin: auto;
-    width: 50%;
-    max-width: 500px;
-    min-width: 300px;
-    overflow: auto;
-    margin-top: 175px;
-}
-
 .skiplink:focus, .skiplink:active {
     color: white;
     background-color: black;
@@ -124,17 +115,6 @@ h4 {
     cursor: pointer;
     display: inline-block;
     text-align: left;
-}
-
-#bg {
-    height: 200%;
-    left: -50%;
-    position: fixed;
-    top: -50%;
-    width: 200%;
-    background-image: url("../images/sp-bg-3-1-min.jpg");
-    background-position: center;
-    background-size: cover;
 }
 
 a:focus {
