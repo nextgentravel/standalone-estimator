@@ -93,20 +93,16 @@ const RatesChecker = () => {
     const clearForm = () => {
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
+        setDepartureDate(initialDates.departure);
+        setReturnDate(initialDates.return);
+
         let destinationElement = document.querySelector('#autocomplete-destination')
         let clearFormButton = document.querySelector('#clear-button')
-        let datePickerDepart = document.querySelector('#departureDate')
-        let datePickerReturn = document.querySelector('#returnDate')
 
         destinationElement.value = "";
         destinationElement.click();
         destinationElement.focus();
         destinationElement.blur();
-
-        setTimeout(function(){ 
-            datePickerDepart.value = '';
-            datePickerReturn.value = '';
-        },0);
 
         // END OF HACK
         setValidationWarnings([])
@@ -174,10 +170,8 @@ const RatesChecker = () => {
                 <DatePicker
                     initialStart={departureDate}
                     setStart={setDepartureDate}
-                    startLabel={<FormattedMessage id="rateDepart" />}
                     initialEnd={returnDate}
                     setEnd={setReturnDate}
-                    endLabel={<FormattedMessage id="rateReturn" />}
                     focus={dateFocused}
                     onFocus={setDateFocused}
                 />
