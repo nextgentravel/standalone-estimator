@@ -475,15 +475,13 @@ const Estimator = () => {
     const clearForm = async () => {
         setOrigin('')
         setDestination('')
-        setDepartureDate('');
-        setReturnDate('');
+        setDepartureDate(initialDates.departure);
+        setReturnDate(initialDates.return);
 
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
         let originElement = document.querySelector('#autocomplete-origin')
         let destinationElement = document.querySelector('#autocomplete-destination')
-        let datePickerDepart = document.querySelector('#departureDate')
-        let datePickerReturn = document.querySelector('#returnDate')
 
         destinationElement.value = "";
         destinationElement.click();
@@ -498,8 +496,6 @@ const Estimator = () => {
             if(originElement){
                 originElement.focus();
             }
-            datePickerDepart.value = '';
-            datePickerReturn.value = '';
         },0);
 
         // END OF HACK
@@ -667,10 +663,8 @@ const Estimator = () => {
                     <DatePicker
                         initialStart={departureDate}
                         setStart={setDepartureDate}
-                        startLabel={<FormattedMessage id="estimateDepartureDate" />}
                         initialEnd={returnDate}
                         setEnd={setReturnDate}
-                        endLabel={<FormattedMessage id="estimateReturnDate" />}
                         focus={dateFocused}
                         onFocus={setDateFocused}
                     />
