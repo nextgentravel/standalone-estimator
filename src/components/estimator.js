@@ -636,7 +636,7 @@ const Estimator = () => {
                 </ul>
             </div>}
             <form id="estimates-form" className="form-group row mb-5" onSubmit={handleSubmit}>
-                <div className="col-sm-6">
+                <div className="col-sm-7">
                     <InputDatalist
                         validationWarnings={validationWarnings}
                         setValidationWarnings={setValidationWarnings}
@@ -647,7 +647,7 @@ const Estimator = () => {
                     />
                 </div>
                 <div className="col-sm-6"></div>
-                <div className="col-sm-6">
+                <div className="col-sm-7">
                     <InputDatalist
                         validationWarnings={validationWarnings}
                         setValidationWarnings={setValidationWarnings}
@@ -659,7 +659,7 @@ const Estimator = () => {
                     />
                 </div>
                 <div className="col-sm-6"></div>
-                <div className="col-sm-6">
+                <div className="col-sm-7">
                     <DatePicker
                         initialStart={departureDate}
                         setStart={setDepartureDate}
