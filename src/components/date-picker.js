@@ -31,6 +31,7 @@ const DatePickerComponent = ({initialStart, setStart, initialEnd, setEnd, focus,
                     onFocusChange={onFocus}
                     screenReaderInputMessage="This is a date range selection tool. (insert directions on how to use here)"
                     required={true}
+                    showDefaultInputIcon={true}
                 />
             </div>
         </div>
