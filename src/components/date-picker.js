@@ -11,7 +11,7 @@ const DatePickerComponent = ({initialStart, setStart, initialEnd, setEnd, focus,
     return(
         <div className="mb-4">
             <div>
-                <FormattedMessage id="estDateRange" />
+                <label htmlFor="datepicker-start" htmlFor="datepicker-end"><FormattedMessage id="estDateRange" /></label>
             </div>
             <div className="mb-4">
                 <DateRangePicker
@@ -32,6 +32,7 @@ const DatePickerComponent = ({initialStart, setStart, initialEnd, setEnd, focus,
                     screenReaderInputMessage="This is a date range selection tool. (insert directions on how to use here)"
                     required={true}
                     showDefaultInputIcon={true}
+                    displayFormat="DD-MM-YYYY"
                 />
             </div>
         </div>
