@@ -128,19 +128,20 @@ const SearchPage = ({ data, location }) => {
           }
           {results.length ? (
               results.map((result, index) => {
-              return (
-                <React.Fragment key={result.slug}>
-                  <article className={index === 0 ? 'card border-dark p-3 mb-5': 'mb-5'}>
-                    {index === 0 && <p className="text-secondary">Best Match</p>}
-                    <h3>
-                      <Link to={result.slug}>
-                        {result.title || result.slug}
-                      </Link>
-                    </h3>
-                    <Highlighted text={result.displayExcerpt} highlight={searchQuery}/>
-                  </article>
-                </React.Fragment>
-              )
+                console.log(result);
+                return (
+                  <React.Fragment key={result.slug}>
+                    <article className={index === 0 ? 'card border-dark p-3 mb-5': 'mb-5'}>
+                      {index === 0 && <p className="text-secondary">Best Match</p>}
+                      <h3>
+                        <Link to={`/${langKey}/${result.parent_page}`}>
+                          {result.title || result.slug}
+                        </Link>
+                      </h3>
+                      <Highlighted text={result.displayExcerpt} highlight={searchQuery}/>
+                    </article>
+                  </React.Fragment>
+                )
               })
           ) : (
               <p>No results were found for {searchQuery}.</p>
