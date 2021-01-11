@@ -128,7 +128,6 @@ const SearchPage = ({ data, location }) => {
           }
           {results.length ? (
               results.map((result, index) => {
-                console.log(result);
                 return (
                   <React.Fragment key={result.slug}>
                     <article className={index === 0 ? 'card border-dark p-3 mb-5': 'mb-5'}>
