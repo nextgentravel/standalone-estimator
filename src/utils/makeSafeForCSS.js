@@ -1,4 +1,5 @@
 export function makeSafeForCSS(name) {
+    name = name.replace(/[^\w\s]/gi, '')
     return name.replace(/[^a-z0-9]/g, function(s) {
         var c = s.charCodeAt(0);
         if (c == 32) return '-';
