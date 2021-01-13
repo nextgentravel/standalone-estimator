@@ -21,8 +21,8 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="/" className="text-light">
-                <FormattedMessage id="submitquestion" />
+              <a href={`${homeLink}glossary`} className="text-light">
+                <FormattedMessage id="glossary" />
               </a>
             </li>
             <li>
