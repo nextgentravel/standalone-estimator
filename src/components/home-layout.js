@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Layout from "../components/layout"
 import SEO from "../components/seo";
 import ContentPanel from "../components/content-panel";
-import ToolPanel from "../components/tool-panel";
+// import ToolPanel from "../components/tool-panel";
 import DoormatPanel from "../components/doormat-panel";
 import { RiQuestionnaireLine } from 'react-icons/ri';
 import { FaMinus } from 'react-icons/fa';
@@ -59,11 +59,11 @@ export default ({ data }) => {
                         <DoormatPanel />
                       </div>
                     </div>
-                    <div className="bg-light">
+                    {/* <div className="bg-light">
                       <div className="container">
                         <ToolPanel />
                       </div>
-                    </div>
+                    </div> */}
                   </main>
                 </div>
       
