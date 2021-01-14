@@ -80,7 +80,8 @@ module.exports = {
           homepage: require('./src/schemas/homepage.json'),
           doormat: require('./src/schemas/doormat.json'),
           estimator: require('./src/schemas/estimator.json'),
-          generic_content_page: require('./src/schemas/generic_content_page.json')
+          generic_content_page: require('./src/schemas/generic_content_page.json'),
+          glossary: require('./src/schemas/glossary.json')
         },
         // Set a default language when fetching documents. The default value is
         // '*' which will fetch all languages.
