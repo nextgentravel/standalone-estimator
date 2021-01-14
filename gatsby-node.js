@@ -66,6 +66,31 @@ exports.createPages = async ({ graphql, actions }) => {
           lang
         }
       }
+      allPrismicFirstTimeTravellers {
+        nodes {
+          data {
+            lead {
+              text
+            }
+            steps {
+              step_content {
+                html
+              }
+              step_title {
+                text
+              }
+              show_step_number
+              action_title
+              action_link
+              action_new_window
+            }
+            title {
+              text
+            }
+          }
+          lang
+        }
+      }
     }
   `)
 
@@ -74,6 +99,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const genericPageTemplate = require.resolve(`./src/templates/genericPageTemplate.js`)
 
   const glossaryTemplate = require.resolve(`./src/templates/glossary.js`)
+
+  const firstTimeTravellers = require.resolve(`./src/templates/firstTimeTravellers.js`)
 
   // Create pages for each Page in Prismic using the selected template.
   pages.data.allPrismicTravelSection.nodes.forEach((node) => {
@@ -113,6 +140,18 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  pages.data.allPrismicFirstTimeTravellers.nodes.forEach((node) => {
+    const language = node.lang.substring(0, 2)
+    createPage({
+      path: `${language}/first-time-travellers`,
+      component: firstTimeTravellers,
+      context: {
+        lang: node.lang,
+      },
+    })
+  })
+
 }
 
 
