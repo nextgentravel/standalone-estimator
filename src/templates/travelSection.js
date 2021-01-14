@@ -58,7 +58,7 @@ const TravelSection = ({ data }) => {
           <div className="container">
             <nav className="skiphold" aria-label="sidebar skiplink"><a className="sr-only sr-only-focusable aurora-skip skiplink" id="sidebar-skiplink" href="#sidebar" aria-label="skip to side"><FormattedMessage id="skipToSide"/></a></nav>
             <div className="row mb-4">
-              <div className="col-sm-8"><h2 className="display-5">{travelSection.title.text}</h2></div>
+              <div className="col-sm-8"><h2>{travelSection.title.text}</h2></div>
               {travelSection.jumpTo && <div className="col-sm-2 ml-auto">
                 <div className="form-group">
                   <select onBlur={jumpTo} className="custom-select text-secondary align-middle">

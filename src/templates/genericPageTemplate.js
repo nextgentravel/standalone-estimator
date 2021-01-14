@@ -23,7 +23,7 @@ const GenericPageTemplate = ({ data }) => {
           <div className="container">
             <nav className="skiphold" aria-label="sidebar skiplink"><a className="sr-only sr-only-focusable aurora-skip skiplink" id="sidebar-skiplink" href="#sidebar" aria-label="skip to side" ><FormattedMessage id="skipToSide"/></a></nav>
             <div className="row mb-4">
-              <div className="col-sm-8"><h2 className="display-5">{page.title.text}</h2></div>
+              <div className="col-sm-8"><h2>{page.title.text}</h2></div>
             </div>
             <div className="lead" dangerouslySetInnerHTML={{ __html: page.lead.html }}>
             </div>
