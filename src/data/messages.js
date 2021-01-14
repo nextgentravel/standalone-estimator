@@ -11,7 +11,7 @@ module.exports = {
         // footer
         'knowledge': 'Knowledgebase',
         'training': 'Available Trainings',
-        'submitquestion': 'Submit a Question',
+        'glossary': 'Glossary',
         'contact': 'Contact Us',
         'nextgen': 'NextGen Travel',
         'travelcard': 'Get a Travel Card',
@@ -183,6 +183,7 @@ module.exports = {
         'contact': 'Nous contacter',
         'nextgen': 'Voyage NextGen',
         'travelcard': 'Obtenez une carte de voyage',
+        'glossary': 'Glossaire',
         'travelcontacts': 'Contacts de voyage',
         'advisories': 'Avis aux voyageurs',
         'estimator': 'Estimateur de voyage',
