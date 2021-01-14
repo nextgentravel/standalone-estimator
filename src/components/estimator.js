@@ -1,15 +1,16 @@
 import React, {useState, useEffect} from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import InputDatalist from "./input-datalist.js"
 import DatePicker from "./date-picker.js"
 import calculateMeals from "./calculate-meals.js"
 import { DateTime, Interval, Info } from "luxon"
 import * as yup from "yup"
 import monthsContained from "./months-contained.js"
-import { FormattedMessage } from 'react-intl'
+import { useIntl, FormattedMessage } from 'react-intl'
 import EstimatorRow from "./estimator-row.js"
 import EmailModal from "./email-modal.js"
 import MealsModal from "./meals-modal.js"
-
+import { FaCaretUp, FaCaretDown, FaCalculator } from 'react-icons/fa';
 import { dailyMealTemplate } from "./functions/dailyMealTemplate"
 
 import Tooltip from 'react-bootstrap/Tooltip'
@@ -32,6 +33,38 @@ import fetchDistanceBetweenPlaces from '../api-calls/fetchDistanceBetweenPlaces'
 import './extra/estimator-print.css'
 
 const Estimator = () => {
+    const intl = useIntl();
+    let locale = `${intl.locale}-ca`;
+    const cmsData = useStaticQuery(graphql`
+    query cmsData {
+        allPrismicEstimator {
+            nodes {
+                lang
+                data {
+                    disclaimer_body {
+                        html
+                    }
+                    explainer_body {
+                        html
+                    }
+                    explainer_title {
+                        text
+                    }
+                    lead {
+                        html
+                    }
+                    title {
+                        text
+                    }
+                }
+            }
+        }
+    }`);
+
+    let localeCopy = cmsData.allPrismicEstimator.nodes.find(function(o){ return o.lang === locale }).data;
+
+    const [explainerCollapsed, setExplainerCollapsed] = useState(true);
+
     const citiesList = cities.citiesList;
     const suburbCityList = cities.suburbCityList;
     const [filteredCitiesList, setFilteredCitiesList] = useState([]);
@@ -629,8 +662,8 @@ const Estimator = () => {
                 onHide={() => setMealsModalShow(false)}
                 setMealsByDay={setMealsByDay}
             />
-            <h2><FormattedMessage id="estimateTitle" /></h2>
-            <p className="lead"><FormattedMessage id="estimateLead" /></p>
+            <h2>{localeCopy.title.text}</h2>
+            <div className="lead" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
              {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
                 <h3><FormattedMessage id="estimateErrorTitle" /></h3>
                 <p><FormattedMessage id="estimateErrorLead" /></p>
@@ -883,13 +916,51 @@ const Estimator = () => {
                         <Button className="px-5" onClick={() => { setEmailModalShow(true) }}><FormattedMessage id="email" /></Button>
                         <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}><FormattedMessage id="print" /></Button>
                     </div>
-                    <div>
-                        <h3>How did we get these numbers?</h3>
-                        <p>City rate limits are outlined in the <a href="https://rehelv-acrd.tpsgc-pwgsc.gc.ca/index-eng.aspx">Accommodation and Car Rental Directory</a></p>
-                        <p>Non-commercial accommodation, meals and incidental allowances are outlined in the <a href="https://www.njc-cnm.gc.ca/directive/d10/v238/s659/en">National Joint Council Travel Directive - Appendix C</a></p>
-                    </div>
                 </>
             }
+
+            <hr />
+            
+            <div class="card bg-white px-4 mb-4">
+                <div className="row">
+                    <button className="col-sm-12 pl-2 pb-1 btn btn-plain" aria-expanded="false" onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
+                        <h3 class="display-5"><FaCalculator size="20" class='mb-1 mr-2' />{localeCopy.explainer_title.text}</h3>
+                        {explainerCollapsed &&
+                            <FaCaretDown
+                                size="25"
+                                style={{
+                                    position: 'absolute',
+                                    right: 30,
+                                    top: 15,
+                                }}
+                        />}
+                        {!explainerCollapsed &&
+                            <FaCaretUp
+                                size="25"
+                                style={{
+                                    position: 'absolute',
+                                    right: 30,
+                                    top: 15,
+                                }}
+                            />
+                        }
+                    </button>
+                    {!explainerCollapsed &&
+                        <React.Fragment>
+                            <div className="col-sm-12 mt-2" dangerouslySetInnerHTML={{ __html: localeCopy.explainer_body.html }}>
+                            </div>
+                        </React.Fragment>
+                    }
+                    {explainerCollapsed &&
+                        <React.Fragment>
+                            <div className="col-sm-12" />
+                        </React.Fragment>
+                    }
+                </div>
+            </div>
+
+            <div class="px-3" dangerouslySetInnerHTML={{ __html: localeCopy.disclaimer_body.html }}></div>
+
         </div>
     )
 }

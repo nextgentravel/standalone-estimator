@@ -1,0 +1,47 @@
+{
+    "Main" : {
+      "title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading3",
+          "label" : "title",
+          "placeholder" : "Title of the Estimator Tool"
+        }
+      },
+      "lead" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph, strong, em",
+          "label" : "lead",
+          "placeholder" : "Lead text for estimator tool"
+        }
+      },
+      "explainer_title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading4",
+          "label" : "explainer_title",
+          "placeholder" : "Title of the explainer section.  E.g \"How did we get these numbers?\""
+        }
+      },
+      "explainer_body" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+          "allowTargetBlank" : true,
+          "label" : "explainer_body",
+          "placeholder" : "Body of explainer",
+          "labels" : [ "text-indent" ]
+        }
+      },
+      "disclaimer_body" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph, strong, em, hyperlink",
+          "allowTargetBlank" : true,
+          "label" : "disclaimer_body",
+          "placeholder" : "Disclaimer text at bottom of page."
+        }
+      }
+    }
+  }
