@@ -33,17 +33,17 @@
         "label" : "belongs_to"
       }
     },
+    "order" : {
+      "type" : "Number",
+      "config" : {
+        "label" : "order"
+      }
+    },
     "action_title" : {
       "type" : "StructuredText",
       "config" : {
         "single" : "paragraph",
         "label" : "action_title"
-      }
-    },
-    "order" : {
-      "type" : "Number",
-      "config" : {
-        "label" : "order"
       }
     },
     "action_link" : {
@@ -60,6 +60,48 @@
         "placeholder_true" : "link will open in new window",
         "default_value" : false,
         "label" : "action_new_window"
+      }
+    },
+    "secondary_action_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "secondary_action_title"
+      }
+    },
+    "secondary_action_link" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "secondary_action_link"
+      }
+    },
+    "secondary_action_new_window" : {
+      "type" : "Boolean",
+      "config" : {
+        "placeholder_false" : "link will open in same window",
+        "placeholder_true" : "link will open in new window",
+        "default_value" : false,
+        "label" : "secondary_action_new_window"
+      }
+    },
+    "directives_reference" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "directive_link_text" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "directive_link_text"
+            }
+          },
+          "directive_link" : {
+            "type" : "Link",
+            "config" : {
+              "allowTargetBlank" : true,
+              "label" : "directive_link"
+            }
+          }
+        },
+        "label" : "directives_reference"
       }
     },
     "show_if_selected" : {

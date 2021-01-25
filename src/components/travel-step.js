@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+
+import { FaPlusCircle, FaMinusCircle, FaExternalLinkAlt } from 'react-icons/fa';
 
 const TravelStep = ({data, index}) => {
+    const [collapsed, setCollapsed] = useState(true);
     return (
         <div className="card px-4 pt-4 my-4 bg-light">
             <div className="row">
@@ -16,6 +19,39 @@ const TravelStep = ({data, index}) => {
                 </div>
                 <div className="col-sm-8">
                     <div dangerouslySetInnerHTML={{ __html: data.content.html }}></div>
+                    {data.directives_reference.length > 0 &&
+                        <div>
+                            <button className="header-button btn btn-plain p-0" aria-expanded="false" onClick={() => setCollapsed(!collapsed)}>
+                                <h4 class="step-directives-header">
+                                    {collapsed &&
+                                        <FaPlusCircle size="15" />}
+                                    {!collapsed &&
+                                        <FaMinusCircle size="15" />
+                                    }
+                                    Directives
+                                </h4>
+                            </button>
+                            {!collapsed &&
+                                <ul>
+                                    {data.directives_reference.map((item, index) => {
+                                        console.log(item)
+                                        return (
+                                            <li key={index}>
+                                                <a href={item.directive_link.url} target="_blank">{item.directive_link_text}
+                                                    <FaExternalLinkAlt size="12" class="external-link" />
+                                                </a>
+                                            </li>
+                                        )
+                                    })}
+                                </ul>
+                            }
+                            {collapsed &&
+                                <div class="mb-4"></div>
+                            }
+
+                        </div>
+                    }
+
                 </div>
                 <div className="col-sm-4">
                     {data.action_link &&
