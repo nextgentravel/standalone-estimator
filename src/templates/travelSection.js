@@ -153,6 +153,12 @@ export const query = graphql`
             html
           }
           show_step_number
+          directives_reference {
+            directive_link_text
+            directive_link {
+              url
+            }
+          }
         }
       }
     }

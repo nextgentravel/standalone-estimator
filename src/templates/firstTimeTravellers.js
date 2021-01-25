@@ -71,7 +71,6 @@ const FirstTimeTravellers = ({ data }) => {
                 action_link: node.action_link,
                 action_new_window: node.action_new_window,
               }
-              console.log('data', data)
               return (
                 <TravelStep data={data} index={index} key={index} />
               )
