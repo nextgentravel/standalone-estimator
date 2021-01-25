@@ -4715,7 +4715,7 @@ cypress@*:
     tmp "~0.2.1"
     untildify "^4.0.0"
     url "^0.11.0"
-    yauzl "^2.10.0"4.6.0
+    yauzl "^2.10.0"
 
 damerau-levenshtein@^1.0.6:
   version "1.0.6"
