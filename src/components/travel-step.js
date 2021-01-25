@@ -19,7 +19,7 @@ const TravelStep = ({data, index}) => {
                 </div>
                 <div className="col-sm-8">
                     <div dangerouslySetInnerHTML={{ __html: data.content.html }}></div>
-                    {data.directives_reference.length > 0 &&
+                    {data.directives_reference && data.directives_reference.length > 0 &&
                         <div>
                             <button className="header-button btn btn-plain p-0" aria-expanded="false" onClick={() => setCollapsed(!collapsed)}>
                                 <h4 class="step-directives-header">
@@ -34,7 +34,6 @@ const TravelStep = ({data, index}) => {
                             {!collapsed &&
                                 <ul>
                                     {data.directives_reference.map((item, index) => {
-                                        console.log(item)
                                         return (
                                             <li key={index}>
                                                 <a href={item.directive_link.url} target="_blank">{item.directive_link_text}
