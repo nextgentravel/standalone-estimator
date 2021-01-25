@@ -83,6 +83,11 @@ exports.createPages = async ({ graphql, actions }) => {
               action_title
               action_link
               action_new_window
+              secondary_action_title
+              secondary_action_link
+              secondary_action_new_window
+
+
             }
             title {
               text

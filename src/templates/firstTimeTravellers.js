@@ -70,6 +70,9 @@ const FirstTimeTravellers = ({ data }) => {
                 action_title: { text: node.action_title},
                 action_link: node.action_link,
                 action_new_window: node.action_new_window,
+                secondary_action_title: { text: node.secondary_action_title},
+                secondary_action_link: node.secondary_action_link,
+                secondary_action_new_window: node.secondary_action_new_window,
               }
               console.log('data', data)
               return (
@@ -126,6 +129,10 @@ export const query = graphql`
           action_title
           action_link
           action_new_window
+          secondary_action_title
+          secondary_action_link
+          secondary_action_new_window
+
         }
         title {
           text
