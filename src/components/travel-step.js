@@ -5,10 +5,10 @@ import { FaPlusCircle, FaMinusCircle, FaExternalLinkAlt } from 'react-icons/fa';
 const TravelStep = ({data, index}) => {
     const [collapsed, setCollapsed] = useState(true);
     return (
-        <div className="card px-4 pt-4 my-4 bg-light">
+        <div className="card px-5 py-4 my-4 bg-light">
             <div className="row">
                 <div className="col-sm-12">
-                    <h3 className="mb-3">
+                    <h3 className="mb-3 mt-1">
                         {data.show_step_number &&
                             <span className="text-secondary pr-3">
                             Step {index + 1}
@@ -22,7 +22,7 @@ const TravelStep = ({data, index}) => {
                     {data.directives_reference && data.directives_reference.length > 0 &&
                         <div>
                             <button className="header-button btn btn-plain p-0" aria-expanded="false" onClick={() => setCollapsed(!collapsed)}>
-                                <h4 class="step-directives-header">
+                                <h4 className="step-directives-header">
                                     {collapsed &&
                                         <FaPlusCircle size="15" />}
                                     {!collapsed &&
@@ -32,12 +32,12 @@ const TravelStep = ({data, index}) => {
                                 </h4>
                             </button>
                             {!collapsed &&
-                                <ul>
+                                <ul className="ml-2">
                                     {data.directives_reference.map((item, index) => {
                                         return (
                                             <li key={index}>
                                                 <a href={item.directive_link.url} target="_blank">{item.directive_link_text}
-                                                    <FaExternalLinkAlt size="12" class="external-link" />
+                                                    <FaExternalLinkAlt size="12" className="external-link" />
                                                 </a>
                                             </li>
                                         )
@@ -45,7 +45,7 @@ const TravelStep = ({data, index}) => {
                                 </ul>
                             }
                             {collapsed &&
-                                <div class="mb-4"></div>
+                                <div className="mb-4"></div>
                             }
 
                         </div>
