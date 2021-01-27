@@ -61,6 +61,8 @@ const Estimator = () => {
         }
     }`);
 
+    let initialTransportationMessage = { element: <FormattedMessage id='transportationDescription' />, style: 'primary' };
+
     let localeCopy = cmsData.allPrismicEstimator.nodes.find(function(o){ return o.lang === locale }).data;
 
     const [explainerCollapsed, setExplainerCollapsed] = useState(true);
@@ -96,6 +98,15 @@ const Estimator = () => {
     const [departureDate, setDepartureDate] = useState(initialDates.departure);
     const [returnDate, setReturnDate] = useState(initialDates.return);
     const [privateVehicleRate, setPrivateVehicleRate] = useState('');
+
+    useEffect(() => {
+        setHaveFlightCost(false);
+        setResult(false);
+        setTransportationType('');
+        setTransportationEstimates(transportationEstimatesInitialState);
+        updateTransportationCost(0.00);
+        setTransportationMessage(initialTransportationMessage)
+    }, [origin, destination, departureDate, returnDate])
 
     useEffect((() => {
         const data = geocodedCities[origin]
@@ -145,7 +156,7 @@ const Estimator = () => {
     const [accommodationCost, setAccommodationCost] = useState(0.00);
     const [acrdTotal, setAcrdTotal] = useState(0.00);
     const [accommodationMessage, setAccommodationMessage] = useState({ element: <FormattedMessage id='accommodationDescription' />, style: 'primary' });
-    const [transportationMessage, setTransportationMessage] = useState({ element: <FormattedMessage id='transportationDescription' />, style: 'primary' });
+    const [transportationMessage, setTransportationMessage] = useState(initialTransportationMessage);
     const [localTransportationMessage, setLocalTransportationMessage] = useState({ element: <FormattedMessage id='localTransportationDescription' />, style: 'primary' });
     const [transportationCost, setTransportationCost] = useState(0.00);
     const [localTransportationCost, setLocalTransportationCost] = useState(0.00);
@@ -505,6 +516,8 @@ const Estimator = () => {
     }
 
     const clearForm = async () => {
+        setHaveFlightCost(false)
+        setTransportationEstimates(transportationEstimatesInitialState);
         setOrigin('')
         setDestination('')
         setDepartureDate('');
@@ -751,7 +764,7 @@ const Estimator = () => {
                                         <div id={"accommodation_container"}>
                                         <select
                                             className="custom-select mb-2"
-                                            onBlur={e => setAccommodationType(e.target.value)}
+                                            onChange={e => setAccommodationType(e.target.value)}
                                         >
                                             <option value="hotel">Hotel</option>
                                             <option value="private">Private Accommodation</option>
@@ -809,7 +822,7 @@ const Estimator = () => {
                                         <div id={"transportation_container"}>
                                         <select
                                             className="custom-select mb-2"
-                                            onBlur={e => {
+                                            onChange={e => {
                                                 setTransportationType(e.target.value)
                                                 if (e.target.value === 'private') {
                                                     updateLocalTransportationCost(0)
