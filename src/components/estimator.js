@@ -383,7 +383,7 @@ const Estimator = () => {
             updateAccommodationCost(total)
             setAcrdTotal(total);
             localeCopy.hotel_success.html = localeCopy.hotel_success.html.replace('{location}', `<strong>${destination}</strong>`)
-            localeCopy.hotel_success.html = localeCopy.hotel_success.html.replace('${daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
+            localeCopy.hotel_success.html = localeCopy.hotel_success.html.replace('${daily rate}', `<strong>$${applicableRates[0].rate}</strong>`)
             console.log(localeCopy.hotel_success.html)
             setAccommodationMessage({ element: <div dangerouslySetInnerHTML={{ __html: localeCopy.hotel_success.html }}></div> })
             // setAccommodationMessage({ element: <FormattedMessage id="hotelAccommodationMessage" values={{
