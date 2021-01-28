@@ -42,19 +42,115 @@ const Estimator = () => {
                 lang
                 data {
                     disclaimer_body {
-                        html
+                    html
                     }
                     explainer_body {
-                        html
+                    html
                     }
                     explainer_title {
-                        text
+                    text
                     }
                     lead {
-                        html
+                    html
                     }
                     title {
-                        text
+                    text
+                    }
+                    flight_above_estimate {
+                    html
+                    }
+                    flight_below_estimate {
+                    html
+                    }
+                    flight_error {
+                    html
+                    }
+                    flight_loading {
+                    html
+                    }
+                    flight_success {
+                    html
+                    }
+                    flight_zero {
+                    html
+                    }
+                    generating_estimate {
+                    html
+                    }
+                    hotel_above_estimate {
+                    html
+                    }
+                    hotel_error {
+                    html
+                    }
+                    hotel_success {
+                    html
+                    }
+                    hotel_zero {
+                    html
+                    }
+                    incorrect_date_format {
+                    html
+                    }
+                    local_tranportation_zero {
+                    html
+                    }
+                    local_transportation_manual {
+                    html
+                    }
+                    local_transportation_success {
+                    html
+                    }
+                    meals_incidentals_success {
+                    html
+                    }
+                    private_accom_estimate_success {
+                    html
+                    }
+                    private_accom_estimate_zero {
+                    html
+                    }
+                    private_vehicle_above_estimate {
+                    html
+                    }
+                    private_vehicle_below_estimate {
+                    html
+                    }
+                    private_vehicle_error {
+                    html
+                    }
+                    private_vehicle_manual {
+                    html
+                    }
+                    private_vehicle_success {
+                    html
+                    }
+                    rental_car_error {
+                    html
+                    }
+                    rental_car_success {
+                    html
+                    }
+                    rental_car_zero {
+                    html
+                    }
+                    return_date_earlier_than_departure_date {
+                    html
+                    }
+                    train_above_estimate {
+                    html
+                    }
+                    train_below_estimate {
+                    html
+                    }
+                    train_error {
+                    html
+                    }
+                    train_success {
+                    html
+                    }
+                    train_zero {
+                    html
                     }
                 }
             }
@@ -934,10 +1030,10 @@ const Estimator = () => {
 
             <hr />
             
-            <div class="card bg-white px-4 mb-4">
+            <div className="card bg-white px-4 mb-4">
                 <div className="row">
                     <button className="col-sm-12 pl-2 pb-1 btn btn-plain" aria-expanded="false" onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
-                        <h3 class="display-5"><FaCalculator size="20" class='mb-1 mr-2' />{localeCopy.explainer_title.text}</h3>
+                        <h3 className="display-5"><FaCalculator size="20" className='mb-1 mr-2' />{localeCopy.explainer_title.text}</h3>
                         {explainerCollapsed &&
                             <FaCaretDown
                                 size="25"
@@ -972,7 +1068,7 @@ const Estimator = () => {
                 </div>
             </div>
 
-            <div class="px-3" dangerouslySetInnerHTML={{ __html: localeCopy.disclaimer_body.html }}></div>
+            <div className="px-3" dangerouslySetInnerHTML={{ __html: localeCopy.disclaimer_body.html }}></div>
 
         </div>
     )
