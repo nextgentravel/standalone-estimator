@@ -161,6 +161,8 @@ const Estimator = () => {
 
     let localeCopy = cmsData.allPrismicEstimator.nodes.find(function(o){ return o.lang === locale }).data;
 
+    console.log(localeCopy)
+
     const [explainerCollapsed, setExplainerCollapsed] = useState(true);
 
     const citiesList = cities.citiesList;
@@ -263,6 +265,8 @@ const Estimator = () => {
     const [enterKilometricsDistanceManually, setEnterKilometricsDistanceManually] = useState(false)
     const [privateKilometricsValue, setPrivateKilometricsValue] = useState('');
     const [returnDistance, setReturnDistance] = useState('');
+
+    const [localTransportationEstimate, setLocalTransportationEstimate] = useState(0);
 
     const [mealsByDay, setMealsByDay] = useState({});
     const [province, setProvince] = useState('');
@@ -378,10 +382,14 @@ const Estimator = () => {
 
             updateAccommodationCost(total)
             setAcrdTotal(total);
-            setAccommodationMessage({ element: <FormattedMessage id="hotelAccommodationMessage" values={{
-                destination,
-                rate: applicableRates[0].rate,
-            }} />  })
+            localeCopy.hotel_success.html = localeCopy.hotel_success.html.replace('{location}', `<strong>${destination}</strong>`)
+            localeCopy.hotel_success.html = localeCopy.hotel_success.html.replace('${daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
+            console.log(localeCopy.hotel_success.html)
+            setAccommodationMessage({ element: <div dangerouslySetInnerHTML={{ __html: localeCopy.hotel_success.html }}></div> })
+            // setAccommodationMessage({ element: <FormattedMessage id="hotelAccommodationMessage" values={{
+            //     destination,
+            //     rate: applicableRates[0].rate,
+            // }} />  })
         } catch (error) {
             console.log('fetchHotelHostError', error);
         }
@@ -389,8 +397,9 @@ const Estimator = () => {
 
     const fetchLocalTransportationRate = (numberOfDays) => {
         let cost = 100 + 50 * (numberOfDays)
+        setLocalTransportationEstimate(cost);
         updateLocalTransportationCost(cost)
-        setLocalTransportationMessage({ element: <FormattedMessage id="localTransportationMessage" />  })
+        setLocalTransportationMessage({ element: <div dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_success.html }}></div>  })
     }
 
     useEffect(() => {
@@ -398,7 +407,7 @@ const Estimator = () => {
             fetchHotelCost()
         } else if (accommodationType === 'private') {
             let rate = (Interval.fromDateTimes(departureDate, returnDate).count('days') - 1) * 50;
-            setAccommodationMessage({ element: <FormattedMessage id="privateAccommodationMessage" />  })
+            setAccommodationMessage({ element: <div dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></div>  })
             updateAccommodationCost(rate)
         } else {
             updateAccommodationCost(0.00)
@@ -440,11 +449,20 @@ const Estimator = () => {
                 const sum = allPrices.reduce((a, b) => a + b, 0);
                 const avg = (sum / allPrices.length) || 0;
 
-                let FlightMessage = <FormattedMessage id="transportationFlightMessage" values={{
-                    date: DateTime.local().toFormat("yyyy-MM-dd' at 'hh:mm a"),
-                    strong: chunks => <strong>{chunks}</strong>,
-                  }} />
+                let date = DateTime.local().toFormat("yyyy-MM-dd");
+                let time = DateTime.local().toFormat("hh:mm a")
 
+                localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{date}', `<strong>${date}</strong>`)
+                localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{time}', `<strong>${time}</strong>`)
+
+                // let FlightMessage = <FormattedMessage id="transportationFlightMessage" values={{
+                //     date: DateTime.local().toFormat("yyyy-MM-dd' at 'hh:mm a"),
+                //     strong: chunks => <strong>{chunks}</strong>,
+                //   }} />
+
+
+                let FlightMessage = <div dangerouslySetInnerHTML={{ __html: localeCopy.flight_success.html }}></div>
+                
                 updateTransportationCost(avg);
                 setTransportationEstimates({
                     ...transportationEstimates,
@@ -460,7 +478,7 @@ const Estimator = () => {
             .catch(error => {
                 console.log('amadeus flight offer error', error);
                 updateTransportationCost(0.00);
-                setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessageCouldNotLoad" />  })
+                setTransportationMessage({ element: <div dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></div>  })
             });
     }
 
@@ -473,7 +491,7 @@ const Estimator = () => {
                         <Spinner animation="border" role="status" size="sm">
                             <span className="sr-only">Loading...</span>
                         </Spinner>{' '}
-                        <FormattedMessage id="transportationFlightMessageLoading" />
+                        <div dangerouslySetInnerHTML={{ __html: localeCopy.flight_loading.html }}></div>
                     </>
                 })
             } else {
@@ -482,15 +500,21 @@ const Estimator = () => {
             updateTransportationCost(transportationEstimates.flight.estimatedValue)
             
         } else if (transportationType === 'train') {
-            updateTransportationCost(436)
-            setTransportationMessage({ element: <FormattedMessage id="transportationTrainMessage" />  })
+            updateTransportationCost(0)
+            setTransportationMessage({ element: <div dangerouslySetInnerHTML={{ __html: localeCopy.train_success.html }}></div>  })
         } else if (transportationType === 'rental') {
-            updateTransportationCost(348)
-            setTransportationMessage({ element: <FormattedMessage id="transportationRentalCarMessage" />  })
+            updateTransportationCost(0)
+            setTransportationMessage({ element: <div dangerouslySetInnerHTML={{ __html: localeCopy.rental_car_success.html }}></div>  })
         } else if (transportationType === 'private') {
             setPrivateKilometricsValue((returnDistance / 1000).toFixed(2));
             updateTransportationCost(transportationEstimates.rentalCar.estimatedValue)
-            setTransportationMessage({ element: <FormattedMessage id="transportationPrivateVehicleMessage" values={{ rate: privateVehicleRate, kilometres: (returnDistance / 1000).toFixed(0) }} />  })
+            // values={{ rate: privateVehicleRate, kilometres:  }}
+            localeCopy.private_vehicle_success.html = localeCopy.private_vehicle_success.html.replace('{rate}', `<strong>${privateVehicleRate}</strong>`)
+            localeCopy.private_vehicle_success.html = localeCopy.private_vehicle_success.html.replace('{distance}', `<strong>${(returnDistance / 1000).toFixed(0)}</strong>`)
+            setTransportationMessage({ element: <div dangerouslySetInnerHTML={{ __html: localeCopy.private_vehicle_success.html }}></div> })
+
+
+            // setTransportationMessage({ element: <FormattedMessage id="transportationPrivateVehicleMessage" values={{ rate: privateVehicleRate, kilometres: (returnDistance / 1000).toFixed(0) }} />  })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [transportationType])
@@ -745,6 +769,20 @@ const Estimator = () => {
         </Tooltip>
     );
 
+    useEffect(() => {
+        console.log('localTransportationEstimate: ', localTransportationEstimate)
+        console.log('localTransportationCost: ', localTransportationCost)
+        if (parseInt(localTransportationCost) === 0) {
+            setLocalTransportationMessage({
+                element:  <div dangerouslySetInnerHTML={{ __html: localeCopy.local_tranportation_zero.html }}></div>
+            })
+        } else if (localTransportationEstimate !== parseInt(localTransportationCost)) {
+            setLocalTransportationMessage({
+                element:  <div dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_manual.html }}></div>
+            })
+        }
+    }, [localTransportationCost]);
+
     return (
         <div className="mb-4">
             <EmailModal
@@ -879,10 +917,11 @@ const Estimator = () => {
                                     onChange={(e) => {
                                         if (parseFloat(e.target.value) > acrdTotal) {
                                             setAccommodationCost(e.target.value)
+                                            localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
                                             setAccommodationMessage({ element: 
                                             <div className="mb-0 text-danger" role="alert">
                                                 <>
-                                                    <FormattedMessage id='accommodationWarning' values={{ acrdTotal }} />
+                                                    <div dangerouslySetInnerHTML={{ __html: localeCopy.hotel_above_estimate.html }}></div>
                                                     <OverlayTrigger
                                                         placement="top"
                                                         delay={{ show: 250, hide: 400 }}
@@ -890,6 +929,17 @@ const Estimator = () => {
                                                     >
                                                         <FaQuestionCircle className="ml-2" size="15" fill="#9E9E9E" />
                                                     </OverlayTrigger>
+                                                </>
+                                            </div>
+
+                                            , style: 'warn' });
+                                        } else if (parseFloat(e.target.value) === 0) {
+                                            setAccommodationCost(e.target.value)
+                                            // localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
+                                            setAccommodationMessage({ element: 
+                                            <div className="mb-0 text-danger" role="alert">
+                                                <>
+                                                    <div dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></div>
                                                 </>
                                             </div>
 
@@ -922,7 +972,7 @@ const Estimator = () => {
                                                 setTransportationType(e.target.value)
                                                 if (e.target.value === 'private') {
                                                     updateLocalTransportationCost(0)
-                                                };
+                                                }
                                             }}
                                         >
                                             <option value="flight" >Flight</option>
@@ -940,7 +990,12 @@ const Estimator = () => {
                                     className="form-control mb-2"
                                     id={"transportation_select"}
                                     name={'transportation'}
-                                    onChange={(e)  => {setTransportationCost(e.target.value)}}
+                                    onChange={(e)  => {
+                                        if (parseFloat(e.target.value) === 0) {
+                                            setTransportationMessage({ element: <div dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.html }}></div> })
+                                        }
+                                        setTransportationCost(e.target.value)
+                                    }}
                                     onBlur={calculateTotal}
                                     value={transportationCost}
                                 >
