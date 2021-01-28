@@ -64,6 +64,18 @@ const TravelStep = ({data, index}) => {
                         </a>
                         </p>
                     }
+                    {data.secondary_action_link &&
+                        <p className="text-center">
+                        <a
+                            href={data.secondary_action_link}
+                            className="btn btn-outline-primary my-0 px-4"
+                            target={data.secondary_action_new_window ? '_blank' : '' }
+                        >
+                            {data.secondary_action_title.text}
+                        </a>
+                        </p>
+                    }
+
                 </div>
             </div>
         </div>
