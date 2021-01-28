@@ -54,6 +54,27 @@
               "label" : "action_new_window"
             }
           },
+          "secondary_action_title" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "secondary_action_title"
+            }
+          },
+          "secondary_action_link" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "secondary_action_link"
+            }
+          },
+          "secondary_action_new_window" : {
+            "type" : "Boolean",
+            "config" : {
+              "placeholder_false" : "link will open in same window",
+              "placeholder_true" : "link will open in new window",
+              "default_value" : false,
+              "label" : "secondary_action_new_window"
+            }
+          },
           "order" : {
             "type" : "Number",
             "config" : {
