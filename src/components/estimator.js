@@ -161,8 +161,6 @@ const Estimator = () => {
 
     let localeCopy = cmsData.allPrismicEstimator.nodes.find(function(o){ return o.lang === locale }).data;
 
-    console.log(localeCopy)
-
     const [explainerCollapsed, setExplainerCollapsed] = useState(true);
 
     const citiesList = cities.citiesList;
@@ -196,6 +194,7 @@ const Estimator = () => {
     const [departureDate, setDepartureDate] = useState(initialDates.departure);
     const [returnDate, setReturnDate] = useState(initialDates.return);
     const [privateVehicleRate, setPrivateVehicleRate] = useState('');
+    const [privateVehicleSuccess, setPrivateVehicleSuccess] = useState(false);
 
     useEffect(() => {
         setHaveFlightCost(false);
@@ -204,6 +203,8 @@ const Estimator = () => {
         setTransportationEstimates(transportationEstimatesInitialState);
         updateTransportationCost(0.00);
         setTransportationMessage(initialTransportationMessage)
+        setEnterKilometricsDistanceManually(false)
+        setPrivateVehicleSuccess(false)
     }, [origin, destination, departureDate, returnDate])
 
     useEffect((() => {
@@ -263,7 +264,7 @@ const Estimator = () => {
     const [summaryCost, setSummaryCost] = useState(0.00);
     const [amadeusAccessToken, setAmadeusAccessToken] = useState({})
     const [enterKilometricsDistanceManually, setEnterKilometricsDistanceManually] = useState(false)
-    const [privateKilometricsValue, setPrivateKilometricsValue] = useState('');
+    const [privateKilometricsValue, setPrivateKilometricsValue] = useState(0);
     const [returnDistance, setReturnDistance] = useState('');
 
     const [localTransportationEstimate, setLocalTransportationEstimate] = useState(0);
@@ -296,8 +297,27 @@ const Estimator = () => {
 
     const [transportationEstimates, setTransportationEstimates] = useState(transportationEstimatesInitialState);
 
-    useEffect(() => {
+
+    function displayTransportationMessage() {
         let calculateKilometrics = privateKilometricsValue * (privateVehicleRate / 100);
+        console.log('privateVehicleSuccess', privateVehicleSuccess)
+        if (privateVehicleSuccess && privateKilometricsValue === (returnDistance / 1000).toFixed(2)) {
+            localeCopy.private_vehicle_success.html = localeCopy.private_vehicle_success.html.replace('{rate}', `<strong>${privateVehicleRate}</strong>`)
+            localeCopy.private_vehicle_success.html = localeCopy.private_vehicle_success.html.replace('{distance}', `<strong>${(returnDistance / 1000).toFixed(0)}</strong>`)
+            setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_vehicle_success.html }}></span> })
+        } else if (enterKilometricsDistanceManually) {
+            let message = '';
+            message = localeCopy.private_vehicle_manual.html.replace('{rate}', `<strong>${privateVehicleRate}</strong>`)
+            message = message.replace('{distance}', `<strong>${parseInt(privateKilometricsValue)}</strong>`)
+            setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
+        } else if (!privateVehicleSuccess) {
+            setTransportationMessage({ element: <span className="transportation-message text-danger" dangerouslySetInnerHTML={{ __html: localeCopy.private_vehicle_error.html }}></span> })
+        }
+        return calculateKilometrics;
+    }
+
+    useEffect(() => {
+        let calculateKilometrics = displayTransportationMessage();
         setTransportationCost(calculateKilometrics.toFixed(2))
         setTransportationEstimates({
             ...transportationEstimates,
@@ -384,8 +404,7 @@ const Estimator = () => {
             setAcrdTotal(total);
             localeCopy.hotel_success.html = localeCopy.hotel_success.html.replace('{location}', `<strong>${destination}</strong>`)
             localeCopy.hotel_success.html = localeCopy.hotel_success.html.replace('${daily rate}', `<strong>$${applicableRates[0].rate}</strong>`)
-            console.log(localeCopy.hotel_success.html)
-            setAccommodationMessage({ element: <div dangerouslySetInnerHTML={{ __html: localeCopy.hotel_success.html }}></div> })
+            setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_success.html }}></span> })
             // setAccommodationMessage({ element: <FormattedMessage id="hotelAccommodationMessage" values={{
             //     destination,
             //     rate: applicableRates[0].rate,
@@ -399,7 +418,7 @@ const Estimator = () => {
         let cost = 100 + 50 * (numberOfDays)
         setLocalTransportationEstimate(cost);
         updateLocalTransportationCost(cost)
-        setLocalTransportationMessage({ element: <div dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_success.html }}></div>  })
+        setLocalTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_success.html }}></span>  })
     }
 
     useEffect(() => {
@@ -407,7 +426,7 @@ const Estimator = () => {
             fetchHotelCost()
         } else if (accommodationType === 'private') {
             let rate = (Interval.fromDateTimes(departureDate, returnDate).count('days') - 1) * 50;
-            setAccommodationMessage({ element: <div dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></div>  })
+            setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></span>  })
             updateAccommodationCost(rate)
         } else {
             updateAccommodationCost(0.00)
@@ -461,7 +480,7 @@ const Estimator = () => {
                 //   }} />
 
 
-                let FlightMessage = <div dangerouslySetInnerHTML={{ __html: localeCopy.flight_success.html }}></div>
+                let FlightMessage = <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_success.html }}></span>
                 
                 updateTransportationCost(avg);
                 setTransportationEstimates({
@@ -478,7 +497,7 @@ const Estimator = () => {
             .catch(error => {
                 console.log('amadeus flight offer error', error);
                 updateTransportationCost(0.00);
-                setTransportationMessage({ element: <div dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></div>  })
+                setTransportationMessage({ element: <span className="transportation-message text-danger" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
             });
     }
 
@@ -491,7 +510,7 @@ const Estimator = () => {
                         <Spinner animation="border" role="status" size="sm">
                             <span className="sr-only">Loading...</span>
                         </Spinner>{' '}
-                        <div dangerouslySetInnerHTML={{ __html: localeCopy.flight_loading.html }}></div>
+                        <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_loading.html }}></span>
                     </>
                 })
             } else {
@@ -501,19 +520,20 @@ const Estimator = () => {
             
         } else if (transportationType === 'train') {
             updateTransportationCost(0)
-            setTransportationMessage({ element: <div dangerouslySetInnerHTML={{ __html: localeCopy.train_success.html }}></div>  })
+            setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.train_success.html }}></span>  })
         } else if (transportationType === 'rental') {
             updateTransportationCost(0)
-            setTransportationMessage({ element: <div dangerouslySetInnerHTML={{ __html: localeCopy.rental_car_success.html }}></div>  })
+            setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.rental_car_success.html }}></span>  })
         } else if (transportationType === 'private') {
-            setPrivateKilometricsValue((returnDistance / 1000).toFixed(2));
+            if (privateVehicleSuccess) {
+                setPrivateKilometricsValue((returnDistance / 1000).toFixed(2));
+            }
+
             updateTransportationCost(transportationEstimates.rentalCar.estimatedValue)
-            // values={{ rate: privateVehicleRate, kilometres:  }}
-            localeCopy.private_vehicle_success.html = localeCopy.private_vehicle_success.html.replace('{rate}', `<strong>${privateVehicleRate}</strong>`)
-            localeCopy.private_vehicle_success.html = localeCopy.private_vehicle_success.html.replace('{distance}', `<strong>${(returnDistance / 1000).toFixed(0)}</strong>`)
-            setTransportationMessage({ element: <div dangerouslySetInnerHTML={{ __html: localeCopy.private_vehicle_success.html }}></div> })
-
-
+            displayTransportationMessage()
+            // localeCopy.private_vehicle_success.html = localeCopy.private_vehicle_success.html.replace('{rate}', `<strong>${privateVehicleRate}</strong>`)
+            // localeCopy.private_vehicle_success.html = localeCopy.private_vehicle_success.html.replace('{distance}', `<strong>${(returnDistance / 1000).toFixed(0)}</strong>`)
+            // setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_vehicle_success.html }}></span> })
             // setTransportationMessage({ element: <FormattedMessage id="transportationPrivateVehicleMessage" values={{ rate: privateVehicleRate, kilometres: (returnDistance / 1000).toFixed(0) }} />  })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -609,12 +629,15 @@ const Estimator = () => {
                     let distanceBetweenPlaces = await fetchDistanceBetweenPlaces(origin, destination);
                     let distanceBetweenPlacesBody = await distanceBetweenPlaces.json()
 
+                    setPrivateVehicleSuccess(true)
 
                     let drivingDistance = distanceBetweenPlacesBody.rows[0].elements[0].distance.value;
                     let returnCalc = drivingDistance * 2;
                     setReturnDistance(returnCalc);
                 } catch (error) {
                     console.log('distanceBetweenPlaces error', error)
+                    setPrivateVehicleSuccess(false)
+                    setReturnDistance(0);
                 }
 
                 fetchHotelCost()
@@ -774,11 +797,11 @@ const Estimator = () => {
         console.log('localTransportationCost: ', localTransportationCost)
         if (parseInt(localTransportationCost) === 0) {
             setLocalTransportationMessage({
-                element:  <div dangerouslySetInnerHTML={{ __html: localeCopy.local_tranportation_zero.html }}></div>
+                element:  <span className="transportation-message text-danger" dangerouslySetInnerHTML={{ __html: localeCopy.local_tranportation_zero.html }}></span>
             })
         } else if (localTransportationEstimate !== parseInt(localTransportationCost)) {
             setLocalTransportationMessage({
-                element:  <div dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_manual.html }}></div>
+                element:  <span className="transportation-message text-danger" dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_manual.html }}></span>
             })
         }
     }, [localTransportationCost]);
@@ -921,13 +944,13 @@ const Estimator = () => {
                                             setAccommodationMessage({ element: 
                                             <div className="mb-0 text-danger" role="alert">
                                                 <>
-                                                    <div dangerouslySetInnerHTML={{ __html: localeCopy.hotel_above_estimate.html }}></div>
+                                                    <span className="transportation-message text-danger" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_above_estimate.html }}></span>
                                                     <OverlayTrigger
                                                         placement="top"
                                                         delay={{ show: 250, hide: 400 }}
                                                         overlay={renderAccommodationTooltip}
                                                     >
-                                                        <FaQuestionCircle className="ml-2" size="15" fill="#9E9E9E" />
+                                                        <FaQuestionCircle className="ml-2 mb-1" size="15" fill="#9E9E9E" />
                                                     </OverlayTrigger>
                                                 </>
                                             </div>
@@ -939,7 +962,7 @@ const Estimator = () => {
                                             setAccommodationMessage({ element: 
                                             <div className="mb-0 text-danger" role="alert">
                                                 <>
-                                                    <div dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></div>
+                                                    <span className="transportation-message text-danger" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
                                                 </>
                                             </div>
 
@@ -992,7 +1015,7 @@ const Estimator = () => {
                                     name={'transportation'}
                                     onChange={(e)  => {
                                         if (parseFloat(e.target.value) === 0) {
-                                            setTransportationMessage({ element: <div dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.html }}></div> })
+                                            setTransportationMessage({ element: <span className="transportation-message text-danger" dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.html }}></span> })
                                         }
                                         setTransportationCost(e.target.value)
                                     }}
@@ -1015,15 +1038,15 @@ const Estimator = () => {
                                                 type="checkbox"
                                                 className="mr-2" 
                                                 aria-label="Enter Kilometrics Manually"
-                                                value={enterKilometricsDistanceManually}
+                                                checked={enterKilometricsDistanceManually}
                                                 onChange={(e) => setEnterKilometricsDistanceManually(!enterKilometricsDistanceManually)}
                                             />
-                                                {enterKilometricsDistanceManually && 
-                                                    <Form.Control type="privateKilometrics" value={privateKilometricsValue} onChange={(e) => {setPrivateKilometricsValue(e.target.value)}} />
-                                                }
-                                                {!enterKilometricsDistanceManually &&
-                                                    <span>Enter distance manually</span>
-                                                }
+                                            {enterKilometricsDistanceManually && 
+                                                <Form.Control type="privateKilometrics" value={privateKilometricsValue} onChange={(e) => {setPrivateKilometricsValue(e.target.value)}} />
+                                            }
+                                            {!enterKilometricsDistanceManually &&
+                                                <span>Enter distance manually</span>
+                                            }
                                         </Form.Group>
                                     </Form>
                                 </div>
