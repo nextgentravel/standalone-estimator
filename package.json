@@ -12,7 +12,7 @@
     "@types/react": "^16.9.35",
     "accessible-autocomplete": "^2.0.3",
     "axe-core": "3.5.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bootstrap": "^4.5.1",
     "bufferutil": "^4.0.1",
     "cypress": "^4.6.0",

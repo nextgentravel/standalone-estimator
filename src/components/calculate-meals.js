@@ -20,10 +20,10 @@ const calculateMeals = (mealsByDay, province) => {
     let dailyTotal = breakfast + lunch + dinner + incidentals;
 
     for (let [mealsSelected] of Object.entries(mealsByDay)) {
-        mealsSelected.breakfast ? (mealsTotal = mealsTotal + breakfast) : mealsTotal = mealsTotal + 0
-        mealsSelected.lunch ? (mealsTotal = mealsTotal + lunch) : mealsTotal = mealsTotal + 0
-        mealsSelected.dinner ? (mealsTotal = mealsTotal + dinner) : mealsTotal = mealsTotal + 0
-        mealsSelected.incidentals ? (mealsTotal = mealsTotal + incidentals) : mealsTotal = mealsTotal + 0
+        mealsByDay[mealsSelected].breakfast ? (mealsTotal = mealsTotal + breakfast) : mealsTotal = mealsTotal + 0
+        mealsByDay[mealsSelected].lunch ? (mealsTotal = mealsTotal + lunch) : mealsTotal = mealsTotal + 0
+        mealsByDay[mealsSelected].dinner ? (mealsTotal = mealsTotal + dinner) : mealsTotal = mealsTotal + 0
+        mealsByDay[mealsSelected].incidentals ? (mealsTotal = mealsTotal + incidentals) : mealsTotal = mealsTotal + 0
     }
 
     let result = {

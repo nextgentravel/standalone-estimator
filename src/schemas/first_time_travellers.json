@@ -1,0 +1,98 @@
+{
+  "Main" : {
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading3",
+        "label" : "title"
+      }
+    },
+    "lead" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, strong, em",
+        "label" : "lead"
+      }
+    },
+    "steps" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "step_title" : {
+            "type" : "StructuredText",
+            "config" : {
+              "single" : "heading4",
+              "label" : "step_title"
+            }
+          },
+          "step_content" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "allowTargetBlank" : true,
+              "label" : "step_content"
+            }
+          },
+          "action_title" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "action_title"
+            }
+          },
+          "action_link" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "action_link"
+            }
+          },
+          "action_new_window" : {
+            "type" : "Boolean",
+            "config" : {
+              "placeholder_false" : "link will open in same window",
+              "placeholder_true" : "link will open in new window",
+              "default_value" : false,
+              "label" : "action_new_window"
+            }
+          },
+          "secondary_action_title" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "secondary_action_title"
+            }
+          },
+          "secondary_action_link" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "secondary_action_link"
+            }
+          },
+          "secondary_action_new_window" : {
+            "type" : "Boolean",
+            "config" : {
+              "placeholder_false" : "link will open in same window",
+              "placeholder_true" : "link will open in new window",
+              "default_value" : false,
+              "label" : "secondary_action_new_window"
+            }
+          },
+          "order" : {
+            "type" : "Number",
+            "config" : {
+              "label" : "order"
+            }
+          },
+          "show_step_number" : {
+            "type" : "Boolean",
+            "config" : {
+              "placeholder_false" : "don't show step number",
+              "placeholder_true" : "show step number",
+              "default_value" : true,
+              "label" : "show_step_number"
+            }
+          }
+        },
+        "label" : "steps"
+      }
+    }
+  }
+}
