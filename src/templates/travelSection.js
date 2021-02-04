@@ -58,7 +58,7 @@ const TravelSection = ({ data }) => {
           <div className="container">
             <nav className="skiphold" aria-label="sidebar skiplink"><a className="sr-only sr-only-focusable aurora-skip skiplink" id="sidebar-skiplink" href="#sidebar" aria-label="skip to side"><FormattedMessage id="skipToSide"/></a></nav>
             <div className="row mb-4">
-              <div className="col-sm-8"><h2 className="display-5">{travelSection.title.text}</h2></div>
+              <div className="col-sm-8"><h2>{travelSection.title.text}</h2></div>
               {travelSection.jumpTo && <div className="col-sm-2 ml-auto">
                 <div className="form-group">
                   <select onBlur={jumpTo} className="custom-select text-secondary align-middle">
@@ -99,20 +99,21 @@ const TravelSection = ({ data }) => {
             }
 
             <p className="text-center">
-              {travelSection.next_section.document &&
-                <a
-                  href={`${homeLink}${travelSection.next_section.document.uid}`}
-                  className="btn btn-primary my-4 px-4 mr-4"
-                >
-                  View {travelSection.next_section.document.data.title.text}
-                </a>
-              }
               {travelSection.previous_section.document &&
                 <a
                   href={`${homeLink}${travelSection.previous_section.document.uid}`}
-                  className="btn btn-outline-primary my-4 px-4"
+                  className="btn btn-outline-primary my-4 px-4 mr-4"
                 >
                   Back to {travelSection.previous_section.document.data.title.text}
+                </a>
+              }
+
+              {travelSection.next_section.document &&
+                <a
+                  href={`${homeLink}${travelSection.next_section.document.uid}`}
+                  className="btn btn-primary my-4 px-4"
+                >
+                  View {travelSection.next_section.document.data.title.text}
                 </a>
               }
             </p>
@@ -152,6 +153,12 @@ export const query = graphql`
             html
           }
           show_step_number
+          directives_reference {
+            directive_link_text
+            directive_link {
+              url
+            }
+          }
         }
       }
     }

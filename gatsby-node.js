@@ -45,12 +45,67 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-    }  
+      allPrismicGlossary {
+        nodes {
+          data {
+            glossary_items {
+              glossary_item_content {
+                html
+              }
+              glossary_item_title {
+                text
+              }
+            }
+            lead {
+              html
+            }
+            title {
+              text
+            }
+          }
+          lang
+        }
+      }
+      allPrismicFirstTimeTravellers {
+        nodes {
+          data {
+            lead {
+              text
+            }
+            steps {
+              step_content {
+                html
+              }
+              step_title {
+                text
+              }
+              show_step_number
+              action_title
+              action_link
+              action_new_window
+              secondary_action_title
+              secondary_action_link
+              secondary_action_new_window
+
+
+            }
+            title {
+              text
+            }
+          }
+          lang
+        }
+      }
+    }
   `)
 
   const travelSectionTemplate = require.resolve(`./src/templates/travelSection.js`)
 
   const genericPageTemplate = require.resolve(`./src/templates/genericPageTemplate.js`)
+
+  const glossaryTemplate = require.resolve(`./src/templates/glossary.js`)
+
+  const firstTimeTravellers = require.resolve(`./src/templates/firstTimeTravellers.js`)
 
   // Create pages for each Page in Prismic using the selected template.
   pages.data.allPrismicTravelSection.nodes.forEach((node) => {
@@ -80,6 +135,27 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  pages.data.allPrismicGlossary.nodes.forEach((node) => {
+    const language = node.lang.substring(0, 2)
+    createPage({
+      path: `${language}/glossary`,
+      component: glossaryTemplate,
+      context: {
+        lang: node.lang,
+      },
+    })
+  })
+
+  pages.data.allPrismicFirstTimeTravellers.nodes.forEach((node) => {
+    const language = node.lang.substring(0, 2)
+    createPage({
+      path: `${language}/first-time-travellers`,
+      component: firstTimeTravellers,
+      context: {
+        lang: node.lang,
+      },
+    })
+  })
 
 }
 
