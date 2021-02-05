@@ -48,7 +48,6 @@ const RatesChecker = () => {
     const [loading, setLoading] = useState(false);
     const [generalError, setGeneralError] = useState(false);
     const [errorPanel, setErrorPanel] = useState(false);
-    const [dateFocused, setDateFocused] = useState(null);
 
     //   Will use later when integration language
     //   const url = globalHistory.location.pathname;
@@ -93,16 +92,20 @@ const RatesChecker = () => {
     const clearForm = () => {
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
-        setDepartureDate(initialDates.departure);
-        setReturnDate(initialDates.return);
-
         let destinationElement = document.querySelector('#autocomplete-destination')
         let clearFormButton = document.querySelector('#clear-button')
+        let datePickerDepart = document.querySelector('#departureDate')
+        let datePickerReturn = document.querySelector('#returnDate')
 
         destinationElement.value = "";
         destinationElement.click();
         destinationElement.focus();
         destinationElement.blur();
+
+        setTimeout(function(){ 
+            datePickerDepart.value = '';
+            datePickerReturn.value = '';
+        },0);
 
         // END OF HACK
         setValidationWarnings([])
@@ -167,13 +170,20 @@ const RatesChecker = () => {
                     options={filteredCitiesList}
                     updateValue={setDestination}
                 />
+                <DatePicker validationWarnings={validationWarnings}
+                    setValidationWarnings={setValidationWarnings}
+                    label={<FormattedMessage id="rateDepart" />}
+                    name="departureDate"
+                    updateValue={setDepartureDate}
+                    initialDate={initialDates.return}
+                />
                 <DatePicker
-                    initialStart={departureDate}
-                    setStart={setDepartureDate}
-                    initialEnd={returnDate}
-                    setEnd={setReturnDate}
-                    focus={dateFocused}
-                    onFocus={setDateFocused}
+                    validationWarnings={validationWarnings}
+                    setValidationWarnings={setValidationWarnings}
+                    label={<FormattedMessage id="rateReturn" />}
+                    name="returnDate"
+                    updateValue={setReturnDate}
+                    initialDate={initialDates.return}
                 />
                 {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                 <button type="submit" className="btn btn-primary"><FormattedMessage id="submit"/></button>
