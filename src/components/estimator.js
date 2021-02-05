@@ -196,7 +196,6 @@ const Estimator = () => {
     const [departureDate, setDepartureDate] = useState(initialDates.departure);
     const [returnDate, setReturnDate] = useState(initialDates.return);
     const [privateVehicleRate, setPrivateVehicleRate] = useState('');
-    const [dateFocused, setDateFocused] = useState(null);
 
     useEffect(() => {
         setHaveFlightCost(false);
@@ -641,13 +640,15 @@ const Estimator = () => {
         setTransportationEstimates(transportationEstimatesInitialState);
         setOrigin('')
         setDestination('')
-        setDepartureDate(initialDates.departure);
-        setReturnDate(initialDates.return);
+        setDepartureDate('');
+        setReturnDate('');
 
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
         let originElement = document.querySelector('#autocomplete-origin')
         let destinationElement = document.querySelector('#autocomplete-destination')
+        let datePickerDepart = document.querySelector('#departureDate')
+        let datePickerReturn = document.querySelector('#returnDate')
 
         destinationElement.value = "";
         destinationElement.click();
@@ -662,6 +663,8 @@ const Estimator = () => {
             if(originElement){
                 originElement.focus();
             }
+            datePickerDepart.value = '';
+            datePickerReturn.value = '';
         },0);
 
         // END OF HACK
@@ -816,7 +819,7 @@ const Estimator = () => {
                 </ul>
             </div>}
             <form id="estimates-form" className="form-group row mb-5" onSubmit={handleSubmit}>
-                <div className="col-sm-7">
+                <div className="col-sm-6">
                     <InputDatalist
                         validationWarnings={validationWarnings}
                         setValidationWarnings={setValidationWarnings}
@@ -827,7 +830,7 @@ const Estimator = () => {
                     />
                 </div>
                 <div className="col-sm-6"></div>
-                <div className="col-sm-7">
+                <div className="col-sm-6">
                     <InputDatalist
                         validationWarnings={validationWarnings}
                         setValidationWarnings={setValidationWarnings}
@@ -839,15 +842,25 @@ const Estimator = () => {
                     />
                 </div>
                 <div className="col-sm-6"></div>
-                <div className="col-sm-7">
+                <div className="col-sm-3">
                     <DatePicker
-                        initialStart={departureDate}
-                        setStart={setDepartureDate}
-                        initialEnd={returnDate}
-                        setEnd={setReturnDate}
-                        focus={dateFocused}
-                        onFocus={setDateFocused}
-                    />
+                        validationWarnings={validationWarnings}
+                        setValidationWarnings={setValidationWarnings}
+                        label={<FormattedMessage id="estimateDepartureDate" />}
+                        name="departureDate"
+                        initialDate={initialDates.departure}
+                        updateValue={setDepartureDate}
+                    ></DatePicker>
+                </div>
+                <div className="col-sm-3">
+                    <DatePicker
+                        validationWarnings={validationWarnings}
+                        setValidationWarnings={setValidationWarnings}
+                        label={<FormattedMessage id="estimateReturnDate" />}
+                        name="returnDate"
+                        initialDate={initialDates.return}
+                        updateValue={setReturnDate}
+                    ></DatePicker>
                 </div>
                 <div className="col-sm-3"></div>
                 <div className="col-sm-6">
