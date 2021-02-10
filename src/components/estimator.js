@@ -161,8 +161,6 @@ const Estimator = () => {
 
     let localeCopy = cmsData.allPrismicEstimator.nodes.find(function(o){ return o.lang === locale }).data;
 
-    console.log(localeCopy)
-
     const [explainerCollapsed, setExplainerCollapsed] = useState(true);
 
     const citiesList = cities.citiesList;
@@ -181,8 +179,8 @@ const Estimator = () => {
     }, []);
 
     let initialDates = {
-        departure: DateTime.local(),
-        return: DateTime.local().plus({ days: 1 }),
+        departure: DateTime.local().plus({ days: 1 }),
+        return: DateTime.local().plus({ days: 2 }),
     }
 
     // Variables/state for inputs
@@ -214,25 +212,6 @@ const Estimator = () => {
             let provinceRate = locations[provinceAbbreviation].rateCents
             setPrivateVehicleRate(provinceRate);
         }
-
-        const getClosestsAirports = async () => {
-            try {
-                await amadeusAccessTokenCheck();
-                let response = await amadeusAirportCode(data.geometry.location.lat, data.geometry.location.lng, amadeusAccessToken.token)
-                return response;
-            } catch (error) {
-                console.log('getClosestsAirports: ', error);
-            }
-
-        }
-
-        if (data && Object.keys(data).length !== 0) {
-            getClosestsAirports()
-            .then((response) => {
-                console.log('closestAirports response', response)
-            }).catch((err) => console.log('getClosestsAirports', err))
-        }
-
         setOriginData(data);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }), [origin])
@@ -385,7 +364,6 @@ const Estimator = () => {
             setAcrdTotal(total);
             localeCopy.hotel_success.html = localeCopy.hotel_success.html.replace('{location}', `<strong>${destination}</strong>`)
             localeCopy.hotel_success.html = localeCopy.hotel_success.html.replace('${daily rate}', `<strong>$${applicableRates[0].rate}</strong>`)
-            console.log(localeCopy.hotel_success.html)
             setAccommodationMessage({ element: <div dangerouslySetInnerHTML={{ __html: localeCopy.hotel_success.html }}></div> })
             // setAccommodationMessage({ element: <FormattedMessage id="hotelAccommodationMessage" values={{
             //     destination,
@@ -437,10 +415,10 @@ const Estimator = () => {
             console.log('amadeusAccessTokenCheck', error)
         }
 
-        amadeusFlightOffer('YOW', 'YVR', departureDateISODate, returnDateISODate, amadeusAccessToken.token)
+        if (originData.airports.length > 0 && destinationData.airports.length > 0) {
+            amadeusFlightOffer(originData.airports[0].iataCode, destinationData.airports[0].iataCode, departureDateISODate, returnDateISODate, amadeusAccessToken.token)
             .then(response => response.json())
             .then(result => {
-
                 const allPrices = [];
 
                 result.data.forEach(itinerary => {
@@ -481,6 +459,9 @@ const Estimator = () => {
                 updateTransportationCost(0.00);
                 setTransportationMessage({ element: <div dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></div>  })
             });
+        } else {
+            setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessageNoAirport" />  })
+        }
     }
 
     useEffect(() => {
@@ -767,8 +748,6 @@ const Estimator = () => {
     );
 
     useEffect(() => {
-        console.log('localTransportationEstimate: ', localTransportationEstimate)
-        console.log('localTransportationCost: ', localTransportationCost)
         if (parseInt(localTransportationCost) === 0) {
             setLocalTransportationMessage({
                 element:  <div dangerouslySetInnerHTML={{ __html: localeCopy.local_tranportation_zero.html }}></div>

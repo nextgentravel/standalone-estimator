@@ -7,7 +7,6 @@ import { FaCalendar } from 'react-icons/fa';
 import { FormattedMessage } from 'react-intl'
 
 const DatePickerComponent = ({initialStart, setStart, initialEnd, setEnd, focus, onFocus}) => {
-    console.log(initialStart);
     return(
         <div className="mb-4">
             <div>
