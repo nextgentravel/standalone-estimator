@@ -115,25 +115,6 @@ const Estimator = () => {
             let provinceRate = locations[provinceAbbreviation].rateCents
             setPrivateVehicleRate(provinceRate);
         }
-
-        const getClosestsAirports = async () => {
-            try {
-                await amadeusAccessTokenCheck();
-                let response = await amadeusAirportCode(data.geometry.location.lat, data.geometry.location.lng, amadeusAccessToken.token)
-                return response;
-            } catch (error) {
-                console.log('getClosestsAirports: ', error);
-            }
-
-        }
-
-        if (data && Object.keys(data).length !== 0) {
-            getClosestsAirports()
-            .then((response) => {
-                console.log('closestAirports response', response)
-            }).catch((err) => console.log('getClosestsAirports', err))
-        }
-
         setOriginData(data);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }), [origin])
@@ -331,7 +312,9 @@ const Estimator = () => {
             console.log('amadeusAccessTokenCheck', error)
         }
 
-        amadeusFlightOffer('YOW', 'YVR', departureDateISODate, returnDateISODate, amadeusAccessToken.token)
+        if (originData.airports.length > 0 && destinationData.airports.length > 0) {
+            console.log("EACH HAS AIRPORT")
+            amadeusFlightOffer(originData.airports[0].iataCode, destinationData.airports[0].iataCode, departureDateISODate, returnDateISODate, amadeusAccessToken.token)
             .then(response => response.json())
             .then(result => {
 
@@ -366,6 +349,10 @@ const Estimator = () => {
                 updateTransportationCost(0.00);
                 setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessageCouldNotLoad" />  })
             });
+        } else {
+            console.log("NO AIRPORT")
+            setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessageNoAirport" />  })
+        }
     }
 
     useEffect(() => {

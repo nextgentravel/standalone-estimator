@@ -1,4 +1,4 @@
-{
+module.exports = {
   "100 Mile House BC": {
       "acrdName": "100 Mile House BC",
       "address_components": {
