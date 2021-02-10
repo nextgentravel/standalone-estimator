@@ -9,14 +9,14 @@ module.exports = async function (context, req) {
     const travellersMsg = {
       to: req.body.travellersEmail,
       from: 'gctravelapp@gmail.com',
-      templateId: 'd-24d85019add04cf7aae35bbd3448f1b6',
+      templateId: 'd-85ec513d80a54249bf15ef46e4f3f703',
       dynamicTemplateData: req.body,
     }
 
     const approverMsg = {
         to: req.body.approversEmail,
         from: 'gctravelapp@gmail.com',
-        templateId: 'd-85ec513d80a54249bf15ef46e4f3f703',
+        templateId: 'd-24d85019add04cf7aae35bbd3448f1b6',
         dynamicTemplateData: req.body,
     }
 
