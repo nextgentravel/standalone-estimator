@@ -6,25 +6,44 @@ module.exports = async function (context, req) {
 
     let string = JSON.stringify(req.body, null, 2);
 
-    const msg = {
+    const travellersMsg = {
       to: req.body.travellersEmail,
       from: 'gctravelapp@gmail.com',
       templateId: 'd-24d85019add04cf7aae35bbd3448f1b6',
       dynamicTemplateData: req.body,
     }
 
+    const approverMsg = {
+        to: req.body.approversEmail,
+        from: 'gctravelapp@gmail.com',
+        templateId: 'd-85ec513d80a54249bf15ef46e4f3f703',
+        dynamicTemplateData: req.body,
+    }
+
+    let response = {
+        approver: '',
+        traveller: '',
+    }
+
     await sgMail
-        .send(msg)
+        .send(travellersMsg)
         .then(() => {
-            context.res = {
-                // status: 200, /* Defaults to 200 */
-                body: JSON.stringify({ message: 'email sent' })
-            };
+            response.traveller = "Email sent to traveller"
         })
         .catch((error) => {
-            context.res = {
-                // status: 200, /* Defaults to 200 */
-                body: JSON.stringify({ error: error })
-            };
+            response.traveller = error;
         })
+
+    await sgMail
+        .send(approverMsg)
+        .then(() => {
+            response.approver = "Email sent to approver"
+        })
+        .catch((error) => {
+            response.approver = error;
+        })
+
+    context.res = {
+        body: JSON.stringify(response)
+    };
 }
