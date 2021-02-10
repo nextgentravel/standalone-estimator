@@ -313,7 +313,6 @@ const Estimator = () => {
         }
 
         if (originData.airports.length > 0 && destinationData.airports.length > 0) {
-            console.log("EACH HAS AIRPORT")
             amadeusFlightOffer(originData.airports[0].iataCode, destinationData.airports[0].iataCode, departureDateISODate, returnDateISODate, amadeusAccessToken.token)
             .then(response => response.json())
             .then(result => {
@@ -350,7 +349,6 @@ const Estimator = () => {
                 setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessageCouldNotLoad" />  })
             });
         } else {
-            console.log("NO AIRPORT")
             setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessageNoAirport" />  })
         }
     }
