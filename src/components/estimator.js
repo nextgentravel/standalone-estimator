@@ -644,19 +644,25 @@ const Estimator = () => {
             return response.json()
           }).then(function(data) {
             console.log('email service: ', data);
-            setEmailModalShow(false)
-            setEmailRequestLoading(false)
             setEmailRequestResult({ status: 'success', raw: data })
-            setEmailConfirmationModalShow(true)
           })
           .catch((err) => {
-            setEmailModalShow(false)
-            console.log('send email error: ', err)
-            setEmailRequestLoading(false)
+            console.log('email service: ', err);
             setEmailRequestResult({ status: 'error', raw: err })
-            setEmailConfirmationModalShow(true)
           });
     }
+
+    useEffect(() => {
+        if (emailRequestResult.status === 'success') {
+            setEmailModalShow(false)
+            setEmailRequestLoading(false)
+            setEmailConfirmationModalShow(true)
+        } else if (emailRequestResult.status === 'error') {
+            setEmailModalShow(false)
+            setEmailRequestLoading(false)
+            setEmailConfirmationModalShow(true)
+        }
+    }, [emailRequestResult])
 
     const renderAccommodationTooltip = (props) => (
         <Tooltip id="button-tooltip" {...props}>
