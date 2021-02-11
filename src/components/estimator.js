@@ -9,6 +9,7 @@ import monthsContained from "./months-contained.js"
 import { useIntl, FormattedMessage } from 'react-intl'
 import EstimatorRow from "./estimator-row.js"
 import EmailModal from "./email-modal.js"
+import EmailConfirmationModal from "./email-confirmation-modal.js"
 import MealsModal from "./meals-modal.js"
 import { FaCaretUp, FaCaretDown, FaCalculator } from 'react-icons/fa';
 import { dailyMealTemplate } from "./functions/dailyMealTemplate"
@@ -170,6 +171,18 @@ const Estimator = () => {
 
     const [mealsByDay, setMealsByDay] = useState({});
     const [province, setProvince] = useState('');
+
+    const [emailModalShow, setEmailModalShow] = useState(false);
+    const [emailRequestLoading, setEmailRequestLoading] = useState(false);
+    const [emailConfirmationModalShow, setEmailConfirmationModalShow] = useState(false);
+    const [emailRequestResult, setEmailRequestResult] = useState({});
+
+    const [tripName, setTripName] = useState('');
+    const [travellersName, setTravellersName] = useState('');
+    const [travellersEmail, setTravellersEmail] = useState('');
+    const [approversName, setApproversName] = useState('');
+    const [approversEmail, setApproversEmail] = useState('');
+    const [tripNotes, setTripNotes] = useState('');
 
     const transportationEstimatesInitialState = {
         flight: {
@@ -601,6 +614,7 @@ const Estimator = () => {
     }
 
     const sendEmail = async () => {
+        setEmailRequestLoading(true);
         fetch('/api/sendEstimateEmail', {
             method: 'post',
             body: JSON.stringify({
@@ -630,18 +644,19 @@ const Estimator = () => {
             return response.json()
           }).then(function(data) {
             console.log('email service: ', data);
+            setEmailModalShow(false)
+            setEmailRequestLoading(false)
+            setEmailRequestResult({ status: 'success', raw: data })
+            setEmailConfirmationModalShow(true)
           })
-          .catch((err) => console.log('send email error: ', err));
+          .catch((err) => {
+            setEmailModalShow(false)
+            console.log('send email error: ', err)
+            setEmailRequestLoading(false)
+            setEmailRequestResult({ status: 'error', raw: err })
+            setEmailConfirmationModalShow(true)
+          });
     }
-
-    const [emailModalShow, setEmailModalShow] = React.useState(false);
-
-    const [tripName, setTripName] = useState('');
-    const [travellersName, setTravellersName] = useState('');
-    const [travellersEmail, setTravellersEmail] = useState('');
-    const [approversName, setApproversName] = useState('');
-    const [approversEmail, setApproversEmail] = useState('');
-    const [tripNotes, setTripNotes] = useState('');
 
     const renderAccommodationTooltip = (props) => (
         <Tooltip id="button-tooltip" {...props}>
@@ -667,6 +682,13 @@ const Estimator = () => {
                 setApproversEmail={setApproversEmail}
                 setTripNotes={setTripNotes}
                 tripNotes={tripNotes}
+                emailRequestLoading={emailRequestLoading}
+            />
+            <EmailConfirmationModal
+                show={emailConfirmationModalShow}
+                onHide={() => setEmailConfirmationModalShow(false)}
+                emailRequestResult={emailRequestResult}
+                approversName={approversName}
             />
             <MealsModal
                 mealsByDay={mealsByDay}
@@ -934,10 +956,10 @@ const Estimator = () => {
 
             <hr />
             
-            <div class="card bg-white px-4 mb-4">
+            <div className="card bg-white px-4 mb-4">
                 <div className="row">
                     <button className="col-sm-12 pl-2 pb-1 btn btn-plain" aria-expanded="false" onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
-                        <h3 class="display-5"><FaCalculator size="20" class='mb-1 mr-2' />{localeCopy.explainer_title.text}</h3>
+                        <h3 className="display-5"><FaCalculator size="20" className='mb-1 mr-2' />{localeCopy.explainer_title.text}</h3>
                         {explainerCollapsed &&
                             <FaCaretDown
                                 size="25"
@@ -972,7 +994,7 @@ const Estimator = () => {
                 </div>
             </div>
 
-            <div class="px-3" dangerouslySetInnerHTML={{ __html: localeCopy.disclaimer_body.html }}></div>
+            <div className="px-3" dangerouslySetInnerHTML={{ __html: localeCopy.disclaimer_body.html }}></div>
 
         </div>
     )
