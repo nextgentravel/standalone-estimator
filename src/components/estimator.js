@@ -535,7 +535,8 @@ const Estimator = () => {
         setDestination('')
         setDepartureDate('');
         setReturnDate('');
-
+        setEmailConfirmationModalShow(false);
+        setEmailModalShow(false);
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
         let originElement = document.querySelector('#autocomplete-origin')
@@ -695,6 +696,7 @@ const Estimator = () => {
                 onHide={() => setEmailConfirmationModalShow(false)}
                 emailRequestResult={emailRequestResult}
                 approversName={approversName}
+                clearForm={clearForm}
             />
             <MealsModal
                 mealsByDay={mealsByDay}
