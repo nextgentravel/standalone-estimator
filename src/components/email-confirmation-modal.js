@@ -23,7 +23,7 @@ const EmailConfirmationModal = (props) => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                {emailRequestResult && <span>Your travel estimate is on its way!  Please remember to follow up with {props.approversName}</span>}
+                {emailRequestResult && <span>Your travel estimate is on its way!</span>}
                 {!emailRequestResult && <div>
                     <p>Oops. There was a problem sending your estimate.</p>
                     <p>{JSON.stringify(props.emailRequestResult.raw)}</p>
