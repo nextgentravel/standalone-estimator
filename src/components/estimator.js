@@ -642,14 +642,17 @@ const Estimator = () => {
                 summaryCost,
             })
           }).then(function(response) {
+            if (!response.ok) {
+                setEmailRequestResult({ status: 'error', raw: response.statusText })
+                throw Error(response.statusText);
+            }
             return response.json()
           }).then(function(data) {
             console.log('email service: ', data);
             setEmailRequestResult({ status: 'success', raw: data })
           })
           .catch((err) => {
-            console.log('email service: ', err);
-            setEmailRequestResult({ status: 'error', raw: err })
+            console.log('email service: ', err.message);
           });
     }
 
