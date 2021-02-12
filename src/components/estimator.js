@@ -474,12 +474,6 @@ const Estimator = () => {
                 localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{date}', `<strong>${date}</strong>`)
                 localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{time}', `<strong>${time}</strong>`)
 
-                // let FlightMessage = <FormattedMessage id="transportationFlightMessage" values={{
-                //     date: DateTime.local().toFormat("yyyy-MM-dd' at 'hh:mm a"),
-                //     strong: chunks => <strong>{chunks}</strong>,
-                //   }} />
-
-
                 let FlightMessage = <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_success.html }}></span>
                 
                 updateTransportationCost(avg);
@@ -531,10 +525,6 @@ const Estimator = () => {
 
             updateTransportationCost(transportationEstimates.rentalCar.estimatedValue)
             displayTransportationMessage()
-            // localeCopy.private_vehicle_success.html = localeCopy.private_vehicle_success.html.replace('{rate}', `<strong>${privateVehicleRate}</strong>`)
-            // localeCopy.private_vehicle_success.html = localeCopy.private_vehicle_success.html.replace('{distance}', `<strong>${(returnDistance / 1000).toFixed(0)}</strong>`)
-            // setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_vehicle_success.html }}></span> })
-            // setTransportationMessage({ element: <FormattedMessage id="transportationPrivateVehicleMessage" values={{ rate: privateVehicleRate, kilometres: (returnDistance / 1000).toFixed(0) }} />  })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [transportationType])
@@ -1010,7 +1000,7 @@ const Estimator = () => {
                             <div className="col-sm-2 align-self-center">
                                 <input
                                     type="text"
-                                    className="form-control mb-2"
+                                    className={`form-control mb-2`}
                                     id={"transportation_select"}
                                     name={'transportation'}
                                     onChange={(e)  => {
@@ -1021,6 +1011,7 @@ const Estimator = () => {
                                     }}
                                     onBlur={calculateTotal}
                                     value={transportationCost}
+                                    disabled={enterKilometricsDistanceManually ? true : false}
                                 >
                                 </input>
                             </div>
