@@ -9,6 +9,7 @@ import monthsContained from "./months-contained.js"
 import { useIntl, FormattedMessage } from 'react-intl'
 import EstimatorRow from "./estimator-row.js"
 import EmailModal from "./email-modal.js"
+import EmailConfirmationModal from "./email-confirmation-modal.js"
 import MealsModal from "./meals-modal.js"
 import { FaCaretUp, FaCaretDown, FaCalculator } from 'react-icons/fa';
 import { dailyMealTemplate } from "./functions/dailyMealTemplate"
@@ -250,6 +251,18 @@ const Estimator = () => {
 
     const [mealsByDay, setMealsByDay] = useState({});
     const [province, setProvince] = useState('');
+
+    const [emailModalShow, setEmailModalShow] = useState(false);
+    const [emailRequestLoading, setEmailRequestLoading] = useState(false);
+    const [emailConfirmationModalShow, setEmailConfirmationModalShow] = useState(false);
+    const [emailRequestResult, setEmailRequestResult] = useState({});
+
+    const [tripName, setTripName] = useState('');
+    const [travellersName, setTravellersName] = useState('');
+    const [travellersEmail, setTravellersEmail] = useState('');
+    const [approversName, setApproversName] = useState('');
+    const [approversEmail, setApproversEmail] = useState('');
+    const [tripNotes, setTripNotes] = useState('');
 
     const transportationEstimatesInitialState = {
         flight: {
@@ -622,6 +635,11 @@ const Estimator = () => {
         setTransportationEstimates(transportationEstimatesInitialState);
         setOrigin('')
         setDestination('')
+        setDepartureDate('');
+        setReturnDate('');
+        setEmailConfirmationModalShow(false);
+        setEmailModalShow(false);
+      
         setDepartureDate(initialDates.departure);
         setReturnDate(initialDates.return);
 
@@ -699,6 +717,7 @@ const Estimator = () => {
     }
 
     const sendEmail = async () => {
+        setEmailRequestLoading(true);
         fetch('/api/sendEstimateEmail', {
             method: 'post',
             body: JSON.stringify({
@@ -725,21 +744,31 @@ const Estimator = () => {
                 summaryCost,
             })
           }).then(function(response) {
+            if (!response.ok) {
+                setEmailRequestResult({ status: 'error', raw: response.statusText })
+                throw Error(response.statusText);
+            }
             return response.json()
           }).then(function(data) {
             console.log('email service: ', data);
+            setEmailRequestResult({ status: 'success', raw: data })
           })
-          .catch((err) => console.log('send email error: ', err));
+          .catch((err) => {
+            console.log('email service: ', err.message);
+          });
     }
 
-    const [emailModalShow, setEmailModalShow] = React.useState(false);
-
-    const [tripName, setTripName] = useState('');
-    const [travellersName, setTravellersName] = useState('');
-    const [travellersEmail, setTravellersEmail] = useState('');
-    const [approversName, setApproversName] = useState('');
-    const [approversEmail, setApproversEmail] = useState('');
-    const [tripNotes, setTripNotes] = useState('');
+    useEffect(() => {
+        if (emailRequestResult.status === 'success') {
+            setEmailModalShow(false)
+            setEmailRequestLoading(false)
+            setEmailConfirmationModalShow(true)
+        } else if (emailRequestResult.status === 'error') {
+            setEmailModalShow(false)
+            setEmailRequestLoading(false)
+            setEmailConfirmationModalShow(true)
+        }
+    }, [emailRequestResult])
 
     const renderAccommodationTooltip = (props) => (
         <Tooltip id="button-tooltip" {...props}>
@@ -777,6 +806,14 @@ const Estimator = () => {
                 setApproversEmail={setApproversEmail}
                 setTripNotes={setTripNotes}
                 tripNotes={tripNotes}
+                emailRequestLoading={emailRequestLoading}
+            />
+            <EmailConfirmationModal
+                show={emailConfirmationModalShow}
+                onHide={() => setEmailConfirmationModalShow(false)}
+                emailRequestResult={emailRequestResult}
+                approversName={approversName}
+                clearForm={clearForm}
             />
             <MealsModal
                 mealsByDay={mealsByDay}
