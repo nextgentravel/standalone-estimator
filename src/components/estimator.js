@@ -800,7 +800,7 @@ const Estimator = () => {
         if (transportationType === 'flight') {
             if (haveFlightCost && (parseInt(transportationCost) === 0)) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message text-warning">(fetched) Flight price is good</span>
+                    element:  <span className="transportation-message text-warning">(fetched) Flight price is 0</span>
                 })
             }
             if (haveFlightCost && (transportationCost <= transportationEstimates.flight.estimatedValue)) {
