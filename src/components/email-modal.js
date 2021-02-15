@@ -3,6 +3,7 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import { FormattedMessage } from 'react-intl';
 import EmailForm from "./email-form.js";
+import { FaSpinner } from 'react-icons/fa';
 
 const EmailModal = (props) => {
     return (
@@ -22,7 +23,8 @@ const EmailModal = (props) => {
                 <EmailForm {...props} />
             </Modal.Body>
             <Modal.Footer>
-                <Button onClick={props.sendEmail}><FormattedMessage id="submit" /></Button>
+                <Button onClick={props.sendEmail} className={`${props.emailRequestLoading ? 'disabled' : ''}`} ><FormattedMessage id="submit" /></Button>
+                {props.emailRequestLoading && <FaSpinner className="fa-spin ml-3" size="24" />}
             </Modal.Footer>
       </Modal>
     )
