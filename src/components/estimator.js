@@ -38,7 +38,7 @@ const Estimator = () => {
     let locale = `${intl.locale}-ca`;
     const cmsData = useStaticQuery(graphql`
     query cmsData {
-        allPrismicEstimator {
+        allPrismicStandaloneestimatorCopy {
             nodes {
                 lang
                 data {
@@ -160,7 +160,7 @@ const Estimator = () => {
 
     let initialTransportationMessage = { element: <FormattedMessage id='transportationDescription' />, style: 'primary' };
 
-    let localeCopy = cmsData.allPrismicEstimator.nodes.find(function(o){ return o.lang === locale }).data;
+    let localeCopy = cmsData.allPrismicStandaloneestimatorCopy.nodes.find(function(o){ return o.lang === locale }).data;
 
     const [explainerCollapsed, setExplainerCollapsed] = useState(true);
 
