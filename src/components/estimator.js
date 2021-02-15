@@ -311,7 +311,7 @@ const Estimator = () => {
             message = message.replace('{distance}', `<strong>${parseInt(privateKilometricsValue)}</strong>`)
             setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
         } else if (!privateVehicleSuccess) {
-            setTransportationMessage({ element: <span className="transportation-message text-danger" dangerouslySetInnerHTML={{ __html: localeCopy.private_vehicle_error.html }}></span> })
+            setTransportationMessage({ element: <span className="transportation-message text-warning" dangerouslySetInnerHTML={{ __html: localeCopy.private_vehicle_error.html }}></span> })
         }
         return calculateKilometrics;
     }
@@ -491,7 +491,7 @@ const Estimator = () => {
             .catch(error => {
                 console.log('amadeus flight offer error', error);
                 updateTransportationCost(0.00);
-                setTransportationMessage({ element: <span className="transportation-message text-danger" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
+                setTransportationMessage({ element: <span className="transportation-message text-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
             });
     }
 
@@ -787,14 +787,54 @@ const Estimator = () => {
         console.log('localTransportationCost: ', localTransportationCost)
         if (parseInt(localTransportationCost) === 0) {
             setLocalTransportationMessage({
-                element:  <span className="transportation-message text-danger" dangerouslySetInnerHTML={{ __html: localeCopy.local_tranportation_zero.html }}></span>
+                element:  <span className="transportation-message text-warning" dangerouslySetInnerHTML={{ __html: localeCopy.local_tranportation_zero.html }}></span>
             })
         } else if (localTransportationEstimate !== parseInt(localTransportationCost)) {
             setLocalTransportationMessage({
-                element:  <span className="transportation-message text-danger" dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_manual.html }}></span>
+                element:  <span className="transportation-message text-warning" dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_manual.html }}></span>
             })
         }
     }, [localTransportationCost]);
+
+    useEffect(() => {
+        if (transportationType === 'flight') {
+            if (haveFlightCost && (parseInt(transportationCost) === 0)) {
+                setTransportationMessage({
+                    element:  <span className="transportation-message text-warning">(fetched) Flight price is good</span>
+                })
+            }
+            if (haveFlightCost && (transportationCost <= transportationEstimates.flight.estimatedValue)) {
+                setTransportationMessage({
+                    element:  <span className="transportation-message text-warning">(fetched) Flight price is good</span>
+                })
+            }
+            if (haveFlightCost && (transportationCost > transportationEstimates.flight.estimatedValue)) {
+                setTransportationMessage({
+                    element:  <span className="transportation-message text-warning">(fetched) Flight price is too much</span>
+                })
+            }
+            if (!haveFlightCost && (parseInt(transportationCost) === 0)) {
+                setTransportationMessage({
+                    element:  <span className="transportation-message text-warning">(couldn't fetch) Please enter own flight value</span>
+                })
+            }
+            if (!haveFlightCost && (parseInt(transportationCost) > 0)) {
+                setTransportationMessage({
+                    element:  <span className="transportation-message text-warning">(couldn't fetch) You have entered your own flight value</span>
+                })
+            }
+            console.log('validate flight estimated price', transportationEstimates.flight.estimatedValue)
+        }
+        if (transportationType === 'train') {
+            console.log('validate train price')
+        }
+        if (transportationType === 'private') {
+            console.log('validate private price')
+        }
+        if (transportationType === 'rental') {
+            console.log('validate rental price')
+        }
+    }, [transportationCost, transportationType]);
 
     return (
         <div className="mb-4">
@@ -932,9 +972,9 @@ const Estimator = () => {
                                             setAccommodationCost(e.target.value)
                                             localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
                                             setAccommodationMessage({ element: 
-                                            <div className="mb-0 text-danger" role="alert">
+                                            <div className="mb-0 text-warning" role="alert">
                                                 <>
-                                                    <span className="transportation-message text-danger" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_above_estimate.html }}></span>
+                                                    <span className="transportation-message text-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_above_estimate.html }}></span>
                                                     <OverlayTrigger
                                                         placement="top"
                                                         delay={{ show: 250, hide: 400 }}
@@ -944,19 +984,25 @@ const Estimator = () => {
                                                     </OverlayTrigger>
                                                 </>
                                             </div>
-
                                             , style: 'warn' });
                                         } else if (parseFloat(e.target.value) === 0) {
                                             setAccommodationCost(e.target.value)
                                             // localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
                                             setAccommodationMessage({ element: 
-                                            <div className="mb-0 text-danger" role="alert">
+                                            <div className="mb-0 text-warning" role="alert">
                                                 <>
-                                                    <span className="transportation-message text-danger" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
+                                                    <span className="transportation-message text-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
                                                 </>
                                             </div>
-
                                             , style: 'warn' });
+                                        } else if (parseFloat(e.target.value) < acrdTotal) {
+                                            setAccommodationCost(e.target.value)
+                                            localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
+                                            setAccommodationMessage({ element: 
+                                            <div className="mb-0" role="alert">
+                                                <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_success.html }}></span>
+                                            </div>
+                                            , style: 'success' });
                                         } else {
                                             setAccommodationCost(e.target.value)
                                         }
@@ -1004,14 +1050,14 @@ const Estimator = () => {
                                     id={"transportation_select"}
                                     name={'transportation'}
                                     onChange={(e)  => {
-                                        if (parseFloat(e.target.value) === 0) {
-                                            setTransportationMessage({ element: <span className="transportation-message text-danger" dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.html }}></span> })
-                                        }
+                                        // if (parseFloat(e.target.value) === 0) {
+                                        //     setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.html }}></span> })
+                                        // }
                                         setTransportationCost(e.target.value)
                                     }}
                                     onBlur={calculateTotal}
                                     value={transportationCost}
-                                    disabled={enterKilometricsDistanceManually ? true : false}
+                                    disabled={enterKilometricsDistanceManually && transportationType === 'private' ? true : false}
                                 >
                                 </input>
                             </div>
@@ -1068,6 +1114,7 @@ const Estimator = () => {
                             title="mealsAndIncidentals"
                             calculateTotal={calculateTotal}
                             updateCost={setMealCost}
+                            disabled={true}
                         />
                         <EstimatorRow
                             value={otherCost}
@@ -1079,7 +1126,7 @@ const Estimator = () => {
                             calculateTotal={calculateTotal}
                             updateCost={setOtherCost}
                             tooltipIcon={FaQuestionCircle}
-                            tooltipText={<FormattedMessage id="otherTooltipText" />}
+                            tooltipText={<span dangerouslySetInnerHTML={{ __html: localeCopy.other_tooltip_text }}></span>}
                         />
                         <div className="row mb-4">
                             <div className="col-sm-6 align-self-center text-right">
