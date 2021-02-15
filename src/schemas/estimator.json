@@ -266,6 +266,206 @@
         "multi" : "strong, em, hyperlink",
         "label" : "incorrect_date_format"
       }
+    },
+    "transportation_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "transportation_description"
+      }
+    },
+    "accommodation_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "accommodation_description"
+      }
+    },
+    "local_transportation_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "local_transportation_description"
+      }
+    },
+    "estimate_origin_city_valid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_origin_city_valid"
+      }
+    },
+    "estimate_origin_city_not_valid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_origin_city_not_valid"
+      }
+    },
+    "estimate_destination_city_valid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_destination_city_valid"
+      }
+    },
+    "estimate_destination_city_not_valid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_destination_city_not_valid"
+      }
+    },
+    "estimate_departure_date_not_valid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_departure_date_not_valid"
+      }
+    },
+    "estimate_return_date_not_valid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_return_date_not_valid"
+      }
+    },
+    "no_time_travel" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "no_time_travel"
+      }
+    },
+    "accommodation_tooltip" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "accommodation_tooltip"
+      }
+    },
+    "estimate_error_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_error_title"
+      }
+    },
+    "estimate_error_lead" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_error_lead"
+      }
+    },
+    "estimate_origin" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_origin"
+      }
+    },
+    "estimate_destination" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_destination"
+      }
+    },
+    "estimate_departure_date" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_departure_date"
+      }
+    },
+    "estimate_return_date" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_return_date"
+      }
+    },
+    "estimate" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate"
+      }
+    },
+    "clear" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "clear"
+      }
+    },
+    "estimate_application_error" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_application_error"
+      }
+    },
+    "estimate_application_error_text" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_application_error_text"
+      }
+    },
+    "estimate_summary_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_summary_title"
+      }
+    },
+    "accommodation" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "accommodation"
+      }
+    },
+    "transportation" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "transportation"
+      }
+    },
+    "other_allowances_message" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "other_allowances_message"
+      }
+    },
+    "other_tooltip_text" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "other_tooltip_text"
+      }
+    },
+    "total_cost" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "total_cost"
+      }
+    },
+    "email" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email"
+      }
+    },
+    "print" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "print"
+      }
+    },
+    "email_success_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_success_title"
+      }
+    },
+    "email_success_message" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em",
+        "label" : "email_success_message"
+      }
+    },
+    "email_error_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_error_title"
+      }
+    },
+    "email_error_message" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em",
+        "label" : "email_error_message"
+      }
     }
   }
 }

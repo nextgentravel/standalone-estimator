@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import Tooltip from 'react-bootstrap/Tooltip'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 
-const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTotal, value, tooltipIcon, tooltipText }) => {
+const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTotal, value, tooltipIcon, tooltipText, disabled }) => {
     const TooltipIcon = tooltipIcon ? tooltipIcon : null;
 
     const renderTooltip = (props) => (
@@ -33,6 +33,7 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
             </div>
             <div className="col-sm-2 align-self-center">
                 <input
+                    disabled={disabled}
                     type="text"
                     value={value}
                     className="form-control mb-2"
