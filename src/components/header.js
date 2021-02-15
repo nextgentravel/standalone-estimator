@@ -4,7 +4,6 @@ import Image from "../components/image"
 import Link from 'gatsby-link';
 import SelectLanguage from './languageSelect';
 import { FormattedMessage, useIntl } from 'react-intl';
-import SearchForm from "../components/search-form"
 
 const Header = ({homeHeader}) => {
   const intl = useIntl();
@@ -84,7 +83,6 @@ const Header = ({homeHeader}) => {
                       <Link to={homeLink}><h1 className="text-light"><FormattedMessage id="siteTitle" /></h1></Link>
                   </div>
                   <div className="col-sm-6">
-                      <SearchForm placement="header" />
                   </div>
               </div>
             }
@@ -97,15 +95,6 @@ const Header = ({homeHeader}) => {
             }
         </div>
       </div>
-      {homeHeader &&
-        <div className="bg-light col-12">
-          <section className='col-12 col-md-6 mx-auto py-4'>
-            <SearchForm placement="home" />
-          </section>
-        </div>
-
-      }
-
     </header>
   )
 }
