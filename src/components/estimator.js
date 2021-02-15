@@ -810,17 +810,16 @@ const Estimator = () => {
                 setTransportationMessage({
                     element:  <span className="transportation-message text-warning">(fetched) Flight price is 0</span>
                 })
-            }
-            if (haveFlightCost && (transportationCost <= transportationEstimates.flight.estimatedValue)) {
+            } else if (haveFlightCost && (transportationCost <= transportationEstimates.flight.estimatedValue)) {
                 setTransportationMessage({
                     element:  <span className="transportation-message text-warning">(fetched) Flight price is good</span>
                 })
-            }
-            if (haveFlightCost && (transportationCost > transportationEstimates.flight.estimatedValue)) {
+            } else if (haveFlightCost && (transportationCost > transportationEstimates.flight.estimatedValue)) {
                 setTransportationMessage({
                     element:  <span className="transportation-message text-warning">(fetched) Flight price is too much</span>
                 })
             }
+            
             if (!haveFlightCost && (parseInt(transportationCost) === 0)) {
                 setTransportationMessage({
                     element:  <span className="transportation-message text-warning">(couldn't fetch) Please enter own flight value</span>
