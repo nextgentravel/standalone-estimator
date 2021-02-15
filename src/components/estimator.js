@@ -9,6 +9,7 @@ import monthsContained from "./months-contained.js"
 import { useIntl, FormattedMessage } from 'react-intl'
 import EstimatorRow from "./estimator-row.js"
 import EmailModal from "./email-modal.js"
+import EmailConfirmationModal from "./email-confirmation-modal.js"
 import MealsModal from "./meals-modal.js"
 import { FaCaretUp, FaCaretDown, FaCalculator } from 'react-icons/fa';
 import { dailyMealTemplate } from "./functions/dailyMealTemplate"
@@ -179,8 +180,8 @@ const Estimator = () => {
     }, []);
 
     let initialDates = {
-        departure: DateTime.local(),
-        return: DateTime.local().plus({ days: 1 }),
+        departure: DateTime.local().plus({ days: 1 }),
+        return: DateTime.local().plus({ days: 2 }),
     }
 
     // Variables/state for inputs
@@ -195,6 +196,7 @@ const Estimator = () => {
     const [returnDate, setReturnDate] = useState(initialDates.return);
     const [privateVehicleRate, setPrivateVehicleRate] = useState('');
     const [privateVehicleSuccess, setPrivateVehicleSuccess] = useState(false);
+    const [dateFocused, setDateFocused] = useState(null);
 
     useEffect(() => {
         setHaveFlightCost(false);
@@ -214,25 +216,6 @@ const Estimator = () => {
             let provinceRate = locations[provinceAbbreviation].rateCents
             setPrivateVehicleRate(provinceRate);
         }
-
-        const getClosestsAirports = async () => {
-            try {
-                await amadeusAccessTokenCheck();
-                let response = await amadeusAirportCode(data.geometry.location.lat, data.geometry.location.lng, amadeusAccessToken.token)
-                return response;
-            } catch (error) {
-                console.log('getClosestsAirports: ', error);
-            }
-
-        }
-
-        if (data && Object.keys(data).length !== 0) {
-            getClosestsAirports()
-            .then((response) => {
-                console.log('closestAirports response', response)
-            }).catch((err) => console.log('getClosestsAirports', err))
-        }
-
         setOriginData(data);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }), [origin])
@@ -271,6 +254,18 @@ const Estimator = () => {
 
     const [mealsByDay, setMealsByDay] = useState({});
     const [province, setProvince] = useState('');
+
+    const [emailModalShow, setEmailModalShow] = useState(false);
+    const [emailRequestLoading, setEmailRequestLoading] = useState(false);
+    const [emailConfirmationModalShow, setEmailConfirmationModalShow] = useState(false);
+    const [emailRequestResult, setEmailRequestResult] = useState({});
+
+    const [tripName, setTripName] = useState('');
+    const [travellersName, setTravellersName] = useState('');
+    const [travellersEmail, setTravellersEmail] = useState('');
+    const [approversName, setApproversName] = useState('');
+    const [approversEmail, setApproversEmail] = useState('');
+    const [tripNotes, setTripNotes] = useState('');
 
     const transportationEstimatesInitialState = {
         flight: {
@@ -455,10 +450,10 @@ const Estimator = () => {
             console.log('amadeusAccessTokenCheck', error)
         }
 
-        amadeusFlightOffer('YOW', 'YVR', departureDateISODate, returnDateISODate, amadeusAccessToken.token)
+        if (originData.airports.length > 0 && destinationData.airports.length > 0) {
+            amadeusFlightOffer(originData.airports[0].iataCode, destinationData.airports[0].iataCode, departureDateISODate, returnDateISODate, amadeusAccessToken.token)
             .then(response => response.json())
             .then(result => {
-
                 const allPrices = [];
 
                 result.data.forEach(itinerary => {
@@ -493,6 +488,9 @@ const Estimator = () => {
                 updateTransportationCost(0.00);
                 setTransportationMessage({ element: <span className="transportation-message text-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
             });
+        } else {
+            setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessageNoAirport" />  })
+        }
     }
 
     useEffect(() => {
@@ -655,13 +653,16 @@ const Estimator = () => {
         setDestination('')
         setDepartureDate('');
         setReturnDate('');
+        setEmailConfirmationModalShow(false);
+        setEmailModalShow(false);
+      
+        setDepartureDate(initialDates.departure);
+        setReturnDate(initialDates.return);
 
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
         let originElement = document.querySelector('#autocomplete-origin')
         let destinationElement = document.querySelector('#autocomplete-destination')
-        let datePickerDepart = document.querySelector('#departureDate')
-        let datePickerReturn = document.querySelector('#returnDate')
 
         destinationElement.value = "";
         destinationElement.click();
@@ -676,8 +677,6 @@ const Estimator = () => {
             if(originElement){
                 originElement.focus();
             }
-            datePickerDepart.value = '';
-            datePickerReturn.value = '';
         },0);
 
         // END OF HACK
@@ -734,6 +733,7 @@ const Estimator = () => {
     }
 
     const sendEmail = async () => {
+        setEmailRequestLoading(true);
         fetch('/api/sendEstimateEmail', {
             method: 'post',
             body: JSON.stringify({
@@ -760,21 +760,31 @@ const Estimator = () => {
                 summaryCost,
             })
           }).then(function(response) {
+            if (!response.ok) {
+                setEmailRequestResult({ status: 'error', raw: response.statusText })
+                throw Error(response.statusText);
+            }
             return response.json()
           }).then(function(data) {
             console.log('email service: ', data);
+            setEmailRequestResult({ status: 'success', raw: data })
           })
-          .catch((err) => console.log('send email error: ', err));
+          .catch((err) => {
+            console.log('email service: ', err.message);
+          });
     }
 
-    const [emailModalShow, setEmailModalShow] = React.useState(false);
-
-    const [tripName, setTripName] = useState('');
-    const [travellersName, setTravellersName] = useState('');
-    const [travellersEmail, setTravellersEmail] = useState('');
-    const [approversName, setApproversName] = useState('');
-    const [approversEmail, setApproversEmail] = useState('');
-    const [tripNotes, setTripNotes] = useState('');
+    useEffect(() => {
+        if (emailRequestResult.status === 'success') {
+            setEmailModalShow(false)
+            setEmailRequestLoading(false)
+            setEmailConfirmationModalShow(true)
+        } else if (emailRequestResult.status === 'error') {
+            setEmailModalShow(false)
+            setEmailRequestLoading(false)
+            setEmailConfirmationModalShow(true)
+        }
+    }, [emailRequestResult])
 
     const renderAccommodationTooltip = (props) => (
         <Tooltip id="button-tooltip" {...props}>
@@ -783,8 +793,6 @@ const Estimator = () => {
     );
 
     useEffect(() => {
-        console.log('localTransportationEstimate: ', localTransportationEstimate)
-        console.log('localTransportationCost: ', localTransportationCost)
         if (parseInt(localTransportationCost) === 0) {
             setLocalTransportationMessage({
                 element:  <span className="transportation-message text-warning" dangerouslySetInnerHTML={{ __html: localeCopy.local_tranportation_zero.html }}></span>
@@ -854,6 +862,14 @@ const Estimator = () => {
                 setApproversEmail={setApproversEmail}
                 setTripNotes={setTripNotes}
                 tripNotes={tripNotes}
+                emailRequestLoading={emailRequestLoading}
+            />
+            <EmailConfirmationModal
+                show={emailConfirmationModalShow}
+                onHide={() => setEmailConfirmationModalShow(false)}
+                emailRequestResult={emailRequestResult}
+                approversName={approversName}
+                clearForm={clearForm}
             />
             <MealsModal
                 mealsByDay={mealsByDay}
@@ -872,7 +888,7 @@ const Estimator = () => {
                 </ul>
             </div>}
             <form id="estimates-form" className="form-group row mb-5" onSubmit={handleSubmit}>
-                <div className="col-sm-6">
+                <div className="col-sm-7">
                     <InputDatalist
                         validationWarnings={validationWarnings}
                         setValidationWarnings={setValidationWarnings}
@@ -883,7 +899,7 @@ const Estimator = () => {
                     />
                 </div>
                 <div className="col-sm-6"></div>
-                <div className="col-sm-6">
+                <div className="col-sm-7">
                     <InputDatalist
                         validationWarnings={validationWarnings}
                         setValidationWarnings={setValidationWarnings}
@@ -895,25 +911,15 @@ const Estimator = () => {
                     />
                 </div>
                 <div className="col-sm-6"></div>
-                <div className="col-sm-3">
+                <div className="col-sm-7">
                     <DatePicker
-                        validationWarnings={validationWarnings}
-                        setValidationWarnings={setValidationWarnings}
-                        label={<FormattedMessage id="estimateDepartureDate" />}
-                        name="departureDate"
-                        initialDate={initialDates.departure}
-                        updateValue={setDepartureDate}
-                    ></DatePicker>
-                </div>
-                <div className="col-sm-3">
-                    <DatePicker
-                        validationWarnings={validationWarnings}
-                        setValidationWarnings={setValidationWarnings}
-                        label={<FormattedMessage id="estimateReturnDate" />}
-                        name="returnDate"
-                        initialDate={initialDates.return}
-                        updateValue={setReturnDate}
-                    ></DatePicker>
+                        initialStart={departureDate}
+                        setStart={setDepartureDate}
+                        initialEnd={returnDate}
+                        setEnd={setReturnDate}
+                        focus={dateFocused}
+                        onFocus={setDateFocused}
+                    />
                 </div>
                 <div className="col-sm-3"></div>
                 <div className="col-sm-6">
