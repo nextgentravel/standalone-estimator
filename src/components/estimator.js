@@ -320,7 +320,7 @@ const Estimator = () => {
             message = message.replace('{distance}', `<strong>${parseInt(privateKilometricsValue)}</strong>`)
             setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
         } else if (!privateVehicleSuccess) {
-            setTransportationMessage({ element: <span className="transportation-message text-warning" dangerouslySetInnerHTML={{ __html: localeCopy.private_vehicle_error.html }}></span> })
+            setTransportationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.private_vehicle_error.html }}></span> })
         }
         return calculateKilometrics;
     }
@@ -416,7 +416,7 @@ const Estimator = () => {
             // eslint-disable-next-line no-template-curly-in-string
             localeCopy.hotel_success.html = localeCopy.hotel_success.html.replace('{location}', `<strong>${destination}</strong>`)
             // eslint-disable-next-line no-template-curly-in-string
-            localeCopy.hotel_success.html = localeCopy.hotel_success.html.replace('${daily rate}', `<strong>$${applicableRates[0].rate}</strong>`)
+            localeCopy.hotel_success.html = localeCopy.hotel_success.html.replace('${daily rate}', `<strong>$${acrdTotal}</strong>`)
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_success.html }}></span> })
             // setAccommodationMessage({ element: <FormattedMessage id="hotelAccommodationMessage" values={{
             //     destination,
@@ -504,7 +504,7 @@ const Estimator = () => {
             .catch(error => {
                 console.log('amadeus flight offer error', error);
                 updateTransportationCost(0.00);
-                setTransportationMessage({ element: <span className="transportation-message text-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
+                setTransportationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
             });
         } else {
             setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessageNoAirport" />  })
@@ -799,11 +799,11 @@ const Estimator = () => {
     useEffect(() => {
         if (result && parseInt(localTransportationCost) === 0) {
             setLocalTransportationMessage({
-                element:  <span className="transportation-message text-warning" dangerouslySetInnerHTML={{ __html: localeCopy.local_tranportation_zero.html }}></span>
+                element:  <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.local_tranportation_zero.html }}></span>
             })
         } else if (result && localTransportationEstimate !== parseInt(localTransportationCost)) {
             setLocalTransportationMessage({
-                element:  <span className="transportation-message text-warning" dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_manual.html }}></span>
+                element:  <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_manual.html }}></span>
             })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -813,15 +813,15 @@ const Estimator = () => {
         if (result && transportationType === 'flight') {
             if (haveFlightCost && (parseInt(transportationCost) === 0)) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message text-warning">(fetched) Flight price is 0</span>
+                    element:  <span className="transportation-message alert-warning">(fetched) Flight price is 0</span>
                 })
             } else if (haveFlightCost && (transportationCost <= transportationEstimates.flight.estimatedValue)) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message text-warning">(fetched) Flight price is good</span>
+                    element:  <span className="transportation-message alert-warning">(fetched) Flight price is good</span>
                 })
             } else if (haveFlightCost && (transportationCost > transportationEstimates.flight.estimatedValue)) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message text-warning">(fetched) Flight price is too much</span>
+                    element:  <span className="transportation-message alert-warning">(fetched) Flight price is too much</span>
                 })
             }
 
@@ -837,11 +837,11 @@ const Estimator = () => {
                 })
             } else if (!haveFlightCost && (parseInt(transportationCost) === 0)) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message text-warning">(couldn't fetch) Please enter own flight value</span>
+                    element:  <span className="transportation-message alert-warning">(couldn't fetch) Please enter own flight value</span>
                 })
             } else if (!haveFlightCost && (parseInt(transportationCost) > 0)) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message text-warning">(couldn't fetch) You have entered your own flight value</span>
+                    element:  <span className="transportation-message alert-warning">(couldn't fetch) You have entered your own flight value</span>
                 })
             }
             updateTransportationCost(transportationEstimates.flight.estimatedValue)
@@ -995,9 +995,9 @@ const Estimator = () => {
                                             setAccommodationCost(e.target.value)
                                             localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${''}</strong>`)
                                             setAccommodationMessage({ element: 
-                                            <div className="mb-0 text-warning" role="alert">
+                                            <div className="mb-0 alert-warning" role="alert">
                                                 <>
-                                                    <span className="transportation-message text-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_above_estimate.html }}></span>
+                                                    <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_above_estimate.html }}></span>
                                                     <OverlayTrigger
                                                         placement="top"
                                                         delay={{ show: 250, hide: 400 }}
@@ -1012,9 +1012,9 @@ const Estimator = () => {
                                             setAccommodationCost(e.target.value)
                                             // localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
                                             setAccommodationMessage({ element: 
-                                            <div className="mb-0 text-warning" role="alert">
+                                            <div className="mb-0 alert-warning" role="alert">
                                                 <>
-                                                    <span className="transportation-message text-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
+                                                    <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
                                                 </>
                                             </div>
                                             , style: 'warn' });
