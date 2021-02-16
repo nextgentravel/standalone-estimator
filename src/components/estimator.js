@@ -495,20 +495,6 @@ const Estimator = () => {
 
     useEffect(() => {
         if (transportationType === 'flight') {
-            if(!haveFlightCost) {
-                fetchFlightCost()
-                setTransportationMessage({ element:
-                    <>
-                        <Spinner animation="border" role="status" size="sm">
-                            <span className="sr-only">Loading...</span>
-                        </Spinner>{' '}
-                        <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_loading.html }}></span>
-                    </>
-                })
-            } else {
-                setTransportationMessage({ element: transportationEstimates.flight.estimatedValueMessage })
-            };
-            updateTransportationCost(transportationEstimates.flight.estimatedValue)
             
         } else if (transportationType === 'train') {
             updateTransportationCost(0)
@@ -819,17 +805,27 @@ const Estimator = () => {
                     element:  <span className="transportation-message text-warning">(fetched) Flight price is too much</span>
                 })
             }
-            
-            if (!haveFlightCost && (parseInt(transportationCost) === 0)) {
+
+            if(!haveFlightCost) {
+                fetchFlightCost()
+                setTransportationMessage({ element:
+                    <>
+                        <Spinner animation="border" role="status" size="sm">
+                            <span className="sr-only">Loading...</span>
+                        </Spinner>{' '}
+                        <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_loading.html }}></span>
+                    </>
+                })
+            } else if (!haveFlightCost && (parseInt(transportationCost) === 0)) {
                 setTransportationMessage({
                     element:  <span className="transportation-message text-warning">(couldn't fetch) Please enter own flight value</span>
                 })
-            }
-            if (!haveFlightCost && (parseInt(transportationCost) > 0)) {
+            } else if (!haveFlightCost && (parseInt(transportationCost) > 0)) {
                 setTransportationMessage({
                     element:  <span className="transportation-message text-warning">(couldn't fetch) You have entered your own flight value</span>
                 })
             }
+            updateTransportationCost(transportationEstimates.flight.estimatedValue)
             console.log('validate flight estimated price', transportationEstimates.flight.estimatedValue)
         }
         if (transportationType === 'train') {
