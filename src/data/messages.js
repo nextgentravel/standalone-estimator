@@ -116,7 +116,7 @@ module.exports = {
         "accommodation": "Accommodation",
         "accommodationDescription": "Select accommodation type to see estimate",
         "transportation": "Transportation",
-        "transportationDescription": "Select mode of transportation to see estimate",
+        "transportationDescription": "",
         "localTransportation": "Local Transportation",
         "mealsAndIncidentals": "Meals and Incidentals",
         "selectMealsToInclude": "Select travel dates to see allowance for meals and incidentals",
@@ -152,6 +152,7 @@ module.exports = {
         // eslint-disable-next-line no-template-curly-in-string
         "localTransportationMessage": "Based on an average of {cost} per day for travel in {destination}",
         "otherAllowancesMessage": "Amount is a total of all additional expenses",
+        // eslint-disable-next-line no-template-curly-in-string
         "accommodationWarning": "You've exceeded the recommended total of ${acrdTotal} per night",
         "accommodationTooltip": "Include justification when submitting your estimate to help your approver understand why the cost exceeds the city rate limit",
         "email": "Email",
