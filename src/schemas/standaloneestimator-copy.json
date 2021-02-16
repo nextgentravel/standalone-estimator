@@ -85,6 +85,12 @@
         "label" : "private_accom_estimate_zero"
       }
     },
+    "enter_travel_info_above" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "enter_travel_info_above"
+      }
+    },
     "flight_loading" : {
       "type" : "StructuredText",
       "config" : {
@@ -465,6 +471,13 @@
       "config" : {
         "multi" : "strong, em",
         "label" : "email_error_message"
+      }
+    },
+    "transportation_description1" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em",
+        "label" : "transportation_description"
       }
     }
   }
