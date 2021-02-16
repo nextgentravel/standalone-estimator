@@ -878,7 +878,7 @@ const Estimator = () => {
                 setMealsByDay={setMealsByDay}
             />
             <h2 className="mb-4">{localeCopy.title.text}</h2>
-            <div className="lead mb-4" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
+            <div className="lead mb-5" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
              {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
                 <h3><FormattedMessage id="estimateErrorTitle" /></h3>
                 <p><FormattedMessage id="estimateErrorLead" /></p>
