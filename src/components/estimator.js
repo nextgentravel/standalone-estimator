@@ -877,8 +877,8 @@ const Estimator = () => {
                 onHide={() => setMealsModalShow(false)}
                 setMealsByDay={setMealsByDay}
             />
-            <h2>{localeCopy.title.text}</h2>
-            <div className="lead" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
+            <h2 className="mb-4">{localeCopy.title.text}</h2>
+            <div className="lead mb-5" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
              {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
                 <h3><FormattedMessage id="estimateErrorTitle" /></h3>
                 <p><FormattedMessage id="estimateErrorLead" /></p>
