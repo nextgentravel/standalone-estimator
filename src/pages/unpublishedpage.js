@@ -1,9 +1,4 @@
 import * as React from 'react'
-
-import TravelStep from '../components/travel-step'
-import FaqQuestion from '../components/faq-question'
-import DoormatPanelItem from '../components/doormat-panel-item'
-import Breadcrumbs from "../components/breadcrumb"
 import SEO from "../components/seo"
 
 export const UnpublishedPage = (props) => {
@@ -22,35 +17,9 @@ export const UnpublishedPage = (props) => {
   let previewType = Object.keys(previewData)[0];
 
   switch (previewType) {
-    case 'prismicTravelStep':
-      return <div className="container"><TravelStep index={0} data={previewData[previewType].data} /></div>
-    case 'prismicFaqQuestion':
-      return <div className="container"><FaqQuestion index={0} data={previewData[previewType].data} /></div>
-
-    case 'prismicTravelSection':
-      return (
-        <div className="container">
-          <h2>{previewData[previewType].data.title.text}</h2>
-          <div className="lead" dangerouslySetInnerHTML={{ __html: previewData[previewType].data.lead.html }} />
-        </div>
-      )
-    case 'prismicDoormat':
-      return (
-        <div className="container mt-5">
-          <DoormatPanelItem
-            image={previewData[previewType].data.image.url}
-            alt=""
-            linkTo={previewData[previewType].data.link}
-            linkNewWindow={previewData[previewType].data.link_new_window}
-            title={previewData[previewType].data.title.text}
-            content={previewData[previewType].data.lead.text}
-          />
-        </div>
-      )
     case 'prismicGenericContentPage':
       return (
         <main id="main-content">
-          <Breadcrumbs pageTitle={previewData[previewType].data.title.text} homeLink={''} />
           <SEO title={previewData[previewType].data.title.text} />
           <div className="hero-holder">
             <div className="container">
@@ -68,17 +37,6 @@ export const UnpublishedPage = (props) => {
           </div>
         </main>
       )
-
-      case 'prismicHomepage':
-        return (
-          <div id="container">
-            <div className="container mt-4">
-              <h2 className="mb-4 font-weight-bold">{previewData[previewType].data.title.text}</h2>
-              <div dangerouslySetInnerHTML={{__html: previewData[previewType].data.lead.html}}></div>
-            </div>
-          </div>
-        )
-
     default:
       return <div className="container"><p>Unknown Preview Type</p></div>
   }
