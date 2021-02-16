@@ -9,29 +9,7 @@ const Header = ({homeHeader}) => {
   const intl = useIntl();
   let homeLink = `/${intl.locale}/`;
   return (
-    <header className="mb-4">
-      <div
-        style={{
-          backgroundColor: "#FAF2CC",
-          textAlign: "left",
-          verticalAlign: "middle"
-        }}
-      >
-        <div className="container py-3">
-          <button
-            style={{
-              background: "#FEC04F",
-              border: "1px solid #000000",
-              borderRadius: 20,
-              marginRight: 10
-            }}
-          >
-            <strong><FormattedMessage id="alpha" /></strong>
-          </button>
-          <span><FormattedMessage id="underDevelopment" /></span>
-        </div>
-      </div>
-
+    <header className="mb-5">
       <div className="container">
         <div className="row my-4 mx-2">
           <nav className="skiphold" id="header-skiplink">
@@ -77,22 +55,11 @@ const Header = ({homeHeader}) => {
       </div>
       <div className="py-4 bg-dark">
         <div className="container">
-            {!homeHeader &&
-              <div className="row">
-                  <div className="col-sm-6">
-                      <Link to={homeLink}><h1 className="text-light"><FormattedMessage id="siteTitle" /></h1></Link>
-                  </div>
-                  <div className="col-sm-6">
-                  </div>
+          <div className="row">
+              <div className="col-sm-12">
+                <Link to={homeLink}><h1 className="text-light"><FormattedMessage id="siteTitle" /></h1></Link>
               </div>
-            }
-            {homeHeader &&
-              <div className="row">
-                  <div className="col-sm-12">
-                  <Link to={homeLink}><h1 className="text-light text-center"><FormattedMessage id="siteTitle" /></h1></Link>
-                  </div>
-              </div>
-            }
+          </div>
         </div>
       </div>
     </header>
