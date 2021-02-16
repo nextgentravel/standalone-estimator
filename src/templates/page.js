@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { graphql } from 'gatsby'
 import { withPreview } from 'gatsby-source-prismic'
 
 import Layout from '../components/layout'

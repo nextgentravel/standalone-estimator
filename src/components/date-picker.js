@@ -3,14 +3,13 @@ import React from "react"
 import { DateRangePicker } from 'react-dates';
  import { DateTime } from "luxon";
 import moment from 'moment';
-import { FaCalendar } from 'react-icons/fa';
 import { FormattedMessage } from 'react-intl'
 
 const DatePickerComponent = ({initialStart, setStart, initialEnd, setEnd, focus, onFocus}) => {
     return(
         <div className="mb-4">
             <div>
-                <label htmlFor="datepicker-start" htmlFor="datepicker-end"><FormattedMessage id="estDateRange" /></label>
+                <label htmlFor="datepicker-start"><FormattedMessage id="estDateRange" /></label>
             </div>
             <div className="mb-4">
                 <DateRangePicker

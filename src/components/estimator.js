@@ -28,10 +28,12 @@ import locations from "../data/locations.js"
 import { FaSpinner, FaQuestionCircle, FaExclamationTriangle, FaBed, FaPlane, FaTaxi, FaUtensils, FaSuitcase } from 'react-icons/fa'
 
 import amadeusFlightOffer from '../api-calls/amadeusFlightOffer'
-import amadeusAirportCode from '../api-calls/amadeusAirportCode'
 import fetchDistanceBetweenPlaces from '../api-calls/fetchDistanceBetweenPlaces'
 
 import './extra/estimator-print.css'
+
+let initialDeparture = DateTime.local().plus({ days: 1 })
+let initialReturn = DateTime.local().plus({ days: 2 })
 
 const Estimator = () => {
     const intl = useIntl();
@@ -43,124 +45,129 @@ const Estimator = () => {
                 lang
                 data {
                     disclaimer_body {
-                    html
+                        html
                     }
                     explainer_body {
-                    html
+                        html
                     }
                     explainer_title {
                     text
                     }
                     lead {
-                    html
+                        html
                     }
                     title {
                     text
                     }
                     flight_above_estimate {
-                    html
+                        html
                     }
                     flight_below_estimate {
-                    html
+                        html
                     }
                     flight_error {
-                    html
+                        html
                     }
                     flight_loading {
-                    html
+                        html
                     }
                     flight_success {
-                    html
+                        html
                     }
                     flight_zero {
-                    html
+                        html
                     }
                     generating_estimate {
-                    html
+                        html
                     }
                     hotel_above_estimate {
-                    html
+                        html
                     }
                     hotel_error {
-                    html
+                        html
                     }
                     hotel_success {
-                    html
+                        html
                     }
                     hotel_zero {
-                    html
+                        html
                     }
                     incorrect_date_format {
-                    html
+                        html
                     }
                     local_tranportation_zero {
-                    html
+                        html
                     }
                     local_transportation_manual {
-                    html
+                        html
                     }
                     local_transportation_success {
-                    html
+                        html
                     }
                     meals_incidentals_success {
-                    html
+                        html
                     }
                     private_accom_estimate_success {
-                    html
+                        html
                     }
                     private_accom_estimate_zero {
-                    html
+                        html
                     }
                     private_vehicle_above_estimate {
-                    html
+                        html
                     }
                     private_vehicle_below_estimate {
-                    html
+                        html
                     }
                     private_vehicle_error {
-                    html
+                        html
                     }
                     private_vehicle_manual {
-                    html
+                        html
                     }
                     private_vehicle_success {
-                    html
+                        html
                     }
                     rental_car_error {
-                    html
+                        html
                     }
                     rental_car_success {
-                    html
+                        html
                     }
                     rental_car_zero {
-                    html
+                        html
                     }
                     return_date_earlier_than_departure_date {
-                    html
+                        html
                     }
                     train_above_estimate {
-                    html
+                        html
                     }
                     train_below_estimate {
-                    html
+                        html
                     }
                     train_error {
-                    html
+                        html
                     }
                     train_success {
-                    html
+                        html
                     }
                     train_zero {
-                    html
+                        html
                     }
                 }
             }
         }
     }`);
 
-    let initialTransportationMessage = { element: <FormattedMessage id='transportationDescription' />, style: 'primary' };
+    function formattedMessage(prismicKey, classes) {
+        return <span className={classes} dangerouslySetInnerHTML={{ __html: localeCopy[prismicKey] }}></span> 
+    }
+
 
     let localeCopy = cmsData.allPrismicStandaloneestimatorCopy.nodes.find(function(o){ return o.lang === locale }).data;
+
+    let initialTransportationMessage = { element: formattedMessage('transportation-description', ""), style: 'primary' };
 
     const [explainerCollapsed, setExplainerCollapsed] = useState(true);
 
@@ -180,8 +187,8 @@ const Estimator = () => {
     }, []);
 
     let initialDates = {
-        departure: DateTime.local().plus({ days: 1 }),
-        return: DateTime.local().plus({ days: 2 }),
+        departure: initialDeparture,
+        return: initialReturn,
     }
 
     // Variables/state for inputs
@@ -197,6 +204,7 @@ const Estimator = () => {
     const [privateVehicleRate, setPrivateVehicleRate] = useState('');
     const [privateVehicleSuccess, setPrivateVehicleSuccess] = useState(false);
     const [dateFocused, setDateFocused] = useState(null);
+    const [showClear, setShowClear] = useState(false);
 
     useEffect(() => {
         setHaveFlightCost(false);
@@ -207,6 +215,12 @@ const Estimator = () => {
         setTransportationMessage(initialTransportationMessage)
         setEnterKilometricsDistanceManually(false)
         setPrivateVehicleSuccess(false)
+        if (departureDate !== initialDates.departure || returnDate !== initialDates.return || origin !== '' || destination !== '') {
+            setShowClear(true);
+        } else {
+            setShowClear(false);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [origin, destination, departureDate, returnDate])
 
     useEffect((() => {
@@ -312,14 +326,16 @@ const Estimator = () => {
     }
 
     useEffect(() => {
-        let calculateKilometrics = displayTransportationMessage();
-        setTransportationCost(calculateKilometrics.toFixed(2))
-        setTransportationEstimates({
-            ...transportationEstimates,
-            rentalCar: {
-                estimatedValue: calculateKilometrics,
-            }
-        })
+        if (result) {
+            let calculateKilometrics = displayTransportationMessage();
+            setTransportationCost(calculateKilometrics.toFixed(2))
+            setTransportationEstimates({
+                ...transportationEstimates,
+                rentalCar: {
+                    estimatedValue: calculateKilometrics,
+                }
+            })
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [privateKilometricsValue])
 
@@ -397,7 +413,9 @@ const Estimator = () => {
 
             updateAccommodationCost(total)
             setAcrdTotal(total);
+            // eslint-disable-next-line no-template-curly-in-string
             localeCopy.hotel_success.html = localeCopy.hotel_success.html.replace('{location}', `<strong>${destination}</strong>`)
+            // eslint-disable-next-line no-template-curly-in-string
             localeCopy.hotel_success.html = localeCopy.hotel_success.html.replace('${daily rate}', `<strong>$${applicableRates[0].rate}</strong>`)
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_success.html }}></span> })
             // setAccommodationMessage({ element: <FormattedMessage id="hotelAccommodationMessage" values={{
@@ -779,19 +797,20 @@ const Estimator = () => {
     );
 
     useEffect(() => {
-        if (parseInt(localTransportationCost) === 0) {
+        if (result && parseInt(localTransportationCost) === 0) {
             setLocalTransportationMessage({
                 element:  <span className="transportation-message text-warning" dangerouslySetInnerHTML={{ __html: localeCopy.local_tranportation_zero.html }}></span>
             })
-        } else if (localTransportationEstimate !== parseInt(localTransportationCost)) {
+        } else if (result && localTransportationEstimate !== parseInt(localTransportationCost)) {
             setLocalTransportationMessage({
                 element:  <span className="transportation-message text-warning" dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_manual.html }}></span>
             })
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [localTransportationCost]);
 
     useEffect(() => {
-        if (transportationType === 'flight') {
+        if (result && transportationType === 'flight') {
             if (haveFlightCost && (parseInt(transportationCost) === 0)) {
                 setTransportationMessage({
                     element:  <span className="transportation-message text-warning">(fetched) Flight price is 0</span>
@@ -828,16 +847,17 @@ const Estimator = () => {
             updateTransportationCost(transportationEstimates.flight.estimatedValue)
             console.log('validate flight estimated price', transportationEstimates.flight.estimatedValue)
         }
-        if (transportationType === 'train') {
+        if (result && transportationType === 'train') {
             console.log('validate train price')
         }
-        if (transportationType === 'private') {
+        if (result && transportationType === 'private') {
             console.log('validate private price')
         }
-        if (transportationType === 'rental') {
+        if (result && transportationType === 'rental') {
             console.log('validate rental price')
         }
-    }, [transportationCost, transportationType]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [transportationCost, transportationType, haveFlightCost]);
 
     return (
         <div className="mb-4">
@@ -921,7 +941,9 @@ const Estimator = () => {
                     {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                     <button type="submit" className="btn btn-primary"><FormattedMessage id="estimate"/></button>
                     {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-                    <button type="button" id="clear-button" className="btn btn-secondary ml-2" onClick={() => {clearForm()}}><FormattedMessage id="clear"/></button>
+                    {showClear &&
+                        <button type="button" id="clear-button" className="btn btn-secondary ml-2" onClick={() => {clearForm()}}><FormattedMessage id="clear"/></button>
+                    }
                     {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
                 </div>
             </form>
@@ -936,7 +958,7 @@ const Estimator = () => {
                 </div>
             </div>}
 
-            {!loading && result &&
+            {!loading &&
                 <>
                     <div className="card bg-light p-4 mb-4">
                         <h3 className="mb-3"><FormattedMessage id="estimateSummaryTitle" /></h3>
@@ -1093,7 +1115,7 @@ const Estimator = () => {
 
 
                         <EstimatorRow
-                            value={localTransportationCost}
+                            value={localTransportationCost || '0.00'}
                             name="localTransportation"
                             id="localTransportation"
                             description="localTransportationDescription"
@@ -1104,7 +1126,7 @@ const Estimator = () => {
                             message={localTransportationMessage}
                         />
                         <EstimatorRow
-                            value={mealCost.total}
+                            value={mealCost.total || '0.00'}
                             name="mealsAndIncidentals"
                             id="mealsAndIncidentals"
                             description="selectMealsToInclude"
@@ -1118,7 +1140,7 @@ const Estimator = () => {
                             disabled={true}
                         />
                         <EstimatorRow
-                            value={otherCost}
+                            value={otherCost || '0.00'}
                             name="otherAllowances"
                             id="otherAllowances"
                             message={{ element: <FormattedMessage id="otherAllowancesMessage" />}}

@@ -1,15 +1,15 @@
 import React from "react"
 import Image from "../components/image"
-import { FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 const Footer = () => {
-  const intl = useIntl();
-  let homeLink = `/${intl.locale}/`;
+  // const intl = useIntl();
+  // let homeLink = `/${intl.locale}/`;
   return (
     <footer className="footer">
       <div className="bg-dark py-5 footer-deco">
         <div className="container">
-          <p class="text-white">Insert Text From Prismic Here</p>
+          <p className="text-white">Insert Text From Prismic Here</p>
         </div>
       </div>
 

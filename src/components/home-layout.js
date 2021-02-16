@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import Layout from "../components/layout"
 import SEO from "../components/seo";
-import { FaMinus } from 'react-icons/fa';
 import Estimator from "../components/estimator"
 
 import {
@@ -29,7 +28,7 @@ export default ({ data }) => {
       }
       render = {
         data => {
-          const homePage = data.prismicStandaloneestimatorHomepage.data;
+          // const homePage = data.prismicStandaloneestimatorHomepage.data;
           return (
             <Layout>
               <SEO title="Home" />

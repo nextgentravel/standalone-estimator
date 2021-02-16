@@ -1,7 +1,6 @@
 import React from "react"
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
-import { FormattedMessage } from 'react-intl';
 import { FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
 
 
