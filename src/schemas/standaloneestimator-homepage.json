@@ -13,13 +13,6 @@
         "multi" : "paragraph, strong, em",
         "label" : "lead"
       }
-    },
-    "doormat_title" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading3",
-        "label" : "doormat_title"
-      }
     }
   }
 }

@@ -74,15 +74,8 @@ module.exports = {
         // Provide an object of Prismic custom type JSON schemas to load into
         // Gatsby. This is required.
         schemas: {
-          travel_step: require('./src/schemas/travel_step.json'),
-          travel_section: require('./src/schemas/travel_section.json'),
-          faq_question: require('./src/schemas/faq_question.json'),
-          homepage: require('./src/schemas/homepage.json'),
-          doormat: require('./src/schemas/doormat.json'),
-          estimator: require('./src/schemas/estimator.json'),
-          generic_content_page: require('./src/schemas/generic_content_page.json'),
-          glossary: require('./src/schemas/glossary.json'),
-          first_time_travellers: require('./src/schemas/first_time_travellers.json')
+          "standaloneestimator-homepage": require('./src/schemas/standaloneestimator-homepage.json'),
+          "standaloneestimator-copy": require('./src/schemas/standaloneestimator-copy.json'),
         },
         // Set a default language when fetching documents. The default value is
         // '*' which will fetch all languages.
@@ -265,59 +258,6 @@ module.exports = {
       options: {
         modules: [`luxon`]
       }
-    },
-    {
-      resolve: `gatsby-plugin-lunr`,
-      options: {
-        languages: [{
-            name: 'en',
-            filterNodes: node => {
-              if (!node.lang) return;
-              return node.lang === 'en-ca'
-            },
-            customEntries: [],
-          },
-          {
-            name: 'fr',
-            filterNodes: node => {
-              if (!node.lang) return;
-              return node.lang === 'fr-ca'
-            },
-          },
-        ],
-        fields: [{
-            name: 'title',
-            store: true,
-            attributes: {
-              boost: 20
-            }
-          },
-          {
-            name: 'content',
-            store: true
-          },
-          {
-            name: 'url',
-            store: true
-          },
-          {
-            name: 'parent_page',
-            store: true
-          },
-        ],
-        resolvers: {
-          PrismicTravelStep: {
-            title: node => node.data.title.text,
-            content: node => node.data.content.text,
-            url: node => node.url,
-            parent_page: node => node.data.belongs_to.uid,
-          },
-        },
-        filename: 'search_index.json',
-        fetchOptions: {
-          credentials: 'same-origin'
-        },
-      },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
