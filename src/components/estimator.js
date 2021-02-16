@@ -155,6 +155,7 @@ const Estimator = () => {
                     train_zero {
                         html
                     }
+                    other_tooltip_text
                 }
             }
         }
@@ -163,7 +164,6 @@ const Estimator = () => {
     function formattedMessage(prismicKey, classes) {
         return <span className={classes} dangerouslySetInnerHTML={{ __html: localeCopy[prismicKey] }}></span> 
     }
-
 
     let localeCopy = cmsData.allPrismicStandaloneestimatorCopy.nodes.find(function(o){ return o.lang === locale }).data;
 
@@ -251,9 +251,9 @@ const Estimator = () => {
 
     const [accommodationCost, setAccommodationCost] = useState(0.00);
     const [acrdTotal, setAcrdTotal] = useState(0.00);
-    const [accommodationMessage, setAccommodationMessage] = useState({ element: <FormattedMessage id='accommodationDescription' />, style: 'primary' });
+    const [accommodationMessage, setAccommodationMessage] = useState({ element: <span></span>, style: 'primary' });
     const [transportationMessage, setTransportationMessage] = useState(initialTransportationMessage);
-    const [localTransportationMessage, setLocalTransportationMessage] = useState({ element: <FormattedMessage id='localTransportationDescription' />, style: 'primary' });
+    const [localTransportationMessage, setLocalTransportationMessage] = useState({ element: <span></span>, style: 'primary' });
     const [transportationCost, setTransportationCost] = useState(0.00);
     const [localTransportationCost, setLocalTransportationCost] = useState(0.00);
     const [mealCost, setMealCost] = useState({ total: 0.00 });
@@ -268,6 +268,7 @@ const Estimator = () => {
 
     const [mealsByDay, setMealsByDay] = useState({});
     const [province, setProvince] = useState('');
+    const [applicableRates, setApplicableRates] = useState([]);
 
     const [emailModalShow, setEmailModalShow] = useState(false);
     const [emailRequestLoading, setEmailRequestLoading] = useState(false);
@@ -401,22 +402,24 @@ const Estimator = () => {
 
             let total = 0.00;
 
-            let applicableRates = []
+            let calculatedApplicableRates = []
 
             for (const month in rates) {
                 total = total + rates[month].monthTotal
-                applicableRates.push({
+                calculatedApplicableRates.push({
                     month: month,
                     rate: rates[month].rate
                 })
             }
+
+            setApplicableRates(calculatedApplicableRates)
 
             updateAccommodationCost(total)
             setAcrdTotal(total);
             // eslint-disable-next-line no-template-curly-in-string
             localeCopy.hotel_success.html = localeCopy.hotel_success.html.replace('{location}', `<strong>${destination}</strong>`)
             // eslint-disable-next-line no-template-curly-in-string
-            localeCopy.hotel_success.html = localeCopy.hotel_success.html.replace('${daily rate}', `<strong>$${acrdTotal}</strong>`)
+            localeCopy.hotel_success.html = localeCopy.hotel_success.html.replace('${daily rate}', `<strong>$${calculatedApplicableRates[0].rate}</strong>`)
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_success.html }}></span> })
             // setAccommodationMessage({ element: <FormattedMessage id="hotelAccommodationMessage" values={{
             //     destination,
@@ -958,214 +961,221 @@ const Estimator = () => {
                 </div>
             </div>}
 
-            {!loading &&
-                <>
-                    <div className="card bg-light p-4 mb-4">
-                        <h3 className="mb-3"><FormattedMessage id="estimateSummaryTitle" /></h3>
+            <div className="card bg-light p-4 mb-4">
+                <h3 className="mb-3"><FormattedMessage id="estimateSummaryTitle" /></h3>
 
-                        <div className="row mb-4">
-                            <div className="col-sm-12 mb-2">
-                                <label htmlFor="accommodation_select"><FaBed className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="accommodation" /></label>
-                            </div>
-                            <div className="col-sm-4 align-self-center">
-                                <div className="align-self-center">
-                                    <div>
-                                        {/* <label htmlFor={name}>{label}</label> */}
-                                        <div id={"accommodation_container"}>
-                                        <select
-                                            className="custom-select mb-2"
-                                            onChange={e => setAccommodationType(e.target.value)}
-                                        >
-                                            <option value="hotel">Hotel</option>
-                                            <option value="private">Private Accommodation</option>
-                                        </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-sm-2 align-self-center">
-                                <input
-                                    disabled={accommodationType === "private"}
-                                    type="text"
-                                    className="form-control mb-2"
-                                    id={"accommodation_select"}
-                                    name={'accommodation'}
-                                    onChange={(e) => {
-                                        if (parseFloat(e.target.value) > acrdTotal) {
-                                            setAccommodationCost(e.target.value)
-                                            localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${''}</strong>`)
-                                            setAccommodationMessage({ element: 
-                                            <div className="mb-0 alert-warning" role="alert">
-                                                <>
-                                                    <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_above_estimate.html }}></span>
-                                                    <OverlayTrigger
-                                                        placement="top"
-                                                        delay={{ show: 250, hide: 400 }}
-                                                        overlay={renderAccommodationTooltip}
-                                                    >
-                                                        <FaQuestionCircle className="ml-2 mb-1" size="15" fill="#9E9E9E" />
-                                                    </OverlayTrigger>
-                                                </>
-                                            </div>
-                                            , style: 'warn' });
-                                        } else if (parseFloat(e.target.value) === 0) {
-                                            setAccommodationCost(e.target.value)
-                                            // localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
-                                            setAccommodationMessage({ element: 
-                                            <div className="mb-0 alert-warning" role="alert">
-                                                <>
-                                                    <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
-                                                </>
-                                            </div>
-                                            , style: 'warn' });
-                                        } else if (parseFloat(e.target.value) < acrdTotal) {
-                                            setAccommodationCost(e.target.value)
-                                            localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
-                                            setAccommodationMessage({ element: 
-                                            <div className="mb-0" role="alert">
-                                                <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_success.html }}></span>
-                                            </div>
-                                            , style: 'success' });
-                                        } else {
-                                            setAccommodationCost(e.target.value)
+                <div className="row mb-4">
+                    <div className="col-sm-12 mb-2">
+                        <label htmlFor="accommodation_select"><FaBed className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="accommodation" /></label>
+                    </div>
+                    <div className="col-sm-4 align-self-center">
+                        <div className="align-self-center">
+                            <div>
+                                {/* <label htmlFor={name}>{label}</label> */}
+                                <div id={"accommodation_container"}>
+                                <select
+                                    className="custom-select mb-2"
+                                    onChange={e => {
+                                        if (result) {
+                                            setAccommodationType(e.target.value)
                                         }
                                     }}
-                                    onBlur={calculateTotal}
-                                    value={accommodationCost}>
-                                </input>
-                            </div>
-                            <div className="col-sm-6 align-self-center text-wrap mb-2">
-                                {accommodationMessage.element}
-                            </div>
-                        </div>
-
-                        <div className="row mb-4">
-                            <div className="col-sm-12 mb-2">
-                                <label htmlFor="transportation_select"><FaPlane className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="transportation" /></label>
-                            </div>
-                            <div className="col-sm-4 align-self-center">
-                                <div className="align-self-center">
-                                    <div>
-                                        {/* <label htmlFor={name}>{label}</label> */}
-                                        <div id={"transportation_container"}>
-                                        <select
-                                            className="custom-select mb-2"
-                                            onChange={e => {
-                                                setTransportationType(e.target.value)
-                                                if (e.target.value === 'private') {
-                                                    updateLocalTransportationCost(0)
-                                                }
-                                            }}
-                                        >
-                                            <option value="flight" >Flight</option>
-                                            <option value="train">Train</option>
-                                            <option value="rental">Rental Car</option>
-                                            <option value="private">Private Vehicle</option>
-                                        </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-sm-2 align-self-center">
-                                <input
-                                    type="text"
-                                    className={`form-control mb-2`}
-                                    id={"transportation_select"}
-                                    name={'transportation'}
-                                    onChange={(e)  => {
-                                        // if (parseFloat(e.target.value) === 0) {
-                                        //     setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.html }}></span> })
-                                        // }
-                                        setTransportationCost(e.target.value)
-                                    }}
-                                    onBlur={calculateTotal}
-                                    value={transportationCost}
-                                    disabled={enterKilometricsDistanceManually && transportationType === 'private' ? true : false}
                                 >
-                                </input>
-                            </div>
-                            <div className="col-sm-6 align-self-center text-wrap mb-2">
-                                {transportationMessage.element}
-                            </div>
-                        </div>
-
-                        <div className="row mb-4">
-                            {transportationType === 'private' &&
-                                <div className="col-sm-4 align-self-center text-wrap mb-2">
-                                    <Form inline>
-                                        <Form.Group controlId="kilometricsManually">
-                                            <Form.Check
-                                                type="checkbox"
-                                                className="mr-2" 
-                                                aria-label="Enter Kilometrics Manually"
-                                                checked={enterKilometricsDistanceManually}
-                                                onChange={(e) => setEnterKilometricsDistanceManually(!enterKilometricsDistanceManually)}
-                                            />
-                                            {enterKilometricsDistanceManually && 
-                                                <Form.Control type="privateKilometrics" value={privateKilometricsValue} onChange={(e) => {setPrivateKilometricsValue(e.target.value)}} />
-                                            }
-                                            {!enterKilometricsDistanceManually &&
-                                                <span>Enter distance manually</span>
-                                            }
-                                        </Form.Group>
-                                    </Form>
+                                    <option value="hotel">Hotel</option>
+                                    <option value="private">Private Accommodation</option>
+                                </select>
                                 </div>
-                            }
+                            </div>
                         </div>
-
-
-                        <EstimatorRow
-                            value={localTransportationCost || '0.00'}
-                            name="localTransportation"
-                            id="localTransportation"
-                            description="localTransportationDescription"
-                            icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
-                            title="localTransportation"
-                            calculateTotal={calculateTotal}
-                            updateCost={setLocalTransportationCost}
-                            message={localTransportationMessage}
-                        />
-                        <EstimatorRow
-                            value={mealCost.total || '0.00'}
-                            name="mealsAndIncidentals"
-                            id="mealsAndIncidentals"
-                            description="selectMealsToInclude"
-                            message={{
-                                element: <a href="/" onClick={(e) => { handleMealsModalShow(e) }}>Select meals to include</a>
+                    </div>
+                    <div className="col-sm-2 align-self-center">
+                        <input
+                            disabled={accommodationType === "private"}
+                            type="text"
+                            className="form-control mb-2"
+                            id={"accommodation_select"}
+                            name={'accommodation'}
+                            onChange={(e) => {
+                                if (!result) return;
+                                if (parseFloat(e.target.value) > acrdTotal) {
+                                    setAccommodationCost(e.target.value)
+                                    localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
+                                    setAccommodationMessage({ element: 
+                                    <div className="mb-0 alert-warning" role="alert">
+                                        <>
+                                            <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_above_estimate.html }}></span>
+                                            <OverlayTrigger
+                                                placement="top"
+                                                delay={{ show: 250, hide: 400 }}
+                                                overlay={renderAccommodationTooltip}
+                                            >
+                                                <FaQuestionCircle className="ml-2 mb-1" size="15" fill="#9E9E9E" />
+                                            </OverlayTrigger>
+                                        </>
+                                    </div>
+                                    , style: 'warn' });
+                                } else if (parseFloat(e.target.value) === 0) {
+                                    setAccommodationCost(e.target.value)
+                                    // localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
+                                    setAccommodationMessage({ element: 
+                                    <div className="mb-0 alert-warning" role="alert">
+                                        <>
+                                            <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
+                                        </>
+                                    </div>
+                                    , style: 'warn' });
+                                } else if (parseFloat(e.target.value) < acrdTotal) {
+                                    setAccommodationCost(e.target.value)
+                                    localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
+                                    setAccommodationMessage({ element: 
+                                    <div className="mb-0" role="alert">
+                                        <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_success.html }}></span>
+                                    </div>
+                                    , style: 'success' });
+                                } else {
+                                    setAccommodationCost(e.target.value)
+                                }
                             }}
-                            icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
-                            title="mealsAndIncidentals"
-                            calculateTotal={calculateTotal}
-                            updateCost={setMealCost}
-                            disabled={true}
-                        />
-                        <EstimatorRow
-                            value={otherCost || '0.00'}
-                            name="otherAllowances"
-                            id="otherAllowances"
-                            message={{ element: <FormattedMessage id="otherAllowancesMessage" />}}
-                            icon={<FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />}
-                            title="otherAllowances"
-                            calculateTotal={calculateTotal}
-                            updateCost={setOtherCost}
-                            tooltipIcon={FaQuestionCircle}
-                            tooltipText={<span dangerouslySetInnerHTML={{ __html: localeCopy.other_tooltip_text }}></span>}
-                        />
-                        <div className="row mb-4">
-                            <div className="col-sm-6 align-self-center text-right">
-                                <hr />
-                                <strong className="mr-2"><FormattedMessage id="totalCost" /></strong>{'$ ' + summaryCost}
-                            </div>
-                            <div className="col-sm-6 align-self-center text-wrap">
+                            onBlur={calculateTotal}
+                            value={accommodationCost}>
+                        </input>
+                    </div>
+                    <div className="col-sm-6 align-self-center text-wrap mb-2">
+                        {accommodationMessage.element}
+                    </div>
+                </div>
+
+                <div className="row mb-4">
+                    <div className="col-sm-12 mb-2">
+                        <label htmlFor="transportation_select"><FaPlane className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="transportation" /></label>
+                    </div>
+                    <div className="col-sm-4 align-self-center">
+                        <div className="align-self-center">
+                            <div>
+                                {/* <label htmlFor={name}>{label}</label> */}
+                                <div id={"transportation_container"}>
+                                <select
+                                    className="custom-select mb-2"
+                                    onChange={e => {
+                                        if (!result) return;
+                                        setTransportationType(e.target.value)
+                                        if (e.target.value === 'private') {
+                                            updateLocalTransportationCost(0)
+                                        }
+                                    }}
+                                >
+                                    <option value="flight" >Flight</option>
+                                    <option value="train">Train</option>
+                                    <option value="rental">Rental Car</option>
+                                    <option value="private">Private Vehicle</option>
+                                </select>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className="row ml-1 mb-5">
-                        <Button className="px-5" onClick={() => { setEmailModalShow(true) }}><FormattedMessage id="email" /></Button>
-                        <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}><FormattedMessage id="print" /></Button>
+                    <div className="col-sm-2 align-self-center">
+                        <input
+                            type="text"
+                            className={`form-control mb-2`}
+                            id={"transportation_select"}
+                            name={'transportation'}
+                            onChange={(e)  => {
+                                if (!result) return;
+                                // if (parseFloat(e.target.value) === 0) {
+                                //     setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.html }}></span> })
+                                // }
+                                setTransportationCost(e.target.value)
+                            }}
+                            onBlur={calculateTotal}
+                            value={transportationCost}
+                            disabled={enterKilometricsDistanceManually && transportationType === 'private' ? true : false}
+                        >
+                        </input>
                     </div>
-                </>
-            }
+                    <div className="col-sm-6 align-self-center text-wrap mb-2">
+                        {transportationMessage.element}
+                    </div>
+                </div>
+
+                <div className="row mb-4">
+                    {transportationType === 'private' &&
+                        <div className="col-sm-4 align-self-center text-wrap mb-2">
+                            <Form inline>
+                                <Form.Group controlId="kilometricsManually">
+                                    <Form.Check
+                                        type="checkbox"
+                                        className="mr-2" 
+                                        aria-label="Enter Kilometrics Manually"
+                                        checked={enterKilometricsDistanceManually}
+                                        onChange={(e) => setEnterKilometricsDistanceManually(!enterKilometricsDistanceManually)}
+                                    />
+                                    {enterKilometricsDistanceManually && 
+                                        <Form.Control type="privateKilometrics" value={privateKilometricsValue} onChange={(e) => {setPrivateKilometricsValue(e.target.value)}} />
+                                    }
+                                    {!enterKilometricsDistanceManually &&
+                                        <span>Enter distance manually</span>
+                                    }
+                                </Form.Group>
+                            </Form>
+                        </div>
+                    }
+                </div>
+
+
+                <EstimatorRow
+                    result={result}
+                    value={localTransportationCost || '0.00'}
+                    name="localTransportation"
+                    id="localTransportation"
+                    description="localTransportationDescription"
+                    icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
+                    title="localTransportation"
+                    calculateTotal={calculateTotal}
+                    updateCost={setLocalTransportationCost}
+                    message={localTransportationMessage}
+                />
+                <EstimatorRow
+                    result={result}
+                    value={mealCost.total || '0.00'}
+                    name="mealsAndIncidentals"
+                    id="mealsAndIncidentals"
+                    description="selectMealsToInclude"
+                    message={{
+                        element: 
+                            result ? <a href="/" onClick={(e) => {handleMealsModalShow(e)}}>Select meals to include</a> : <span></span>
+                    }}
+                    icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
+                    title="mealsAndIncidentals"
+                    calculateTotal={calculateTotal}
+                    updateCost={setMealCost}
+                    disabled={true}
+                />
+                <EstimatorRow
+                    result={result}
+                    value={otherCost || '0.00'}
+                    name="otherAllowances"
+                    id="otherAllowances"
+                    message={{ element: result ? <FormattedMessage id="otherAllowancesMessage" /> : <span></span>}}
+                    icon={<FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />}
+                    title="otherAllowances"
+                    calculateTotal={calculateTotal}
+                    updateCost={setOtherCost}
+                    tooltipIcon={FaQuestionCircle}
+                    tooltipText={<span dangerouslySetInnerHTML={{ __html: localeCopy.other_tooltip_text }}></span>}
+                />
+                <div className="row mb-4">
+                    <div className="col-sm-6 align-self-center text-right">
+                        <hr />
+                        <strong className="mr-2"><FormattedMessage id="totalCost" /></strong>{'$ ' + summaryCost}
+                    </div>
+                    <div className="col-sm-6 align-self-center text-wrap">
+                    </div>
+                </div>
+            </div>
+            <div className="row ml-1 mb-5">
+                <Button className="px-5" onClick={() => { setEmailModalShow(true) }}><FormattedMessage id="email" /></Button>
+                <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}><FormattedMessage id="print" /></Button>
+            </div>
 
             <hr />
             

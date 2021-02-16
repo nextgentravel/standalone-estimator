@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import Tooltip from 'react-bootstrap/Tooltip'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 
-const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTotal, value, tooltipIcon, tooltipText, disabled }) => {
+const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTotal, value, tooltipIcon, tooltipText, disabled, result }) => {
     const TooltipIcon = tooltipIcon ? tooltipIcon : null;
 
     const renderTooltip = (props) => (
@@ -39,7 +39,11 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                     className="form-control mb-2"
                     id={id}
                     name={name}
-                    onChange={(e) => {updateCost(e.target.value)}} onBlur={calculateTotal}></input>
+                    onChange={(e) => {
+                        if (!result) return;
+                        updateCost(e.target.value)
+                    }} onBlur={calculateTotal}
+                    ></input>
             </div>
             <div className="col-sm-6 align-self-center text-wrap mb-2">
                 {message && message.element}
