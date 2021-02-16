@@ -3,7 +3,7 @@ module.exports = {
         // header
         'governmentOfCanada': 'Government of Canada Travel Guide',
         'skipToMain': 'Skip to the main content',
-        'siteTitle': 'GC Travel Guide',
+        'siteTitle': 'GC Travel Estimator',
         'underDevelopment': 'This website is under development.',
         'languageSelection': 'Language Selection',
         'alpha': 'ALPHA',
@@ -81,7 +81,7 @@ module.exports = {
         'December':'December',
         //misc
         'searchScreenReaderLabel': 'Search',
-        "searchPlaceholder": 'Search GC Travel Guide',
+        "searchPlaceholder": 'Search GC Travel Estimator',
         'submit': 'Submit',
         'clear': 'Clear',
         'datePrevious': 'Previous Month',
