@@ -47,6 +47,7 @@ const Estimator = () => {
                     disclaimer_body {
                         html
                     }
+                    enter_travel_info_above
                     explainer_body {
                         html
                     }
@@ -516,7 +517,7 @@ const Estimator = () => {
 
     useEffect(() => {
         if (transportationType === 'flight') {
-            
+            updateTransportationCost(transportationEstimates.flight.estimatedValue)
         } else if (transportationType === 'train') {
             updateTransportationCost(0)
             setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.train_success.html }}></span>  })
@@ -604,6 +605,7 @@ const Estimator = () => {
         setLoading(true);
         setGeneralError(false);
         e.preventDefault();
+        fetchFlightCost()
         handleValidation()
             .then(async (valid) => {
                 setValidationWarnings([]);
@@ -799,6 +801,14 @@ const Estimator = () => {
         </Tooltip>
     );
 
+    const renderEnterTravelInfoAboveTooltip = (props) => {
+        return (
+            <Tooltip id="button-tooltip" {...props}>
+                <span dangerouslySetInnerHTML={{ __html: localeCopy.enter_travel_info_above }}></span>
+            </Tooltip>
+        )
+    }
+
     useEffect(() => {
         if (result && parseInt(localTransportationCost) === 0) {
             setLocalTransportationMessage({
@@ -813,23 +823,22 @@ const Estimator = () => {
     }, [localTransportationCost]);
 
     useEffect(() => {
-        if (result && transportationType === 'flight') {
+        if (transportationType === 'flight') {
             if (haveFlightCost && (parseInt(transportationCost) === 0)) {
                 setTransportationMessage({
                     element:  <span className="transportation-message alert-warning">(fetched) Flight price is 0</span>
                 })
-            } else if (haveFlightCost && (transportationCost <= transportationEstimates.flight.estimatedValue)) {
+            } else if (haveFlightCost && (transportationCost <= transportationEstimates.flight.estimatedValue.toFixed(2))) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message alert-warning">(fetched) Flight price is good</span>
+                    element:  transportationEstimates.flight.estimatedValueMessage
                 })
-            } else if (haveFlightCost && (transportationCost > transportationEstimates.flight.estimatedValue)) {
+            } else if (haveFlightCost && (transportationCost > transportationEstimates.flight.estimatedValue.toFixed(2))) {
                 setTransportationMessage({
                     element:  <span className="transportation-message alert-warning">(fetched) Flight price is too much</span>
                 })
             }
 
             if(!haveFlightCost) {
-                fetchFlightCost()
                 setTransportationMessage({ element:
                     <>
                         <Spinner animation="border" role="status" size="sm">
@@ -847,8 +856,6 @@ const Estimator = () => {
                     element:  <span className="transportation-message alert-warning">(couldn't fetch) You have entered your own flight value</span>
                 })
             }
-            updateTransportationCost(transportationEstimates.flight.estimatedValue)
-            console.log('validate flight estimated price', transportationEstimates.flight.estimatedValue)
         }
         if (result && transportationType === 'train') {
             console.log('validate train price')
@@ -861,6 +868,10 @@ const Estimator = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [transportationCost, transportationType, haveFlightCost]);
+
+    const ConditionalWrap = ({ condition, wrap, children }) => (
+        condition ? wrap(children) : children
+    );
 
     return (
         <div className="mb-4">
@@ -973,72 +984,92 @@ const Estimator = () => {
                             <div>
                                 {/* <label htmlFor={name}>{label}</label> */}
                                 <div id={"accommodation_container"}>
-                                <select
-                                    className="custom-select mb-2"
-                                    onChange={e => {
-                                        if (result) {
-                                            setAccommodationType(e.target.value)
-                                        }
-                                    }}
-                                >
-                                    <option value="hotel">Hotel</option>
-                                    <option value="private">Private Accommodation</option>
-                                </select>
+                                    <ConditionalWrap
+                                        condition={!result}
+                                        wrap={children => (
+                                            <OverlayTrigger
+                                                placement="top"
+                                                delay={{ show: 250, hide: 400 }}
+                                                overlay={renderEnterTravelInfoAboveTooltip}
+                                            >{children}</OverlayTrigger>)}
+                                    >
+                                        <select
+                                            className="custom-select mb-2"
+                                            onChange={e => {
+                                                if (result) {
+                                                    setAccommodationType(e.target.value)
+                                                }
+                                            }}
+                                        >
+                                            <option value="hotel">Hotel</option>
+                                            <option value="private">Private Accommodation</option>
+                                        </select>
+                                    </ConditionalWrap>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="col-sm-2 align-self-center">
-                        <input
-                            disabled={accommodationType === "private"}
-                            type="text"
-                            className="form-control mb-2"
-                            id={"accommodation_select"}
-                            name={'accommodation'}
-                            onChange={(e) => {
-                                if (!result) return;
-                                if (parseFloat(e.target.value) > acrdTotal) {
-                                    setAccommodationCost(e.target.value)
-                                    localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
-                                    setAccommodationMessage({ element: 
-                                    <div className="mb-0 alert-warning" role="alert">
-                                        <>
-                                            <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_above_estimate.html }}></span>
-                                            <OverlayTrigger
-                                                placement="top"
-                                                delay={{ show: 250, hide: 400 }}
-                                                overlay={renderAccommodationTooltip}
-                                            >
-                                                <FaQuestionCircle className="ml-2 mb-1" size="15" fill="#9E9E9E" />
-                                            </OverlayTrigger>
-                                        </>
-                                    </div>
-                                    , style: 'warn' });
-                                } else if (parseFloat(e.target.value) === 0) {
-                                    setAccommodationCost(e.target.value)
-                                    // localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
-                                    setAccommodationMessage({ element: 
-                                    <div className="mb-0 alert-warning" role="alert">
-                                        <>
-                                            <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
-                                        </>
-                                    </div>
-                                    , style: 'warn' });
-                                } else if (parseFloat(e.target.value) < acrdTotal) {
-                                    setAccommodationCost(e.target.value)
-                                    localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
-                                    setAccommodationMessage({ element: 
-                                    <div className="mb-0" role="alert">
-                                        <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_success.html }}></span>
-                                    </div>
-                                    , style: 'success' });
-                                } else {
-                                    setAccommodationCost(e.target.value)
-                                }
-                            }}
-                            onBlur={calculateTotal}
-                            value={accommodationCost}>
-                        </input>
+                            <ConditionalWrap
+                                condition={!result}
+                                wrap={children => (
+                                    <OverlayTrigger
+                                        placement="top"
+                                        delay={{ show: 250, hide: 400 }}
+                                        overlay={renderEnterTravelInfoAboveTooltip}
+                                    >{children}</OverlayTrigger>)}
+                            >
+                                <input
+                                    disabled={accommodationType === "private"}
+                                    type="text"
+                                    className="form-control mb-2"
+                                    id={"accommodation_select"}
+                                    name={'accommodation'}
+                                    onChange={(e) => {
+                                        if (!result) return;
+                                        if (parseFloat(e.target.value) > acrdTotal) {
+                                            setAccommodationCost(e.target.value)
+                                            localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
+                                            setAccommodationMessage({ element: 
+                                            <div className="mb-0 alert-warning" role="alert">
+                                                <>
+                                                    <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_above_estimate.html }}></span>
+                                                    <OverlayTrigger
+                                                        placement="top"
+                                                        delay={{ show: 250, hide: 400 }}
+                                                        overlay={renderAccommodationTooltip}
+                                                    >
+                                                        <FaQuestionCircle className="ml-2 mb-1" size="15" fill="#9E9E9E" />
+                                                    </OverlayTrigger>
+                                                </>
+                                            </div>
+                                            , style: 'warn' });
+                                        } else if (parseFloat(e.target.value) === 0) {
+                                            setAccommodationCost(e.target.value)
+                                            // localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
+                                            setAccommodationMessage({ element: 
+                                            <div className="mb-0 alert-warning" role="alert">
+                                                <>
+                                                    <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
+                                                </>
+                                            </div>
+                                            , style: 'warn' });
+                                        } else if (parseFloat(e.target.value) < acrdTotal) {
+                                            setAccommodationCost(e.target.value)
+                                            localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
+                                            setAccommodationMessage({ element: 
+                                            <div className="mb-0" role="alert">
+                                                <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_success.html }}></span>
+                                            </div>
+                                            , style: 'success' });
+                                        } else {
+                                            setAccommodationCost(e.target.value)
+                                        }
+                                    }}
+                                    onBlur={calculateTotal}
+                                    value={accommodationCost}>
+                                </input>
+                        </ConditionalWrap>
                     </div>
                     <div className="col-sm-6 align-self-center text-wrap mb-2">
                         {accommodationMessage.element}
@@ -1054,43 +1085,67 @@ const Estimator = () => {
                             <div>
                                 {/* <label htmlFor={name}>{label}</label> */}
                                 <div id={"transportation_container"}>
-                                <select
-                                    className="custom-select mb-2"
-                                    onChange={e => {
-                                        if (!result) return;
-                                        setTransportationType(e.target.value)
-                                        if (e.target.value === 'private') {
-                                            updateLocalTransportationCost(0)
-                                        }
-                                    }}
-                                >
-                                    <option value="flight" >Flight</option>
-                                    <option value="train">Train</option>
-                                    <option value="rental">Rental Car</option>
-                                    <option value="private">Private Vehicle</option>
-                                </select>
+                                    <ConditionalWrap
+                                        condition={!result}
+                                        wrap={children => (
+                                            <OverlayTrigger
+                                                placement="top"
+                                                delay={{ show: 250, hide: 400 }}
+                                                overlay={renderEnterTravelInfoAboveTooltip}
+                                            >{children}</OverlayTrigger>)}
+                                    >
+                                        <select
+                                            className="custom-select mb-2"
+                                            onChange={e => {
+                                                console.log("result", result)
+                                                if (result) {
+                                                    setTransportationType(e.target.value)
+                                                    if (e.target.value === 'private') {
+                                                        updateLocalTransportationCost(0)
+                                                    }
+                                                }
+                                            }}
+                                        >
+                                            <option value="flight" >Flight</option>
+                                            <option value="train">Train</option>
+                                            <option value="rental">Rental Car</option>
+                                            <option value="private">Private Vehicle</option>
+                                        </select>
+                                    </ConditionalWrap>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="col-sm-2 align-self-center">
-                        <input
-                            type="text"
-                            className={`form-control mb-2`}
-                            id={"transportation_select"}
-                            name={'transportation'}
-                            onChange={(e)  => {
-                                if (!result) return;
-                                // if (parseFloat(e.target.value) === 0) {
-                                //     setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.html }}></span> })
-                                // }
-                                setTransportationCost(e.target.value)
-                            }}
-                            onBlur={calculateTotal}
-                            value={transportationCost}
-                            disabled={enterKilometricsDistanceManually && transportationType === 'private' ? true : false}
+                        <ConditionalWrap
+                            condition={!result}
+                            wrap={children => (
+                                <OverlayTrigger
+                                    placement="top"
+                                    delay={{ show: 250, hide: 400 }}
+                                    overlay={renderEnterTravelInfoAboveTooltip}
+                                >{children}</OverlayTrigger>)}
                         >
-                        </input>
+                            <input
+                                type="text"
+                                className={`form-control mb-2`}
+                                id={"transportation_select"}
+                                name={'transportation'}
+                                onChange={(e)  => {
+                                    if (result) {
+                                        setTransportationCost(e.target.value)
+                                    }
+                                    // if (parseFloat(e.target.value) === 0) {
+                                    //     setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.html }}></span> })
+                                    // }
+                                    
+                                }}
+                                onBlur={calculateTotal}
+                                value={transportationCost}
+                                disabled={enterKilometricsDistanceManually && transportationType === 'private' ? true : false}
+                            >
+                            </input>
+                        </ConditionalWrap>
                     </div>
                     <div className="col-sm-6 align-self-center text-wrap mb-2">
                         {transportationMessage.element}
@@ -1123,6 +1178,7 @@ const Estimator = () => {
 
 
                 <EstimatorRow
+                    overlayRender={renderEnterTravelInfoAboveTooltip}
                     result={result}
                     value={localTransportationCost || '0.00'}
                     name="localTransportation"
@@ -1135,6 +1191,7 @@ const Estimator = () => {
                     message={localTransportationMessage}
                 />
                 <EstimatorRow
+                    overlayRender={renderEnterTravelInfoAboveTooltip}
                     result={result}
                     value={mealCost.total || '0.00'}
                     name="mealsAndIncidentals"
@@ -1151,6 +1208,7 @@ const Estimator = () => {
                     disabled={true}
                 />
                 <EstimatorRow
+                    overlayRender={renderEnterTravelInfoAboveTooltip}
                     result={result}
                     value={otherCost || '0.00'}
                     name="otherAllowances"
