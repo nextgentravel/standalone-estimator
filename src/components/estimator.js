@@ -939,10 +939,10 @@ const Estimator = () => {
                 <div className="col-sm-3"></div>
                 <div className="col-sm-6">
                     {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-                    <button type="submit" className="btn btn-primary"><FormattedMessage id="estimate"/></button>
+                    <button type="submit" className="btn btn-primary px-5"><FormattedMessage id="estimate"/></button>
                     {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                     {showClear &&
-                        <button type="button" id="clear-button" className="btn btn-secondary ml-2" onClick={() => {clearForm()}}><FormattedMessage id="clear"/></button>
+                        <button type="button" id="clear-button" className="btn btn-outline-primary px-5 ml-3" onClick={() => {clearForm()}}><FormattedMessage id="clear"/></button>
                     }
                     {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
                 </div>
@@ -993,7 +993,7 @@ const Estimator = () => {
                                     onChange={(e) => {
                                         if (parseFloat(e.target.value) > acrdTotal) {
                                             setAccommodationCost(e.target.value)
-                                            localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
+                                            localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${''}</strong>`)
                                             setAccommodationMessage({ element: 
                                             <div className="mb-0 text-warning" role="alert">
                                                 <>
