@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useRef} from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import InputDatalist from "./input-datalist.js"
 import DatePicker from "./date-picker.js"
@@ -37,6 +37,9 @@ let initialReturn = DateTime.local().plus({ days: 2 })
 
 const Estimator = () => {
     const intl = useIntl();
+    const summaryView = useRef(null)
+    const executeScroll = () => summaryView.current.scrollIntoView()    
+
     let locale = `${intl.locale}-ca`;
     const cmsData = useStaticQuery(graphql`
     query cmsData {
@@ -644,6 +647,7 @@ const Estimator = () => {
 
                 // calculate meals for destination
                 setResult(true);
+                executeScroll()
                 setLoading(false);
                 setErrorPanel(false);
             })
@@ -953,7 +957,7 @@ const Estimator = () => {
                 <div className="col-sm-3"></div>
                 <div className="col-sm-6">
                     {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-                    <button type="submit" className="btn btn-primary px-5"><FormattedMessage id="estimate"/></button>
+                    <button ref={summaryView} type="submit" className="btn btn-primary px-5"><FormattedMessage id="estimate"/></button>
                     {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                     {showClear &&
                         <button type="button" id="clear-button" className="btn btn-outline-primary px-5 ml-3" onClick={() => {clearForm()}}><FormattedMessage id="clear"/></button>
@@ -1010,65 +1014,65 @@ const Estimator = () => {
                         </div>
                     </div>
                     <div className="col-sm-2 align-self-center">
-                            <ConditionalWrap
-                                condition={!result}
-                                wrap={children => (
-                                    <OverlayTrigger
-                                        placement="top"
-                                        delay={{ show: 250, hide: 400 }}
-                                        overlay={renderEnterTravelInfoAboveTooltip}
-                                    >{children}</OverlayTrigger>)}
-                            >
-                                <input
-                                    disabled={accommodationType === "private"}
-                                    type="text"
-                                    className="form-control mb-2"
-                                    id={"accommodation_select"}
-                                    name={'accommodation'}
-                                    onChange={(e) => {
-                                        if (!result) return;
-                                        if (parseFloat(e.target.value) > acrdTotal) {
-                                            setAccommodationCost(e.target.value)
-                                            localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
-                                            setAccommodationMessage({ element: 
-                                            <div className="mb-0 alert-warning" role="alert">
-                                                <>
-                                                    <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_above_estimate.html }}></span>
-                                                    <OverlayTrigger
-                                                        placement="top"
-                                                        delay={{ show: 250, hide: 400 }}
-                                                        overlay={renderAccommodationTooltip}
-                                                    >
-                                                        <FaQuestionCircle className="ml-2 mb-1" size="15" fill="#9E9E9E" />
-                                                    </OverlayTrigger>
-                                                </>
-                                            </div>
-                                            , style: 'warn' });
-                                        } else if (parseFloat(e.target.value) === 0) {
-                                            setAccommodationCost(e.target.value)
-                                            // localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
-                                            setAccommodationMessage({ element: 
-                                            <div className="mb-0 alert-warning" role="alert">
-                                                <>
-                                                    <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
-                                                </>
-                                            </div>
-                                            , style: 'warn' });
-                                        } else if (parseFloat(e.target.value) < acrdTotal) {
-                                            setAccommodationCost(e.target.value)
-                                            localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
-                                            setAccommodationMessage({ element: 
-                                            <div className="mb-0" role="alert">
-                                                <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_success.html }}></span>
-                                            </div>
-                                            , style: 'success' });
-                                        } else {
-                                            setAccommodationCost(e.target.value)
-                                        }
-                                    }}
-                                    onBlur={calculateTotal}
-                                    value={accommodationCost}>
-                                </input>
+                        <ConditionalWrap
+                            condition={!result}
+                            wrap={children => (
+                                <OverlayTrigger
+                                    placement="top"
+                                    delay={{ show: 250, hide: 400 }}
+                                    overlay={renderEnterTravelInfoAboveTooltip}
+                                >{children}</OverlayTrigger>)}
+                        >
+                            <input
+                                disabled={accommodationType === "private"}
+                                type="text"
+                                className="form-control mb-2"
+                                id={"accommodation_select"}
+                                name={'accommodation'}
+                                onChange={(e) => {
+                                    if (!result) return;
+                                    if (parseFloat(e.target.value) > acrdTotal) {
+                                        setAccommodationCost(e.target.value)
+                                        localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
+                                        setAccommodationMessage({ element: 
+                                        <div className="mb-0 alert-warning" role="alert">
+                                            <>
+                                                <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_above_estimate.html }}></span>
+                                                <OverlayTrigger
+                                                    placement="top"
+                                                    delay={{ show: 250, hide: 400 }}
+                                                    overlay={renderAccommodationTooltip}
+                                                >
+                                                    <FaQuestionCircle className="ml-2 mb-1" size="15" fill="#9E9E9E" />
+                                                </OverlayTrigger>
+                                            </>
+                                        </div>
+                                        , style: 'warn' });
+                                    } else if (parseFloat(e.target.value) === 0) {
+                                        setAccommodationCost(e.target.value)
+                                        // localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
+                                        setAccommodationMessage({ element: 
+                                        <div className="mb-0 alert-warning" role="alert">
+                                            <>
+                                                <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
+                                            </>
+                                        </div>
+                                        , style: 'warn' });
+                                    } else if (parseFloat(e.target.value) < acrdTotal) {
+                                        setAccommodationCost(e.target.value)
+                                        localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
+                                        setAccommodationMessage({ element: 
+                                        <div className="mb-0" role="alert">
+                                            <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_success.html }}></span>
+                                        </div>
+                                        , style: 'success' });
+                                    } else {
+                                        setAccommodationCost(e.target.value)
+                                    }
+                                }}
+                                onBlur={calculateTotal}
+                                value={accommodationCost}>
+                            </input>
                         </ConditionalWrap>
                     </div>
                     <div className="col-sm-6 align-self-center text-wrap mb-2">
