@@ -55,7 +55,7 @@ const Header = ({homeHeader}) => {
         <div className="container">
           <div className="row">
               <div className="col-sm-12">
-                  <Link to={homeLink}><h1 className="text-light"><FormattedMessage id="siteTitle" /></h1></Link>
+                <Link to={homeLink}><h1 className="text-light"><FormattedMessage id="siteTitle" /></h1></Link>
               </div>
           </div>
         </div>

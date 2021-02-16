@@ -1,7 +1,7 @@
 module.exports = {
     'en': {
         // header
-        'governmentOfCanada': 'Government of Canada Travel Guide',
+        'governmentOfCanada': 'Government of Canada Travel Estimator',
         'skipToMain': 'Skip to the main content',
         'siteTitle': 'GC Travel Estimator',
         'underDevelopment': 'This website is under development.',
