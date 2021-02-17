@@ -3,6 +3,10 @@ import { FormattedMessage } from 'react-intl';
 import Tooltip from 'react-bootstrap/Tooltip'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 
+const ConditionalWrap = ({ condition, wrap, children }) => (
+    condition ? wrap(children) : children
+);
+
 const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTotal, value, tooltipIcon, tooltipText, disabled, result, overlayRender }) => {
     const TooltipIcon = tooltipIcon ? tooltipIcon : null;
 
@@ -11,11 +15,6 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
           {tooltipText}
         </Tooltip>
       );
-
-    const ConditionalWrap = ({ condition, wrap, children }) => (
-        condition ? wrap(children) : children
-    );
-
 
     return (
         <div className="row mb-4">
