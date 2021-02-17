@@ -311,7 +311,6 @@ const Estimator = () => {
 
     const [transportationEstimates, setTransportationEstimates] = useState(transportationEstimatesInitialState);
 
-
     function displayTransportationMessage() {
         let calculateKilometrics = privateKilometricsValue * (privateVehicleRate / 100);
         console.log('privateVehicleSuccess', privateVehicleSuccess)
@@ -660,6 +659,9 @@ const Estimator = () => {
     }
 
     const clearForm = async () => {
+
+        setAccommodationCost(0.00);
+        setAccommodationMessage({ element: <span></span>, style: 'primary' });
         setHaveFlightCost(false)
         setTransportationEstimates(transportationEstimatesInitialState);
         setOrigin('')
@@ -668,9 +670,13 @@ const Estimator = () => {
         setReturnDate('');
         setEmailConfirmationModalShow(false);
         setEmailModalShow(false);
-      
+        setLocalTransportationMessage({ element: <span></span>, style: 'primary' });
+        setLocalTransportationCost(0.00);
         setDepartureDate(initialDates.departure);
         setReturnDate(initialDates.return);
+        setMealsByDay({})
+        setMealCost(0.00)
+        setResult(false)
 
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
@@ -685,7 +691,7 @@ const Estimator = () => {
         originElement.click();
         originElement.focus();
         originElement.blur();
-
+        setTransportationMessage(initialTransportationMessage)
         setTimeout(function(){ 
             if(originElement){
                 originElement.focus();
@@ -842,7 +848,7 @@ const Estimator = () => {
                 })
             }
 
-            if(!haveFlightCost) {
+            if(loading && !haveFlightCost) {
                 setTransportationMessage({ element:
                     <>
                         <Spinner animation="border" role="status" size="sm">
@@ -851,11 +857,11 @@ const Estimator = () => {
                         <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_loading.html }}></span>
                     </>
                 })
-            } else if (!haveFlightCost && (parseInt(transportationCost) === 0)) {
+            } else if (result && !haveFlightCost && (parseInt(transportationCost) === 0)) {
                 setTransportationMessage({
                     element:  <span className="transportation-message alert-warning">(couldn't fetch) Please enter own flight value</span>
                 })
-            } else if (!haveFlightCost && (parseInt(transportationCost) > 0)) {
+            } else if (result && !haveFlightCost && (parseInt(transportationCost) > 0)) {
                 setTransportationMessage({
                     element:  <span className="transportation-message alert-warning">(couldn't fetch) You have entered your own flight value</span>
                 })
