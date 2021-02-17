@@ -427,11 +427,12 @@ const Estimator = () => {
 
             updateAccommodationCost(total)
             setAcrdTotal(total);
+            let message = localeCopy.hotel_success.html
             // eslint-disable-next-line no-template-curly-in-string
-            localeCopy.hotel_success.html = localeCopy.hotel_success.html.replace('{location}', `<strong>${destination}</strong>`)
+            message = message.replace('{location}', `<strong>${destination}</strong>`)
             // eslint-disable-next-line no-template-curly-in-string
-            localeCopy.hotel_success.html = localeCopy.hotel_success.html.replace('${daily rate}', `<strong>$${calculatedApplicableRates[0].rate}</strong>`)
-            setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_success.html }}></span> })
+            message = message.replace('${daily rate}', `<strong>$${calculatedApplicableRates[0].rate}</strong>`)
+            setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
             // setAccommodationMessage({ element: <FormattedMessage id="hotelAccommodationMessage" values={{
             //     destination,
             //     rate: applicableRates[0].rate,
@@ -1043,12 +1044,13 @@ const Estimator = () => {
                                     if (!result) return;
                                     if (parseFloat(e.target.value) > acrdTotal) {
                                         setAccommodationCost(e.target.value)
-                                        localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
-                                        localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{tripTotal}', `<strong>${acrdTotal}</strong>`)
+                                        let message = localeCopy.hotel_above_estimate.html
+                                        message = message.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
+                                        message = message.replace('{tripTotal}', `<strong>${acrdTotal}</strong>`)
                                         setAccommodationMessage({ element: 
                                         <div className="mb-0 alert-warning" role="alert">
                                             <>
-                                                <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_above_estimate.html }}></span>
+                                                <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: message }}></span>
                                                 <OverlayTrigger
                                                     placement="top"
                                                     delay={{ show: 250, hide: 400 }}
@@ -1071,21 +1073,23 @@ const Estimator = () => {
                                         , style: 'warn' });
                                     } else if (parseFloat(e.target.value) === acrdTotal) {
                                         setAccommodationCost(e.target.value)
-                                        localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
+                                        let message = localeCopy.hotel_above_estimate.html
+                                        message = message.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
                                         // localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
                                         
                                         setAccommodationMessage({ element: 
                                         <div className="mb-0" role="alert">
-                                            <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_above_estimate.html }}></span>
+                                            <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span>
                                         </div>
                                         , style: 'success' });
                                     } else if (parseFloat(e.target.value) < acrdTotal) {
                                         setAccommodationCost(e.target.value)
-                                        localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
-                                        localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{tripTotal}', `<strong>${acrdTotal}</strong>`)
+                                        let message = localeCopy.hotel_below_estimate.html
+                                        message = message.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
+                                        message = message.replace('{tripTotal}', `<strong>${acrdTotal}</strong>`)
                                         setAccommodationMessage({ element: 
                                         <div className="mb-0" role="alert">
-                                            <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_below_estimate.html }}></span>
+                                            <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span>
                                         </div>
                                         , style: 'success' });
                                     } else {
