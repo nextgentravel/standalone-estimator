@@ -378,7 +378,7 @@ const Estimator = () => {
             })
             .then(response => response.json())
             .then(result => {
-                console.log('Fetched Access Token: ', result);
+                // console.log('Fetched Access Token: ', result);
                 let expiryTime = new Date();
                 expiryTime.setSeconds(expiryTime.getSeconds() + result.expires_in);
                 setAmadeusAccessToken({ token: result.access_token, expiryTime: expiryTime.getTime() });
@@ -932,7 +932,7 @@ const Estimator = () => {
                 </ul>
             </div>}
             <form id="estimates-form" className="form-group row mb-5" onSubmit={handleSubmit}>
-                <div className="col-sm-7">
+                <div className="col-sm-7" ref={summaryView}>
                     <InputDatalist
                         validationWarnings={validationWarnings}
                         setValidationWarnings={setValidationWarnings}
@@ -968,7 +968,7 @@ const Estimator = () => {
                 <div className="col-sm-3"></div>
                 <div className="col-sm-6">
                     {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-                    <button ref={summaryView} type="submit" className="btn btn-primary px-5"><FormattedMessage id="estimate"/></button>
+                    <button type="submit" className="btn btn-primary px-5"><FormattedMessage id="estimate"/></button>
                     {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                     {showClear &&
                         <button type="button" id="clear-button" className="btn btn-outline-primary px-5 ml-3" onClick={() => {clearForm()}}><FormattedMessage id="clear"/></button>
