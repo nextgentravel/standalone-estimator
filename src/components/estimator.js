@@ -35,6 +35,10 @@ import './extra/estimator-print.css'
 let initialDeparture = DateTime.local().plus({ days: 1 })
 let initialReturn = DateTime.local().plus({ days: 2 })
 
+const ConditionalWrap = ({ condition, wrap, children }) => (
+    condition ? wrap(children) : children
+);
+
 const Estimator = () => {
     const intl = useIntl();
     const summaryView = useRef(null)
@@ -878,10 +882,6 @@ const Estimator = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [transportationCost, transportationType, haveFlightCost]);
-
-    const ConditionalWrap = ({ condition, wrap, children }) => (
-        condition ? wrap(children) : children
-    );
 
     return (
         <div className="mb-4">
