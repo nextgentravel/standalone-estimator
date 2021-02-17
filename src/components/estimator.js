@@ -91,6 +91,10 @@ const Estimator = () => {
                     hotel_above_estimate {
                         html
                     }
+                    hotel_below_estimate {
+                        html
+                    }
+
                     hotel_error {
                         html
                     }
@@ -1040,6 +1044,7 @@ const Estimator = () => {
                                     if (parseFloat(e.target.value) > acrdTotal) {
                                         setAccommodationCost(e.target.value)
                                         localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
+                                        localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{tripTotal}', `<strong>${acrdTotal}</strong>`)
                                         setAccommodationMessage({ element: 
                                         <div className="mb-0 alert-warning" role="alert">
                                             <>
@@ -1064,12 +1069,23 @@ const Estimator = () => {
                                             </>
                                         </div>
                                         , style: 'warn' });
-                                    } else if (parseFloat(e.target.value) < acrdTotal) {
+                                    } else if (parseFloat(e.target.value) === acrdTotal) {
                                         setAccommodationCost(e.target.value)
                                         localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
+                                        // localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
+                                        
                                         setAccommodationMessage({ element: 
                                         <div className="mb-0" role="alert">
-                                            <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_success.html }}></span>
+                                            <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_above_estimate.html }}></span>
+                                        </div>
+                                        , style: 'success' });
+                                    } else if (parseFloat(e.target.value) < acrdTotal) {
+                                        setAccommodationCost(e.target.value)
+                                        localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
+                                        localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{tripTotal}', `<strong>${acrdTotal}</strong>`)
+                                        setAccommodationMessage({ element: 
+                                        <div className="mb-0" role="alert">
+                                            <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_below_estimate.html }}></span>
                                         </div>
                                         , style: 'success' });
                                     } else {

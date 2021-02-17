@@ -1,483 +1,492 @@
 {
-  "Main" : {
-    "title" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading3",
-        "label" : "title",
-        "placeholder" : "Title of the Estimator Tool"
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "title",
+        "placeholder": "Title of the Estimator Tool"
       }
     },
-    "lead" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, strong, em",
-        "label" : "lead",
-        "placeholder" : "Lead text for estimator tool"
+    "lead": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, strong, em",
+        "label": "lead",
+        "placeholder": "Lead text for estimator tool"
       }
     },
-    "explainer_title" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading4",
-        "label" : "explainer_title",
-        "placeholder" : "Title of the explainer section.  E.g \"How did we get these numbers?\""
+    "explainer_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading4",
+        "label": "explainer_title",
+        "placeholder": "Title of the explainer section.  E.g \"How did we get these numbers?\""
       }
     },
-    "explainer_body" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "allowTargetBlank" : true,
-        "label" : "explainer_body",
-        "placeholder" : "Body of explainer",
-        "labels" : [ "text-indent" ]
+    "explainer_body": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "allowTargetBlank": true,
+        "label": "explainer_body",
+        "placeholder": "Body of explainer",
+        "labels": [
+          "text-indent"
+        ]
       }
     },
-    "disclaimer_body" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, strong, em, hyperlink",
-        "allowTargetBlank" : true,
-        "label" : "disclaimer_body",
-        "placeholder" : "Disclaimer text at bottom of page."
+    "disclaimer_body": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, strong, em, hyperlink",
+        "allowTargetBlank": true,
+        "label": "disclaimer_body",
+        "placeholder": "Disclaimer text at bottom of page."
       }
     },
-    "hotel_success" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "hotel_success"
+    "hotel_success": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "hotel_success"
       }
     },
-    "hotel_zero" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "hotel_zero"
+    "hotel_zero": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "hotel_zero"
       }
     },
-    "hotel_above_estimate" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "hotel_above_estimate"
+    "hotel_above_estimate": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "hotel_above_estimate"
       }
     },
-    "hotel_error" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "hotel_error"
+    "hotel_below_estimate": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em",
+        "label": "hotel_below_estimate"
       }
     },
-    "private_accom_estimate_success" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "private_accom_estimate_success"
+    "hotel_error": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "hotel_error"
       }
     },
-    "private_accom_estimate_zero" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "private_accom_estimate_zero"
+    "private_accom_estimate_success": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "private_accom_estimate_success"
       }
     },
-    "enter_travel_info_above" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "enter_travel_info_above"
+    "private_accom_estimate_zero": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "private_accom_estimate_zero"
       }
     },
-    "flight_loading" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "flight_loading"
+    "enter_travel_info_above": {
+      "type": "Text",
+      "config": {
+        "label": "enter_travel_info_above"
       }
     },
-    "flight_success" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "flight_success"
+    "flight_loading": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "flight_loading"
       }
     },
-    "flight_zero" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "flight_zero"
+    "flight_success": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "flight_success"
       }
     },
-    "flight_below_estimate" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "flight_below_estimate"
+    "flight_zero": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "flight_zero"
       }
     },
-    "flight_above_estimate" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "flight_above_estimate"
+    "flight_below_estimate": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "flight_below_estimate"
       }
     },
-    "flight_error" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "flight_error"
+    "flight_above_estimate": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "flight_above_estimate"
       }
     },
-    "train_error" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "train_error"
+    "flight_error": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "flight_error"
       }
     },
-    "train_success" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "train_success"
+    "train_error": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "train_error"
       }
     },
-    "train_zero" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "train_zero"
+    "train_success": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "train_success"
       }
     },
-    "train_below_estimate" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "train_below_estimate"
+    "train_zero": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "train_zero"
       }
     },
-    "train_above_estimate" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "train_above_estimate"
+    "train_below_estimate": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "train_below_estimate"
       }
     },
-    "rental_car_error" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "rental_car_error"
+    "train_above_estimate": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "train_above_estimate"
       }
     },
-    "rental_car_success" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "rental_car_success"
+    "rental_car_error": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "rental_car_error"
       }
     },
-    "rental_car_zero" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "rental_car_zero"
+    "rental_car_success": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "rental_car_success"
       }
     },
-    "private_vehicle_above_estimate" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "private_vehicle_above_estimate"
+    "rental_car_zero": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "rental_car_zero"
       }
     },
-    "private_vehicle_below_estimate" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "private_vehicle_below_estimate"
+    "private_vehicle_above_estimate": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "private_vehicle_above_estimate"
       }
     },
-    "private_vehicle_error" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "private_vehicle_error"
+    "private_vehicle_below_estimate": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "private_vehicle_below_estimate"
       }
     },
-    "private_vehicle_success" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "private_vehicle_success"
+    "private_vehicle_error": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "private_vehicle_error"
       }
     },
-    "private_vehicle_manual" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "private_vehicle_manual"
+    "private_vehicle_success": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "private_vehicle_success"
       }
     },
-    "local_transportation_success" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "local_transportation_success"
+    "private_vehicle_manual": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "private_vehicle_manual"
       }
     },
-    "local_transportation_manual" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "local_transportation_manual"
+    "local_transportation_success": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "local_transportation_success"
       }
     },
-    "local_tranportation_zero" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "local_tranportation_zero"
+    "local_transportation_manual": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "local_transportation_manual"
       }
     },
-    "meals_incidentals_success" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "meals_incidentals_success"
+    "local_tranportation_zero": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "local_tranportation_zero"
       }
     },
-    "generating_estimate" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "generating_estimate"
+    "meals_incidentals_success": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "meals_incidentals_success"
       }
     },
-    "return_date_earlier_than_departure_date" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "return_date_earlier_than_departure_date"
+    "generating_estimate": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "generating_estimate"
       }
     },
-    "incorrect_date_format" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "incorrect_date_format"
+    "return_date_earlier_than_departure_date": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "return_date_earlier_than_departure_date"
       }
     },
-    "transportation_description" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "transportation_description"
+    "incorrect_date_format": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "label": "incorrect_date_format"
       }
     },
-    "accommodation_description" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "accommodation_description"
+    "transportation_description": {
+      "type": "Text",
+      "config": {
+        "label": "transportation_description"
       }
     },
-    "local_transportation_description" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "local_transportation_description"
+    "accommodation_description": {
+      "type": "Text",
+      "config": {
+        "label": "accommodation_description"
       }
     },
-    "estimate_origin_city_valid" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_origin_city_valid"
+    "local_transportation_description": {
+      "type": "Text",
+      "config": {
+        "label": "local_transportation_description"
       }
     },
-    "estimate_origin_city_not_valid" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_origin_city_not_valid"
+    "estimate_origin_city_valid": {
+      "type": "Text",
+      "config": {
+        "label": "estimate_origin_city_valid"
       }
     },
-    "estimate_destination_city_valid" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_destination_city_valid"
+    "estimate_origin_city_not_valid": {
+      "type": "Text",
+      "config": {
+        "label": "estimate_origin_city_not_valid"
       }
     },
-    "estimate_destination_city_not_valid" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_destination_city_not_valid"
+    "estimate_destination_city_valid": {
+      "type": "Text",
+      "config": {
+        "label": "estimate_destination_city_valid"
       }
     },
-    "estimate_departure_date_not_valid" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_departure_date_not_valid"
+    "estimate_destination_city_not_valid": {
+      "type": "Text",
+      "config": {
+        "label": "estimate_destination_city_not_valid"
       }
     },
-    "estimate_return_date_not_valid" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_return_date_not_valid"
+    "estimate_departure_date_not_valid": {
+      "type": "Text",
+      "config": {
+        "label": "estimate_departure_date_not_valid"
       }
     },
-    "no_time_travel" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "no_time_travel"
+    "estimate_return_date_not_valid": {
+      "type": "Text",
+      "config": {
+        "label": "estimate_return_date_not_valid"
       }
     },
-    "accommodation_tooltip" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "accommodation_tooltip"
+    "no_time_travel": {
+      "type": "Text",
+      "config": {
+        "label": "no_time_travel"
       }
     },
-    "estimate_error_title" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_error_title"
+    "accommodation_tooltip": {
+      "type": "Text",
+      "config": {
+        "label": "accommodation_tooltip"
       }
     },
-    "estimate_error_lead" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_error_lead"
+    "estimate_error_title": {
+      "type": "Text",
+      "config": {
+        "label": "estimate_error_title"
       }
     },
-    "estimate_origin" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_origin"
+    "estimate_error_lead": {
+      "type": "Text",
+      "config": {
+        "label": "estimate_error_lead"
       }
     },
-    "estimate_destination" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_destination"
+    "estimate_origin": {
+      "type": "Text",
+      "config": {
+        "label": "estimate_origin"
       }
     },
-    "estimate_departure_date" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_departure_date"
+    "estimate_destination": {
+      "type": "Text",
+      "config": {
+        "label": "estimate_destination"
       }
     },
-    "estimate_return_date" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_return_date"
+    "estimate_departure_date": {
+      "type": "Text",
+      "config": {
+        "label": "estimate_departure_date"
       }
     },
-    "estimate" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate"
+    "estimate_return_date": {
+      "type": "Text",
+      "config": {
+        "label": "estimate_return_date"
       }
     },
-    "clear" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "clear"
+    "estimate": {
+      "type": "Text",
+      "config": {
+        "label": "estimate"
       }
     },
-    "estimate_application_error" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_application_error"
+    "clear": {
+      "type": "Text",
+      "config": {
+        "label": "clear"
       }
     },
-    "estimate_application_error_text" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_application_error_text"
+    "estimate_application_error": {
+      "type": "Text",
+      "config": {
+        "label": "estimate_application_error"
       }
     },
-    "estimate_summary_title" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_summary_title"
+    "estimate_application_error_text": {
+      "type": "Text",
+      "config": {
+        "label": "estimate_application_error_text"
       }
     },
-    "accommodation" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "accommodation"
+    "estimate_summary_title": {
+      "type": "Text",
+      "config": {
+        "label": "estimate_summary_title"
       }
     },
-    "transportation" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "transportation"
+    "accommodation": {
+      "type": "Text",
+      "config": {
+        "label": "accommodation"
       }
     },
-    "other_allowances_message" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "other_allowances_message"
+    "transportation": {
+      "type": "Text",
+      "config": {
+        "label": "transportation"
       }
     },
-    "other_tooltip_text" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "other_tooltip_text"
+    "other_allowances_message": {
+      "type": "Text",
+      "config": {
+        "label": "other_allowances_message"
       }
     },
-    "total_cost" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "total_cost"
+    "other_tooltip_text": {
+      "type": "Text",
+      "config": {
+        "label": "other_tooltip_text"
       }
     },
-    "email" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "email"
+    "total_cost": {
+      "type": "Text",
+      "config": {
+        "label": "total_cost"
       }
     },
-    "print" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "print"
+    "email": {
+      "type": "Text",
+      "config": {
+        "label": "email"
       }
     },
-    "email_success_title" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "email_success_title"
+    "print": {
+      "type": "Text",
+      "config": {
+        "label": "print"
       }
     },
-    "email_success_message" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em",
-        "label" : "email_success_message"
+    "email_success_title": {
+      "type": "Text",
+      "config": {
+        "label": "email_success_title"
       }
     },
-    "email_error_title" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "email_error_title"
+    "email_success_message": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em",
+        "label": "email_success_message"
       }
     },
-    "email_error_message" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em",
-        "label" : "email_error_message"
+    "email_error_title": {
+      "type": "Text",
+      "config": {
+        "label": "email_error_title"
       }
     },
-    "transportation_description1" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em",
-        "label" : "transportation_description"
+    "email_error_message": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em",
+        "label": "email_error_message"
+      }
+    },
+    "transportation_description1": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em",
+        "label": "transportation_description"
       }
     }
   }
