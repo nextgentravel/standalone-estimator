@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Layout from "../components/layout"
 import SEO from "../components/seo";
 import Estimator from "../components/estimator"
@@ -9,6 +9,17 @@ import {
 } from 'gatsby';
 
 export default ({ data }) => {
+    const [pos, setPos] = useState("top")
+    useEffect (()=>{
+      document.addEventListener("scroll", e => {
+          let scrolled = document.scrollingElement.scrollTop;
+          if (scrolled >= 5){
+             setPos("moved")
+          } else {
+             setPos("top")
+          }
+      })
+    },[])
     return (
       <StaticQuery query = {
         graphql `
@@ -21,6 +32,9 @@ export default ({ data }) => {
                     title {
                       text
                     }
+                    prototype_footer {
+                      html
+                    }
                   }
                 }
             }
@@ -28,7 +42,7 @@ export default ({ data }) => {
       }
       render = {
         data => {
-          // const homePage = data.prismicStandaloneestimatorHomepage.data;
+          const homePage = data.prismicStandaloneestimatorHomepage.data;
           return (
             <Layout>
               <SEO title="Home" />
@@ -41,6 +55,7 @@ export default ({ data }) => {
                   </main>
                 </div>
               </w-screen>
+              {pos === "top" && <footer dangerouslySetInnerHTML={{ __html: homePage.prototype_footer.html }} className="prototype-banner fixed-bottom"></footer>}
             </Layout>
           )
         }
