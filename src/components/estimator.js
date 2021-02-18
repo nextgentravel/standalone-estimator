@@ -1197,7 +1197,12 @@ const Estimator = () => {
                                         onChange={(e) => setEnterKilometricsDistanceManually(!enterKilometricsDistanceManually)}
                                     />
                                     {enterKilometricsDistanceManually && 
-                                        <Form.Control type="privateKilometrics" value={privateKilometricsValue} onChange={(e) => {setPrivateKilometricsValue(e.target.value)}} />
+                                        <Form.Control type="privateKilometrics"
+                                            value={privateKilometricsValue}
+                                            onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
+                                            onChange={(e) => {
+                                                setPrivateKilometricsValue(e.target.value)
+                                            }} />
                                     }
                                     {!enterKilometricsDistanceManually &&
                                         <span>Enter distance manually</span>
