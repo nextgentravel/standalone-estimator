@@ -256,7 +256,8 @@ const Estimator = () => {
     const [accommodationType, setAccommodationType] = useState('');
     const [transportationType, setTransportationType] = useState('');
 
-    const [validationWarnings, setValidationWarnings] = useState([]);
+    const [submitValidationWarnings, setSubmitValidationWarnings] = useState([]);
+    const [emailValidationWarnings, setEmailValidationWarnings] = useState([]);
 
     const [loading, setLoading] = useState(false);
     const [result, setResult] = useState(false);
@@ -619,9 +620,9 @@ const Estimator = () => {
         setGeneralError(false);
         e.preventDefault();
         fetchFlightCost()
-        handleValidation()
+        handleSubmitEstimateValidation()
             .then(async (valid) => {
-                setValidationWarnings([]);
+                setSubmitValidationWarnings([]);
                 setTransportationType('flight')
                 setAccommodationType('hotel')
                 let numberOfDays = Interval.fromDateTimes(
@@ -664,7 +665,7 @@ const Estimator = () => {
             .catch(err => {
                 console.log("ERROR", err)
                 setLoading(false);
-                setValidationWarnings(err.inner);
+                setSubmitValidationWarnings(err.inner);
                 setErrorPanel(true);
             });
     }
@@ -713,7 +714,7 @@ const Estimator = () => {
 
     }
 
-    const handleValidation = () => {
+    const handleSubmitEstimateValidation = () => {
         let target = {origin, destination, departureDate, returnDate};
         let schema = yup.object().shape({
             origin: yup
@@ -749,9 +750,38 @@ const Estimator = () => {
         return schema.validate(target, {abortEarly: false})
     }
 
+    const handleSubmitEmailValidation = () => {
+        let target = {tripName, travellersName, travellersEmail, approversName, approversEmail, tripNotes};
+        let schema = yup.object().shape({
+            tripName: yup
+                .string()
+                .typeError(' is required')
+                .required(),
+            travellersName: yup
+                .string()
+                .typeError(' is required')
+                .required(),
+            travellersEmail: yup
+                .string()
+                .typeError(' is required')
+                .required(),
+            approversName: yup
+                .string()
+                .typeError(' is required')
+                .required(),
+            approversEmail: yup
+                .string()
+                .typeError(' is required')
+                .required(),
+            tripNotes: yup
+                .string()
+        });
+        return schema.validate(target, {abortEarly: false})
+    }
+
     const errorList = () => {
         let list = [];
-        list = validationWarnings.map((error, index) =>
+        list = submitValidationWarnings.map((error, index) =>
             <li key={index}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
         );
         return list;
@@ -764,44 +794,53 @@ const Estimator = () => {
 
     const sendEmail = async () => {
         setEmailRequestLoading(true);
-        fetch('/api/sendEstimateEmail', {
-            method: 'post',
-            body: JSON.stringify({
-                departureDate: departureDate.toISODate(),
-                returnDate: returnDate.toISODate(),
-                origin,
-                destination,
-                accommodationType,
-                accommodationCost,
-                accommodationMessage,
-                transportationType,
-                transportationCost,
-                transportationMessage,
-                localTransportationCost,
-                localTransportationMessage,
-                mealCost: mealCost.total,
-                otherCost,
-                tripName,
-                travellersName,
-                travellersEmail,
-                approversName,
-                approversEmail,
-                tripNotes,
-                summaryCost,
+        handleSubmitEmailValidation()
+            .then(async (valid) => {
+                setEmailValidationWarnings([]);
+                fetch('/api/sendEstimateEmail', {
+                    method: 'post',
+                    body: JSON.stringify({
+                        departureDate: departureDate.toISODate(),
+                        returnDate: returnDate.toISODate(),
+                        origin,
+                        destination,
+                        accommodationType,
+                        accommodationCost,
+                        accommodationMessage,
+                        transportationType,
+                        transportationCost,
+                        transportationMessage,
+                        localTransportationCost,
+                        localTransportationMessage,
+                        mealCost: mealCost.total,
+                        otherCost,
+                        tripName,
+                        travellersName,
+                        travellersEmail,
+                        approversName,
+                        approversEmail,
+                        tripNotes,
+                        summaryCost,
+                    })
+                  }).then(function(response) {
+                    if (!response.ok) {
+                        setEmailRequestResult({ status: 'error', raw: response.statusText })
+                        throw Error(response.statusText);
+                    }
+                    return response.json()
+                  }).then(function(data) {
+                    console.log('email service: ', data);
+                    setEmailRequestResult({ status: 'success', raw: data })
+                  })
+                  .catch((err) => {
+                    console.log('email service: ', err.message);
+                  });
             })
-          }).then(function(response) {
-            if (!response.ok) {
-                setEmailRequestResult({ status: 'error', raw: response.statusText })
-                throw Error(response.statusText);
-            }
-            return response.json()
-          }).then(function(data) {
-            console.log('email service: ', data);
-            setEmailRequestResult({ status: 'success', raw: data })
-          })
-          .catch((err) => {
-            console.log('email service: ', err.message);
-          });
+            .catch(err => {
+                console.log("ERROR", err)
+                setEmailValidationWarnings(err.inner);
+                setEmailRequestLoading(false);
+            });
     }
 
     useEffect(() => {
@@ -893,6 +932,8 @@ const Estimator = () => {
     return (
         <div className="mb-4">
             <EmailModal
+                validationWarnings={emailValidationWarnings}
+                setEmailValidationWarnings={setEmailValidationWarnings}
                 show={emailModalShow}
                 onHide={() => setEmailModalShow(false)}
                 sendEmail={() => sendEmail()}
@@ -936,8 +977,8 @@ const Estimator = () => {
             <form id="estimates-form" className="form-group row mb-5" onSubmit={handleSubmit}>
                 <div className="col-sm-7" ref={summaryView}>
                     <InputDatalist
-                        validationWarnings={validationWarnings}
-                        setValidationWarnings={setValidationWarnings}
+                        validationWarnings={submitValidationWarnings}
+                        setValidationWarnings={setSubmitValidationWarnings}
                         label={<FormattedMessage id="estimateOrigin" />}
                         name="origin"
                         options={filteredCitiesList}
@@ -947,8 +988,8 @@ const Estimator = () => {
                 <div className="col-sm-6"></div>
                 <div className="col-sm-7">
                     <InputDatalist
-                        validationWarnings={validationWarnings}
-                        setValidationWarnings={setValidationWarnings}
+                        validationWarnings={submitValidationWarnings}
+                        setValidationWarnings={setSubmitValidationWarnings}
                         label={<FormattedMessage id="estimateDestination" />}
                         name="destination"
                         options={filteredCitiesList}
