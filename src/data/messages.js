@@ -162,7 +162,7 @@ module.exports = {
         "travellersNamePlaceholder": "e.g. John Doe",
         "travellersEmail": "Traveller's email",
         "travellersEmailPlaceholder": "e.g. john.doe@canada.ca",
-        "approversName": "Direct supervisor name",
+        "approversName": "Direct supervisor's name",
         "approversNamePlaceholder": "e.g. Jane Dee",
         "approversEmail": "Direct supervisor email",
         "approversEmailPlaceholder": "e.g. jane.dee@canada.ca",
