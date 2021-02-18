@@ -164,7 +164,7 @@ module.exports = {
         "travellersEmailPlaceholder": "e.g. john.doe@canada.ca",
         "approversName": "Direct supervisor name",
         "approversNamePlaceholder": "e.g. Jane Dee",
-        "approversEmail": "Direct supervisor emai",
+        "approversEmail": "Direct supervisor email",
         "approversEmailPlaceholder": "e.g. jane.dee@canada.ca",
         "notes": "Notes",
         "emailEstimate": "Email Estimate",
