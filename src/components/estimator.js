@@ -663,7 +663,7 @@ const Estimator = () => {
                 setErrorPanel(false);
             })
             .catch(err => {
-                console.log("ERROR", err)
+                // console.log("ERROR", err)
                 setLoading(false);
                 setSubmitValidationWarnings(err.inner);
                 setErrorPanel(true);
@@ -1309,7 +1309,7 @@ const Estimator = () => {
                 </div>
             </div>
             <div className="row ml-1 mb-5">
-                <Button className="px-5" onClick={() => { setEmailModalShow(true) }}><FormattedMessage id="email" /></Button>
+                <Button disabled={!result} className="px-5" onClick={() => { setEmailModalShow(true) }}><FormattedMessage id="email" /></Button>
                 {/* <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}><FormattedMessage id="print" /></Button> */}
             </div>
 
