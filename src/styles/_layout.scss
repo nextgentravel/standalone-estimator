@@ -282,6 +282,13 @@ a:focus {
     margin-right: 15px;
 }
 
+.required:after {
+    color: #d00;
+    content: "*";
+    position: absolute;
+    margin-left: 8px;
+    top:7px;
+}
 
 /* body 
     padding-top: 0px;

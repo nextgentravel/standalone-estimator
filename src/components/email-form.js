@@ -1,10 +1,16 @@
-import React from "react"
+import React, {useState} from "react"
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Form from 'react-bootstrap/Form'
 import { FormattedMessage } from 'react-intl';
 
 const EmailForm = (props) => {
+    let validationErrors = props.validationWarnings || []
+    function removeIsInvalid (path, errors) {
+        let filtered = errors.filter(function(field) { return field.path !== path; });
+        props.setEmailValidationWarnings(filtered);
+    }
+    let validationErrorList = validationErrors.map(a => a.path) || [];
     return (
         <Form>
             <Form.Group as={Row} controlId="tripName">
@@ -14,8 +20,19 @@ const EmailForm = (props) => {
                 <Col sm="9">
                     <FormattedMessage id="tripNamePlaceholder">
                         {msg =>
-                            <Form.Control value={props.tripName} onChange={(e) => { props.setTripName(e.target.value) }} type="text" placeholder={msg} />
-                        }
+                        <>
+                            <Form.Control
+                                isInvalid={validationErrorList.includes('tripName')}
+                                required
+                                value={props.tripName}
+                                onChange={(e) => {
+                                    removeIsInvalid('tripName', validationErrors)
+                                    props.setTripName(e.target.value)
+                                }}
+                                type="text"
+                                placeholder={msg}
+                            />
+                        </>}
                     </FormattedMessage>
                 </Col>
             </Form.Group>
@@ -26,8 +43,19 @@ const EmailForm = (props) => {
                 <Col sm="9">
                     <FormattedMessage id="travellersNamePlaceholder">
                         {msg =>
-                            <Form.Control value={props.travellersName} onChange={(e) => { props.setTravellersName(e.target.value) }} type="text" placeholder={msg} />
-                        }
+                        <>
+                            <Form.Control
+                                isInvalid={validationErrorList.includes('travellersName')}
+                                required
+                                value={props.travellersName}
+                                onChange={(e) => {
+                                    removeIsInvalid('travellersName', validationErrors)
+                                    props.setTravellersName(e.target.value)
+                                }}
+                                type="text"
+                                placeholder={msg}
+                            />
+                        </>}
                     </FormattedMessage>
                 </Col>
             </Form.Group>
@@ -38,8 +66,19 @@ const EmailForm = (props) => {
                 <Col sm="9">
                     <FormattedMessage id="travellersEmailPlaceholder">
                         {msg =>
-                            <Form.Control value={props.travellersEmail} onChange={(e) => { props.setTravellersEmail(e.target.value) }} type="text" placeholder={msg} />
-                        }
+                        <>
+                            <Form.Control
+                                isInvalid={validationErrorList.includes('travellersEmail')}
+                                required
+                                value={props.travellersEmail}
+                                onChange={(e) => {
+                                    removeIsInvalid('travellersEmail', validationErrors)
+                                    props.setTravellersEmail(e.target.value)
+                                }}
+                                type="text"
+                                placeholder={msg}
+                            />
+                        </>}
                     </FormattedMessage>
                 </Col>
             </Form.Group>
@@ -50,8 +89,19 @@ const EmailForm = (props) => {
                 <Col sm="9">
                     <FormattedMessage id="approversNamePlaceholder">
                         {msg =>
-                            <Form.Control value={props.approversName} onChange={(e) => { props.setApproversName(e.target.value) }} type="text" placeholder={msg} />
-                        }
+                        <>
+                            <Form.Control
+                                isInvalid={validationErrorList.includes('approversName')}
+                                required
+                                value={props.approversName}
+                                onChange={(e) => {
+                                    removeIsInvalid('approversName', validationErrors)
+                                    props.setApproversName(e.target.value)
+                                }}
+                                type="text"
+                                placeholder={msg}
+                            />
+                        </>}
                     </FormattedMessage>
                 </Col>
             </Form.Group>
@@ -62,8 +112,19 @@ const EmailForm = (props) => {
                 <Col sm="9">
                     <FormattedMessage id="approversEmailPlaceholder">
                         {msg =>
-                            <Form.Control value={props.approversEmail} onChange={(e) => { props.setApproversEmail(e.target.value) }} type="text" placeholder={msg} />
-                        }
+                        <>
+                            <Form.Control
+                                isInvalid={validationErrorList.includes('approversEmail')}
+                                required
+                                value={props.approversEmail}
+                                onChange={(e) => {
+                                    removeIsInvalid('approversEmail', validationErrors)
+                                    props.setApproversEmail(e.target.value)
+                                }}
+                                type="text"
+                                placeholder={msg}
+                            />
+                        </>}
                     </FormattedMessage>
                 </Col>
             </Form.Group>
@@ -72,7 +133,14 @@ const EmailForm = (props) => {
                     <FormattedMessage id="notes" />
                 </Form.Label>
                 <Col sm="9">
-                    <Form.Control value={props.tripNotes} onChange={(e) => { props.setTripNotes(e.target.value) }} as="textarea" rows={3} />
+                    <Form.Control
+                        isInvalid={validationErrorList.includes('tripNotes')}
+                        required
+                        value={props.tripNotes}
+                        onChange={(e) => {
+                            removeIsInvalid('tripNotes', validationErrors)
+                            props.setTripNotes(e.target.value)
+                            }} as="textarea" rows={3} />
                 </Col>
             </Form.Group>
         </Form>
