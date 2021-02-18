@@ -109,7 +109,7 @@ module.exports = {
         "estimateDestination": "Destination",
         "estimateDepartureDate": "Departure Date",
         "estimateReturnDate": "Return Date",
-        "estimate": "Estimate",
+        "estimate": "Start",
         "estimateApplicationError": "Application Error",
         "estimateApplicationErrorText": "Unable to load estimator.",
         "estimateSummaryTitle": "Summary",
