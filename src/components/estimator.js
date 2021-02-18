@@ -1264,7 +1264,7 @@ const Estimator = () => {
             </div>
             <div className="row ml-1 mb-5">
                 <Button className="px-5" onClick={() => { setEmailModalShow(true) }}><FormattedMessage id="email" /></Button>
-                <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}><FormattedMessage id="print" /></Button>
+                {/* <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}><FormattedMessage id="print" /></Button> */}
             </div>
 
             <hr />
