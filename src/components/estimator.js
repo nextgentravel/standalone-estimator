@@ -11,7 +11,7 @@ import EstimatorRow from "./estimator-row.js"
 import EmailModal from "./email-modal.js"
 import EmailConfirmationModal from "./email-confirmation-modal.js"
 import MealsModal from "./meals-modal.js"
-import { FaCaretUp, FaCaretDown, FaCalculator } from 'react-icons/fa';
+import { FaCaretUp, FaCaretDown, FaCalculator, FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
 import { dailyMealTemplate } from "./functions/dailyMealTemplate"
 
 import Tooltip from 'react-bootstrap/Tooltip'
@@ -217,6 +217,8 @@ const Estimator = () => {
     const [privateVehicleSuccess, setPrivateVehicleSuccess] = useState(false);
     const [dateFocused, setDateFocused] = useState(null);
     const [showClear, setShowClear] = useState(false);
+    const [disclaimerCollapsed, setDisclaimerCollapsed] = useState(true);
+    
 
     useEffect(() => {
         setHaveFlightCost(false);
@@ -1267,7 +1269,7 @@ const Estimator = () => {
 
             <hr />
             
-            <div className="card bg-white px-4 mb-4">
+            <div className="card bg-white px-4 mb-2">
                 <div className="row">
                     <button className="col-sm-12 pl-2 pb-1 btn btn-plain" aria-expanded="false" onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
                         <h3 className="display-5"><FaCalculator size="20" className='mb-1 mr-2' />{localeCopy.explainer_title.text}</h3>
@@ -1305,8 +1307,25 @@ const Estimator = () => {
                 </div>
             </div>
 
-            <div className="px-3" dangerouslySetInnerHTML={{ __html: localeCopy.disclaimer_body.html }}></div>
 
+            <div>
+                <button className="header-button btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
+                    <h4 className="step-disclaimer-header">
+                        {disclaimerCollapsed &&
+                            <FaPlusCircle size="15" />}
+                        {!disclaimerCollapsed &&
+                            <FaMinusCircle size="15" />
+                        }
+                        Disclaimer
+                    </h4>
+                </button>
+                {!disclaimerCollapsed &&
+                    <div className="px-5 pb-3" dangerouslySetInnerHTML={{ __html: localeCopy.disclaimer_body.html }}></div>
+                }
+                {disclaimerCollapsed &&
+                    <div className="mb-4"></div>
+                }
+            </div>
         </div>
     )
 }

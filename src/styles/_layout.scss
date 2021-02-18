@@ -213,12 +213,12 @@ a:focus {
     font-weight: bold;
 }
 
-.step-directives-header {
+.step-disclaimer-header {
     font-size: 1em;
     font-weight: bold;
 }
 
-.step-directives-header > svg {
+.step-disclaimer-header > svg {
     position: relative;
     top: -1.5px;
     left: 0px;
@@ -263,6 +263,25 @@ a:focus {
     font-size: .9em;
     line-height: 1.9em;
 }
+
+.header-button:focus {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.step-directives-header {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.step-directives-header > svg {
+    position: relative;
+    top: -1.5px;
+    left: 0px;
+    color: $primary;
+    margin-right: 15px;
+}
+
 
 /* body 
     padding-top: 0px;
