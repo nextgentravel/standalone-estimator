@@ -469,6 +469,24 @@
         "label": "email_success_message"
       }
     },
+    "private": {
+      "type": "Text",
+      "config": {
+        "label": "private"
+      }
+    },
+    "other_allowances": {
+      "type": "Text",
+      "config": {
+        "label": "other_allowances"
+      }
+    },
+    "disclaimer": {
+      "type": "Text",
+      "config": {
+        "label": "disclaimer"
+      }
+    },
     "email_error_title": {
       "type": "Text",
       "config": {
@@ -487,6 +505,42 @@
       "config": {
         "multi": "strong, em",
         "label": "transportation_description"
+      }
+    },
+    "meals_and_incidentals": {
+      "type": "Text",
+      "config": {
+        "label": "meals_and_incidentals"
+      }
+    },
+    "hotel": {
+      "type": "Text",
+      "config": {
+        "label": "hotel"
+      }
+    },
+    "flight": {
+      "type": "Text",
+      "config": {
+        "label": "flight"
+      }
+    },
+    "local_transportation": {
+      "type": "Text",
+      "config": {
+        "label": "local_transportation"
+      }
+    },
+    "rental": {
+      "type": "Text",
+      "config": {
+        "label": "rental"
+      }
+    },
+    "train": {
+      "type": "Text",
+      "config": {
+        "label": "train"
       }
     }
   }
