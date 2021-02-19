@@ -3,8 +3,6 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import { FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
 
-
-
 const EmailConfirmationModal = (props) => {
     let emailRequestResult = (props.emailRequestResult.status === 'success')
     return (
@@ -17,20 +15,20 @@ const EmailConfirmationModal = (props) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    {emailRequestResult && <span className="align-middle"><FaCheckCircle size="24" className="text-success mb-1" /> <span className="ml-2">Success!</span></span>}
-                    {!emailRequestResult && <span><FaExclamationTriangle size="24" className="text-danger mb-1" /><span className="ml-2">Error</span></span>}
+                    {emailRequestResult && <span className="align-middle"><FaCheckCircle size="24" className="text-success mb-1" /> <span className="ml-2">{props.messages.email_success_title}</span></span>}
+                    {!emailRequestResult && <span><FaExclamationTriangle size="24" className="text-danger mb-1" /><span className="ml-2">{props.messages.email_error_title}</span></span>}
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                {emailRequestResult && <span>Your travel estimate is on its way!</span>}
+                {emailRequestResult && <span></span>}
                 {!emailRequestResult && <div>
-                    <p>Oops. There was a problem sending your estimate.</p>
+                    <p>{props.messages.email_error_body}</p>
                     <p>{JSON.stringify(props.emailRequestResult.raw)}</p>
                 </div>}
             </Modal.Body>
             <Modal.Footer>
-                <Button onClick={props.onHide}>Back to estimate</Button>
-                <Button variant="outline-primary" onClick={props.clearForm}>New estimate</Button>
+                <Button onClick={props.onHide}>{props.messages.email_back_button}</Button>
+                <Button variant="outline-primary" onClick={props.clearForm}>{props.messages.email_new_estimate_button}</Button>
             </Modal.Footer>
       </Modal>
     )
