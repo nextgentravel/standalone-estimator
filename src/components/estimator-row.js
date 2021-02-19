@@ -21,7 +21,7 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
             <div className="col-sm-4 align-self-center mb-2">
                 <div className="align-self-center">
                     {icon}
-                        <label htmlFor={id}><FormattedMessage id={title} />
+                        <label htmlFor={id}>{title}
                         {tooltipIcon &&
                             <OverlayTrigger
                                 placement="top"

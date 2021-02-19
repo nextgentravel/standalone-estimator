@@ -59,13 +59,13 @@ const Estimator = () => {
                         html
                     }
                     explainer_title {
-                    text
+                        text
                     }
                     lead {
                         html
                     }
                     title {
-                    text
+                        text
                     }
                     flight_above_estimate {
                         html
@@ -94,7 +94,6 @@ const Estimator = () => {
                     hotel_below_estimate {
                         html
                     }
-
                     hotel_error {
                         html
                     }
@@ -168,18 +167,44 @@ const Estimator = () => {
                         html
                     }
                     other_tooltip_text
+                    estimate_destination
+                    estimate
+                    clear
+                    estimate_summary_title
+                    accommodation
+                    hotel
+                    private
+                    transportation
+                    flight
+                    train
+                    rental
+                    local_transportation
+                    meals_and_incidentals
+                    other_allowances
+                    total_cost
+                    email
+                    estimate_origin
+                    disclaimer
                 }
             }
         }
-    }`);
 
-    function formattedMessage(prismicKey, classes) {
-        return <span className={classes} dangerouslySetInnerHTML={{ __html: localeCopy[prismicKey] }}></span> 
-    }
+    }`);
 
     let localeCopy = cmsData.allPrismicStandaloneestimatorCopy.nodes.find(function(o){ return o.lang === locale }).data;
 
-    let initialTransportationMessage = { element: formattedMessage('transportation-description', ""), style: 'primary' };
+    function formattedMessage(prismicKey, classes) {
+        let messageType = typeof localeCopy[prismicKey]
+        let message;
+        if (messageType === 'string') {
+            message = localeCopy[prismicKey]
+        } else if (messageType === 'object') {
+            message = <span className={classes} dangerouslySetInnerHTML={{ __html: localeCopy[prismicKey].html }}></span>
+        }
+        return message
+    }
+
+    let initialTransportationMessage = { element: <span></span>, style: 'primary' };
 
     const [explainerCollapsed, setExplainerCollapsed] = useState(true);
 
@@ -436,10 +461,6 @@ const Estimator = () => {
             // eslint-disable-next-line no-template-curly-in-string
             message = message.replace('${daily rate}', `<strong>$${calculatedApplicableRates[0].rate}</strong>`)
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
-            // setAccommodationMessage({ element: <FormattedMessage id="hotelAccommodationMessage" values={{
-            //     destination,
-            //     rate: applicableRates[0].rate,
-            // }} />  })
         } catch (error) {
             console.log('fetchHotelHostError', error);
         }
@@ -525,7 +546,7 @@ const Estimator = () => {
                 setTransportationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
             });
         } else {
-            setTransportationMessage({ element: <FormattedMessage id="transportationFlightMessageNoAirport" />  })
+            setTransportationMessage({ element: formattedMessage('transportation_flight_message_no_airport')  })
         }
     }
 
@@ -720,8 +741,8 @@ const Estimator = () => {
             origin: yup
                 .string()
                 .test(
-                    <FormattedMessage id="estimateOriginCityValid" />,
-                    <FormattedMessage id="estimateOriginCityNotValid" />,
+                    formattedMessage('estimate_origin_city_valid'),
+                    formattedMessage('estimate_origin_city_not_valid'),
                     (value) => {
                         return citiesList.includes(value)
                     },
@@ -729,22 +750,22 @@ const Estimator = () => {
             destination: yup
                 .string()
                 .test(
-                    <FormattedMessage id="estimateDestinationCityValid" />,
-                    <FormattedMessage id="estimateDestinationCityNotValid" />,
+                    formattedMessage('estimate_destination_city_valid'),
+                    formattedMessage('estimate_destination_city_not_valid'),
                     (value) => {
                         return citiesList.includes(value)
                     },
                 ),
             departureDate: yup
                 .date()
-                .typeError(<FormattedMessage id="estimateDepartureDateNotValid" />)
+                .typeError(formattedMessage('estimate_departure_date_not_valid'))
                 .required(),
             returnDate: yup
                 .date()
-                .typeError(<FormattedMessage id="estimateReturnDateNotValid" />)
+                .typeError(formattedMessage('estimate_return_date_not_valid'))
                 .required().min(
                 yup.ref('departureDate'),
-                <FormattedMessage id="noTimeTravel" />
+                formattedMessage('no_time_travel')
             )
         });
         return schema.validate(target, {abortEarly: false})
@@ -857,7 +878,7 @@ const Estimator = () => {
 
     const renderAccommodationTooltip = (props) => (
         <Tooltip id="button-tooltip" {...props}>
-            <FormattedMessage id="accommodationTooltip" />
+            {formattedMessage('accommodation_tooltip')}
         </Tooltip>
     );
 
@@ -886,7 +907,7 @@ const Estimator = () => {
         if (transportationType === 'flight') {
             if (haveFlightCost && (parseInt(transportationCost) === 0)) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message alert-warning">(fetched) Flight price is 0</span>
+                    element:  <span className="transportation-message alert-warning">{formattedMessage('flight_estimate_0')}</span>
                 })
             } else if (haveFlightCost && (transportationCost <= transportationEstimates.flight.estimatedValue.toFixed(2))) {
                 setTransportationMessage({
@@ -894,7 +915,7 @@ const Estimator = () => {
                 })
             } else if (haveFlightCost && (transportationCost > transportationEstimates.flight.estimatedValue.toFixed(2))) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message alert-warning">(fetched) Flight price is too much</span>
+                    element:  <span className="transportation-message alert-warning">{formattedMessage('transportation_above_flight_estimate')}</span>
                 })
             }
 
@@ -909,11 +930,11 @@ const Estimator = () => {
                 })
             } else if (result && !haveFlightCost && (parseInt(transportationCost) === 0)) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message alert-warning">(couldn't fetch) Please enter own flight value</span>
+                    element:  <span className="transportation-message alert-warning">{formattedMessage('could_not_fetch_flight_value')}</span>
                 })
             } else if (result && !haveFlightCost && (parseInt(transportationCost) > 0)) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message alert-warning">(couldn't fetch) You have entered your own flight value</span>
+                    element:  <span className="transportation-message alert-warning">{formattedMessage('could_not_fetch_you_have_entered_own')}</span>
                 })
             }
         }
@@ -968,8 +989,8 @@ const Estimator = () => {
             <h2 className="mb-4">{localeCopy.title.text}</h2>
             <div className="lead mb-5" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
              {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
-                <h3><FormattedMessage id="estimateErrorTitle" /></h3>
-                <p><FormattedMessage id="estimateErrorLead" /></p>
+                <h3>{formattedMessage('estimate_error_title')}</h3>
+                <p>{formattedMessage('estimate_error_lead')}</p>
                 <ul className="list-unstyled">
                     {errorList()}
                 </ul>
@@ -979,7 +1000,7 @@ const Estimator = () => {
                     <InputDatalist
                         validationWarnings={submitValidationWarnings}
                         setValidationWarnings={setSubmitValidationWarnings}
-                        label={<FormattedMessage id="estimateOrigin" />}
+                        label={formattedMessage('estimate_origin')}
                         name="origin"
                         options={filteredCitiesList}
                         updateValue={setOrigin}
@@ -990,7 +1011,7 @@ const Estimator = () => {
                     <InputDatalist
                         validationWarnings={submitValidationWarnings}
                         setValidationWarnings={setSubmitValidationWarnings}
-                        label={<FormattedMessage id="estimateDestination" />}
+                        label={formattedMessage('estimate_destination')}
                         name="destination"
                         options={filteredCitiesList}
                         updateValue={setDestination}
@@ -1011,10 +1032,10 @@ const Estimator = () => {
                 <div className="col-sm-3"></div>
                 <div className="col-sm-6">
                     {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-                    <button type="submit" className="btn btn-primary px-5"><FormattedMessage id="estimate"/></button>
+                    <button type="submit" className="btn btn-primary px-5">{formattedMessage('estimate')}</button>
                     {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                     {showClear &&
-                        <button type="button" id="clear-button" className="btn btn-outline-primary px-5 ml-3" onClick={() => {clearForm()}}><FormattedMessage id="clear"/></button>
+                        <button type="button" id="clear-button" className="btn btn-outline-primary px-5 ml-3" onClick={() => {clearForm()}}>{formattedMessage('clear')}</button>
                     }
                     {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
                 </div>
@@ -1025,17 +1046,17 @@ const Estimator = () => {
                     <FaExclamationTriangle size="24" />
                 </div>
                 <div className="message">
-                    <h3><FormattedMessage id="estimateApplicationError" /></h3>
-                    <p><FormattedMessage id="estimateApplicationErrorText" /></p>
+                    <h3>{formattedMessage('estimate_application_error')}</h3>
+                    <p>{formattedMessage('estimate_application_error_text')}</p>
                 </div>
             </div>}
 
             <div className="card bg-light p-4 mb-4">
-                <h3 className="mb-3"><FormattedMessage id="estimateSummaryTitle" /></h3>
+                <h3 className="mb-3">{formattedMessage('estimate_summary_title')}</h3>
 
                 <div className="row mb-4">
                     <div className="col-sm-12 mb-2">
-                        <label htmlFor="accommodation_select"><FaBed className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="accommodation" /></label>
+                        <label htmlFor="accommodation_select"><FaBed className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('accommodation')}</label>
                     </div>
                     <div className="col-sm-4 align-self-center">
                         <div className="align-self-center">
@@ -1059,8 +1080,8 @@ const Estimator = () => {
                                                 }
                                             }}
                                         >
-                                            <option value="hotel">Hotel</option>
-                                            <option value="private">Private Accommodation</option>
+                                            <option value="hotel">{formattedMessage('hotel')}</option>
+                                            <option value="private">{formattedMessage('private')}</option>
                                         </select>
                                     </ConditionalWrap>
                                 </div>
@@ -1151,7 +1172,7 @@ const Estimator = () => {
 
                 <div className="row mb-4">
                     <div className="col-sm-12 mb-2">
-                        <label htmlFor="transportation_select"><FaPlane className="mr-2" size="25" fill="#9E9E9E" /> <FormattedMessage id="transportation" /></label>
+                        <label htmlFor="transportation_select"><FaPlane className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('transportation')}</label>
                     </div>
                     <div className="col-sm-4 align-self-center">
                         <div className="align-self-center">
@@ -1179,10 +1200,10 @@ const Estimator = () => {
                                                 }
                                             }}
                                         >
-                                            <option value="flight" >Flight</option>
-                                            <option value="train">Train</option>
-                                            <option value="rental">Rental Car</option>
-                                            <option value="private">Private Vehicle</option>
+                                            <option value="flight" >{formattedMessage('flight')}</option>
+                                            <option value="train">{formattedMessage('train')}</option>
+                                            <option value="rental">{formattedMessage('rental')}</option>
+                                            <option value="private">{formattedMessage('private')}</option>
                                         </select>
                                     </ConditionalWrap>
                                 </div>
@@ -1263,7 +1284,7 @@ const Estimator = () => {
                     id="localTransportation"
                     description="localTransportationDescription"
                     icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
-                    title="localTransportation"
+                    title={formattedMessage("local_transportation")}
                     calculateTotal={calculateTotal}
                     updateCost={setLocalTransportationCost}
                     message={localTransportationMessage}
@@ -1280,7 +1301,7 @@ const Estimator = () => {
                             result ? <a href="/" onClick={(e) => {handleMealsModalShow(e)}}>Select meals to include</a> : <span></span>
                     }}
                     icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
-                    title="mealsAndIncidentals"
+                    title={formattedMessage("meals_and_incidentals")}
                     calculateTotal={calculateTotal}
                     updateCost={setMealCost}
                     disabled={true}
@@ -1291,9 +1312,9 @@ const Estimator = () => {
                     value={otherCost || '0.00'}
                     name="otherAllowances"
                     id="otherAllowances"
-                    message={{ element: result ? <FormattedMessage id="otherAllowancesMessage" /> : <span></span>}}
+                    message={{ element: result ? formattedMessage('other_allowances_message') : <span></span>}}
                     icon={<FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />}
-                    title="otherAllowances"
+                    title={formattedMessage("other_allowances")}
                     calculateTotal={calculateTotal}
                     updateCost={setOtherCost}
                     tooltipIcon={FaQuestionCircle}
@@ -1302,15 +1323,15 @@ const Estimator = () => {
                 <div className="row mb-4">
                     <div className="col-sm-6 align-self-center text-right">
                         <hr />
-                        <strong className="mr-2"><FormattedMessage id="totalCost" /></strong>{'$ ' + summaryCost}
+                        <strong className="mr-2">{formattedMessage('total_cost')}</strong>{'$ ' + summaryCost}
                     </div>
                     <div className="col-sm-6 align-self-center text-wrap">
                     </div>
                 </div>
             </div>
             <div className="row ml-1 mb-5">
-                <Button disabled={!result} className="px-5" onClick={() => { setEmailModalShow(true) }}><FormattedMessage id="email" /></Button>
-                {/* <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}><FormattedMessage id="print" /></Button> */}
+                <Button disabled={!result} className="px-5" onClick={() => { setEmailModalShow(true) }}>{formattedMessage('email')}</Button>
+                {/* <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}>formattedMessage('print" /></Button> */}
             </div>
 
             <hr />
@@ -1362,11 +1383,11 @@ const Estimator = () => {
                         {!disclaimerCollapsed &&
                             <FaMinusCircle size="15" />
                         }
-                        Disclaimer
+                        {formattedMessage('disclaimer')}
                     </h4>
                 </button>
                 {!disclaimerCollapsed &&
-                    <div className="px-5 pb-3" dangerouslySetInnerHTML={{ __html: localeCopy.disclaimer_body.html }}></div>
+                    <div className="px-5 pb-3">{formattedMessage('disclaimer_body')}</div>
                 }
                 {disclaimerCollapsed &&
                     <div className="mb-4"></div>
