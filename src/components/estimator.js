@@ -6,7 +6,7 @@ import calculateMeals from "./calculate-meals.js"
 import { DateTime, Interval, Info } from "luxon"
 import * as yup from "yup"
 import monthsContained from "./months-contained.js"
-import { useIntl, FormattedMessage } from 'react-intl'
+import { useIntl } from 'react-intl'
 import EstimatorRow from "./estimator-row.js"
 import EmailModal from "./email-modal.js"
 import EmailConfirmationModal from "./email-confirmation-modal.js"
@@ -190,6 +190,32 @@ const Estimator = () => {
                     other_allowances_message
                     could_not_fetch_flight_value
                     could_not_fetch_you_have_entered_own
+                    email_confirm_success_title
+                    email_confirm_error_title
+                    email_confirm_success_body
+                    email_confirm_error_body
+                    email_confirm_back_button
+                    email_confirm_new_estimate_button
+                    email_form_trip_name
+                    email_form_trip_name_placeholder
+                    email_form_travellers_name
+                    email_form_travellers_name_placeholder
+                    email_form_travellers_email
+                    email_form_travellers_email_placeholder
+                    email_form_approvers_name
+                    email_form_approvers_name_placeholder
+                    email_form_approvers_email
+                    email_form_approvers_email_placeholder
+                    email_form_notes
+                    email_modal_title
+                    email_modal_submit
+                    meals_modal_title
+                    meals_modal_breakfast
+                    meals_modal_lunch
+                    meals_modal_incidental
+                    meals_modal_submit
+                    email_error_title
+                    accommodation_tooltip
                 }
             }
         }
@@ -251,7 +277,6 @@ const Estimator = () => {
     const [showClear, setShowClear] = useState(false);
     const [disclaimerCollapsed, setDisclaimerCollapsed] = useState(true);
     
-
     useEffect(() => {
         setHaveFlightCost(false);
         setResult(false);
@@ -978,6 +1003,7 @@ const Estimator = () => {
                 setTripNotes={setTripNotes}
                 tripNotes={tripNotes}
                 emailRequestLoading={emailRequestLoading}
+                messages={localeCopy}
             />
             <EmailConfirmationModal
                 show={emailConfirmationModalShow}
@@ -985,6 +1011,7 @@ const Estimator = () => {
                 emailRequestResult={emailRequestResult}
                 approversName={approversName}
                 clearForm={clearForm}
+                messages={localeCopy}
             />
             <MealsModal
                 mealsByDay={mealsByDay}
@@ -992,6 +1019,7 @@ const Estimator = () => {
                 show={mealsModalShow}
                 onHide={() => setMealsModalShow(false)}
                 setMealsByDay={setMealsByDay}
+                messages={localeCopy}
             />
             <h2 className="mb-4">{localeCopy.title.text}</h2>
             <div className="lead mb-5" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>

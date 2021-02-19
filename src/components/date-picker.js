@@ -3,7 +3,6 @@ import React from "react"
 import { DateRangePicker } from 'react-dates';
  import { DateTime } from "luxon";
 import moment from 'moment';
-import { FormattedMessage } from 'react-intl'
 
 const DatePickerComponent = ({initialStart, setStart, initialEnd, setEnd, focus, onFocus, label, screenReaderInputMessage}) => {
     return(
