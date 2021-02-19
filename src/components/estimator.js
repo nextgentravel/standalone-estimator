@@ -185,6 +185,11 @@ const Estimator = () => {
                     email
                     estimate_origin
                     disclaimer
+                    date_picker_label
+                    screen_reader_input_message
+                    other_allowances_message
+                    could_not_fetch_flight_value
+                    could_not_fetch_you_have_entered_own
                 }
             }
         }
@@ -200,6 +205,8 @@ const Estimator = () => {
             message = localeCopy[prismicKey]
         } else if (messageType === 'object') {
             message = <span className={classes} dangerouslySetInnerHTML={{ __html: localeCopy[prismicKey].html }}></span>
+        } else {
+            message = 'MISSING MESSAGE ' + prismicKey
         }
         return message
     }
@@ -1027,6 +1034,8 @@ const Estimator = () => {
                         setEnd={setReturnDate}
                         focus={dateFocused}
                         onFocus={setDateFocused}
+                        label={formattedMessage('date_picker_label')}
+                        screenReaderInputMessage={formattedMessage('screen_reader_input_message')}
                     />
                 </div>
                 <div className="col-sm-3"></div>

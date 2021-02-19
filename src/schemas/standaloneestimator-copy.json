@@ -542,6 +542,30 @@
       "config": {
         "label": "train"
       }
+    },
+    "date_picker_label": {
+      "type": "Text",
+      "config": {
+        "label": "date_picker_label"
+      }
+    },
+    "screen_reader_input_message": {
+      "type": "Text",
+      "config": {
+        "label": "screen_reader_input_message"
+      }
+    },
+    "could_not_fetch_flight_value": {
+      "type": "Text",
+      "config": {
+        "label": "could_not_fetch_flight_value"
+      }
+    },
+    "could_not_fetch_you_have_entered_own": {
+      "type": "Text",
+      "config": {
+        "label": "could_not_fetch_you_have_entered_own"
+      }
     }
   }
 }
