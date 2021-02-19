@@ -17,7 +17,7 @@ const DatePickerComponent = ({initialStart, setStart, initialEnd, setEnd, focus,
                     startDateId="datepicker-start"
                     endDate={moment(initialEnd.toJSDate())}
                     endDateId="datepicker-end"
-                    onDatesChange={({ startDate, endDate }) => {
+                    onFocusChange={({ startDate, endDate }) => {
                         if(startDate){
                             setStart(DateTime.fromJSDate(startDate.toDate()))
                         }
