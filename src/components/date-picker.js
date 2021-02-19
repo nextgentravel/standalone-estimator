@@ -5,11 +5,11 @@ import { DateRangePicker } from 'react-dates';
 import moment from 'moment';
 import { FormattedMessage } from 'react-intl'
 
-const DatePickerComponent = ({initialStart, setStart, initialEnd, setEnd, focus, onFocus}) => {
+const DatePickerComponent = ({initialStart, setStart, initialEnd, setEnd, focus, onFocus, label, screenReaderInputMessage}) => {
     return(
         <div className="mb-4">
             <div>
-                <label htmlFor="datepicker-start"><FormattedMessage id="estDateRange" /></label>
+                <label htmlFor="datepicker-start">{label}</label>
             </div>
             <div className="mb-4">
                 <DateRangePicker
@@ -27,7 +27,7 @@ const DatePickerComponent = ({initialStart, setStart, initialEnd, setEnd, focus,
                     }}
                     focusedInput={focus}
                     onFocusChange={onFocus}
-                    screenReaderInputMessage="This is a date range selection tool. (insert directions on how to use here)"
+                    screenReaderInputMessage={screenReaderInputMessage}
                     required={true}
                     showDefaultInputIcon={true}
                     displayFormat="DD-MM-YYYY"
