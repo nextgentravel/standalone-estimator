@@ -18,17 +18,21 @@ const SelectLanguage = (props) => {
   const homeLink = `/${langKey}/`
   const langsMenu = getLangs(langs, langKey, getUrlForLang(homeLink, url))
 
-  const { prismicStandaloneestimatorHomepage } = useStaticQuery(graphql`
+  let locale = `${intl.locale}-ca`;
+  const { allPrismicStandaloneestimatorHomepage } = useStaticQuery(graphql`
     {
-      prismicStandaloneestimatorHomepage(lang: {eq: "en-ca"}) {
-        data {
-          site_other_language_name
+      allPrismicStandaloneestimatorHomepage {
+        nodes {
+          data {
+            site_other_language_name
+          }
+          lang
         }
       }
     }
   `)
 
-  let messages = prismicStandaloneestimatorHomepage.data
+  let messages = allPrismicStandaloneestimatorHomepage.nodes.find(function(o){ return o.lang === locale }).data;
 
   const links = langsMenu
     .filter(lang => !lang.selected)

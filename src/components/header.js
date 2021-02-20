@@ -8,24 +8,28 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 const Header = ({homeHeader}) => {
   const intl = useIntl();
+  let locale = `${intl.locale}-ca`;
   let homeLink = `/${intl.locale}/`;
 
-  const { prismicStandaloneestimatorHomepage } = useStaticQuery(graphql`
+  const { allPrismicStandaloneestimatorHomepage } = useStaticQuery(graphql`
     {
-      prismicStandaloneestimatorHomepage(lang: {eq: "en-ca"}) {
-        data {
-          header_goc_logo
-          header_language_select
-          header_skip_to_main
-          title {
-            text
+      allPrismicStandaloneestimatorHomepage {
+        nodes {
+          data {
+            header_goc_logo
+            header_language_select
+            header_skip_to_main
+            title {
+              text
+            }
           }
+          lang
         }
       }
     }
   `)
 
-  let messages = prismicStandaloneestimatorHomepage.data
+  let messages = allPrismicStandaloneestimatorHomepage.nodes.find(function(o){ return o.lang === locale }).data;
 
   return (
     <header className="mb-5">
