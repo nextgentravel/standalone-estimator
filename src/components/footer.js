@@ -1,25 +1,29 @@
 import React from "react"
 import Image from "../components/image"
 import { graphql, useStaticQuery } from 'gatsby'
+import { useIntl } from 'react-intl';
 
 const Footer = (props) => {
-  
-  const { prismicStandaloneestimatorHomepage } = useStaticQuery(graphql`
+  const intl = useIntl()
+  let locale = `${intl.locale}-ca`;
+
+  const { allPrismicStandaloneestimatorHomepage } = useStaticQuery(graphql`
     {
-      prismicStandaloneestimatorHomepage(lang: {eq: "en-ca"}) {
-        data {
-          footer_text {
-            html
+      allPrismicStandaloneestimatorHomepage {
+        nodes {
+          data {
+            footer_text {
+              html
+            }
+            footer_logo_alt
           }
-          footer_logo_alt
+          lang
         }
       }
     }
   `)
 
-  let messages = prismicStandaloneestimatorHomepage.data
-
-  console.log(messages)
+  let messages = allPrismicStandaloneestimatorHomepage.nodes.find(function(o){ return o.lang === locale }).data;
 
   return (
     <footer className="footer">

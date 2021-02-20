@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import Layout from "../components/layout"
 import SEO from "../components/seo";
 import Estimator from "../components/estimator"
+import { useIntl } from 'react-intl';
 
 import {
   StaticQuery,
@@ -9,7 +10,9 @@ import {
 } from 'gatsby';
 
 export default ({ data }) => {
-    const [pos, setPos] = useState("top")
+    const [pos, setPos] = useState("top");
+    const intl = useIntl()
+    let locale = `${intl.locale}-ca`;
     useEffect (()=>{
       document.addEventListener("scroll", e => {
           let scrolled = document.scrollingElement.scrollTop;
@@ -24,8 +27,9 @@ export default ({ data }) => {
       <StaticQuery query = {
         graphql `
             query homePage {
-              prismicStandaloneestimatorHomepage {
-                data {
+              allPrismicStandaloneestimatorHomepage {
+                nodes {
+                  data {
                     lead {
                       html
                     }
@@ -36,13 +40,15 @@ export default ({ data }) => {
                       html
                     }
                   }
+                  lang
                 }
+              }
             }
         `
       }
       render = {
         data => {
-          const homePage = data.prismicStandaloneestimatorHomepage.data;
+          let messages = data.allPrismicStandaloneestimatorHomepage.nodes.find(function(o){ return o.lang === locale }).data;
           return (
             <Layout>
               <SEO title="Home" />
@@ -55,7 +61,7 @@ export default ({ data }) => {
                   </main>
                 </div>
               </w-screen>
-              {pos === "top" && <footer dangerouslySetInnerHTML={{ __html: homePage.prototype_footer.html }} className="prototype-banner fixed-bottom"></footer>}
+              {pos === "top" && <footer dangerouslySetInnerHTML={{ __html: messages.prototype_footer.html }} className="prototype-banner fixed-bottom"></footer>}
             </Layout>
           )
         }
