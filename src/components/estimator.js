@@ -254,7 +254,15 @@ const Estimator = () => {
             })
         }
         setFilteredCitiesList(list);
+        removeActiveDescendantAttr()
     }, []);
+
+    const removeActiveDescendantAttr = () => {
+        const originInput = document.querySelector('#autocomplete-origin');
+        originInput && originInput.setAttribute("aria-activedescendant", "");
+        const destinationInput = document.querySelector('#autocomplete-destination');
+        destinationInput && destinationInput.setAttribute("aria-activedescendant", "");
+    };
 
     let initialDates = {
         departure: initialDeparture,
@@ -1078,7 +1086,7 @@ const Estimator = () => {
                 </div>
             </form>
 
-            {generalError && <div className="alert-icon alert-danger" role="alert">
+            {generalError && <div className="alert-icon alert-danger">
                 <div className="icon" aria-hidden="true">
                     <FaExclamationTriangle size="24" />
                 </div>
@@ -1110,6 +1118,7 @@ const Estimator = () => {
                                             >{children}</OverlayTrigger>)}
                                     >
                                         <select
+                                            aria-label="Accommodation Type"
                                             className="custom-select mb-2"
                                             onChange={e => {
                                                 if (result) {
@@ -1149,7 +1158,7 @@ const Estimator = () => {
                                         message = message.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
                                         message = message.replace('{tripTotal}', `<strong>${acrdTotal}</strong>`)
                                         setAccommodationMessage({ element: 
-                                        <div className="mb-0 alert-warning" role="alert">
+                                        <div className="mb-0 alert-warning">
                                             <>
                                                 <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: message }}></span>
                                                 <OverlayTrigger
@@ -1166,7 +1175,7 @@ const Estimator = () => {
                                         setAccommodationCost(e.target.value)
                                         // localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
                                         setAccommodationMessage({ element: 
-                                        <div className="mb-0 alert-warning" role="alert">
+                                        <div className="mb-0 alert-warning">
                                             <>
                                                 <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
                                             </>
@@ -1179,7 +1188,7 @@ const Estimator = () => {
                                         // localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
                                         
                                         setAccommodationMessage({ element: 
-                                        <div className="mb-0" role="alert">
+                                        <div className="mb-0">
                                             <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span>
                                         </div>
                                         , style: 'success' });
@@ -1189,7 +1198,7 @@ const Estimator = () => {
                                         message = message.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
                                         message = message.replace('{tripTotal}', `<strong>${acrdTotal}</strong>`)
                                         setAccommodationMessage({ element: 
-                                        <div className="mb-0" role="alert">
+                                        <div className="mb-0">
                                             <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span>
                                         </div>
                                         , style: 'success' });
@@ -1226,6 +1235,7 @@ const Estimator = () => {
                                             >{children}</OverlayTrigger>)}
                                     >
                                         <select
+                                            aria-label="Transportation Type"
                                             className="custom-select mb-2"
                                             onChange={e => {
                                                 console.log("result", result)

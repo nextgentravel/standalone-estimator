@@ -49,9 +49,9 @@ const PreviewPage = ({ location }) => {
   }, [isPreview, previewData, path])
 
   // Tell the user if this is not a preview.
-  if (isPreview === false) return <div>Not a preview!</div>
+  if (isPreview === false) return <main id="main-content"><h1>Not a preview!</h1></main>
 
-  return <div>Loading preview...</div>
+  return <main id="main-content"><h1>Loading preview...</h1></main>
 }
 
 export default PreviewPage
