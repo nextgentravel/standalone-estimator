@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Layout from "../components/layout"
 import SEO from "../components/seo";
 import Estimator from "../components/estimator"
+import { useIntl } from 'react-intl';
 
 import {
   StaticQuery,
@@ -9,26 +10,45 @@ import {
 } from 'gatsby';
 
 export default ({ data }) => {
+    const [pos, setPos] = useState("top");
+    const intl = useIntl()
+    let locale = `${intl.locale}-ca`;
+    useEffect (()=>{
+      document.addEventListener("scroll", e => {
+          let scrolled = document.scrollingElement.scrollTop;
+          if (scrolled >= 5){
+             setPos("moved")
+          } else {
+             setPos("top")
+          }
+      })
+    },[])
     return (
       <StaticQuery query = {
         graphql `
             query homePage {
-              prismicStandaloneestimatorHomepage {
-                data {
+              allPrismicStandaloneestimatorHomepage {
+                nodes {
+                  data {
                     lead {
                       html
                     }
                     title {
                       text
                     }
+                    prototype_footer {
+                      html
+                    }
                   }
+                  lang
                 }
+              }
             }
         `
       }
       render = {
         data => {
-          // const homePage = data.prismicStandaloneestimatorHomepage.data;
+          let messages = data.allPrismicStandaloneestimatorHomepage.nodes.find(function(o){ return o.lang === locale }).data;
           return (
             <Layout>
               <SEO title="Home" />
@@ -38,6 +58,7 @@ export default ({ data }) => {
                     <div className="container mt-4">
                       <Estimator />
                     </div>
+                    {pos === "top" && <div dangerouslySetInnerHTML={{ __html: messages.prototype_footer.html }} className="prototype-banner fixed-bottom"></div>}
                   </main>
                 </div>
               </w-screen>

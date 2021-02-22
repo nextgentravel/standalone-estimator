@@ -13,6 +13,56 @@
         "multi" : "paragraph, strong, em",
         "label" : "lead"
       }
+    },
+    "prototype_footer" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, strong, em, hyperlink",
+        "label" : "prototype_footer"
+      }
+    }
+  },
+  "Header" : {
+    "header_goc_logo" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "header_goc_logo"
+      }
+    },
+    "header_skip_to_main" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "header_skip_to_main"
+      }
+    },
+    "header_language_select" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "header_language_select"
+      }
+    }
+  },
+  "Footer" : {
+    "footer_logo_alt" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "footer_logo_alt"
+      }
+    },
+    "footer_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "footer_text"
+      }
+    }
+  },
+  "Language Select" : {
+    "site_other_language_name" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "site_other_language_name"
+      }
     }
   }
 }
