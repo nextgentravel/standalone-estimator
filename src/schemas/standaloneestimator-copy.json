@@ -64,6 +64,13 @@
         "label" : "hotel_above_estimate"
       }
     },
+    "hotel_below_estimate" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em",
+        "label" : "hotel_below_estimate"
+      }
+    },
     "hotel_error" : {
       "type" : "StructuredText",
       "config" : {
@@ -83,6 +90,12 @@
       "config" : {
         "multi" : "strong, em, hyperlink",
         "label" : "private_accom_estimate_zero"
+      }
+    },
+    "enter_travel_info_above" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "enter_travel_info_above"
       }
     },
     "flight_loading" : {
@@ -454,6 +467,24 @@
         "label" : "email_success_message"
       }
     },
+    "private" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "private"
+      }
+    },
+    "other_allowances" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "other_allowances"
+      }
+    },
+    "disclaimer" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "disclaimer"
+      }
+    },
     "email_error_title" : {
       "type" : "Text",
       "config" : {
@@ -465,6 +496,223 @@
       "config" : {
         "multi" : "strong, em",
         "label" : "email_error_message"
+      }
+    },
+    "transportation_description1" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em",
+        "label" : "transportation_description"
+      }
+    },
+    "meals_and_incidentals" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meals_and_incidentals"
+      }
+    },
+    "hotel" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "hotel"
+      }
+    },
+    "flight" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight"
+      }
+    },
+    "local_transportation" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "local_transportation"
+      }
+    },
+    "rental" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "rental"
+      }
+    },
+    "train" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "train"
+      }
+    },
+    "date_picker_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "date_picker_label"
+      }
+    },
+    "screen_reader_input_message" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "screen_reader_input_message"
+      }
+    },
+    "could_not_fetch_flight_value" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "could_not_fetch_flight_value"
+      }
+    },
+    "could_not_fetch_you_have_entered_own" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "could_not_fetch_you_have_entered_own"
+      }
+    }
+  },
+  "Email Confirmation Modal" : {
+    "email_confirm_success_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_confirm_success_title"
+      }
+    },
+    "email_confirm_error_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_confirm_error_title"
+      }
+    },
+    "email_confirm_success_body" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_confirm_success_body"
+      }
+    },
+    "email_confirm_error_body" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_confirm_error_body"
+      }
+    },
+    "email_confirm_back_button" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_confirm_back_button"
+      }
+    },
+    "email_confirm_new_estimate_button" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_confirm_new_estimate_button"
+      }
+    }
+  },
+  "Email Form" : {
+    "email_modal_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_modal_title"
+      }
+    },
+    "email_modal_submit" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_modal_submit"
+      }
+    },
+    "email_form_trip_name_placeholder" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_trip_name_placeholder"
+      }
+    },
+    "email_form_trip_name" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_trip_name"
+      }
+    },
+    "email_form_travellers_name" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_travellers_name"
+      }
+    },
+    "email_form_travellers_name_placeholder" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_travellers_name_placeholder"
+      }
+    },
+    "email_form_travellers_email" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_travellers_email"
+      }
+    },
+    "email_form_travellers_email_placeholder" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_travellers_email_placeholder"
+      }
+    },
+    "email_form_approvers_name" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_approvers_name"
+      }
+    },
+    "email_form_approvers_name_placeholder" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_approvers_name_placeholder"
+      }
+    },
+    "email_form_approvers_email" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_approvers_email"
+      }
+    },
+    "email_form_approvers_email_placeholder" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_approvers_email_placeholder"
+      }
+    },
+    "email_form_notes" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_notes"
+      }
+    }
+  },
+  "Meals Modal" : {
+    "meals_modal_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meals_modal_title"
+      }
+    },
+    "meals_modal_breakfast" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meals_modal_breakfast"
+      }
+    },
+    "meals_modal_lunch" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meals_modal_lunch"
+      }
+    },
+    "meals_modal_incidental" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meals_modal_incidental"
+      }
+    },
+    "meals_modal_submit" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meals_modal_submit"
       }
     }
   }

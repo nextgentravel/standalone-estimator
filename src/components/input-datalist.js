@@ -26,7 +26,7 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
 
     return (
         <div className="mb-4">
-            <label htmlFor={name}>{label}</label>
+            <label htmlFor={`autocomplete-${name}`}>{label}</label>
             <div id={`${name}container`}>
                 <Autocomplete
                     id={`autocomplete-${name}`}
@@ -40,7 +40,7 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
                         updateValue(value)
                         // if not, set it to blank, so it will fail validation
                     }}
-                    aria-describedby={`${name}-error`}
+                    aria-describedby={`autocomplete-${name}`}
                     className={showValidationWarning ? 'form-control is-invalid' : 'form-control' }
                 />
             </div>

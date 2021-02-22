@@ -10,7 +10,7 @@ export const UnpublishedPage = (props) => {
 
   if (!previewData || Object.keys(previewData) < 1) {
     return (
-      <div className="container"><p>No Preview Data</p></div>
+      <main id="main-content"><div className="container"><h1>No Preview Data</h1></div></main>
     )
   }
 
@@ -38,7 +38,7 @@ export const UnpublishedPage = (props) => {
         </main>
       )
     default:
-      return <div className="container"><p>Unknown Preview Type</p></div>
+      return <main id="main-content"><div className="container"><p>Unknown Preview Type</p></div></main>
   }
 }
 

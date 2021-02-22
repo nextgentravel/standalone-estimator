@@ -5,7 +5,6 @@ const MealsModal = (props) => {
     let keys = Object.keys(props.mealsByDay);
 
     let mealCost = props.mealCost
-
     let items = keys.map((key) => {
         return {
             meals: props.mealsByDay[key],
@@ -37,7 +36,7 @@ const MealsModal = (props) => {
             onHide={props.onHide}
         >
             <Modal.Header closeButton>
-                <h5 className="modal-title">De-select any meals that will be provided during your trip</h5>
+                <h5 className="modal-title">{props.messages.meals_modal_title}</h5>
             </Modal.Header>
             <Modal.Body>
                 {items.length > 0 && items.map((day, index) => {
@@ -53,7 +52,7 @@ const MealsModal = (props) => {
                                     onChange={handleChange}
                                 />
                                 <label>
-                                    Breakfast <small>${mealCost.breakfast}</small>
+                                    {props.messages.meals_modal_breakfast} <small>${mealCost.breakfast}</small>
                                 </label>
                             </div>
                             <div className="col-sm">
@@ -65,7 +64,7 @@ const MealsModal = (props) => {
                                     onChange={handleChange}
                                 />
                                 <label>
-                                    Lunch <small>${mealCost.lunch}</small>
+                                    {props.messages.meals_modal_lunch} <small>${mealCost.lunch}</small>
                                 </label>
                             </div>
                             <div className="col-sm">
@@ -77,7 +76,7 @@ const MealsModal = (props) => {
                                     onChange={handleChange}
                                 />
                                 <label>
-                                    Dinner <small>${mealCost.dinner}</small>
+                                    {props.messages.meals_modal_dinner} <small>${mealCost.dinner}</small>
                                 </label>
                             </div>
                             <div className="col-sm">
@@ -89,7 +88,7 @@ const MealsModal = (props) => {
                                     onChange={handleChange}
                                 />
                                 <label>
-                                    Incidental <small>${mealCost.incidentals}</small>
+                                    {props.messages.meals_modal_incidental} <small>${mealCost.incidentals}</small>
                                 </label>
                             </div>
                         </div>
@@ -98,7 +97,7 @@ const MealsModal = (props) => {
             </Modal.Body>
             <Modal.Footer>
                 <div className="mb-2 mr-3">${mealCost.total}</div>
-                <button type="button" className="btn btn-primary" onClick={() => { props.onHide() }}>Done</button>
+                <button type="button" className="btn btn-primary" onClick={() => { props.onHide() }}>{props.messages.meals_modal_submit}</button>
             </Modal.Footer>
       </Modal>
     )
