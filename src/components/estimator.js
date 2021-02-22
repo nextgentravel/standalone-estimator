@@ -216,6 +216,10 @@ const Estimator = () => {
                     meals_modal_submit
                     email_error_title
                     accommodation_tooltip
+                    estimate_error_title
+                    estimate_error_lead
+                    estimate_origin_city_not_valid
+                    estimate_destination_city_not_valid
                 }
             }
         }
