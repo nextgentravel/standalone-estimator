@@ -16,334 +16,10 @@
         "placeholder" : "Lead text for estimator tool"
       }
     },
-    "explainer_title" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading4",
-        "label" : "explainer_title",
-        "placeholder" : "Title of the explainer section.  E.g \"How did we get these numbers?\""
-      }
-    },
-    "explainer_body" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "allowTargetBlank" : true,
-        "label" : "explainer_body",
-        "placeholder" : "Body of explainer",
-        "labels" : [ "text-indent" ]
-      }
-    },
-    "disclaimer_body" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, strong, em, hyperlink",
-        "allowTargetBlank" : true,
-        "label" : "disclaimer_body",
-        "placeholder" : "Disclaimer text at bottom of page."
-      }
-    },
-    "hotel_success" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "hotel_success"
-      }
-    },
-    "hotel_zero" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "hotel_zero"
-      }
-    },
-    "hotel_above_estimate" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "hotel_above_estimate"
-      }
-    },
-    "hotel_below_estimate" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em",
-        "label" : "hotel_below_estimate"
-      }
-    },
-    "hotel_error" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "hotel_error"
-      }
-    },
-    "private_accom_estimate_success" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "private_accom_estimate_success"
-      }
-    },
-    "private_accom_estimate_zero" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "private_accom_estimate_zero"
-      }
-    },
     "enter_travel_info_above" : {
       "type" : "Text",
       "config" : {
         "label" : "enter_travel_info_above"
-      }
-    },
-    "flight_loading" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "flight_loading"
-      }
-    },
-    "flight_success" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "flight_success"
-      }
-    },
-    "flight_zero" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "flight_zero"
-      }
-    },
-    "flight_below_estimate" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "flight_below_estimate"
-      }
-    },
-    "flight_above_estimate" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "flight_above_estimate"
-      }
-    },
-    "flight_error" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "flight_error"
-      }
-    },
-    "train_error" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "train_error"
-      }
-    },
-    "train_success" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "train_success"
-      }
-    },
-    "train_zero" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "train_zero"
-      }
-    },
-    "train_below_estimate" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "train_below_estimate"
-      }
-    },
-    "train_above_estimate" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "train_above_estimate"
-      }
-    },
-    "rental_car_error" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "rental_car_error"
-      }
-    },
-    "rental_car_success" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "rental_car_success"
-      }
-    },
-    "rental_car_zero" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "rental_car_zero"
-      }
-    },
-    "private_vehicle_above_estimate" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "private_vehicle_above_estimate"
-      }
-    },
-    "private_vehicle_below_estimate" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "private_vehicle_below_estimate"
-      }
-    },
-    "private_vehicle_error" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "private_vehicle_error"
-      }
-    },
-    "private_vehicle_success" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "private_vehicle_success"
-      }
-    },
-    "private_vehicle_manual" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "private_vehicle_manual"
-      }
-    },
-    "local_transportation_success" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "local_transportation_success"
-      }
-    },
-    "local_transportation_manual" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "local_transportation_manual"
-      }
-    },
-    "local_tranportation_zero" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "local_tranportation_zero"
-      }
-    },
-    "meals_incidentals_success" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "meals_incidentals_success"
-      }
-    },
-    "generating_estimate" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "generating_estimate"
-      }
-    },
-    "return_date_earlier_than_departure_date" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "return_date_earlier_than_departure_date"
-      }
-    },
-    "incorrect_date_format" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em, hyperlink",
-        "label" : "incorrect_date_format"
-      }
-    },
-    "transportation_description" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "transportation_description"
-      }
-    },
-    "accommodation_description" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "accommodation_description"
-      }
-    },
-    "local_transportation_description" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "local_transportation_description"
-      }
-    },
-    "estimate_origin_city_valid" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_origin_city_valid"
-      }
-    },
-    "estimate_origin_city_not_valid" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_origin_city_not_valid"
-      }
-    },
-    "estimate_destination_city_valid" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_destination_city_valid"
-      }
-    },
-    "estimate_destination_city_not_valid" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_destination_city_not_valid"
-      }
-    },
-    "estimate_departure_date_not_valid" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_departure_date_not_valid"
-      }
-    },
-    "estimate_return_date_not_valid" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_return_date_not_valid"
-      }
-    },
-    "no_time_travel" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "no_time_travel"
-      }
-    },
-    "accommodation_tooltip" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "accommodation_tooltip"
       }
     },
     "estimate_error_title" : {
@@ -370,18 +46,6 @@
         "label" : "estimate_destination"
       }
     },
-    "estimate_departure_date" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_departure_date"
-      }
-    },
-    "estimate_return_date" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_return_date"
-      }
-    },
     "estimate" : {
       "type" : "Text",
       "config" : {
@@ -392,18 +56,6 @@
       "type" : "Text",
       "config" : {
         "label" : "clear"
-      }
-    },
-    "estimate_application_error" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_application_error"
-      }
-    },
-    "estimate_application_error_text" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "estimate_application_error_text"
       }
     },
     "estimate_summary_title" : {
@@ -424,18 +76,6 @@
         "label" : "transportation"
       }
     },
-    "other_allowances_message" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "other_allowances_message"
-      }
-    },
-    "other_tooltip_text" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "other_tooltip_text"
-      }
-    },
     "total_cost" : {
       "type" : "Text",
       "config" : {
@@ -454,91 +94,16 @@
         "label" : "print"
       }
     },
-    "email_success_title" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "email_success_title"
-      }
-    },
-    "email_success_message" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em",
-        "label" : "email_success_message"
-      }
-    },
-    "private" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "private"
-      }
-    },
     "other_allowances" : {
       "type" : "Text",
       "config" : {
         "label" : "other_allowances"
       }
     },
-    "disclaimer" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "disclaimer"
-      }
-    },
-    "email_error_title" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "email_error_title"
-      }
-    },
-    "email_error_message" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em",
-        "label" : "email_error_message"
-      }
-    },
-    "transportation_description1" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "strong, em",
-        "label" : "transportation_description"
-      }
-    },
     "meals_and_incidentals" : {
       "type" : "Text",
       "config" : {
         "label" : "meals_and_incidentals"
-      }
-    },
-    "hotel" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "hotel"
-      }
-    },
-    "flight" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "flight"
-      }
-    },
-    "local_transportation" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "local_transportation"
-      }
-    },
-    "rental" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "rental"
-      }
-    },
-    "train" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "train"
       }
     },
     "date_picker_label" : {
@@ -551,18 +116,6 @@
       "type" : "Text",
       "config" : {
         "label" : "screen_reader_input_message"
-      }
-    },
-    "could_not_fetch_flight_value" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "could_not_fetch_flight_value"
-      }
-    },
-    "could_not_fetch_you_have_entered_own" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "could_not_fetch_you_have_entered_own"
       }
     }
   },
@@ -682,6 +235,45 @@
       "config" : {
         "label" : "email_form_notes"
       }
+    },
+    "email_form_is_public_servant_checkbox_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_is_public_servant_checkbox_label"
+      }
+    },
+    "email_form_category_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_category_label"
+      }
+    },
+    "email_form_category_options" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "option_label" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "option_label"
+            }
+          },
+          "option_value" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "option_value"
+            }
+          }
+        },
+        "label" : "email_form_category_options"
+      }
+    },
+    "email_form_disclaimer" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em",
+        "label" : "email_form_disclaimer"
+      }
     }
   },
   "Meals Modal" : {
@@ -703,6 +295,12 @@
         "label" : "meals_modal_lunch"
       }
     },
+    "meals_modal_dinner" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meals_modal_dinner"
+      }
+    },
     "meals_modal_incidental" : {
       "type" : "Text",
       "config" : {
@@ -713,6 +311,383 @@
       "type" : "Text",
       "config" : {
         "label" : "meals_modal_submit"
+      }
+    }
+  },
+  "Explainer" : {
+    "explainer_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading4",
+        "label" : "explainer_title",
+        "placeholder" : "Title of the explainer section.  E.g \"How did we get these numbers?\""
+      }
+    },
+    "explainer_body" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "allowTargetBlank" : true,
+        "label" : "explainer_body",
+        "placeholder" : "Body of explainer",
+        "labels" : [ "text-indent" ]
+      }
+    }
+  },
+  "Disclaimer" : {
+    "disclaimer_body" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, strong, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "disclaimer_body",
+        "placeholder" : "Disclaimer text at bottom of page."
+      }
+    },
+    "disclaimer" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "disclaimer"
+      }
+    }
+  },
+  "Accommodation Messages" : {
+    "hotel" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "hotel"
+      }
+    },
+    "private" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "private"
+      }
+    },
+    "hotel_success" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "hotel_success"
+      }
+    },
+    "hotel_zero" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "hotel_zero"
+      }
+    },
+    "hotel_above_estimate" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "hotel_above_estimate"
+      }
+    },
+    "hotel_below_estimate" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em",
+        "label" : "hotel_below_estimate"
+      }
+    },
+    "hotel_error" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "hotel_error"
+      }
+    },
+    "private_accom_estimate_success" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "private_accom_estimate_success"
+      }
+    },
+    "private_accom_estimate_zero" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "private_accom_estimate_zero"
+      }
+    },
+    "accommodation_tooltip" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "accommodation_tooltip"
+      }
+    }
+  },
+  "Transportation Messages" : {
+    "flight_loading" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "flight_loading"
+      }
+    },
+    "flight_success" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "flight_success"
+      }
+    },
+    "flight_zero" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "flight_zero"
+      }
+    },
+    "flight_below_estimate" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "flight_below_estimate"
+      }
+    },
+    "flight_message_no_airport" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "flight_message_no_airport"
+      }
+    },
+    "flight_error" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "flight_error"
+      }
+    },
+    "train_error" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "train_error"
+      }
+    },
+    "train_success" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "train_success"
+      }
+    },
+    "train_zero" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "train_zero"
+      }
+    },
+    "train_below_estimate" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "train_below_estimate"
+      }
+    },
+    "train_above_estimate" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "train_above_estimate"
+      }
+    },
+    "rental_car_error" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "rental_car_error"
+      }
+    },
+    "rental_car_success" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "rental_car_success"
+      }
+    },
+    "rental_car_zero" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "rental_car_zero"
+      }
+    },
+    "private_vehicle_above_estimate" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "private_vehicle_above_estimate"
+      }
+    },
+    "private_vehicle_below_estimate" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "private_vehicle_below_estimate"
+      }
+    },
+    "private_vehicle_error" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "private_vehicle_error"
+      }
+    },
+    "private_vehicle_success" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "private_vehicle_success"
+      }
+    },
+    "private_vehicle_manual" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "private_vehicle_manual"
+      }
+    },
+    "flight" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight"
+      }
+    },
+    "local_transportation" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "local_transportation"
+      }
+    },
+    "rental" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "rental"
+      }
+    },
+    "train" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "train"
+      }
+    },
+    "could_not_fetch_flight_value" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "could_not_fetch_flight_value"
+      }
+    },
+    "could_not_fetch_you_have_entered_own" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "could_not_fetch_you_have_entered_own"
+      }
+    }
+  },
+  "Local Transportation Messages" : {
+    "local_transportation_success" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "local_transportation_success"
+      }
+    },
+    "local_transportation_manual" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "local_transportation_manual"
+      }
+    },
+    "local_tranportation_zero" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "local_tranportation_zero"
+      }
+    }
+  },
+  "Other Allowances Messages" : {
+    "other_allowances_message" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "other_allowances_message"
+      }
+    },
+    "other_tooltip_text" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "other_tooltip_text"
+      }
+    }
+  },
+  "Estimate Validation Messages" : {
+    "return_date_earlier_than_departure_date" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "return_date_earlier_than_departure_date"
+      }
+    },
+    "estimate_origin_city_valid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_origin_city_valid"
+      }
+    },
+    "estimate_origin_city_not_valid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_origin_city_not_valid"
+      }
+    },
+    "estimate_destination_city_valid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_destination_city_valid"
+      }
+    },
+    "estimate_destination_city_not_valid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_destination_city_not_valid"
+      }
+    },
+    "estimate_departure_date_not_valid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_departure_date_not_valid"
+      }
+    },
+    "estimate_return_date_not_valid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_return_date_not_valid"
+      }
+    },
+    "no_time_travel" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "no_time_travel"
+      }
+    },
+    "estimate_application_error" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_application_error"
+      }
+    },
+    "estimate_application_error_text" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_application_error_text"
       }
     }
   }
