@@ -208,7 +208,9 @@ const Estimator = () => {
                     estimate_error_lead
                     estimate_origin_city_not_valid
                     estimate_destination_city_not_valid
-                    flight_message_no_airport
+                    flight_message_no_airport {
+                        html
+                    }
                 }
             }
         }
@@ -579,6 +581,7 @@ const Estimator = () => {
                 setTransportationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
             });
         } else {
+            setLoading(false);
             setTransportationMessage({ element: formattedMessage('flight_message_no_airport')  })
         }
     }
