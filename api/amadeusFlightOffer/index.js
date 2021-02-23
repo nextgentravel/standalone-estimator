@@ -22,7 +22,7 @@ module.exports = async function (context, req) {
         redirect: 'follow'
     };
 
-    await fetch(`https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originAirportCode}&destinationLocationCode=${destinationAirportCode}&departureDate=${departureDate}&returnDate=${returnDate}&adults=1&currencyCode=CAD`, requestOptions)
+    await fetch(`https://fdsafdsffdsafdsftest.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originAirportCode}&destinationLocationCode=${destinationAirportCode}&departureDate=${departureDate}&returnDate=${returnDate}&adults=1&currencyCode=CAD`, requestOptions)
         .then(response => response.text())
         .then(result => {
             context.log('result', result)

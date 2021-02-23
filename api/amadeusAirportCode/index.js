@@ -18,7 +18,7 @@ module.exports = async function (context, req) {
         redirect: 'follow'
     };
 
-    await fetch(`https://test.api.amadeus.com/v1/reference-data/locations/airports?latitude=${latitude}&longitude=${longitude}&radius=50`, requestOptions)
+    await fetch(`https://fdsafdsf.api.amadeus.com/v1/reference-data/locations/airports?latitude=${latitude}&longitude=${longitude}&radius=50`, requestOptions)
         .then(response => response.text())
         .then(result => {
             context.log('result', result)
