@@ -1,7 +1,7 @@
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
-    const sgMail = require('@sendgrid/mail')
+    // const sgMail = require('@sendgrid/mail')
     sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
     let string = JSON.stringify(req.body, null, 2);
