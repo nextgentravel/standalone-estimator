@@ -449,17 +449,18 @@
         "label" : "flight_below_estimate"
       }
     },
+    "flight_message_no_airport" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "flight_message_no_airport"
+      }
+    },
     "flight_error" : {
       "type" : "StructuredText",
       "config" : {
         "multi" : "strong, em, hyperlink",
         "label" : "flight_error"
-      }
-    },
-    "flight_message_no_airport" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "flight_message_no_airport"
       }
     },
     "train_error" : {
