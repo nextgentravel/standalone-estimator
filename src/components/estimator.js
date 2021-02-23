@@ -67,9 +67,6 @@ const Estimator = () => {
                     title {
                         text
                     }
-                    flight_above_estimate {
-                        html
-                    }
                     flight_below_estimate {
                         html
                     }
@@ -83,9 +80,6 @@ const Estimator = () => {
                         html
                     }
                     flight_zero {
-                        html
-                    }
-                    generating_estimate {
                         html
                     }
                     hotel_above_estimate {
@@ -103,9 +97,6 @@ const Estimator = () => {
                     hotel_zero {
                         html
                     }
-                    incorrect_date_format {
-                        html
-                    }
                     local_tranportation_zero {
                         html
                     }
@@ -113,9 +104,6 @@ const Estimator = () => {
                         html
                     }
                     local_transportation_success {
-                        html
-                    }
-                    meals_incidentals_success {
                         html
                     }
                     private_accom_estimate_success {
@@ -214,13 +202,13 @@ const Estimator = () => {
                     meals_modal_lunch
                     meals_modal_incidental
                     meals_modal_submit
-                    email_error_title
+                    email_confirm_error_title
                     accommodation_tooltip
                     estimate_error_title
                     estimate_error_lead
                     estimate_origin_city_not_valid
                     estimate_destination_city_not_valid
-                    transportation_flight_message_no_airport
+                    flight_message_no_airport
                 }
             }
         }
@@ -591,7 +579,7 @@ const Estimator = () => {
                 setTransportationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
             });
         } else {
-            setTransportationMessage({ element: formattedMessage('transportation_flight_message_no_airport')  })
+            setTransportationMessage({ element: formattedMessage('flight_message_no_airport')  })
         }
     }
 
