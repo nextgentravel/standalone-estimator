@@ -16,7 +16,7 @@ const EmailConfirmationModal = (props) => {
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
                     {emailRequestResult && <span className="align-middle"><FaCheckCircle size="24" className="text-success mb-1" /> <span className="ml-2">{props.messages.email_success_title}</span></span>}
-                    {!emailRequestResult && <span><FaExclamationTriangle size="24" className="text-danger mb-1" /><span className="ml-2">{props.messages.email_error_title}</span></span>}
+                    {!emailRequestResult && <span><FaExclamationTriangle size="24" className="text-danger mb-1" /><span className="ml-2">{props.messages.email_confirm_error_title}</span></span>}
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
