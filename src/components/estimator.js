@@ -1177,18 +1177,7 @@ const Estimator = () => {
                                             </>
                                         </div>
                                         , style: 'warn' });
-                                    } else if (parseFloat(e.target.value) === acrdTotal) {
-                                        setAccommodationCost(e.target.value)
-                                        let message = localeCopy.hotel_above_estimate.html
-                                        message = message.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
-                                        // localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
-                                        
-                                        setAccommodationMessage({ element: 
-                                        <div className="mb-0">
-                                            <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span>
-                                        </div>
-                                        , style: 'success' });
-                                    } else if (parseFloat(e.target.value) < acrdTotal) {
+                                    } else if (parseFloat(e.target.value) <= acrdTotal) {
                                         setAccommodationCost(e.target.value)
                                         let message = localeCopy.hotel_below_estimate.html
                                         message = message.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
