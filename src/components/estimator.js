@@ -220,6 +220,7 @@ const Estimator = () => {
                     estimate_error_lead
                     estimate_origin_city_not_valid
                     estimate_destination_city_not_valid
+                    transportation_flight_message_no_airport
                 }
             }
         }
