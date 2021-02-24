@@ -200,6 +200,7 @@ const Estimator = () => {
                     meals_modal_title
                     meals_modal_breakfast
                     meals_modal_lunch
+                    meals_modal_dinner
                     meals_modal_incidental
                     meals_modal_submit
                     email_confirm_error_title
