@@ -1,10 +1,11 @@
-import 'react-dates/initialize';
-import React from "react"
-import { DateRangePicker } from 'react-dates';
- import { DateTime } from "luxon";
-import moment from 'moment';
 
-const DatePickerComponent = ({initialStart, setStart, initialEnd, setEnd, focus, onFocus, label, screenReaderInputMessage}) => {
+import React, { useState } from "react"
+import { DateRangePicker } from 'react-dates';
+import moment from 'moment';
+import "react-dates/initialize";
+
+const DatePickerComponent = ({startDate, endDate, initialStart, setStart, initialEnd, setEnd, label, screenReaderInputMessage}) => {
+    let [focusedInput, setFocusedInput] = useState(null)
     return(
         <div className="mb-4">
             <div>
@@ -12,20 +13,16 @@ const DatePickerComponent = ({initialStart, setStart, initialEnd, setEnd, focus,
             </div>
             <div className="mb-4">
                 <DateRangePicker
-                    startDate={moment(initialStart.toJSDate())}
+                    startDate={startDate}
                     startDateId="datepicker-start"
-                    endDate={moment(initialEnd.toJSDate())}
+                    endDate={endDate}
                     endDateId="datepicker-end"
                     onDatesChange={({ startDate, endDate }) => {
-                        if(startDate){
-                            setStart(DateTime.fromJSDate(startDate.toDate()))
-                        }
-                        if(endDate){
-                            setEnd(DateTime.fromJSDate(endDate.toDate()))
-                        }
+                        setStart(startDate)
+                        setEnd(endDate)
                     }}
-                    focusedInput={focus}
-                    onFocusChange={onFocus}
+                    focusedInput={focusedInput}
+                    onFocusChange={(focusedInput) => setFocusedInput(focusedInput)}
                     screenReaderInputMessage={screenReaderInputMessage}
                     required={true}
                     showDefaultInputIcon={true}
