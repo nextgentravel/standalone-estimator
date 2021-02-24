@@ -200,6 +200,7 @@ const Estimator = () => {
                     meals_modal_title
                     meals_modal_breakfast
                     meals_modal_lunch
+                    meals_modal_dinner
                     meals_modal_incidental
                     meals_modal_submit
                     email_confirm_error_title
@@ -211,6 +212,7 @@ const Estimator = () => {
                     flight_message_no_airport {
                         html
                     }
+                    private_vehicle
                 }
             }
         }
@@ -224,7 +226,8 @@ const Estimator = () => {
         let message;
         if (messageType === 'string') {
             message = localeCopy[prismicKey]
-        } else if (messageType === 'object') {
+        } else if (messageType === 'object' && localeCopy[prismicKey] !== null) {
+            console.log('localeCopy[prismicKey]: ', localeCopy[prismicKey])
             message = <span className={classes} dangerouslySetInnerHTML={{ __html: localeCopy[prismicKey].html }}></span>
         } else {
             message = 'MISSING MESSAGE ' + prismicKey
@@ -1177,18 +1180,7 @@ const Estimator = () => {
                                             </>
                                         </div>
                                         , style: 'warn' });
-                                    } else if (parseFloat(e.target.value) === acrdTotal) {
-                                        setAccommodationCost(e.target.value)
-                                        let message = localeCopy.hotel_above_estimate.html
-                                        message = message.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
-                                        // localeCopy.hotel_above_estimate.html = localeCopy.hotel_above_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
-                                        
-                                        setAccommodationMessage({ element: 
-                                        <div className="mb-0">
-                                            <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span>
-                                        </div>
-                                        , style: 'success' });
-                                    } else if (parseFloat(e.target.value) < acrdTotal) {
+                                    } else if (parseFloat(e.target.value) <= acrdTotal) {
                                         setAccommodationCost(e.target.value)
                                         let message = localeCopy.hotel_below_estimate.html
                                         message = message.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
@@ -1237,16 +1229,13 @@ const Estimator = () => {
                                                 console.log("result", result)
                                                 if (result) {
                                                     setTransportationType(e.target.value)
-                                                    if (e.target.value === 'private') {
-                                                        updateLocalTransportationCost(0)
-                                                    }
                                                 }
                                             }}
                                         >
                                             <option value="flight" >{formattedMessage('flight')}</option>
                                             <option value="train">{formattedMessage('train')}</option>
                                             <option value="rental">{formattedMessage('rental')}</option>
-                                            <option value="private">{formattedMessage('private')}</option>
+                                            <option value="private">{formattedMessage('private_vehicle')}</option>
                                         </select>
                                     </ConditionalWrap>
                                 </div>
