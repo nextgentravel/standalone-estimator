@@ -211,6 +211,7 @@ const Estimator = () => {
                     flight_message_no_airport {
                         html
                     }
+                    private_vehicle
                 }
             }
         }
@@ -1226,16 +1227,13 @@ const Estimator = () => {
                                                 console.log("result", result)
                                                 if (result) {
                                                     setTransportationType(e.target.value)
-                                                    if (e.target.value === 'private') {
-                                                        updateLocalTransportationCost(0)
-                                                    }
                                                 }
                                             }}
                                         >
                                             <option value="flight" >{formattedMessage('flight')}</option>
                                             <option value="train">{formattedMessage('train')}</option>
                                             <option value="rental">{formattedMessage('rental')}</option>
-                                            <option value="private">{formattedMessage('private')}</option>
+                                            <option value="private">{formattedMessage('private_vehicle')}</option>
                                         </select>
                                     </ConditionalWrap>
                                 </div>
