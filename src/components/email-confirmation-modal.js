@@ -15,14 +15,14 @@ const EmailConfirmationModal = (props) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    {emailRequestResult && <span className="align-middle"><FaCheckCircle size="24" className="text-success mb-1" /> <span className="ml-2">{props.messages.email_success_title}</span></span>}
+                    {emailRequestResult && <span className="align-middle"><FaCheckCircle size="24" className="text-success mb-1" /> <span className="ml-2">{props.messages.email_confirm_success_title}</span></span>}
                     {!emailRequestResult && <span><FaExclamationTriangle size="24" className="text-danger mb-1" /><span className="ml-2">{props.messages.email_confirm_error_title}</span></span>}
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                {emailRequestResult && <span></span>}
+                {emailRequestResult && <span>{props.messages.email_confirm_success_body}</span>}
                 {!emailRequestResult && <div>
-                    <p>{props.messages.email_error_body}</p>
+                    <p>{props.messages.email_confirm_error_body}</p>
                     <p>{JSON.stringify(props.emailRequestResult.raw)}</p>
                 </div>}
             </Modal.Body>
