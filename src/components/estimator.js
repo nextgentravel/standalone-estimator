@@ -195,9 +195,19 @@ const Estimator = () => {
                     email_form_approvers_email
                     email_form_approvers_email_placeholder
                     email_form_notes
+                    email_form_notes_placeholder
+                    email_form_is_public_servant_checkbox_label
+                    email_form_category_label
+                    email_form_category_options {
+                        option_label
+                        option_value
+                    }
                     email_modal_title
                     email_modal_submit
                     meals_modal_title
+                    email_form_disclaimer {
+                        html
+                    }
                     meals_modal_breakfast
                     meals_modal_lunch
                     meals_modal_dinner
@@ -359,6 +369,8 @@ const Estimator = () => {
     const [approversName, setApproversName] = useState('');
     const [approversEmail, setApproversEmail] = useState('');
     const [tripNotes, setTripNotes] = useState('');
+    const [travellerIsPublicServant, setTravellerIsPublicServant] = useState(false);
+    const [travelCategory, setTravelCategory] = useState('');
 
     const transportationEstimatesInitialState = {
         flight: {
@@ -811,7 +823,7 @@ const Estimator = () => {
     }
 
     const handleSubmitEmailValidation = () => {
-        let target = {tripName, travellersName, travellersEmail, approversName, approversEmail, tripNotes};
+        let target = {tripName, travellersName, travellersEmail, approversName, approversEmail, tripNotes, travellerIsPublicServant, travelCategory};
         let schema = yup.object().shape({
             tripName: yup
                 .string()
@@ -834,7 +846,9 @@ const Estimator = () => {
                 .typeError(' is required')
                 .required(),
             tripNotes: yup
-                .string()
+                .string(),
+            travelCategory: yup
+                .string().min(1),
         });
         return schema.validate(target, {abortEarly: false})
     }
@@ -881,6 +895,8 @@ const Estimator = () => {
                         approversEmail,
                         tripNotes,
                         summaryCost,
+                        travelCategory,
+                        travellerIsPublicServant,
                     })
                   }).then(function(response) {
                     if (!response.ok) {
@@ -1011,6 +1027,10 @@ const Estimator = () => {
                 tripNotes={tripNotes}
                 emailRequestLoading={emailRequestLoading}
                 messages={localeCopy}
+                setTravellerIsPublicServant={setTravellerIsPublicServant}
+                travellerIsPublicServant={travellerIsPublicServant}
+                travelCategory={travelCategory}
+                setTravelCategory={setTravelCategory}
             />
             <EmailConfirmationModal
                 show={emailConfirmationModalShow}
