@@ -236,6 +236,12 @@
         "label" : "email_form_notes"
       }
     },
+    "email_form_notes_placeholder" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_notes_placeholder"
+      }
+    },
     "email_form_is_public_servant_checkbox_label" : {
       "type" : "Text",
       "config" : {
@@ -588,6 +594,12 @@
       "type" : "Text",
       "config" : {
         "label" : "could_not_fetch_you_have_entered_own"
+      }
+    },
+    "private_vehicle" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "private_vehicle"
       }
     }
   },
