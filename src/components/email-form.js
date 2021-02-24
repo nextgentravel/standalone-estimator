@@ -10,27 +10,8 @@ const EmailForm = (props) => {
         props.setEmailValidationWarnings(filtered);
     }
     let validationErrorList = validationErrors.map(a => a.path) || [];
-    console.log('props', props)
     return (
         <Form>
-            <Form.Group as={Row} controlId="tripName">
-                <Form.Label column sm="3">
-                    {props.messages.email_form_trip_name}
-                </Form.Label>
-                <Col sm="9">
-                    <Form.Control
-                        isInvalid={validationErrorList.includes('tripName')}
-                        required
-                        value={props.tripName}
-                        onChange={(e) => {
-                            removeIsInvalid('tripName', validationErrors)
-                            props.setTripName(e.target.value)
-                        }}
-                        type="text"
-                        placeholder={props.messages.email_form_trip_name_placeholder}
-                    />
-                </Col>
-            </Form.Group>
             <Form.Group as={Row} controlId="travellersName">
                 <Form.Label column sm="3">
                     {props.messages.email_form_travellers_name}
@@ -49,7 +30,7 @@ const EmailForm = (props) => {
                     />
                 </Col>
             </Form.Group>
-            <Form.Group as={Row} controlId="travellersEmail">
+            <Form.Group as={Row} controlId="travellersEmail" className="mb-5">
                 <Form.Label column sm="3">
                     {props.messages.email_form_travellers_email}
                 </Form.Label>
@@ -64,6 +45,16 @@ const EmailForm = (props) => {
                         }}
                         type="text"
                         placeholder={props.messages.email_form_travellers_email_placeholder}
+                    />
+                    <Form.Check
+                        className="mt-3 checkbox-label"
+                        type={'checkbox'}
+                        id={`public-servant-${'checkbox'}`}
+                        label={props.messages.email_form_is_public_servant_checkbox_label}
+                        value={props.travellerIsPublicServant}
+                        onChange={(e) => {
+                            props.setTravellerIsPublicServant(!props.travellerIsPublicServant)
+                        }}
                     />
                 </Col>
             </Form.Group>
@@ -85,7 +76,7 @@ const EmailForm = (props) => {
                     />
                 </Col>
             </Form.Group>
-            <Form.Group as={Row} controlId="approversEmail">
+            <Form.Group as={Row} controlId="approversEmail" className="mb-5">
                 <Form.Label column sm="3">
                     {props.messages.email_form_approvers_email}
                 </Form.Label>
@@ -103,6 +94,44 @@ const EmailForm = (props) => {
                     />
                 </Col>
             </Form.Group>
+            <Form.Group as={Row} controlId="tripName">
+                <Form.Label column sm="3">
+                    {props.messages.email_form_trip_name}
+                </Form.Label>
+                <Col sm="9">
+                    <Form.Control
+                        isInvalid={validationErrorList.includes('tripName')}
+                        required
+                        value={props.tripName}
+                        onChange={(e) => {
+                            removeIsInvalid('tripName', validationErrors)
+                            props.setTripName(e.target.value)
+                        }}
+                        type="text"
+                        placeholder={props.messages.email_form_trip_name_placeholder}
+                    />
+                </Col>
+            </Form.Group>
+            <Form.Group as={Row} controlId="travelCategory">
+                <Form.Label column sm="3">{props.messages.email_form_category_label}</Form.Label>
+                <Col sm="9">
+                    <Form.Control as="select"
+                        value={props.travelCategory}
+                        onChange={(e) => {
+                            removeIsInvalid('travelCategory', validationErrors)
+                            props.setTravelCategory(e.target.value)
+                        }}
+                        isInvalid={validationErrorList.includes('travelCategory')}
+                    >
+                        <option value='' disabled>Select</option>
+                        {props.messages.email_form_category_options.map((item, index) => {
+                            return (
+                                <option key={index} value={item.option_value}>{item.option_label}</option>
+                            )
+                        })}
+                    </Form.Control>
+                </Col>
+            </Form.Group>
             <Form.Group as={Row} controlId="notes">
                 <Form.Label column sm="3">
                     {props.messages.email_form_notes}
@@ -115,7 +144,9 @@ const EmailForm = (props) => {
                         onChange={(e) => {
                             removeIsInvalid('tripNotes', validationErrors)
                             props.setTripNotes(e.target.value)
-                            }} as="textarea" rows={3} />
+                            }} as="textarea" rows={3}
+                        placeholder={props.messages.email_form_notes_placeholder}
+                    />
                 </Col>
             </Form.Group>
         </Form>

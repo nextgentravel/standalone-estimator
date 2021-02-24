@@ -20,7 +20,9 @@ const EmailConfirmationModal = (props) => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                {emailRequestResult && <span>{props.messages.email_confirm_success_body}</span>}
+                {emailRequestResult && <span>
+                    <p>{props.messages.email_confirm_success_body}</p>    
+                </span>}
                 {!emailRequestResult && <div>
                     <p>{props.messages.email_confirm_error_body}</p>
                     <p>{JSON.stringify(props.emailRequestResult.raw)}</p>
