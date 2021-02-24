@@ -236,10 +236,6 @@
         "label": "email_form_notes"
       }
     },
-    "email_form_notes_placeholder": {
-      "type": "Text",
-      "config": {
-        "label": "email_form_notes_placeholder"
     "email_form_notes_placeholder" : {
       "type" : "Text",
       "config" : {
