@@ -14,6 +14,8 @@ import MealsModal from "./meals-modal.js"
 import { FaCaretUp, FaCaretDown, FaCalculator, FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
 import { dailyMealTemplate } from "./functions/dailyMealTemplate"
 
+import moment from 'moment';
+
 import Tooltip from 'react-bootstrap/Tooltip'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Form from 'react-bootstrap/Form'
@@ -32,8 +34,8 @@ import fetchDistanceBetweenPlaces from '../api-calls/fetchDistanceBetweenPlaces'
 
 import './extra/estimator-print.css'
 
-let initialDeparture = DateTime.local().plus({ days: 1 })
-let initialReturn = DateTime.local().plus({ days: 2 })
+let initialDeparture = moment().add(1, 'days')
+let initialReturn = moment().add(2, 'days')
 
 const ConditionalWrap = ({ condition, wrap, children }) => (
     condition ? wrap(children) : children
@@ -223,6 +225,7 @@ const Estimator = () => {
                         html
                     }
                     private_vehicle
+                    no_time_travel
                 }
             }
         }
@@ -287,12 +290,32 @@ const Estimator = () => {
     const [destinationData, setDestinationData] = useState({});
     const [departureDate, setDepartureDate] = useState(initialDates.departure);
     const [returnDate, setReturnDate] = useState(initialDates.return);
+
+    const convertToLux = (date) => {
+        return DateTime.fromISO(date.format("YYYY-MM-DD"))
+    }
+
+    const [departureDateLux, setDepartureDateLux] = useState(null);
+    const [returnDateLux, setReturnDateLux] = useState(null);
+
     const [privateVehicleRate, setPrivateVehicleRate] = useState('');
     const [privateVehicleSuccess, setPrivateVehicleSuccess] = useState(false);
     const [dateFocused, setDateFocused] = useState(null);
     const [showClear, setShowClear] = useState(false);
     const [disclaimerCollapsed, setDisclaimerCollapsed] = useState(true);
-    
+
+    useEffect(() => {
+        if (departureDate !== null) {
+            setDepartureDateLux(convertToLux(departureDate))
+        }
+    }, [departureDate])
+
+    useEffect(() => {
+        if (returnDate !== null) {
+            setReturnDateLux(convertToLux(returnDate))
+        }
+    }, [returnDate])
+
     useEffect(() => {
         setHaveFlightCost(false);
         setResult(false);
@@ -477,7 +500,7 @@ const Estimator = () => {
     }, [])
 
     const fetchHotelCost = () => {
-        let months = monthsContained(departureDate,returnDate);
+        let months = monthsContained(departureDate.format("YYYY-MM-DD"), returnDate.format("YYYY-MM-DD"));
         let rates = acrdRates[destination];
         let acrdRatesFiltered = Object.keys(rates)
             .filter(key => months.map(mon => mon.month).includes(key))
@@ -487,7 +510,7 @@ const Estimator = () => {
             }, {});
 
         try {
-            let rates = rateDaysByMonth(departureDate, returnDate, acrdRatesFiltered)
+            let rates = rateDaysByMonth(departureDateLux, returnDateLux, acrdRatesFiltered)
 
             let total = 0.00;
 
@@ -527,7 +550,7 @@ const Estimator = () => {
         if (accommodationType === 'hotel') {
             fetchHotelCost()
         } else if (accommodationType === 'private') {
-            let rate = (Interval.fromDateTimes(departureDate, returnDate).count('days') - 1) * 50;
+            let rate = (Interval.fromDateTimes(departureDateLux, returnDateLux).count('days') - 1) * 50;
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></span>  })
             updateAccommodationCost(rate)
         } else {
@@ -548,8 +571,8 @@ const Estimator = () => {
     const [haveFlightCost, setHaveFlightCost] = useState(false)
 
     const fetchFlightCost = async () => {
-        const departureDateISODate = departureDate.toISODate()
-        const returnDateISODate = returnDate.toISODate()
+        const departureDateISODate = departureDate.format("YYYY-MM-DD")
+        const returnDateISODate = returnDate.format("YYYY-MM-DD")
 
         try {
             await amadeusAccessTokenCheck();
@@ -697,15 +720,18 @@ const Estimator = () => {
                 setSubmitValidationWarnings([]);
                 setTransportationType('flight')
                 setAccommodationType('hotel')
+
+
+
                 let numberOfDays = Interval.fromDateTimes(
-                    departureDate,
-                    returnDate)
+                    departureDateLux,
+                    returnDateLux)
                     .count('days')
 
                 let city = suburbCityList[destination] || destination;
                 let provinceCode = city.slice(-2); // This is bad.  We need to change the data structure.
 
-                setMealsByDay(dailyMealTemplate(departureDate, returnDate))
+                setMealsByDay(dailyMealTemplate(departureDateLux, returnDateLux))
                 setProvince(provinceCode)
 
                 try {
@@ -758,6 +784,8 @@ const Estimator = () => {
         setLocalTransportationCost(0.00);
         setDepartureDate(initialDates.departure);
         setReturnDate(initialDates.return);
+        setDepartureDateLux(null);
+        setReturnDateLux(null);
         setMealsByDay({})
         setMealCost(0.00)
         setResult(false)
@@ -874,8 +902,8 @@ const Estimator = () => {
                 fetch('/api/sendEstimateEmail', {
                     method: 'post',
                     body: JSON.stringify({
-                        departureDate: departureDate.toISODate(),
-                        returnDate: returnDate.toISODate(),
+                        departureDate: departureDate.format("YYYY-MM-DD"),
+                        returnDate: returnDate.format("YYYY-MM-DD"),
                         origin,
                         destination,
                         accommodationType,
@@ -1083,12 +1111,10 @@ const Estimator = () => {
                 <div className="col-sm-6"></div>
                 <div className="col-sm-7">
                     <DatePicker
-                        initialStart={departureDate}
+                        startDate={departureDate}
                         setStart={setDepartureDate}
-                        initialEnd={returnDate}
+                        endDate={returnDate}
                         setEnd={setReturnDate}
-                        focus={dateFocused}
-                        onFocus={setDateFocused}
                         label={formattedMessage('date_picker_label')}
                         screenReaderInputMessage={formattedMessage('screen_reader_input_message')}
                     />
