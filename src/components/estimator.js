@@ -226,7 +226,8 @@ const Estimator = () => {
         let message;
         if (messageType === 'string') {
             message = localeCopy[prismicKey]
-        } else if (messageType === 'object') {
+        } else if (messageType === 'object' && localeCopy[prismicKey] !== null) {
+            console.log('localeCopy[prismicKey]: ', localeCopy[prismicKey])
             message = <span className={classes} dangerouslySetInnerHTML={{ __html: localeCopy[prismicKey].html }}></span>
         } else {
             message = 'MISSING MESSAGE ' + prismicKey
