@@ -260,9 +260,12 @@ const Estimator = () => {
     useEffect(() => {
         let list = []
         for (let city in geocodedCities) {
+            let province = geocodedCities[city].acrdName.slice(-2)
+            let cityName = geocodedCities[city].acrdName.slice(0, -3)
+            let display = `${cityName}, ${province}`
             list.push({
                 value: geocodedCities[city].google_place_id,
-                label: geocodedCities[city].acrdName,
+                label: display,
             })
         }
         setFilteredCitiesList(list);
@@ -511,7 +514,12 @@ const Estimator = () => {
             setAcrdTotal(total);
             let message = localeCopy.hotel_success.html
             // eslint-disable-next-line no-template-curly-in-string
-            message = message.replace('{location}', `<strong>${destination}</strong>`)
+
+            let province = destination.slice(-2)
+            let cityName = destination.slice(0, -3)
+            let destinationDisplay = `${cityName}, ${province}`
+
+            message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
             // eslint-disable-next-line no-template-curly-in-string
             message = message.replace('${daily rate}', `<strong>$${calculatedApplicableRates[0].rate}</strong>`)
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
@@ -1389,7 +1397,7 @@ const Estimator = () => {
                 <div className="row mb-4">
                     <div className="col-sm-6 align-self-center text-right">
                         <hr />
-                        <strong className="mr-2">{formattedMessage('total_cost')}</strong>{'$ ' + summaryCost}
+                        <strong className="mr-2">{formattedMessage('total_cost')}</strong>{'$' + parseFloat(summaryCost).toLocaleString('en', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
                     </div>
                     <div className="col-sm-6 align-self-center text-wrap">
                     </div>
