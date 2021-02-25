@@ -226,6 +226,8 @@ const Estimator = () => {
                     }
                     private_vehicle
                     no_time_travel
+                    estimate_departure_date_not_valid
+                    estimate_return_date_not_valid
                 }
             }
         }
