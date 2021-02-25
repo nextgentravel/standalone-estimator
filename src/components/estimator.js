@@ -300,7 +300,6 @@ const Estimator = () => {
 
     const [privateVehicleRate, setPrivateVehicleRate] = useState('');
     const [privateVehicleSuccess, setPrivateVehicleSuccess] = useState(false);
-    const [dateFocused, setDateFocused] = useState(null);
     const [showClear, setShowClear] = useState(false);
     const [disclaimerCollapsed, setDisclaimerCollapsed] = useState(true);
 
@@ -580,6 +579,8 @@ const Estimator = () => {
             console.log('amadeusAccessTokenCheck', error)
         }
 
+        console.log('originData', originData)
+
         if (originData.airports.length > 0 && destinationData.airports.length > 0) {
             amadeusFlightOffer(originData.airports[0].iataCode, destinationData.airports[0].iataCode, departureDateISODate, returnDateISODate, amadeusAccessToken.token)
             .then(response => response.json())
@@ -721,7 +722,8 @@ const Estimator = () => {
                 setTransportationType('flight')
                 setAccommodationType('hotel')
 
-
+                console.log('departureDateLux', departureDateLux)
+                console.log('returnDateLux', returnDateLux)
 
                 let numberOfDays = Interval.fromDateTimes(
                     departureDateLux,
@@ -761,9 +763,9 @@ const Estimator = () => {
                 setErrorPanel(false);
             })
             .catch(err => {
-                // console.log("ERROR", err)
+                console.log("ERROR", err)
                 setLoading(false);
-                setSubmitValidationWarnings(err.inner);
+                setSubmitValidationWarnings(err.inner || []);
                 setErrorPanel(true);
             });
     }
@@ -776,19 +778,16 @@ const Estimator = () => {
         setTransportationEstimates(transportationEstimatesInitialState);
         setOrigin('')
         setDestination('')
-        setDepartureDate('');
-        setReturnDate('');
         setEmailConfirmationModalShow(false);
         setEmailModalShow(false);
         setLocalTransportationMessage({ element: <span></span>, style: 'primary' });
         setLocalTransportationCost(0.00);
         setDepartureDate(initialDates.departure);
         setReturnDate(initialDates.return);
-        setDepartureDateLux(null);
-        setReturnDateLux(null);
         setMealsByDay({})
         setMealCost(0.00)
         setResult(false)
+        setSubmitValidationWarnings([]);
 
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
