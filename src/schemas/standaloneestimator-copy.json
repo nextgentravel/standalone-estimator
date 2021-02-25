@@ -490,6 +490,7 @@
       "type": "StructuredText",
       "config": {
         "multi": "strong, em, hyperlink",
+        "allowTargetBlank": true,
         "label": "train_success"
       }
     },
@@ -525,6 +526,7 @@
       "type": "StructuredText",
       "config": {
         "multi": "strong, em, hyperlink",
+        "allowTargetBlank": true,
         "label": "rental_car_success"
       }
     },
@@ -539,6 +541,7 @@
       "type": "StructuredText",
       "config": {
         "multi": "strong, em, hyperlink",
+        "allowTargetBlank": true,
         "label": "private_vehicle_above_estimate"
       }
     },
@@ -546,6 +549,7 @@
       "type": "StructuredText",
       "config": {
         "multi": "strong, em, hyperlink",
+        "allowTargetBlank": true,
         "label": "private_vehicle_below_estimate"
       }
     },
@@ -553,6 +557,7 @@
       "type": "StructuredText",
       "config": {
         "multi": "strong, em, hyperlink",
+        "allowTargetBlank": true,
         "label": "private_vehicle_error"
       }
     },
