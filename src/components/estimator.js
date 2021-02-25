@@ -20,6 +20,7 @@ import Tooltip from 'react-bootstrap/Tooltip'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import InputGroup from 'react-bootstrap/InputGroup'
 import { Spinner } from 'react-bootstrap'
 
 import cities from "../data/cities.js"
@@ -228,6 +229,9 @@ const Estimator = () => {
                     no_time_travel
                     estimate_departure_date_not_valid
                     estimate_return_date_not_valid
+                    transportation_above_flight_estimate {
+                        html
+                    }
                 }
             }
         }
@@ -261,9 +265,12 @@ const Estimator = () => {
     useEffect(() => {
         let list = []
         for (let city in geocodedCities) {
+            let province = geocodedCities[city].acrdName.slice(-2)
+            let cityName = geocodedCities[city].acrdName.slice(0, -3)
+            let display = `${cityName}, ${province}`
             list.push({
                 value: geocodedCities[city].google_place_id,
-                label: geocodedCities[city].acrdName,
+                label: display,
             })
         }
         setFilteredCitiesList(list);
@@ -531,7 +538,12 @@ const Estimator = () => {
             setAcrdTotal(total);
             let message = localeCopy.hotel_success.html
             // eslint-disable-next-line no-template-curly-in-string
-            message = message.replace('{location}', `<strong>${destination}</strong>`)
+
+            let province = destination.slice(-2)
+            let cityName = destination.slice(0, -3)
+            let destinationDisplay = `${cityName}, ${province}`
+
+            message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
             // eslint-disable-next-line no-template-curly-in-string
             message = message.replace('${daily rate}', `<strong>$${calculatedApplicableRates[0].rate}</strong>`)
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
@@ -986,15 +998,19 @@ const Estimator = () => {
         if (transportationType === 'flight') {
             if (haveFlightCost && (parseInt(transportationCost) === 0)) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message alert-warning">{formattedMessage('flight_estimate_0')}</span>
+                    element:  <span className="transportation-message">{formattedMessage('flight_zero', 'alert-warning')}</span>
                 })
-            } else if (haveFlightCost && (transportationCost <= transportationEstimates.flight.estimatedValue.toFixed(2))) {
+            } else if (haveFlightCost && (parseFloat(transportationCost) < parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
+                setTransportationMessage({
+                    element:  <span className="transportation-message">{formattedMessage('flight_below_estimate')}</span>
+                })
+            } else if (haveFlightCost && (parseFloat(transportationCost) === parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
                 setTransportationMessage({
                     element:  transportationEstimates.flight.estimatedValueMessage
                 })
-            } else if (haveFlightCost && (transportationCost > transportationEstimates.flight.estimatedValue.toFixed(2))) {
+            } else if (haveFlightCost && (parseFloat(transportationCost) > parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message alert-warning">{formattedMessage('transportation_above_flight_estimate')}</span>
+                    element:  <span className="transportation-message">{formattedMessage('transportation_above_flight_estimate')}</span>
                 })
             }
 
@@ -1302,15 +1318,11 @@ const Estimator = () => {
                                 onChange={(e)  => {
                                     if (result) {
                                         setTransportationCost(e.target.value)
-                                    }
-                                    // if (parseFloat(e.target.value) === 0) {
-                                    //     setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.html }}></span> })
-                                    // }
-                                    
+                                    }                                    
                                 }}
                                 onBlur={calculateTotal}
                                 value={transportationCost}
-                                disabled={enterKilometricsDistanceManually && transportationType === 'private' ? true : false}
+                                disabled={transportationType === 'private' ? true : false}
                             >
                             </input>
                         </ConditionalWrap>
@@ -1332,13 +1344,23 @@ const Estimator = () => {
                                         checked={enterKilometricsDistanceManually}
                                         onChange={(e) => setEnterKilometricsDistanceManually(!enterKilometricsDistanceManually)}
                                     />
-                                    {enterKilometricsDistanceManually && 
-                                        <Form.Control type="privateKilometrics"
-                                            value={privateKilometricsValue}
-                                            onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
-                                            onChange={(e) => {
-                                                setPrivateKilometricsValue(e.target.value)
-                                            }} />
+                                    {enterKilometricsDistanceManually &&
+                                        <InputGroup>
+                                            <Form.Control type="privateKilometrics"
+                                                value={privateKilometricsValue}
+                                                onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
+                                                onChange={(e) => {
+                                                    setPrivateKilometricsValue(e.target.value)
+                                                }}
+                                                aria-describedby="km"
+                                            />
+                                            <InputGroup.Append>
+                                                <InputGroup.Text id="km">km</InputGroup.Text>
+                                            </InputGroup.Append>
+                                        </InputGroup>
+
+
+
                                     }
                                     {!enterKilometricsDistanceManually &&
                                         <span>Enter distance manually</span>
@@ -1397,7 +1419,7 @@ const Estimator = () => {
                 <div className="row mb-4">
                     <div className="col-sm-6 align-self-center text-right">
                         <hr />
-                        <strong className="mr-2">{formattedMessage('total_cost')}</strong>{'$ ' + summaryCost}
+                        <strong className="mr-2">{formattedMessage('total_cost')}</strong>{'$' + parseFloat(summaryCost).toLocaleString('en', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
                     </div>
                     <div className="col-sm-6 align-self-center text-wrap">
                     </div>
