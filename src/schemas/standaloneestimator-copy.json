@@ -236,16 +236,10 @@
         "label": "email_form_notes"
       }
     },
-    "email_form_notes_placeholder" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "email_form_notes_placeholder"
-      }
-    },
-    "email_form_is_public_servant_checkbox_label" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "email_form_is_public_servant_checkbox_label"
+    "email_form_notes_placeholder": {
+      "type": "Text",
+      "config": {
+        "label": "email_form_notes_placeholder"
       }
     },
     "email_form_is_public_servant_checkbox_label": {
@@ -456,6 +450,14 @@
         "label": "flight_zero"
       }
     },
+    "transportation_above_flight_estimate": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "allowTargetBlank": true,
+        "label": "transportation_above_flight_estimate"
+      }
+    },
     "flight_below_estimate": {
       "type": "StructuredText",
       "config": {
@@ -488,6 +490,7 @@
       "type": "StructuredText",
       "config": {
         "multi": "strong, em, hyperlink",
+        "allowTargetBlank": true,
         "label": "train_success"
       }
     },
@@ -523,6 +526,7 @@
       "type": "StructuredText",
       "config": {
         "multi": "strong, em, hyperlink",
+        "allowTargetBlank": true,
         "label": "rental_car_success"
       }
     },
@@ -537,6 +541,7 @@
       "type": "StructuredText",
       "config": {
         "multi": "strong, em, hyperlink",
+        "allowTargetBlank": true,
         "label": "private_vehicle_above_estimate"
       }
     },
@@ -544,6 +549,7 @@
       "type": "StructuredText",
       "config": {
         "multi": "strong, em, hyperlink",
+        "allowTargetBlank": true,
         "label": "private_vehicle_below_estimate"
       }
     },
@@ -551,6 +557,7 @@
       "type": "StructuredText",
       "config": {
         "multi": "strong, em, hyperlink",
+        "allowTargetBlank": true,
         "label": "private_vehicle_error"
       }
     },
@@ -604,10 +611,10 @@
         "label": "could_not_fetch_you_have_entered_own"
       }
     },
-    "private_vehicle" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "private_vehicle"
+    "private_vehicle": {
+      "type": "Text",
+      "config": {
+        "label": "private_vehicle"
       }
     }
   },
@@ -708,6 +715,238 @@
       "type": "Text",
       "config": {
         "label": "estimate_application_error_text"
+      }
+    }
+  },
+  "Confirmation Email": {
+    "confirmation_email_title": {
+      "type": "Text",
+      "config": {
+        "label": "confirmation_email_title"
+      }
+    },
+    "confirmation_title_lead": {
+      "type": "Text",
+      "config": {
+        "label": "confirmation_email_title_lead"
+      }
+    },
+    "confirmation_email_opening_body": {
+      "type": "Text",
+      "config": {
+        "label": "confirmation_email_opening_body"
+      }
+    },
+    "confirmation_email_objective": {
+      "type": "Text",
+      "config": {
+        "label": "confirmation_email_objective"
+      }
+    },
+    "confirmation_email_category": {
+      "type": "Text",
+      "config": {
+        "label": "confirmation_email_category"
+      }
+    },
+    "confirmation_email_publicservant": {
+      "type": "Text",
+      "config": {
+        "label": "confirmation_email_publicservant"
+      }
+    },
+    "confirmation_email_origin": {
+      "type": "Text",
+      "config": {
+        "label": "confirmation_email_origin"
+      }
+    },
+    "confirmation_email_destination": {
+      "type": "Text",
+      "config": {
+        "label": "confirmation_email_destination"
+      }
+    },
+    "confirmation_email_departure": {
+      "type": "Text",
+      "config": {
+        "label": "confirmation_email_departure"
+      }
+    },
+    "confirmation_email_return": {
+      "type": "Text",
+      "config": {
+        "label": "confirmation_email_return"
+      }
+    },
+    "confirmation_email_details_header": {
+      "type": "Text",
+      "config": {
+        "label": "confirmation_email_details_header"
+      }
+    },
+    "confirmation_email_accomodation": {
+      "type": "Text",
+      "config": {
+        "label": "confirmation_email_accomodation"
+      }
+    },
+    "confirmation_email_transportation": {
+      "type": "Text",
+      "config": {
+        "label": "confirmation_email_transportation"
+      }
+    },
+    "confirmation_email_local": {
+      "type": "Text",
+      "config": {
+        "label": "confirmation_email_local"
+      }
+    },
+    "confirmation_email_meals": {
+      "type": "Text",
+      "config": {
+        "label": "confirmation_email_meals"
+      }
+    },
+    "confirmation_email_other": {
+      "type": "Text",
+      "config": {
+        "label": "confirmation_email_other"
+      }
+    },
+    "confirmation_email_total": {
+      "type": "Text",
+      "config": {
+        "label": "confirmation_email_total"
+      }
+    },
+    "confirmation_email_notes": {
+      "type": "Text",
+      "config": {
+        "label": "confirmation_email_notes"
+      }
+    },
+    "confirmation_email_thankyou": {
+      "type": "Text",
+      "config": {
+        "label": "confirmation_email_thankyou"
+      }
+    }
+  },
+  "Supervisor Email": {
+    "supervisor_email_title": {
+      "type": "Text",
+      "config": {
+        "label": "supervisor_email_title"
+      }
+    },
+    "supervisor_email_title_lead": {
+      "type": "Text",
+      "config": {
+        "label": "supervisor_email_title_lead"
+      }
+    },
+    "supervisor_email_opening_body": {
+      "type": "Text",
+      "config": {
+        "label": "supervisor_email_opening_body"
+      }
+    },
+    "supervisor_email_objective": {
+      "type": "Text",
+      "config": {
+        "label": "supervisor_email_objective"
+      }
+    },
+    "supervisor_email_category": {
+      "type": "Text",
+      "config": {
+        "label": "supervisor_email_category"
+      }
+    },
+    "supervisor_email_publicservant": {
+      "type": "Text",
+      "config": {
+        "label": "supervisor_email_publicservant"
+      }
+    },
+    "supervisor_email_origin": {
+      "type": "Text",
+      "config": {
+        "label": "supervisor_email_origin"
+      }
+    },
+    "supervisor_email_destination": {
+      "type": "Text",
+      "config": {
+        "label": "supervisor_email_destination"
+      }
+    },
+    "supervisor_email_departure": {
+      "type": "Text",
+      "config": {
+        "label": "supervisor_email_departure"
+      }
+    },
+    "supervisor_email_return": {
+      "type": "Text",
+      "config": {
+        "label": "supervisor_email_return"
+      }
+    },
+    "supervisor_email_details_header": {
+      "type": "Text",
+      "config": {
+        "label": "supervisor_email_details_header"
+      }
+    },
+    "supervisor_email_accomodation": {
+      "type": "Text",
+      "config": {
+        "label": "supervisor_email_accomodation"
+      }
+    },
+    "supervisor_email_transportation": {
+      "type": "Text",
+      "config": {
+        "label": "supervisor_email_transportation"
+      }
+    },
+    "supervisor_email_local": {
+      "type": "Text",
+      "config": {
+        "label": "supervisor_email_local"
+      }
+    },
+    "supervisor_email_meals": {
+      "type": "Text",
+      "config": {
+        "label": "supervisor_email_meals"
+      }
+    },
+    "supervisor_email_other": {
+      "type": "Text",
+      "config": {
+        "label": "supervisor_email_other"
+      }
+    },
+    "supervisor_email_total": {
+      "type": "Text",
+      "config": {
+        "label": "supervisor_email_total"
+      }
+    },
+    "supervisor_email_notes": {
+      "type": "Text",
+      "config": {
+        "label": "supervisor_email_notes"
+      }
+    },
+    "supervisor_email_questions": {
+      "type": "Text",
+      "config": {
+        "label": "supervisor_email_questions"
       }
     }
   }
