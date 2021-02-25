@@ -579,8 +579,6 @@ const Estimator = () => {
             console.log('amadeusAccessTokenCheck', error)
         }
 
-        console.log('originData', originData)
-
         if (originData.airports.length > 0 && destinationData.airports.length > 0) {
             amadeusFlightOffer(originData.airports[0].iataCode, destinationData.airports[0].iataCode, departureDateISODate, returnDateISODate, amadeusAccessToken.token)
             .then(response => response.json())
@@ -721,9 +719,6 @@ const Estimator = () => {
                 setSubmitValidationWarnings([]);
                 setTransportationType('flight')
                 setAccommodationType('hotel')
-
-                console.log('departureDateLux', departureDateLux)
-                console.log('returnDateLux', returnDateLux)
 
                 let numberOfDays = Interval.fromDateTimes(
                     departureDateLux,
