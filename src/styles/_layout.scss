@@ -240,9 +240,14 @@ a:focus {
     box-shadow: none;
 }
 
+.transportation-message > span > p {
+    display: inline;
+    margin-bottom: 0;
+}
+
 .transportation-message > p {
     display: inline;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 #button-tooltip > p {
