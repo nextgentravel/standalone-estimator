@@ -4,6 +4,7 @@ import Autocomplete from 'accessible-autocomplete/react'
 const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, options, updateValue}) => {
     let showValidationWarning = false;
     let componentWarnings = [];
+
     validationWarnings.forEach(warning => {
         if (warning.path === name) {
             componentWarnings.push(warning);
@@ -37,6 +38,7 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
                     onConfirm={value => {
                         // do our validation here?
                         // if this is a valid option, then:
+                        value = value.replace(',','');
                         updateValue(value)
                         // if not, set it to blank, so it will fail validation
                     }}
