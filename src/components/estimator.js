@@ -223,6 +223,9 @@ const Estimator = () => {
                         html
                     }
                     private_vehicle
+                    transportation_above_flight_estimate {
+                        html
+                    }
                 }
             }
         }
@@ -962,15 +965,19 @@ const Estimator = () => {
         if (transportationType === 'flight') {
             if (haveFlightCost && (parseInt(transportationCost) === 0)) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message alert-warning">{formattedMessage('flight_estimate_0')}</span>
+                    element:  <span className="transportation-message">{formattedMessage('flight_zero', 'alert-warning')}</span>
                 })
-            } else if (haveFlightCost && (transportationCost <= transportationEstimates.flight.estimatedValue.toFixed(2))) {
+            } else if (haveFlightCost && (parseFloat(transportationCost) < parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
+                setTransportationMessage({
+                    element:  <span className="transportation-message">{formattedMessage('flight_below_estimate')}</span>
+                })
+            } else if (haveFlightCost && (parseFloat(transportationCost) === parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
                 setTransportationMessage({
                     element:  transportationEstimates.flight.estimatedValueMessage
                 })
-            } else if (haveFlightCost && (transportationCost > transportationEstimates.flight.estimatedValue.toFixed(2))) {
+            } else if (haveFlightCost && (parseFloat(transportationCost) > parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message alert-warning">{formattedMessage('transportation_above_flight_estimate')}</span>
+                    element:  <span className="transportation-message">{formattedMessage('transportation_above_flight_estimate')}</span>
                 })
             }
 
@@ -1280,15 +1287,11 @@ const Estimator = () => {
                                 onChange={(e)  => {
                                     if (result) {
                                         setTransportationCost(e.target.value)
-                                    }
-                                    // if (parseFloat(e.target.value) === 0) {
-                                    //     setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.html }}></span> })
-                                    // }
-                                    
+                                    }                                    
                                 }}
                                 onBlur={calculateTotal}
                                 value={transportationCost}
-                                disabled={enterKilometricsDistanceManually && transportationType === 'private' ? true : false}
+                                disabled={transportationType === 'private' ? true : false}
                             >
                             </input>
                         </ConditionalWrap>
