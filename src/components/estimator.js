@@ -18,6 +18,7 @@ import Tooltip from 'react-bootstrap/Tooltip'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import InputGroup from 'react-bootstrap/InputGroup'
 import { Spinner } from 'react-bootstrap'
 
 import cities from "../data/cities.js"
@@ -1313,13 +1314,23 @@ const Estimator = () => {
                                         checked={enterKilometricsDistanceManually}
                                         onChange={(e) => setEnterKilometricsDistanceManually(!enterKilometricsDistanceManually)}
                                     />
-                                    {enterKilometricsDistanceManually && 
-                                        <Form.Control type="privateKilometrics"
-                                            value={privateKilometricsValue}
-                                            onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
-                                            onChange={(e) => {
-                                                setPrivateKilometricsValue(e.target.value)
-                                            }} />
+                                    {enterKilometricsDistanceManually &&
+                                        <InputGroup>
+                                            <Form.Control type="privateKilometrics"
+                                                value={privateKilometricsValue}
+                                                onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
+                                                onChange={(e) => {
+                                                    setPrivateKilometricsValue(e.target.value)
+                                                }}
+                                                aria-describedby="km"
+                                            />
+                                            <InputGroup.Append>
+                                                <InputGroup.Text id="km">km</InputGroup.Text>
+                                            </InputGroup.Append>
+                                        </InputGroup>
+
+
+
                                     }
                                     {!enterKilometricsDistanceManually &&
                                         <span>Enter distance manually</span>
