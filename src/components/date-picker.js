@@ -1,7 +1,6 @@
 
 import React, { useState } from "react"
 import { DateRangePicker } from 'react-dates';
-import moment from 'moment';
 import "react-dates/initialize";
 
 const DatePickerComponent = ({startDate, endDate, initialStart, setStart, initialEnd, setEnd, label, screenReaderInputMessage}) => {
