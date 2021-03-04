@@ -15,7 +15,7 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
         var results = options.map((option) => option.label);
         syncResults(query
           ? results.filter(function (result) {
-              return result.toLowerCase().indexOf(query.toLowerCase()) !== -1
+              return result.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").indexOf(query.toLowerCase()) !== -1
             })
           : []
         )
