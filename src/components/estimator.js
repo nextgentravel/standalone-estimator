@@ -35,8 +35,8 @@ import fetchDistanceBetweenPlaces from '../api-calls/fetchDistanceBetweenPlaces'
 
 import './extra/estimator-print.css'
 
-let initialDeparture = moment().add(1, 'days')
-let initialReturn = moment().add(2, 'days')
+let initialDeparture = null
+let initialReturn = null
 
 const ConditionalWrap = ({ condition, wrap, children }) => (
     condition ? wrap(children) : children
