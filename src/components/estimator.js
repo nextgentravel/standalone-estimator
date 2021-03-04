@@ -907,7 +907,7 @@ const Estimator = () => {
         handleSubmitEmailValidation()
             .then(async (valid) => {
                 setEmailValidationWarnings([]);
-                fetch('/api/sendEstimateEmail', {
+                fetch('/api/sendEstimateEmailCeres', {
                     method: 'post',
                     body: JSON.stringify({
                         departureDate: departureDate.format("YYYY-MM-DD"),
