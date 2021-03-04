@@ -56,7 +56,7 @@ module.exports = async function (context, req) {
               
               ${body.tripName}<br /><br />
               
-              Category: ${body.travelCategory}<br />
+              Objective: ${body.travelCategory}<br />
               Public Servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
                 
               Origin: ${body.origin}<br />
@@ -108,7 +108,7 @@ module.exports = async function (context, req) {
 
               ${body.tripName}<br /><br />
               
-              Category: ${body.travelCategory}<br />
+              Objective: ${body.travelCategory}<br />
               Public Servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
                 
               Origin: ${body.origin}<br />
