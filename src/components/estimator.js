@@ -246,7 +246,6 @@ const Estimator = () => {
         if (messageType === 'string') {
             message = localeCopy[prismicKey]
         } else if (messageType === 'object' && localeCopy[prismicKey] !== null) {
-            console.log('localeCopy[prismicKey]: ', localeCopy[prismicKey])
             message = <span className={classes} dangerouslySetInnerHTML={{ __html: localeCopy[prismicKey].html }}></span>
         } else {
             message = 'MISSING MESSAGE ' + prismicKey
@@ -430,7 +429,6 @@ const Estimator = () => {
 
     function displayTransportationMessage() {
         let calculateKilometrics = privateKilometricsValue * (privateVehicleRate / 100);
-        console.log('privateVehicleSuccess', privateVehicleSuccess)
         if (privateVehicleSuccess && privateKilometricsValue === (returnDistance / 1000).toFixed(2)) {
             localeCopy.private_vehicle_success.html = localeCopy.private_vehicle_success.html.replace('{rate}', `<strong>${privateVehicleRate}</strong>`)
             localeCopy.private_vehicle_success.html = localeCopy.private_vehicle_success.html.replace('{distance}', `<strong>${(returnDistance / 1000).toFixed(0)}</strong>`)
@@ -1253,7 +1251,14 @@ const Estimator = () => {
                                         setAccommodationCost(e.target.value)
                                     }
                                 }}
-                                onBlur={calculateTotal}
+                                onBlur={(e) => {
+                                    if (isNaN(parseFloat(e.target.value))) {
+                                        setAccommodationCost(parseFloat(0.00).toFixed(2))
+                                    } else {
+                                        setAccommodationCost(parseFloat(e.target.value).toFixed(2) || 0.00)
+                                    }
+                                    calculateTotal()
+                                }}
                                 value={accommodationCost}>
                             </input>
                         </ConditionalWrap>
@@ -1285,7 +1290,6 @@ const Estimator = () => {
                                             aria-label="Transportation Type"
                                             className="custom-select mb-2"
                                             onChange={e => {
-                                                console.log("result", result)
                                                 if (result) {
                                                     setTransportationType(e.target.value)
                                                 }
@@ -1321,7 +1325,14 @@ const Estimator = () => {
                                         setTransportationCost(e.target.value)
                                     }                                    
                                 }}
-                                onBlur={calculateTotal}
+                                onBlur={(e) => {
+                                    if (isNaN(parseFloat(e.target.value))) {
+                                        setTransportationCost(parseFloat(0.00).toFixed(2))
+                                    } else {
+                                        setTransportationCost(parseFloat(e.target.value).toFixed(2) || 0.00)
+                                    }
+                                    calculateTotal();
+                                }}
                                 value={transportationCost}
                                 disabled={transportationType === 'private' ? true : false}
                             >
@@ -1376,7 +1387,7 @@ const Estimator = () => {
                 <EstimatorRow
                     overlayRender={renderEnterTravelInfoAboveTooltip}
                     result={result}
-                    value={localTransportationCost || '0.00'}
+                    value={localTransportationCost || ''}
                     name="localTransportation"
                     id="localTransportation"
                     description="localTransportationDescription"
@@ -1406,7 +1417,7 @@ const Estimator = () => {
                 <EstimatorRow
                     overlayRender={renderEnterTravelInfoAboveTooltip}
                     result={result}
-                    value={otherCost || '0.00'}
+                    value={otherCost || ''}
                     name="otherAllowances"
                     id="otherAllowances"
                     message={{ element: result ? formattedMessage('other_allowances_message') : <span></span>}}
