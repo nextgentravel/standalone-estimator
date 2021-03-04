@@ -11,32 +11,6 @@ module.exports = async function (context, req) {
         region: process.env.AWS_SES_REGION
     };
     
-    console.log(SESConfig)
-
-    // ${body.departureDate}
-    // ${body.returnDate}
-    // ${body.origin}
-    // ${body.destination}
-    // ${body.accommodationType}
-    // ${body.accommodationCost}
-    // ${body.accommodationMessage}
-    // ${body.transportationType}
-    // ${body.transportationCost}
-    // ${body.transportationMessage}
-    // ${body.localTransportationCost}
-    // ${body.localTransportationMessage}
-    // ${body.mealCost: mealCost.total}
-    // ${body.otherCost}
-    // ${body.tripName}
-    // ${body.travellersName}
-    // ${body.travellersEmail}
-    // ${body.approversName}
-    // ${body.approversEmail}
-    // ${body.tripNotes}
-    // ${body.summaryCost}
-    // ${body.travelCategory}
-    // ${body.travellerIsPublicServant}
-
     let confirmationParams = {
       Source: 'GC Travel Calculator <tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca>',
       Destination: {
