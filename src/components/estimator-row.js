@@ -55,7 +55,6 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                         updateCost(e.target.value)
                     }}
                     onBlur={(e) => {
-                        console.log(e.target.value)
                         if (isNaN(parseFloat(e.target.value))) {
                             updateCost(parseFloat(0.00).toFixed(2))
                         } else {
