@@ -54,7 +54,14 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                         if (!result) return;
                         updateCost(e.target.value)
                     }}
-                    onBlur={calculateTotal}
+                    onBlur={(e) => {
+                        if (isNaN(parseFloat(e.target.value))) {
+                            updateCost(parseFloat(0.00).toFixed(2))
+                        } else {
+                            updateCost(parseFloat(e.target.value).toFixed(2) || 0.00)
+                        }
+                        calculateTotal();
+                    }}
                 >
                 </input>
             </ConditionalWrap>
