@@ -795,6 +795,7 @@ const Estimator = () => {
         setReturnDate(initialDates.return);
         setMealsByDay({})
         setMealCost(0.00)
+        setOtherCost(0.00)
         setResult(false)
         setSubmitValidationWarnings([]);
 
