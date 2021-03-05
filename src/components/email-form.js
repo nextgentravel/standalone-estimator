@@ -55,6 +55,7 @@ const EmailForm = (props) => {
                         onChange={(e) => {
                             props.setTravellerIsPublicServant(!props.travellerIsPublicServant)
                         }}
+                        defaultChecked={props.travellerIsPublicServant}
                     />
                 </Col>
             </Form.Group>
