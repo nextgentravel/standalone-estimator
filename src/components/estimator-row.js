@@ -43,27 +43,33 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                         overlay={overlayRender}
                     >{children}</OverlayTrigger>)}
             >
-                <input
-                    disabled={disabled}
-                    type="text"
-                    value={value}
-                    className="form-control mb-2"
-                    id={id}
-                    name={name}
-                    onChange={(e) => {
-                        if (!result) return;
-                        updateCost(e.target.value)
-                    }}
-                    onBlur={(e) => {
-                        if (isNaN(parseFloat(e.target.value))) {
-                            updateCost(parseFloat(0.00).toFixed(2))
-                        } else {
-                            updateCost(parseFloat(e.target.value).toFixed(2) || 0.00)
-                        }
-                        calculateTotal();
-                    }}
-                >
-                </input>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id={`${name}-dollar-sign`}>$</span>
+                    </div>
+
+                    <input
+                        disabled={disabled}
+                        type="text"
+                        value={value}
+                        className="form-control"
+                        id={id}
+                        name={name}
+                        onChange={(e) => {
+                            if (!result) return;
+                            updateCost(e.target.value)
+                        }}
+                        onBlur={(e) => {
+                            if (isNaN(parseFloat(e.target.value))) {
+                                updateCost(parseFloat(0.00).toFixed(2))
+                            } else {
+                                updateCost(parseFloat(e.target.value).toFixed(2) || 0.00)
+                            }
+                            calculateTotal();
+                        }}
+                    >
+                    </input>
+                </div>
             </ConditionalWrap>
 
 
