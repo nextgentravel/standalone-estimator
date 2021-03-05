@@ -1200,67 +1200,73 @@ const Estimator = () => {
                                     overlay={renderEnterTravelInfoAboveTooltip}
                                 >{children}</OverlayTrigger>)}
                         >
-                            <input
-                                disabled={accommodationType === "private"}
-                                type="text"
-                                className="form-control mb-2"
-                                id={"accommodation_select"}
-                                name={'accommodation'}
-                                onChange={(e) => {
-                                    if (!result) return;
-                                    if (parseFloat(e.target.value) > acrdTotal) {
-                                        setAccommodationCost(e.target.value)
-                                        let message = localeCopy.hotel_above_estimate.html
-                                        message = message.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
-                                        message = message.replace('{tripTotal}', `<strong>${acrdTotal}</strong>`)
-                                        setAccommodationMessage({ element: 
-                                        <div className="mb-0 alert-warning">
-                                            <>
-                                                <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: message }}></span>
-                                                <OverlayTrigger
-                                                    placement="top"
-                                                    delay={{ show: 250, hide: 400 }}
-                                                    overlay={renderAccommodationTooltip}
-                                                >
-                                                    <FaQuestionCircle className="ml-2 mb-1" size="15" fill="#9E9E9E" />
-                                                </OverlayTrigger>
-                                            </>
-                                        </div>
-                                        , style: 'warn' });
-                                    } else if (parseFloat(e.target.value) === 0) {
-                                        setAccommodationCost(e.target.value)
-                                        // localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
-                                        setAccommodationMessage({ element: 
-                                        <div className="mb-0 alert-warning">
-                                            <>
-                                                <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
-                                            </>
-                                        </div>
-                                        , style: 'warn' });
-                                    } else if (parseFloat(e.target.value) <= acrdTotal) {
-                                        setAccommodationCost(e.target.value)
-                                        let message = localeCopy.hotel_below_estimate.html
-                                        message = message.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
-                                        message = message.replace('{tripTotal}', `<strong>${acrdTotal}</strong>`)
-                                        setAccommodationMessage({ element: 
-                                        <div className="mb-0">
-                                            <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span>
-                                        </div>
-                                        , style: 'success' });
-                                    } else {
-                                        setAccommodationCost(e.target.value)
-                                    }
-                                }}
-                                onBlur={(e) => {
-                                    if (isNaN(parseFloat(e.target.value))) {
-                                        setAccommodationCost(parseFloat(0.00).toFixed(2))
-                                    } else {
-                                        setAccommodationCost(parseFloat(e.target.value).toFixed(2) || 0.00)
-                                    }
-                                    calculateTotal()
-                                }}
-                                value={accommodationCost}>
-                            </input>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="accommodation-dollar-sign">$</span>
+                                </div>
+
+                                <input
+                                    disabled={accommodationType === "private"}
+                                    type="text"
+                                    className="form-control"
+                                    id={"accommodation_select"}
+                                    name={'accommodation'}
+                                    onChange={(e) => {
+                                        if (!result) return;
+                                        if (parseFloat(e.target.value) > acrdTotal) {
+                                            setAccommodationCost(e.target.value)
+                                            let message = localeCopy.hotel_above_estimate.html
+                                            message = message.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
+                                            message = message.replace('{tripTotal}', `<strong>${acrdTotal}</strong>`)
+                                            setAccommodationMessage({ element: 
+                                            <div className="mb-0 alert-warning">
+                                                <>
+                                                    <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: message }}></span>
+                                                    <OverlayTrigger
+                                                        placement="top"
+                                                        delay={{ show: 250, hide: 400 }}
+                                                        overlay={renderAccommodationTooltip}
+                                                    >
+                                                        <FaQuestionCircle className="ml-2 mb-1" size="15" fill="#9E9E9E" />
+                                                    </OverlayTrigger>
+                                                </>
+                                            </div>
+                                            , style: 'warn' });
+                                        } else if (parseFloat(e.target.value) === 0) {
+                                            setAccommodationCost(e.target.value)
+                                            // localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
+                                            setAccommodationMessage({ element: 
+                                            <div className="mb-0 alert-warning">
+                                                <>
+                                                    <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
+                                                </>
+                                            </div>
+                                            , style: 'warn' });
+                                        } else if (parseFloat(e.target.value) <= acrdTotal) {
+                                            setAccommodationCost(e.target.value)
+                                            let message = localeCopy.hotel_below_estimate.html
+                                            message = message.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
+                                            message = message.replace('{tripTotal}', `<strong>${acrdTotal}</strong>`)
+                                            setAccommodationMessage({ element: 
+                                            <div className="mb-0">
+                                                <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span>
+                                            </div>
+                                            , style: 'success' });
+                                        } else {
+                                            setAccommodationCost(e.target.value)
+                                        }
+                                    }}
+                                    onBlur={(e) => {
+                                        if (isNaN(parseFloat(e.target.value))) {
+                                            setAccommodationCost(parseFloat(0.00).toFixed(2))
+                                        } else {
+                                            setAccommodationCost(parseFloat(e.target.value).toFixed(2) || 0.00)
+                                        }
+                                        calculateTotal()
+                                    }}
+                                    value={accommodationCost}>
+                                </input>
+                            </div>
                         </ConditionalWrap>
                     </div>
                     <div className="col-sm-6 align-self-center text-wrap mb-2">
@@ -1315,28 +1321,35 @@ const Estimator = () => {
                                     overlay={renderEnterTravelInfoAboveTooltip}
                                 >{children}</OverlayTrigger>)}
                         >
-                            <input
-                                type="text"
-                                className={`form-control mb-2`}
-                                id={"transportation_select"}
-                                name={'transportation'}
-                                onChange={(e)  => {
-                                    if (result) {
-                                        setTransportationCost(e.target.value)
-                                    }                                    
-                                }}
-                                onBlur={(e) => {
-                                    if (isNaN(parseFloat(e.target.value))) {
-                                        setTransportationCost(parseFloat(0.00).toFixed(2))
-                                    } else {
-                                        setTransportationCost(parseFloat(e.target.value).toFixed(2) || 0.00)
-                                    }
-                                    calculateTotal();
-                                }}
-                                value={transportationCost}
-                                disabled={transportationType === 'private' ? true : false}
-                            >
-                            </input>
+
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="transportation-dollar-sign">$</span>
+                                </div>
+
+                                <input
+                                    type="text"
+                                    className={`form-control`}
+                                    id={"transportation_select"}
+                                    name={'transportation'}
+                                    onChange={(e)  => {
+                                        if (result) {
+                                            setTransportationCost(e.target.value)
+                                        }                                    
+                                    }}
+                                    onBlur={(e) => {
+                                        if (isNaN(parseFloat(e.target.value))) {
+                                            setTransportationCost(parseFloat(0.00).toFixed(2))
+                                        } else {
+                                            setTransportationCost(parseFloat(e.target.value).toFixed(2) || 0.00)
+                                        }
+                                        calculateTotal();
+                                    }}
+                                    value={transportationCost}
+                                    disabled={transportationType === 'private' ? true : false}
+                                >
+                                </input>
+                            </div>
                         </ConditionalWrap>
                     </div>
                     <div className="col-sm-6 align-self-center text-wrap mb-2">
