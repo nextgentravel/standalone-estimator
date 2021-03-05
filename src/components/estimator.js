@@ -779,7 +779,7 @@ const Estimator = () => {
 
     const clearForm = async () => {
 
-        setAccommodationCost(0.00);
+        setAccommodationCost(parseFloat(0.00).toFixed(2))
         setAccommodationMessage({ element: <span></span>, style: 'primary' });
         setHaveFlightCost(false)
         setTransportationEstimates(transportationEstimatesInitialState);
@@ -788,12 +788,12 @@ const Estimator = () => {
         setEmailConfirmationModalShow(false);
         setEmailModalShow(false);
         setLocalTransportationMessage({ element: <span></span>, style: 'primary' });
-        setLocalTransportationCost(0.00);
+        setLocalTransportationCost(parseFloat(0.00).toFixed(2));
         setDepartureDate(initialDates.departure);
         setReturnDate(initialDates.return);
         setMealsByDay({})
-        setMealCost(0.00)
-        setOtherCost(0.00)
+        setMealCost(parseFloat(0.00).toFixed(2))
+        setOtherCost(parseFloat(0.00).toFixed(2))
         setResult(false)
         setSubmitValidationWarnings([]);
 
