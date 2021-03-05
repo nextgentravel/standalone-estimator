@@ -25,7 +25,7 @@ const DatePickerComponent = ({startDate, endDate, initialStart, setStart, initia
                     screenReaderInputMessage={screenReaderInputMessage}
                     required={true}
                     showDefaultInputIcon={true}
-                    displayFormat="DD-MM-YYYY"
+                    displayFormat="YYYY-MM-DD"
                 />
             </div>
         </div>
