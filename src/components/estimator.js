@@ -399,7 +399,7 @@ const Estimator = () => {
     const [approversName, setApproversName] = useState('');
     const [approversEmail, setApproversEmail] = useState('');
     const [tripNotes, setTripNotes] = useState('');
-    const [travellerIsPublicServant, setTravellerIsPublicServant] = useState(false);
+    const [travellerIsPublicServant, setTravellerIsPublicServant] = useState(true);
     const [travelCategory, setTravelCategory] = useState('');
 
     const transportationEstimatesInitialState = {
