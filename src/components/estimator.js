@@ -585,7 +585,7 @@ const Estimator = () => {
 
             message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
             // eslint-disable-next-line no-template-curly-in-string
-            message = message.replace('${daily rate}', `<strong>${localCurrencyDisplay(calculatedApplicableRates[0].rate)}</strong>`)
+            message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(calculatedApplicableRates[0].rate)}</strong>`)
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
         } catch (error) {
             console.log('fetchHotelHostError', error);
@@ -1262,8 +1262,8 @@ const Estimator = () => {
                                         if (parseFloat(e.target.value) > acrdTotal) {
                                             setAccommodationCost(e.target.value)
                                             let message = localeCopy.hotel_above_estimate.html
-                                            message = message.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
-                                            message = message.replace('{tripTotal}', `<strong>${acrdTotal}</strong>`)
+                                            message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
+                                            message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
                                             setAccommodationMessage({ element: 
                                             <div className="mb-0 alert-warning">
                                                 <>
@@ -1291,8 +1291,8 @@ const Estimator = () => {
                                         } else if (parseFloat(e.target.value) <= acrdTotal) {
                                             setAccommodationCost(e.target.value)
                                             let message = localeCopy.hotel_below_estimate.html
-                                            message = message.replace('{daily rate}', `<strong>${applicableRates[0].rate}</strong>`)
-                                            message = message.replace('{tripTotal}', `<strong>${acrdTotal}</strong>`)
+                                            message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
+                                            message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
                                             setAccommodationMessage({ element: 
                                             <div className="mb-0">
                                                 <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span>
