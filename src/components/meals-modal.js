@@ -12,6 +12,10 @@ const MealsModal = (props) => {
         }
     })
 
+    const localCurrencyDisplay = (string) => {
+        return string.toLocaleString(props.locale, {minimumFractionDigits: 2, maximumFractionDigits: 2, style: 'currency', currency: 'CAD', currencyDisplay: 'symbol'}).replace('CA', '')
+    }
+
     let handleChange = (e) => {
         let checked = e.target.checked
         let name = e.target.name
@@ -52,7 +56,7 @@ const MealsModal = (props) => {
                                     onChange={handleChange}
                                 />
                                 <label>
-                                    {props.messages.meals_modal_breakfast} <small>${mealCost.breakfast}</small>
+                                    {props.messages.meals_modal_breakfast} <small>{mealCost.breakfast && localCurrencyDisplay(mealCost.breakfast)}</small>
                                 </label>
                             </div>
                             <div className="col-sm">
@@ -64,7 +68,7 @@ const MealsModal = (props) => {
                                     onChange={handleChange}
                                 />
                                 <label>
-                                    {props.messages.meals_modal_lunch} <small>${mealCost.lunch}</small>
+                                    {props.messages.meals_modal_lunch} <small>{mealCost.lunch && localCurrencyDisplay(mealCost.lunch)}</small>
                                 </label>
                             </div>
                             <div className="col-sm">
@@ -76,7 +80,7 @@ const MealsModal = (props) => {
                                     onChange={handleChange}
                                 />
                                 <label>
-                                    {props.messages.meals_modal_dinner} <small>${mealCost.dinner}</small>
+                                    {props.messages.meals_modal_dinner} <small>{mealCost.dinner && localCurrencyDisplay(mealCost.dinner)}</small>
                                 </label>
                             </div>
                             <div className="col-sm">
@@ -88,7 +92,7 @@ const MealsModal = (props) => {
                                     onChange={handleChange}
                                 />
                                 <label>
-                                    {props.messages.meals_modal_incidental} <small>${mealCost.incidentals}</small>
+                                    {props.messages.meals_modal_incidental} <small>{mealCost.incidentals && localCurrencyDisplay(mealCost.incidentals)}</small>
                                 </label>
                             </div>
                         </div>
@@ -96,7 +100,7 @@ const MealsModal = (props) => {
                 })}
             </Modal.Body>
             <Modal.Footer>
-                <div className="mb-2 mr-3">${mealCost.total}</div>
+                <div className="mb-2 mr-3">{mealCost.total && localCurrencyDisplay(mealCost.total)}</div>
                 <button type="button" className="btn btn-primary" onClick={() => { props.onHide() }}>{props.messages.meals_modal_submit}</button>
             </Modal.Footer>
       </Modal>

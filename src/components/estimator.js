@@ -272,6 +272,8 @@ const Estimator = () => {
                     datepicker_date_is_selected
                     datepicker_date_is_selected_as_start_date
                     datepicker_date_is_selected_as_end_date
+                    datepicker_start_date
+                    datepicker_end_date
                 }
             }
         }
@@ -1126,6 +1128,7 @@ const Estimator = () => {
                 onHide={() => setMealsModalShow(false)}
                 setMealsByDay={setMealsByDay}
                 messages={localeCopy}
+                locale={locale}
             />
             <h2 className="mb-4">{localeCopy.title.text}</h2>
             <div className="lead mb-5" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
@@ -1173,7 +1176,7 @@ const Estimator = () => {
                     />
                 </div>
                 <div className="col-sm-3"></div>
-                <div className="col-sm-6">
+                <div className="col-sm-12">
                     {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                     <button type="submit" className="btn btn-primary px-5">{formattedMessage('estimate')}</button>
                     {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
@@ -1242,7 +1245,7 @@ const Estimator = () => {
                                     overlay={renderEnterTravelInfoAboveTooltip}
                                 >{children}</OverlayTrigger>)}
                         >
-                            <div class="input-group mb-2">
+                            <div className="input-group mb-2">
                                 {locale === 'en-ca' &&
                                     <div className='input-group-prepend'>
                                         <span className="input-group-text" id="accommodation-dollar-sign">$</span>
@@ -1370,7 +1373,7 @@ const Estimator = () => {
                                 >{children}</OverlayTrigger>)}
                         >
 
-                            <div class="input-group mb-2">
+                            <div className="input-group mb-2">
                                 {locale === 'en-ca' &&
                                     <div className='input-group-prepend'>
                                         <span className="input-group-text" id="accommodation-dollar-sign">$</span>
