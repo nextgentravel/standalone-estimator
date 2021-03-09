@@ -44,8 +44,6 @@ const DatePickerComponent = ({startDate, endDate, initialStart, setStart, initia
         dateIsSelectedAsEndDate: localeCopy.datepicker_date_is_selected_as_end_date,
     }
 
-    console.log(phrases)
-
     return(
         <div className="mb-4">
             <div>
