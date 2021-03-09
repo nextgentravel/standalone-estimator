@@ -9,13 +9,17 @@ import {
   graphql
 } from 'gatsby';
 
+function posTop() {
+  return typeof window.pageYOffset != 'undefined' ? window.pageYOffset: document.documentElement.scrollTop? document.documentElement.scrollTop: document.body.scrollTop? document.body.scrollTop:0;
+}
+
 export default ({ data }) => {
     const [pos, setPos] = useState("top");
     const intl = useIntl()
     let locale = `${intl.locale}-ca`;
     useEffect (()=>{
       document.addEventListener("scroll", e => {
-          let scrolled = document.scrollingElement.scrollTop;
+          let scrolled = posTop();
           if (scrolled >= 5){
              setPos("moved")
           } else {
