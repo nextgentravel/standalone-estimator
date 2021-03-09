@@ -1376,7 +1376,7 @@ const Estimator = () => {
                             <div className="input-group mb-2">
                                 {locale === 'en-ca' &&
                                     <div className='input-group-prepend'>
-                                        <span className="input-group-text" id="accommodation-dollar-sign">$</span>
+                                        <span className="input-group-text" id="transportation-dollar-sign">$</span>
                                     </div>
                                 }
                                 <input
@@ -1403,7 +1403,7 @@ const Estimator = () => {
                                 </input>
                                 {locale === 'fr-ca' &&
                                     <div className='input-group-append'>
-                                        <span className="input-group-text" id="accommodation-dollar-sign">$</span>
+                                        <span className="input-group-text" id="transportation-dollar-sign">$</span>
                                     </div>
                                 }
 
