@@ -48,6 +48,11 @@ const Estimator = () => {
     const executeScroll = () => summaryView.current.scrollIntoView()    
 
     let locale = `${intl.locale}-ca`;
+
+    const localCurrencyDisplay = (string) => {
+        return string.toLocaleString(locale, {minimumFractionDigits: 2, maximumFractionDigits: 2, style: 'currency', currency: 'CAD', currencyDisplay: 'symbol'}).replace('CA', '')
+    }
+
     const cmsData = useStaticQuery(graphql`
     query cmsData {
         allPrismicStandaloneestimatorCopy {
@@ -216,6 +221,7 @@ const Estimator = () => {
                     meals_modal_dinner
                     meals_modal_incidental
                     meals_modal_submit
+                    select_meals_link
                     email_confirm_error_title
                     accommodation_tooltip
                     estimate_error_title
@@ -232,6 +238,40 @@ const Estimator = () => {
                     transportation_above_flight_estimate {
                         html
                     }
+                    date_picker_label
+                    datepicker_calendar_label
+                    datepicker_role_description
+                    datepicker_close
+                    date_picker_focus_start_date
+                    datepicker_clear_date
+                    datepicker_clear_dates
+                    datepicker_jump_to_prev_month
+                    datepicker_jump_to_next_month
+                    datepicker_keyboard_shortcuts
+                    datepicker_showkeyboard_shortcuts_panel
+                    datepicker_hide_keyboard_shortcuts_panel
+                    datepicker_open_this_panel
+                    datepicker_enter_key
+                    datepicker_left_arrow_right_arrow
+                    datepicker_up_arrow_down_arrow
+                    datepicker_page_up_page_down
+                    datepicker_home_end
+                    datepicker_escape
+                    datepicker_question_mark
+                    datepicker_select_focused_date
+                    datepicker_move_focus_by_one_day
+                    datepicker_move_focus_by_one_week
+                    datepicker_move_focus_by_one_month
+                    datepicker_move_focus_to_start_and_end_of_week
+                    datepicker_return_focus_to_input
+                    datepicker_keyboard_forward_navigation_instructions
+                    datepicker_keyboard_backward_navigation_instructions
+                    datepicker_choose_available_start_date
+                    datepicker_choose_available_end_date
+                    datepicker_date_is_unavailable
+                    datepicker_date_is_selected
+                    datepicker_date_is_selected_as_start_date
+                    datepicker_date_is_selected_as_end_date
                 }
             }
         }
@@ -543,7 +583,7 @@ const Estimator = () => {
 
             message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
             // eslint-disable-next-line no-template-curly-in-string
-            message = message.replace('${daily rate}', `<strong>$${calculatedApplicableRates[0].rate}</strong>`)
+            message = message.replace('${daily rate}', `<strong>${localCurrencyDisplay(calculatedApplicableRates[0].rate)}</strong>`)
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
         } catch (error) {
             console.log('fetchHotelHostError', error);
@@ -1128,6 +1168,8 @@ const Estimator = () => {
                         setEnd={setReturnDate}
                         label={formattedMessage('date_picker_label')}
                         screenReaderInputMessage={formattedMessage('screen_reader_input_message')}
+                        localeCopy={localeCopy}
+                        locale={locale}
                     />
                 </div>
                 <div className="col-sm-3"></div>
@@ -1190,7 +1232,7 @@ const Estimator = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-2 align-self-center">
+                    <div className="col-sm-3 align-self-center">
                         <ConditionalWrap
                             condition={!result}
                             wrap={children => (
@@ -1201,10 +1243,11 @@ const Estimator = () => {
                                 >{children}</OverlayTrigger>)}
                         >
                             <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="accommodation-dollar-sign">$</span>
-                                </div>
-
+                                {locale === 'en-ca' &&
+                                    <div className='input-group-prepend'>
+                                        <span className="input-group-text" id="accommodation-dollar-sign">$</span>
+                                    </div>
+                                }
                                 <input
                                     disabled={accommodationType === "private"}
                                     type="text"
@@ -1266,10 +1309,15 @@ const Estimator = () => {
                                     }}
                                     value={accommodationCost}>
                                 </input>
+                                {locale === 'fr-ca' &&
+                                    <div className='input-group-append'>
+                                        <span className="input-group-text" id="accommodation-dollar-sign">$</span>
+                                    </div>
+                                }
                             </div>
                         </ConditionalWrap>
                     </div>
-                    <div className="col-sm-6 align-self-center text-wrap mb-2">
+                    <div className="col-sm-5 align-self-center text-wrap mb-2">
                         {accommodationMessage.element}
                     </div>
                 </div>
@@ -1311,7 +1359,7 @@ const Estimator = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-2 align-self-center">
+                    <div className="col-sm-3 align-self-center">
                         <ConditionalWrap
                             condition={!result}
                             wrap={children => (
@@ -1323,10 +1371,11 @@ const Estimator = () => {
                         >
 
                             <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="transportation-dollar-sign">$</span>
-                                </div>
-
+                                {locale === 'en-ca' &&
+                                    <div className='input-group-prepend'>
+                                        <span className="input-group-text" id="accommodation-dollar-sign">$</span>
+                                    </div>
+                                }
                                 <input
                                     type="text"
                                     className={`form-control`}
@@ -1349,10 +1398,16 @@ const Estimator = () => {
                                     disabled={transportationType === 'private' ? true : false}
                                 >
                                 </input>
+                                {locale === 'fr-ca' &&
+                                    <div className='input-group-append'>
+                                        <span className="input-group-text" id="accommodation-dollar-sign">$</span>
+                                    </div>
+                                }
+
                             </div>
                         </ConditionalWrap>
                     </div>
-                    <div className="col-sm-6 align-self-center text-wrap mb-2">
+                    <div className="col-sm-5 align-self-center text-wrap mb-2">
                         {transportationMessage.element}
                     </div>
                 </div>
@@ -1398,6 +1453,7 @@ const Estimator = () => {
 
 
                 <EstimatorRow
+                    locale={locale}
                     overlayRender={renderEnterTravelInfoAboveTooltip}
                     result={result}
                     value={localTransportationCost || ''}
@@ -1411,6 +1467,7 @@ const Estimator = () => {
                     message={localTransportationMessage}
                 />
                 <EstimatorRow
+                    locale={locale}
                     overlayRender={renderEnterTravelInfoAboveTooltip}
                     result={result}
                     value={mealCost.total || '0.00'}
@@ -1419,7 +1476,7 @@ const Estimator = () => {
                     description="selectMealsToInclude"
                     message={{
                         element: 
-                            result ? <a href="/" onClick={(e) => {handleMealsModalShow(e)}}>Select meals to include</a> : <span></span>
+                            result ? <a href="/" onClick={(e) => {handleMealsModalShow(e)}}>{formattedMessage('select_meals_link')}</a> : <span></span>
                     }}
                     icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
                     title={formattedMessage("meals_and_incidentals")}
@@ -1428,6 +1485,7 @@ const Estimator = () => {
                     disabled={true}
                 />
                 <EstimatorRow
+                    locale={locale}
                     overlayRender={renderEnterTravelInfoAboveTooltip}
                     result={result}
                     value={otherCost || ''}
@@ -1442,11 +1500,11 @@ const Estimator = () => {
                     tooltipText={<span dangerouslySetInnerHTML={{ __html: localeCopy.other_tooltip_text }}></span>}
                 />
                 <div className="row mb-4">
-                    <div className="col-sm-6 align-self-center text-right">
+                    <div className="col-sm-7 align-self-center text-right">
                         <hr />
-                        <strong className="mr-2">{formattedMessage('total_cost')}</strong>{'$' + parseFloat(summaryCost).toLocaleString('en', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
+                        <strong className="mr-2">{formattedMessage('total_cost')}</strong>{localCurrencyDisplay(parseFloat(summaryCost))}
                     </div>
-                    <div className="col-sm-6 align-self-center text-wrap">
+                    <div className="col-sm-5 align-self-center text-wrap">
                     </div>
                 </div>
             </div>
