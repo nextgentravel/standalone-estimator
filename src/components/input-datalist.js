@@ -1,4 +1,5 @@
 import React from 'react'
+import 'unorm';
 import Autocomplete from 'accessible-autocomplete/react'
 
 const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, options, updateValue}) => {
