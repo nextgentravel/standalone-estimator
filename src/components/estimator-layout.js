@@ -1,12 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Layout from "../components/layout"
 import SEO from "../components/seo";
 import Estimator from "../components/estimator"
-import { useIntl } from 'react-intl';
-
-import {
-  graphql
-} from 'gatsby';
 
 export default () => {
     return (
