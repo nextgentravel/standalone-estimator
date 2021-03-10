@@ -6,7 +6,7 @@ const ConditionalWrap = ({ condition, wrap, children }) => (
     condition ? wrap(children) : children
 );
 
-const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTotal, value, tooltipIcon, tooltipText, disabled, result, overlayRender }) => {
+const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTotal, value, tooltipIcon, tooltipText, disabled, result, overlayRender, locale }) => {
     const TooltipIcon = tooltipIcon ? tooltipIcon : null;
 
     const renderTooltip = (props) => (
@@ -33,7 +33,7 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                         </label>
                 </div>
             </div>
-            <div className="col-sm-2 align-self-center">
+            <div className="col-sm-3 align-self-center">
             <ConditionalWrap
                 condition={!result}
                 wrap={children => (
@@ -44,10 +44,11 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                     >{children}</OverlayTrigger>)}
             >
                 <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id={`${name}-dollar-sign`}>$</span>
-                    </div>
-
+                    {locale === 'en-ca' &&
+                        <div className='input-group-prepend'>
+                            <span className="input-group-text" id={`${name}-dollar-sign`}>$</span>
+                        </div>
+                    }
                     <input
                         disabled={disabled}
                         type="text"
@@ -69,6 +70,12 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                         }}
                     >
                     </input>
+                    {locale === 'fr-ca' &&
+                        <div className='input-group-append'>
+                            <span className="input-group-text" id={`${name}-dollar-sign`}>$</span>
+                        </div>
+                    }
+
                 </div>
             </ConditionalWrap>
 
@@ -77,7 +84,7 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
 
                 
             </div>
-            <div className="col-sm-6 align-self-center text-wrap mb-2">
+            <div className="col-sm-5 align-self-center text-wrap mb-2">
                 {message && message.element}
             </div>
         </div>

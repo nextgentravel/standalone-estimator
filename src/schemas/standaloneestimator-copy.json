@@ -11,7 +11,8 @@
     "lead": {
       "type": "StructuredText",
       "config": {
-        "multi": "paragraph, strong, em",
+        "multi": "paragraph, strong, em, hyperlink",
+        "allowTargetBlank": true,
         "label": "lead",
         "placeholder": "Lead text for estimator tool"
       }
@@ -68,6 +69,12 @@
       "type": "Text",
       "config": {
         "label": "accommodation"
+      }
+    },
+    "select_meals_link": {
+      "type": "Text",
+      "config": {
+        "label": "select_meals_link"
       }
     },
     "transportation": {
@@ -947,6 +954,253 @@
       "type": "Text",
       "config": {
         "label": "supervisor_email_questions"
+      }
+    }
+  },
+  "Date Picker": {
+    "datepicker_calendar_label": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_calendar_label",
+        "placeholder": "Calendar"
+      }
+    },
+    "datepicker_role_description": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_role_description",
+        "placeholder": "datepicker"
+      }
+    },
+    "datepicker_close": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_close",
+        "placeholder": "Close"
+      }
+    },
+    "date_picker_focus_start_date": {
+      "type": "Text",
+      "config": {
+        "label": "date_picker_focus_start_date",
+        "placeholder": "Interact with the calendar and add the check-in date for your trip."
+      }
+    },
+    "datepicker_clear_date": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_clear_date",
+        "placeholder": "Clear Date"
+      }
+    },
+    "datepicker_clear_dates": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_clear_dates",
+        "placeholder": "Clear Dates"
+      }
+    },
+    "datepicker_jump_to_prev_month": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_jump_to_prev_month",
+        "placeholder": "Move backward to switch to the previous month."
+      }
+    },
+    "datepicker_jump_to_next_month": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_jump_to_next_month",
+        "placeholder": "Move forward to switch to the next month."
+      }
+    },
+    "datepicker_keyboard_shortcuts": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_keyboard_shortcuts",
+        "placeholder": "Keyboard Shortcuts"
+      }
+    },
+    "datepicker_showkeyboard_shortcuts_panel": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_showkeyboard_shortcuts_panel",
+        "placeholder": "Open the keyboard shortcuts panel."
+      }
+    },
+    "datepicker_hide_keyboard_shortcuts_panel": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_hide_keyboard_shortcuts_panel",
+        "placeholder": "Close the shortcuts panel."
+      }
+    },
+    "datepicker_open_this_panel": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_open_this_panel",
+        "placeholder": "Open this panel."
+      }
+    },
+    "datepicker_enter_key": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_enter_key",
+        "placeholder": "Enter key"
+      }
+    },
+    "datepicker_left_arrow_right_arrow": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_left_arrow_right_arrow",
+        "placeholder": "Right and left arrow keys"
+      }
+    },
+    "datepicker_up_arrow_down_arrow": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_up_arrow_down_arrow",
+        "placeholder": "up and down arrow keys"
+      }
+    },
+    "datepicker_page_up_page_down": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_page_up_page_down",
+        "placeholder": "page up and page down keys"
+      }
+    },
+    "datepicker_home_end": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_home_end",
+        "placeholder": "Home and end keys"
+      }
+    },
+    "datepicker_escape": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_escape",
+        "placeholder": "Escape key"
+      }
+    },
+    "datepicker_question_mark": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_question_mark",
+        "placeholder": "Question mark"
+      }
+    },
+    "datepicker_select_focused_date": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_select_focused_date",
+        "placeholder": "Select the date in focus."
+      }
+    },
+    "datepicker_move_focus_by_one_day": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_move_focus_by_one_day",
+        "placeholder": "Move backward (left) and forward (right) by one day."
+      }
+    },
+    "datepicker_move_focus_by_one_week": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_move_focus_by_one_week",
+        "placeholder": "Move backward (up) and forward (down) by one week."
+      }
+    },
+    "datepicker_move_focus_by_one_month": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_move_focus_by_one_month",
+        "placeholder": "Switch months."
+      }
+    },
+    "datepicker_move_focus_to_start_and_end_of_week": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_move_focus_to_start_and_end_of_week",
+        "placeholder": "Go to the first or last day of a week."
+      }
+    },
+    "datepicker_return_focus_to_input": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_return_focus_to_input",
+        "placeholder": "Return to the date input field."
+      }
+    },
+    "datepicker_keyboard_forward_navigation_instructions": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_keyboard_forward_navigation_instructions",
+        "placeholder": "Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates."
+      }
+    },
+    "datepicker_keyboard_backward_navigation_instructions": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_keyboard_backward_navigation_instructions",
+        "placeholder": "Navigate backward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates."
+      }
+    },
+    "datepicker_choose_available_start_date": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_choose_available_start_date",
+        "placeholder": "Choose ${date} as your check-in date. It’s available."
+      }
+    },
+    "datepicker_choose_available_end_date": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_choose_available_end_date",
+        "placeholder": "Choose ${date} as your check-out date. It’s available."
+      }
+    },
+    "datepicker_date_is_unavailable": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_date_is_unavailable",
+        "placeholder": "Not available. ${date}"
+      }
+    },
+    "datepicker_date_is_selected": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_date_is_selected",
+        "placeholder": "Selected. ${date}"
+      }
+    },
+    "datepicker_date_is_selected_as_start_date": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_date_is_selected_as_start_date",
+        "placeholder": "Selected as start date. ${date}"
+      }
+    },
+    "datepicker_date_is_selected_as_end_date": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_date_is_selected_as_end_date",
+        "placeholder": "Selected as end date. ${date}"
+      }
+    },
+    "datepicker_start_date": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_start_date",
+        "placeholder": "Start Date"
+      }
+    },
+    "datepicker_end_date": {
+      "type": "Text",
+      "config": {
+        "label": "datepicker_end_date",
+        "placeholder": "End Date"
       }
     }
   }
