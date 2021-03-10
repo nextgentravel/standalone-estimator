@@ -87,6 +87,7 @@ export default ({ data }) => {
           }
       })
     },[])
+
     const [explainerCollapsed, setExplainerCollapsed] = useState(false);
     const [disclaimerCollapsed, setDisclaimerCollapsed] = useState(false);
 
@@ -97,9 +98,9 @@ export default ({ data }) => {
           <div>
             <main id="main-content" role="main">
               <div className="container mt-4">
-                <p className="homepage-lead mb-5" dangerouslySetInnerHTML={{ __html: homePageCopy.landing_page_lead.html }}></p>
+                <div className="homepage-lead mb-5" dangerouslySetInnerHTML={{ __html: homePageCopy.landing_page_lead.html }}></div>
                 <h2 className="mb-4">{homePageCopy.landing_page_title_2.text}</h2>
-                <p className="mb-4" dangerouslySetInnerHTML={{ __html: homePageCopy.landing_page_content.html }}></p>
+                <div className="mb-4" dangerouslySetInnerHTML={{ __html: homePageCopy.landing_page_content.html }}></div>
                 <a className="btn btn-primary mb-5" href={homePageCopy.land_page_action_button_link} role="button">{homePageCopy.landing_page_action_button_text}</a>
                 <div className="card bg-white px-4 mb-2">
                   <div className="row">
