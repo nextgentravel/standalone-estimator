@@ -60,7 +60,7 @@ export default ({ data }) => {
                 <div>
                   <main id="main-content" role="main">
                     <div className="container mt-4">
-                      <Estimator />
+
                     </div>
                     {pos === "top" && <div dangerouslySetInnerHTML={{ __html: messages.prototype_footer.html }} className="prototype-banner fixed-bottom"></div>}
                   </main>
