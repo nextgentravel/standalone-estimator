@@ -50,7 +50,13 @@ const Estimator = () => {
     let locale = `${intl.locale}-ca`;
 
     const localCurrencyDisplay = (string) => {
-        return string.toLocaleString(locale, {minimumFractionDigits: 2, maximumFractionDigits: 2, style: 'currency', currency: 'CAD', currencyDisplay: 'symbol'}).replace('CA', '')
+        return string.toLocaleString(locale, {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 2,
+            style: 'currency',
+            currency: 'CAD',
+            currencyDisplay: 'symbol'
+        }).replace('CA', '')
     }
 
     const cmsData = useStaticQuery(graphql`
