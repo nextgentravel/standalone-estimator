@@ -88,7 +88,7 @@ module.exports = async function (context, req) {
               
               Notes: ${body.tripNotes}<br /><br />
               
-              Thank you for using GC Travel Estimator!<br /><br />
+              Thank you for using GC Travel Calculator!<br /><br />
 
               ---
 
@@ -122,7 +122,7 @@ module.exports = async function (context, req) {
               
               FR Notes: ${body.tripNotes}<br /><br />
               
-              FR Thank you for using GC Travel Estimator!<br /><br />
+              FR Thank you for using GC Travel Calculator!<br /><br />
               `
           }
         },
