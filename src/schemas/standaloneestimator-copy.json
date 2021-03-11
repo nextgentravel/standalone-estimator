@@ -457,6 +457,12 @@
         "label": "flight_zero"
       }
     },
+    "flight_no_results": {
+      "type": "Text",
+      "config": {
+        "label": "flight_no_results"
+      }
+    },
     "transportation_above_flight_estimate": {
       "type": "StructuredText",
       "config": {
