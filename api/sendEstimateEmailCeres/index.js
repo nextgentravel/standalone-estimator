@@ -1,5 +1,24 @@
 const AWS = require('aws-sdk');
+var Intl = require('intl');
+// Note: you only need to require the locale once
+require('intl/locale-data/jsonp/en-CA.js');
+require('intl/locale-data/jsonp/fr-CA.js');
 
+var frenchNumberFormat = Intl.NumberFormat('fr-CA', {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+  style: 'currency',
+  currency: 'CAD',
+  currencyDisplay: 'symbol'
+});
+
+var englishNumberFormat = Intl.NumberFormat('en-CA', {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+  style: 'currency',
+  currency: 'CAD',
+  currencyDisplay: 'symbol'
+});
 
 const addCommaToPlaceName = (placeName) => {
   let province = placeName.slice(-2)
@@ -8,13 +27,11 @@ const addCommaToPlaceName = (placeName) => {
 }
 
 const localCurrencyDisplay = (string, locale) => {
-  return string.toLocaleString(locale, {
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 2,
-      style: 'currency',
-      currency: 'CAD',
-      currencyDisplay: 'symbol'
-  }).replace('CA', '')
+  if (locale === 'en-CA') {
+    return englishNumberFormat.format(string).replace('CA', '').replace(/\D00(?=\D*$)/, '')
+  } else if (locale === 'fr-CA') {
+    return frenchNumberFormat.format(string).replace('CA', '').replace(/\D00(?=\D*$)/, '')
+  }
 }
 
 module.exports = async function (context, req) {
@@ -40,7 +57,9 @@ module.exports = async function (context, req) {
           Html: {
             Charset: "UTF-8",
             Data: 
-              `${body.travellersName},<br /><br />
+              `Le français suit l'anglais.<br /><br />
+              
+              ${body.travellersName},<br /><br />
 
               The following trip estimate has been submitted to ${body.approversName} for planning purposes:<br /><br />
               
@@ -69,12 +88,47 @@ module.exports = async function (context, req) {
               
               Notes: ${body.tripNotes}<br /><br />
               
-              Thank you for using GC Travel Estimator!`
+              Thank you for using GC Travel Estimator!<br /><br />
+
+              ---
+
+              <br /><br />
+              ${body.travellersName},<br /><br />
+
+              FR The following trip estimate has been submitted to ${body.approversName} for planning purposes:<br /><br />
+              
+              ${body.tripName}<br /><br />
+              
+              FR Objective: ${body.travelCategory}<br />
+              FR Public Servant: ${body.travellerIsPublicServant ? 'FR Yes' : 'FR No'}<br /><br />
+                
+              FR Origin: ${addCommaToPlaceName(body.origin)}<br />
+              FR Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
+              
+              FR Departure: ${body.departureDate}<br />
+              FR Return: ${body.returnDate}<br /><br />
+              
+              FR Accommodation (${body.accommodationType}): ${localCurrencyDisplay(body.accommodationCost, 'fr-CA')}<br /><br />
+              
+              FR Transportation (${body.transportationType}): ${localCurrencyDisplay(body.transportationCost, 'fr-CA')}<br /><br />
+              
+              FR Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'fr-CA')}<br /><br />
+              
+              FR Meals and Incidentals: ${localCurrencyDisplay(body.mealCost, 'fr-CA')}<br /><br />
+              
+              FR Other Costs: ${localCurrencyDisplay(body.otherCost, 'fr-CA')}<br /><br />
+              
+              FR TOTAL: ${localCurrencyDisplay(body.summaryCost, 'fr-CA')}<br /><br />
+              
+              FR Notes: ${body.tripNotes}<br /><br />
+              
+              FR Thank you for using GC Travel Estimator!<br /><br />
+              `
           }
         },
         Subject: {
           Charset: 'UTF-8',
-          Data: `Estimate Sent [Confirmation]`
+          Data: `Estimate Sent [Confirmation] / FR Estimate Sent [Confirmation]`
         }
       }
     };
@@ -92,7 +146,9 @@ module.exports = async function (context, req) {
           Html: {
             Charset: "UTF-8",
             Data: 
-              `${body.approversName},<br /><br />
+              `Le français suit l'anglais.<br /><br />
+
+              ${body.approversName},<br /><br />
 
               ${body.travellersName} has submitted a new travel estimate for a trip to ${addCommaToPlaceName(body.destination)}.<br /><br />
 
@@ -121,12 +177,47 @@ module.exports = async function (context, req) {
               
               Notes: ${body.tripNotes}<br /><br />
               
-              If you have questions regarding this estimate, please email ${body.travellersName} at ${body.travellersEmail}<br /><br />`
+              If you have questions regarding this estimate, please email ${body.travellersName} at ${body.travellersEmail}<br /><br />
+
+              ---
+
+              <br /><br />
+              ${body.approversName},<br /><br />
+
+              ${body.travellersName} has submitted a new travel estimate for a trip to ${addCommaToPlaceName(body.destination)}.<br /><br />
+
+              ${body.tripName}<br /><br />
+              
+              FR Objective: ${body.travelCategory}<br />
+              FR Public Servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
+                
+              FR Origin: ${addCommaToPlaceName(body.origin)}<br />
+              FR Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
+              
+              FR Departure: ${body.departureDate}<br />
+              FR Return: ${body.returnDate}<br /><br />
+              
+              FR Accommodation (${body.accommodationType}): ${localCurrencyDisplay(body.accommodationCost, 'fr-CA')}<br /><br />
+              
+              FR Transportation (${body.transportationType}): ${localCurrencyDisplay(body.transportationCost, 'fr-CA')}<br /><br />
+              
+              FR Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'fr-CA')}<br /><br />
+              
+              FR Meals and Incidentals: ${localCurrencyDisplay(body.mealCost, 'fr-CA')}<br /><br />
+              
+              FR Other Costs: ${localCurrencyDisplay(body.otherCost, 'fr-CA')}<br /><br />
+              
+              FR TOTAL: ${localCurrencyDisplay(body.summaryCost, 'fr-CA')}<br /><br />
+              
+              FR Notes: ${body.tripNotes}<br /><br />
+              
+              FR If you have questions regarding this estimate, please email ${body.travellersName} at ${body.travellersEmail}<br /><br />
+              `
           }
         },
         Subject: {
           Charset: 'UTF-8',
-          Data: `Trip Estimate`,
+          Data: `Trip Estimate / FR Trip Estimate`,
         }
       }
     };
