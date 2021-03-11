@@ -1,9 +1,25 @@
 const AWS = require('aws-sdk');
 
 
+const addCommaToPlaceName = (placeName) => {
+  let province = placeName.slice(-2)
+  let cityName = placeName.slice(0, -3)
+  return `${cityName}, ${province}`
+}
+
+const localCurrencyDisplay = (string, locale) => {
+  return string.toLocaleString(locale, {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2,
+      style: 'currency',
+      currency: 'CAD',
+      currencyDisplay: 'symbol'
+  }).replace('CA', '')
+}
+
 module.exports = async function (context, req) {
     let body = req.body
-    // Amazon SES configuration
+
     const SESConfig = {
         apiVersion: '2010-12-01',
         accessKeyId: process.env.AWS_SES_ACCESS_KEY_ID,
@@ -33,23 +49,23 @@ module.exports = async function (context, req) {
               Objective: ${body.travelCategory}<br />
               Public Servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
                 
-              Origin: ${body.origin}<br />
-              Destination: ${body.destination}<br /><br />
+              Origin: ${addCommaToPlaceName(body.origin)}<br />
+              Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
               
               Departure: ${body.departureDate}<br />
               Return: ${body.returnDate}<br /><br />
               
-              Accommodation (${body.accommodationType}): ${body.accommodationCost}<br /><br />
+              Accommodation (${body.accommodationType}): ${localCurrencyDisplay(body.accommodationCost, 'en-CA')}<br /><br />
               
-              Transportation (${body.transportationType}): ${body.transportationCost}<br /><br />
+              Transportation (${body.transportationType}): ${localCurrencyDisplay(body.transportationCost, 'en-CA')}<br /><br />
               
-              Local transportation: ${body.localTransportationCost}<br /><br />
+              Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'en-CA')}<br /><br />
               
-              Meals and Incidentals: ${body.mealCost}<br /><br />
+              Meals and Incidentals: ${localCurrencyDisplay(body.mealCost, 'en-CA')}<br /><br />
               
-              Other Costs: ${body.otherCost}<br /><br />
+              Other Costs: ${localCurrencyDisplay(body.otherCost, 'en-CA')}<br /><br />
               
-              TOTAL: ${body.summaryCost}<br /><br />
+              TOTAL: ${localCurrencyDisplay(body.summaryCost, 'en-CA')}<br /><br />
               
               Notes: ${body.tripNotes}<br /><br />
               
@@ -78,30 +94,30 @@ module.exports = async function (context, req) {
             Data: 
               `${body.approversName},<br /><br />
 
-              ${body.travellersName} has submitted a new travel estimate for a trip to ${body.destination}.<br /><br />
+              ${body.travellersName} has submitted a new travel estimate for a trip to ${addCommaToPlaceName(body.destination)}.<br /><br />
 
               ${body.tripName}<br /><br />
               
               Objective: ${body.travelCategory}<br />
               Public Servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
                 
-              Origin: ${body.origin}<br />
-              Destination: ${body.destination}<br /><br />
+              Origin: ${addCommaToPlaceName(body.origin)}<br />
+              Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
               
               Departure: ${body.departureDate}<br />
               Return: ${body.returnDate}<br /><br />
               
-              Accommodation (${body.accommodationType}): ${body.accommodationCost}<br /><br />
+              Accommodation (${body.accommodationType}): ${localCurrencyDisplay(body.accommodationCost, 'en-CA')}<br /><br />
               
-              Transportation (${body.transportationType}): ${body.transportationCost}<br /><br />
+              Transportation (${body.transportationType}): ${localCurrencyDisplay(body.transportationCost, 'en-CA')}<br /><br />
               
-              Local transportation: ${body.localTransportationCost}<br /><br />
+              Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'en-CA')}<br /><br />
               
-              Meals and Incidentals: ${body.mealCost}<br /><br />
+              Meals and Incidentals: ${localCurrencyDisplay(body.mealCost, 'en-CA')}<br /><br />
               
-              Other Costs: ${body.otherCost}<br /><br />
+              Other Costs: ${localCurrencyDisplay(body.otherCost, 'en-CA')}<br /><br />
               
-              TOTAL: ${body.summaryCost}<br /><br />
+              TOTAL: ${localCurrencyDisplay(body.summaryCost, 'en-CA')}<br /><br />
               
               Notes: ${body.tripNotes}<br /><br />
               
