@@ -63,10 +63,10 @@ module.exports = async function (context, req) {
 
               The following trip estimate has been submitted to ${body.approversName} for planning purposes:<br /><br />
               
-              ${body.tripName}<br /><br />
+              Objective: ${body.tripName}<br /><br />
               
-              Objective: ${body.travelCategory}<br />
-              Public Servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
+              Category: ${body.travelCategory}<br />
+              Public servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
                 
               Origin: ${addCommaToPlaceName(body.origin)}<br />
               Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
@@ -80,9 +80,9 @@ module.exports = async function (context, req) {
               
               Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'en-CA')}<br /><br />
               
-              Meals and Incidentals: ${localCurrencyDisplay(body.mealCost, 'en-CA')}<br /><br />
+              Meals and incidentals: ${localCurrencyDisplay(body.mealCost, 'en-CA')}<br /><br />
               
-              Other Costs: ${localCurrencyDisplay(body.otherCost, 'en-CA')}<br /><br />
+              Other costs: ${localCurrencyDisplay(body.otherCost, 'en-CA')}<br /><br />
               
               TOTAL: ${localCurrencyDisplay(body.summaryCost, 'en-CA')}<br /><br />
               
@@ -99,10 +99,10 @@ module.exports = async function (context, req) {
 
               FR The following trip estimate has been submitted to ${body.approversName} for planning purposes:<br /><br />
               
-              ${body.tripName}<br /><br />
+              FR Objective: ${body.tripName}<br /><br />
               
-              FR Objective: ${body.travelCategory}<br />
-              FR Public Servant: ${body.travellerIsPublicServant ? 'FR Yes' : 'FR No'}<br /><br />
+              FR Category: ${body.travelCategory}<br />
+              FR Public servant: ${body.travellerIsPublicServant ? 'FR Yes' : 'FR No'}<br /><br />
                 
               FR Origin: ${addCommaToPlaceName(body.origin)}<br />
               FR Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
@@ -116,9 +116,9 @@ module.exports = async function (context, req) {
               
               FR Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'fr-CA')}<br /><br />
               
-              FR Meals and Incidentals: ${localCurrencyDisplay(body.mealCost, 'fr-CA')}<br /><br />
+              FR Meals and incidentals: ${localCurrencyDisplay(body.mealCost, 'fr-CA')}<br /><br />
               
-              FR Other Costs: ${localCurrencyDisplay(body.otherCost, 'fr-CA')}<br /><br />
+              FR Other costs: ${localCurrencyDisplay(body.otherCost, 'fr-CA')}<br /><br />
               
               FR TOTAL: ${localCurrencyDisplay(body.summaryCost, 'fr-CA')}<br /><br />
               
@@ -132,7 +132,7 @@ module.exports = async function (context, req) {
         },
         Subject: {
           Charset: 'UTF-8',
-          Data: `Estimate Sent [Confirmation] / FR Estimate Sent [Confirmation]`
+          Data: `Estimate sent [Confirmation] / FR Estimate sent [Confirmation]`
         }
       }
     };
@@ -156,10 +156,10 @@ module.exports = async function (context, req) {
 
               ${body.travellersName} has submitted a new travel estimate for a trip to ${addCommaToPlaceName(body.destination)}.<br /><br />
 
-              ${body.tripName}<br /><br />
+              Objective: ${body.tripName}<br /><br />
               
-              Objective: ${body.travelCategory}<br />
-              Public Servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
+              Category: ${body.travelCategory}<br />
+              Public servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
                 
               Origin: ${addCommaToPlaceName(body.origin)}<br />
               Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
@@ -173,9 +173,9 @@ module.exports = async function (context, req) {
               
               Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'en-CA')}<br /><br />
               
-              Meals and Incidentals: ${localCurrencyDisplay(body.mealCost, 'en-CA')}<br /><br />
+              Meals and incidentals: ${localCurrencyDisplay(body.mealCost, 'en-CA')}<br /><br />
               
-              Other Costs: ${localCurrencyDisplay(body.otherCost, 'en-CA')}<br /><br />
+              Other costs: ${localCurrencyDisplay(body.otherCost, 'en-CA')}<br /><br />
               
               TOTAL: ${localCurrencyDisplay(body.summaryCost, 'en-CA')}<br /><br />
               
@@ -184,18 +184,18 @@ module.exports = async function (context, req) {
               If you have questions regarding this estimate, please email ${body.travellersName} at ${body.travellersEmail}<br /><br />
 
               All dates expressed in this email are in YYYY-MM-DD format.<br /><br />
-              
+
               ---
 
               <br /><br />
               ${body.approversName},<br /><br />
 
-              ${body.travellersName} has submitted a new travel estimate for a trip to ${addCommaToPlaceName(body.destination)}.<br /><br />
+              ${body.travellersName} FR has submitted a new travel estimate for a trip to ${addCommaToPlaceName(body.destination)}.<br /><br />
 
-              ${body.tripName}<br /><br />
+              FR Objective: ${body.tripName}<br /><br />
               
-              FR Objective: ${body.travelCategory}<br />
-              FR Public Servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
+              FR Category: ${body.travelCategory}<br />
+              FR Public servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
                 
               FR Origin: ${addCommaToPlaceName(body.origin)}<br />
               FR Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
@@ -209,9 +209,9 @@ module.exports = async function (context, req) {
               
               FR Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'fr-CA')}<br /><br />
               
-              FR Meals and Incidentals: ${localCurrencyDisplay(body.mealCost, 'fr-CA')}<br /><br />
+              FR Meals and incidentals: ${localCurrencyDisplay(body.mealCost, 'fr-CA')}<br /><br />
               
-              FR Other Costs: ${localCurrencyDisplay(body.otherCost, 'fr-CA')}<br /><br />
+              FR Other costs: ${localCurrencyDisplay(body.otherCost, 'fr-CA')}<br /><br />
               
               FR TOTAL: ${localCurrencyDisplay(body.summaryCost, 'fr-CA')}<br /><br />
               
@@ -224,7 +224,7 @@ module.exports = async function (context, req) {
         },
         Subject: {
           Charset: 'UTF-8',
-          Data: `Trip Estimate / FR Trip Estimate`,
+          Data: `Trip estimate / FR Trip estimate`,
         }
       }
     };
