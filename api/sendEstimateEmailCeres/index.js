@@ -88,7 +88,7 @@ module.exports = async function (context, req) {
               
               Notes: ${body.tripNotes}<br /><br />
               
-              Thank you for using GC Travel Calculator!<br /><br />
+              Thank you for using the GC Travel Calculator!<br /><br />
 
               All dates expressed in this email are in YYYY-MM-DD format.<br /><br />
 
@@ -124,7 +124,7 @@ module.exports = async function (context, req) {
               
               FR Notes: ${body.tripNotes}<br /><br />
               
-              FR Thank you for using GC Travel Calculator!<br /><br />
+              FR Thank you for using the GC Travel Calculator!<br /><br />
               
               FR All dates expressed in this email are in YYYY-MM-DD format.
               `
