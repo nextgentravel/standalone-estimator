@@ -93,6 +93,12 @@ const Estimator = () => {
                     flight_success {
                         html
                     }
+                    flight_no_results {
+                        html
+                    }
+                    flight_no_results_custom {
+                        html
+                    }
                     flight_zero {
                         html
                     }
@@ -643,34 +649,51 @@ const Estimator = () => {
             amadeusFlightOffer(originData.airports[0].iataCode, destinationData.airports[0].iataCode, departureDateISODate, returnDateISODate, amadeusAccessToken.token)
             .then(response => response.json())
             .then(result => {
+                console.log(result)
                 const allPrices = [];
-
-                result.data.forEach(itinerary => {
-                    allPrices.push(parseFloat(itinerary.price.grandTotal))
-                });
-
-                const sum = allPrices.reduce((a, b) => a + b, 0);
-                const avg = (sum / allPrices.length) || 0;
-
                 let date = DateTime.local().toFormat("yyyy-MM-dd");
                 let time = DateTime.local().toFormat("hh:mm a")
-
-                localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{date}', `<strong>${date}</strong>`)
-                localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{time}', `<strong>${time}</strong>`)
-
-                let FlightMessage = <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_success.html }}></span>
-                
-                updateTransportationCost(avg);
-                setTransportationEstimates({
-                    ...transportationEstimates,
-                    flight: {
-                        estimatedValue: avg,
-                        estimatedValueMessage: FlightMessage,
-                        responseBody: result,
-                    }
-                })
-                setTransportationMessage({ element: FlightMessage  })
-                setHaveFlightCost(true);
+                console.log(result.data.length)
+                if (result.data.length === 0) {
+                    console.log("HERE?!")
+                    localeCopy.flight_no_results.html = localeCopy.flight_no_results.html.replace('{date}', `<strong>${date}</strong>`)    
+                    let FlightMessage = <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_no_results.html }}></span>
+                    updateTransportationCost(0.00);
+                    setTransportationEstimates({
+                        ...transportationEstimates,
+                        flight: {
+                            estimatedValue: 0,
+                            estimatedValueMessage: FlightMessage,
+                            responseBody: result,
+                        }
+                    })
+                    setTransportationMessage({ element: FlightMessage  })
+                    setHaveFlightCost(true);
+                } else {
+                    result.data.forEach(itinerary => {
+                        allPrices.push(parseFloat(itinerary.price.grandTotal))
+                    });
+    
+                    const sum = allPrices.reduce((a, b) => a + b, 0);
+                    const avg = (sum / allPrices.length) || 0;
+        
+                    localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{date}', `<strong>${date}</strong>`)
+                    localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{time}', `<strong>${time}</strong>`)
+    
+                    let FlightMessage = <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_success.html }}></span>
+                    
+                    updateTransportationCost(avg);
+                    setTransportationEstimates({
+                        ...transportationEstimates,
+                        flight: {
+                            estimatedValue: avg,
+                            estimatedValueMessage: FlightMessage,
+                            responseBody: result,
+                        }
+                    })
+                    setTransportationMessage({ element: FlightMessage  })
+                    setHaveFlightCost(true);
+                }
             })
             .catch(error => {
                 console.log('amadeus flight offer error', error);
@@ -1042,8 +1065,17 @@ const Estimator = () => {
     }, [localTransportationCost]);
 
     useEffect(() => {
+        
         if (transportationType === 'flight') {
-            if (haveFlightCost && (parseInt(transportationCost) === 0)) {
+            if (haveFlightCost && transportationEstimates.flight.responseBody.data.length === 0 && parseFloat(transportationCost) === 0.00) {
+                setTransportationMessage({
+                    element:  <span className="transportation-message">{formattedMessage('flight_no_results')}</span>
+                })
+            } else if (haveFlightCost && transportationEstimates.flight.responseBody.data.length === 0 && parseFloat(transportationCost) > 0.00) {
+                setTransportationMessage({
+                    element:  <span className="transportation-message">{formattedMessage('flight_no_results_custom')}</span>
+                })
+            } else if (haveFlightCost && (parseInt(transportationCost) === 0)) {
                 setTransportationMessage({
                     element:  <span className="transportation-message">{formattedMessage('flight_zero', 'alert-warning')}</span>
                 })
