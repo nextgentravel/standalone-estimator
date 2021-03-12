@@ -183,6 +183,8 @@ module.exports = async function (context, req) {
               
               If you have questions regarding this estimate, please email ${body.travellersName} at ${body.travellersEmail}<br /><br />
 
+              All dates expressed in this email are in YYYY-MM-DD format.<br /><br />
+              
               ---
 
               <br /><br />
@@ -216,6 +218,7 @@ module.exports = async function (context, req) {
               FR Notes: ${body.tripNotes}<br /><br />
               
               FR If you have questions regarding this estimate, please email ${body.travellersName} at ${body.travellersEmail}<br /><br />
+              FR All dates expressed in this email are in YYYY-MM-DD format.<br /><br />
               `
           }
         },
