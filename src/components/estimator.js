@@ -657,7 +657,7 @@ const Estimator = () => {
                 if (result.data.length === 0) {
                     console.log("HERE?!")
                     localeCopy.flight_no_results.html = localeCopy.flight_no_results.html.replace('{date}', `<strong>${date}</strong>`)    
-                    let FlightMessage = <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_no_results.html }}></span>
+                    let FlightMessage = <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_no_results.html }}></span>
                     updateTransportationCost(0.00);
                     setTransportationEstimates({
                         ...transportationEstimates,
