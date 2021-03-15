@@ -98,14 +98,14 @@ export default ({ data }) => {
           <div>
             <main id="main-content" role="main">
               <div className="container mt-4">
-                <div className="homepage-lead mb-5" dangerouslySetInnerHTML={{ __html: homePageCopy.landing_page_lead.html }}></div>
+                <div className="mb-5" dangerouslySetInnerHTML={{ __html: homePageCopy.landing_page_lead.html }}></div>
                 <h2 className="mb-4">{homePageCopy.landing_page_title_2.text}</h2>
                 <div className="mb-4" dangerouslySetInnerHTML={{ __html: homePageCopy.landing_page_content.html }}></div>
                 <a className="btn btn-primary mb-5" href={homePageCopy.land_page_action_button_link} role="button">{homePageCopy.landing_page_action_button_text}</a>
-                <div className="card bg-white px-4 mb-2">
+                <div className="card bg-white py-4 px-5 mb-2">
                   <div className="row">
                       <button className="col-sm-12 pl-2 pb-1 btn btn-plain" aria-expanded="false" onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
-                          <h3 className="display-5"><FaCalculator size="20" className='mb-1 mr-2' />{estimatorCopy.explainer_title.text}</h3>
+                          <h3><FaCalculator size="20" className='mb-1 mr-2' />{estimatorCopy.explainer_title.text}</h3>
                           {explainerCollapsed &&
                               <FaCaretDown
                                   size="25"
