@@ -9,8 +9,6 @@
 body {
 	color: #333;
 	font-family: "Noto Sans",sans-serif;
-	font-size: 16px;
-	line-height: 1.4375;
 }
 
 h4 {
@@ -23,7 +21,6 @@ h2 {
 
 .lead {
     font-weight: normal;
-    font-size: 1em;
 }
 
 label {
@@ -204,20 +201,6 @@ a:focus {
     text-indent: 2em;
 }
 
-.display-5 {
-    font-size: 1.1em;
-}
-
-.display-6 {
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-.step-disclaimer-header {
-    font-size: 1em;
-    font-weight: bold;
-}
-
 .step-disclaimer-header > svg {
     position: relative;
     top: -1.5px;
@@ -297,10 +280,6 @@ a:focus {
 
 .form-check-label {
     font-weight: normal;
-}
-
-.homepage-lead {
-    font-size: 1.3em;
 }
 
 /* body 
