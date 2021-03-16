@@ -1069,7 +1069,7 @@ const Estimator = () => {
         if (transportationType === 'flight') {
             if (haveFlightCost && transportationEstimates.flight.responseBody.data.length === 0 && parseFloat(transportationCost) === 0.00) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message">{formattedMessage('flight_no_results')}</span>
+                    element:  <span className="transportation-message alert-warning">{formattedMessage('flight_no_results')}</span>
                 })
             } else if (haveFlightCost && transportationEstimates.flight.responseBody.data.length === 0 && parseFloat(transportationCost) > 0.00) {
                 setTransportationMessage({
