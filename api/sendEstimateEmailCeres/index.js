@@ -36,6 +36,33 @@ const localCurrencyDisplay = (string, locale) => {
 
 const travelCategory = (input, lang) => {
   if (lang === 'en') {
+    return input;
+  } else if (lang === 'fr') {
+    switch (input) {
+      case 'Operational activities':
+        return "Activités opérationnelles"
+        break;
+      case 'Key stakeholders':
+        return "Principaux intervenants"
+        break;
+      case 'Internal governance':
+        return "Gouvernance interne"
+        break;
+      case 'Training':
+        return "Formation"
+        break;
+      case 'Other travel':
+        return "Autres voyages"
+        break;
+      default:
+        return input;
+    }
+  }
+}
+
+const travelMode = (input, lang) => {
+  if (lang === 'en') {
+    console.log(input)
     switch (input) {
       case 'flight':
         return "Flight"
@@ -65,6 +92,32 @@ const travelCategory = (input, lang) => {
         break;
       case 'private':
         return "Véhicule personnel"
+        break;
+      default:
+        return input;
+    }
+  }
+}
+
+const accommodationType = (input, lang) => {
+  if (lang === 'en') {
+    switch (input) {
+      case 'hotel':
+        return "Hotel"
+        break;
+      case 'private':
+        return "Private accommodation"
+        break;
+      default:
+        return input;
+    }
+  } else if (lang === 'fr') {
+    switch (input) {
+      case 'hotel':
+        return "Hôtel"
+        break;
+      case 'private':
+        return "Hébergement privé"
         break;
       default:
         return input;
@@ -103,7 +156,7 @@ module.exports = async function (context, req) {
               
               Objective: ${body.tripName}<br /><br />
               
-              Category: ${body.travelCategory}<br />
+              Category: ${travelCategory(body.travelCategory, 'en')}<br />
               Public servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
                 
               Origin: ${addCommaToPlaceName(body.origin)}<br />
@@ -112,9 +165,9 @@ module.exports = async function (context, req) {
               Departure: ${body.departureDate}<br />
               Return: ${body.returnDate}<br /><br />
               
-              Accommodation (${body.accommodationType}): ${localCurrencyDisplay(body.accommodationCost, 'en-CA')}<br /><br />
+              Accommodation (${accommodationType(body.accommodationType, 'en')}): ${localCurrencyDisplay(body.accommodationCost, 'en-CA')}<br /><br />
               
-              Transportation (${body.transportationType}): ${localCurrencyDisplay(body.transportationCost, 'en-CA')}<br /><br />
+              Transportation (${travelMode(body.transportationType, 'en')}): ${localCurrencyDisplay(body.transportationCost, 'en-CA')}<br /><br />
               
               Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'en-CA')}<br /><br />
               
@@ -139,7 +192,7 @@ module.exports = async function (context, req) {
               
               Objectif: ${body.tripName}<br /><br />
               
-              Catégorie: ${body.travelCategory}<br />
+              Catégorie: ${travelCategory(body.travelCategory, 'fr')}<br />
               Fonctionnaire: ${body.travellerIsPublicServant ? 'Oui' : 'Non'}<br /><br />
                 
               Point d’origine: ${addCommaToPlaceName(body.origin)}<br />
@@ -148,9 +201,9 @@ module.exports = async function (context, req) {
               Départ: ${body.departureDate}<br />
               Retour: ${body.returnDate}<br /><br />
               
-              Hébergement (${body.accommodationType}): ${localCurrencyDisplay(body.accommodationCost, 'fr-CA')}<br /><br />
+              Hébergement (${accommodationType(body.accommodationType, 'fr')}): ${localCurrencyDisplay(body.accommodationCost, 'fr-CA')}<br /><br />
               
-              Transport (${body.transportationType}): ${localCurrencyDisplay(body.transportationCost, 'fr-CA')}<br /><br />
+              Transport (${travelMode(body.transportationType, 'fr')}): ${localCurrencyDisplay(body.transportationCost, 'fr-CA')}<br /><br />
               
               Transport local: ${localCurrencyDisplay(body.localTransportationCost, 'fr-CA')}<br /><br />
               
@@ -170,7 +223,7 @@ module.exports = async function (context, req) {
         },
         Subject: {
           Charset: 'UTF-8',
-          Data: `Estimate sent [Confirmation] / FR Estimate sent [Confirmation]`
+          Data: `Estimate sent [Confirmation] / L'estimation a été envoyée [Confirmation]`
         }
       }
     };
@@ -196,7 +249,7 @@ module.exports = async function (context, req) {
 
               Objective: ${body.tripName}<br /><br />
               
-              Category: ${body.travelCategory}<br />
+              Category: ${travelCategory(body.travelCategory, 'en')}<br />
               Public servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
                 
               Origin: ${addCommaToPlaceName(body.origin)}<br />
@@ -205,9 +258,9 @@ module.exports = async function (context, req) {
               Departure: ${body.departureDate}<br />
               Return: ${body.returnDate}<br /><br />
               
-              Accommodation (${body.accommodationType}): ${localCurrencyDisplay(body.accommodationCost, 'en-CA')}<br /><br />
+              Accommodation (${accommodationType(body.accommodationType, 'en')}): ${localCurrencyDisplay(body.accommodationCost, 'en-CA')}<br /><br />
               
-              Transportation (${body.transportationType}): ${localCurrencyDisplay(body.transportationCost, 'en-CA')}<br /><br />
+              Transportation (${travelMode(body.transportationType, 'en')}): ${localCurrencyDisplay(body.transportationCost, 'en-CA')}<br /><br />
               
               Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'en-CA')}<br /><br />
               
@@ -232,7 +285,7 @@ module.exports = async function (context, req) {
 
               Objectif: ${body.tripName}<br /><br />
               
-              Catégorie: ${body.travelCategory}<br />
+              Catégorie: ${travelCategory(body.travelCategory, 'fr')}<br />
               Fonctionnaire: ${body.travellerIsPublicServant ? 'Oui' : 'Non'}<br /><br />
                 
               Origine: ${addCommaToPlaceName(body.origin)}<br />
@@ -241,9 +294,9 @@ module.exports = async function (context, req) {
               Départ: ${body.departureDate}<br />
               Retour: ${body.returnDate}<br /><br />
               
-              Hébergement (${body.accommodationType}): ${localCurrencyDisplay(body.accommodationCost, 'fr-CA')}<br /><br />
+              Hébergement (${accommodationType(body.accommodationType, 'fr')}): ${localCurrencyDisplay(body.accommodationCost, 'fr-CA')}<br /><br />
               
-              Transport (${body.transportationType}): ${localCurrencyDisplay(body.transportationCost, 'fr-CA')}<br /><br />
+              Transport (${travelMode(body.transportationType, 'fr')}): ${localCurrencyDisplay(body.transportationCost, 'fr-CA')}<br /><br />
               
               Transport local: ${localCurrencyDisplay(body.localTransportationCost, 'fr-CA')}<br /><br />
               
@@ -263,7 +316,7 @@ module.exports = async function (context, req) {
         },
         Subject: {
           Charset: 'UTF-8',
-          Data: `Trip estimate / FR Trip estimate`,
+          Data: `Trip estimate / Estimation de voyage`,
         }
       }
     };
