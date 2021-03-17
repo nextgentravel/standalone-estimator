@@ -34,6 +34,44 @@ const localCurrencyDisplay = (string, locale) => {
   }
 }
 
+const travelCategory = (input, lang) => {
+  if (lang === 'en') {
+    switch (input) {
+      case 'flight':
+        return "Flight"
+        break;
+      case 'train':
+        return "Train"
+        break;
+      case 'rental':
+        return "Rental Car"
+        break;
+      case 'private':
+        return "Private Vehicle"
+        break;
+      default:
+        return input;
+    }
+  } else if (lang === 'fr') {
+    switch (input) {
+      case 'flight':
+        return "Vol"
+        break;
+      case 'train':
+        return "Train"
+        break;
+      case 'rental':
+        return "Location de véhicule"
+        break;
+      case 'private':
+        return "Véhicule personnel"
+        break;
+      default:
+        return input;
+    }
+  }
+}
+
 module.exports = async function (context, req) {
     let body = req.body
 
@@ -45,7 +83,7 @@ module.exports = async function (context, req) {
     };
     
     let confirmationParams = {
-      Source: 'GC Travel Calculator <tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca>',
+      Source: 'GC Travel Calculator / Calculateur de voyage du GC <tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca>',
       Destination: {
         ToAddresses: [
           body.travellersEmail
@@ -97,36 +135,36 @@ module.exports = async function (context, req) {
               <br /><br />
               ${body.travellersName},<br /><br />
 
-              FR The following trip estimate has been submitted to ${body.approversName} for planning purposes:<br /><br />
+              L'estimation de voyage suivante a été présentée à ${body.approversName} des fins de planification :<br /><br />
               
-              FR Objective: ${body.tripName}<br /><br />
+              Objectif: ${body.tripName}<br /><br />
               
-              FR Category: ${body.travelCategory}<br />
-              FR Public servant: ${body.travellerIsPublicServant ? 'FR Yes' : 'FR No'}<br /><br />
+              Catégorie: ${body.travelCategory}<br />
+              Fonctionnaire: ${body.travellerIsPublicServant ? 'Oui' : 'Non'}<br /><br />
                 
-              FR Origin: ${addCommaToPlaceName(body.origin)}<br />
-              FR Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
+              Point d’origine: ${addCommaToPlaceName(body.origin)}<br />
+              Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
               
-              FR Departure: ${body.departureDate}<br />
-              FR Return: ${body.returnDate}<br /><br />
+              Départ: ${body.departureDate}<br />
+              Retour: ${body.returnDate}<br /><br />
               
-              FR Accommodation (${body.accommodationType}): ${localCurrencyDisplay(body.accommodationCost, 'fr-CA')}<br /><br />
+              Hébergement (${body.accommodationType}): ${localCurrencyDisplay(body.accommodationCost, 'fr-CA')}<br /><br />
               
-              FR Transportation (${body.transportationType}): ${localCurrencyDisplay(body.transportationCost, 'fr-CA')}<br /><br />
+              Transport (${body.transportationType}): ${localCurrencyDisplay(body.transportationCost, 'fr-CA')}<br /><br />
               
-              FR Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'fr-CA')}<br /><br />
+              Transport local: ${localCurrencyDisplay(body.localTransportationCost, 'fr-CA')}<br /><br />
               
-              FR Meals and incidentals: ${localCurrencyDisplay(body.mealCost, 'fr-CA')}<br /><br />
+              Repas et frais accessoires: ${localCurrencyDisplay(body.mealCost, 'fr-CA')}<br /><br />
               
-              FR Other costs: ${localCurrencyDisplay(body.otherCost, 'fr-CA')}<br /><br />
+              Autres coûts: ${localCurrencyDisplay(body.otherCost, 'fr-CA')}<br /><br />
               
-              FR TOTAL: ${localCurrencyDisplay(body.summaryCost, 'fr-CA')}<br /><br />
+              TOTAL: ${localCurrencyDisplay(body.summaryCost, 'fr-CA')}<br /><br />
               
-              FR Notes: ${body.tripNotes}<br /><br />
+              Remarques: ${body.tripNotes}<br /><br />
               
-              FR Thank you for using the GC Travel Calculator!<br /><br />
+              Merci d’utiliser le Calculateur de voyage du GC!<br /><br />
               
-              FR All dates expressed in this email are in YYYY-MM-DD format.
+              Toutes les dates indiquées dans ce courriel utilisent le format AAAA-MM-JJ.
               `
           }
         },
@@ -138,7 +176,7 @@ module.exports = async function (context, req) {
     };
 
     let supervisorParams = {
-      Source: 'GC Travel Calculator <tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca>',
+      Source: 'GC Travel Calculator / Calculateur de voyage du GC <tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca>',
       Destination: {
         ToAddresses: [
           body.approversEmail
@@ -190,35 +228,36 @@ module.exports = async function (context, req) {
               <br /><br />
               ${body.approversName},<br /><br />
 
-              ${body.travellersName} FR has submitted a new travel estimate for a trip to ${addCommaToPlaceName(body.destination)}.<br /><br />
+              ${body.travellersName} a présenté une nouvelle estimation de voyage pour un voyage à ${addCommaToPlaceName(body.destination)}.<br /><br />
 
-              FR Objective: ${body.tripName}<br /><br />
+              Objectif: ${body.tripName}<br /><br />
               
-              FR Category: ${body.travelCategory}<br />
-              FR Public servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
+              Catégorie: ${body.travelCategory}<br />
+              Fonctionnaire: ${body.travellerIsPublicServant ? 'Oui' : 'Non'}<br /><br />
                 
-              FR Origin: ${addCommaToPlaceName(body.origin)}<br />
-              FR Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
+              Origine: ${addCommaToPlaceName(body.origin)}<br />
+              Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
               
-              FR Departure: ${body.departureDate}<br />
-              FR Return: ${body.returnDate}<br /><br />
+              Départ: ${body.departureDate}<br />
+              Retour: ${body.returnDate}<br /><br />
               
-              FR Accommodation (${body.accommodationType}): ${localCurrencyDisplay(body.accommodationCost, 'fr-CA')}<br /><br />
+              Hébergement (${body.accommodationType}): ${localCurrencyDisplay(body.accommodationCost, 'fr-CA')}<br /><br />
               
-              FR Transportation (${body.transportationType}): ${localCurrencyDisplay(body.transportationCost, 'fr-CA')}<br /><br />
+              Transport (${body.transportationType}): ${localCurrencyDisplay(body.transportationCost, 'fr-CA')}<br /><br />
               
-              FR Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'fr-CA')}<br /><br />
+              Transport local: ${localCurrencyDisplay(body.localTransportationCost, 'fr-CA')}<br /><br />
               
-              FR Meals and incidentals: ${localCurrencyDisplay(body.mealCost, 'fr-CA')}<br /><br />
+              Repas et frais accessoires: ${localCurrencyDisplay(body.mealCost, 'fr-CA')}<br /><br />
               
-              FR Other costs: ${localCurrencyDisplay(body.otherCost, 'fr-CA')}<br /><br />
+              Autres dépenses: ${localCurrencyDisplay(body.otherCost, 'fr-CA')}<br /><br />
               
-              FR TOTAL: ${localCurrencyDisplay(body.summaryCost, 'fr-CA')}<br /><br />
+              TOTAL: ${localCurrencyDisplay(body.summaryCost, 'fr-CA')}<br /><br />
               
-              FR Notes: ${body.tripNotes}<br /><br />
+              Remarques: ${body.tripNotes}<br /><br />
               
-              FR If you have questions regarding this estimate, please email ${body.travellersName} at ${body.travellersEmail}<br /><br />
-              FR All dates expressed in this email are in YYYY-MM-DD format.<br /><br />
+              Si vous avez des questions, veuillez communiquer avec ${body.travellersName}, à ${body.travellersEmail}.<br /><br />
+              
+              Toutes les dates indiquées dans ce courriel utilisent le format AAAA-MM-JJ.<br /><br />
               `
           }
         },
