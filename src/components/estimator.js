@@ -979,6 +979,9 @@ const Estimator = () => {
                 setEmailValidationWarnings([]);
                 fetch('/api/sendEstimateEmailCeres', {
                     method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
                     body: JSON.stringify({
                         departureDate: departureDate.format("YYYY-MM-DD"),
                         returnDate: returnDate.format("YYYY-MM-DD"),
