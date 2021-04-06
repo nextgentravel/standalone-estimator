@@ -252,6 +252,14 @@ a:focus {
     line-height: 1.9em;
 }
 
+.footer-text a:link {
+    color: #7caad2;
+}
+
+.footer-text a:hover {
+    color: #a7c6e1;
+}
+
 .header-button:focus {
     outline: none !important;
     box-shadow: none;
@@ -281,6 +289,7 @@ a:focus {
 .form-check-label {
     font-weight: normal;
 }
+
 
 /* body 
     padding-top: 0px;
