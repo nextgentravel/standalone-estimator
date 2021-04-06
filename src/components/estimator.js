@@ -222,6 +222,7 @@ const Estimator = () => {
                         option_label
                         option_value
                     }
+                    email_form_field_required
                     email_modal_title
                     email_modal_submit
                     meals_modal_title
