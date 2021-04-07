@@ -9,7 +9,7 @@ module.exports = async function (context, req) {
     let origin = req.query.origin;
     let destination = req.query.destination;
 
-    await fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=${origin}&destinations=${destination}&key=${googleToken}`)
+    await fetch(encodeURI(`https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=${origin}&destinations=${destination}&key=${googleToken}`))
         .then(response => response.text())
         .then(result => {
             context.log('result', result)
