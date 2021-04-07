@@ -797,13 +797,12 @@ const Estimator = () => {
         setLoading(true);
         setGeneralError(false);
         e.preventDefault();
-        fetchFlightCost()
         handleSubmitEstimateValidation()
             .then(async (valid) => {
                 setSubmitValidationWarnings([]);
                 setTransportationType('flight')
                 setAccommodationType('hotel')
-
+                fetchFlightCost();
                 let numberOfDays = Interval.fromDateTimes(
                     departureDateLux,
                     returnDateLux)
@@ -1181,7 +1180,7 @@ const Estimator = () => {
                     {errorList()}
                 </ul>
             </div>}
-            <form id="estimates-form" className="form-group row mb-5" onSubmit={handleSubmit}>
+            <form id="estimates-form" className="form-group row mb-5" onSubmit={handleSubmit} noValidate>
                 <div className="col-sm-7" ref={summaryView}>
                     <InputDatalist
                         validationWarnings={submitValidationWarnings}
