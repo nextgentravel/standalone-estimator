@@ -11,7 +11,7 @@ const EmailForm = (props) => {
     }
     let validationErrorList = validationErrors.map(a => a.path) || [];
     return (
-        <Form>
+        <Form noValidate>
             <Form.Group as={Row} controlId="travellersName">
                 <Form.Label column sm="3">
                     {props.messages.email_form_travellers_name}
@@ -28,6 +28,9 @@ const EmailForm = (props) => {
                         type="text"
                         placeholder={props.messages.email_form_travellers_name_placeholder}
                     />
+                    <Form.Control.Feedback type="invalid">
+                        {props.messages.email_form_field_required}
+                    </Form.Control.Feedback>
                 </Col>
             </Form.Group>
             <Form.Group as={Row} controlId="travellersEmail" className="mb-5">
@@ -46,6 +49,9 @@ const EmailForm = (props) => {
                         type="text"
                         placeholder={props.messages.email_form_travellers_email_placeholder}
                     />
+                    <Form.Control.Feedback type="invalid">
+                        {props.messages.email_form_field_required}
+                    </Form.Control.Feedback>
                     <Form.Check
                         className="mt-3 checkbox-label"
                         type={'checkbox'}
@@ -75,6 +81,9 @@ const EmailForm = (props) => {
                         type="text"
                         placeholder={props.messages.email_form_approvers_name_placeholder}
                     />
+                    <Form.Control.Feedback type="invalid">
+                        {props.messages.email_form_field_required}
+                    </Form.Control.Feedback>
                 </Col>
             </Form.Group>
             <Form.Group as={Row} controlId="approversEmail" className="mb-5">
@@ -93,6 +102,9 @@ const EmailForm = (props) => {
                         type="text"
                         placeholder={props.messages.email_form_approvers_email_placeholder}
                     />
+                    <Form.Control.Feedback type="invalid">
+                        {props.messages.email_form_field_required}
+                    </Form.Control.Feedback>
                 </Col>
             </Form.Group>
             <Form.Group as={Row} controlId="tripName">
@@ -111,6 +123,9 @@ const EmailForm = (props) => {
                         type="text"
                         placeholder={props.messages.email_form_trip_name_placeholder}
                     />
+                    <Form.Control.Feedback type="invalid">
+                        {props.messages.email_form_field_required}
+                    </Form.Control.Feedback>
                 </Col>
             </Form.Group>
             <Form.Group as={Row} controlId="travelCategory">
@@ -131,6 +146,9 @@ const EmailForm = (props) => {
                             )
                         })}
                     </Form.Control>
+                    <Form.Control.Feedback type="invalid">
+                        {props.messages.email_form_field_required}
+                    </Form.Control.Feedback>
                 </Col>
             </Form.Group>
             <Form.Group as={Row} controlId="notes">
@@ -148,6 +166,9 @@ const EmailForm = (props) => {
                             }} as="textarea" rows={3}
                         placeholder={props.messages.email_form_notes_placeholder}
                     />
+                    <Form.Control.Feedback type="invalid">
+                        {props.messages.email_form_field_required}
+                    </Form.Control.Feedback>
                 </Col>
             </Form.Group>
         </Form>
