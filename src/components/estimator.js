@@ -322,10 +322,22 @@ const Estimator = () => {
             let province = geocodedCities[city].acrdName.slice(-2)
             let cityName = geocodedCities[city].acrdName.slice(0, -3)
             let display = `${cityName}, ${province}`
+
             list.push({
-                value: geocodedCities[city].google_place_id,
+                id: geocodedCities[city].google_place_id,
                 label: display,
             })
+
+            if (geocodedCities[city].airports.length > 0) {
+                geocodedCities[city].airports.forEach(airport => {
+                    list.push({
+                        id: `AIRPORT-${geocodedCities[city].google_place_id}`,
+                        label: `${airport.name} (${airport.iataCode})`,
+                    })
+                })
+            }
+
+
         }
         setFilteredCitiesList(list);
         removeActiveDescendantAttr()
