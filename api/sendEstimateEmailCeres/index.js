@@ -326,7 +326,7 @@ module.exports = async function (context, req) {
       Source: 'GC Travel Calculator / Calculateur de voyage du GC <tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca>',
       Destination: {
         ToAddresses: [
-          'kinetic@icloud.com'
+          'TPSGC.VoyageProchaineGen-NextGenTravel.PWGSC@tpsgc-pwgsc.gc.ca'
         ]
       },
       ReplyToAddresses: ['tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca'],
@@ -362,7 +362,7 @@ module.exports = async function (context, req) {
         },
         Subject: {
           Charset: 'UTF-8',
-          Data: `Trip estimate / Estimation de voyage`,
+          Data: `Report: Trip estimate`,
         }
       }
     };
