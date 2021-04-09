@@ -354,7 +354,7 @@ module.exports = async function (context, req) {
               
               TOTAL: ${localCurrencyDisplay(body.summaryCost, 'en-CA')}<br /><br />
               
-              ${JSON.stringify(initialResult, null, 2)}
+              ${JSON.stringify(req.body.initialResult, null, 2)}
 
               All dates expressed in this email are in YYYY-MM-DD format.<br /><br />
               `
