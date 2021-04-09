@@ -21,6 +21,7 @@ var englishNumberFormat = Intl.NumberFormat('en-CA', {
 });
 
 const addCommaToPlaceName = (placeName) => {
+  console.log(placeName)
   let province = placeName.slice(-2)
   let cityName = placeName.slice(0, -3)
   return `${cityName}, ${province}`
@@ -281,7 +282,7 @@ module.exports = async function (context, req) {
               <br /><br />
               ${body.approversName},<br /><br />
 
-              ${body.travellersName} a présenté une nouvelle estimation de voyage pour un voyage à ${addCommaToPlaceName(body.destination)}.<br /><br />
+              ${body.travellersName} a présenté une nouvelle estimation de voyage pour un voyage à ${addCommaToPlaceName(body.destination.acrdName)}.<br /><br />
 
               Objectif: ${body.tripName}<br /><br />
               
