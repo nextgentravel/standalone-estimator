@@ -321,51 +321,6 @@ module.exports = async function (context, req) {
       }
     };
 
-    let debugParams = {
-      Source: 'GC Travel Calculator / Calculateur de voyage du GC <tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca>',
-      Destination: {
-        ToAddresses: [
-          'kinetic@icloud.com'
-        ]
-      },
-      ReplyToAddresses: ['tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca'],
-      Message: {
-        Body: {
-          Html: {
-            Charset: "UTF-8",
-            Data: 
-              `
-              Origin: ${addCommaToPlaceName(body.origin)}<br />
-              Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
-              
-              Departure: ${body.departureDate}<br />
-              Return: ${body.returnDate}<br /><br />
-              
-              Accommodation (${accommodationType(body.accommodationType, 'en')}): ${localCurrencyDisplay(body.accommodationCost, 'en-CA')}<br /><br />
-              
-              Transportation (${travelMode(body.transportationType, 'en')}): ${localCurrencyDisplay(body.transportationCost, 'en-CA')}<br /><br />
-              
-              Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'en-CA')}<br /><br />
-              
-              Meals and incidentals: ${localCurrencyDisplay(body.mealCost, 'en-CA')}<br /><br />
-              
-              Other costs: ${localCurrencyDisplay(body.otherCost, 'en-CA')}<br /><br />
-              
-              TOTAL: ${localCurrencyDisplay(body.summaryCost, 'en-CA')}<br /><br />
-              
-              ${JSON.stringify(initialResult, null, 2)}
-
-              All dates expressed in this email are in YYYY-MM-DD format.<br /><br />
-              `
-          }
-        },
-        Subject: {
-          Charset: 'UTF-8',
-          Data: `Trip estimate / Estimation de voyage`,
-        }
-      }
-    };
-
     let response = {
       approver: '',
       traveller: '',
@@ -392,16 +347,6 @@ module.exports = async function (context, req) {
       .catch((err) => {
         console.log('err: ', err)
         response.approver = err;
-      });
-
-    await new AWS.SES(SESConfig)
-      .sendEmail(debugParams)
-      .promise()
-      .then((res) => {
-        console.log('res: ', res)
-      })
-      .catch((err) => {
-        console.log('err: ', err)
       });
 
       context.res = {
