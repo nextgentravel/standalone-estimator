@@ -857,6 +857,24 @@ const Estimator = () => {
             });
     }
 
+    let [initialResult, setInitialResult] = useState({});
+
+    useEffect(() => {
+        if (result === true) {
+            setInitialResult({
+                accommodationCost,
+                transportationCost,
+                localTransportationCost,
+                mealCost,
+                mealCostTotal: mealCost.total,
+                otherCost,
+                summaryCost,
+                accommodationType,
+                transportationType,
+            })
+        }
+    },[result])
+
     const clearForm = async () => {
 
         setAccommodationCost(parseFloat(0.00).toFixed(2))
@@ -1015,6 +1033,7 @@ const Estimator = () => {
                         summaryCost,
                         travelCategory,
                         travellerIsPublicServant,
+                        initialResult,
                     })
                   }).then(function(response) {
                     if (!response.ok) {
