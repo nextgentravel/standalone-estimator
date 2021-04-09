@@ -159,8 +159,8 @@ module.exports = async function (context, req) {
               Category: ${travelCategory(body.travelCategory, 'en')}<br />
               Public servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
                 
-              Origin: ${addCommaToPlaceName(body.origin)}<br />
-              Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
+              Origin: ${addCommaToPlaceName(body.origin.acrdName)}<br />
+              Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
               
               Departure: ${body.departureDate}<br />
               Return: ${body.returnDate}<br /><br />
@@ -195,8 +195,8 @@ module.exports = async function (context, req) {
               Catégorie: ${travelCategory(body.travelCategory, 'fr')}<br />
               Fonctionnaire: ${body.travellerIsPublicServant ? 'Oui' : 'Non'}<br /><br />
                 
-              Point d’origine: ${addCommaToPlaceName(body.origin)}<br />
-              Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
+              Point d’origine: ${addCommaToPlaceName(body.origin.acrdName)}<br />
+              Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
               
               Départ: ${body.departureDate}<br />
               Retour: ${body.returnDate}<br /><br />
@@ -245,15 +245,15 @@ module.exports = async function (context, req) {
 
               ${body.approversName},<br /><br />
 
-              ${body.travellersName} has submitted a new travel estimate for a trip to ${addCommaToPlaceName(body.destination)}.<br /><br />
+              ${body.travellersName} has submitted a new travel estimate for a trip to ${addCommaToPlaceName(body.destination.acrdName)}.<br /><br />
 
               Objective: ${body.tripName}<br /><br />
               
               Category: ${travelCategory(body.travelCategory, 'en')}<br />
               Public servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
                 
-              Origin: ${addCommaToPlaceName(body.origin)}<br />
-              Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
+              Origin: ${addCommaToPlaceName(body.origin.acrdName)}<br />
+              Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
               
               Departure: ${body.departureDate}<br />
               Return: ${body.returnDate}<br /><br />
@@ -288,8 +288,8 @@ module.exports = async function (context, req) {
               Catégorie: ${travelCategory(body.travelCategory, 'fr')}<br />
               Fonctionnaire: ${body.travellerIsPublicServant ? 'Oui' : 'Non'}<br /><br />
                 
-              Origine: ${addCommaToPlaceName(body.origin)}<br />
-              Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
+              Origine: ${addCommaToPlaceName(body.origin.acrdName)}<br />
+              Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
               
               Départ: ${body.departureDate}<br />
               Retour: ${body.returnDate}<br /><br />
@@ -335,8 +335,8 @@ module.exports = async function (context, req) {
             Charset: "UTF-8",
             Data: 
               `
-              Origin: ${addCommaToPlaceName(body.origin)}<br />
-              Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
+              Origin: ${addCommaToPlaceName(body.origin.acrdName)}<br />
+              Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
               
               Departure: ${body.departureDate}<br />
               Return: ${body.returnDate}<br /><br />
