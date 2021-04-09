@@ -322,22 +322,33 @@ const Estimator = () => {
             let province = geocodedCities[city].acrdName.slice(-2)
             let cityName = geocodedCities[city].acrdName.slice(0, -3)
             let display = `${cityName}, ${province}`
+            let suburbResolved = suburbCityList[geocodedCities[city].acrdName]
 
             list.push({
                 id: geocodedCities[city].google_place_id,
                 label: display,
+                type: 'city',
+                searchTerm: `${display}`,
+                acrdName: geocodedCities[city].acrdName,
+                provinceCode: province,
+                cityName: cityName,
+                iataCode: geocodedCities[city].airports.length > 0 ? geocodedCities[city].airports[0].iataCode : null,
             })
 
             if (geocodedCities[city].airports.length > 0) {
                 geocodedCities[city].airports.forEach(airport => {
                     list.push({
                         id: `AIRPORT-${geocodedCities[city].google_place_id}`,
-                        label: `${airport.name} (${airport.iataCode})`,
+                        label: `${display} (${airport.iataCode})`,
+                        type: 'airport',
+                        searchTerm: `${display} (${airport.iataCode})`,
+                        acrdName: geocodedCities[city].acrdName,
+                        provinceCode: province,
+                        cityName: cityName,
+                        iataCode: airport.iataCode
                     })
                 })
             }
-
-
         }
         setFilteredCitiesList(list);
         removeActiveDescendantAttr()
@@ -356,13 +367,9 @@ const Estimator = () => {
     }
 
     // Variables/state for inputs
-    const [origin, setOrigin] = useState('');
-    const [destination, setDestination] = useState('');
-    // These will be used by the API's later.
-    // eslint-disable-next-line no-unused-vars
-    const [originData, setOriginData] = useState({});
-    // eslint-disable-next-line no-unused-vars
-    const [destinationData, setDestinationData] = useState({});
+    const [origin, setOrigin] = useState({});
+    const [destination, setDestination] = useState({});
+
     const [departureDate, setDepartureDate] = useState(initialDates.departure);
     const [returnDate, setReturnDate] = useState(initialDates.return);
 
@@ -408,20 +415,12 @@ const Estimator = () => {
     }, [origin, destination, departureDate, returnDate])
 
     useEffect((() => {
-        const data = geocodedCities[origin]
-        if (origin !== '') {
-            let provinceAbbreviation = origin.slice(-2);
-            let provinceRate = locations[provinceAbbreviation].rateCents
+        if (Object.keys(origin).length !== 0) {
+            let provinceRate = locations[origin.provinceCode].rateCents
             setPrivateVehicleRate(provinceRate);
         }
-        setOriginData(data);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }), [origin])
-
-    useEffect((() => {
-        const data = geocodedCities[destination]
-        setDestinationData(data);
-    }), [destination])
 
     const [accommodationType, setAccommodationType] = useState('');
     const [transportationType, setTransportationType] = useState('');
@@ -574,7 +573,8 @@ const Estimator = () => {
 
     const fetchHotelCost = () => {
         let months = monthsContained(departureDate.format("YYYY-MM-DD"), returnDate.format("YYYY-MM-DD"));
-        let rates = acrdRates[destination];
+        let rates = acrdRates[destination.acrdName];
+        
         let acrdRatesFiltered = Object.keys(rates)
             .filter(key => months.map(mon => mon.month).includes(key))
             .reduce((res, key) => {
@@ -604,8 +604,8 @@ const Estimator = () => {
             let message = localeCopy.hotel_success.html
             // eslint-disable-next-line no-template-curly-in-string
 
-            let province = destination.slice(-2)
-            let cityName = destination.slice(0, -3)
+            let province = destination.provinceCode
+            let cityName = destination.cityName
             let destinationDisplay = `${cityName}, ${province}`
 
             message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
@@ -613,7 +613,7 @@ const Estimator = () => {
             message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(calculatedApplicableRates[0].rate)}</strong>`)
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
         } catch (error) {
-            console.log('fetchHotelHostError', error);
+            console.log('fetchHotelCostError', error);
         }
     }
 
@@ -658,17 +658,14 @@ const Estimator = () => {
             console.log('amadeusAccessTokenCheck', error)
         }
 
-        if (originData.airports.length > 0 && destinationData.airports.length > 0) {
-            amadeusFlightOffer(originData.airports[0].iataCode, destinationData.airports[0].iataCode, departureDateISODate, returnDateISODate, amadeusAccessToken.token)
+        if (origin.iataCode !== null && destination.iataCode !== null) {
+            amadeusFlightOffer(origin.iataCode, destination.iataCode, departureDateISODate, returnDateISODate, amadeusAccessToken.token)
             .then(response => response.json())
             .then(result => {
-                console.log(result)
                 const allPrices = [];
                 let date = DateTime.local().toFormat("yyyy-MM-dd");
                 let time = DateTime.local().toFormat("hh:mm a")
-                console.log(result.data.length)
                 if (result.data.length === 0) {
-                    console.log("HERE?!")
                     localeCopy.flight_no_results.html = localeCopy.flight_no_results.html.replace('{date}', `<strong>${date}</strong>`)    
                     let FlightMessage = <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_no_results.html }}></span>
                     updateTransportationCost(0.00);
@@ -821,13 +818,13 @@ const Estimator = () => {
                     .count('days')
 
                 let city = suburbCityList[destination] || destination;
-                let provinceCode = city.slice(-2); // This is bad.  We need to change the data structure.
+                let provinceCode = destination.provinceCode; // This is bad.  We need to change the data structure.
 
                 setMealsByDay(dailyMealTemplate(departureDateLux, returnDateLux))
                 setProvince(provinceCode)
 
                 try {
-                    let distanceBetweenPlaces = await fetchDistanceBetweenPlaces(origin, destination);
+                    let distanceBetweenPlaces = await fetchDistanceBetweenPlaces(origin.acrdName, destination.acrdName);
                     let distanceBetweenPlacesBody = await distanceBetweenPlaces.json()
 
                     setPrivateVehicleSuccess(true)
@@ -866,8 +863,8 @@ const Estimator = () => {
         setAccommodationMessage({ element: <span></span>, style: 'primary' });
         setHaveFlightCost(false)
         setTransportationEstimates(transportationEstimatesInitialState);
-        setOrigin('')
-        setDestination('')
+        setOrigin({})
+        setDestination({})
         setEmailConfirmationModalShow(false);
         setEmailModalShow(false);
         setLocalTransportationMessage({ element: <span></span>, style: 'primary' });
@@ -905,7 +902,7 @@ const Estimator = () => {
     }
 
     const handleSubmitEstimateValidation = () => {
-        let target = {origin, destination, departureDate, returnDate};
+        let target = {origin: origin.acrdName, destination: destination.acrdName, departureDate, returnDate};
         let schema = yup.object().shape({
             origin: yup
                 .string()

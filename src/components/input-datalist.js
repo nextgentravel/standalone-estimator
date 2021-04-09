@@ -1,6 +1,8 @@
 import React from 'react'
 import 'unorm';
 import Autocomplete from 'accessible-autocomplete/react'
+import { FaPlane } from 'react-icons/fa';
+import { renderToString } from 'react-dom/server'
 
 const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, options, updateValue}) => {
     let showValidationWarning = false;
@@ -18,7 +20,7 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
 
     const find = (key, array) => {
         return array.filter(item => {
-            return item.label.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").indexOf(key.toLowerCase()) !== -1
+            return item.searchTerm.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").indexOf(key.toLowerCase()) !== -1
         });
     }
     
@@ -33,7 +35,7 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
           if (!value) {
             return '';
           }
-          return value.label;
+          return value.searchTerm;
         },
         suggestion: (value) => {
           return value.label;
@@ -52,8 +54,7 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
                     confirmOnBlur={false}
                     displayValue="overlay"
                     onConfirm={value => {
-                        let selected = value.label.replace(',','');
-                        updateValue(selected)
+                        updateValue(value)
                     }}
                     aria-describedby={`autocomplete-${name}`}
                     className={showValidationWarning ? 'form-control is-invalid' : 'form-control' }
