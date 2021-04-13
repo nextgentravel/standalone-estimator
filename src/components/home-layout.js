@@ -88,8 +88,8 @@ export default ({ data }) => {
       })
     },[])
 
-    const [explainerCollapsed, setExplainerCollapsed] = useState(false);
-    const [disclaimerCollapsed, setDisclaimerCollapsed] = useState(false);
+    const [explainerCollapsed, setExplainerCollapsed] = useState(true);
+    const [disclaimerCollapsed, setDisclaimerCollapsed] = useState(true);
 
     return (
       <Layout>
