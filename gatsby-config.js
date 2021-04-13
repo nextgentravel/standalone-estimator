@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: `GC Travel Calculator / Calculateur de voyage du GC`,
     description: `Use this tool to create Government of Canada (GC) travel estimates / Utilisez cet outil pour créer des estimations des voyages du gouvernement du Canada (GC)`,
-    author: `NextGen Travel Team / L'Équipe de voyage Prochaine Génération`,
+    author: `NextGen Travel / Voyage Prochaine Génération`,
     siteUrl: `https://travel-guidebook.herokuapp.com/`,
     languages
   },
