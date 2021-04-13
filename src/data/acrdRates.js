@@ -2253,6 +2253,20 @@ module.exports = {
     November: 192,
     December: 192
   },
+  'Kitchener ON': {
+    January: 140,
+    February: 140,
+    March: 143,
+    April: 143,
+    May: 143,
+    June: 143,
+    July: 140,
+    August: 140,
+    September: 143,
+    October: 143,
+    November: 143,
+    December: 143
+  },
   'Kitimat BC': {
     January: 200,
     February: 200,
@@ -5570,6 +5584,20 @@ module.exports = {
     October: 171,
     November: 165,
     December: 165
+  },
+  'Waterloo ON': {
+    January: 140,
+    February: 140,
+    March: 143,
+    April: 143,
+    May: 143,
+    June: 143,
+    July: 140,
+    August: 140,
+    September: 143,
+    October: 143,
+    November: 143,
+    December: 143
   },
   'Wendake QC': {
     January: 156,
