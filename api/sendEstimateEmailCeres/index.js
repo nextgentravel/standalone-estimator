@@ -322,6 +322,8 @@ module.exports = async function (context, req) {
       }
     };
 
+    let initialResult = req.body.initialResult;
+
     let debugParams = {
       Source: 'GC Travel Calculator / Calculateur de voyage du GC <tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca>',
       Destination: {
@@ -342,19 +344,17 @@ module.exports = async function (context, req) {
               Departure: ${body.departureDate}<br />
               Return: ${body.returnDate}<br /><br />
               
-              Accommodation (${accommodationType(body.accommodationType, 'en')}): ${localCurrencyDisplay(body.accommodationCost, 'en-CA')}<br /><br />
+              Accommodation (${accommodationType(body.accommodationType, 'en')}): ${localCurrencyDisplay(body.accommodationCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.accommodationCost, 'en-CA')})<br /><br />
               
-              Transportation (${travelMode(body.transportationType, 'en')}): ${localCurrencyDisplay(body.transportationCost, 'en-CA')}<br /><br />
+              Transportation (${travelMode(body.transportationType, 'en')}): ${localCurrencyDisplay(body.transportationCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.transportationCost, 'en-CA')})<br /><br />
               
-              Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'en-CA')}<br /><br />
+              Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.localTransportationCost, 'en-CA')})<br /><br />
               
-              Meals and incidentals: ${localCurrencyDisplay(body.mealCost, 'en-CA')}<br /><br />
+              Meals and incidentals: ${localCurrencyDisplay(body.mealCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.mealCost, 'en-CA')})<br /><br />
               
-              Other costs: ${localCurrencyDisplay(body.otherCost, 'en-CA')}<br /><br />
+              Other costs: ${localCurrencyDisplay(body.otherCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.otherCost, 'en-CA')})<br /><br />
               
-              TOTAL: ${localCurrencyDisplay(body.summaryCost, 'en-CA')}<br /><br />
-              
-              ${JSON.stringify(req.body.initialResult, null, 2)}
+              TOTAL: ${localCurrencyDisplay(body.summaryCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.summaryCost, 'en-CA')})<br /><br />
 
               All dates expressed in this email are in YYYY-MM-DD format.<br /><br />
               `
