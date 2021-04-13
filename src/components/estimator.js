@@ -10,6 +10,7 @@ import { useIntl } from 'react-intl'
 import EstimatorRow from "./estimator-row.js"
 import EmailModal from "./email-modal.js"
 import EmailConfirmationModal from "./email-confirmation-modal.js"
+import FeedBackModal from "./feedback-modal.js"
 import MealsModal from "./meals-modal.js"
 import { FaCaretUp, FaCaretDown, FaCalculator, FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
 import { dailyMealTemplate } from "./functions/dailyMealTemplate"
@@ -287,6 +288,12 @@ const Estimator = () => {
                     datepicker_date_is_selected_as_end_date
                     datepicker_start_date
                     datepicker_end_date
+                    feedback_modal_header_text
+                    feedback_modal_body {
+                        html
+                    }
+                    feedback_modal_primary_button_text
+                    feedback_modal_secondary_button_text
                 }
             }
         }
@@ -447,6 +454,7 @@ const Estimator = () => {
     const [emailRequestLoading, setEmailRequestLoading] = useState(false);
     const [emailConfirmationModalShow, setEmailConfirmationModalShow] = useState(false);
     const [emailRequestResult, setEmailRequestResult] = useState({});
+    const [feedbackModalShow, setFeedbackModalShow] = useState(false);
 
     const [tripName, setTripName] = useState('');
     const [travellersName, setTravellersName] = useState('');
@@ -630,7 +638,7 @@ const Estimator = () => {
             fetchAmadeusToken()
             console.log("Fetching new token.")
         } else {
-            console.log("Token is good!")
+            // console.log("Token is good!")
         }
     }
 
@@ -650,13 +658,10 @@ const Estimator = () => {
             amadeusFlightOffer(originData.airports[0].iataCode, destinationData.airports[0].iataCode, departureDateISODate, returnDateISODate, amadeusAccessToken.token)
             .then(response => response.json())
             .then(result => {
-                console.log(result)
                 const allPrices = [];
                 let date = DateTime.local().toFormat("yyyy-MM-dd");
                 let time = DateTime.local().toFormat("hh:mm a")
-                console.log(result.data.length)
                 if (result.data.length === 0) {
-                    console.log("HERE?!")
                     localeCopy.flight_no_results.html = localeCopy.flight_no_results.html.replace('{date}', `<strong>${date}</strong>`)    
                     let FlightMessage = <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_no_results.html }}></span>
                     updateTransportationCost(0.00);
@@ -1159,7 +1164,13 @@ const Estimator = () => {
                 onHide={() => setEmailConfirmationModalShow(false)}
                 emailRequestResult={emailRequestResult}
                 approversName={approversName}
+                setFeedbackModalShow={setFeedbackModalShow}
                 clearForm={clearForm}
+                messages={localeCopy}
+            />
+            <FeedBackModal
+                show={feedbackModalShow}
+                onHide={() => setFeedbackModalShow(false)}
                 messages={localeCopy}
             />
             <MealsModal
