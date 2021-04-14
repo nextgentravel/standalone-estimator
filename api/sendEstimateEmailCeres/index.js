@@ -149,7 +149,7 @@ module.exports = async function (context, req) {
           Html: {
             Charset: "UTF-8",
             Data: 
-              `Le français suit l'anglais.<br /><br />
+              `(Le français suit l'anglais.)<br /><br />
               
               ${body.travellersName},<br /><br />
 
@@ -242,7 +242,7 @@ module.exports = async function (context, req) {
           Html: {
             Charset: "UTF-8",
             Data: 
-              `Le français suit l'anglais.<br /><br />
+              `(Le français suit l'anglais.)<br /><br />
 
               ${body.approversName},<br /><br />
 
