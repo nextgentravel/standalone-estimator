@@ -2,9 +2,9 @@ const languages = require('./src/data/languages');
 
 module.exports = {
   siteMetadata: {
-    title: `Travel Guide`,
-    description: `A guide for travel in the Canadian public service.`,
-    author: `NextGen Travel Team`,
+    title: `GC Travel Calculator / Calculateur de voyage du GC`,
+    description: `Use this tool to create Government of Canada (GC) travel estimates / Utilisez cet outil pour créer des estimations des voyages du gouvernement du Canada (GC)`,
+    author: `NextGen Travel / Voyage Prochaine Génération`,
     siteUrl: `https://travel-guidebook.herokuapp.com/`,
     languages
   },
