@@ -2029,7 +2029,7 @@ module.exports = {
     November: 126,
     December: 126
   },
-  'Iles-de-la-Madeleine QC': {
+  'Îles-de-la Madeleine QC': {
     January: 120,
     February: 120,
     March: 120,
