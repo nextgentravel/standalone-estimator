@@ -328,7 +328,8 @@ module.exports = async function (context, req) {
       Source: 'GC Travel Calculator / Calculateur de voyage du GC <tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca>',
       Destination: {
         ToAddresses: [
-          'TPSGC.VoyageProchaineGen-NextGenTravel.PWGSC@tpsgc-pwgsc.gc.ca',
+          'Joseph.Moubayed@tpsgc-pwgsc.gc.ca',
+          'mike@codefor.ca',
         ]
       },
       ReplyToAddresses: ['tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca'],
