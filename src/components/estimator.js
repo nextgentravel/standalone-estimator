@@ -894,6 +894,7 @@ const Estimator = () => {
         setOtherCost(parseFloat(0.00).toFixed(2))
         setResult(false)
         setSubmitValidationWarnings([]);
+        setInitialResult({});
 
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
