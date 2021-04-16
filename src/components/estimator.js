@@ -313,7 +313,6 @@ const Estimator = () => {
     const [explainerCollapsed, setExplainerCollapsed] = useState(true);
 
     const citiesList = cities.citiesList;
-    const suburbCityList = cities.suburbCityList;
     const [filteredCitiesList, setFilteredCitiesList] = useState([]);
 
     useEffect(() => {
@@ -322,7 +321,6 @@ const Estimator = () => {
             let province = geocodedCities[city].acrdName.slice(-2)
             let cityName = geocodedCities[city].acrdName.slice(0, -3)
             let display = `${cityName}, ${province}`
-            let suburbResolved = suburbCityList[geocodedCities[city].acrdName]
 
             list.push({
                 id: geocodedCities[city].google_place_id,
@@ -443,7 +441,6 @@ const Estimator = () => {
     const [mealCost, setMealCost] = useState({ total: 0.00 });
     const [otherCost, setOtherCost] = useState(0.00);
     const [summaryCost, setSummaryCost] = useState(0.00);
-    const [amadeusAccessToken, setAmadeusAccessToken] = useState({})
     const [enterKilometricsDistanceManually, setEnterKilometricsDistanceManually] = useState(false)
     const [privateKilometricsValue, setPrivateKilometricsValue] = useState(0);
     const [returnDistance, setReturnDistance] = useState('');
@@ -542,27 +539,6 @@ const Estimator = () => {
         setMealsModalShow(true)
     };
 
-    async function fetchAmadeusToken() {
-        await fetch("/api/FetchAmadeusToken", {
-                headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-                },
-            })
-            .then(response => response.json())
-            .then(result => {
-                // console.log('Fetched Access Token: ', result);
-                let expiryTime = new Date();
-                expiryTime.setSeconds(expiryTime.getSeconds() + result.expires_in);
-                setAmadeusAccessToken({ token: result.access_token, expiryTime: expiryTime.getTime() });
-            })
-            .catch(error => { console.log('FetchAmadeusToken error', error) });
-    }
-
-    useEffect(() => {
-        fetchAmadeusToken();
-    }, [])
-
     useEffect(() => {
         updateAccommodationCost(0.00)
         updateTransportationCost(0.00)
@@ -637,35 +613,19 @@ const Estimator = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [accommodationType])
 
-    const amadeusAccessTokenCheck = () => {
-        if (Date.now() >= amadeusAccessToken.expiryTime) {
-            fetchAmadeusToken()
-            console.log("Fetching new token.")
-        } else {
-            console.log("Token is good!")
-        }
-    }
-
     const [haveFlightCost, setHaveFlightCost] = useState(false)
 
     const fetchFlightCost = async () => {
         const departureDateISODate = departureDate.format("YYYY-MM-DD")
         const returnDateISODate = returnDate.format("YYYY-MM-DD")
 
-        try {
-            await amadeusAccessTokenCheck();
-        } catch (error) {
-            console.log('amadeusAccessTokenCheck', error)
-        }
-
         if (origin.iataCode !== null && destination.iataCode !== null) {
-            amadeusFlightOffer(origin.iataCode, destination.iataCode, departureDateISODate, returnDateISODate, amadeusAccessToken.token)
+            amadeusFlightOffer(origin.iataCode, destination.iataCode, departureDateISODate, returnDateISODate, '')
             .then(response => response.json())
             .then(result => {
-                const allPrices = [];
                 let date = DateTime.local().toFormat("yyyy-MM-dd");
                 let time = DateTime.local().toFormat("hh:mm a")
-                if (result.data.length === 0) {
+                if (result.numberOfResults === 0) {
                     localeCopy.flight_no_results.html = localeCopy.flight_no_results.html.replace('{date}', `<strong>${date}</strong>`)    
                     let FlightMessage = <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_no_results.html }}></span>
                     updateTransportationCost(0.00);
@@ -679,24 +639,17 @@ const Estimator = () => {
                     })
                     setTransportationMessage({ element: FlightMessage  })
                     setHaveFlightCost(true);
-                } else {
-                    result.data.forEach(itinerary => {
-                        allPrices.push(parseFloat(itinerary.price.grandTotal))
-                    });
-    
-                    const sum = allPrices.reduce((a, b) => a + b, 0);
-                    const avg = (sum / allPrices.length) || 0;
-        
+                } else {        
                     localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{date}', `<strong>${date}</strong>`)
                     localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{time}', `<strong>${time}</strong>`)
     
                     let FlightMessage = <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_success.html }}></span>
                     
-                    updateTransportationCost(avg);
+                    updateTransportationCost(result.flightEstimate);
                     setTransportationEstimates({
                         ...transportationEstimates,
                         flight: {
-                            estimatedValue: avg,
+                            estimatedValue: result.flightEstimate,
                             estimatedValueMessage: FlightMessage,
                             responseBody: result,
                         }
@@ -817,8 +770,7 @@ const Estimator = () => {
                     returnDateLux)
                     .count('days')
 
-                let city = suburbCityList[destination] || destination;
-                let provinceCode = destination.provinceCode; // This is bad.  We need to change the data structure.
+                let provinceCode = destination.provinceCode;
 
                 setMealsByDay(dailyMealTemplate(departureDateLux, returnDateLux))
                 setProvince(provinceCode)
@@ -1099,11 +1051,11 @@ const Estimator = () => {
     useEffect(() => {
         
         if (transportationType === 'flight') {
-            if (haveFlightCost && transportationEstimates.flight.responseBody.data.length === 0 && parseFloat(transportationCost) === 0.00) {
+            if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) === 0.00) {
                 setTransportationMessage({
                     element:  <span className="transportation-message">{formattedMessage('flight_no_results')}</span>
                 })
-            } else if (haveFlightCost && transportationEstimates.flight.responseBody.data.length === 0 && parseFloat(transportationCost) > 0.00) {
+            } else if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) > 0.00) {
                 setTransportationMessage({
                     element:  <span className="transportation-message">{formattedMessage('flight_no_results_custom')}</span>
                 })
