@@ -43,7 +43,7 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                         overlay={overlayRender}
                     >{children}</OverlayTrigger>)}
             >
-                <div class="input-group mb-2">
+                <div className="input-group mb-2">
                     {locale === 'en-ca' &&
                         <div className='input-group-prepend'>
                             <span className="input-group-text" id={`${name}-dollar-sign`}>$</span>
