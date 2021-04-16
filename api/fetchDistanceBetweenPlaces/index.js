@@ -12,7 +12,6 @@ module.exports = async function (context, req) {
     await fetch(encodeURI(`https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=${origin}&destinations=${destination}&key=${googleToken}`))
         .then(response => response.text())
         .then(result => {
-            context.log('result', result)
             context.res = {
                 body: result
             };
