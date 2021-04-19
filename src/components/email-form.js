@@ -20,7 +20,7 @@ const EmailForm = (props) => {
                     <Form.Control
                         isInvalid={validationErrorList.includes('travellersName')}
                         required
-                        value={props.travellers_name}
+                        value={props.travellersName}
                         onChange={(e) => {
                             removeIsInvalid('travellersName', validationErrors)
                             props.setTravellersName(e.target.value)
@@ -85,7 +85,7 @@ const EmailForm = (props) => {
                     <Form.Control
                         isInvalid={validationErrorList.includes('approversEmail')}
                         required
-                        value={props.approvers_email}
+                        value={props.approversEmail}
                         onChange={(e) => {
                             removeIsInvalid('approversEmail', validationErrors)
                             props.setApproversEmail(e.target.value)

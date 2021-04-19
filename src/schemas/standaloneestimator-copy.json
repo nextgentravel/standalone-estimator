@@ -287,6 +287,12 @@
         "multi": "strong, em",
         "label": "email_form_disclaimer"
       }
+    },
+    "email_form_field_required": {
+      "type": "Text",
+      "config": {
+        "label": "email_form_field_required"
+      }
     }
   },
   "Meals Modal": {
@@ -460,7 +466,8 @@
     "flight_no_results": {
       "type": "StructuredText",
       "config": {
-        "multi": "strong, em",
+        "multi": "strong, em, hyperlink",
+        "allowTargetBlank": true,
         "label": "flight_no_results"
       }
     },
