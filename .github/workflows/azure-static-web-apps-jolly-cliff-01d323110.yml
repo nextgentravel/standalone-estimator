@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     env:
-      HOTJAR_ID: "2298351"
+      HOTJAR_ID: "2352467"
       HOTJAR_SNIPPET_VERSION: "6"
     steps:
       - uses: actions/checkout@v2
