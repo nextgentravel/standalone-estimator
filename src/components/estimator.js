@@ -616,57 +616,63 @@ const Estimator = () => {
     const [haveFlightCost, setHaveFlightCost] = useState(false)
 
     const fetchFlightCost = async () => {
-        const departureDateISODate = departureDate.format("YYYY-MM-DD")
-        const returnDateISODate = returnDate.format("YYYY-MM-DD")
-
-        if (origin.iataCode !== null && destination.iataCode !== null) {
-            amadeusFlightOffer(origin.iataCode, destination.iataCode, departureDateISODate, returnDateISODate, '')
-            .then(response => response.json())
-            .then(result => {
-                let date = DateTime.local().toFormat("yyyy-MM-dd");
-                let time = DateTime.local().toFormat("hh:mm a")
-                if (result.numberOfResults === 0) {
-                    localeCopy.flight_no_results.html = localeCopy.flight_no_results.html.replace('{date}', `<strong>${date}</strong>`)    
-                    let FlightMessage = <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_no_results.html }}></span>
-                    updateTransportationCost(0.00);
-                    setTransportationEstimates({
-                        ...transportationEstimates,
-                        flight: {
-                            estimatedValue: 0,
-                            estimatedValueMessage: FlightMessage,
-                            responseBody: result,
-                        }
-                    })
-                    setTransportationMessage({ element: FlightMessage  })
-                    setHaveFlightCost(true);
-                } else {        
-                    localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{date}', `<strong>${date}</strong>`)
-                    localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{time}', `<strong>${time}</strong>`)
+        return new Promise(resolve => {
+            const departureDateISODate = departureDate.format("YYYY-MM-DD")
+            const returnDateISODate = returnDate.format("YYYY-MM-DD")
     
-                    let FlightMessage = <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_success.html }}></span>
-                    
-                    updateTransportationCost(result.flightEstimate);
-                    setTransportationEstimates({
-                        ...transportationEstimates,
-                        flight: {
-                            estimatedValue: result.flightEstimate,
-                            estimatedValueMessage: FlightMessage,
-                            responseBody: result,
-                        }
-                    })
-                    setTransportationMessage({ element: FlightMessage  })
-                    setHaveFlightCost(true);
-                }
-            })
-            .catch(error => {
-                console.log('amadeus flight offer error', error);
-                updateTransportationCost(0.00);
-                setTransportationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
-            });
-        } else {
-            setLoading(false);
-            setTransportationMessage({ element: formattedMessage('flight_message_no_airport')  })
-        }
+            if (origin.iataCode !== null && destination.iataCode !== null) {
+                amadeusFlightOffer(origin.iataCode, destination.iataCode, departureDateISODate, returnDateISODate, '')
+                .then(response => response.json())
+                .then(result => {
+                    let date = DateTime.local().toFormat("yyyy-MM-dd");
+                    let time = DateTime.local().toFormat("hh:mm a")
+                    if (result.numberOfResults === 0) {
+                        localeCopy.flight_no_results.html = localeCopy.flight_no_results.html.replace('{date}', `<strong>${date}</strong>`)    
+                        let FlightMessage = <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_no_results.html }}></span>
+                        updateTransportationCost(0.00);
+                        setTransportationEstimates({
+                            ...transportationEstimates,
+                            flight: {
+                                estimatedValue: 0,
+                                estimatedValueMessage: FlightMessage,
+                                responseBody: result,
+                            }
+                        })
+                        setTransportationMessage({ element: FlightMessage  })
+                        setHaveFlightCost(true);
+                        resolve(result);
+                    } else {        
+                        localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{date}', `<strong>${date}</strong>`)
+                        localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{time}', `<strong>${time}</strong>`)
+        
+                        let FlightMessage = <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_success.html }}></span>
+                        
+                        updateTransportationCost(result.flightEstimate);
+                        setTransportationEstimates({
+                            ...transportationEstimates,
+                            flight: {
+                                estimatedValue: result.flightEstimate,
+                                estimatedValueMessage: FlightMessage,
+                                responseBody: result,
+                            }
+                        })
+                        setTransportationMessage({ element: FlightMessage  })
+                        setHaveFlightCost(true);
+                        resolve(result);
+                    }
+                })
+                .catch(error => {
+                    console.log('amadeus flight offer error', error);
+                    updateTransportationCost(0.00);
+                    setTransportationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
+                    resolve(error);
+                });
+            } else {
+                setLoading(false);
+                setTransportationMessage({ element: formattedMessage('flight_message_no_airport')  })
+                resolve('no airport');
+            }
+        });
     }
 
     useEffect(() => {
@@ -764,7 +770,7 @@ const Estimator = () => {
                 setSubmitValidationWarnings([]);
                 setTransportationType('flight')
                 setAccommodationType('hotel')
-                fetchFlightCost();
+                await fetchFlightCost();
                 let numberOfDays = Interval.fromDateTimes(
                     departureDateLux,
                     returnDateLux)
