@@ -29,7 +29,6 @@ function SEO({ description, lang, meta, title }) {
   )
 
   const metaDescription = description || lang === 'en-ca' ? site.siteMetadata.descriptionEnglish : site.siteMetadata.descriptionFrench
-  console.log('site', lang)
   return (
     <Helmet
       htmlAttributes={{
