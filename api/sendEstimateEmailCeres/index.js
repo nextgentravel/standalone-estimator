@@ -324,6 +324,45 @@ module.exports = async function (context, req) {
 
     let initialResult = req.body.initialResult;
 
+    let applicableRates = body.applicableRates.map((rate => {
+      return `${rate.month}: ${rate.rate}`
+    }))
+
+    let csvLineObject = {
+      origin: body.origin.acrdName,
+      destination: body.destination.acrdName,
+      departureDate: body.departureDate,
+      returnDate: body.returnDate,
+      applicableACRDRates: applicableRates.join(' '),
+      privateVehicleRateCents: body.privateVehicleRate,
+      accommodationCostEstimated: initialResult.accommodationCost,
+      accommodationCostSubmitted: body.accommodationCost,
+      accommodationTypeEstimated: initialResult.accommodationType,
+      accommodationTypeSubmitted: body.accommodationType,
+      transportationCostEstimated: initialResult.transportationCost,
+      transportationCostSubmitted: body.transportationCost,
+      transportationTypeEstimated: initialResult.transportationType,
+      transportationTypeSubmitted: body.transportationType,
+      returnDistanceEstimatedMeters: initialResult.returnDistance,
+      returnDistanceSubmittedKilometres: body.privateKilometricsValue,
+      localTransportationCostEstimated: initialResult.localTransportationCost,
+      localTransportationCostSubmitted: body.localTransportationCost,
+      mealCostEstimated: initialResult.mealCostTotal,
+      mealCostSubmitted: body.mealCost,
+      otherCostEstimated: initialResult.otherCost,
+      otherCostSubmitted: body.otherCost,
+      summaryCostEstimated: initialResult.summaryCost,
+      summaryCostSubmitted: body.summaryCost,
+      mealCost: body.mealCost,
+      breakfast: initialResult.mealCost.breakfast,
+      lunch: initialResult.mealCost.lunch,
+      dinner: initialResult.mealCost.dinner,
+      incidentals: initialResult.mealCost.incidentals,
+    }
+
+    let csvHeaders = Object.keys(csvLineObject);
+    let csvData = csvHeaders.map(key => `"${csvLineObject[key]}"`).join(',')
+
     let debugParams = {
       Source: 'GC Travel Calculator / Calculateur de voyage du GC <tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca>',
       Destination: {
@@ -358,6 +397,15 @@ module.exports = async function (context, req) {
               TOTAL: ${localCurrencyDisplay(body.summaryCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.summaryCost, 'en-CA')})<br /><br />
 
               All dates expressed in this email are in YYYY-MM-DD format.<br /><br />
+
+              <br><br>CSV: (Header followed by data)<br><br>
+              ${csvHeaders}
+
+              <br>
+
+              ${csvData}
+
+              <br><br>
 
               Initial Result: <br><br>
               ${JSON.stringify(initialResult, null, '<br>')}
