@@ -338,22 +338,8 @@ const Estimator = () => {
                 provinceCode: province,
                 cityName: cityName,
                 iataCode: geocodedCities[city].airports.length > 0 ? geocodedCities[city].airports[0].iataCode : null,
+                cityCode: geocodedCities[city].airports.length > 0 ? geocodedCities[city].airports[0].address.cityCode: null,
             })
-
-            if (geocodedCities[city].airports.length > 0) {
-                geocodedCities[city].airports.forEach(airport => {
-                    list.push({
-                        id: `AIRPORT-${geocodedCities[city].google_place_id}`,
-                        label: `${display} (${airport.iataCode})`,
-                        type: 'airport',
-                        searchTerm: `${display} (${airport.iataCode})`,
-                        acrdName: geocodedCities[city].acrdName,
-                        provinceCode: province,
-                        cityName: cityName,
-                        iataCode: airport.iataCode
-                    })
-                })
-            }
         }
         setFilteredCitiesList(list);
         removeActiveDescendantAttr()
@@ -628,8 +614,8 @@ const Estimator = () => {
             const departureDateISODate = departureDate.format("YYYY-MM-DD")
             const returnDateISODate = returnDate.format("YYYY-MM-DD")
     
-            if (origin.iataCode !== null && destination.iataCode !== null) {
-                amadeusFlightOffer(origin.iataCode, destination.iataCode, departureDateISODate, returnDateISODate, '')
+            if (origin.cityCode !== null && destination.cityCode !== null) {
+                amadeusFlightOffer(origin.cityCode, destination.cityCode, departureDateISODate, returnDateISODate, '')
                 .then(response => response.json())
                 .then(result => {
                     let date = DateTime.local().toFormat("yyyy-MM-dd");

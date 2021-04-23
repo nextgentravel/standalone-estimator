@@ -38,9 +38,6 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
           return value.searchTerm;
         },
         suggestion: (value) => {
-            if (value.type === 'airport') {
-                return `${renderToString(<FaPlane size="20" color="#9E9E9E" />)} ${value.label}`;
-            }
             return value.label;
         }
     }
