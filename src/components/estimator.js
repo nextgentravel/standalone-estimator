@@ -320,7 +320,6 @@ const Estimator = () => {
     const [explainerCollapsed, setExplainerCollapsed] = useState(true);
 
     const citiesList = cities.citiesList;
-    const suburbCityList = cities.suburbCityList;
     const [filteredCitiesList, setFilteredCitiesList] = useState([]);
 
     useEffect(() => {
@@ -329,9 +328,17 @@ const Estimator = () => {
             let province = geocodedCities[city].acrdName.slice(-2)
             let cityName = geocodedCities[city].acrdName.slice(0, -3)
             let display = `${cityName}, ${province}`
+
             list.push({
-                value: geocodedCities[city].google_place_id,
+                id: geocodedCities[city].google_place_id,
                 label: display,
+                type: 'city',
+                searchTerm: `${display}`,
+                acrdName: geocodedCities[city].acrdName,
+                provinceCode: province,
+                cityName: cityName,
+                iataCode: geocodedCities[city].airports.length > 0 ? geocodedCities[city].airports[0].iataCode : null,
+                cityCode: geocodedCities[city].airports.length > 0 ? geocodedCities[city].airports[0].address.cityCode: null,
             })
         }
         setFilteredCitiesList(list);
@@ -351,13 +358,9 @@ const Estimator = () => {
     }
 
     // Variables/state for inputs
-    const [origin, setOrigin] = useState('');
-    const [destination, setDestination] = useState('');
-    // These will be used by the API's later.
-    // eslint-disable-next-line no-unused-vars
-    const [originData, setOriginData] = useState({});
-    // eslint-disable-next-line no-unused-vars
-    const [destinationData, setDestinationData] = useState({});
+    const [origin, setOrigin] = useState({});
+    const [destination, setDestination] = useState({});
+
     const [departureDate, setDepartureDate] = useState(initialDates.departure);
     const [returnDate, setReturnDate] = useState(initialDates.return);
 
@@ -403,20 +406,12 @@ const Estimator = () => {
     }, [origin, destination, departureDate, returnDate])
 
     useEffect((() => {
-        const data = geocodedCities[origin]
-        if (origin !== '') {
-            let provinceAbbreviation = origin.slice(-2);
-            let provinceRate = locations[provinceAbbreviation].rateCents
+        if (Object.keys(origin).length !== 0) {
+            let provinceRate = locations[origin.provinceCode].rateCents
             setPrivateVehicleRate(provinceRate);
         }
-        setOriginData(data);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }), [origin])
-
-    useEffect((() => {
-        const data = geocodedCities[destination]
-        setDestinationData(data);
-    }), [destination])
 
     const [accommodationType, setAccommodationType] = useState('');
     const [transportationType, setTransportationType] = useState('');
@@ -439,7 +434,6 @@ const Estimator = () => {
     const [mealCost, setMealCost] = useState({ total: 0.00 });
     const [otherCost, setOtherCost] = useState(0.00);
     const [summaryCost, setSummaryCost] = useState(0.00);
-    const [amadeusAccessToken, setAmadeusAccessToken] = useState({})
     const [enterKilometricsDistanceManually, setEnterKilometricsDistanceManually] = useState(false)
     const [privateKilometricsValue, setPrivateKilometricsValue] = useState(0);
     const [returnDistance, setReturnDistance] = useState('');
@@ -539,27 +533,6 @@ const Estimator = () => {
         setMealsModalShow(true)
     };
 
-    async function fetchAmadeusToken() {
-        await fetch("/api/FetchAmadeusToken", {
-                headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-                },
-            })
-            .then(response => response.json())
-            .then(result => {
-                // console.log('Fetched Access Token: ', result);
-                let expiryTime = new Date();
-                expiryTime.setSeconds(expiryTime.getSeconds() + result.expires_in);
-                setAmadeusAccessToken({ token: result.access_token, expiryTime: expiryTime.getTime() });
-            })
-            .catch(error => { console.log('FetchAmadeusToken error', error) });
-    }
-
-    useEffect(() => {
-        fetchAmadeusToken();
-    }, [])
-
     useEffect(() => {
         updateAccommodationCost(0.00)
         updateTransportationCost(0.00)
@@ -570,7 +543,8 @@ const Estimator = () => {
 
     const fetchHotelCost = () => {
         let months = monthsContained(departureDate.format("YYYY-MM-DD"), returnDate.format("YYYY-MM-DD"));
-        let rates = acrdRates[destination];
+        let rates = acrdRates[destination.acrdName];
+        
         let acrdRatesFiltered = Object.keys(rates)
             .filter(key => months.map(mon => mon.month).includes(key))
             .reduce((res, key) => {
@@ -600,8 +574,8 @@ const Estimator = () => {
             let message = localeCopy.hotel_success.html
             // eslint-disable-next-line no-template-curly-in-string
 
-            let province = destination.slice(-2)
-            let cityName = destination.slice(0, -3)
+            let province = destination.provinceCode
+            let cityName = destination.cityName
             let destinationDisplay = `${cityName}, ${province}`
 
             message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
@@ -609,7 +583,7 @@ const Estimator = () => {
             message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(calculatedApplicableRates[0].rate)}</strong>`)
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
         } catch (error) {
-            console.log('fetchHotelHostError', error);
+            console.log('fetchHotelCostError', error);
         }
     }
 
@@ -633,83 +607,66 @@ const Estimator = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [accommodationType])
 
-    const amadeusAccessTokenCheck = () => {
-        if (Date.now() >= amadeusAccessToken.expiryTime) {
-            fetchAmadeusToken()
-            console.log("Fetching new token.")
-        } else {
-            // console.log("Token is good!")
-        }
-    }
-
     const [haveFlightCost, setHaveFlightCost] = useState(false)
 
     const fetchFlightCost = async () => {
-        const departureDateISODate = departureDate.format("YYYY-MM-DD")
-        const returnDateISODate = returnDate.format("YYYY-MM-DD")
-
-        try {
-            await amadeusAccessTokenCheck();
-        } catch (error) {
-            console.log('amadeusAccessTokenCheck', error)
-        }
-
-        if (originData.airports.length > 0 && destinationData.airports.length > 0) {
-            amadeusFlightOffer(originData.airports[0].iataCode, destinationData.airports[0].iataCode, departureDateISODate, returnDateISODate, amadeusAccessToken.token)
-            .then(response => response.json())
-            .then(result => {
-                const allPrices = [];
-                let date = DateTime.local().toFormat("yyyy-MM-dd");
-                let time = DateTime.local().toFormat("hh:mm a")
-                if (result.data.length === 0) {
-                    localeCopy.flight_no_results.html = localeCopy.flight_no_results.html.replace('{date}', `<strong>${date}</strong>`)    
-                    let FlightMessage = <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_no_results.html }}></span>
-                    updateTransportationCost(0.00);
-                    setTransportationEstimates({
-                        ...transportationEstimates,
-                        flight: {
-                            estimatedValue: 0,
-                            estimatedValueMessage: FlightMessage,
-                            responseBody: result,
-                        }
-                    })
-                    setTransportationMessage({ element: FlightMessage  })
-                    setHaveFlightCost(true);
-                } else {
-                    result.data.forEach(itinerary => {
-                        allPrices.push(parseFloat(itinerary.price.grandTotal))
-                    });
+        return new Promise(resolve => {
+            const departureDateISODate = departureDate.format("YYYY-MM-DD")
+            const returnDateISODate = returnDate.format("YYYY-MM-DD")
     
-                    const sum = allPrices.reduce((a, b) => a + b, 0);
-                    const avg = (sum / allPrices.length) || 0;
+            if (origin.cityCode !== null && destination.cityCode !== null) {
+                amadeusFlightOffer(origin.cityCode, destination.cityCode, departureDateISODate, returnDateISODate, '')
+                .then(response => response.json())
+                .then(result => {
+                    let date = DateTime.local().toFormat("yyyy-MM-dd");
+                    let time = DateTime.local().toFormat("hh:mm a")
+                    if (result.numberOfResults === 0) {
+                        localeCopy.flight_no_results.html = localeCopy.flight_no_results.html.replace('{date}', `<strong>${date}</strong>`)    
+                        let FlightMessage = <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_no_results.html }}></span>
+                        updateTransportationCost(0.00);
+                        setTransportationEstimates({
+                            ...transportationEstimates,
+                            flight: {
+                                estimatedValue: 0,
+                                estimatedValueMessage: FlightMessage,
+                                responseBody: result,
+                            }
+                        })
+                        setTransportationMessage({ element: FlightMessage  })
+                        setHaveFlightCost(true);
+                        resolve(result);
+                    } else {        
+                        localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{date}', `<strong>${date}</strong>`)
+                        localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{time}', `<strong>${time}</strong>`)
         
-                    localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{date}', `<strong>${date}</strong>`)
-                    localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{time}', `<strong>${time}</strong>`)
-    
-                    let FlightMessage = <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_success.html }}></span>
-                    
-                    updateTransportationCost(avg);
-                    setTransportationEstimates({
-                        ...transportationEstimates,
-                        flight: {
-                            estimatedValue: avg,
-                            estimatedValueMessage: FlightMessage,
-                            responseBody: result,
-                        }
-                    })
-                    setTransportationMessage({ element: FlightMessage  })
-                    setHaveFlightCost(true);
-                }
-            })
-            .catch(error => {
-                console.log('amadeus flight offer error', error);
-                updateTransportationCost(0.00);
-                setTransportationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
-            });
-        } else {
-            setLoading(false);
-            setTransportationMessage({ element: formattedMessage('flight_message_no_airport')  })
-        }
+                        let FlightMessage = <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_success.html }}></span>
+                        
+                        updateTransportationCost(result.flightEstimate);
+                        setTransportationEstimates({
+                            ...transportationEstimates,
+                            flight: {
+                                estimatedValue: result.flightEstimate,
+                                estimatedValueMessage: FlightMessage,
+                                responseBody: result,
+                            }
+                        })
+                        setTransportationMessage({ element: FlightMessage  })
+                        setHaveFlightCost(true);
+                        resolve(result);
+                    }
+                })
+                .catch(error => {
+                    console.log('amadeus flight offer error', error);
+                    updateTransportationCost(0.00);
+                    setTransportationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
+                    resolve(error);
+                });
+            } else {
+                setLoading(false);
+                setTransportationMessage({ element: formattedMessage('flight_message_no_airport')  })
+                resolve('no airport');
+            }
+        });
     }
 
     useEffect(() => {
@@ -807,20 +764,19 @@ const Estimator = () => {
                 setSubmitValidationWarnings([]);
                 setTransportationType('flight')
                 setAccommodationType('hotel')
-                fetchFlightCost();
+                await fetchFlightCost();
                 let numberOfDays = Interval.fromDateTimes(
                     departureDateLux,
                     returnDateLux)
                     .count('days')
 
-                let city = suburbCityList[destination] || destination;
-                let provinceCode = city.slice(-2); // This is bad.  We need to change the data structure.
+                let provinceCode = destination.provinceCode;
 
                 setMealsByDay(dailyMealTemplate(departureDateLux, returnDateLux))
                 setProvince(provinceCode)
 
                 try {
-                    let distanceBetweenPlaces = await fetchDistanceBetweenPlaces(origin, destination);
+                    let distanceBetweenPlaces = await fetchDistanceBetweenPlaces(origin.acrdName, destination.acrdName);
                     let distanceBetweenPlacesBody = await distanceBetweenPlaces.json()
 
                     setPrivateVehicleSuccess(true)
@@ -853,14 +809,33 @@ const Estimator = () => {
             });
     }
 
+    let [initialResult, setInitialResult] = useState({});
+
+    useEffect(() => {
+        if (result === true) {
+            setInitialResult({
+                accommodationCost,
+                transportationCost,
+                localTransportationCost,
+                mealCost,
+                mealCostTotal: mealCost.total,
+                otherCost,
+                summaryCost,
+                accommodationType,
+                transportationType,
+                returnDistance,
+            })
+        }
+    },[result])
+
     const clearForm = async () => {
 
         setAccommodationCost(parseFloat(0.00).toFixed(2))
         setAccommodationMessage({ element: <span></span>, style: 'primary' });
         setHaveFlightCost(false)
         setTransportationEstimates(transportationEstimatesInitialState);
-        setOrigin('')
-        setDestination('')
+        setOrigin({})
+        setDestination({})
         setEmailConfirmationModalShow(false);
         setEmailModalShow(false);
         setLocalTransportationMessage({ element: <span></span>, style: 'primary' });
@@ -872,6 +847,7 @@ const Estimator = () => {
         setOtherCost(parseFloat(0.00).toFixed(2))
         setResult(false)
         setSubmitValidationWarnings([]);
+        setInitialResult({});
 
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
@@ -898,7 +874,7 @@ const Estimator = () => {
     }
 
     const handleSubmitEstimateValidation = () => {
-        let target = {origin, destination, departureDate, returnDate};
+        let target = {origin: origin.acrdName, destination: destination.acrdName, departureDate, returnDate};
         let schema = yup.object().shape({
             origin: yup
                 .string()
@@ -1011,6 +987,11 @@ const Estimator = () => {
                         summaryCost,
                         travelCategory,
                         travellerIsPublicServant,
+                        initialResult,
+                        returnDistance,
+                        applicableRates,
+                        privateVehicleRate,
+                        privateKilometricsValue,
                     })
                   }).then(function(response) {
                     if (!response.ok) {
@@ -1075,11 +1056,11 @@ const Estimator = () => {
     useEffect(() => {
         
         if (transportationType === 'flight') {
-            if (haveFlightCost && transportationEstimates.flight.responseBody.data.length === 0 && parseFloat(transportationCost) === 0.00) {
+            if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) === 0.00) {
                 setTransportationMessage({
                     element:  <span className="transportation-message">{formattedMessage('flight_no_results')}</span>
                 })
-            } else if (haveFlightCost && transportationEstimates.flight.responseBody.data.length === 0 && parseFloat(transportationCost) > 0.00) {
+            } else if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) > 0.00) {
                 setTransportationMessage({
                     element:  <span className="transportation-message">{formattedMessage('flight_no_results_custom')}</span>
                 })

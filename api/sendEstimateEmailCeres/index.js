@@ -21,6 +21,7 @@ var englishNumberFormat = Intl.NumberFormat('en-CA', {
 });
 
 const addCommaToPlaceName = (placeName) => {
+  console.log(placeName)
   let province = placeName.slice(-2)
   let cityName = placeName.slice(0, -3)
   return `${cityName}, ${province}`
@@ -148,7 +149,7 @@ module.exports = async function (context, req) {
           Html: {
             Charset: "UTF-8",
             Data: 
-              `Le français suit l'anglais.<br /><br />
+              `(Le français suit l'anglais.)<br /><br />
               
               ${body.travellersName},<br /><br />
 
@@ -159,8 +160,8 @@ module.exports = async function (context, req) {
               Category: ${travelCategory(body.travelCategory, 'en')}<br />
               Public servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
                 
-              Origin: ${addCommaToPlaceName(body.origin)}<br />
-              Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
+              Origin: ${addCommaToPlaceName(body.origin.acrdName)}<br />
+              Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
               
               Departure: ${body.departureDate}<br />
               Return: ${body.returnDate}<br /><br />
@@ -195,8 +196,8 @@ module.exports = async function (context, req) {
               Catégorie: ${travelCategory(body.travelCategory, 'fr')}<br />
               Fonctionnaire: ${body.travellerIsPublicServant ? 'Oui' : 'Non'}<br /><br />
                 
-              Point d’origine: ${addCommaToPlaceName(body.origin)}<br />
-              Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
+              Point d’origine: ${addCommaToPlaceName(body.origin.acrdName)}<br />
+              Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
               
               Départ: ${body.departureDate}<br />
               Retour: ${body.returnDate}<br /><br />
@@ -241,19 +242,19 @@ module.exports = async function (context, req) {
           Html: {
             Charset: "UTF-8",
             Data: 
-              `Le français suit l'anglais.<br /><br />
+              `(Le français suit l'anglais.)<br /><br />
 
               ${body.approversName},<br /><br />
 
-              ${body.travellersName} has submitted a new travel estimate for a trip to ${addCommaToPlaceName(body.destination)}.<br /><br />
+              ${body.travellersName} has submitted a new travel estimate for a trip to ${addCommaToPlaceName(body.destination.acrdName)}.<br /><br />
 
               Objective: ${body.tripName}<br /><br />
               
               Category: ${travelCategory(body.travelCategory, 'en')}<br />
               Public servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
                 
-              Origin: ${addCommaToPlaceName(body.origin)}<br />
-              Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
+              Origin: ${addCommaToPlaceName(body.origin.acrdName)}<br />
+              Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
               
               Departure: ${body.departureDate}<br />
               Return: ${body.returnDate}<br /><br />
@@ -281,15 +282,15 @@ module.exports = async function (context, req) {
               <br /><br />
               ${body.approversName},<br /><br />
 
-              ${body.travellersName} a présenté une nouvelle estimation de voyage pour un voyage à ${addCommaToPlaceName(body.destination)}.<br /><br />
+              ${body.travellersName} a présenté une nouvelle estimation de voyage pour un voyage à ${addCommaToPlaceName(body.destination.acrdName)}.<br /><br />
 
               Objectif: ${body.tripName}<br /><br />
               
               Catégorie: ${travelCategory(body.travelCategory, 'fr')}<br />
               Fonctionnaire: ${body.travellerIsPublicServant ? 'Oui' : 'Non'}<br /><br />
                 
-              Origine: ${addCommaToPlaceName(body.origin)}<br />
-              Destination: ${addCommaToPlaceName(body.destination)}<br /><br />
+              Origine: ${addCommaToPlaceName(body.origin.acrdName)}<br />
+              Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
               
               Départ: ${body.departureDate}<br />
               Retour: ${body.returnDate}<br /><br />
@@ -321,6 +322,104 @@ module.exports = async function (context, req) {
       }
     };
 
+    let initialResult = req.body.initialResult;
+
+    let applicableRates = body.applicableRates.map((rate => {
+      return `${rate.month}: ${rate.rate}`
+    }))
+
+    let csvLineObject = {
+      origin: body.origin.acrdName,
+      destination: body.destination.acrdName,
+      departureDate: body.departureDate,
+      returnDate: body.returnDate,
+      applicableACRDRates: applicableRates.join(' '),
+      privateVehicleRateCents: body.privateVehicleRate,
+      accommodationCostEstimated: initialResult.accommodationCost,
+      accommodationCostSubmitted: body.accommodationCost,
+      accommodationTypeEstimated: initialResult.accommodationType,
+      accommodationTypeSubmitted: body.accommodationType,
+      transportationCostEstimated: initialResult.transportationCost,
+      transportationCostSubmitted: body.transportationCost,
+      transportationTypeEstimated: initialResult.transportationType,
+      transportationTypeSubmitted: body.transportationType,
+      returnDistanceEstimatedMeters: initialResult.returnDistance,
+      returnDistanceSubmittedKilometres: body.privateKilometricsValue,
+      localTransportationCostEstimated: initialResult.localTransportationCost,
+      localTransportationCostSubmitted: body.localTransportationCost,
+      mealCostEstimated: initialResult.mealCostTotal,
+      mealCostSubmitted: body.mealCost,
+      otherCostEstimated: initialResult.otherCost,
+      otherCostSubmitted: body.otherCost,
+      summaryCostEstimated: initialResult.summaryCost,
+      summaryCostSubmitted: body.summaryCost,
+      mealCost: body.mealCost,
+      breakfast: initialResult.mealCost.breakfast,
+      lunch: initialResult.mealCost.lunch,
+      dinner: initialResult.mealCost.dinner,
+      incidentals: initialResult.mealCost.incidentals,
+    }
+
+    let csvHeaders = Object.keys(csvLineObject);
+    let csvData = csvHeaders.map(key => `"${csvLineObject[key]}"`).join(',')
+
+    let debugParams = {
+      Source: 'GC Travel Calculator / Calculateur de voyage du GC <tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca>',
+      Destination: {
+        ToAddresses: [
+          'Joseph.Moubayed@tpsgc-pwgsc.gc.ca',
+          'mike@codefor.ca',
+          'TPSGC.VoyageProchaineGen-NextGenTravel.PWGSC@tpsgc-pwgsc.gc.ca',
+        ]
+      },
+      ReplyToAddresses: ['tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca'],
+      Message: {
+        Body: {
+          Html: {
+            Charset: "UTF-8",
+            Data: 
+              `
+              Origin: ${addCommaToPlaceName(body.origin.acrdName)}<br />
+              Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
+              
+              Departure: ${body.departureDate}<br />
+              Return: ${body.returnDate}<br /><br />
+              
+              Accommodation (${accommodationType(body.accommodationType, 'en')}): ${localCurrencyDisplay(body.accommodationCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.accommodationCost, 'en-CA')})<br /><br />
+              
+              Transportation (${travelMode(body.transportationType, 'en')}): ${localCurrencyDisplay(body.transportationCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.transportationCost, 'en-CA')})<br /><br />
+              
+              Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.localTransportationCost, 'en-CA')})<br /><br />
+              
+              Meals and incidentals: ${localCurrencyDisplay(body.mealCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.mealCostTotal, 'en-CA')})<br /><br />
+              
+              Other costs: ${localCurrencyDisplay(body.otherCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.otherCost, 'en-CA')})<br /><br />
+              
+              TOTAL: ${localCurrencyDisplay(body.summaryCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.summaryCost, 'en-CA')})<br /><br />
+
+              All dates expressed in this email are in YYYY-MM-DD format.<br /><br />
+
+              <br><br>CSV: (Header followed by data)<br><br>
+              ${csvHeaders}
+
+              <br>
+
+              ${csvData}
+
+              <br><br>
+
+              Initial Result: <br><br>
+              ${JSON.stringify(initialResult, null, '<br>')}
+              `
+          }
+        },
+        Subject: {
+          Charset: 'UTF-8',
+          Data: `Report: Trip estimate`,
+        }
+      }
+    };
+
     let response = {
       approver: '',
       traveller: '',
@@ -347,6 +446,16 @@ module.exports = async function (context, req) {
       .catch((err) => {
         console.log('err: ', err)
         response.approver = err;
+      });
+
+    await new AWS.SES(SESConfig)
+      .sendEmail(debugParams)
+      .promise()
+      .then((res) => {
+        console.log('res: ', res)
+      })
+      .catch((err) => {
+        console.log('err: ', err)
       });
 
       context.res = {
