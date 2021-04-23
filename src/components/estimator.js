@@ -756,6 +756,7 @@ const Estimator = () => {
     }
 
     const handleSubmit =  async(e) => {
+        setOtherCost('0.00');
         setLoading(true);
         setGeneralError(false);
         e.preventDefault();
