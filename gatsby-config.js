@@ -3,9 +3,15 @@ const languages = require('./src/data/languages');
 module.exports = {
   siteMetadata: {
     title: `GC Travel Calculator / Calculateur de voyage du GC`,
+    titleEnglish: `GC Travel Calculator`,
+    titleFrench: `Calculateur de voyage du GC`,
     description: `Use this tool to create Government of Canada (GC) travel estimates / Utilisez cet outil pour créer des estimations des voyages du gouvernement du Canada (GC)`,
+    descriptionEnglish: `Use this tool to create Government of Canada (GC) travel estimates`,
+    descriptionFrench: `Utilisez cet outil pour créer des estimations des voyages du gouvernement du Canada (GC)`,
     author: `NextGen Travel / Voyage Prochaine Génération`,
-    siteUrl: `https://travel-guidebook.herokuapp.com/`,
+    authorEnglish: `NextGen Travel`,
+    authorFrench: `NextGen Travel`,
+    siteUrl: `https://url-tba-soon.ca`,
     languages
   },
   plugins: [{
