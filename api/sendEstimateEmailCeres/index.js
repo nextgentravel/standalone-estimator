@@ -369,6 +369,7 @@ module.exports = async function (context, req) {
         ToAddresses: [
           'Joseph.Moubayed@tpsgc-pwgsc.gc.ca',
           'mike@codefor.ca',
+          'TPSGC.VoyageProchaineGen-NextGenTravel.PWGSC@tpsgc-pwgsc.gc.ca',
         ]
       },
       ReplyToAddresses: ['tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca'],
