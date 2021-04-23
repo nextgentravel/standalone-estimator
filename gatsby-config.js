@@ -11,7 +11,7 @@ module.exports = {
     author: `NextGen Travel / Voyage Prochaine Génération`,
     authorEnglish: `NextGen Travel`,
     authorFrench: `NextGen Travel`,
-    siteUrl: `https://mango-smoke-09d905410.azurestaticapps.net/`,
+    siteUrl: `https://travel-guidebook.herokuapp.com/`,
     languages
   },
   plugins: [{
