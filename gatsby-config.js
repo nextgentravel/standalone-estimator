@@ -11,7 +11,7 @@ module.exports = {
     author: `NextGen Travel / Voyage Prochaine Génération`,
     authorEnglish: `NextGen Travel`,
     authorFrench: `NextGen Travel`,
-    siteUrl: `https://url-tba-soon.ca`,
+    siteUrl: `http://mango-smoke-09d905410.azurestaticapps.net/`,
     languages
   },
   plugins: [{
