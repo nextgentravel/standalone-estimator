@@ -837,6 +837,7 @@ const Estimator = () => {
                 summaryCost,
                 accommodationType,
                 transportationType,
+                returnDistance,
             })
         }
     },[result])
@@ -1001,6 +1002,10 @@ const Estimator = () => {
                         travelCategory,
                         travellerIsPublicServant,
                         initialResult,
+                        returnDistance,
+                        applicableRates,
+                        privateVehicleRate,
+                        privateKilometricsValue,
                     })
                   }).then(function(response) {
                     if (!response.ok) {
