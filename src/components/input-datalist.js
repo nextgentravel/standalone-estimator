@@ -1,8 +1,6 @@
 import React from 'react'
 import 'unorm';
 import Autocomplete from 'accessible-autocomplete/react'
-import { FaPlane } from 'react-icons/fa';
-import { renderToString } from 'react-dom/server'
 
 const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, options, updateValue}) => {
     let showValidationWarning = false;

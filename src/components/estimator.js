@@ -826,6 +826,7 @@ const Estimator = () => {
                 returnDistance,
             })
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[result])
 
     const clearForm = async () => {

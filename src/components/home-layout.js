@@ -93,7 +93,7 @@ export default ({ data }) => {
 
     return (
       <Layout>
-        <SEO title="Home" />
+        <SEO title={homePageCopy.landing_page_title_2.text} lang={locale} />
         <w-screen mt-4="true" fluid="true" id="container">
           <div>
             <main id="main-content" role="main">

@@ -16,24 +16,26 @@ function SEO({ description, lang, meta, title }) {
       query {
         site {
           siteMetadata {
-            title
-            description
-            author
+            titleEnglish
+            titleFrench
+            descriptionEnglish
+            descriptionFrench
+            authorEnglish
+            authorFrench
           }
         }
       }
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
-
+  const metaDescription = description || lang === 'en-ca' ? site.siteMetadata.descriptionEnglish : site.siteMetadata.descriptionFrench
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s | ${lang === 'en-ca' ? site.siteMetadata.titleEnglish : site.siteMetadata.titleFrench}`}
       meta={[
         {
           name: `description`,
@@ -57,7 +59,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: lang === 'en-ca' ? site.siteMetadata.authorEnglish : site.siteMetadata.authorFrench,
         },
         {
           name: `twitter:title`,
