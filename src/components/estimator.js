@@ -663,7 +663,7 @@ const Estimator = () => {
                 });
             } else {
                 setLoading(false);
-                setTransportationMessage({ element: formattedMessage('flight_message_no_airport')  })
+                setTransportationMessage({ element: <span className="transportation-message alert-warning">{formattedMessage('flight_message_no_airport')}</span>  })
                 resolve('no airport');
             }
         });
