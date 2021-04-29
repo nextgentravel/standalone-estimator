@@ -34,11 +34,11 @@ const Header = ({homeHeader}) => {
   return (
     <header className="mb-5">
       <div className="container">
-        <div className="row my-4 mx-2">
+        <div className="row my-3 mx-2">
           <nav className="skiphold" id="header-skiplink">
             <a className="sr-only sr-only-focusable aurora-skip skiplink" aria-label="main skiplink" href="#main-content">{messages.header_skip_to_main}</a>
           </nav>
-          {homeLink === "/en/" &&
+          {/* {homeLink === "/en/" &&
             <div className="align-self-center" property="publisher" typeof="GovernmentOrganization">
               <Image
                 filename="sig-blk-en.svg"
@@ -55,7 +55,7 @@ const Header = ({homeHeader}) => {
                 alt={messages.header_goc_logo}
               />
             </div>
-          }
+          } */}
           <section className='text-right align-self-center ml-auto'>
             <p className="sr-only sr-only-focusable aurora-skip">{messages.header_language_select}</p>
             <SelectLanguage />
