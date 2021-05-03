@@ -12,6 +12,8 @@ import EmailModal from "./email-modal.js"
 import EmailConfirmationModal from "./email-confirmation-modal.js"
 import FeedBackModal from "./feedback-modal.js"
 import MealsModal from "./meals-modal.js"
+import FlightModal from "./flight-modal.js"
+
 import { FaCaretUp, FaCaretDown, FaCalculator, FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
 import { dailyMealTemplate } from "./functions/dailyMealTemplate"
 
@@ -294,6 +296,22 @@ const Estimator = () => {
                     }
                     feedback_modal_primary_button_text
                     feedback_modal_secondary_button_text
+                    flight_estimate_your_fare_link
+                    flight_modal_header
+                    flight_modal_origin_airport_label
+                    flight_modal_departure_time_label
+                    flight_modal_destination_airport_label
+                    flight_modal_return_time_label
+                    flight_modal_fetch_flight_estimate_label
+                    flight_modal_result_header
+                    flight_modal_label_minimum
+                    flight_modal_label_maximum
+                    flight_modal_label_median
+                    flight_modal_note_disclaimer {
+                        html
+                    }
+                    flight_modal_use_in_estimate_button_label
+                    flight_modal_close_button_label
                 }
             }
         }
@@ -389,7 +407,6 @@ const Estimator = () => {
     }, [returnDate])
 
     useEffect(() => {
-        setHaveFlightCost(false);
         setResult(false);
         setTransportationType('');
         setTransportationEstimates(transportationEstimatesInitialState);
@@ -528,10 +545,18 @@ const Estimator = () => {
 
     const [mealsModalShow, setMealsModalShow] = React.useState(false);
 
+    const [flightModalShow, setFlightModalShow] = React.useState(false);
+
     let handleMealsModalShow = (e) => {
         e.preventDefault()
         setMealsModalShow(true)
     };
+
+    let handleFlightModalShow = (e) => {
+        e.preventDefault()
+        setFlightModalShow(true)
+    };
+
 
     useEffect(() => {
         updateAccommodationCost(0.00)
@@ -765,7 +790,7 @@ const Estimator = () => {
                 setSubmitValidationWarnings([]);
                 setTransportationType('flight')
                 setAccommodationType('hotel')
-                await fetchFlightCost();
+                // await fetchFlightCost();
                 let numberOfDays = Interval.fromDateTimes(
                     departureDateLux,
                     returnDateLux)
@@ -829,6 +854,14 @@ const Estimator = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[result])
+
+    useEffect(() => {
+        if(!haveFlightCost) {
+            setTransportationMessage({ element:
+                result ? <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a> : <span></span>
+            })
+        }
+    }, [result])
 
     const clearForm = async () => {
 
@@ -1084,24 +1117,15 @@ const Estimator = () => {
                 })
             }
 
-            if(loading && !haveFlightCost) {
-                setTransportationMessage({ element:
-                    <>
-                        <Spinner animation="border" role="status" size="sm">
-                            <span className="sr-only">Loading...</span>
-                        </Spinner>{' '}
-                        <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_loading.html }}></span>
-                    </>
-                })
-            } else if (result && !haveFlightCost && (parseInt(transportationCost) === 0)) {
-                setTransportationMessage({
-                    element:  <span className="transportation-message alert-warning">{formattedMessage('could_not_fetch_flight_value')}</span>
-                })
-            } else if (result && !haveFlightCost && (parseInt(transportationCost) > 0)) {
-                setTransportationMessage({
-                    element:  <span className="transportation-message alert-warning">{formattedMessage('could_not_fetch_you_have_entered_own')}</span>
-                })
-            }
+            // } else if (result && !haveFlightCost && (parseInt(transportationCost) === 0)) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message alert-warning">{formattedMessage('could_not_fetch_flight_value')}</span>
+            //     })
+            // } else if (result && !haveFlightCost && (parseInt(transportationCost) > 0)) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message alert-warning">{formattedMessage('could_not_fetch_you_have_entered_own')}</span>
+            //     })
+            // }
         }
         if (result && transportationType === 'train') {
             console.log('validate train price')
@@ -1114,6 +1138,8 @@ const Estimator = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [transportationCost, transportationType, haveFlightCost]);
+
+
 
     return (
         <div className="mb-4">
@@ -1165,6 +1191,14 @@ const Estimator = () => {
                 messages={localeCopy}
                 locale={locale}
             />
+            <FlightModal
+                show={flightModalShow}
+                onHide={() => setFlightModalShow(false)}
+                messages={localeCopy}
+                locale={locale}
+            />
+
+
             <h2 className="mb-4">{localeCopy.title.text}</h2>
             <div className="lead mb-5" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
              {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
