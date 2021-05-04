@@ -30,7 +30,12 @@ const FlightModal = (props) => {
             <Modal.Footer>
                 <span className="mr-3">{localCurrencyDisplay(parseFloat(props.selectedFlightPrice))}</span>
                 <Button
-                    onClick={() => {}}
+                    onClick={() => {
+                        props.setAcceptedFlight(props.selectedFlightPrice)
+                        props.setTransportationCost(props.selectedFlightPrice)
+                        props.setTransportationType('flight')
+                        props.onHide()
+                    }}
                     className={Object.keys(props.flightResult).length !== 0 && props.flightResult.numberOfResults > 0 ? '' : 'disabled'}
                 >
                     {props.messages.flight_modal_use_in_estimate_button_label}

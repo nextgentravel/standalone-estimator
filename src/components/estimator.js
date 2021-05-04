@@ -560,6 +560,7 @@ const Estimator = () => {
 
     let [selectedFlightPrice, setSelectedFlightPrice] = useState(0.00);
     let [flightResult, setFlightResult] = useState({});
+    let [acceptedFlight, setAcceptedFlight] = useState({});
 
     useEffect(() => {
         updateAccommodationCost(0.00)
@@ -786,6 +787,7 @@ const Estimator = () => {
 
     const handleSubmit =  async(e) => {
         setOtherCost('0.00');
+        setAcceptedFlight('0.00');
         setFlightResult({});
         setSelectedFlightPrice(0.00)
         setLoading(true);
@@ -860,14 +862,6 @@ const Estimator = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[result])
-
-    useEffect(() => {
-        if(!haveFlightCost) {
-            setTransportationMessage({ element:
-                result ? <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a> : <span></span>
-            })
-        }
-    }, [result])
 
     const clearForm = async () => {
 
@@ -1098,31 +1092,44 @@ const Estimator = () => {
     useEffect(() => {
         
         if (transportationType === 'flight') {
-            if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) === 0.00) {
+            if (parseFloat(acceptedFlight) === parseFloat(flightResult.minimum) || parseFloat(acceptedFlight) === parseFloat(flightResult.maximum) || parseFloat(acceptedFlight) === parseFloat(flightResult.median)) {
+                setTransportationCost(acceptedFlight);
                 setTransportationMessage({
-                    element:  <span className="transportation-message">{formattedMessage('flight_no_results')}</span>
+                    element: <span>(to put in prismic) You have selected a fare of <strong>{localCurrencyDisplay(parseFloat(acceptedFlight))}</strong> for this trip. <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>Re-generate Estimate</a></span>
                 })
-            } else if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) > 0.00) {
+            } else {
                 setTransportationMessage({
-                    element:  <span className="transportation-message">{formattedMessage('flight_no_results_custom')}</span>
-                })
-            } else if (haveFlightCost && (parseInt(transportationCost) === 0)) {
-                setTransportationMessage({
-                    element:  <span className="transportation-message">{formattedMessage('flight_zero', 'alert-warning')}</span>
-                })
-            } else if (haveFlightCost && (parseFloat(transportationCost) < parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
-                setTransportationMessage({
-                    element:  <span className="transportation-message">{formattedMessage('flight_below_estimate')}</span>
-                })
-            } else if (haveFlightCost && (parseFloat(transportationCost) === parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
-                setTransportationMessage({
-                    element:  transportationEstimates.flight.estimatedValueMessage
-                })
-            } else if (haveFlightCost && (parseFloat(transportationCost) > parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
-                setTransportationMessage({
-                    element:  <span className="transportation-message">{formattedMessage('transportation_above_flight_estimate')}</span>
+                    element: <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a>
                 })
             }
+
+
+
+            // if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) === 0.00) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message">{formattedMessage('flight_no_results')}</span>
+            //     })
+            // } else if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) > 0.00) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message">{formattedMessage('flight_no_results_custom')}</span>
+            //     })
+            // } else if (haveFlightCost && (parseInt(transportationCost) === 0)) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message">{formattedMessage('flight_zero', 'alert-warning')}</span>
+            //     })
+            // } else if (haveFlightCost && (parseFloat(transportationCost) < parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message">{formattedMessage('flight_below_estimate')}</span>
+            //     })
+            // } else if (haveFlightCost && (parseFloat(transportationCost) === parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
+            //     setTransportationMessage({
+            //         element:  transportationEstimates.flight.estimatedValueMessage
+            //     })
+            // } else if (haveFlightCost && (parseFloat(transportationCost) > parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message">{formattedMessage('transportation_above_flight_estimate')}</span>
+            //     })
+            // }
 
             // } else if (result && !haveFlightCost && (parseInt(transportationCost) === 0)) {
             //     setTransportationMessage({
@@ -1210,6 +1217,10 @@ const Estimator = () => {
                 setSelectedFlightPrice={setSelectedFlightPrice}
                 flightResult={flightResult}
                 setFlightResult={setFlightResult}
+                acceptedFlight={acceptedFlight}
+                setAcceptedFlight={setAcceptedFlight}
+                setTransportationCost={setTransportationCost}
+                setTransportationType={setTransportationType}
             />
 
 
