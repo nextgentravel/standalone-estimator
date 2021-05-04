@@ -637,7 +637,6 @@ const Estimator = () => {
 
     const fetchFlightCost = async (originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset) => {
         return new Promise(resolve => {
-            console.log('test')
             const departureDateISODate = departureDate.format("YYYY-MM-DD")
             const returnDateISODate = returnDate.format("YYYY-MM-DD")
     

@@ -201,7 +201,7 @@ const FlightForm = (props) => {
             </Form.Group>
             <Form.Group as={Row} controlId="travelCategory">
                 <Col sm="12">
-                    <Button onClick={() => {console.log(originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset)}} className="float-right" variant="primary">{props.messages.flight_modal_fetch_flight_estimate_label}</Button>
+                    <Button onClick={() => { props.fetchFlightCost(originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset)}} className="float-right" variant="primary">{props.messages.flight_modal_fetch_flight_estimate_label}</Button>
                 </Col>
             </Form.Group>
         </Form>
