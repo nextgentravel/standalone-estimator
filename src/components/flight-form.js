@@ -225,7 +225,7 @@ const FlightForm = (props) => {
                 {Object.keys(props.flightResult).length !== 0 && props.flightResult.numberOfResults > 0 &&
                     <>
                         <h3>{props.messages.flight_modal_result_header}</h3>
-                        <Form onChange={(e) => props.setSelectedPrice(e.target.value)}>
+                        <Form onChange={(e) => props.setSelectedFlightPrice(e.target.value)}>
                             <div className="mb-3">
                                 <fieldset>
                                     <Form.Check

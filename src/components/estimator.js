@@ -558,7 +558,7 @@ const Estimator = () => {
         setFlightModalShow(true)
     };
 
-    let [selectedPrice, setSelectedPrice] = useState(0.00);
+    let [selectedFlightPrice, setSelectedFlightPrice] = useState(0.00);
     let [flightResult, setFlightResult] = useState({});
 
     useEffect(() => {
@@ -786,6 +786,8 @@ const Estimator = () => {
 
     const handleSubmit =  async(e) => {
         setOtherCost('0.00');
+        setFlightResult({});
+        setSelectedFlightPrice(0.00)
         setLoading(true);
         setGeneralError(false);
         e.preventDefault();
@@ -887,6 +889,7 @@ const Estimator = () => {
         setResult(false)
         setSubmitValidationWarnings([]);
         setInitialResult({});
+        setFlightResult({});
 
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
@@ -1203,8 +1206,8 @@ const Estimator = () => {
                 destination={destination}
                 origin={origin}
                 fetchFlightCost={fetchFlightCost}
-                selectedPrice={selectedPrice}
-                setSelectedPrice={setSelectedPrice}
+                selectedFlightPrice={selectedFlightPrice}
+                setSelectedFlightPrice={setSelectedFlightPrice}
                 flightResult={flightResult}
                 setFlightResult={setFlightResult}
             />

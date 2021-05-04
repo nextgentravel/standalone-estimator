@@ -28,7 +28,7 @@ const FlightModal = (props) => {
                 <div className="small" dangerouslySetInnerHTML={{ __html: props.messages.flight_modal_note_disclaimer.html }} ></div>
             </Modal.Body>
             <Modal.Footer>
-                <span className="mr-3">{localCurrencyDisplay(parseFloat(props.selectedPrice))}</span>
+                <span className="mr-3">{localCurrencyDisplay(parseFloat(props.selectedFlightPrice))}</span>
                 <Button
                     onClick={() => {}}
                     className={Object.keys(props.flightResult).length !== 0 && props.flightResult.numberOfResults > 0 ? '' : 'disabled'}
