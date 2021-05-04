@@ -79,7 +79,7 @@ module.exports = async function (context, req) {
                   "noRestrictionFare": false,
                   "noPenaltyFare": false
                 },
-                "maxFlightOffers": 250,
+                // "maxFlightOffers": 250,
                 "flightFilters": {
                   "cabinRestrictions": [
                     {
@@ -123,51 +123,33 @@ module.exports = async function (context, req) {
                     const sum = allPrices.reduce((a, b) => a + b, 0);
                     const avg = (sum / allPrices.length) || 0;
 
+                    let minimum = Math.min( ...allPrices )
+
+                    let maximum = Math.max( ...allPrices )
+
+                    let median = findMedian(allPrices)
+
+                    function findMedian(a) {
+                        let n = a.length
+                        a.sort();
+                        if (n % 2 != 0)
+                            return a[n / 2];
+                     
+                        return (a[Math.floor((n-1)/2)] +
+                                a[n / 2]) / 2;
+                    }
+
                     context.res = {
                         body: {
-                            flightEstimate: avg,
-                            numberOfResults: result.data.length
+                            average: avg,
+                            numberOfResults: result.data.length,
+                            minimum,
+                            maximum,
+                            median
                         }
                     };
                 })
                 .catch(error => console.log('error', error));
-
-
-
-
-            // fetchFlightofferHeaders.append("X-HTTP-Method-Override", "GET");
-            // fetchFlightofferHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-            // fetchFlightofferHeaders.append("Authorization", `Bearer ${fetchTokenResult.access_token}`);
-
-            // let fetchFlightOfferRequestOptions = {
-            //     method: 'GET',
-            //     headers: fetchFlightofferHeaders,
-            //     redirect: 'follow'
-            // };
-
-            // let offerRequestUrl = `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originAirportCode}&destinationLocationCode=${destinationAirportCode}&departureDate=${departureDate}&returnDate=${returnDate}&adults=1&currencyCode=CAD`
-
-            // await fetch(offerRequestUrl, fetchFlightOfferRequestOptions)
-            //     .then(response => response.json())
-            //     .then(result => {
-
-            //         let allPrices = [];
-
-            //         result.data.forEach(itinerary => {
-            //             allPrices.push(parseFloat(itinerary.price.grandTotal))
-            //         });
-    
-            //         const sum = allPrices.reduce((a, b) => a + b, 0);
-            //         const avg = (sum / allPrices.length) || 0;
-
-            //         context.res = {
-            //             body: {
-            //                 flightEstimate: avg,
-            //                 numberOfResults: result.data.length
-            //             }
-            //         };
-            //     })
-            //     .catch(error => console.log('error', error));
         })
         .catch(error => context.res = {
             body: error
