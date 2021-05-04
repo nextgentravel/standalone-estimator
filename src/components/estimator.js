@@ -357,6 +357,7 @@ const Estimator = () => {
                 cityName: cityName,
                 iataCode: geocodedCities[city].airports.length > 0 ? geocodedCities[city].airports[0].iataCode : null,
                 cityCode: geocodedCities[city].airports.length > 0 ? geocodedCities[city].airports[0].address.cityCode: null,
+                airports: geocodedCities[city].airports,
             })
         }
         setFilteredCitiesList(list);
@@ -634,13 +635,14 @@ const Estimator = () => {
 
     const [haveFlightCost, setHaveFlightCost] = useState(false)
 
-    const fetchFlightCost = async () => {
+    const fetchFlightCost = async (originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset) => {
         return new Promise(resolve => {
+            console.log('test')
             const departureDateISODate = departureDate.format("YYYY-MM-DD")
             const returnDateISODate = returnDate.format("YYYY-MM-DD")
     
             if (origin.cityCode !== null && destination.cityCode !== null) {
-                amadeusFlightOffer(origin.cityCode, destination.cityCode, departureDateISODate, returnDateISODate, '')
+                amadeusFlightOffer(originAirportCode, destinationAirportCode, departureDateISODate, returnDateISODate, departureTime, returnTime, departureOffset, returnOffset)
                 .then(response => response.json())
                 .then(result => {
                     let date = DateTime.local().toFormat("yyyy-MM-dd");
@@ -1196,6 +1198,9 @@ const Estimator = () => {
                 onHide={() => setFlightModalShow(false)}
                 messages={localeCopy}
                 locale={locale}
+                destination={destination}
+                origin={origin}
+                fetchFlightCost={fetchFlightCost}
             />
 
 

@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 const FlightForm = (props) => {
     let validationErrors = props.validationWarnings || []
@@ -9,140 +10,85 @@ const FlightForm = (props) => {
         let filtered = errors.filter(function(field) { return field.path !== path; });
         props.setEmailValidationWarnings(filtered);
     }
+    
+    let times = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00']
+
+    let offsetOptions = [
+        {
+            label: '+/- 1 H',
+            value: 1,
+        },
+        {
+            label: '+/- 2 H',
+            value: 2,
+        },
+        {
+            label: '+/- 3 H',
+            value: 3,
+        },
+        {
+            label: '+/- 4 H',
+            value: 4,
+        },
+        {
+            label: '+/- 5 H',
+            value: 5
+        },
+        {
+            label: '+/- 6 H',
+            value: 6,
+        },
+        {
+            label: '+/- 7 H',
+            value: 7,
+        },
+        {
+            label: '+/- 9 H',
+            value: 9,
+        },
+        {
+            label: '+/- 10 H',
+            value: 10,
+        },
+        {
+            label: '+/- 11 H',
+            value: 11,
+        },
+        {
+            label: '+/- 12 H',
+            value: 12,
+        },
+    ]
+
+
+    let [originAirportCode, setOriginAirportCode] = useState(props.origin.airports[0].iataCode);
+    let [destinationAirportCode, setDestinationAirportCode] = useState(props.destination.airports[0].iataCode);
+    let [departureTime, setDepartureTime] = useState('12:00');
+    let [returnTime, setReturnTime] = useState('12:00');
+    let [departureOffset, setDepartureOffset] = useState(2);
+    let [returnOffset, setReturnOffset] = useState(2);
+
     let validationErrorList = validationErrors.map(a => a.path) || [];
+
+    let handleFetchFlight = () => {
+        props.fetchFlightCost();
+    }
+
     return (
         <Form noValidate>
-            <Form.Group as={Row} controlId="travellersName">
-                <Form.Label column sm="3">
-                    {props.messages.email_form_travellers_name}
-                </Form.Label>
-                <Col sm="9">
-                    <Form.Control
-                        isInvalid={validationErrorList.includes('travellersName')}
-                        required
-                        value={props.travellersName}
-                        onChange={(e) => {
-                            removeIsInvalid('travellersName', validationErrors)
-                            props.setTravellersName(e.target.value)
-                        }}
-                        type="text"
-                        placeholder={props.messages.email_form_travellers_name_placeholder}
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        {props.messages.email_form_field_required}
-                    </Form.Control.Feedback>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row} controlId="travellersEmail" className="mb-5">
-                <Form.Label column sm="3">
-                    {props.messages.email_form_travellers_email}
-                </Form.Label>
-                <Col sm="9">
-                    <Form.Control
-                        isInvalid={validationErrorList.includes('travellersEmail')}
-                        required
-                        value={props.travellersEmail}
-                        onChange={(e) => {
-                            removeIsInvalid('travellersEmail', validationErrors)
-                            props.setTravellersEmail(e.target.value)
-                        }}
-                        type="text"
-                        placeholder={props.messages.email_form_travellers_email_placeholder}
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        {props.messages.email_form_field_required}
-                    </Form.Control.Feedback>
-                    <Form.Check
-                        className="mt-3 checkbox-label"
-                        type={'checkbox'}
-                        id={`public-servant-${'checkbox'}`}
-                        label={props.messages.email_form_is_public_servant_checkbox_label}
-                        value={props.travellerIsPublicServant}
-                        onChange={(e) => {
-                            props.setTravellerIsPublicServant(!props.travellerIsPublicServant)
-                        }}
-                        defaultChecked={props.travellerIsPublicServant}
-                    />
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row} controlId="approversName">
-                <Form.Label column sm="3">
-                    {props.messages.email_form_approvers_name}
-                </Form.Label>
-                <Col sm="9">
-                    <Form.Control
-                        isInvalid={validationErrorList.includes('approversName')}
-                        required
-                        value={props.approversName}
-                        onChange={(e) => {
-                            removeIsInvalid('approversName', validationErrors)
-                            props.setApproversName(e.target.value)
-                        }}
-                        type="text"
-                        placeholder={props.messages.email_form_approvers_name_placeholder}
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        {props.messages.email_form_field_required}
-                    </Form.Control.Feedback>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row} controlId="approversEmail" className="mb-5">
-                <Form.Label column sm="3">
-                    {props.messages.email_form_approvers_email}
-                </Form.Label>
-                <Col sm="9">
-                    <Form.Control
-                        isInvalid={validationErrorList.includes('approversEmail')}
-                        required
-                        value={props.approversEmail}
-                        onChange={(e) => {
-                            removeIsInvalid('approversEmail', validationErrors)
-                            props.setApproversEmail(e.target.value)
-                        }}
-                        type="text"
-                        placeholder={props.messages.email_form_approvers_email_placeholder}
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        {props.messages.email_form_field_required}
-                    </Form.Control.Feedback>
-                </Col>
-            </Form.Group>
-            <Form.Group as={Row} controlId="tripName">
-                <Form.Label column sm="3">
-                    {props.messages.email_form_trip_name}
-                </Form.Label>
-                <Col sm="9">
-                    <Form.Control
-                        isInvalid={validationErrorList.includes('tripName')}
-                        required
-                        value={props.tripName}
-                        onChange={(e) => {
-                            removeIsInvalid('tripName', validationErrors)
-                            props.setTripName(e.target.value)
-                        }}
-                        type="text"
-                        placeholder={props.messages.email_form_trip_name_placeholder}
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        {props.messages.email_form_field_required}
-                    </Form.Control.Feedback>
-                </Col>
-            </Form.Group>
             <Form.Group as={Row} controlId="travelCategory">
-                <Form.Label column sm="3">{props.messages.email_form_category_label}</Form.Label>
+                <Form.Label column sm="3">{props.messages.flight_modal_origin_airport_label}</Form.Label>
                 <Col sm="9">
                     <Form.Control as="select"
-                        value={props.travelCategory}
+                        value={originAirportCode}
                         onChange={(e) => {
-                            removeIsInvalid('travelCategory', validationErrors)
-                            props.setTravelCategory(e.target.value)
+                            setOriginAirportCode(e.target.value)
                         }}
                         isInvalid={validationErrorList.includes('travelCategory')}
                     >
-                        <option value='' disabled>Select</option>
-                        {props.messages.email_form_category_options.map((item, index) => {
+                        {props.origin.airports.map((item, index) => {
                             return (
-                                <option key={index} value={item.option_value}>{item.option_label}</option>
+                                <option key={index} value={item.iataCode}>{`${item.address.cityName} ${item.name} (${item.iataCode})`}</option>
                             )
                         })}
                     </Form.Control>
@@ -151,24 +97,111 @@ const FlightForm = (props) => {
                     </Form.Control.Feedback>
                 </Col>
             </Form.Group>
-            <Form.Group as={Row} controlId="notes">
-                <Form.Label column sm="3">
-                    {props.messages.email_form_notes}
-                </Form.Label>
-                <Col sm="9">
-                    <Form.Control
-                        isInvalid={validationErrorList.includes('tripNotes')}
-                        required
-                        value={props.tripNotes}
+            <Form.Group as={Row} controlId="travelCategory">
+                <Form.Label column sm="3">{props.messages.flight_modal_departure_time_label}</Form.Label>
+                <Col sm="5">
+                    <Form.Control as="select"
+                        value={departureTime}
                         onChange={(e) => {
-                            removeIsInvalid('tripNotes', validationErrors)
-                            props.setTripNotes(e.target.value)
-                            }} as="textarea" rows={3}
-                        placeholder={props.messages.email_form_notes_placeholder}
-                    />
+                            setDepartureTime(e.target.value)
+                        }}
+                        isInvalid={validationErrorList.includes('travelCategory')}
+                    >
+                        {times.map((item, index) => {
+                            return (
+                                <option key={index} value={item}>{item}</option>
+                            )
+                        })}
+                    </Form.Control>
                     <Form.Control.Feedback type="invalid">
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
+                </Col>
+                <Col sm="4">
+                    <Form.Control as="select"
+                        value={departureOffset}
+                        onChange={(e) => {
+                            setDepartureOffset(e.target.value)
+                        }}
+                        isInvalid={validationErrorList.includes('travelCategory')}
+                    >
+                        {offsetOptions.map((item, index) => {
+                            return (
+                                <option key={index} value={item.value}>{item.label}</option>
+                            )
+                        })}
+                    </Form.Control>
+                    <Form.Control.Feedback type="invalid">
+                        {props.messages.email_form_field_required}
+                    </Form.Control.Feedback>
+                </Col>
+
+            </Form.Group>
+            <Form.Group as={Row} controlId="travelCategory">
+                <Form.Label column sm="3">{props.messages.flight_modal_destination_airport_label}</Form.Label>
+                <Col sm="9">
+                    <Form.Control as="select"
+                        value={destinationAirportCode}
+                        onChange={(e) => {
+                            setDestinationAirportCode(e.target.value)
+                        }}
+                        isInvalid={validationErrorList.includes('travelCategory')}
+                    >
+                        {props.destination.airports.map((item, index) => {
+                            console.log(item)
+                            return (
+                                <option key={index} value={item.iataCode}>{`${item.address.cityName} ${item.name} (${item.iataCode})`}</option>
+                            )
+                        })}
+                    </Form.Control>
+                    <Form.Control.Feedback type="invalid">
+                        {props.messages.email_form_field_required}
+                    </Form.Control.Feedback>
+                </Col>
+            </Form.Group>
+            <Form.Group as={Row} controlId="travelCategory">
+                <Form.Label column sm="3">{props.messages.flight_modal_return_time_label}</Form.Label>
+                <Col sm="5">
+                    <Form.Control as="select"
+                        value={returnTime}
+                        onChange={(e) => {
+                            setReturnTime(e.target.value)
+                        }}
+                        isInvalid={validationErrorList.includes('travelCategory')}
+                    >
+                        {times.map((item, index) => {
+                            return (
+                                <option key={index} value={item}>{item}</option>
+                            )
+                        })}
+                    </Form.Control>
+                    <Form.Control.Feedback type="invalid">
+                        {props.messages.email_form_field_required}
+                    </Form.Control.Feedback>
+                </Col>
+                <Col sm="4">
+                    <Form.Control as="select"
+                        value={returnOffset}
+                        onChange={(e) => {
+                            setReturnOffset(e.target.value)
+                        }}
+                        isInvalid={validationErrorList.includes('travelCategory')}
+                    >
+                        {offsetOptions.map((item, index) => {
+                            return (
+                                <option key={index} value={item.value}>{item.label}</option>
+                            )
+                        })}
+                    </Form.Control>
+                    <Form.Control.Feedback type="invalid">
+                        {props.messages.email_form_field_required}
+                    </Form.Control.Feedback>
+                </Col>
+                {/* fetchFlightCost = async (origin, destination, departTime, returnTime, departOffset, returnOffset) */}
+            </Form.Group>
+            <Form.Group as={Row} controlId="travelCategory">
+                <Col sm="12">
+                    <Button onClick={() => {console.log(originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset)}} className="float-right" variant="primary">{props.messages.flight_modal_fetch_flight_estimate_label}</Button>
                 </Col>
             </Form.Group>
         </Form>

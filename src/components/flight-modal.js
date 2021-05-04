@@ -1,6 +1,7 @@
 import React from "react"
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import FlightForm from './flight-form'
 import { FaSpinner } from 'react-icons/fa';
 
 const FlightModal = (props) => {
@@ -18,7 +19,7 @@ const FlightModal = (props) => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                {/* <EmailForm {...props} /> */}
+                <FlightForm {...props} />
                 <div dangerouslySetInnerHTML={{ __html: props.messages.flight_modal_note_disclaimer.html }} ></div>
             </Modal.Body>
             <Modal.Footer>
