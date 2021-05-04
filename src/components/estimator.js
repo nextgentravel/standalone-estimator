@@ -1090,21 +1090,21 @@ const Estimator = () => {
     }, [localTransportationCost]);
 
     useEffect(() => {
-        
+        console.log("tgsdS?")
         if (transportationType === 'flight') {
-            if (parseFloat(acceptedFlight) === parseFloat(flightResult.minimum) || parseFloat(acceptedFlight) === parseFloat(flightResult.maximum) || parseFloat(acceptedFlight) === parseFloat(flightResult.median)) {
-                setTransportationCost(acceptedFlight);
+            if (parseFloat(transportationCost) === parseFloat(flightResult.minimum) || parseFloat(transportationCost) === parseFloat(flightResult.maximum) || parseFloat(transportationCost) === parseFloat(flightResult.median)) {
                 setTransportationMessage({
                     element: <span>(to put in prismic) You have selected a fare of <strong>{localCurrencyDisplay(parseFloat(acceptedFlight))}</strong> for this trip. <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>Re-generate Estimate</a></span>
+                })
+            } else if (transportationCost > 0) {
+                setTransportationMessage({
+                    element: <>{formattedMessage('flight_no_results_custom')} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>Generate Estimate</a></>
                 })
             } else {
                 setTransportationMessage({
                     element: <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a>
                 })
             }
-
-
-
             // if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) === 0.00) {
             //     setTransportationMessage({
             //         element:  <span className="transportation-message">{formattedMessage('flight_no_results')}</span>
