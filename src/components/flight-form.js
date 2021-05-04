@@ -72,7 +72,7 @@ const FlightForm = (props) => {
     let [returnTime, setReturnTime] = useState('12:00');
     let [departureOffset, setDepartureOffset] = useState(2);
     let [returnOffset, setReturnOffset] = useState(2);
-    let [flightResult, setFlightResult] = useState({});
+    // let [flightResult, setFlightResult] = useState({});
     let [flightLoading, setFlightLoading] = useState(false);
     
     let validationErrorList = validationErrors.map(a => a.path) || [];
@@ -207,10 +207,10 @@ const FlightForm = (props) => {
                     <Col sm="12">
                         <Button
                             onClick={() => {
-                                setFlightResult({});
+                                props.setFlightResult({});
                                 setFlightLoading(true);
                                 props.fetchFlightCost(originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset).then((result) => {
-                                    setFlightResult(result);
+                                    props.setFlightResult(result);
                                     setFlightLoading(false);
                                 })
                             }}
@@ -222,7 +222,7 @@ const FlightForm = (props) => {
                 </Form.Group>
             </Form>
             <div>
-                {Object.keys(flightResult).length !== 0 &&
+                {Object.keys(props.flightResult).length !== 0 && props.flightResult.numberOfResults > 0 &&
                     <>
                         <h3>{props.messages.flight_modal_result_header}</h3>
                         <Form onChange={(e) => props.setSelectedPrice(e.target.value)}>
@@ -230,33 +230,46 @@ const FlightForm = (props) => {
                                 <fieldset>
                                     <Form.Check
                                         inline
-                                        label={`${localCurrencyDisplay(flightResult.minimum)} (${props.messages.flight_modal_label_minimum})`}
+                                        label={`${localCurrencyDisplay(props.flightResult.minimum)} (${props.messages.flight_modal_label_minimum})`}
                                         type={'radio'}
                                         name="priceSelection"
                                         id={`minimum`}
-                                        value={flightResult.minimum}
+                                        value={props.flightResult.minimum}
                                     />
                                     <Form.Check
                                         inline
-                                        label={`${localCurrencyDisplay(flightResult.maximum)} (${props.messages.flight_modal_label_maximum})`}
+                                        label={`${localCurrencyDisplay(props.flightResult.maximum)} (${props.messages.flight_modal_label_maximum})`}
                                         type={'radio'}
                                         name="priceSelection"
                                         id={`highest`}
-                                        value={flightResult.maximum}
+                                        value={props.flightResult.maximum}
                                     />
                                     <Form.Check
                                         inline
-                                        label={`${localCurrencyDisplay(flightResult.median)} (${props.messages.flight_modal_label_median})`}
+                                        label={`${localCurrencyDisplay(props.flightResult.median)} (${props.messages.flight_modal_label_median})`}
                                         type={'radio'}
                                         name="priceSelection"
                                         id={`median`}
-                                        value={flightResult.median}
+                                        value={props.flightResult.median}
                                     />
                                 </fieldset>
                             </div>
                         </Form>
                     </>
                 }
+                {props.flightResult.numberOfResults === 0 &&
+                    <>
+                        <h3>{props.messages.flight_modal_result_header}</h3>
+                        <p>(to put in prismic) No Results found</p>
+                    </>
+                }
+                {Object.keys(props.flightResult).length === 0 && !flightLoading &&
+                    <>
+                        <h3>{props.messages.flight_modal_result_header}</h3>
+                        <p>(to put in prismic) Adjust parameters above to generate a rough estimate of your flight price.</p>
+                    </>
+                }
+
             </div>
         </>
     )

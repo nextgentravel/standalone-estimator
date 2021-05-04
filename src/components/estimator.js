@@ -558,6 +558,8 @@ const Estimator = () => {
         setFlightModalShow(true)
     };
 
+    let [selectedPrice, setSelectedPrice] = useState(0.00);
+    let [flightResult, setFlightResult] = useState({});
 
     useEffect(() => {
         updateAccommodationCost(0.00)
@@ -1201,6 +1203,10 @@ const Estimator = () => {
                 destination={destination}
                 origin={origin}
                 fetchFlightCost={fetchFlightCost}
+                selectedPrice={selectedPrice}
+                setSelectedPrice={setSelectedPrice}
+                flightResult={flightResult}
+                setFlightResult={setFlightResult}
             />
 
 
