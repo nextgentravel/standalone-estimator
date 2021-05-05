@@ -87,7 +87,7 @@ const FlightForm = (props) => {
         <>
             <Form noValidate>
                 <h3 className="mb-4">{departureHeader}</h3>
-                <Form.Group as={Row} controlId="travelCategory">
+                <Form.Group as={Row} controlId="originAirport">
                     <Form.Label column sm="4">{props.messages.flight_modal_origin_airport_label}</Form.Label>
                     <Col sm="8">
                         <Form.Control as="select"
@@ -95,7 +95,7 @@ const FlightForm = (props) => {
                             onChange={(e) => {
                                 setOriginAirportCode(e.target.value)
                             }}
-                            isInvalid={validationErrorList.includes('travelCategory')}
+                            isInvalid={validationErrorList.includes('originAirport')}
                         >
                             {props.origin.airports.map((item, index) => {
                                 return (
@@ -108,15 +108,16 @@ const FlightForm = (props) => {
                         </Form.Control.Feedback>
                     </Col>
                 </Form.Group>
-                <Form.Group as={Row} controlId="travelCategory" className="mb-5">
+                <Form.Group as={Row} className="mb-5">
                     <Form.Label column sm="4">{props.messages.flight_modal_departure_time_label}</Form.Label>
                     <Col sm="4">
                         <Form.Control as="select"
+                            controlId="originTime"
                             value={departureTime}
                             onChange={(e) => {
                                 setDepartureTime(e.target.value)
                             }}
-                            isInvalid={validationErrorList.includes('travelCategory')}
+                            isInvalid={validationErrorList.includes('originTime')}
                         >
                             {times.map((item, index) => {
                                 return (
@@ -130,11 +131,12 @@ const FlightForm = (props) => {
                     </Col>
                     <Col sm="4">
                         <Form.Control as="select"
+                            controlId="originOffset"
                             value={departureOffset}
                             onChange={(e) => {
                                 setDepartureOffset(e.target.value)
                             }}
-                            isInvalid={validationErrorList.includes('travelCategory')}
+                            isInvalid={validationErrorList.includes('originOffset')}
                         >
                             {offsetOptions.map((item, index) => {
                                 return (
@@ -149,7 +151,7 @@ const FlightForm = (props) => {
 
                 </Form.Group>
                 <h3 className="mb-4">{returnHeader}</h3>
-                <Form.Group as={Row} controlId="travelCategory">
+                <Form.Group as={Row} controlId="destinationAirport">
                     <Form.Label column sm="4">{props.messages.flight_modal_destination_airport_label}</Form.Label>
                     <Col sm="8">
                         <Form.Control as="select"
@@ -157,10 +159,9 @@ const FlightForm = (props) => {
                             onChange={(e) => {
                                 setDestinationAirportCode(e.target.value)
                             }}
-                            isInvalid={validationErrorList.includes('travelCategory')}
+                            isInvalid={validationErrorList.includes('destinationAirport')}
                         >
                             {props.destination.airports.map((item, index) => {
-                                console.log(item)
                                 return (
                                     <option key={index} value={item.iataCode}>{`${item.address.cityName} ${item.name} (${item.iataCode})`}</option>
                                 )
@@ -171,15 +172,16 @@ const FlightForm = (props) => {
                         </Form.Control.Feedback>
                     </Col>
                 </Form.Group>
-                <Form.Group as={Row} controlId="travelCategory" className="mb-4">
+                <Form.Group as={Row} className="mb-4">
                     <Form.Label column sm="4">{props.messages.flight_modal_return_time_label}</Form.Label>
                     <Col sm="4">
                         <Form.Control as="select"
                             value={returnTime}
+                            controlId="returnTime" 
                             onChange={(e) => {
                                 setReturnTime(e.target.value)
                             }}
-                            isInvalid={validationErrorList.includes('travelCategory')}
+                            isInvalid={validationErrorList.includes('returnTime')}
                         >
                             {times.map((item, index) => {
                                 return (
@@ -193,11 +195,12 @@ const FlightForm = (props) => {
                     </Col>
                     <Col sm="4">
                         <Form.Control as="select"
+                            controlId="returnOffset" 
                             value={returnOffset}
                             onChange={(e) => {
                                 setReturnOffset(e.target.value)
                             }}
-                            isInvalid={validationErrorList.includes('travelCategory')}
+                            isInvalid={validationErrorList.includes('returnOffset')}
                         >
                             {offsetOptions.map((item, index) => {
                                 return (
@@ -211,7 +214,7 @@ const FlightForm = (props) => {
                     </Col>
                     {/* fetchFlightCost = async (origin, destination, departTime, returnTime, departOffset, returnOffset) */}
                 </Form.Group>
-                <Form.Group as={Row} controlId="travelCategory" className="mb-5">
+                <Form.Group as={Row} controlId="submitFlightEstimate" className="mb-5">
                     <Col sm="12">
                         <Button
                             onClick={() => {
@@ -243,6 +246,7 @@ const FlightForm = (props) => {
                                         name="priceSelection"
                                         id={`minimum`}
                                         value={props.flightResult.minimum}
+                                        defaultChecked={props.acceptedFlight === props.flightResult.minimum}
                                     />
                                     <Form.Check
                                         inline
@@ -251,6 +255,7 @@ const FlightForm = (props) => {
                                         name="priceSelection"
                                         id={`median`}
                                         value={props.flightResult.median}
+                                        defaultChecked={props.acceptedFlight === props.flightResult.median}
                                     />
                                     <Form.Check
                                         inline
@@ -259,6 +264,7 @@ const FlightForm = (props) => {
                                         name="priceSelection"
                                         id={`highest`}
                                         value={props.flightResult.maximum}
+                                        defaultChecked={props.acceptedFlight === props.flightResult.maximum}
                                     />
                                 </fieldset>
                             </div>
