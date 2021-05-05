@@ -268,7 +268,7 @@ const FlightForm = (props) => {
                 {props.flightResult.numberOfResults === 0 &&
                     <>
                         <h3>{props.messages.flight_modal_result_header}</h3>
-                        <p>(to put in prismic) No Results found</p>
+                        <p>{props.messages.flight_modal_zero_results}</p>
                     </>
                 }
                 {Object.keys(props.flightResult).length === 0 && !flightLoading &&

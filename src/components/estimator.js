@@ -319,6 +319,8 @@ const Estimator = () => {
                     }
                     flight_modal_zero_results
                     flight_modal_api_error
+                    flight_selected_fare
+                    flight_regenerate_estimate
                 }
             }
         }
@@ -1100,7 +1102,7 @@ const Estimator = () => {
         if (transportationType === 'flight') {
             if (parseFloat(transportationCost) === parseFloat(flightResult.minimum) || parseFloat(transportationCost) === parseFloat(flightResult.maximum) || parseFloat(transportationCost) === parseFloat(flightResult.median)) {
                 setTransportationMessage({
-                    element: <span>(to put in prismic) You have selected a fare of <strong>{localCurrencyDisplay(parseFloat(acceptedFlight))}</strong> for this trip. <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>Re-generate Estimate</a></span>
+                    element: <span>{formattedMessage('flight_selected_fare').replace('{flightPrice}', localCurrencyDisplay(parseFloat(acceptedFlight)))} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
                 })
             } else if (transportationCost > 0) {
                 setTransportationMessage({

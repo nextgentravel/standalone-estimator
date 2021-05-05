@@ -651,6 +651,18 @@
         "label": "flight_estimate_your_fare_link",
         "placeholder": "Estimate your fare..."
       }
+    },
+    "flight_selected_fare": {
+      "type": "Text",
+      "config": {
+        "label": "flight_selected_fare"
+      }
+    },
+    "flight_regenerate_estimate": {
+      "type": "Text",
+      "config": {
+        "label": "flight_regenerate_estimate"
+      }
     }
   },
   "Local Transportation Messages": {
