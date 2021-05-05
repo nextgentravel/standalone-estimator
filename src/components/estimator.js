@@ -560,7 +560,7 @@ const Estimator = () => {
 
     let [selectedFlightPrice, setSelectedFlightPrice] = useState(0.00);
     let [flightResult, setFlightResult] = useState({});
-    let [acceptedFlight, setAcceptedFlight] = useState({});
+    let [acceptedFlight, setAcceptedFlight] = useState(0.00);
 
     useEffect(() => {
         updateAccommodationCost(0.00)
@@ -686,13 +686,13 @@ const Estimator = () => {
                 })
                 .catch(error => {
                     console.log('amadeus flight offer error', error);
-                    updateTransportationCost(0.00);
-                    setTransportationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
+                    // updateTransportationCost(0.00);
+                    // setTransportationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
                     resolve(error);
                 });
             } else {
                 setLoading(false);
-                setTransportationMessage({ element: <span className="transportation-message alert-warning">{formattedMessage('flight_message_no_airport')}</span>  })
+                // setTransportationMessage({ element: <span className="transportation-message alert-warning">{formattedMessage('flight_message_no_airport')}</span>  })
                 resolve('no airport');
             }
         });
@@ -701,7 +701,7 @@ const Estimator = () => {
     useEffect(() => {
         if (transportationType === 'flight') {
             // Will need to change this to something....
-            // updateTransportationCost(transportationEstimates.flight.estimatedValue)
+            updateTransportationCost(acceptedFlight)
         } else if (transportationType === 'train') {
             updateTransportationCost(0)
             setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.train_success.html }}></span>  })
@@ -787,7 +787,7 @@ const Estimator = () => {
 
     const handleSubmit =  async(e) => {
         setOtherCost('0.00');
-        setAcceptedFlight('0.00');
+        setAcceptedFlight(0.00);
         setFlightResult({});
         setSelectedFlightPrice(0.00)
         setLoading(true);
@@ -1090,7 +1090,6 @@ const Estimator = () => {
     }, [localTransportationCost]);
 
     useEffect(() => {
-        console.log("tgsdS?")
         if (transportationType === 'flight') {
             if (parseFloat(transportationCost) === parseFloat(flightResult.minimum) || parseFloat(transportationCost) === parseFloat(flightResult.maximum) || parseFloat(transportationCost) === parseFloat(flightResult.median)) {
                 setTransportationMessage({

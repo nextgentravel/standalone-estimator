@@ -31,8 +31,8 @@ const FlightModal = (props) => {
                 <span className="mr-3">{localCurrencyDisplay(parseFloat(props.selectedFlightPrice))}</span>
                 <Button
                     onClick={() => {
-                        props.setAcceptedFlight(props.selectedFlightPrice)
-                        props.setTransportationCost(props.selectedFlightPrice)
+                        props.setAcceptedFlight(parseFloat(props.selectedFlightPrice))
+                        props.setTransportationCost(parseFloat(props.selectedFlightPrice))
                         props.setTransportationType('flight')
                         props.onHide()
                     }}
