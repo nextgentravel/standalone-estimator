@@ -72,8 +72,8 @@ const FlightForm = (props) => {
     let [destinationAirportCode, setDestinationAirportCode] = useState(props.destination.airports[0].iataCode);
     let [departureTime, setDepartureTime] = useState('12:00');
     let [returnTime, setReturnTime] = useState('12:00');
-    let [departureOffset, setDepartureOffset] = useState(2);
-    let [returnOffset, setReturnOffset] = useState(2);
+    let [departureOffset, setDepartureOffset] = useState(12);
+    let [returnOffset, setReturnOffset] = useState(12);
     // let [flightResult, setFlightResult] = useState({});
     let [flightLoading, setFlightLoading] = useState(false);
     
