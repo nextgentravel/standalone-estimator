@@ -1346,6 +1346,39 @@
       "config": {
         "label": "flight_modal_close_button_label"
       }
+    },
+    "flight_modal_leaving_header": {
+      "type": "Text",
+      "config": {
+        "label": "flight_modal_leaving_header",
+        "placeholder": "include {departureDate} and {originCity}"
+      }
+    },
+    "flight_modal_return_header": {
+      "type": "Text",
+      "config": {
+        "label": "flight_modal_return_header",
+        "placeholder": "include {returnDate} and {destinationCity}"
+      }
+    },
+    "flight_modal_initial_instructions": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em",
+        "label": "flight_modal_initial_instructions"
+      }
+    },
+    "flight_modal_zero_results": {
+      "type": "Text",
+      "config": {
+        "label": "flight_modal_zero_results"
+      }
+    },
+    "flight_modal_api_error": {
+      "type": "Text",
+      "config": {
+        "label": "flight_modal_api_error"
+      }
     }
   }
 }

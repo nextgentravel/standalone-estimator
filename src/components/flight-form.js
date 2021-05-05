@@ -79,9 +79,14 @@ const FlightForm = (props) => {
     
     let validationErrorList = validationErrors.map(a => a.path) || [];
 
+    let departureHeader = props.messages.flight_modal_leaving_header.replace('{originCity}', props.origin.acrdName).replace('{departureDate}', props.departureDate.format("Do MMM, YYYY"))
+
+    let returnHeader = props.messages.flight_modal_return_header.replace('{destinationCity}', props.destination.acrdName).replace('{returnDate}', props.returnDate.format("Do MMM, YYYY"))
+
     return (
         <>
             <Form noValidate>
+                <h3 className="mb-4">{departureHeader}</h3>
                 <Form.Group as={Row} controlId="travelCategory">
                     <Form.Label column sm="4">{props.messages.flight_modal_origin_airport_label}</Form.Label>
                     <Col sm="8">
@@ -143,6 +148,7 @@ const FlightForm = (props) => {
                     </Col>
 
                 </Form.Group>
+                <h3 className="mb-4">{returnHeader}</h3>
                 <Form.Group as={Row} controlId="travelCategory">
                     <Form.Label column sm="4">{props.messages.flight_modal_destination_airport_label}</Form.Label>
                     <Col sm="8">
@@ -267,8 +273,7 @@ const FlightForm = (props) => {
                 }
                 {Object.keys(props.flightResult).length === 0 && !flightLoading &&
                     <>
-                        <h3>{props.messages.flight_modal_result_header}</h3>
-                        <p>(to put in prismic) Adjust parameters above to generate a rough estimate of your flight price.</p>
+                        <div dangerouslySetInnerHTML={{ __html: props.messages.flight_modal_initial_instructions.html }}></div>
                     </>
                 }
 

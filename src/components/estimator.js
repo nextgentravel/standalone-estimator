@@ -312,6 +312,13 @@ const Estimator = () => {
                     }
                     flight_modal_use_in_estimate_button_label
                     flight_modal_close_button_label
+                    flight_modal_leaving_header
+                    flight_modal_return_header
+                    flight_modal_initial_instructions {
+                        html
+                    }
+                    flight_modal_zero_results
+                    flight_modal_api_error
                 }
             }
         }
@@ -1211,6 +1218,8 @@ const Estimator = () => {
                 locale={locale}
                 destination={destination}
                 origin={origin}
+                departureDate={departureDate}
+                returnDate={returnDate}
                 fetchFlightCost={fetchFlightCost}
                 selectedFlightPrice={selectedFlightPrice}
                 setSelectedFlightPrice={setSelectedFlightPrice}
