@@ -1229,7 +1229,7 @@ const Estimator = () => {
                 setFlightResult={setFlightResult}
                 acceptedFlight={acceptedFlight}
                 setAcceptedFlight={setAcceptedFlight}
-                setTransportationCost={setTransportationCost}
+                updateTransportationCost={updateTransportationCost}
                 setTransportationType={setTransportationType}
             />
 

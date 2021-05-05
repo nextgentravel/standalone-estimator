@@ -32,7 +32,7 @@ const FlightModal = (props) => {
                 <Button
                     onClick={() => {
                         props.setAcceptedFlight(parseFloat(props.selectedFlightPrice))
-                        props.setTransportationCost(parseFloat(props.selectedFlightPrice))
+                        props.updateTransportationCost(parseFloat(props.selectedFlightPrice))
                         props.setTransportationType('flight')
                         props.onHide()
                     }}
