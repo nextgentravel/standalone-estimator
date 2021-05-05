@@ -246,19 +246,19 @@ const FlightForm = (props) => {
                                     />
                                     <Form.Check
                                         inline
-                                        label={`${localCurrencyDisplay(props.flightResult.maximum)} (${props.messages.flight_modal_label_maximum})`}
-                                        type={'radio'}
-                                        name="priceSelection"
-                                        id={`highest`}
-                                        value={props.flightResult.maximum}
-                                    />
-                                    <Form.Check
-                                        inline
                                         label={`${localCurrencyDisplay(props.flightResult.median)} (${props.messages.flight_modal_label_median})`}
                                         type={'radio'}
                                         name="priceSelection"
                                         id={`median`}
                                         value={props.flightResult.median}
+                                    />
+                                    <Form.Check
+                                        inline
+                                        label={`${localCurrencyDisplay(props.flightResult.maximum)} (${props.messages.flight_modal_label_maximum})`}
+                                        type={'radio'}
+                                        name="priceSelection"
+                                        id={`highest`}
+                                        value={props.flightResult.maximum}
                                     />
                                 </fieldset>
                             </div>
