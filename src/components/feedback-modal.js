@@ -19,7 +19,7 @@ const FeedBackModal = (props) => {
             <Modal.Body dangerouslySetInnerHTML={{ __html: props.messages.feedback_modal_body.html }}>
             </Modal.Body>
             <Modal.Footer>
-                <Button target="_blank" href="https://forms.office.com/Pages/ResponsePage.aspx?id=iCCFk-gUKkidX8AtBjpJumphsjKf67RLhnMyW03Qcg9URUEwSTdERjlVNlk2M0xYQ0ROMUNDS1RLVC4u" >{props.messages.feedback_modal_primary_button_text}</Button>
+                <Button target="_blank" href={props.messages.feedback_modal_link_to_survey} >{props.messages.feedback_modal_primary_button_text}</Button>
                 {/* <Button variant="outline-primary" onClick={props.onHide} >{props.messages.feedback_modal_secondary_button_text}</Button> */}
             </Modal.Footer>
       </Modal>
