@@ -1106,7 +1106,7 @@ const Estimator = () => {
                 })
             } else if (parseFloat(transportationCost) === parseFloat(flightResult.minimum) || parseFloat(transportationCost) === parseFloat(flightResult.maximum) || parseFloat(transportationCost) === parseFloat(flightResult.median)) {
                 setTransportationMessage({
-                    element: <span>{formattedMessage('flight_selected_fare').replace('{flightPrice}', localCurrencyDisplay(parseFloat(acceptedFlight)))} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>formattedMessage('flight_selected_fare')</a></span>
+                    element: <span>{formattedMessage('flight_selected_fare').replace('{flightPrice}', localCurrencyDisplay(parseFloat(acceptedFlight)))} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
                 })
             } else if (transportationCost > 0) {
                 setTransportationMessage({
@@ -1234,6 +1234,7 @@ const Estimator = () => {
                 acceptedFlight={acceptedFlight}
                 setAcceptedFlight={setAcceptedFlight}
                 setTransportationCost={setTransportationCost}
+                updateTransportationCost={updateTransportationCost}
                 setTransportationType={setTransportationType}
             />
 
