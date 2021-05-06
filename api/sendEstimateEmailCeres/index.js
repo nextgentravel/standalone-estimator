@@ -358,6 +358,9 @@ module.exports = async function (context, req) {
       lunch: initialResult.mealCost.lunch,
       dinner: initialResult.mealCost.dinner,
       incidentals: initialResult.mealCost.incidentals,
+      flightEstimateMinimum: body.flightResult.minimum,
+      flightEstimateMedian: body.flightResult.median,
+      flightEstimateMaximum: body.flightResult.maximum,
     }
 
     let csvHeaders = Object.keys(csvLineObject);
@@ -396,6 +399,16 @@ module.exports = async function (context, req) {
               Other costs: ${localCurrencyDisplay(body.otherCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.otherCost, 'en-CA')})<br /><br />
               
               TOTAL: ${localCurrencyDisplay(body.summaryCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.summaryCost, 'en-CA')})<br /><br />
+
+              <br><br>
+              Flight Result: (returns NaN if no estimate requested)
+              <br><br>
+
+              Min: ${localCurrencyDisplay(body.flightResult.minimum, 'en-CA')}<br>
+              Med: ${localCurrencyDisplay(body.flightResult.median, 'en-CA')}<br>
+              Max: ${localCurrencyDisplay(body.flightResult.maximum, 'en-CA')}<br>
+
+              <br><br>
 
               All dates expressed in this email are in YYYY-MM-DD format.<br /><br />
 

@@ -1037,6 +1037,7 @@ const Estimator = () => {
                         applicableRates,
                         privateVehicleRate,
                         privateKilometricsValue,
+                        flightResult,
                     })
                   }).then(function(response) {
                     if (!response.ok) {
