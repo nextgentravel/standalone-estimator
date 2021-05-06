@@ -757,12 +757,12 @@ const Estimator = () => {
     }
 
     const handleSubmit =  async(e) => {
-        setOtherCost('0.00');
         setLoading(true);
         setGeneralError(false);
         e.preventDefault();
         handleSubmitEstimateValidation()
             .then(async (valid) => {
+                setOtherCost('0.00');
                 setSubmitValidationWarnings([]);
                 setTransportationType('flight')
                 setAccommodationType('hotel')
