@@ -1100,9 +1100,13 @@ const Estimator = () => {
 
     useEffect(() => {
         if (transportationType === 'flight') {
-            if (parseFloat(transportationCost) === parseFloat(flightResult.minimum) || parseFloat(transportationCost) === parseFloat(flightResult.maximum) || parseFloat(transportationCost) === parseFloat(flightResult.median)) {
+            if (origin.cityCode === null || destination.cityCode === null) {
                 setTransportationMessage({
-                    element: <span>{formattedMessage('flight_selected_fare').replace('{flightPrice}', localCurrencyDisplay(parseFloat(acceptedFlight)))} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
+                    element: <span>{formattedMessage('flight_message_no_airport')}</span>
+                })
+            } else if (parseFloat(transportationCost) === parseFloat(flightResult.minimum) || parseFloat(transportationCost) === parseFloat(flightResult.maximum) || parseFloat(transportationCost) === parseFloat(flightResult.median)) {
+                setTransportationMessage({
+                    element: <span>{formattedMessage('flight_selected_fare').replace('{flightPrice}', localCurrencyDisplay(parseFloat(acceptedFlight)))} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>formattedMessage('flight_selected_fare')</a></span>
                 })
             } else if (transportationCost > 0) {
                 setTransportationMessage({
@@ -1229,7 +1233,7 @@ const Estimator = () => {
                 setFlightResult={setFlightResult}
                 acceptedFlight={acceptedFlight}
                 setAcceptedFlight={setAcceptedFlight}
-                updateTransportationCost={updateTransportationCost}
+                setTransportationCost={setTransportationCost}
                 setTransportationType={setTransportationType}
             />
 
