@@ -321,6 +321,7 @@ const Estimator = () => {
                     flight_modal_api_error
                     flight_selected_fare
                     flight_regenerate_estimate
+                    feedback_modal_link_to_survey
                 }
             }
         }
@@ -804,6 +805,7 @@ const Estimator = () => {
         e.preventDefault();
         handleSubmitEstimateValidation()
             .then(async (valid) => {
+                setOtherCost('0.00');
                 setSubmitValidationWarnings([]);
                 setTransportationType('flight')
                 setAccommodationType('hotel')
