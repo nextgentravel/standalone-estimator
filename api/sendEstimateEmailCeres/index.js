@@ -358,6 +358,13 @@ module.exports = async function (context, req) {
       lunch: initialResult.mealCost.lunch,
       dinner: initialResult.mealCost.dinner,
       incidentals: initialResult.mealCost.incidentals,
+      objective: body.tripName,
+      category: travelCategory(body.travelCategory, 'en'),
+      publicServant: body.travellerIsPublicServant ? 'Yes' : 'No',
+      notes: body.tripNotes,
+      flightEstimateMinimum: body.flightResult.minimum,
+      flightEstimateMedian: body.flightResult.median,
+      flightEstimateMaximum: body.flightResult.maximum,
     }
 
     let csvHeaders = Object.keys(csvLineObject);
@@ -379,6 +386,13 @@ module.exports = async function (context, req) {
             Charset: "UTF-8",
             Data: 
               `
+
+              Objective: ${body.tripName}<br /><br />
+
+              Category: ${travelCategory(body.travelCategory, 'en')}<br />
+
+              Public servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
+
               Origin: ${addCommaToPlaceName(body.origin.acrdName)}<br />
               Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
               
@@ -396,6 +410,18 @@ module.exports = async function (context, req) {
               Other costs: ${localCurrencyDisplay(body.otherCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.otherCost, 'en-CA')})<br /><br />
               
               TOTAL: ${localCurrencyDisplay(body.summaryCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.summaryCost, 'en-CA')})<br /><br />
+
+              Notes: ${body.tripNotes}<br /><br />
+
+              <br><br>
+              Flight Result: (returns NaN if no estimate requested)
+              <br><br>
+
+              Min: ${localCurrencyDisplay(body.flightResult.minimum, 'en-CA')}<br>
+              Med: ${localCurrencyDisplay(body.flightResult.median, 'en-CA')}<br>
+              Max: ${localCurrencyDisplay(body.flightResult.maximum, 'en-CA')}<br>
+
+              <br><br>
 
               All dates expressed in this email are in YYYY-MM-DD format.<br /><br />
 

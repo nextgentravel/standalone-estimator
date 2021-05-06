@@ -12,6 +12,8 @@ import EmailModal from "./email-modal.js"
 import EmailConfirmationModal from "./email-confirmation-modal.js"
 import FeedBackModal from "./feedback-modal.js"
 import MealsModal from "./meals-modal.js"
+import FlightModal from "./flight-modal.js"
+
 import { FaCaretUp, FaCaretDown, FaCalculator, FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
 import { dailyMealTemplate } from "./functions/dailyMealTemplate"
 
@@ -294,6 +296,31 @@ const Estimator = () => {
                     }
                     feedback_modal_primary_button_text
                     feedback_modal_secondary_button_text
+                    flight_estimate_your_fare_link
+                    flight_modal_header
+                    flight_modal_origin_airport_label
+                    flight_modal_departure_time_label
+                    flight_modal_destination_airport_label
+                    flight_modal_return_time_label
+                    flight_modal_fetch_flight_estimate_label
+                    flight_modal_result_header
+                    flight_modal_label_minimum
+                    flight_modal_label_maximum
+                    flight_modal_label_median
+                    flight_modal_note_disclaimer {
+                        html
+                    }
+                    flight_modal_use_in_estimate_button_label
+                    flight_modal_close_button_label
+                    flight_modal_leaving_header
+                    flight_modal_return_header
+                    flight_modal_initial_instructions {
+                        html
+                    }
+                    flight_modal_zero_results
+                    flight_modal_api_error
+                    flight_selected_fare
+                    flight_regenerate_estimate
                     feedback_modal_link_to_survey
                 }
             }
@@ -340,6 +367,7 @@ const Estimator = () => {
                 cityName: cityName,
                 iataCode: geocodedCities[city].airports.length > 0 ? geocodedCities[city].airports[0].iataCode : null,
                 cityCode: geocodedCities[city].airports.length > 0 ? geocodedCities[city].airports[0].address.cityCode: null,
+                airports: geocodedCities[city].airports,
             })
         }
         setFilteredCitiesList(list);
@@ -390,7 +418,6 @@ const Estimator = () => {
     }, [returnDate])
 
     useEffect(() => {
-        setHaveFlightCost(false);
         setResult(false);
         setTransportationType('');
         setTransportationEstimates(transportationEstimatesInitialState);
@@ -529,10 +556,21 @@ const Estimator = () => {
 
     const [mealsModalShow, setMealsModalShow] = React.useState(false);
 
+    const [flightModalShow, setFlightModalShow] = React.useState(false);
+
     let handleMealsModalShow = (e) => {
         e.preventDefault()
         setMealsModalShow(true)
     };
+
+    let handleFlightModalShow = (e) => {
+        e.preventDefault()
+        setFlightModalShow(true)
+    };
+
+    let [selectedFlightPrice, setSelectedFlightPrice] = useState(0.00);
+    let [flightResult, setFlightResult] = useState({});
+    let [acceptedFlight, setAcceptedFlight] = useState(0.00);
 
     useEffect(() => {
         updateAccommodationCost(0.00)
@@ -610,61 +648,61 @@ const Estimator = () => {
 
     const [haveFlightCost, setHaveFlightCost] = useState(false)
 
-    const fetchFlightCost = async () => {
+    const fetchFlightCost = async (originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset) => {
         return new Promise(resolve => {
             const departureDateISODate = departureDate.format("YYYY-MM-DD")
             const returnDateISODate = returnDate.format("YYYY-MM-DD")
     
             if (origin.cityCode !== null && destination.cityCode !== null) {
-                amadeusFlightOffer(origin.cityCode, destination.cityCode, departureDateISODate, returnDateISODate, '')
+                amadeusFlightOffer(originAirportCode, destinationAirportCode, departureDateISODate, returnDateISODate, departureTime, returnTime, departureOffset, returnOffset)
                 .then(response => response.json())
                 .then(result => {
-                    let date = DateTime.local().toFormat("yyyy-MM-dd");
-                    let time = DateTime.local().toFormat("hh:mm a")
-                    if (result.numberOfResults === 0) {
-                        localeCopy.flight_no_results.html = localeCopy.flight_no_results.html.replace('{date}', `<strong>${date}</strong>`)    
-                        let FlightMessage = <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_no_results.html }}></span>
-                        updateTransportationCost(0.00);
-                        setTransportationEstimates({
-                            ...transportationEstimates,
-                            flight: {
-                                estimatedValue: 0,
-                                estimatedValueMessage: FlightMessage,
-                                responseBody: result,
-                            }
-                        })
-                        setTransportationMessage({ element: FlightMessage  })
-                        setHaveFlightCost(true);
-                        resolve(result);
-                    } else {        
-                        localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{date}', `<strong>${date}</strong>`)
-                        localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{time}', `<strong>${time}</strong>`)
+                    // let date = DateTime.local().toFormat("yyyy-MM-dd");
+                    // let time = DateTime.local().toFormat("hh:mm a")
+                    resolve(result);
+                    // if (result.numberOfResults === 0) {
+                    //     localeCopy.flight_no_results.html = localeCopy.flight_no_results.html.replace('{date}', `<strong>${date}</strong>`)    
+                    //     let FlightMessage = <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_no_results.html }}></span>
+                    //     updateTransportationCost(0.00);
+                    //     setTransportationEstimates({
+                    //         ...transportationEstimates,
+                    //         flight: {
+                    //             estimatedValue: 0,
+                    //             estimatedValueMessage: FlightMessage,
+                    //             responseBody: result,
+                    //         }
+                    //     })
+                    //     setTransportationMessage({ element: FlightMessage  })
+                    //     setHaveFlightCost(true);
+                    //     resolve(result);
+                    // } else {        
+                    //     localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{date}', `<strong>${date}</strong>`)
+                    //     localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{time}', `<strong>${time}</strong>`)
         
-                        let FlightMessage = <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_success.html }}></span>
+                    //     let FlightMessage = <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_success.html }}></span>
                         
-                        updateTransportationCost(result.flightEstimate);
-                        setTransportationEstimates({
-                            ...transportationEstimates,
-                            flight: {
-                                estimatedValue: result.flightEstimate,
-                                estimatedValueMessage: FlightMessage,
-                                responseBody: result,
-                            }
-                        })
-                        setTransportationMessage({ element: FlightMessage  })
-                        setHaveFlightCost(true);
-                        resolve(result);
-                    }
+                    //     setTransportationEstimates({
+                    //         ...transportationEstimates,
+                    //         flight: {
+                    //             estimatedValue: result.flightEstimate,
+                    //             estimatedValueMessage: FlightMessage,
+                    //             responseBody: result,
+                    //         }
+                    //     })
+                    //     setTransportationMessage({ element: FlightMessage  })
+                    //     setHaveFlightCost(true);
+                    //     resolve(result);
+                    // }
                 })
                 .catch(error => {
                     console.log('amadeus flight offer error', error);
-                    updateTransportationCost(0.00);
-                    setTransportationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
+                    // updateTransportationCost(0.00);
+                    // setTransportationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
                     resolve(error);
                 });
             } else {
                 setLoading(false);
-                setTransportationMessage({ element: <span className="transportation-message alert-warning">{formattedMessage('flight_message_no_airport')}</span>  })
+                // setTransportationMessage({ element: <span className="transportation-message alert-warning">{formattedMessage('flight_message_no_airport')}</span>  })
                 resolve('no airport');
             }
         });
@@ -672,7 +710,8 @@ const Estimator = () => {
 
     useEffect(() => {
         if (transportationType === 'flight') {
-            updateTransportationCost(transportationEstimates.flight.estimatedValue)
+            // Will need to change this to something....
+            updateTransportationCost(acceptedFlight)
         } else if (transportationType === 'train') {
             updateTransportationCost(0)
             setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.train_success.html }}></span>  })
@@ -757,6 +796,10 @@ const Estimator = () => {
     }
 
     const handleSubmit =  async(e) => {
+        setOtherCost('0.00');
+        setAcceptedFlight(0.00);
+        setFlightResult({});
+        setSelectedFlightPrice(0.00)
         setLoading(true);
         setGeneralError(false);
         e.preventDefault();
@@ -766,7 +809,7 @@ const Estimator = () => {
                 setSubmitValidationWarnings([]);
                 setTransportationType('flight')
                 setAccommodationType('hotel')
-                await fetchFlightCost();
+                // await fetchFlightCost();
                 let numberOfDays = Interval.fromDateTimes(
                     departureDateLux,
                     returnDateLux)
@@ -851,6 +894,7 @@ const Estimator = () => {
         setResult(false)
         setSubmitValidationWarnings([]);
         setInitialResult({});
+        setFlightResult({});
 
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
@@ -995,6 +1039,7 @@ const Estimator = () => {
                         applicableRates,
                         privateVehicleRate,
                         privateKilometricsValue,
+                        flightResult,
                     })
                   }).then(function(response) {
                     if (!response.ok) {
@@ -1057,52 +1102,59 @@ const Estimator = () => {
     }, [localTransportationCost]);
 
     useEffect(() => {
-        
         if (transportationType === 'flight') {
-            if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) === 0.00) {
+            if (origin.cityCode === null || destination.cityCode === null) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message">{formattedMessage('flight_no_results')}</span>
+                    element: <span>{formattedMessage('flight_message_no_airport')}</span>
                 })
-            } else if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) > 0.00) {
+            } else if (parseFloat(transportationCost) === parseFloat(flightResult.minimum) || parseFloat(transportationCost) === parseFloat(flightResult.maximum) || parseFloat(transportationCost) === parseFloat(flightResult.median)) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message">{formattedMessage('flight_no_results_custom')}</span>
+                    element: <span>{formattedMessage('flight_selected_fare').replace('{flightPrice}', localCurrencyDisplay(parseFloat(acceptedFlight)))} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
                 })
-            } else if (haveFlightCost && (parseInt(transportationCost) === 0)) {
+            } else if (transportationCost > 0) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message">{formattedMessage('flight_zero', 'alert-warning')}</span>
+                    element: <>{formattedMessage('flight_no_results_custom')} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>Generate Estimate</a></>
                 })
-            } else if (haveFlightCost && (parseFloat(transportationCost) < parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
+            } else {
                 setTransportationMessage({
-                    element:  <span className="transportation-message">{formattedMessage('flight_below_estimate')}</span>
-                })
-            } else if (haveFlightCost && (parseFloat(transportationCost) === parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
-                setTransportationMessage({
-                    element:  transportationEstimates.flight.estimatedValueMessage
-                })
-            } else if (haveFlightCost && (parseFloat(transportationCost) > parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
-                setTransportationMessage({
-                    element:  <span className="transportation-message">{formattedMessage('transportation_above_flight_estimate')}</span>
+                    element: <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a>
                 })
             }
+            // if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) === 0.00) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message">{formattedMessage('flight_no_results')}</span>
+            //     })
+            // } else if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) > 0.00) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message">{formattedMessage('flight_no_results_custom')}</span>
+            //     })
+            // } else if (haveFlightCost && (parseInt(transportationCost) === 0)) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message">{formattedMessage('flight_zero', 'alert-warning')}</span>
+            //     })
+            // } else if (haveFlightCost && (parseFloat(transportationCost) < parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message">{formattedMessage('flight_below_estimate')}</span>
+            //     })
+            // } else if (haveFlightCost && (parseFloat(transportationCost) === parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
+            //     setTransportationMessage({
+            //         element:  transportationEstimates.flight.estimatedValueMessage
+            //     })
+            // } else if (haveFlightCost && (parseFloat(transportationCost) > parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message">{formattedMessage('transportation_above_flight_estimate')}</span>
+            //     })
+            // }
 
-            if(loading && !haveFlightCost) {
-                setTransportationMessage({ element:
-                    <>
-                        <Spinner animation="border" role="status" size="sm">
-                            <span className="sr-only">Loading...</span>
-                        </Spinner>{' '}
-                        <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_loading.html }}></span>
-                    </>
-                })
-            } else if (result && !haveFlightCost && (parseInt(transportationCost) === 0)) {
-                setTransportationMessage({
-                    element:  <span className="transportation-message alert-warning">{formattedMessage('could_not_fetch_flight_value')}</span>
-                })
-            } else if (result && !haveFlightCost && (parseInt(transportationCost) > 0)) {
-                setTransportationMessage({
-                    element:  <span className="transportation-message alert-warning">{formattedMessage('could_not_fetch_you_have_entered_own')}</span>
-                })
-            }
+            // } else if (result && !haveFlightCost && (parseInt(transportationCost) === 0)) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message alert-warning">{formattedMessage('could_not_fetch_flight_value')}</span>
+            //     })
+            // } else if (result && !haveFlightCost && (parseInt(transportationCost) > 0)) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message alert-warning">{formattedMessage('could_not_fetch_you_have_entered_own')}</span>
+            //     })
+            // }
         }
         if (result && transportationType === 'train') {
             console.log('validate train price')
@@ -1115,6 +1167,8 @@ const Estimator = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [transportationCost, transportationType, haveFlightCost]);
+
+
 
     return (
         <div className="mb-4">
@@ -1166,6 +1220,28 @@ const Estimator = () => {
                 messages={localeCopy}
                 locale={locale}
             />
+            <FlightModal
+                show={flightModalShow}
+                onHide={() => setFlightModalShow(false)}
+                messages={localeCopy}
+                locale={locale}
+                destination={destination}
+                origin={origin}
+                departureDate={departureDate}
+                returnDate={returnDate}
+                fetchFlightCost={fetchFlightCost}
+                selectedFlightPrice={selectedFlightPrice}
+                setSelectedFlightPrice={setSelectedFlightPrice}
+                flightResult={flightResult}
+                setFlightResult={setFlightResult}
+                acceptedFlight={acceptedFlight}
+                setAcceptedFlight={setAcceptedFlight}
+                setTransportationCost={setTransportationCost}
+                updateTransportationCost={updateTransportationCost}
+                setTransportationType={setTransportationType}
+            />
+
+
             <h2 className="mb-4">{localeCopy.title.text}</h2>
             <div className="lead mb-5" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
              {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
