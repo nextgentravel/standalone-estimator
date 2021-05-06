@@ -28,6 +28,8 @@ function SEO({ description, lang, meta, title }) {
     `
   )
 
+  const metaTitle = lang === 'en-ca' ? site.siteMetadata.titleEnglish : site.siteMetadata.titleFrench;
+
   const metaDescription = description || lang === 'en-ca' ? site.siteMetadata.descriptionEnglish : site.siteMetadata.descriptionFrench
   return (
     <Helmet
@@ -35,7 +37,7 @@ function SEO({ description, lang, meta, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${lang === 'en-ca' ? site.siteMetadata.titleEnglish : site.siteMetadata.titleFrench}`}
+      titleTemplate={`%s | ${metaTitle}`}
       meta={[
         {
           name: `description`,
@@ -43,7 +45,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:title`,
-          content: title,
+          content: `title | ${metaTitle}`,
         },
         {
           property: `og:description`,
