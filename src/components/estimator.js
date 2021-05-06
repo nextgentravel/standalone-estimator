@@ -294,6 +294,7 @@ const Estimator = () => {
                     }
                     feedback_modal_primary_button_text
                     feedback_modal_secondary_button_text
+                    feedback_modal_link_to_survey
                 }
             }
         }
