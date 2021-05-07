@@ -321,6 +321,8 @@ const Estimator = () => {
                     flight_selected_fare
                     flight_regenerate_estimate
                     feedback_modal_link_to_survey
+                    select
+                    private_vehicle_enter_distance_manually
                 }
             }
         }
