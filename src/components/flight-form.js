@@ -4,12 +4,38 @@ import Row from 'react-bootstrap/Row'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { FaSpinner } from 'react-icons/fa';
+import * as yup from "yup"
 
 const FlightForm = (props) => {
     let validationErrors = props.validationWarnings || []
-    function removeIsInvalid (path, errors) {
-        let filtered = errors.filter(function(field) { return field.path !== path; });
-        props.setEmailValidationWarnings(filtered);
+
+    const handleSubmitFlightRequestValidation = () => {
+        let target = {originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset};
+        let schema = yup.object().shape({
+            originAirportCode: yup
+                .string()
+                .typeError(' is required')
+                .required(),
+            destinationAirportCode: yup
+                .string()
+                .typeError(' is required')
+                .required(),
+            departureTime: yup
+                .string()
+                .typeError(' is required')
+                .required(),
+            returnTime: yup
+                .string()
+                .typeError(' is required')
+                .required(),
+            departureOffset: yup
+                .string()
+                .typeError(' is required')
+                .required(),
+            returnOffset: yup
+                .string(),
+        });
+        return schema.validate(target, {abortEarly: false})
     }
 
     const localCurrencyDisplay = (string) => {
@@ -70,10 +96,10 @@ const FlightForm = (props) => {
 
     let [originAirportCode, setOriginAirportCode] = useState(props.origin.airports[0].iataCode);
     let [destinationAirportCode, setDestinationAirportCode] = useState(props.destination.airports[0].iataCode);
-    let [departureTime, setDepartureTime] = useState('12:00');
-    let [returnTime, setReturnTime] = useState('12:00');
-    let [departureOffset, setDepartureOffset] = useState(12);
-    let [returnOffset, setReturnOffset] = useState(12);
+    let [departureTime, setDepartureTime] = useState('');
+    let [returnTime, setReturnTime] = useState('');
+    let [departureOffset, setDepartureOffset] = useState(2);
+    let [returnOffset, setReturnOffset] = useState(2);
     // let [flightResult, setFlightResult] = useState({});
     let [flightLoading, setFlightLoading] = useState(false);
     
@@ -97,9 +123,9 @@ const FlightForm = (props) => {
                             }}
                             isInvalid={validationErrorList.includes('originAirport')}
                         >
-                            {props.origin.airports.map((item, index) => {
+                            {props.origin.airports.filter((item) => item.distance.value < 300).map((item, index) => {
                                 return (
-                                    <option key={index} value={item.iataCode}>{`${item.address.cityName} ${item.name} (${item.iataCode})`}</option>
+                                    <option key={index} value={item.iataCode}>{props.locale === 'en-ca' ? `${item.englishLabel} (${item.iataCode})` : `${item.frenchLabel} (${item.iataCode})`}</option>
                                 )
                             })}
                         </Form.Control>
@@ -112,13 +138,14 @@ const FlightForm = (props) => {
                     <Form.Label column sm="4">{props.messages.flight_modal_departure_time_label}</Form.Label>
                     <Col sm="4">
                         <Form.Control as="select"
-                            controlId="originTime"
+                            controlId="departureTime"
                             value={departureTime}
                             onChange={(e) => {
                                 setDepartureTime(e.target.value)
                             }}
-                            isInvalid={validationErrorList.includes('originTime')}
+                            isInvalid={validationErrorList.includes('departureTime')}
                         >
+                            <option value='' disabled>{props.messages.Select}</option>
                             {times.map((item, index) => {
                                 return (
                                     <option key={index} value={item}>{item}</option>
@@ -161,9 +188,9 @@ const FlightForm = (props) => {
                             }}
                             isInvalid={validationErrorList.includes('destinationAirport')}
                         >
-                            {props.destination.airports.map((item, index) => {
+                            {props.destination.airports.filter((item) => item.distance.value < 300).map((item, index) => {
                                 return (
-                                    <option key={index} value={item.iataCode}>{`${item.address.cityName} ${item.name} (${item.iataCode})`}</option>
+                                    <option key={index} value={item.iataCode}>{props.locale === 'en-ca' ? `${item.englishLabel} (${item.iataCode})` : `${item.frenchLabel} (${item.iataCode})`}</option>
                                 )
                             })}
                         </Form.Control>
@@ -183,6 +210,7 @@ const FlightForm = (props) => {
                             }}
                             isInvalid={validationErrorList.includes('returnTime')}
                         >
+                            <option value='' disabled>{props.messages.Select}</option>
                             {times.map((item, index) => {
                                 return (
                                     <option key={index} value={item}>{item}</option>
@@ -218,15 +246,23 @@ const FlightForm = (props) => {
                     <Col sm="12">
                         <Button
                             onClick={() => {
-                                props.setFlightResult({});
-                                setFlightLoading(true);
-                                props.fetchFlightCost(originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset).then((result) => {
-                                    props.setFlightResult(result);
-                                    setFlightLoading(false);
-                                })
+                                handleSubmitFlightRequestValidation()
+                                    .then(async (valid) => {
+                                        props.setValidationWarnings([]);
+                                        props.setFlightResult({});
+                                        setFlightLoading(true);
+                                        props.fetchFlightCost(originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset).then((result) => {
+                                            props.setFlightResult(result);
+                                            setFlightLoading(false);
+                                        })
+                                    })
+                                    .catch(err => {
+                                        console.log("ERROR", err)
+                                        props.setValidationWarnings(err.inner);
+                                    });
                             }}
                             className={`${flightLoading ? 'float-right disabled' : 'float-right'}`} variant="primary">{props.messages.flight_modal_fetch_flight_estimate_label}
-                            {flightLoading && <FaSpinner className="float-right fa-spin ml-3" size="24" />}
+                            {flightLoading && <FaSpinner className="float-right fa-spin ml-3 mt-1" size="24" />}
                             </Button>
                             
                     </Col>
@@ -282,7 +318,6 @@ const FlightForm = (props) => {
                         <div dangerouslySetInnerHTML={{ __html: props.messages.flight_modal_initial_instructions.html }}></div>
                     </>
                 }
-
             </div>
         </>
     )
