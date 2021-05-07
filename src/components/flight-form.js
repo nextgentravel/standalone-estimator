@@ -145,7 +145,7 @@ const FlightForm = (props) => {
                             }}
                             isInvalid={validationErrorList.includes('departureTime')}
                         >
-                            <option value='' disabled>Select</option>
+                            <option value='' disabled>{props.messages.Select}</option>
                             {times.map((item, index) => {
                                 return (
                                     <option key={index} value={item}>{item}</option>
@@ -210,7 +210,7 @@ const FlightForm = (props) => {
                             }}
                             isInvalid={validationErrorList.includes('returnTime')}
                         >
-                            <option value='' disabled>Select</option>
+                            <option value='' disabled>{props.messages.Select}</option>
                             {times.map((item, index) => {
                                 return (
                                     <option key={index} value={item}>{item}</option>
