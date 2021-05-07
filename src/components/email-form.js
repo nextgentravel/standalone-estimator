@@ -158,12 +158,13 @@ const EmailForm = (props) => {
                 <Col sm="9">
                     <Form.Control
                         isInvalid={validationErrorList.includes('tripNotes')}
+                        className="notes-box-placeholder"
                         required
                         value={props.tripNotes}
                         onChange={(e) => {
                             removeIsInvalid('tripNotes', validationErrors)
                             props.setTripNotes(e.target.value)
-                            }} as="textarea" rows={3}
+                            }} as="textarea" rows={4}
                         placeholder={props.messages.email_form_notes_placeholder}
                     />
                     <Form.Control.Feedback type="invalid">
