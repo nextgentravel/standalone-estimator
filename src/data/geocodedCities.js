@@ -61785,8 +61785,8 @@ module.exports = {
       }
     ]
   },
-  "Kitchener/Waterloo ON": {
-    "acrdName": "Kitchener/Waterloo ON",
+  "Kitchener ON": {
+    "acrdName": "Kitchener ON",
     "address_components": {
       "en": [
         {
@@ -150558,6 +150558,327 @@ module.exports = {
         "relevance": 1.27176,
         "frenchLabel": "Aéroport international de Kelowna",
         "englishLabel": "Kelowna International"
+      }
+    ]
+  },
+  "Waterloo ON": {
+    "acrdName": "Waterloo ON",
+    "address_components": {
+      "en": [
+        {
+          "long_name": "Kitchener-Waterloo",
+          "short_name": "Kitchener-Waterloo",
+          "types": [
+            "colloquial_area",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Waterloo Regional Municipality",
+          "short_name": "Waterloo Regional Municipality",
+          "types": [
+            "administrative_area_level_2",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Ontario",
+          "short_name": "ON",
+          "types": [
+            "administrative_area_level_1",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Canada",
+          "short_name": "CA",
+          "types": [
+            "country",
+            "political"
+          ]
+        }
+      ],
+      "fr": [
+        {
+          "long_name": "Kitchener—Waterloo",
+          "short_name": "Kitchener—Waterloo",
+          "types": [
+            "colloquial_area",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Municipalité régionale de Waterloo",
+          "short_name": "Municipalité régionale de Waterloo",
+          "types": [
+            "administrative_area_level_2",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Ontario",
+          "short_name": "ON",
+          "types": [
+            "administrative_area_level_1",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Canada",
+          "short_name": "CA",
+          "types": [
+            "country",
+            "political"
+          ]
+        }
+      ]
+    },
+    "formatted_address": {
+      "en": "Kitchener-Waterloo, ON, Canada",
+      "fr": "Kitchener—Waterloo, ON, Canada"
+    },
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 43.5317799,
+          "lng": -80.37852509999999
+        },
+        "southwest": {
+          "lat": 43.3538599,
+          "lng": -80.6261459
+        }
+      },
+      "location": {
+        "lat": 43.4534718,
+        "lng": -80.5001242
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 43.5317799,
+          "lng": -80.37852509999999
+        },
+        "southwest": {
+          "lat": 43.3538599,
+          "lng": -80.6261459
+        }
+      }
+    },
+    "google_place_id": "ChIJwdhEAR30K4gRxvAQVk8DX94",
+    "types": [
+      "colloquial_area",
+      "political"
+    ],
+    "airports": [
+      {
+        "type": "location",
+        "subType": "AIRPORT",
+        "name": "LESTER B. PEARSON INTL",
+        "detailedName": "TORONTO/ON/CA:LESTER B. PEARSO",
+        "timeZoneOffset": "-04:00",
+        "iataCode": "YYZ",
+        "geoCode": {
+          "latitude": 43.68056,
+          "longitude": -79.61277
+        },
+        "address": {
+          "cityName": "TORONTO",
+          "cityCode": "YTO",
+          "countryName": "CANADA",
+          "countryCode": "CA",
+          "stateCode": "ON",
+          "regionCode": "NAMER"
+        },
+        "distance": {
+          "value": 75,
+          "unit": "KM"
+        },
+        "analytics": {
+          "flights": {
+            "score": 42
+          },
+          "travelers": {
+            "score": 38
+          }
+        },
+        "relevance": 55.61462,
+        "frenchLabel": "Aéroport international Pearson de Toronto",
+        "englishLabel": "Toronto, Lester B. Pearson International"
+      },
+      {
+        "type": "location",
+        "subType": "AIRPORT",
+        "name": "BILLY BISHOP CITY A/P",
+        "detailedName": "TORONTO/ON/CA:BILLY BISHOP CIT",
+        "timeZoneOffset": "-04:00",
+        "iataCode": "YTZ",
+        "geoCode": {
+          "latitude": 43.62973,
+          "longitude": -79.39833
+        },
+        "address": {
+          "cityName": "TORONTO",
+          "cityCode": "YTO",
+          "countryName": "CANADA",
+          "countryCode": "CA",
+          "stateCode": "ON",
+          "regionCode": "NAMER"
+        },
+        "distance": {
+          "value": 91,
+          "unit": "KM"
+        },
+        "analytics": {
+          "flights": {
+            "score": 7
+          },
+          "travelers": {
+            "score": 5
+          }
+        },
+        "relevance": 7.67887,
+        "frenchLabel": "Aéroport Billy Bishop de Toronto",
+        "englishLabel": "Toronto, Billy Bishop City Airport"
+      },
+      {
+        "type": "location",
+        "subType": "AIRPORT",
+        "name": "REGION OF WATERLOO INT",
+        "detailedName": "TORONTO/ON/CA:REGION OF WATERL",
+        "timeZoneOffset": "-04:00",
+        "iataCode": "YKF",
+        "geoCode": {
+          "latitude": 43.4575,
+          "longitude": -80.38583
+        },
+        "address": {
+          "cityName": "TORONTO",
+          "cityCode": "YTO",
+          "countryName": "CANADA",
+          "countryCode": "CA",
+          "stateCode": "ON",
+          "regionCode": "NAMER"
+        },
+        "distance": {
+          "value": 9,
+          "unit": "KM"
+        },
+        "analytics": {
+          "flights": {
+            "score": 1
+          },
+          "travelers": {
+            "score": 0
+          }
+        },
+        "relevance": 5.80147,
+        "frenchLabel": "Aéroport international de la région de Waterloo",
+        "englishLabel": "Region of Waterloo International Airport"
+      },
+      {
+        "type": "location",
+        "subType": "AIRPORT",
+        "name": "INTERNATIONAL",
+        "detailedName": "LONDON/ON/CA:INTERNATIONAL",
+        "timeZoneOffset": "-04:00",
+        "iataCode": "YXU",
+        "geoCode": {
+          "latitude": 43.03,
+          "longitude": -81.14888
+        },
+        "address": {
+          "cityName": "LONDON",
+          "cityCode": "YXU",
+          "countryName": "CANADA",
+          "countryCode": "CA",
+          "stateCode": "ON",
+          "regionCode": "NAMER"
+        },
+        "distance": {
+          "value": 70,
+          "unit": "KM"
+        },
+        "analytics": {
+          "flights": {
+            "score": 1
+          },
+          "travelers": {
+            "score": 1
+          }
+        },
+        "relevance": 2.04955,
+        "frenchLabel": "Aéroport international du Grand London",
+        "englishLabel": "London, International"
+      },
+      {
+        "type": "location",
+        "subType": "AIRPORT",
+        "name": "MACDONALD CARTIER INTL",
+        "detailedName": "OTTAWA/ON/CA:MACDONALD CARTIER",
+        "timeZoneOffset": "-04:00",
+        "iataCode": "YOW",
+        "geoCode": {
+          "latitude": 45.32251,
+          "longitude": -75.66916
+        },
+        "address": {
+          "cityName": "OTTAWA",
+          "cityCode": "YOW",
+          "countryName": "CANADA",
+          "countryCode": "CA",
+          "stateCode": "ON",
+          "regionCode": "NAMER"
+        },
+        "distance": {
+          "value": 436,
+          "unit": "KM"
+        },
+        "analytics": {
+          "flights": {
+            "score": 9
+          },
+          "travelers": {
+            "score": 7
+          }
+        },
+        "relevance": 2.01365,
+        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "englishLabel": "Ottawa, Macdonald-Cartier International"
+      },
+      {
+        "type": "location",
+        "subType": "AIRPORT",
+        "name": "JOHN C. MUNRO HAMILTON",
+        "detailedName": "TORONTO/ON/CA:JOHN C. MUNRO HA",
+        "timeZoneOffset": "-04:00",
+        "iataCode": "YHM",
+        "geoCode": {
+          "latitude": 43.17084,
+          "longitude": -79.92916
+        },
+        "address": {
+          "cityName": "TORONTO",
+          "cityCode": "YTO",
+          "countryName": "CANADA",
+          "countryCode": "CA",
+          "stateCode": "ON",
+          "regionCode": "NAMER"
+        },
+        "distance": {
+          "value": 55,
+          "unit": "KM"
+        },
+        "analytics": {
+          "flights": {
+            "score": 1
+          },
+          "travelers": {
+            "score": 1
+          }
+        },
+        "relevance": 1.74816,
+        "frenchLabel": "Aéroport international John C. Munro d'Hamilton",
+        "englishLabel": "John C. Munro Hamilton International Airport"
       }
     ]
   },
