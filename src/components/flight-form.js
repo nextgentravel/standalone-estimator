@@ -123,9 +123,9 @@ const FlightForm = (props) => {
                             }}
                             isInvalid={validationErrorList.includes('originAirport')}
                         >
-                            {props.origin.airports.map((item, index) => {
+                            {props.origin.airports.filter((item) => item.distance.value < 300).map((item, index) => {
                                 return (
-                                    <option key={index} value={item.iataCode}>{`${item.address.cityName} ${item.name} (${item.iataCode})`}</option>
+                                    <option key={index} value={item.iataCode}>{props.locale === 'en-ca' ? `${item.englishLabel} (${item.iataCode})` : `${item.frenchLabel} (${item.iataCode})`}</option>
                                 )
                             })}
                         </Form.Control>
@@ -188,9 +188,9 @@ const FlightForm = (props) => {
                             }}
                             isInvalid={validationErrorList.includes('destinationAirport')}
                         >
-                            {props.destination.airports.map((item, index) => {
+                            {props.destination.airports.filter((item) => item.distance.value < 300).map((item, index) => {
                                 return (
-                                    <option key={index} value={item.iataCode}>{`${item.address.cityName} ${item.name} (${item.iataCode})`}</option>
+                                    <option key={index} value={item.iataCode}>{props.locale === 'en-ca' ? `${item.englishLabel} (${item.iataCode})` : `${item.frenchLabel} (${item.iataCode})`}</option>
                                 )
                             })}
                         </Form.Control>
