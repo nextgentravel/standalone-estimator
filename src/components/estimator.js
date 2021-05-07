@@ -323,6 +323,7 @@ const Estimator = () => {
                     feedback_modal_link_to_survey
                     select
                     private_vehicle_enter_distance_manually
+                    flight_custom_fare_entered
                 }
             }
         }
@@ -1115,7 +1116,7 @@ const Estimator = () => {
                 })
             } else if (transportationCost > 0) {
                 setTransportationMessage({
-                    element: <>{formattedMessage('flight_no_results_custom')} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>Generate Estimate</a></>
+                    element: <span>{formattedMessage('flight_custom_fare_entered')} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
                 })
             } else {
                 setTransportationMessage({
