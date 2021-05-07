@@ -24,7 +24,6 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import InputGroup from 'react-bootstrap/InputGroup'
-import { Spinner } from 'react-bootstrap'
 
 import cities from "../data/cities.js"
 import geocodedCities from "../data/geocodedCities"
@@ -446,6 +445,7 @@ const Estimator = () => {
 
     const [submitValidationWarnings, setSubmitValidationWarnings] = useState([]);
     const [emailValidationWarnings, setEmailValidationWarnings] = useState([]);
+    const [flightValidationWarnings, setFlightValidationWarnings] = useState([]);
 
     const [loading, setLoading] = useState(false);
     const [result, setResult] = useState(false);
@@ -1239,6 +1239,8 @@ const Estimator = () => {
                 setTransportationCost={setTransportationCost}
                 updateTransportationCost={updateTransportationCost}
                 setTransportationType={setTransportationType}
+                validationWarnings={flightValidationWarnings}
+                setValidationWarnings={setFlightValidationWarnings}
             />
 
 

@@ -1,6 +1,5 @@
 import PropTypes from "prop-types"
 import React from "react"
-import Image from "../components/image"
 import Link from 'gatsby-link';
 import SelectLanguage from './languageSelect';
 import { useIntl } from 'react-intl';
