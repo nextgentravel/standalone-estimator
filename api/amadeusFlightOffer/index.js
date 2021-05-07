@@ -4,6 +4,7 @@ global.Headers = fetch.Headers;
 module.exports = async function (context, req) {
     const amadeusClientId = process.env.AMADEUS_CLIENT_ID;
     const amadeusSecret = process.env.AMADEUS_SECRET;
+    const amadeusBaseUrl = process.env.AMADEUS_BASE_URL
     context.log('JavaScript HTTP trigger function processed a request.');
 
     let fetchTokenHeaders = new Headers();
@@ -32,7 +33,7 @@ module.exports = async function (context, req) {
     let departureOffset = req.query.departureOffset + "H";
     let returnOffset = req.query.returnOffset + "H";
 
-    await fetch("https://test.api.amadeus.com/v1/security/oauth2/token", requestOptions)
+    await fetch(amadeusBaseUrl + "/v1/security/oauth2/token", requestOptions)
         .then(response => response.json())
         .then(async fetchTokenResult => {
             let flightOfferHeaders = new Headers();
@@ -93,8 +94,6 @@ module.exports = async function (context, req) {
                 }
               }
             });
-
-            console.log(flightOfferRawBody)
             
             let requestOptions = {
               method: 'POST',
@@ -103,20 +102,20 @@ module.exports = async function (context, req) {
               redirect: 'follow'
             };
 
-            await fetch("https://test.api.amadeus.com/v2/shopping/flight-offers", requestOptions)
+            await fetch(amadeusBaseUrl + "/v2/shopping/flight-offers", requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     let allPrices = [];
 
                     result.data.forEach(itinerary => {
-                        itinerary.itineraries.forEach((thing) => {
-                            thing.segments.forEach((segment) => {
-                                if (segment.departure.iataCode === originAirportCode || segment.departure.iataCode === destinationAirportCode) {
-                                    console.log(segment.departure.iataCode, segment.departure.at)
-                                }
+                        // itinerary.itineraries.forEach((thing) => {
+                        //     thing.segments.forEach((segment) => {
+                        //         if (segment.departure.iataCode === originAirportCode || segment.departure.iataCode === destinationAirportCode) {
+                        //             console.log(segment.departure.iataCode, segment.departure.at)
+                        //         }
                                 
-                            })
-                        })
+                        //     })
+                        // })
                         allPrices.push(parseFloat(itinerary.price.grandTotal))
                     });
     
