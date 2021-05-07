@@ -1558,7 +1558,7 @@ const Estimator = () => {
 
                                     }
                                     {!enterKilometricsDistanceManually &&
-                                        <span>Enter distance manually</span>
+                                        <span>{formattedMessage('private_vehicle_enter_distance_manually')}</span>
                                     }
                                 </Form.Group>
                             </Form>

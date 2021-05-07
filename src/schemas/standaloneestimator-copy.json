@@ -124,6 +124,13 @@
       "config" : {
         "label" : "screen_reader_input_message"
       }
+    },
+    "select" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Select",
+        "placeholder" : "Default option for select drop downs"
+      }
     }
   },
   "Email Confirmation Modal" : {
@@ -660,6 +667,13 @@
       "type" : "Text",
       "config" : {
         "label" : "flight_regenerate_estimate"
+      }
+    },
+    "private_vehicle_enter_distance_manually" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "private_vehicle_enter_distance_manually",
+        "placeholder" : "Enter distance manually"
       }
     }
   },
