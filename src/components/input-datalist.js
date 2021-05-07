@@ -12,36 +12,47 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
         }
     })
 
-    function suggest(query, syncResults) {
-        var results = options.map((option) => option.label);
-        syncResults(query
-          ? results.filter(function (result) {
-              return result.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").indexOf(query.toLowerCase()) !== -1
-            })
-          : []
-        )
-    }
-
     if (componentWarnings.length > 0) {
         showValidationWarning = true;
     }
 
+    const find = (key, array) => {
+        return array.filter(item => {
+            return item.searchTerm.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").indexOf(key.toLowerCase()) !== -1
+        });
+    }
+    
+    const source = (query, populateResults) => {
+        const places = options
+        const results = find(query, places);
+        populateResults(results);
+    }
+    
+    const templates = {
+        inputValue: (value) => {
+          if (!value) {
+            return '';
+          }
+          return value.searchTerm;
+        },
+        suggestion: (value) => {
+            return value.label;
+        }
+    }
+    
     return (
         <div className="mb-4">
             <label htmlFor={`autocomplete-${name}`}>{label}</label>
             <div id={`${name}container`}>
                 <Autocomplete
                     id={`autocomplete-${name}`}
-                    source={suggest}
+                    templates={templates}
+                    source={source}
                     element={`${name}container`}
                     confirmOnBlur={false}
                     displayValue="overlay"
                     onConfirm={value => {
-                        // do our validation here?
-                        // if this is a valid option, then:
-                        value = value.replace(',','');
                         updateValue(value)
-                        // if not, set it to blank, so it will fail validation
                     }}
                     aria-describedby={`autocomplete-${name}`}
                     className={showValidationWarning ? 'form-control is-invalid' : 'form-control' }

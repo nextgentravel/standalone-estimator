@@ -10,7 +10,10 @@ import { useIntl } from 'react-intl'
 import EstimatorRow from "./estimator-row.js"
 import EmailModal from "./email-modal.js"
 import EmailConfirmationModal from "./email-confirmation-modal.js"
+import FeedBackModal from "./feedback-modal.js"
 import MealsModal from "./meals-modal.js"
+import FlightModal from "./flight-modal.js"
+
 import { FaCaretUp, FaCaretDown, FaCalculator, FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
 import { dailyMealTemplate } from "./functions/dailyMealTemplate"
 
@@ -222,6 +225,7 @@ const Estimator = () => {
                         option_label
                         option_value
                     }
+                    email_form_field_required
                     email_modal_title
                     email_modal_submit
                     meals_modal_title
@@ -286,6 +290,38 @@ const Estimator = () => {
                     datepicker_date_is_selected_as_end_date
                     datepicker_start_date
                     datepicker_end_date
+                    feedback_modal_header_text
+                    feedback_modal_body {
+                        html
+                    }
+                    feedback_modal_primary_button_text
+                    feedback_modal_secondary_button_text
+                    flight_estimate_your_fare_link
+                    flight_modal_header
+                    flight_modal_origin_airport_label
+                    flight_modal_departure_time_label
+                    flight_modal_destination_airport_label
+                    flight_modal_return_time_label
+                    flight_modal_fetch_flight_estimate_label
+                    flight_modal_result_header
+                    flight_modal_label_minimum
+                    flight_modal_label_maximum
+                    flight_modal_label_median
+                    flight_modal_note_disclaimer {
+                        html
+                    }
+                    flight_modal_use_in_estimate_button_label
+                    flight_modal_close_button_label
+                    flight_modal_leaving_header
+                    flight_modal_return_header
+                    flight_modal_initial_instructions {
+                        html
+                    }
+                    flight_modal_zero_results
+                    flight_modal_api_error
+                    flight_selected_fare
+                    flight_regenerate_estimate
+                    feedback_modal_link_to_survey
                 }
             }
         }
@@ -312,7 +348,6 @@ const Estimator = () => {
     const [explainerCollapsed, setExplainerCollapsed] = useState(true);
 
     const citiesList = cities.citiesList;
-    const suburbCityList = cities.suburbCityList;
     const [filteredCitiesList, setFilteredCitiesList] = useState([]);
 
     useEffect(() => {
@@ -321,9 +356,18 @@ const Estimator = () => {
             let province = geocodedCities[city].acrdName.slice(-2)
             let cityName = geocodedCities[city].acrdName.slice(0, -3)
             let display = `${cityName}, ${province}`
+
             list.push({
-                value: geocodedCities[city].google_place_id,
+                id: geocodedCities[city].google_place_id,
                 label: display,
+                type: 'city',
+                searchTerm: `${display}`,
+                acrdName: geocodedCities[city].acrdName,
+                provinceCode: province,
+                cityName: cityName,
+                iataCode: geocodedCities[city].airports.length > 0 ? geocodedCities[city].airports[0].iataCode : null,
+                cityCode: geocodedCities[city].airports.length > 0 ? geocodedCities[city].airports[0].address.cityCode: null,
+                airports: geocodedCities[city].airports,
             })
         }
         setFilteredCitiesList(list);
@@ -343,13 +387,9 @@ const Estimator = () => {
     }
 
     // Variables/state for inputs
-    const [origin, setOrigin] = useState('');
-    const [destination, setDestination] = useState('');
-    // These will be used by the API's later.
-    // eslint-disable-next-line no-unused-vars
-    const [originData, setOriginData] = useState({});
-    // eslint-disable-next-line no-unused-vars
-    const [destinationData, setDestinationData] = useState({});
+    const [origin, setOrigin] = useState({});
+    const [destination, setDestination] = useState({});
+
     const [departureDate, setDepartureDate] = useState(initialDates.departure);
     const [returnDate, setReturnDate] = useState(initialDates.return);
 
@@ -378,7 +418,6 @@ const Estimator = () => {
     }, [returnDate])
 
     useEffect(() => {
-        setHaveFlightCost(false);
         setResult(false);
         setTransportationType('');
         setTransportationEstimates(transportationEstimatesInitialState);
@@ -395,20 +434,12 @@ const Estimator = () => {
     }, [origin, destination, departureDate, returnDate])
 
     useEffect((() => {
-        const data = geocodedCities[origin]
-        if (origin !== '') {
-            let provinceAbbreviation = origin.slice(-2);
-            let provinceRate = locations[provinceAbbreviation].rateCents
+        if (Object.keys(origin).length !== 0) {
+            let provinceRate = locations[origin.provinceCode].rateCents
             setPrivateVehicleRate(provinceRate);
         }
-        setOriginData(data);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }), [origin])
-
-    useEffect((() => {
-        const data = geocodedCities[destination]
-        setDestinationData(data);
-    }), [destination])
 
     const [accommodationType, setAccommodationType] = useState('');
     const [transportationType, setTransportationType] = useState('');
@@ -431,7 +462,6 @@ const Estimator = () => {
     const [mealCost, setMealCost] = useState({ total: 0.00 });
     const [otherCost, setOtherCost] = useState(0.00);
     const [summaryCost, setSummaryCost] = useState(0.00);
-    const [amadeusAccessToken, setAmadeusAccessToken] = useState({})
     const [enterKilometricsDistanceManually, setEnterKilometricsDistanceManually] = useState(false)
     const [privateKilometricsValue, setPrivateKilometricsValue] = useState(0);
     const [returnDistance, setReturnDistance] = useState('');
@@ -446,6 +476,7 @@ const Estimator = () => {
     const [emailRequestLoading, setEmailRequestLoading] = useState(false);
     const [emailConfirmationModalShow, setEmailConfirmationModalShow] = useState(false);
     const [emailRequestResult, setEmailRequestResult] = useState({});
+    const [feedbackModalShow, setFeedbackModalShow] = useState(false);
 
     const [tripName, setTripName] = useState('');
     const [travellersName, setTravellersName] = useState('');
@@ -525,31 +556,21 @@ const Estimator = () => {
 
     const [mealsModalShow, setMealsModalShow] = React.useState(false);
 
+    const [flightModalShow, setFlightModalShow] = React.useState(false);
+
     let handleMealsModalShow = (e) => {
         e.preventDefault()
         setMealsModalShow(true)
     };
 
-    async function fetchAmadeusToken() {
-        await fetch("/api/FetchAmadeusToken", {
-                headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-                },
-            })
-            .then(response => response.json())
-            .then(result => {
-                // console.log('Fetched Access Token: ', result);
-                let expiryTime = new Date();
-                expiryTime.setSeconds(expiryTime.getSeconds() + result.expires_in);
-                setAmadeusAccessToken({ token: result.access_token, expiryTime: expiryTime.getTime() });
-            })
-            .catch(error => { console.log('FetchAmadeusToken error', error) });
-    }
+    let handleFlightModalShow = (e) => {
+        e.preventDefault()
+        setFlightModalShow(true)
+    };
 
-    useEffect(() => {
-        fetchAmadeusToken();
-    }, [])
+    let [selectedFlightPrice, setSelectedFlightPrice] = useState(0.00);
+    let [flightResult, setFlightResult] = useState({});
+    let [acceptedFlight, setAcceptedFlight] = useState(0.00);
 
     useEffect(() => {
         updateAccommodationCost(0.00)
@@ -561,7 +582,8 @@ const Estimator = () => {
 
     const fetchHotelCost = () => {
         let months = monthsContained(departureDate.format("YYYY-MM-DD"), returnDate.format("YYYY-MM-DD"));
-        let rates = acrdRates[destination];
+        let rates = acrdRates[destination.acrdName];
+        
         let acrdRatesFiltered = Object.keys(rates)
             .filter(key => months.map(mon => mon.month).includes(key))
             .reduce((res, key) => {
@@ -591,8 +613,8 @@ const Estimator = () => {
             let message = localeCopy.hotel_success.html
             // eslint-disable-next-line no-template-curly-in-string
 
-            let province = destination.slice(-2)
-            let cityName = destination.slice(0, -3)
+            let province = destination.provinceCode
+            let cityName = destination.cityName
             let destinationDisplay = `${cityName}, ${province}`
 
             message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
@@ -600,7 +622,7 @@ const Estimator = () => {
             message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(calculatedApplicableRates[0].rate)}</strong>`)
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
         } catch (error) {
-            console.log('fetchHotelHostError', error);
+            console.log('fetchHotelCostError', error);
         }
     }
 
@@ -624,91 +646,72 @@ const Estimator = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [accommodationType])
 
-    const amadeusAccessTokenCheck = () => {
-        if (Date.now() >= amadeusAccessToken.expiryTime) {
-            fetchAmadeusToken()
-            console.log("Fetching new token.")
-        } else {
-            console.log("Token is good!")
-        }
-    }
-
     const [haveFlightCost, setHaveFlightCost] = useState(false)
 
-    const fetchFlightCost = async () => {
-        const departureDateISODate = departureDate.format("YYYY-MM-DD")
-        const returnDateISODate = returnDate.format("YYYY-MM-DD")
-
-        try {
-            await amadeusAccessTokenCheck();
-        } catch (error) {
-            console.log('amadeusAccessTokenCheck', error)
-        }
-
-        if (originData.airports.length > 0 && destinationData.airports.length > 0) {
-            amadeusFlightOffer(originData.airports[0].iataCode, destinationData.airports[0].iataCode, departureDateISODate, returnDateISODate, amadeusAccessToken.token)
-            .then(response => response.json())
-            .then(result => {
-                console.log(result)
-                const allPrices = [];
-                let date = DateTime.local().toFormat("yyyy-MM-dd");
-                let time = DateTime.local().toFormat("hh:mm a")
-                console.log(result.data.length)
-                if (result.data.length === 0) {
-                    console.log("HERE?!")
-                    localeCopy.flight_no_results.html = localeCopy.flight_no_results.html.replace('{date}', `<strong>${date}</strong>`)    
-                    let FlightMessage = <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_no_results.html }}></span>
-                    updateTransportationCost(0.00);
-                    setTransportationEstimates({
-                        ...transportationEstimates,
-                        flight: {
-                            estimatedValue: 0,
-                            estimatedValueMessage: FlightMessage,
-                            responseBody: result,
-                        }
-                    })
-                    setTransportationMessage({ element: FlightMessage  })
-                    setHaveFlightCost(true);
-                } else {
-                    result.data.forEach(itinerary => {
-                        allPrices.push(parseFloat(itinerary.price.grandTotal))
-                    });
+    const fetchFlightCost = async (originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset) => {
+        return new Promise(resolve => {
+            const departureDateISODate = departureDate.format("YYYY-MM-DD")
+            const returnDateISODate = returnDate.format("YYYY-MM-DD")
     
-                    const sum = allPrices.reduce((a, b) => a + b, 0);
-                    const avg = (sum / allPrices.length) || 0;
+            if (origin.cityCode !== null && destination.cityCode !== null) {
+                amadeusFlightOffer(originAirportCode, destinationAirportCode, departureDateISODate, returnDateISODate, departureTime, returnTime, departureOffset, returnOffset)
+                .then(response => response.json())
+                .then(result => {
+                    // let date = DateTime.local().toFormat("yyyy-MM-dd");
+                    // let time = DateTime.local().toFormat("hh:mm a")
+                    resolve(result);
+                    // if (result.numberOfResults === 0) {
+                    //     localeCopy.flight_no_results.html = localeCopy.flight_no_results.html.replace('{date}', `<strong>${date}</strong>`)    
+                    //     let FlightMessage = <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_no_results.html }}></span>
+                    //     updateTransportationCost(0.00);
+                    //     setTransportationEstimates({
+                    //         ...transportationEstimates,
+                    //         flight: {
+                    //             estimatedValue: 0,
+                    //             estimatedValueMessage: FlightMessage,
+                    //             responseBody: result,
+                    //         }
+                    //     })
+                    //     setTransportationMessage({ element: FlightMessage  })
+                    //     setHaveFlightCost(true);
+                    //     resolve(result);
+                    // } else {        
+                    //     localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{date}', `<strong>${date}</strong>`)
+                    //     localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{time}', `<strong>${time}</strong>`)
         
-                    localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{date}', `<strong>${date}</strong>`)
-                    localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{time}', `<strong>${time}</strong>`)
-    
-                    let FlightMessage = <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_success.html }}></span>
-                    
-                    updateTransportationCost(avg);
-                    setTransportationEstimates({
-                        ...transportationEstimates,
-                        flight: {
-                            estimatedValue: avg,
-                            estimatedValueMessage: FlightMessage,
-                            responseBody: result,
-                        }
-                    })
-                    setTransportationMessage({ element: FlightMessage  })
-                    setHaveFlightCost(true);
-                }
-            })
-            .catch(error => {
-                console.log('amadeus flight offer error', error);
-                updateTransportationCost(0.00);
-                setTransportationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
-            });
-        } else {
-            setLoading(false);
-            setTransportationMessage({ element: formattedMessage('flight_message_no_airport')  })
-        }
+                    //     let FlightMessage = <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_success.html }}></span>
+                        
+                    //     setTransportationEstimates({
+                    //         ...transportationEstimates,
+                    //         flight: {
+                    //             estimatedValue: result.flightEstimate,
+                    //             estimatedValueMessage: FlightMessage,
+                    //             responseBody: result,
+                    //         }
+                    //     })
+                    //     setTransportationMessage({ element: FlightMessage  })
+                    //     setHaveFlightCost(true);
+                    //     resolve(result);
+                    // }
+                })
+                .catch(error => {
+                    console.log('amadeus flight offer error', error);
+                    // updateTransportationCost(0.00);
+                    // setTransportationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
+                    resolve(error);
+                });
+            } else {
+                setLoading(false);
+                // setTransportationMessage({ element: <span className="transportation-message alert-warning">{formattedMessage('flight_message_no_airport')}</span>  })
+                resolve('no airport');
+            }
+        });
     }
 
     useEffect(() => {
         if (transportationType === 'flight') {
-            updateTransportationCost(transportationEstimates.flight.estimatedValue)
+            // Will need to change this to something....
+            updateTransportationCost(acceptedFlight)
         } else if (transportationType === 'train') {
             updateTransportationCost(0)
             setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.train_success.html }}></span>  })
@@ -793,29 +796,32 @@ const Estimator = () => {
     }
 
     const handleSubmit =  async(e) => {
+        setOtherCost('0.00');
+        setAcceptedFlight(0.00);
+        setFlightResult({});
+        setSelectedFlightPrice(0.00)
         setLoading(true);
         setGeneralError(false);
         e.preventDefault();
-        fetchFlightCost()
         handleSubmitEstimateValidation()
             .then(async (valid) => {
+                setOtherCost('0.00');
                 setSubmitValidationWarnings([]);
                 setTransportationType('flight')
                 setAccommodationType('hotel')
-
+                // await fetchFlightCost();
                 let numberOfDays = Interval.fromDateTimes(
                     departureDateLux,
                     returnDateLux)
                     .count('days')
 
-                let city = suburbCityList[destination] || destination;
-                let provinceCode = city.slice(-2); // This is bad.  We need to change the data structure.
+                let provinceCode = destination.provinceCode;
 
                 setMealsByDay(dailyMealTemplate(departureDateLux, returnDateLux))
                 setProvince(provinceCode)
 
                 try {
-                    let distanceBetweenPlaces = await fetchDistanceBetweenPlaces(origin, destination);
+                    let distanceBetweenPlaces = await fetchDistanceBetweenPlaces(origin.acrdName, destination.acrdName);
                     let distanceBetweenPlacesBody = await distanceBetweenPlaces.json()
 
                     setPrivateVehicleSuccess(true)
@@ -848,14 +854,34 @@ const Estimator = () => {
             });
     }
 
+    let [initialResult, setInitialResult] = useState({});
+
+    useEffect(() => {
+        if (result === true) {
+            setInitialResult({
+                accommodationCost,
+                transportationCost,
+                localTransportationCost,
+                mealCost,
+                mealCostTotal: mealCost.total,
+                otherCost,
+                summaryCost,
+                accommodationType,
+                transportationType,
+                returnDistance,
+            })
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[result])
+
     const clearForm = async () => {
 
         setAccommodationCost(parseFloat(0.00).toFixed(2))
         setAccommodationMessage({ element: <span></span>, style: 'primary' });
         setHaveFlightCost(false)
         setTransportationEstimates(transportationEstimatesInitialState);
-        setOrigin('')
-        setDestination('')
+        setOrigin({})
+        setDestination({})
         setEmailConfirmationModalShow(false);
         setEmailModalShow(false);
         setLocalTransportationMessage({ element: <span></span>, style: 'primary' });
@@ -867,6 +893,8 @@ const Estimator = () => {
         setOtherCost(parseFloat(0.00).toFixed(2))
         setResult(false)
         setSubmitValidationWarnings([]);
+        setInitialResult({});
+        setFlightResult({});
 
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
@@ -893,7 +921,7 @@ const Estimator = () => {
     }
 
     const handleSubmitEstimateValidation = () => {
-        let target = {origin, destination, departureDate, returnDate};
+        let target = {origin: origin.acrdName, destination: destination.acrdName, departureDate, returnDate};
         let schema = yup.object().shape({
             origin: yup
                 .string()
@@ -979,6 +1007,9 @@ const Estimator = () => {
                 setEmailValidationWarnings([]);
                 fetch('/api/sendEstimateEmailCeres', {
                     method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
                     body: JSON.stringify({
                         departureDate: departureDate.format("YYYY-MM-DD"),
                         returnDate: returnDate.format("YYYY-MM-DD"),
@@ -1003,6 +1034,12 @@ const Estimator = () => {
                         summaryCost,
                         travelCategory,
                         travellerIsPublicServant,
+                        initialResult,
+                        returnDistance,
+                        applicableRates,
+                        privateVehicleRate,
+                        privateKilometricsValue,
+                        flightResult,
                     })
                   }).then(function(response) {
                     if (!response.ok) {
@@ -1065,52 +1102,59 @@ const Estimator = () => {
     }, [localTransportationCost]);
 
     useEffect(() => {
-        
         if (transportationType === 'flight') {
-            if (haveFlightCost && transportationEstimates.flight.responseBody.data.length === 0 && parseFloat(transportationCost) === 0.00) {
+            if (origin.cityCode === null || destination.cityCode === null) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message">{formattedMessage('flight_no_results')}</span>
+                    element: <span>{formattedMessage('flight_message_no_airport')}</span>
                 })
-            } else if (haveFlightCost && transportationEstimates.flight.responseBody.data.length === 0 && parseFloat(transportationCost) > 0.00) {
+            } else if (parseFloat(transportationCost) === parseFloat(flightResult.minimum) || parseFloat(transportationCost) === parseFloat(flightResult.maximum) || parseFloat(transportationCost) === parseFloat(flightResult.median)) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message">{formattedMessage('flight_no_results_custom')}</span>
+                    element: <span>{formattedMessage('flight_selected_fare').replace('{flightPrice}', localCurrencyDisplay(parseFloat(acceptedFlight)))} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
                 })
-            } else if (haveFlightCost && (parseInt(transportationCost) === 0)) {
+            } else if (transportationCost > 0) {
                 setTransportationMessage({
-                    element:  <span className="transportation-message">{formattedMessage('flight_zero', 'alert-warning')}</span>
+                    element: <>{formattedMessage('flight_no_results_custom')} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>Generate Estimate</a></>
                 })
-            } else if (haveFlightCost && (parseFloat(transportationCost) < parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
+            } else {
                 setTransportationMessage({
-                    element:  <span className="transportation-message">{formattedMessage('flight_below_estimate')}</span>
-                })
-            } else if (haveFlightCost && (parseFloat(transportationCost) === parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
-                setTransportationMessage({
-                    element:  transportationEstimates.flight.estimatedValueMessage
-                })
-            } else if (haveFlightCost && (parseFloat(transportationCost) > parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
-                setTransportationMessage({
-                    element:  <span className="transportation-message">{formattedMessage('transportation_above_flight_estimate')}</span>
+                    element: <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a>
                 })
             }
+            // if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) === 0.00) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message">{formattedMessage('flight_no_results')}</span>
+            //     })
+            // } else if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) > 0.00) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message">{formattedMessage('flight_no_results_custom')}</span>
+            //     })
+            // } else if (haveFlightCost && (parseInt(transportationCost) === 0)) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message">{formattedMessage('flight_zero', 'alert-warning')}</span>
+            //     })
+            // } else if (haveFlightCost && (parseFloat(transportationCost) < parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message">{formattedMessage('flight_below_estimate')}</span>
+            //     })
+            // } else if (haveFlightCost && (parseFloat(transportationCost) === parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
+            //     setTransportationMessage({
+            //         element:  transportationEstimates.flight.estimatedValueMessage
+            //     })
+            // } else if (haveFlightCost && (parseFloat(transportationCost) > parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message">{formattedMessage('transportation_above_flight_estimate')}</span>
+            //     })
+            // }
 
-            if(loading && !haveFlightCost) {
-                setTransportationMessage({ element:
-                    <>
-                        <Spinner animation="border" role="status" size="sm">
-                            <span className="sr-only">Loading...</span>
-                        </Spinner>{' '}
-                        <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_loading.html }}></span>
-                    </>
-                })
-            } else if (result && !haveFlightCost && (parseInt(transportationCost) === 0)) {
-                setTransportationMessage({
-                    element:  <span className="transportation-message alert-warning">{formattedMessage('could_not_fetch_flight_value')}</span>
-                })
-            } else if (result && !haveFlightCost && (parseInt(transportationCost) > 0)) {
-                setTransportationMessage({
-                    element:  <span className="transportation-message alert-warning">{formattedMessage('could_not_fetch_you_have_entered_own')}</span>
-                })
-            }
+            // } else if (result && !haveFlightCost && (parseInt(transportationCost) === 0)) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message alert-warning">{formattedMessage('could_not_fetch_flight_value')}</span>
+            //     })
+            // } else if (result && !haveFlightCost && (parseInt(transportationCost) > 0)) {
+            //     setTransportationMessage({
+            //         element:  <span className="transportation-message alert-warning">{formattedMessage('could_not_fetch_you_have_entered_own')}</span>
+            //     })
+            // }
         }
         if (result && transportationType === 'train') {
             console.log('validate train price')
@@ -1123,6 +1167,8 @@ const Estimator = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [transportationCost, transportationType, haveFlightCost]);
+
+
 
     return (
         <div className="mb-4">
@@ -1156,7 +1202,13 @@ const Estimator = () => {
                 onHide={() => setEmailConfirmationModalShow(false)}
                 emailRequestResult={emailRequestResult}
                 approversName={approversName}
+                setFeedbackModalShow={setFeedbackModalShow}
                 clearForm={clearForm}
+                messages={localeCopy}
+            />
+            <FeedBackModal
+                show={feedbackModalShow}
+                onHide={() => setFeedbackModalShow(false)}
                 messages={localeCopy}
             />
             <MealsModal
@@ -1168,6 +1220,28 @@ const Estimator = () => {
                 messages={localeCopy}
                 locale={locale}
             />
+            <FlightModal
+                show={flightModalShow}
+                onHide={() => setFlightModalShow(false)}
+                messages={localeCopy}
+                locale={locale}
+                destination={destination}
+                origin={origin}
+                departureDate={departureDate}
+                returnDate={returnDate}
+                fetchFlightCost={fetchFlightCost}
+                selectedFlightPrice={selectedFlightPrice}
+                setSelectedFlightPrice={setSelectedFlightPrice}
+                flightResult={flightResult}
+                setFlightResult={setFlightResult}
+                acceptedFlight={acceptedFlight}
+                setAcceptedFlight={setAcceptedFlight}
+                setTransportationCost={setTransportationCost}
+                updateTransportationCost={updateTransportationCost}
+                setTransportationType={setTransportationType}
+            />
+
+
             <h2 className="mb-4">{localeCopy.title.text}</h2>
             <div className="lead mb-5" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
              {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
@@ -1177,7 +1251,7 @@ const Estimator = () => {
                     {errorList()}
                 </ul>
             </div>}
-            <form id="estimates-form" className="form-group row mb-5" onSubmit={handleSubmit}>
+            <form id="estimates-form" className="form-group row mb-5" onSubmit={handleSubmit} noValidate>
                 <div className="col-sm-7" ref={summaryView}>
                     <InputDatalist
                         validationWarnings={submitValidationWarnings}

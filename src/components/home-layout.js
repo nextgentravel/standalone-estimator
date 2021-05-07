@@ -88,12 +88,12 @@ export default ({ data }) => {
       })
     },[])
 
-    const [explainerCollapsed, setExplainerCollapsed] = useState(false);
-    const [disclaimerCollapsed, setDisclaimerCollapsed] = useState(false);
+    const [explainerCollapsed, setExplainerCollapsed] = useState(true);
+    const [disclaimerCollapsed, setDisclaimerCollapsed] = useState(true);
 
     return (
       <Layout>
-        <SEO title="Home" />
+        <SEO title={homePageCopy.landing_page_title_2.text} lang={locale} />
         <w-screen mt-4="true" fluid="true" id="container">
           <div>
             <main id="main-content" role="main">
