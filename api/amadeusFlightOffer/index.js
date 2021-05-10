@@ -102,6 +102,11 @@ module.exports = async function (context, req) {
               redirect: 'follow'
             };
 
+            const findMedian = arr => {
+              const mid = Math.floor(arr.length / 2), nums = [...arr].sort((a, b) => a - b);
+              return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+            };
+
             await fetch(amadeusBaseUrl + "/v2/shopping/flight-offers", requestOptions)
                 .then(response => response.json())
                 .then(result => {
@@ -127,21 +132,6 @@ module.exports = async function (context, req) {
                     let maximum = Math.max( ...allPrices )
 
                     let median = findMedian(allPrices)
-
-                    function findMedian(a) {
-                        let n = a.length
-                        a.sort();
-                        if (n % 2 != 0)
-                            return a[n / 2];
-                     
-                        return (a[Math.floor((n-1)/2)] +
-                                a[n / 2]) / 2;
-                    }
-
-                    const findMedian = arr => {
-                      const mid = Math.floor(arr.length / 2), nums = [...arr].sort((a, b) => a - b);
-                      return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
-                    };
 
                     context.res = {
                         body: {
