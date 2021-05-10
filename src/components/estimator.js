@@ -437,6 +437,7 @@ const Estimator = () => {
 
     useEffect((() => {
         if (Object.keys(origin).length !== 0) {
+            console.log(locations[origin.provinceCode])
             let provinceRate = locations[origin.provinceCode].rateCents
             setPrivateVehicleRate(provinceRate);
         }
@@ -518,9 +519,10 @@ const Estimator = () => {
     function displayTransportationMessage() {
         let calculateKilometrics = privateKilometricsValue * (privateVehicleRate / 100);
         if (privateVehicleSuccess && privateKilometricsValue === (returnDistance / 1000).toFixed(2)) {
-            localeCopy.private_vehicle_success.html = localeCopy.private_vehicle_success.html.replace('{rate}', `<strong>${privateVehicleRate}</strong>`)
-            localeCopy.private_vehicle_success.html = localeCopy.private_vehicle_success.html.replace('{distance}', `<strong>${(returnDistance / 1000).toFixed(0)}</strong>`)
-            setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_vehicle_success.html }}></span> })
+            let message = '';
+            message = localeCopy.private_vehicle_success.html.replace('{rate}', `<strong>${privateVehicleRate}</strong>`)
+            message = message.replace('{distance}', `<strong>${(returnDistance / 1000).toFixed(0)}</strong>`)
+            setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
         } else if (enterKilometricsDistanceManually) {
             let message = '';
             message = localeCopy.private_vehicle_manual.html.replace('{rate}', `<strong>${privateVehicleRate}</strong>`)
