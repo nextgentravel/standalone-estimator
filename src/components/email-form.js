@@ -164,7 +164,7 @@ const EmailForm = (props) => {
                         onChange={(e) => {
                             removeIsInvalid('tripNotes', validationErrors)
                             props.setTripNotes(e.target.value)
-                            }} as="textarea" rows={4}
+                            }} as="textarea" rows={5}
                         placeholder={props.messages.email_form_notes_placeholder}
                     />
                     <Form.Control.Feedback type="invalid">
