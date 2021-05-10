@@ -139,7 +139,7 @@ const EmailForm = (props) => {
                         }}
                         isInvalid={validationErrorList.includes('travelCategory')}
                     >
-                        <option value='' disabled>{props.messages.Select}</option>
+                        <option value='' disabled>{props.messages.select}</option>
                         {props.messages.email_form_category_options.map((item, index) => {
                             return (
                                 <option key={index} value={item.option_value}>{item.option_label}</option>
