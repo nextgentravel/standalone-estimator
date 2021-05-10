@@ -39,6 +39,8 @@ const FlightForm = (props) => {
     }
 
     const localCurrencyDisplay = (string) => {
+        console.log('string is: ', string)
+        console.log('result is: ', props.flightResult)
         return string.toLocaleString(props.locale, {minimumFractionDigits: 2, maximumFractionDigits: 2, style: 'currency', currency: 'CAD', currencyDisplay: 'symbol'}).replace('CA', '')
     }
 
