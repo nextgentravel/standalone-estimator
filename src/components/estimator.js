@@ -407,6 +407,15 @@ const Estimator = () => {
     const [showClear, setShowClear] = useState(false);
     const [disclaimerCollapsed, setDisclaimerCollapsed] = useState(true);
 
+    // Flight modal vars
+
+    const [originAirportCode, setOriginAirportCode] = useState('');
+    const [destinationAirportCode, setDestinationAirportCode] = useState('');
+    const [departureTime, setDepartureTime] = useState('');
+    const [returnTime, setReturnTime] = useState('');
+    const [departureOffset, setDepartureOffset] = useState(2);
+    const [returnOffset, setReturnOffset] = useState(2);
+
     useEffect(() => {
         if (departureDate !== null) {
             setDepartureDateLux(convertToLux(departureDate))
@@ -1246,6 +1255,18 @@ const Estimator = () => {
                 setTransportationType={setTransportationType}
                 validationWarnings={flightValidationWarnings}
                 setValidationWarnings={setFlightValidationWarnings}
+                originAirportCode={originAirportCode}
+                destinationAirportCode={destinationAirportCode}
+                departureTime={departureTime}
+                returnTime={returnTime}
+                departureOffset={departureOffset}
+                returnOffset={returnOffset}
+                setOriginAirportCode={setOriginAirportCode}
+                setDestinationAirportCode={setDestinationAirportCode}
+                setDepartureTime={setDepartureTime}
+                setReturnTime={setReturnTime}
+                setDepartureOffset={setDepartureOffset}
+                setReturnOffset={setReturnOffset}
             />
 
 
