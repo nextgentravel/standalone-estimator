@@ -446,12 +446,17 @@ const Estimator = () => {
 
     useEffect((() => {
         if (Object.keys(origin).length !== 0) {
-            console.log(locations[origin.provinceCode])
             let provinceRate = locations[origin.provinceCode].rateCents
             setPrivateVehicleRate(provinceRate);
         }
+        setOriginAirportCode(origin.airports && origin.airports.length !== 0 ? origin.airports[0].iataCode : '')
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }), [origin])
+
+    useEffect((() => {
+        setDestinationAirportCode(destination.airports && destination.airports.length !== 0 ? destination.airports[0].iataCode : '')
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }), [destination])
 
     const [accommodationType, setAccommodationType] = useState('');
     const [transportationType, setTransportationType] = useState('');
