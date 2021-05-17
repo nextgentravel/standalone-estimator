@@ -3177,20 +3177,6 @@ module.exports = {
     November: 143,
     December: 143
   },
-  'Niagara Falls ON': {
-    January: 165,
-    February: 165,
-    March: 165,
-    April: 165,
-    May: 165,
-    June: 165,
-    July: 165,
-    August: 165,
-    September: 165,
-    October: 165,
-    November: 165,
-    December: 165
-  },
   'Nisku AB': {
     January: 165,
     February: 165,
