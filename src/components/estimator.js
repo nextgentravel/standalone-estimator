@@ -437,7 +437,6 @@ const Estimator = () => {
 
     useEffect((() => {
         if (Object.keys(origin).length !== 0) {
-            console.log(locations[origin.provinceCode])
             let provinceRate = locations[origin.provinceCode].rateCents
             setPrivateVehicleRate(provinceRate);
         }
@@ -588,6 +587,9 @@ const Estimator = () => {
     const fetchHotelCost = () => {
         let months = monthsContained(departureDate.format("YYYY-MM-DD"), returnDate.format("YYYY-MM-DD"));
         let rates = acrdRates[destination.acrdName];
+        if (!rates) {
+            rates = acrdRates[cities.suburbCityList[destination.acrdName]]
+        }
         
         let acrdRatesFiltered = Object.keys(rates)
             .filter(key => months.map(mon => mon.month).includes(key))
