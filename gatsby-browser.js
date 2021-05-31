@@ -15,7 +15,6 @@ import { IntlProvider } from 'react-intl';
 // import 'core-js/modules/es6.map'
 // import 'raf/polyfill'
 
-import i18nMessages from './src/data/messages';
 import languages from './src/data/languages'
 import '@babel/polyfill'
 import 'gatsby-plugin-polyfill-io'
@@ -35,7 +34,7 @@ export const wrapPageElement = ({ element, props }) => {
     const languageKey = getLanguageFromPath(props.location.pathname, languages.langs)
     return (
         <PreviewStoreProvider>
-            <IntlProvider locale={languageKey} messages={i18nMessages[languageKey]}>
+            <IntlProvider locale={languageKey}>
                 {element}
             </IntlProvider>
         </PreviewStoreProvider>
