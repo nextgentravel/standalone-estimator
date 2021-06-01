@@ -10,7 +10,6 @@ import "./src/styles/style.scss"
 import React from 'react'
 import { IntlProvider } from 'react-intl';
 
-import i18nMessages from './src/data/messages';
 import languages from './src/data/languages'
 
 import { PreviewStoreProvider } from 'gatsby-source-prismic'
@@ -27,7 +26,7 @@ export const wrapPageElement = ({ element, props }) => {
     const languageKey = getLanguageFromPath(props.location.pathname, languages.langs)
     return (
         <PreviewStoreProvider>
-            <IntlProvider locale={languageKey} messages={i18nMessages[languageKey]}>
+            <IntlProvider locale={languageKey}>
                 {element}
             </IntlProvider>
         </PreviewStoreProvider>

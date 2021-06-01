@@ -26,7 +26,7 @@ import Button from 'react-bootstrap/Button'
 import InputGroup from 'react-bootstrap/InputGroup'
 
 import cities from "../data/cities.js"
-import geocodedCities from "../data/geocodedCities"
+import geocodedCities from "../data/geocodesCitiesCleaned"
 import acrdRates from "../data/acrdRates.js"
 import locations from "../data/locations.js"
 
