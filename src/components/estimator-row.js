@@ -68,6 +68,7 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                             }
                             calculateTotal();
                         }}
+                        type="number"
                     >
                     </input>
                     {locale === 'fr-ca' &&

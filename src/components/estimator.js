@@ -1431,7 +1431,9 @@ const Estimator = () => {
                                         }
                                         calculateTotal()
                                     }}
-                                    value={accommodationCost}>
+                                    value={accommodationCost}
+                                    type="number"
+                                >
                                 </input>
                                 {locale === 'fr-ca' &&
                                     <div className='input-group-append'>
@@ -1520,6 +1522,7 @@ const Estimator = () => {
                                     }}
                                     value={transportationCost}
                                     disabled={transportationType === 'private' ? true : false}
+                                    type="number"
                                 >
                                 </input>
                                 {locale === 'fr-ca' &&
