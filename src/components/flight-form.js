@@ -10,7 +10,14 @@ const FlightForm = (props) => {
     let validationErrors = props.validationWarnings || []
 
     const handleSubmitFlightRequestValidation = () => {
-        let target = {originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset};
+        let target = {
+            originAirportCode: props.originAirportCode,
+            destinationAirportCode: props.destinationAirportCode,
+            departureTime: props.departureTime,
+            returnTime: props.returnTime,
+            departureOffset: props.departureOffset,
+            returnOffset: props.returnOffset
+        };
         let schema = yup.object().shape({
             originAirportCode: yup
                 .string()
@@ -93,14 +100,6 @@ const FlightForm = (props) => {
         },
     ]
 
-
-    let [originAirportCode, setOriginAirportCode] = useState(props.origin.airports[0].iataCode);
-    let [destinationAirportCode, setDestinationAirportCode] = useState(props.destination.airports[0].iataCode);
-    let [departureTime, setDepartureTime] = useState('');
-    let [returnTime, setReturnTime] = useState('');
-    let [departureOffset, setDepartureOffset] = useState(2);
-    let [returnOffset, setReturnOffset] = useState(2);
-    // let [flightResult, setFlightResult] = useState({});
     let [flightLoading, setFlightLoading] = useState(false);
     
     let validationErrorList = validationErrors.map(a => a.path) || [];
@@ -117,9 +116,9 @@ const FlightForm = (props) => {
                     <Form.Label column sm="4">{props.messages.flight_modal_origin_airport_label}</Form.Label>
                     <Col sm="8">
                         <Form.Control as="select"
-                            value={originAirportCode}
+                            value={props.originAirportCode}
                             onChange={(e) => {
-                                setOriginAirportCode(e.target.value)
+                                props.setOriginAirportCode(e.target.value)
                             }}
                             isInvalid={validationErrorList.includes('originAirport')}
                         >
@@ -139,9 +138,9 @@ const FlightForm = (props) => {
                     <Col sm="4">
                         <Form.Control as="select"
                             controlId="departureTime"
-                            value={departureTime}
+                            value={props.departureTime}
                             onChange={(e) => {
-                                setDepartureTime(e.target.value)
+                                props.setDepartureTime(e.target.value)
                             }}
                             isInvalid={validationErrorList.includes('departureTime')}
                         >
@@ -159,9 +158,9 @@ const FlightForm = (props) => {
                     <Col sm="4">
                         <Form.Control as="select"
                             controlId="originOffset"
-                            value={departureOffset}
+                            value={props.departureOffset}
                             onChange={(e) => {
-                                setDepartureOffset(e.target.value)
+                                props.setDepartureOffset(e.target.value)
                             }}
                             isInvalid={validationErrorList.includes('originOffset')}
                         >
@@ -182,9 +181,9 @@ const FlightForm = (props) => {
                     <Form.Label column sm="4">{props.messages.flight_modal_destination_airport_label}</Form.Label>
                     <Col sm="8">
                         <Form.Control as="select"
-                            value={destinationAirportCode}
+                            value={props.destinationAirportCode}
                             onChange={(e) => {
-                                setDestinationAirportCode(e.target.value)
+                                props.setDestinationAirportCode(e.target.value)
                             }}
                             isInvalid={validationErrorList.includes('destinationAirport')}
                         >
@@ -203,10 +202,10 @@ const FlightForm = (props) => {
                     <Form.Label column sm="4">{props.messages.flight_modal_return_time_label}</Form.Label>
                     <Col sm="4">
                         <Form.Control as="select"
-                            value={returnTime}
+                            value={props.returnTime}
                             controlId="returnTime" 
                             onChange={(e) => {
-                                setReturnTime(e.target.value)
+                                props.setReturnTime(e.target.value)
                             }}
                             isInvalid={validationErrorList.includes('returnTime')}
                         >
@@ -224,9 +223,9 @@ const FlightForm = (props) => {
                     <Col sm="4">
                         <Form.Control as="select"
                             controlId="returnOffset" 
-                            value={returnOffset}
+                            value={props.returnOffset}
                             onChange={(e) => {
-                                setReturnOffset(e.target.value)
+                                props.setReturnOffset(e.target.value)
                             }}
                             isInvalid={validationErrorList.includes('returnOffset')}
                         >
@@ -251,7 +250,7 @@ const FlightForm = (props) => {
                                         props.setValidationWarnings([]);
                                         props.setFlightResult({});
                                         setFlightLoading(true);
-                                        props.fetchFlightCost(originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset).then((result) => {
+                                        props.fetchFlightCost(props.originAirportCode, props.destinationAirportCode, props.departureTime, props.returnTime, props.departureOffset, props.returnOffset).then((result) => {
                                             props.setFlightResult(result);
                                             setFlightLoading(false);
                                         })

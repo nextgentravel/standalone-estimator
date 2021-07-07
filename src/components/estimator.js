@@ -407,6 +407,15 @@ const Estimator = () => {
     const [showClear, setShowClear] = useState(false);
     const [disclaimerCollapsed, setDisclaimerCollapsed] = useState(true);
 
+    // Flight modal vars
+
+    const [originAirportCode, setOriginAirportCode] = useState('');
+    const [destinationAirportCode, setDestinationAirportCode] = useState('');
+    const [departureTime, setDepartureTime] = useState('');
+    const [returnTime, setReturnTime] = useState('');
+    const [departureOffset, setDepartureOffset] = useState(2);
+    const [returnOffset, setReturnOffset] = useState(2);
+
     useEffect(() => {
         if (departureDate !== null) {
             setDepartureDateLux(convertToLux(departureDate))
@@ -440,8 +449,14 @@ const Estimator = () => {
             let provinceRate = locations[origin.provinceCode].rateCents
             setPrivateVehicleRate(provinceRate);
         }
+        setOriginAirportCode(origin.airports && origin.airports.length !== 0 ? origin.airports[0].iataCode : '')
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }), [origin])
+
+    useEffect((() => {
+        setDestinationAirportCode(destination.airports && destination.airports.length !== 0 ? destination.airports[0].iataCode : '')
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }), [destination])
 
     const [accommodationType, setAccommodationType] = useState('');
     const [transportationType, setTransportationType] = useState('');
@@ -1248,6 +1263,18 @@ const Estimator = () => {
                 setTransportationType={setTransportationType}
                 validationWarnings={flightValidationWarnings}
                 setValidationWarnings={setFlightValidationWarnings}
+                originAirportCode={originAirportCode}
+                destinationAirportCode={destinationAirportCode}
+                departureTime={departureTime}
+                returnTime={returnTime}
+                departureOffset={departureOffset}
+                returnOffset={returnOffset}
+                setOriginAirportCode={setOriginAirportCode}
+                setDestinationAirportCode={setDestinationAirportCode}
+                setDepartureTime={setDepartureTime}
+                setReturnTime={setReturnTime}
+                setDepartureOffset={setDepartureOffset}
+                setReturnOffset={setReturnOffset}
             />
 
 
