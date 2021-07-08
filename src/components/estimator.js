@@ -1166,10 +1166,6 @@ const Estimator = () => {
                 setTransportationMessage({
                     element: <span>{formattedMessage('flight_custom_fare_entered')} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
                 })
-            } else {
-                setTransportationMessage({
-                    element: <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a>
-                })
             }
             // if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) === 0.00) {
             //     setTransportationMessage({
