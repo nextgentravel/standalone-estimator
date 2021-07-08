@@ -411,8 +411,8 @@ const Estimator = () => {
 
     const [originAirportCode, setOriginAirportCode] = useState('');
     const [destinationAirportCode, setDestinationAirportCode] = useState('');
-    const [departureTime, setDepartureTime] = useState('');
-    const [returnTime, setReturnTime] = useState('');
+    const [departureTime, setDepartureTime] = useState('07:00');
+    const [returnTime, setReturnTime] = useState('17:00');
     const [departureOffset, setDepartureOffset] = useState(2);
     const [returnOffset, setReturnOffset] = useState(2);
 
@@ -430,7 +430,6 @@ const Estimator = () => {
 
     useEffect(() => {
         setResult(false);
-        setTransportationType('');
         setTransportationEstimates(transportationEstimatesInitialState);
         updateTransportationCost(0.00);
         setTransportationMessage(initialTransportationMessage)
@@ -630,19 +629,16 @@ const Estimator = () => {
 
             setApplicableRates(calculatedApplicableRates)
 
-            updateAccommodationCost(total)
             setAcrdTotal(total);
-            let message = localeCopy.hotel_success.html
+
             // eslint-disable-next-line no-template-curly-in-string
 
-            let province = destination.provinceCode
-            let cityName = destination.cityName
-            let destinationDisplay = `${cityName}, ${province}`
 
-            message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
+
+            // message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
             // eslint-disable-next-line no-template-curly-in-string
-            message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(calculatedApplicableRates[0].rate)}</strong>`)
-            setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
+            // message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(calculatedApplicableRates[0].rate)}</strong>`)
+            // setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
         } catch (error) {
             console.log('fetchHotelCostError', error);
         }
@@ -657,12 +653,23 @@ const Estimator = () => {
 
     useEffect(() => {
         if (accommodationType === 'hotel') {
+            let province = destination.provinceCode
+            let cityName = destination.cityName
+            let destinationDisplay = `${cityName}, ${province}`
+
+            let message = localeCopy.hotel_success.html
             fetchHotelCost()
+            message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
+            // eslint-disable-next-line no-template-curly-in-string
+            message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
+            setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
+            updateAccommodationCost(acrdTotal)
         } else if (accommodationType === 'private') {
             let rate = (Interval.fromDateTimes(departureDateLux, returnDateLux).count('days') - 1) * 50;
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></span>  })
             updateAccommodationCost(rate)
-        } else {
+        } else if (result) {
+            setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: '<span>Select an accommodation type</span>' }}></span>  })
             updateAccommodationCost(0.00)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -829,9 +836,15 @@ const Estimator = () => {
             .then(async (valid) => {
                 setOtherCost('0.00');
                 setSubmitValidationWarnings([]);
-                setTransportationType('flight')
-                setAccommodationType('hotel')
-                // await fetchFlightCost();
+                let flightResult = await fetchFlightCost(originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset)
+                setFlightResult(flightResult);
+                setAcceptedFlight(parseFloat(flightResult.median))
+                setTransportationMessage({
+                    element: <span>Select a transportation type</span>
+                })
+                setAccommodationMessage({
+                    element: <span>Select an accommodation type</span>
+                })
                 let numberOfDays = Interval.fromDateTimes(
                     departureDateLux,
                     returnDateLux)
@@ -1367,14 +1380,17 @@ const Estimator = () => {
                                             >{children}</OverlayTrigger>)}
                                     >
                                         <select
+                                            disabled={!result}
                                             aria-label="Accommodation Type"
                                             className="custom-select mb-2"
+                                            value={accommodationType}
                                             onChange={e => {
                                                 if (result) {
                                                     setAccommodationType(e.target.value)
                                                 }
                                             }}
                                         >
+                                            <option disabled value="">{formattedMessage('select')}</option>
                                             <option value="hotel">{formattedMessage('hotel')}</option>
                                             <option value="private">{formattedMessage('private')}</option>
                                         </select>
@@ -1400,7 +1416,7 @@ const Estimator = () => {
                                     </div>
                                 }
                                 <input
-                                    disabled={accommodationType === "private"}
+                                    disabled={!result || accommodationType === "private"}
                                     type="text"
                                     className="form-control"
                                     id={"accommodation_select"}
@@ -1494,14 +1510,17 @@ const Estimator = () => {
                                             >{children}</OverlayTrigger>)}
                                     >
                                         <select
+                                            disabled={!result}
                                             aria-label="Transportation Type"
                                             className="custom-select mb-2"
+                                            value={transportationType}
                                             onChange={e => {
                                                 if (result) {
                                                     setTransportationType(e.target.value)
                                                 }
                                             }}
                                         >
+                                            <option disabled value="">{formattedMessage('select')}</option>
                                             <option value="flight" >{formattedMessage('flight')}</option>
                                             <option value="train">{formattedMessage('train')}</option>
                                             <option value="rental">{formattedMessage('rental')}</option>
@@ -1548,7 +1567,7 @@ const Estimator = () => {
                                         calculateTotal();
                                     }}
                                     value={transportationCost}
-                                    disabled={transportationType === 'private' ? true : false}
+                                    disabled={!result || transportationType === 'private' ? true : false}
                                     type="number"
                                 >
                                 </input>
@@ -1619,6 +1638,7 @@ const Estimator = () => {
                     calculateTotal={calculateTotal}
                     updateCost={setLocalTransportationCost}
                     message={localTransportationMessage}
+                    disabled={!result}
                 />
                 <EstimatorRow
                     locale={locale}
@@ -1652,6 +1672,7 @@ const Estimator = () => {
                     updateCost={setOtherCost}
                     tooltipIcon={FaQuestionCircle}
                     tooltipText={<span dangerouslySetInnerHTML={{ __html: localeCopy.other_tooltip_text }}></span>}
+                    disabled={!result}
                 />
                 <div className="row mb-4">
                     <div className="col-sm-7 align-self-center text-right">
