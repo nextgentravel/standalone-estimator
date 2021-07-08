@@ -319,11 +319,14 @@ const Estimator = () => {
                     flight_modal_zero_results
                     flight_modal_api_error
                     flight_selected_fare
+                    flight_selected_fare_preselected
                     flight_regenerate_estimate
                     feedback_modal_link_to_survey
                     select
                     private_vehicle_enter_distance_manually
                     flight_custom_fare_entered
+                    transporation_select_message
+                    accommodation_select_message
                 }
             }
         }
@@ -669,7 +672,7 @@ const Estimator = () => {
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></span>  })
             updateAccommodationCost(rate)
         } else if (result) {
-            setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: '<span>Select an accommodation type</span>' }}></span>  })
+            setAccommodationMessage({ element: <span className="transportation-message">{formattedMessage('transporation_select_message')}</span>  })
             updateAccommodationCost(0.00)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -839,11 +842,12 @@ const Estimator = () => {
                 let flightResult = await fetchFlightCost(originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset)
                 setFlightResult(flightResult);
                 setAcceptedFlight(parseFloat(flightResult.median))
+                setSelectedFlightPrice(parseFloat(flightResult.median))
                 setTransportationMessage({
-                    element: <span>Select a transportation type</span>
+                    element: <span>{formattedMessage('transporation_select_message')}</span>
                 })
                 setAccommodationMessage({
-                    element: <span>Select an accommodation type</span>
+                    element: <span>{formattedMessage('accommodation_select_message')}</span>
                 })
                 let numberOfDays = Interval.fromDateTimes(
                     departureDateLux,
@@ -1141,6 +1145,18 @@ const Estimator = () => {
             if (origin.cityCode === null || destination.cityCode === null) {
                 setTransportationMessage({
                     element: <span>{formattedMessage('flight_message_no_airport')}</span>
+                })
+            } else if (parseFloat(transportationCost) === parseFloat(flightResult.median)) {
+                let message = formattedMessage('flight_selected_fare_preselected')
+                message = message.replace('{departureIATACode}', `<strong>${origin.cityCode}</strong>`)
+                message = message.replace('{destinationIATACode}', `<strong>${destination.cityCode}</strong>`)
+                // eslint-disable-next-line no-template-curly-in-string
+                message = message.replace('{flightPrice}', `<strong>${localCurrencyDisplay(parseFloat(acceptedFlight))}</strong>`)
+                setTransportationMessage({
+                    element: <span>
+                                <span dangerouslySetInnerHTML={{ __html: `${message}` }}></span>
+                                <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
+                            </span>
                 })
             } else if (parseFloat(transportationCost) === parseFloat(flightResult.minimum) || parseFloat(transportationCost) === parseFloat(flightResult.maximum) || parseFloat(transportationCost) === parseFloat(flightResult.median)) {
                 setTransportationMessage({
