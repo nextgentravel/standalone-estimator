@@ -1150,8 +1150,8 @@ const Estimator = () => {
                 })
             } else if (parseFloat(transportationCost) === parseFloat(flightResult.median)) {
                 let message = formattedMessage('flight_selected_fare_preselected')
-                message = message.replace('{departureIATACode}', `<strong>${origin.cityCode}</strong>`)
-                message = message.replace('{destinationIATACode}', `<strong>${destination.cityCode}</strong>`)
+                message = message.replace('{departureIATACode}', `<strong>${originAirportCode}</strong>`)
+                message = message.replace('{destinationIATACode}', `<strong>${destinationAirportCode}</strong>`)
                 // eslint-disable-next-line no-template-curly-in-string
                 message = message.replace('{flightPrice}', `<strong>${localCurrencyDisplay(parseFloat(acceptedFlight))}</strong>`)
                 setTransportationMessage({
