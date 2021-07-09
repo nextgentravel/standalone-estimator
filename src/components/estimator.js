@@ -325,7 +325,7 @@ const Estimator = () => {
                     select
                     private_vehicle_enter_distance_manually
                     flight_custom_fare_entered
-                    transporation_select_message
+                    transportation_select_message
                     accommodation_select_message
                 }
             }
@@ -672,7 +672,7 @@ const Estimator = () => {
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></span>  })
             updateAccommodationCost(rate)
         } else if (result) {
-            setAccommodationMessage({ element: <span className="transportation-message">{formattedMessage('transporation_select_message')}</span>  })
+            setAccommodationMessage({ element: <span className="transportation-message">{formattedMessage('transportation_select_message')}</span>  })
             updateAccommodationCost(0.00)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -844,7 +844,7 @@ const Estimator = () => {
                 setAcceptedFlight(parseFloat(flightResult.median))
                 setSelectedFlightPrice(parseFloat(flightResult.median))
                 setTransportationMessage({
-                    element: <span>{formattedMessage('transporation_select_message')}</span>
+                    element: <span>{formattedMessage('transportation_select_message')}</span>
                 })
                 setAccommodationMessage({
                     element: <span>{formattedMessage('accommodation_select_message')}</span>
@@ -1428,7 +1428,7 @@ const Estimator = () => {
                                     </div>
                                 }
                                 <input
-                                    disabled={!result || accommodationType === "private"}
+                                    disabled={!result || accommodationType === "private" || accommodationType === ""}
                                     type="text"
                                     className="form-control"
                                     id={"accommodation_select"}
@@ -1579,7 +1579,7 @@ const Estimator = () => {
                                         calculateTotal();
                                     }}
                                     value={transportationCost}
-                                    disabled={!result || transportationType === 'private' ? true : false}
+                                    disabled={!result || transportationType === 'private' ? true : false || transportationType === ''}
                                     type="number"
                                 >
                                 </input>

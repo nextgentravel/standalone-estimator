@@ -687,10 +687,10 @@
         "label" : "flight_regenerate_estimate"
       }
     },
-    "transporation_select_message" : {
+    "transportation_select_message" : {
       "type" : "Text",
       "config" : {
-        "label" : "transporation_select_message"
+        "label" : "transportation_select_message"
       }
     },
     "private_vehicle_enter_distance_manually" : {
