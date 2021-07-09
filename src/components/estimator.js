@@ -934,6 +934,8 @@ const Estimator = () => {
         setSubmitValidationWarnings([]);
         setInitialResult({});
         setFlightResult({});
+        setTransportationType('')
+        setAccommodationType('')
 
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
