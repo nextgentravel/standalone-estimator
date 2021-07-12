@@ -591,6 +591,7 @@ const Estimator = () => {
 
     let [selectedFlightPrice, setSelectedFlightPrice] = useState(0.00);
     let [flightResult, setFlightResult] = useState({});
+    let [initialFlightResult, setInitialFlightResult] = useState(1.11);
     let [acceptedFlight, setAcceptedFlight] = useState(0.00);
 
     useEffect(() => {
@@ -843,6 +844,7 @@ const Estimator = () => {
                 setFlightResult(flightResult);
                 setAcceptedFlight(parseFloat(flightResult.median))
                 setSelectedFlightPrice(parseFloat(flightResult.median))
+                setInitialFlightResult(parseFloat(flightResult.median))
                 setTransportationMessage({
                     element: <span>{formattedMessage('transportation_select_message')}</span>
                 })
@@ -1148,7 +1150,7 @@ const Estimator = () => {
                 setTransportationMessage({
                     element: <span>{formattedMessage('flight_message_no_airport')}</span>
                 })
-            } else if (parseFloat(transportationCost) === parseFloat(flightResult.median)) {
+            } else if (parseFloat(transportationCost) === parseFloat(initialFlightResult)) {
                 let message = formattedMessage('flight_selected_fare_preselected')
                 message = message.replace('{departureIATACode}', `<strong>${originAirportCode}</strong>`)
                 message = message.replace('{destinationIATACode}', `<strong>${destinationAirportCode}</strong>`)
@@ -1698,7 +1700,7 @@ const Estimator = () => {
                 </div>
             </div>
             <div className="row ml-1 mb-5">
-                <Button disabled={!result || parseFloat(accommodationCost) === parseFloat(0.00) || parseFloat(transportationCost) === parseFloat(0.00)} className="px-5" onClick={() => { setEmailModalShow(true) }}>{formattedMessage('email')}</Button>
+                <Button disabled={!result || parseFloat(transportationCost) === parseFloat(0.00)} className="px-5" onClick={() => { setEmailModalShow(true) }}>{formattedMessage('email')}</Button>
                 {/* <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}>formattedMessage('print" /></Button> */}
             </div>
 
