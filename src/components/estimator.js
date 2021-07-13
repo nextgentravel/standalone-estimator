@@ -850,6 +850,7 @@ const Estimator = () => {
                 setOtherCost('0.00');
                 setSubmitValidationWarnings([]);
                 let flightResult = await fetchFlightCost(originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset)
+                console.log(flightResult)
                 setFlightResult(flightResult);
                 setAcceptedFlight(parseFloat(flightResult.median))
                 setSelectedFlightPrice(parseFloat(flightResult.median))
@@ -1502,6 +1503,7 @@ const Estimator = () => {
                                     }}
                                     value={accommodationCost}
                                     type="number"
+                                    min="0"
                                 >
                                 </input>
                                 {locale === 'fr-ca' &&
@@ -1596,6 +1598,7 @@ const Estimator = () => {
                                     value={transportationCost}
                                     disabled={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
                                     type="number"
+                                    min="0"
                                 >
                                 </input>
                                 {locale === 'fr-ca' &&
