@@ -131,6 +131,13 @@
         "label": "Select",
         "placeholder": "Default option for select drop downs"
       }
+    },
+    "email_field_disabled_message": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em",
+        "label": "email_field_disabled_message"
+      }
     }
   },
   "Email Confirmation Modal": {

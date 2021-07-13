@@ -328,6 +328,9 @@ const Estimator = () => {
                     flight_custom_fare_entered
                     transportation_select_message
                     accommodation_select_message
+                    email_field_disabled_message {
+                        html
+                    }
                 }
             }
         }
@@ -1708,7 +1711,16 @@ const Estimator = () => {
                 </div>
             </div>
             <div className="row ml-1 mb-5">
-                <Button disabled={!result || transportationType === '' || accommodationType === ''} className="px-5" onClick={() => { setEmailModalShow(true) }}>{formattedMessage('email')}</Button>
+                <div className="col-sm-12">
+                    <Button disabled={!result || transportationType === '' || accommodationType === ''} className="px-5 mb-2" onClick={() => { setEmailModalShow(true) }}>{formattedMessage('email')}</Button>
+                </div>
+                {(!result || transportationType === '' || accommodationType === '') &&
+                    <div className="col-sm-12">
+                        <small id="passwordHelpBlock" className="form-text text-muted">
+                            <span dangerouslySetInnerHTML={{ __html: localeCopy.email_field_disabled_message.html }}></span>
+                        </small>
+                    </div>
+                }
                 {/* <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}>formattedMessage('print" /></Button> */}
             </div>
 
