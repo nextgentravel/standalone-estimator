@@ -1442,7 +1442,7 @@ const Estimator = () => {
                                     </div>
                                 }
                                 <input
-                                    disabled={!result || accommodationType === "private" || accommodationType === ('' || 'notrequired')}
+                                    disabled={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
                                     type="text"
                                     className="form-control"
                                     id={"accommodation_select"}
@@ -1594,7 +1594,7 @@ const Estimator = () => {
                                         calculateTotal();
                                     }}
                                     value={transportationCost}
-                                    disabled={!result || transportationType === 'private' ? true : false || transportationType === ('' || 'notrequired')}
+                                    disabled={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
                                     type="number"
                                 >
                                 </input>
