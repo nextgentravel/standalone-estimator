@@ -673,6 +673,10 @@ const Estimator = () => {
             let rate = (Interval.fromDateTimes(departureDateLux, returnDateLux).count('days') - 1) * 50;
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></span>  })
             updateAccommodationCost(rate)
+        } else if (accommodationType === 'notrequired') {
+            let rate = (Interval.fromDateTimes(departureDateLux, returnDateLux).count('days') - 1) * 50;
+            setAccommodationMessage({ element: <span className="transportation-message"></span>  })
+            updateAccommodationCost(0.00);
         } else if (result) {
             setAccommodationMessage({ element: <span className="transportation-message">{formattedMessage('transportation_select_message')}</span>  })
             updateAccommodationCost(0.00)
@@ -759,11 +763,12 @@ const Estimator = () => {
 
             updateTransportationCost(transportationEstimates.rentalCar.estimatedValue)
             displayTransportationMessage()
+        } else if (transportationType === 'notrequired') {
+            updateTransportationCost(0.00)
+            setTransportationMessage({ element: <span className="transportation-message"></span>  })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [transportationType])
-
-
 
     const updateAccommodationCost = (newValue) => {
         setAccommodationCost(newValue.toFixed(2))
@@ -1434,7 +1439,7 @@ const Estimator = () => {
                                     </div>
                                 }
                                 <input
-                                    disabled={!result || accommodationType === "private" || accommodationType === ""}
+                                    disabled={!result || accommodationType === "private" || accommodationType === ('' || 'notrequired')}
                                     type="text"
                                     className="form-control"
                                     id={"accommodation_select"}
@@ -1586,7 +1591,7 @@ const Estimator = () => {
                                         calculateTotal();
                                     }}
                                     value={transportationCost}
-                                    disabled={!result || transportationType === 'private' ? true : false || transportationType === ''}
+                                    disabled={!result || transportationType === 'private' ? true : false || transportationType === ('' || 'notrequired')}
                                     type="number"
                                 >
                                 </input>
@@ -1703,7 +1708,7 @@ const Estimator = () => {
                 </div>
             </div>
             <div className="row ml-1 mb-5">
-                <Button disabled={!result || parseFloat(transportationCost) === parseFloat(0.00)} className="px-5" onClick={() => { setEmailModalShow(true) }}>{formattedMessage('email')}</Button>
+                <Button disabled={!result || transportationType === '' || accommodationType === ''} className="px-5" onClick={() => { setEmailModalShow(true) }}>{formattedMessage('email')}</Button>
                 {/* <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}>formattedMessage('print" /></Button> */}
             </div>
 
