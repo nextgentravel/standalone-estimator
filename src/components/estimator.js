@@ -955,6 +955,14 @@ const Estimator = () => {
         setTransportationType('')
         setAccommodationType('')
 
+        setOriginAirportCode('');
+        setDestinationAirportCode('');
+        setDepartureTime('07:00');
+        setReturnTime('17:00');
+        setDepartureOffset(2);
+        setReturnOffset(2);
+        
+
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
         let originElement = document.querySelector('#autocomplete-origin')
