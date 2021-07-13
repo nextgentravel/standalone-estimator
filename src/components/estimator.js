@@ -751,7 +751,9 @@ const Estimator = () => {
 
     useEffect(() => {
         if (transportationType === 'flight') {
-            // Will need to change this to something....
+            setTransportationMessage({
+                element: <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a>
+            });
             updateTransportationCost(acceptedFlight)
         } else if (transportationType === 'train') {
             updateTransportationCost(0)
@@ -850,11 +852,15 @@ const Estimator = () => {
                 setOtherCost('0.00');
                 setSubmitValidationWarnings([]);
                 let flightResult = await fetchFlightCost(originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset)
-                console.log(flightResult)
                 setFlightResult(flightResult);
-                setAcceptedFlight(parseFloat(flightResult.median))
-                setSelectedFlightPrice(parseFloat(flightResult.median))
-                setInitialFlightResult(parseFloat(flightResult.median))
+                if (flightResult.numberOfResults > 0) {
+                    setAcceptedFlight(parseFloat(flightResult.median))
+                    setSelectedFlightPrice(parseFloat(flightResult.median))
+                    setInitialFlightResult(parseFloat(flightResult.median))
+                } else {
+                    setAcceptedFlight(0.00)
+                }
+
                 setTransportationMessage({
                     element: <span>{formattedMessage('transportation_select_message')}</span>
                 })
