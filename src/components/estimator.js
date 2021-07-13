@@ -188,6 +188,7 @@ const Estimator = () => {
                     flight
                     train
                     rental
+                    not_required
                     local_transportation
                     meals_and_incidentals
                     other_allowances
@@ -1409,6 +1410,7 @@ const Estimator = () => {
                                             <option disabled value="">{formattedMessage('select')}</option>
                                             <option value="hotel">{formattedMessage('hotel')}</option>
                                             <option value="private">{formattedMessage('private')}</option>
+                                            <option value="notrequired">{formattedMessage('not_required')}</option>
                                         </select>
                                     </ConditionalWrap>
                                 </div>
@@ -1541,6 +1543,7 @@ const Estimator = () => {
                                             <option value="train">{formattedMessage('train')}</option>
                                             <option value="rental">{formattedMessage('rental')}</option>
                                             <option value="private">{formattedMessage('private_vehicle')}</option>
+                                            <option value="notrequired">{formattedMessage('not_required')}</option>
                                         </select>
                                     </ConditionalWrap>
                                 </div>
