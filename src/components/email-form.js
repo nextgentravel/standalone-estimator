@@ -165,11 +165,17 @@ const EmailForm = (props) => {
                             removeIsInvalid('tripNotes', validationErrors)
                             props.setTripNotes(e.target.value)
                             }} as="textarea" rows={5}
-                        placeholder={props.messages.email_form_notes_placeholder}
+                        placeholder={''}
+                        aria-describedby="emailNotesBox"
                     />
                     <Form.Control.Feedback type="invalid">
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
+                    <Form.Text id="emailNotesBox" muted>
+                        {props.messages.email_form_notes_placeholder}
+                    </Form.Text>
+
+                    
                 </Col>
             </Form.Group>
         </Form>
