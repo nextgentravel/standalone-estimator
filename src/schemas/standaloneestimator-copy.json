@@ -197,6 +197,12 @@
         "label": "email_form_trip_name_placeholder"
       }
     },
+    "email_form_trip_name_helptext": {
+      "type": "Text",
+      "config": {
+        "label": "email_form_trip_name_helptext"
+      }
+    },
     "email_form_trip_name": {
       "type": "Text",
       "config": {
@@ -261,6 +267,12 @@
       "type": "Text",
       "config": {
         "label": "email_form_notes_placeholder"
+      }
+    },
+    "email_form_notes_helptext": {
+      "type": "Text",
+      "config": {
+        "label": "email_form_notes_helptext"
       }
     },
     "email_form_is_public_servant_checkbox_label": {

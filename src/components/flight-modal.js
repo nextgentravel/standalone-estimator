@@ -40,7 +40,7 @@ const FlightModal = (props) => {
                 >
                     {props.messages.flight_modal_use_in_estimate_button_label}
                 </Button>
-                <Button variant="outline-primary" onClick={props.onHide} >{props.messages.feedback_modal_secondary_button_text}</Button>
+                <Button variant="outline-primary" onClick={props.onHide} >{props.messages.flight_modal_close_button_label}</Button>
             </Modal.Footer>
       </Modal>
     )
