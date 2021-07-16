@@ -36,7 +36,7 @@ const FlightModal = (props) => {
                         props.setTransportationType('flight')
                         props.onHide()
                     }}
-                    className={Object.keys(props.flightResult).length !== 0 && props.flightResult.numberOfResults > 0 && props.selectedFlightPrice > 0 ? '' : 'disabled'}
+                    disabled={!(Object.keys(props.flightResult).length !== 0 && props.flightResult.numberOfResults > 0 && props.selectedFlightPrice > 0)}
                 >
                     {props.messages.flight_modal_use_in_estimate_button_label}
                 </Button>

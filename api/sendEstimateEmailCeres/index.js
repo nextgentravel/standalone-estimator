@@ -77,6 +77,9 @@ const travelMode = (input, lang) => {
       case 'private':
         return "Private Vehicle"
         break;
+      case 'notrequired':
+        return "Not Required"
+        break;
       default:
         return input;
     }
@@ -93,6 +96,9 @@ const travelMode = (input, lang) => {
         break;
       case 'private':
         return "Véhicule personnel"
+        break;
+      case 'notrequired':
+        return "Non requis"
         break;
       default:
         return input;

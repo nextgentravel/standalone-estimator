@@ -104,9 +104,9 @@ const FlightForm = (props) => {
     
     let validationErrorList = validationErrors.map(a => a.path) || [];
 
-    let departureHeader = props.messages.flight_modal_leaving_header.replace('{originCity}', props.origin.acrdName).replace('{departureDate}', props.departureDate.format("Do MMM, YYYY"))
+    let departureHeader = props.messages.flight_modal_leaving_header.replace('{originCity}', props.origin.acrdName).replace('{departureDate}', props.departureDate.format("LL"))
 
-    let returnHeader = props.messages.flight_modal_return_header.replace('{destinationCity}', props.destination.acrdName).replace('{returnDate}', props.returnDate.format("Do MMM, YYYY"))
+    let returnHeader = props.messages.flight_modal_return_header.replace('{destinationCity}', props.destination.acrdName).replace('{returnDate}', props.returnDate.format("LL"))
 
     return (
         <>
