@@ -122,10 +122,15 @@ const EmailForm = (props) => {
                         }}
                         type="text"
                         placeholder={props.messages.email_form_trip_name_placeholder}
+                        aria-describedby="emailTripName"
                     />
                     <Form.Control.Feedback type="invalid">
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
+                    <Form.Text id="emailTripName" muted>
+                        {props.messages.email_form_trip_name_helptext}
+                    </Form.Text>
+
                 </Col>
             </Form.Group>
             <Form.Group as={Row} controlId="travelCategory">
@@ -172,7 +177,7 @@ const EmailForm = (props) => {
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
                     <Form.Text id="emailNotesBox" muted>
-                        {props.messages.email_form_notes_placeholder}
+                        {props.messages.email_form_trip_name_helptext}
                     </Form.Text>
 
                     

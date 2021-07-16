@@ -324,6 +324,8 @@ const Estimator = () => {
                     select
                     private_vehicle_enter_distance_manually
                     flight_custom_fare_entered
+                    email_form_trip_name_helptext
+                    email_form_notes_helptext
                 }
             }
         }
