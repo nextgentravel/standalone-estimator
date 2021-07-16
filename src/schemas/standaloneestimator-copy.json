@@ -131,6 +131,13 @@
         "label": "Select",
         "placeholder": "Default option for select drop downs"
       }
+    },
+    "email_field_disabled_message": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em",
+        "label": "email_field_disabled_message"
+      }
     }
   },
   "Email Confirmation Modal": {
@@ -188,6 +195,12 @@
       "type": "Text",
       "config": {
         "label": "email_form_trip_name_placeholder"
+      }
+    },
+    "email_form_trip_name_helptext": {
+      "type": "Text",
+      "config": {
+        "label": "email_form_trip_name_helptext"
       }
     },
     "email_form_trip_name": {
@@ -254,6 +267,12 @@
       "type": "Text",
       "config": {
         "label": "email_form_notes_placeholder"
+      }
+    },
+    "email_form_notes_helptext": {
+      "type": "Text",
+      "config": {
+        "label": "email_form_notes_helptext"
       }
     },
     "email_form_is_public_servant_checkbox_label": {
@@ -445,6 +464,12 @@
       "type": "Text",
       "config": {
         "label": "accommodation_tooltip"
+      }
+    },
+    "accommodation_select_message": {
+      "type": "Text",
+      "config": {
+        "label": "accommodation_select_message"
       }
     }
   },
@@ -640,6 +665,12 @@
         "label": "train"
       }
     },
+    "not_required": {
+      "type": "Text",
+      "config": {
+        "label": "not_required"
+      }
+    },
     "could_not_fetch_flight_value": {
       "type": "Text",
       "config": {
@@ -671,10 +702,22 @@
         "label": "flight_selected_fare"
       }
     },
+    "flight_selected_fare_preselected": {
+      "type": "Text",
+      "config": {
+        "label": "flight_selected_fare_preselected"
+      }
+    },
     "flight_regenerate_estimate": {
       "type": "Text",
       "config": {
         "label": "flight_regenerate_estimate"
+      }
+    },
+    "transportation_select_message": {
+      "type": "Text",
+      "config": {
+        "label": "transportation_select_message"
       }
     },
     "private_vehicle_enter_distance_manually": {
@@ -1410,6 +1453,14 @@
       "type": "Text",
       "config": {
         "label": "flight_modal_zero_results"
+      }
+    },
+    "flight_modal_zero_results_with_link": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "strong, em, hyperlink",
+        "allowTargetBlank": true,
+        "label": "flight_modal_zero_results_with_link"
       }
     },
     "flight_modal_api_error": {
