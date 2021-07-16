@@ -10,7 +10,6 @@ import { useIntl } from 'react-intl'
 import EstimatorRow from "./estimator-row.js"
 import EmailModal from "./email-modal.js"
 import EmailConfirmationModal from "./email-confirmation-modal.js"
-import FeedBackModal from "./feedback-modal.js"
 import MealsModal from "./meals-modal.js"
 import FlightModal from "./flight-modal.js"
 
@@ -289,12 +288,6 @@ const Estimator = () => {
                     datepicker_date_is_selected_as_end_date
                     datepicker_start_date
                     datepicker_end_date
-                    feedback_modal_header_text
-                    feedback_modal_body {
-                        html
-                    }
-                    feedback_modal_primary_button_text
-                    feedback_modal_secondary_button_text
                     flight_estimate_your_fare_link
                     flight_modal_header
                     flight_modal_origin_airport_label
@@ -320,7 +313,6 @@ const Estimator = () => {
                     flight_modal_api_error
                     flight_selected_fare
                     flight_regenerate_estimate
-                    feedback_modal_link_to_survey
                     select
                     private_vehicle_enter_distance_manually
                     flight_custom_fare_entered
@@ -494,7 +486,6 @@ const Estimator = () => {
     const [emailRequestLoading, setEmailRequestLoading] = useState(false);
     const [emailConfirmationModalShow, setEmailConfirmationModalShow] = useState(false);
     const [emailRequestResult, setEmailRequestResult] = useState({});
-    const [feedbackModalShow, setFeedbackModalShow] = useState(false);
 
     const [tripName, setTripName] = useState('');
     const [travellersName, setTravellersName] = useState('');
@@ -1224,13 +1215,7 @@ const Estimator = () => {
                 onHide={() => setEmailConfirmationModalShow(false)}
                 emailRequestResult={emailRequestResult}
                 approversName={approversName}
-                setFeedbackModalShow={setFeedbackModalShow}
                 clearForm={clearForm}
-                messages={localeCopy}
-            />
-            <FeedBackModal
-                show={feedbackModalShow}
-                onHide={() => setFeedbackModalShow(false)}
                 messages={localeCopy}
             />
             <MealsModal
