@@ -842,6 +842,8 @@ const Estimator = () => {
     const handleSubmit =  async(e) => {
         setAccommodationType('')
         setTransportationType('')
+        setTransportationCost(0.00)
+        setAccommodationCost(0.00)
         setOtherCost('0.00');
         setAcceptedFlight(0.00);
         setFlightResult({});
