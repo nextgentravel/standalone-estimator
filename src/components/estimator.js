@@ -187,6 +187,7 @@ const Estimator = () => {
                     flight
                     train
                     rental
+                    not_required
                     local_transportation
                     meals_and_incidentals
                     other_allowances
@@ -312,10 +313,16 @@ const Estimator = () => {
                     flight_modal_zero_results
                     flight_modal_api_error
                     flight_selected_fare
+                    flight_selected_fare_preselected
                     flight_regenerate_estimate
                     select
                     private_vehicle_enter_distance_manually
                     flight_custom_fare_entered
+                    transportation_select_message
+                    accommodation_select_message
+                    email_field_disabled_message {
+                        html
+                    }
                     email_form_trip_name_helptext
                     email_form_notes_helptext
                 }
@@ -405,8 +412,8 @@ const Estimator = () => {
 
     const [originAirportCode, setOriginAirportCode] = useState('');
     const [destinationAirportCode, setDestinationAirportCode] = useState('');
-    const [departureTime, setDepartureTime] = useState('');
-    const [returnTime, setReturnTime] = useState('');
+    const [departureTime, setDepartureTime] = useState('07:00');
+    const [returnTime, setReturnTime] = useState('17:00');
     const [departureOffset, setDepartureOffset] = useState(2);
     const [returnOffset, setReturnOffset] = useState(2);
 
@@ -424,7 +431,6 @@ const Estimator = () => {
 
     useEffect(() => {
         setResult(false);
-        setTransportationType('');
         setTransportationEstimates(transportationEstimatesInitialState);
         updateTransportationCost(0.00);
         setTransportationMessage(initialTransportationMessage)
@@ -582,6 +588,7 @@ const Estimator = () => {
 
     let [selectedFlightPrice, setSelectedFlightPrice] = useState(0.00);
     let [flightResult, setFlightResult] = useState({});
+    let [initialFlightResult, setInitialFlightResult] = useState(1.11);
     let [acceptedFlight, setAcceptedFlight] = useState(0.00);
 
     useEffect(() => {
@@ -623,19 +630,16 @@ const Estimator = () => {
 
             setApplicableRates(calculatedApplicableRates)
 
-            updateAccommodationCost(total)
             setAcrdTotal(total);
-            let message = localeCopy.hotel_success.html
+
             // eslint-disable-next-line no-template-curly-in-string
 
-            let province = destination.provinceCode
-            let cityName = destination.cityName
-            let destinationDisplay = `${cityName}, ${province}`
 
-            message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
+
+            // message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
             // eslint-disable-next-line no-template-curly-in-string
-            message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(calculatedApplicableRates[0].rate)}</strong>`)
-            setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
+            // message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(calculatedApplicableRates[0].rate)}</strong>`)
+            // setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
         } catch (error) {
             console.log('fetchHotelCostError', error);
         }
@@ -650,12 +654,27 @@ const Estimator = () => {
 
     useEffect(() => {
         if (accommodationType === 'hotel') {
+            let province = destination.provinceCode
+            let cityName = destination.cityName
+            let destinationDisplay = `${cityName}, ${province}`
+
+            let message = localeCopy.hotel_success.html
             fetchHotelCost()
+            message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
+            // eslint-disable-next-line no-template-curly-in-string
+            message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
+            setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
+            updateAccommodationCost(acrdTotal)
         } else if (accommodationType === 'private') {
             let rate = (Interval.fromDateTimes(departureDateLux, returnDateLux).count('days') - 1) * 50;
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></span>  })
             updateAccommodationCost(rate)
-        } else {
+        } else if (accommodationType === 'notrequired') {
+            let rate = (Interval.fromDateTimes(departureDateLux, returnDateLux).count('days') - 1) * 50;
+            setAccommodationMessage({ element: <span className="transportation-message"></span>  })
+            updateAccommodationCost(0.00);
+        } else if (result) {
+            setAccommodationMessage({ element: <span className="transportation-message">{formattedMessage('transportation_select_message')}</span>  })
             updateAccommodationCost(0.00)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -725,7 +744,9 @@ const Estimator = () => {
 
     useEffect(() => {
         if (transportationType === 'flight') {
-            // Will need to change this to something....
+            setTransportationMessage({
+                element: <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a>
+            });
             updateTransportationCost(acceptedFlight)
         } else if (transportationType === 'train') {
             updateTransportationCost(0)
@@ -740,11 +761,12 @@ const Estimator = () => {
 
             updateTransportationCost(transportationEstimates.rentalCar.estimatedValue)
             displayTransportationMessage()
+        } else if (transportationType === 'notrequired') {
+            updateTransportationCost(0.00)
+            setTransportationMessage({ element: <span className="transportation-message"></span>  })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [transportationType])
-
-
 
     const updateAccommodationCost = (newValue) => {
         setAccommodationCost(newValue.toFixed(2))
@@ -811,6 +833,18 @@ const Estimator = () => {
     }
 
     const handleSubmit =  async(e) => {
+        setAccommodationType('')
+        setTransportationType('')
+        setTransportationCost('0.00')
+        setAccommodationCost('0.00')
+        setTransportationMessage({
+            element: <span></span>
+        })
+        setAccommodationMessage({
+            element: <span></span>
+        })
+
+
         setOtherCost('0.00');
         setAcceptedFlight(0.00);
         setFlightResult({});
@@ -822,9 +856,22 @@ const Estimator = () => {
             .then(async (valid) => {
                 setOtherCost('0.00');
                 setSubmitValidationWarnings([]);
-                setTransportationType('flight')
-                setAccommodationType('hotel')
-                // await fetchFlightCost();
+                let flightResult = await fetchFlightCost(originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset)
+                setFlightResult(flightResult);
+                if (flightResult.numberOfResults > 0) {
+                    setAcceptedFlight(parseFloat(flightResult.median))
+                    setSelectedFlightPrice(parseFloat(flightResult.median))
+                    setInitialFlightResult(parseFloat(flightResult.median))
+                } else {
+                    setAcceptedFlight(0.00)
+                }
+
+                setTransportationMessage({
+                    element: <span>{formattedMessage('transportation_select_message')}</span>
+                })
+                setAccommodationMessage({
+                    element: <span>{formattedMessage('accommodation_select_message')}</span>
+                })
                 let numberOfDays = Interval.fromDateTimes(
                     departureDateLux,
                     returnDateLux)
@@ -910,6 +957,16 @@ const Estimator = () => {
         setSubmitValidationWarnings([]);
         setInitialResult({});
         setFlightResult({});
+        setTransportationType('')
+        setAccommodationType('')
+
+        setOriginAirportCode('');
+        setDestinationAirportCode('');
+        setDepartureTime('07:00');
+        setReturnTime('17:00');
+        setDepartureOffset(2);
+        setReturnOffset(2);
+        
 
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
@@ -1122,6 +1179,18 @@ const Estimator = () => {
                 setTransportationMessage({
                     element: <span>{formattedMessage('flight_message_no_airport')}</span>
                 })
+            } else if (parseFloat(transportationCost) === parseFloat(initialFlightResult)) {
+                let message = formattedMessage('flight_selected_fare_preselected')
+                message = message.replace('{departureIATACode}', `<strong>${originAirportCode}</strong>`)
+                message = message.replace('{destinationIATACode}', `<strong>${destinationAirportCode}</strong>`)
+                // eslint-disable-next-line no-template-curly-in-string
+                message = message.replace('{flightPrice}', `<strong>${localCurrencyDisplay(parseFloat(acceptedFlight))}</strong>`)
+                setTransportationMessage({
+                    element: <span>
+                                <span dangerouslySetInnerHTML={{ __html: `${message}` }}></span>
+                                <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
+                            </span>
+                })
             } else if (parseFloat(transportationCost) === parseFloat(flightResult.minimum) || parseFloat(transportationCost) === parseFloat(flightResult.maximum) || parseFloat(transportationCost) === parseFloat(flightResult.median)) {
                 setTransportationMessage({
                     element: <span>{formattedMessage('flight_selected_fare').replace('{flightPrice}', localCurrencyDisplay(parseFloat(acceptedFlight)))} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
@@ -1129,10 +1198,6 @@ const Estimator = () => {
             } else if (transportationCost > 0) {
                 setTransportationMessage({
                     element: <span>{formattedMessage('flight_custom_fare_entered')} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
-                })
-            } else {
-                setTransportationMessage({
-                    element: <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a>
                 })
             }
             // if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) === 0.00) {
@@ -1354,16 +1419,20 @@ const Estimator = () => {
                                             >{children}</OverlayTrigger>)}
                                     >
                                         <select
+                                            disabled={!result}
                                             aria-label="Accommodation Type"
                                             className="custom-select mb-2"
+                                            value={accommodationType}
                                             onChange={e => {
                                                 if (result) {
                                                     setAccommodationType(e.target.value)
                                                 }
                                             }}
                                         >
+                                            <option disabled value="">{formattedMessage('select')}</option>
                                             <option value="hotel">{formattedMessage('hotel')}</option>
                                             <option value="private">{formattedMessage('private')}</option>
+                                            <option value="notrequired">{formattedMessage('not_required')}</option>
                                         </select>
                                     </ConditionalWrap>
                                 </div>
@@ -1387,7 +1456,7 @@ const Estimator = () => {
                                     </div>
                                 }
                                 <input
-                                    disabled={accommodationType === "private"}
+                                    disabled={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
                                     type="text"
                                     className="form-control"
                                     id={"accommodation_select"}
@@ -1447,6 +1516,7 @@ const Estimator = () => {
                                     }}
                                     value={accommodationCost}
                                     type="number"
+                                    min="0"
                                 >
                                 </input>
                                 {locale === 'fr-ca' &&
@@ -1481,18 +1551,22 @@ const Estimator = () => {
                                             >{children}</OverlayTrigger>)}
                                     >
                                         <select
+                                            disabled={!result}
                                             aria-label="Transportation Type"
                                             className="custom-select mb-2"
+                                            value={transportationType}
                                             onChange={e => {
                                                 if (result) {
                                                     setTransportationType(e.target.value)
                                                 }
                                             }}
                                         >
+                                            <option disabled value="">{formattedMessage('select')}</option>
                                             <option value="flight" >{formattedMessage('flight')}</option>
                                             <option value="train">{formattedMessage('train')}</option>
                                             <option value="rental">{formattedMessage('rental')}</option>
                                             <option value="private">{formattedMessage('private_vehicle')}</option>
+                                            <option value="notrequired">{formattedMessage('not_required')}</option>
                                         </select>
                                     </ConditionalWrap>
                                 </div>
@@ -1535,8 +1609,9 @@ const Estimator = () => {
                                         calculateTotal();
                                     }}
                                     value={transportationCost}
-                                    disabled={transportationType === 'private' ? true : false}
+                                    disabled={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
                                     type="number"
+                                    min="0"
                                 >
                                 </input>
                                 {locale === 'fr-ca' &&
@@ -1606,6 +1681,7 @@ const Estimator = () => {
                     calculateTotal={calculateTotal}
                     updateCost={setLocalTransportationCost}
                     message={localTransportationMessage}
+                    disabled={!result}
                 />
                 <EstimatorRow
                     locale={locale}
@@ -1639,6 +1715,7 @@ const Estimator = () => {
                     updateCost={setOtherCost}
                     tooltipIcon={FaQuestionCircle}
                     tooltipText={<span dangerouslySetInnerHTML={{ __html: localeCopy.other_tooltip_text }}></span>}
+                    disabled={!result}
                 />
                 <div className="row mb-4">
                     <div className="col-sm-7 align-self-center text-right">
@@ -1650,7 +1727,16 @@ const Estimator = () => {
                 </div>
             </div>
             <div className="row ml-1 mb-5">
-                <Button disabled={!result} className="px-5" onClick={() => { setEmailModalShow(true) }}>{formattedMessage('email')}</Button>
+                <div className="col-sm-12">
+                    <Button disabled={!result || transportationType === '' || accommodationType === ''} className="px-5 mb-2" onClick={() => { setEmailModalShow(true) }}>{formattedMessage('email')}</Button>
+                </div>
+                {(!result || transportationType === '' || accommodationType === '') &&
+                    <div className="col-sm-12">
+                        <small id="passwordHelpBlock" className="form-text text-muted">
+                            <span dangerouslySetInnerHTML={{ __html: localeCopy.email_field_disabled_message.html }}></span>
+                        </small>
+                    </div>
+                }
                 {/* <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}>formattedMessage('print" /></Button> */}
             </div>
 
