@@ -1185,7 +1185,7 @@ const Estimator = () => {
                 })
             } else if (parseFloat(transportationCost) === parseFloat(0.00)) {
                 setTransportationMessage({
-                    element: <span>
+                    element: <span className="transportation-message alert-warning">
                                 <span dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></span>
                                 <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
                             </span>
