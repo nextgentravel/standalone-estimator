@@ -833,6 +833,9 @@ const Estimator = () => {
     }
 
     const handleSubmit =  async(e) => {
+        setProvince('')
+        setMealsByDay({})
+        setMealCost({ total: 0.00 })
         setAccommodationType('')
         setTransportationType('')
         setTransportationCost('0.00')
@@ -878,9 +881,8 @@ const Estimator = () => {
                     .count('days')
 
                 let provinceCode = destination.provinceCode;
-
-                setMealsByDay(dailyMealTemplate(departureDateLux, returnDateLux))
                 setProvince(provinceCode)
+                setMealsByDay(dailyMealTemplate(departureDateLux, returnDateLux))
 
                 try {
                     let distanceBetweenPlaces = await fetchDistanceBetweenPlaces(origin.acrdName, destination.acrdName);
