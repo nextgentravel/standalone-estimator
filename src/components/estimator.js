@@ -102,6 +102,7 @@ const Estimator = () => {
                     }
                     flight_zero {
                         html
+                        text
                     }
                     hotel_above_estimate {
                         html
@@ -1177,10 +1178,20 @@ const Estimator = () => {
 
     useEffect(() => {
         if (transportationType === 'flight') {
+            
             if (origin.cityCode === null || destination.cityCode === null) {
                 setTransportationMessage({
                     element: <span>{formattedMessage('flight_message_no_airport')}</span>
                 })
+            } else if (parseFloat(transportationCost) === parseFloat(0.00)) {
+                setTransportationMessage({
+                    element: <span>
+                                <span dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></span>
+                                <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
+                            </span>
+                })
+
+
             } else if (parseFloat(transportationCost) === parseFloat(initialFlightResult)) {
                 let message = formattedMessage('flight_selected_fare_preselected')
                 message = message.replace('{departureIATACode}', `<strong>${originAirportCode}</strong>`)
