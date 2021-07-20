@@ -1194,8 +1194,17 @@ const Estimator = () => {
                             </span>
                 })
             } else if (parseFloat(transportationCost) === parseFloat(flightResult.minimum) || parseFloat(transportationCost) === parseFloat(flightResult.maximum) || parseFloat(transportationCost) === parseFloat(flightResult.median)) {
+                let message = formattedMessage('flight_selected_fare')
+                message = message.replace('{departureIATACode}', `<strong>${originAirportCode}</strong>`)
+                message = message.replace('{destinationIATACode}', `<strong>${destinationAirportCode}</strong>`)
+
+
+                message = message.replace('{flightPrice}', `<strong>${localCurrencyDisplay(parseFloat(acceptedFlight))}</strong>`)
                 setTransportationMessage({
-                    element: <span>{formattedMessage('flight_selected_fare').replace('{flightPrice}', localCurrencyDisplay(parseFloat(acceptedFlight)))} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
+                    element: <span>
+                                <span dangerouslySetInnerHTML={{ __html: `${message}` }}></span>
+                                <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
+                            </span>
                 })
             } else if (transportationCost > 0) {
                 setTransportationMessage({
