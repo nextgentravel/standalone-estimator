@@ -50,6 +50,7 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                         </div>
                     }
                     <input
+                        role="textbox"
                         readOnly={readOnly}
                         aria-readonly={readOnly}
                         type="text"

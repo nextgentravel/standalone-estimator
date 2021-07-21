@@ -1456,6 +1456,7 @@ const Estimator = () => {
                                     </div>
                                 }
                                 <input
+                                    role="textbox"
                                     readOnly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
                                     aria-readonly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
                                     type="text"
@@ -1592,6 +1593,7 @@ const Estimator = () => {
                                     </div>
                                 }
                                 <input
+                                    role="textbox"
                                     type="text"
                                     className={`form-control`}
                                     id={"transportation_select"}
