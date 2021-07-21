@@ -1457,6 +1457,7 @@ const Estimator = () => {
                                 }
                                 <input
                                     readOnly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
+                                    aria-readonly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
                                     type="text"
                                     className="form-control"
                                     id={"accommodation_select"}
@@ -1527,7 +1528,7 @@ const Estimator = () => {
                             </div>
                         </ConditionalWrap>
                     </div>
-                    <div className="col-sm-5 align-self-center text-wrap mb-2">
+                    <div className="col-sm-5 align-self-center text-wrap mb-2" aria-live="polite">
                         {accommodationMessage.element}
                     </div>
                 </div>
@@ -1610,8 +1611,10 @@ const Estimator = () => {
                                     }}
                                     value={transportationCost}
                                     readOnly={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
+                                    aria-readonly={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
                                     type="number"
                                     min="0"
+                                    
                                 >
                                 </input>
                                 {locale === 'fr-ca' &&
@@ -1623,7 +1626,7 @@ const Estimator = () => {
                             </div>
                         </ConditionalWrap>
                     </div>
-                    <div className="col-sm-5 align-self-center text-wrap mb-2">
+                    <div className="col-sm-5 align-self-center text-wrap mb-2" aria-live="polite">
                         {transportationMessage.element}
                     </div>
                 </div>
@@ -1718,7 +1721,7 @@ const Estimator = () => {
                     readOnly={!result}
                 />
                 <div className="row mb-4">
-                    <div className="col-sm-7 align-self-center text-right">
+                    <div className="col-sm-7 align-self-center text-right" aria-live="polite">
                         <hr />
                         <strong className="mr-2">{formattedMessage('total_cost')}</strong>{localCurrencyDisplay(parseFloat(summaryCost))}
                     </div>
