@@ -6,7 +6,7 @@ const ConditionalWrap = ({ condition, wrap, children }) => (
     condition ? wrap(children) : children
 );
 
-const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTotal, value, tooltipIcon, tooltipText, disabled, result, overlayRender, locale }) => {
+const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTotal, value, tooltipIcon, tooltipText, readOnly, result, overlayRender, locale }) => {
     const TooltipIcon = tooltipIcon ? tooltipIcon : null;
 
     const renderTooltip = (props) => (
@@ -50,7 +50,7 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                         </div>
                     }
                     <input
-                        disabled={disabled}
+                        readOnly={readOnly}
                         type="text"
                         value={value}
                         className="form-control"

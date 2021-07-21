@@ -1456,7 +1456,7 @@ const Estimator = () => {
                                     </div>
                                 }
                                 <input
-                                    disabled={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
+                                    readOnly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
                                     type="text"
                                     className="form-control"
                                     id={"accommodation_select"}
@@ -1609,7 +1609,7 @@ const Estimator = () => {
                                         calculateTotal();
                                     }}
                                     value={transportationCost}
-                                    disabled={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
+                                    readOnly={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
                                     type="number"
                                     min="0"
                                 >
@@ -1681,7 +1681,7 @@ const Estimator = () => {
                     calculateTotal={calculateTotal}
                     updateCost={setLocalTransportationCost}
                     message={localTransportationMessage}
-                    disabled={!result}
+                    readOnly={!result}
                 />
                 <EstimatorRow
                     locale={locale}
@@ -1699,7 +1699,7 @@ const Estimator = () => {
                     title={formattedMessage("meals_and_incidentals")}
                     calculateTotal={calculateTotal}
                     updateCost={setMealCost}
-                    disabled={true}
+                    readOnly={true}
                 />
                 <EstimatorRow
                     locale={locale}
@@ -1715,7 +1715,7 @@ const Estimator = () => {
                     updateCost={setOtherCost}
                     tooltipIcon={FaQuestionCircle}
                     tooltipText={<span dangerouslySetInnerHTML={{ __html: localeCopy.other_tooltip_text }}></span>}
-                    disabled={!result}
+                    readOnly={!result}
                 />
                 <div className="row mb-4">
                     <div className="col-sm-7 align-self-center text-right">
