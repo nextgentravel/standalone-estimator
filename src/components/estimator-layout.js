@@ -33,7 +33,7 @@ export default ({ data }) => {
 
     return (
       <Layout>
-        <SEO title={estimatorCopy.title.text} lang={locale} />
+        <SEO title={estimatorCopy.title.text} lang={locale.substring(0,2)} />
         <w-screen mt-4="true" fluid="true" id="container">
           <div>
             <main id="main-content" role="main">
