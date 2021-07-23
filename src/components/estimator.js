@@ -1383,7 +1383,8 @@ const Estimator = () => {
                     {showClear &&
                         <button type="button" id="clear-button" className="btn btn-outline-primary px-5 ml-3" onClick={() => {clearForm()}}>{formattedMessage('clear')}</button>
                     }
-                    {loading && <FaSpinner role="alertdialog" aria-busy="true" aria-live="assertive" className="fa-spin ml-3" size="24" />}
+                    {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
+                    <div aria-live="polite" class="sr-only" id="loading-sr">{result ? 'Calculated Summary Loaded' : 'Summary Loading'}</div>
                 </div>
             </form>
 
