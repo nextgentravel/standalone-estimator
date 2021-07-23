@@ -1397,7 +1397,7 @@ const Estimator = () => {
                 </div>
             </div>}
 
-            <div className="card bg-light p-4 mb-4">
+            <section className="card bg-light p-4 mb-4" aria-live="polite" aria-busy={!result}>
                 <h3 className="mb-3">{formattedMessage('estimate_summary_title')}</h3>
 
                 <div className="row mb-4">
@@ -1456,7 +1456,7 @@ const Estimator = () => {
                                     </div>
                                 }
                                 <input
-                                    aria-live="polite"
+                                    
                                     readOnly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
                                     aria-readonly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
                                     type="text"
@@ -1529,7 +1529,7 @@ const Estimator = () => {
                             </div>
                         </ConditionalWrap>
                     </div>
-                    <div className="col-sm-5 align-self-center text-wrap mb-2" aria-live="polite">
+                    <div className="col-sm-5 align-self-center text-wrap mb-2" >
                         {accommodationMessage.element}
                     </div>
                 </div>
@@ -1593,7 +1593,7 @@ const Estimator = () => {
                                     </div>
                                 }
                                 <input
-                                    aria-live="polite"
+                                    
                                     type="text"
                                     className={`form-control`}
                                     id={"transportation_select"}
@@ -1628,7 +1628,7 @@ const Estimator = () => {
                             </div>
                         </ConditionalWrap>
                     </div>
-                    <div className="col-sm-5 align-self-center text-wrap mb-2" aria-live="polite">
+                    <div className="col-sm-5 align-self-center text-wrap mb-2" >
                         {transportationMessage.element}
                     </div>
                 </div>
@@ -1723,14 +1723,14 @@ const Estimator = () => {
                     readOnly={!result}
                 />
                 <div className="row mb-4">
-                    <div className="col-sm-7 align-self-center text-right" aria-live="polite">
+                    <div className="col-sm-7 align-self-center text-right" >
                         <hr />
                         <strong className="mr-2">{formattedMessage('total_cost')}</strong>{localCurrencyDisplay(parseFloat(summaryCost))}
                     </div>
                     <div className="col-sm-5 align-self-center text-wrap">
                     </div>
                 </div>
-            </div>
+            </section>
             <div className="row ml-1 mb-5">
                 <div className="col-sm-12">
                     <Button disabled={!result || transportationType === '' || accommodationType === ''} className="px-5 mb-2" onClick={() => { setEmailModalShow(true) }}>{formattedMessage('email')}</Button>
