@@ -102,6 +102,7 @@ const Estimator = () => {
                     }
                     flight_zero {
                         html
+                        text
                     }
                     hotel_above_estimate {
                         html
@@ -833,6 +834,9 @@ const Estimator = () => {
     }
 
     const handleSubmit =  async(e) => {
+        setProvince('')
+        setMealsByDay({})
+        setMealCost({ total: 0.00 })
         setAccommodationType('')
         setTransportationType('')
         setTransportationCost('0.00')
@@ -878,9 +882,8 @@ const Estimator = () => {
                     .count('days')
 
                 let provinceCode = destination.provinceCode;
-
-                setMealsByDay(dailyMealTemplate(departureDateLux, returnDateLux))
                 setProvince(provinceCode)
+                setMealsByDay(dailyMealTemplate(departureDateLux, returnDateLux))
 
                 try {
                     let distanceBetweenPlaces = await fetchDistanceBetweenPlaces(origin.acrdName, destination.acrdName);
@@ -1175,10 +1178,20 @@ const Estimator = () => {
 
     useEffect(() => {
         if (transportationType === 'flight') {
+            
             if (origin.cityCode === null || destination.cityCode === null) {
                 setTransportationMessage({
                     element: <span>{formattedMessage('flight_message_no_airport')}</span>
                 })
+            } else if (parseFloat(transportationCost) === parseFloat(0.00)) {
+                setTransportationMessage({
+                    element: <span className="transportation-message alert-warning">
+                                <span dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></span>
+                                <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
+                            </span>
+                })
+
+
             } else if (parseFloat(transportationCost) === parseFloat(initialFlightResult)) {
                 let message = formattedMessage('flight_selected_fare_preselected')
                 message = message.replace('{departureIATACode}', `<strong>${originAirportCode}</strong>`)
@@ -1192,8 +1205,17 @@ const Estimator = () => {
                             </span>
                 })
             } else if (parseFloat(transportationCost) === parseFloat(flightResult.minimum) || parseFloat(transportationCost) === parseFloat(flightResult.maximum) || parseFloat(transportationCost) === parseFloat(flightResult.median)) {
+                let message = formattedMessage('flight_selected_fare')
+                message = message.replace('{departureIATACode}', `<strong>${originAirportCode}</strong>`)
+                message = message.replace('{destinationIATACode}', `<strong>${destinationAirportCode}</strong>`)
+
+
+                message = message.replace('{flightPrice}', `<strong>${localCurrencyDisplay(parseFloat(acceptedFlight))}</strong>`)
                 setTransportationMessage({
-                    element: <span>{formattedMessage('flight_selected_fare').replace('{flightPrice}', localCurrencyDisplay(parseFloat(acceptedFlight)))} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
+                    element: <span>
+                                <span dangerouslySetInnerHTML={{ __html: `${message}` }}></span>
+                                <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
+                            </span>
                 })
             } else if (transportationCost > 0) {
                 setTransportationMessage({
@@ -1728,7 +1750,7 @@ const Estimator = () => {
             </div>
             <div className="row ml-1 mb-5">
                 <div className="col-sm-12">
-                    <Button disabled={!result || transportationType === '' || accommodationType === ''} className="px-5 mb-2" onClick={() => { setEmailModalShow(true) }}>{formattedMessage('email')}</Button>
+                    <Button disabled={!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired')} className="px-5 mb-2" onClick={() => { setEmailModalShow(true) }}>{formattedMessage('email')}</Button>
                 </div>
                 {(!result || transportationType === '' || accommodationType === '') &&
                     <div className="col-sm-12">
