@@ -918,7 +918,7 @@ const Estimator = () => {
                 // calculate meals for destination
                 setResult(true);
                 executeScroll()
-                setScreenReaderStatus('aria_summary_loaded')
+                setScreenReaderStatus(formattedMessage('aria_summary_loaded'))
                 setLoading(false);
                 focusAccommodationSelect()
                 setErrorPanel(false);
