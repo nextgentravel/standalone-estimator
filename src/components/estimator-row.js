@@ -50,7 +50,6 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                         </div>
                     }
                     <input
-                        aria-live="polite"
                         readOnly={readOnly}
                         aria-readonly={readOnly}
                         type="text"
@@ -88,7 +87,7 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
 
                 
             </div>
-            <div className="col-sm-5 align-self-center text-wrap mb-2" aria-live="polite">
+            <div className="col-sm-5 align-self-center text-wrap mb-2">
                 {message && message.element}
             </div>
         </div>
