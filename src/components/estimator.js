@@ -1347,7 +1347,7 @@ const Estimator = () => {
 
             <h2 className="mb-4" id="h2-label">{localeCopy.title.text}</h2>
             <div className="lead mb-5" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
-             {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
+             {errorPanel !== false && <div className="alert alert-danger alert-danger-banner" role="alert">
                 <h3>{formattedMessage('estimate_error_title')}</h3>
                 <p>{formattedMessage('estimate_error_lead')}</p>
                 <ul className="list-unstyled">
