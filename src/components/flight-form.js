@@ -51,51 +51,51 @@ const FlightForm = (props) => {
 
     let times = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00']
 
-    let hourAbbreviation = props.locale === 'en-ca' ? 'HR' : 'H';
+    let hourAbbreviation = props.locale === 'en-ca' ? 'hour' : 'heure';
 
     let offsetOptions = [
         {
-            label: `+/- 1 ${hourAbbreviation}`,
+            label: `+ / - 1 ${hourAbbreviation}`,
             value: 1,
         },
         {
-            label: `+/- 2 ${hourAbbreviation}`,
+            label: `+ / - 2 ${hourAbbreviation}`,
             value: 2,
         },
         {
-            label: `+/- 3 ${hourAbbreviation}`,
+            label: `+ / - 3 ${hourAbbreviation}`,
             value: 3,
         },
         {
-            label: `+/- 4 ${hourAbbreviation}`,
+            label: `+ / - 4 ${hourAbbreviation}`,
             value: 4,
         },
         {
-            label: `+/- 5 ${hourAbbreviation}`,
+            label: `+ / - 5 ${hourAbbreviation}`,
             value: 5
         },
         {
-            label: `+/- 6 ${hourAbbreviation}`,
+            label: `+ / - 6 ${hourAbbreviation}`,
             value: 6,
         },
         {
-            label: `+/- 7 ${hourAbbreviation}`,
+            label: `+ / - 7 ${hourAbbreviation}`,
             value: 7,
         },
         {
-            label: `+/- 9 ${hourAbbreviation}`,
+            label: `+ / - 9 ${hourAbbreviation}`,
             value: 9,
         },
         {
-            label: `+/- 10 ${hourAbbreviation}`,
+            label: `+ / - 10 ${hourAbbreviation}`,
             value: 10,
         },
         {
-            label: `+/- 11 ${hourAbbreviation}`,
+            label: `+ / - 11 ${hourAbbreviation}`,
             value: 11,
         },
         {
-            label: `+/- 12 ${hourAbbreviation}`,
+            label: `+ / - 12 ${hourAbbreviation}`,
             value: 12,
         },
     ]
