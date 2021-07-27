@@ -36,12 +36,12 @@ const DatePickerComponent = ({startDate, endDate, initialStart, setStart, initia
         returnFocusToInput: localeCopy.datepicker_return_focus_to_input,
         keyboardForwardNavigationInstructions: localeCopy.datepicker_keyboard_forward_navigation_instructions,
         keyboardBackwardNavigationInstructions: localeCopy.datepicker_keyboard_backward_navigation_instructions,
-        chooseAvailableStartDate: localeCopy.datepicker_choose_available_start_date,
-        chooseAvailableEndDate: localeCopy.datepicker_choose_available_end_date,
-        dateIsUnavailable: localeCopy.datepicker_date_is_unavailable,
-        dateIsSelected: localeCopy.datepicker_date_is_selected,
-        dateIsSelectedAsStartDate: localeCopy.datepicker_date_is_selected_as_start_date,
-        dateIsSelectedAsEndDate: localeCopy.datepicker_date_is_selected_as_end_date,
+        chooseAvailableStartDate: (date) => localeCopy.datepicker_choose_available_start_date.replace('${date}', date.date),
+        chooseAvailableEndDate: (date) => localeCopy.datepicker_choose_available_end_date.replace('${date}', date.date),
+        dateIsUnavailable: (date) => localeCopy.datepicker_date_is_unavailable.replace('${date}', date.date),
+        dateIsSelected:  (date) => localeCopy.datepicker_date_is_selected.replace('${date}', date.date),
+        dateIsSelectedAsStartDate:  (date) => localeCopy.datepicker_date_is_selected_as_start_date.replace('${date}', date.date),
+        dateIsSelectedAsEndDate:  (date) => localeCopy.datepicker_date_is_selected_as_end_date.replace('${date}', date.date),
     }
 
     return(
@@ -68,6 +68,7 @@ const DatePickerComponent = ({startDate, endDate, initialStart, setStart, initia
                     phrases={phrases}
                     startDatePlaceholderText={localeCopy.datepicker_start_date}
                     endDatePlaceholderText={localeCopy.datepicker_end_date}
+                    endDateAriaLabel=''
                 />
             </div>
         </div>
