@@ -46,7 +46,12 @@ const ConditionalWrap = ({ condition, wrap, children }) => (
 const Estimator = () => {
     const intl = useIntl();
     const summaryView = useRef(null)
-    const executeScroll = () => summaryView.current.scrollIntoView()    
+    const executeScroll = () => summaryView.current.scrollIntoView()
+    
+    const accommodationSelect = useRef(null);
+    const focusAccommodationSelect = () => {
+      accommodationSelect.current.focus();
+    };
 
     let locale = `${intl.locale}-ca`;
 
@@ -325,6 +330,10 @@ const Estimator = () => {
                     }
                     email_form_trip_name_helptext
                     email_form_notes_helptext
+                    accommodation_type
+                    transportation_type
+                    aria_summary_loading
+                    aria_summary_loaded
                 }
             }
         }
@@ -353,7 +362,10 @@ const Estimator = () => {
     const citiesList = cities.citiesList;
     const [filteredCitiesList, setFilteredCitiesList] = useState([]);
 
+    const [screenReaderStatus, setScreenReaderStatus] = useState('');
+
     useEffect(() => {
+        setLoading(true)
         let list = []
         for (let city in geocodedCities) {
             let province = geocodedCities[city].acrdName.slice(-2)
@@ -375,6 +387,12 @@ const Estimator = () => {
         }
         setFilteredCitiesList(list);
         removeActiveDescendantAttr()
+        // updateAccommodationCost(0.00)
+        // updateTransportationCost(0.00)
+        // updateLocalTransportationCost(0.00)
+        // updateMealCost(0.00)
+        // updateOtherCost(0.00)
+        setLoading(false)
     }, []);
 
     const removeActiveDescendantAttr = () => {
@@ -465,21 +483,21 @@ const Estimator = () => {
     const [emailValidationWarnings, setEmailValidationWarnings] = useState([]);
     const [flightValidationWarnings, setFlightValidationWarnings] = useState([]);
 
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [result, setResult] = useState(false);
     const [generalError, setGeneralError] = useState(false);
     const [errorPanel, setErrorPanel] = useState(false);
 
-    const [accommodationCost, setAccommodationCost] = useState(0.00);
+    const [accommodationCost, setAccommodationCost] = useState('0.00');
     const [acrdTotal, setAcrdTotal] = useState(0.00);
     const [accommodationMessage, setAccommodationMessage] = useState({ element: <span></span>, style: 'primary' });
     const [transportationMessage, setTransportationMessage] = useState(initialTransportationMessage);
     const [localTransportationMessage, setLocalTransportationMessage] = useState({ element: <span></span>, style: 'primary' });
-    const [transportationCost, setTransportationCost] = useState(0.00);
-    const [localTransportationCost, setLocalTransportationCost] = useState(0.00);
-    const [mealCost, setMealCost] = useState({ total: 0.00 });
-    const [otherCost, setOtherCost] = useState(0.00);
-    const [summaryCost, setSummaryCost] = useState(0.00);
+    const [transportationCost, setTransportationCost] = useState('0.00');
+    const [localTransportationCost, setLocalTransportationCost] = useState('0.00');
+    const [mealCost, setMealCost] = useState({ total: '0.00' });
+    const [otherCost, setOtherCost] = useState('0.00');
+    const [summaryCost, setSummaryCost] = useState('0.00');
     const [enterKilometricsDistanceManually, setEnterKilometricsDistanceManually] = useState(false)
     const [privateKilometricsValue, setPrivateKilometricsValue] = useState(0);
     const [returnDistance, setReturnDistance] = useState('');
@@ -591,13 +609,7 @@ const Estimator = () => {
     let [initialFlightResult, setInitialFlightResult] = useState(1.11);
     let [acceptedFlight, setAcceptedFlight] = useState(0.00);
 
-    useEffect(() => {
-        updateAccommodationCost(0.00)
-        updateTransportationCost(0.00)
-        updateLocalTransportationCost(0.00)
-        updateMealCost(0.00)
-        updateOtherCost(0.00)
-    }, [])
+
 
     const fetchHotelCost = () => {
         let months = monthsContained(departureDate.format("YYYY-MM-DD"), returnDate.format("YYYY-MM-DD"));
@@ -850,6 +862,7 @@ const Estimator = () => {
         setFlightResult({});
         setSelectedFlightPrice(0.00)
         setLoading(true);
+        setScreenReaderStatus(formattedMessage('aria_summary_loading'))
         setGeneralError(false);
         e.preventDefault();
         handleSubmitEstimateValidation()
@@ -905,7 +918,9 @@ const Estimator = () => {
                 // calculate meals for destination
                 setResult(true);
                 executeScroll()
+                setScreenReaderStatus('aria_summary_loaded')
                 setLoading(false);
+                focusAccommodationSelect()
                 setErrorPanel(false);
             })
             .catch(err => {
@@ -1330,7 +1345,7 @@ const Estimator = () => {
             />
 
 
-            <h2 className="mb-4">{localeCopy.title.text}</h2>
+            <h2 className="mb-4" id="h2-label">{localeCopy.title.text}</h2>
             <div className="lead mb-5" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
              {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
                 <h3>{formattedMessage('estimate_error_title')}</h3>
@@ -1384,7 +1399,7 @@ const Estimator = () => {
                         <button type="button" id="clear-button" className="btn btn-outline-primary px-5 ml-3" onClick={() => {clearForm()}}>{formattedMessage('clear')}</button>
                     }
                     {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
-                    <div aria-live="polite" class="sr-only" id="loading-sr">{result ? 'Calculated Summary Loaded' : 'Summary Loading'}</div>
+                    <div role="status" class="sr-only" id="loading-sr">{screenReaderStatus}</div>
                 </div>
             </form>
 
@@ -1398,7 +1413,7 @@ const Estimator = () => {
                 </div>
             </div>}
 
-            <section className="card bg-light p-4 mb-4" aria-live="polite" aria-busy={!result}>
+            <section className="card bg-light p-4 mb-4">
                 <h3 className="mb-3">{formattedMessage('estimate_summary_title')}</h3>
 
                 <div className="row mb-4">
@@ -1420,8 +1435,9 @@ const Estimator = () => {
                                             >{children}</OverlayTrigger>)}
                                     >
                                         <select
+                                            ref={accommodationSelect}
                                             disabled={!result}
-                                            aria-label="Accommodation Type"
+                                            aria-label={formattedMessage('accommodation_type')}
                                             className="custom-select mb-2"
                                             value={accommodationType}
                                             onChange={e => {
@@ -1555,7 +1571,7 @@ const Estimator = () => {
                                     >
                                         <select
                                             disabled={!result}
-                                            aria-label="Transportation Type"
+                                            aria-label={formattedMessage('transportation_type')}
                                             className="custom-select mb-2"
                                             value={transportationType}
                                             onChange={e => {
@@ -1678,7 +1694,7 @@ const Estimator = () => {
                     locale={locale}
                     overlayRender={renderEnterTravelInfoAboveTooltip}
                     result={result}
-                    value={localTransportationCost || ''}
+                    value={localTransportationCost}
                     name="localTransportation"
                     id="localTransportation"
                     description="localTransportationDescription"
@@ -1693,7 +1709,7 @@ const Estimator = () => {
                     locale={locale}
                     overlayRender={renderEnterTravelInfoAboveTooltip}
                     result={result}
-                    value={mealCost.total || '0.00'}
+                    value={mealCost.total}
                     name="mealsAndIncidentals"
                     id="mealsAndIncidentals"
                     description="selectMealsToInclude"

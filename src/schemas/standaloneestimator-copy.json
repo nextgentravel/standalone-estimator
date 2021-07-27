@@ -138,6 +138,18 @@
         "multi": "strong, em",
         "label": "email_field_disabled_message"
       }
+    },
+    "aria_summary_loading": {
+      "type": "Text",
+      "config": {
+        "label": "aria_summary_loading"
+      }
+    },
+    "aria_summary_loaded": {
+      "type": "Text",
+      "config": {
+        "label": "aria_summary_loaded"
+      }
     }
   },
   "Email Confirmation Modal": {
@@ -471,6 +483,12 @@
       "config": {
         "label": "accommodation_select_message"
       }
+    },
+    "accommodation_type": {
+      "type": "Text",
+      "config": {
+        "label": "accommodation_type"
+      }
     }
   },
   "Transportation Messages": {
@@ -725,6 +743,12 @@
       "config": {
         "label": "private_vehicle_enter_distance_manually",
         "placeholder": "Enter distance manually"
+      }
+    },
+    "transportation_type": {
+      "type": "Text",
+      "config": {
+        "label": "transportation_type"
       }
     }
   },
