@@ -27,7 +27,9 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                                 delay={{ show: 250, hide: 400 }}
                                 overlay={renderTooltip}
                             >
-                                <TooltipIcon className="ml-2" size="15" fill="#9E9E9E" />
+                                <button type="button" className="btn btn-default">
+                                    <TooltipIcon className="mb-1" size="15" fill="#9E9E9E" />
+                                </button>
                             </OverlayTrigger>
                         }
                         </label>

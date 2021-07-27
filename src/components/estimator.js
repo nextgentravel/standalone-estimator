@@ -1496,7 +1496,9 @@ const Estimator = () => {
                                                         delay={{ show: 250, hide: 400 }}
                                                         overlay={renderAccommodationTooltip}
                                                     >
-                                                        <FaQuestionCircle className="ml-2 mb-1" size="15" fill="#9E9E9E" />
+                                                        <button type="button" className="btn btn-default">
+                                                            <FaQuestionCircle className="ml-2 mb-1" size="15" fill="#9E9E9E" />
+                                                        </button>
                                                     </OverlayTrigger>
                                                 </>
                                             </div>
