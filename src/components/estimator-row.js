@@ -6,7 +6,7 @@ const ConditionalWrap = ({ condition, wrap, children }) => (
     condition ? wrap(children) : children
 );
 
-const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTotal, value, tooltipIcon, tooltipText, readOnly, result, overlayRender, locale }) => {
+const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTotal, value, tooltipIcon, tooltipText, readOnly, result, overlayRender, locale, ariaLabel }) => {
     const TooltipIcon = tooltipIcon ? tooltipIcon : null;
 
     const renderTooltip = (props) => (
@@ -59,6 +59,7 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                         className="form-control"
                         id={id}
                         name={name}
+                        aria-label={ariaLabel}
                         onChange={(e) => {
                             if (!result) return;
                             updateCost(e.target.value)

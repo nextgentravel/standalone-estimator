@@ -334,6 +334,11 @@ const Estimator = () => {
                     transportation_type
                     aria_summary_loading
                     aria_summary_loaded
+                    accommodation_total
+                    transportation_total
+                    local_transportation_total
+                    meals_and_incidentals_total
+                    other_allowances_total
                 }
             }
         }
@@ -878,13 +883,6 @@ const Estimator = () => {
                 } else {
                     setAcceptedFlight(0.00)
                 }
-
-                setTransportationMessage({
-                    element: <span>{formattedMessage('transportation_select_message')}</span>
-                })
-                setAccommodationMessage({
-                    element: <span>{formattedMessage('accommodation_select_message')}</span>
-                })
                 let numberOfDays = Interval.fromDateTimes(
                     departureDateLux,
                     returnDateLux)
@@ -916,9 +914,16 @@ const Estimator = () => {
                 // get ACRD rate for destination
 
                 // calculate meals for destination
-                setResult(true);
+                
                 executeScroll()
                 setScreenReaderStatus(formattedMessage('aria_summary_loaded'))
+                setTransportationMessage({
+                    element: <span>{formattedMessage('transportation_select_message')}</span>
+                })
+                setAccommodationMessage({
+                    element: <span>{formattedMessage('accommodation_select_message')}</span>
+                })
+                setResult(true);
                 setLoading(false);
                 focusAccommodationSelect()
                 setErrorPanel(false);
@@ -1415,7 +1420,6 @@ const Estimator = () => {
 
             <section className="card bg-light p-4 mb-4">
                 <h3 className="mb-3">{formattedMessage('estimate_summary_title')}</h3>
-
                 <div className="row mb-4">
                     <div className="col-sm-12 mb-2">
                         <label htmlFor="accommodation_select"><FaBed className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('accommodation')}</label>
@@ -1473,13 +1477,13 @@ const Estimator = () => {
                                     </div>
                                 }
                                 <input
-                                    
                                     readOnly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
                                     aria-readonly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
                                     type="text"
                                     className="form-control"
-                                    id={"accommodation_select"}
-                                    name={'accommodation'}
+                                    id={"accommodation_total"}
+                                    aria-label={formattedMessage('accommodation_total')}
+                                    name={formattedMessage('accommodation_total')}
                                     onChange={(e) => {
                                         if (!result) return;
                                         if (parseFloat(e.target.value) > acrdTotal) {
@@ -1548,7 +1552,7 @@ const Estimator = () => {
                             </div>
                         </ConditionalWrap>
                     </div>
-                    <div className="col-sm-5 align-self-center text-wrap mb-2" >
+                    <div className="col-sm-5 align-self-center text-wrap mb-2" id="accommodation-message">
                         {accommodationMessage.element}
                     </div>
                 </div>
@@ -1616,7 +1620,8 @@ const Estimator = () => {
                                     type="text"
                                     className={`form-control`}
                                     id={"transportation_select"}
-                                    name={'transportation'}
+                                    aria-label={formattedMessage('transportation_total')}
+                                    name={formattedMessage('transportation_total')}
                                     onChange={(e)  => {
                                         if (result) {
                                             setTransportationCost(e.target.value)
@@ -1635,7 +1640,6 @@ const Estimator = () => {
                                     aria-readonly={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
                                     type="number"
                                     min="0"
-                                    
                                 >
                                 </input>
                                 {locale === 'fr-ca' &&
@@ -1647,7 +1651,7 @@ const Estimator = () => {
                             </div>
                         </ConditionalWrap>
                     </div>
-                    <div className="col-sm-5 align-self-center text-wrap mb-2" >
+                    <div className="col-sm-5 align-self-center text-wrap mb-2" id="transportation-message">
                         {transportationMessage.element}
                     </div>
                 </div>
@@ -1697,7 +1701,8 @@ const Estimator = () => {
                     overlayRender={renderEnterTravelInfoAboveTooltip}
                     result={result}
                     value={localTransportationCost}
-                    name="localTransportation"
+                    name={formattedMessage('local_transportation_total')}
+                    ariaLabel={formattedMessage('local_transportation_total')}
                     id="localTransportation"
                     description="localTransportationDescription"
                     icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
@@ -1712,7 +1717,8 @@ const Estimator = () => {
                     overlayRender={renderEnterTravelInfoAboveTooltip}
                     result={result}
                     value={mealCost.total}
-                    name="mealsAndIncidentals"
+                    name={formattedMessage('meals_and_incidentals_total')}
+                    ariaLabel={formattedMessage('meals_and_incidentals_total')}
                     id="mealsAndIncidentals"
                     description="selectMealsToInclude"
                     message={{
@@ -1730,7 +1736,8 @@ const Estimator = () => {
                     overlayRender={renderEnterTravelInfoAboveTooltip}
                     result={result}
                     value={otherCost || ''}
-                    name="otherAllowances"
+                    name={formattedMessage('other_allowances_total')}
+                    ariaLabel={formattedMessage('other_allowances_total')}
                     id="otherAllowances"
                     message={{ element: result ? formattedMessage('other_allowances_message') : <span></span>}}
                     icon={<FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />}
