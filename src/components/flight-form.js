@@ -55,47 +55,47 @@ const FlightForm = (props) => {
 
     let offsetOptions = [
         {
-            label: `+ / - 1 ${hourAbbreviation}`,
+            label: `+ / − 1 ${hourAbbreviation}`,
             value: 1,
         },
         {
-            label: `+ / - 2 ${hourAbbreviation}`,
+            label: `+ / − 2 ${hourAbbreviation}`,
             value: 2,
         },
         {
-            label: `+ / - 3 ${hourAbbreviation}`,
+            label: `+ / − 3 ${hourAbbreviation}`,
             value: 3,
         },
         {
-            label: `+ / - 4 ${hourAbbreviation}`,
+            label: `+ / − 4 ${hourAbbreviation}`,
             value: 4,
         },
         {
-            label: `+ / - 5 ${hourAbbreviation}`,
+            label: `+ / − 5 ${hourAbbreviation}`,
             value: 5
         },
         {
-            label: `+ / - 6 ${hourAbbreviation}`,
+            label: `+ / − 6 ${hourAbbreviation}`,
             value: 6,
         },
         {
-            label: `+ / - 7 ${hourAbbreviation}`,
+            label: `+ / − 7 ${hourAbbreviation}`,
             value: 7,
         },
         {
-            label: `+ / - 9 ${hourAbbreviation}`,
+            label: `+ / − 9 ${hourAbbreviation}`,
             value: 9,
         },
         {
-            label: `+ / - 10 ${hourAbbreviation}`,
+            label: `+ / − 10 ${hourAbbreviation}`,
             value: 10,
         },
         {
-            label: `+ / - 11 ${hourAbbreviation}`,
+            label: `+ / − 11 ${hourAbbreviation}`,
             value: 11,
         },
         {
-            label: `+ / - 12 ${hourAbbreviation}`,
+            label: `+ / − 12 ${hourAbbreviation}`,
             value: 12,
         },
     ]
