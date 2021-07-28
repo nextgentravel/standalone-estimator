@@ -339,6 +339,7 @@ const Estimator = () => {
                     local_transportation_total
                     meals_and_incidentals_total
                     other_allowances_total
+                    date_format_description
                 }
             }
         }
