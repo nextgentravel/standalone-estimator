@@ -1500,7 +1500,7 @@ const Estimator = () => {
                                                         delay={{ show: 250, hide: 400 }}
                                                         overlay={renderAccommodationTooltip}
                                                     >
-                                                        <button type="button" className="btn btn-default">
+                                                        <button type="button" className="btn btn-default" aria-label={formattedMessage('tooltip')}>
                                                             <FaQuestionCircle className="ml-2 mb-1" size="15" fill="#9E9E9E" />
                                                         </button>
                                                     </OverlayTrigger>
@@ -1746,6 +1746,7 @@ const Estimator = () => {
                     updateCost={setOtherCost}
                     tooltipIcon={FaQuestionCircle}
                     tooltipText={<span dangerouslySetInnerHTML={{ __html: localeCopy.other_tooltip_text }}></span>}
+                    toolTipLabel={formattedMessage('tooltip')}
                     readOnly={!result}
                 />
                 <div className="row mb-4">

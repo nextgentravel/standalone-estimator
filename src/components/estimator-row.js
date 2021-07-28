@@ -1,12 +1,13 @@
 import React from "react";
 import Tooltip from 'react-bootstrap/Tooltip'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import { FormattedMessage } from "react-intl";
 
 const ConditionalWrap = ({ condition, wrap, children }) => (
     condition ? wrap(children) : children
 );
 
-const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTotal, value, tooltipIcon, tooltipText, readOnly, result, overlayRender, locale, ariaLabel }) => {
+const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTotal, value, tooltipIcon, tooltipText, readOnly, result, overlayRender, locale, ariaLabel, toolTipLabel }) => {
     const TooltipIcon = tooltipIcon ? tooltipIcon : null;
 
     const renderTooltip = (props) => (
@@ -27,7 +28,7 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                                 delay={{ show: 250, hide: 400 }}
                                 overlay={renderTooltip}
                             >
-                                <button type="button" className="btn btn-default">
+                                <button type="button" className="btn btn-default" aria-label={toolTipLabel}>
                                     <TooltipIcon className="mb-1" size="15" fill="#9E9E9E" />
                                 </button>
                             </OverlayTrigger>

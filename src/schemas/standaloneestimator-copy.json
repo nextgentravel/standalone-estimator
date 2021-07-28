@@ -150,6 +150,12 @@
       "config" : {
         "label" : "aria_summary_loaded"
       }
+    },
+    "tooltip" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "tooltip"
+      }
     }
   },
   "Email Confirmation Modal" : {
