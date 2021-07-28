@@ -68,7 +68,6 @@ const DatePickerComponent = ({startDate, endDate, initialStart, setStart, initia
                     phrases={phrases}
                     startDatePlaceholderText={localeCopy.datepicker_start_date}
                     endDatePlaceholderText={localeCopy.datepicker_end_date}
-                    endDateAriaLabel=''
                 />
             </div>
         </div>

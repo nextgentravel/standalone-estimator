@@ -54,7 +54,6 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
                     onConfirm={value => {
                         updateValue(value)
                     }}
-                    aria-describedby={`autocomplete-${name}`}
                     className={showValidationWarning ? 'form-control is-invalid' : 'form-control' }
                 />
             </div>
