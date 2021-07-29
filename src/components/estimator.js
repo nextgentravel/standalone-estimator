@@ -1764,10 +1764,10 @@ const Estimator = () => {
 
             <hr />
             
-            <div className="card bg-white py-4 px-5 mb-2">
+            <div className="card bg-white py-2 px-5 mb-2">
                 <div className="row">
                     <button className="col-sm-12 pl-2 pb-1 btn btn-plain" aria-expanded="false" onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
-                        <h3><FaCalculator size="20" className='mb-1 mr-2' />{localeCopy.explainer_title.text}</h3>
+                        <h3 className="mt-2 mb-1"><FaCalculator size="20" className='mb-1 mr-2' />{localeCopy.explainer_title.text}</h3>
                         {explainerCollapsed &&
                             <FaCaretDown
                                 size="25"
