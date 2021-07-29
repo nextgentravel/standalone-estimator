@@ -1,0 +1,109 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Banner for Intranet WET4.0  */
+
+.bg {
+background: url("../images/bnr-1px.jpg") repeat-x scroll 0 center transparent;
+}
+
+div.bg > .container {
+    background:url("../images/bg.jpg");
+    position: relative;
+}
+
+#wb-bnr {
+    background: none repeat scroll 0 0 #2F6251;
+}
+
+#gcwu-sig, #gcwu-sig-in, #gcwu-sig img{height:33px !important;overflow:visible !important;} /* important for the FIP to fit in the container */
+/* End Banner for intranet WET4.0 */
+
+#wb-bnr-ss {
+    border-top: 1px solid #B5D9CD !important;	/* top border for subsite banner */
+}
+
+
+/* Mega menu overrides */
+
+#wb-sm {
+border-top: none;
+}
+#wb-sm .nvbar {
+    background-color: #2F6251;
+    background-image: linear-gradient(#2F6251,#2F6251);
+    border-bottom: 4px solid #ccc;
+    border-top: 1px solid #ccc !important;
+    filter: none;
+    }
+   
+    
+#wb-sm .nvbar ul.menu > li > a.wb-navcurr, #wb-sm .sm .slflnk a.wb-navcurr, #wb-sm .sm a.wb-navcurr, #wb-sm .sm summary.wb-navcurr {
+    background: none repeat scroll 0 0 #1b4432 !important;
+    color: #fff;
+}    
+
+#wb-sm .sm {
+    border-bottom: 4px solid #1b4432 !important;
+    border-radius: 0 0 3px 3px;
+    border-top: 1px solid #ccc;
+}
+
+#wb-sm .nvbar .row { /* for ie8 */
+    background-color: #2F6251;
+    background-image: linear-gradient(#2F6251,#2F6251);
+    filter: none;
+    }
+
+
+/* End of Mega menu overrides */
+
+/* WET template components overrides */
+.btn-primary {
+    background-color: #2F6251;
+    border-color: #BADBD0;
+    color: #fff;
+}
+
+.btn-primary.active, .btn-primary:active, .btn-primary:focus, .btn-primary:hover, .open > .btn-primary.dropdown-toggle {
+    background-color: #1b4432;
+    border-color: #BADBD0;
+    color: #fff;
+}
+
+/*End of WET template components overrides */
+
+/* Mobile view overrides */
+#mb-pnl header {
+    background-color: #2F6251 !important;
+}
+#mb-pnl #wb-srch-sub-imprt { 
+    background: none repeat scroll 0 0 #2F6251;
+    border-color: #BADBD0;
+}
+.srch-pnl #wb-srch-sub /* for ie8 */
+{
+    background: none repeat scroll 0 0 #2F6251 !important;
+    border-color: #BADBD0 !important;
+    color: #fff !important;
+}
+
+#mb-pnl #wb-srch-sub-imprt:active, #mb-pnl #wb-srch-sub-imprt:focus, #mb-pnl #wb-srch-sub-imprt:hover {
+    background-color: #1b4432 !important;
+    border-color: #BADBD0 !important;
+}
+
+#wb-srch-sub:hover, #wb-srch-sub:active, #wb-srch-sub:focus {
+    background-color: #1b4432 !important;
+    border-color: #BADBD0 !important;
+}
+
+#mb-pnl .sm-pnl {
+    background: none repeat scroll 0 0 #2F6251 !important;
+}
+
+
+/*End of Mobile view overrides */
+
+
+

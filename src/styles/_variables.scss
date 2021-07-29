@@ -17,7 +17,7 @@ $h6-font-size: $font-size-base * 0.95;
 $lead-font-size: $font-size-base * 1;
 $lead-font-weight: 300;
 
-$primary: #2572B4; // changed
+$primary: #284162; // changed
 $gray-light: #6f6f6f; // Light grey colour (Bootstrap override).
 $border-red: #af3c43;
 $light: #F8F8F8;
@@ -33,3 +33,5 @@ $breadcrumb-color: #26374A;
 //** Text color of current page in the breadcrumb
 $breadcrumb-active-color: #26374A;
 //** Textual separator for between breadcrumb elements
+
+$link-decoration: underline;
