@@ -37,7 +37,7 @@ export default ({ data }) => {
         <w-screen mt-4="true" fluid="true" id="container">
           <div>
             <main id="main-content" role="main">
-              <div className="container mt-4">
+              <div className="wet-container">
                 <Estimator />
               </div>
             </main>
