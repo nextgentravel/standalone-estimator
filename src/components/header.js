@@ -36,14 +36,14 @@ const Header = ({homeHeader}) => {
     <header role="banner" class="wet-body">
 		<div id="wb-bnr" class="wet-container">
 			<section id="wb-lng" class="wet-visible-md wet-visible-lg wet-text-right">
-				<h2 class="wb-inv">Language selection</h2>
-				<div class="wet-row">
-					<div class="wet-col-md-12">
-						<ul class="wet-list-inline wet-margin-bottom-none">
-							<li><a lang="fr" href="/cgi-bin/language.pl">Fran&ccedil;ais</a></li>
-						</ul>
-					</div>
-				</div>
+
+				<nav className="skiphold" id="header-skiplink">
+					<a className="sr-only sr-only-focusable aurora-skip skiplink" aria-label="main skiplink" href="#main-content">{messages.header_skip_to_main}</a>
+				</nav>
+				<section className='text-right align-self-center ml-auto'>
+					<h2 className="sr-only sr-only-focusable aurora-skip">{messages.header_language_select}</h2>
+					<SelectLanguage />
+				</section>
 			</section>
 			<div class="wet-row">
 				<div class="wet-brand wet-col-xs-8 wet-col-sm-9 wet-col-md-6"> <a
@@ -119,20 +119,6 @@ const Header = ({homeHeader}) => {
 			</div>
 		</nav>
 	</header>
-
-    // <header className="mb-5">
-    //   <div className="container">
-    //     <div className="row my-3 mx-2">
-    //       <nav className="skiphold" id="header-skiplink">
-    //         <a className="sr-only sr-only-focusable aurora-skip skiplink" aria-label="main skiplink" href="#main-content">{messages.header_skip_to_main}</a>
-    //       </nav>
-    //       <section className='text-right align-self-center ml-auto'>
-    //         <p className="sr-only sr-only-focusable aurora-skip">{messages.header_language_select}</p>
-    //         <SelectLanguage />
-    //       </section>
-    //     </div>
-    //   </div>
-    // </header>
   )
 }
 
