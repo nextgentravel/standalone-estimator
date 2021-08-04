@@ -115,6 +115,9 @@ const accommodationType = (input, lang) => {
       case 'private':
         return "Private accommodation"
         break;
+      case 'notrequired':
+        return "Not required"
+        break;
       default:
         return input;
     }
@@ -125,6 +128,9 @@ const accommodationType = (input, lang) => {
         break;
       case 'private':
         return "Hébergement privé"
+        break;
+      case 'notrequired':
+        return "Non requis"
         break;
       default:
         return input;
