@@ -177,7 +177,7 @@ const EmailForm = (props) => {
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
                     <Form.Text id="emailNotesBox" muted>
-                        {props.messages.email_form_trip_name_helptext}
+                        {props.messages.email_form_notes_helptext}
                     </Form.Text>
 
                     
