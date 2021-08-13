@@ -272,10 +272,10 @@ const FlightForm = (props) => {
                     <>
                         <h3>{props.messages.flight_modal_result_header}</h3>
                         <Form onChange={(e) => props.setSelectedFlightPrice(e.target.value)}>
-                            <div className="mb-3">
+                            <div className="my-3 pl-4">
                                 <fieldset>
                                     <Form.Check
-                                        inline
+                                        // inline
                                         label={`${localCurrencyDisplay(props.flightResult.minimum)} (${props.messages.flight_modal_label_minimum})`}
                                         type={'radio'}
                                         name="priceSelection"
@@ -284,7 +284,7 @@ const FlightForm = (props) => {
                                         defaultChecked={props.acceptedFlight === props.flightResult.minimum}
                                     />
                                     <Form.Check
-                                        inline
+                                        // inline
                                         label={`${localCurrencyDisplay(props.flightResult.median)} (${props.messages.flight_modal_label_median})`}
                                         type={'radio'}
                                         name="priceSelection"
@@ -293,7 +293,7 @@ const FlightForm = (props) => {
                                         defaultChecked={props.acceptedFlight === props.flightResult.median}
                                     />
                                     <Form.Check
-                                        inline
+                                        // inline
                                         label={`${localCurrencyDisplay(props.flightResult.maximum)} (${props.messages.flight_modal_label_maximum})`}
                                         type={'radio'}
                                         name="priceSelection"
