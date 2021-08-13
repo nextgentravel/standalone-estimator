@@ -143,6 +143,7 @@ const EmailForm = (props) => {
                             props.setTravelCategory(e.target.value)
                         }}
                         isInvalid={validationErrorList.includes('travelCategory')}
+                        required
                     >
                         <option value='' disabled>{props.messages.select}</option>
                         {props.messages.email_form_category_options.map((item, index) => {
@@ -164,7 +165,6 @@ const EmailForm = (props) => {
                     <Form.Control
                         isInvalid={validationErrorList.includes('tripNotes')}
                         className="notes-box-placeholder"
-                        required
                         value={props.tripNotes}
                         onChange={(e) => {
                             removeIsInvalid('tripNotes', validationErrors)

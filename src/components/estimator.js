@@ -46,7 +46,12 @@ const ConditionalWrap = ({ condition, wrap, children }) => (
 const Estimator = () => {
     const intl = useIntl();
     const summaryView = useRef(null)
-    const executeScroll = () => summaryView.current.scrollIntoView()    
+    const executeScroll = () => summaryView.current.scrollIntoView()
+    
+    const accommodationSelect = useRef(null);
+    const focusAccommodationSelect = () => {
+      accommodationSelect.current.focus();
+    };
 
     let locale = `${intl.locale}-ca`;
 
@@ -326,6 +331,16 @@ const Estimator = () => {
                     }
                     email_form_trip_name_helptext
                     email_form_notes_helptext
+                    accommodation_type
+                    transportation_type
+                    aria_summary_loading
+                    aria_summary_loaded
+                    accommodation_total
+                    transportation_total
+                    local_transportation_total
+                    meals_and_incidentals_total
+                    other_allowances_total
+                    date_format_description
                 }
             }
         }
@@ -354,7 +369,10 @@ const Estimator = () => {
     const citiesList = cities.citiesList;
     const [filteredCitiesList, setFilteredCitiesList] = useState([]);
 
+    const [screenReaderStatus, setScreenReaderStatus] = useState('');
+
     useEffect(() => {
+        setLoading(true)
         let list = []
         for (let city in geocodedCities) {
             let province = geocodedCities[city].acrdName.slice(-2)
@@ -376,6 +394,12 @@ const Estimator = () => {
         }
         setFilteredCitiesList(list);
         removeActiveDescendantAttr()
+        // updateAccommodationCost(0.00)
+        // updateTransportationCost(0.00)
+        // updateLocalTransportationCost(0.00)
+        // updateMealCost(0.00)
+        // updateOtherCost(0.00)
+        setLoading(false)
     }, []);
 
     const removeActiveDescendantAttr = () => {
@@ -466,21 +490,21 @@ const Estimator = () => {
     const [emailValidationWarnings, setEmailValidationWarnings] = useState([]);
     const [flightValidationWarnings, setFlightValidationWarnings] = useState([]);
 
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [result, setResult] = useState(false);
     const [generalError, setGeneralError] = useState(false);
     const [errorPanel, setErrorPanel] = useState(false);
 
-    const [accommodationCost, setAccommodationCost] = useState(0.00);
+    const [accommodationCost, setAccommodationCost] = useState('0.00');
     const [acrdTotal, setAcrdTotal] = useState(0.00);
     const [accommodationMessage, setAccommodationMessage] = useState({ element: <span></span>, style: 'primary' });
     const [transportationMessage, setTransportationMessage] = useState(initialTransportationMessage);
     const [localTransportationMessage, setLocalTransportationMessage] = useState({ element: <span></span>, style: 'primary' });
-    const [transportationCost, setTransportationCost] = useState(0.00);
-    const [localTransportationCost, setLocalTransportationCost] = useState(0.00);
-    const [mealCost, setMealCost] = useState({ total: 0.00 });
-    const [otherCost, setOtherCost] = useState(0.00);
-    const [summaryCost, setSummaryCost] = useState(0.00);
+    const [transportationCost, setTransportationCost] = useState('0.00');
+    const [localTransportationCost, setLocalTransportationCost] = useState('0.00');
+    const [mealCost, setMealCost] = useState({ total: '0.00' });
+    const [otherCost, setOtherCost] = useState('0.00');
+    const [summaryCost, setSummaryCost] = useState('0.00');
     const [enterKilometricsDistanceManually, setEnterKilometricsDistanceManually] = useState(false)
     const [privateKilometricsValue, setPrivateKilometricsValue] = useState(0);
     const [returnDistance, setReturnDistance] = useState('');
@@ -543,7 +567,7 @@ const Estimator = () => {
             message = message.replace('{distance}', `<strong>${parseInt(privateKilometricsValue)}</strong>`)
             setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
         } else if (!privateVehicleSuccess) {
-            setTransportationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.private_vehicle_error.html }}></span> })
+            setTransportationMessage({ element: <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.private_vehicle_error.html }}></span> })
         }
         return calculateKilometrics;
     }
@@ -592,13 +616,7 @@ const Estimator = () => {
     let [initialFlightResult, setInitialFlightResult] = useState(1.11);
     let [acceptedFlight, setAcceptedFlight] = useState(0.00);
 
-    useEffect(() => {
-        updateAccommodationCost(0.00)
-        updateTransportationCost(0.00)
-        updateLocalTransportationCost(0.00)
-        updateMealCost(0.00)
-        updateOtherCost(0.00)
-    }, [])
+
 
     const fetchHotelCost = () => {
         let months = monthsContained(departureDate.format("YYYY-MM-DD"), returnDate.format("YYYY-MM-DD"));
@@ -697,7 +715,7 @@ const Estimator = () => {
                     resolve(result);
                     // if (result.numberOfResults === 0) {
                     //     localeCopy.flight_no_results.html = localeCopy.flight_no_results.html.replace('{date}', `<strong>${date}</strong>`)    
-                    //     let FlightMessage = <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_no_results.html }}></span>
+                    //     let FlightMessage = <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.flight_no_results.html }}></span>
                     //     updateTransportationCost(0.00);
                     //     setTransportationEstimates({
                     //         ...transportationEstimates,
@@ -732,12 +750,12 @@ const Estimator = () => {
                 .catch(error => {
                     console.log('amadeus flight offer error', error);
                     // updateTransportationCost(0.00);
-                    // setTransportationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
+                    // setTransportationMessage({ element: <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
                     resolve(error);
                 });
             } else {
                 setLoading(false);
-                // setTransportationMessage({ element: <span className="transportation-message alert-warning">{formattedMessage('flight_message_no_airport')}</span>  })
+                // setTransportationMessage({ element: <span className="transportation-message alert-warning" role="alert">{formattedMessage('flight_message_no_airport')}</span>  })
                 resolve('no airport');
             }
         });
@@ -854,6 +872,7 @@ const Estimator = () => {
         setFlightResult({});
         setSelectedFlightPrice(0.00)
         setLoading(true);
+        setScreenReaderStatus(formattedMessage('aria_summary_loading'))
         setGeneralError(false);
         e.preventDefault();
         handleSubmitEstimateValidation()
@@ -869,13 +888,6 @@ const Estimator = () => {
                 } else {
                     setAcceptedFlight(0.00)
                 }
-
-                setTransportationMessage({
-                    element: <span>{formattedMessage('transportation_select_message')}</span>
-                })
-                setAccommodationMessage({
-                    element: <span>{formattedMessage('accommodation_select_message')}</span>
-                })
                 let numberOfDays = Interval.fromDateTimes(
                     departureDateLux,
                     returnDateLux)
@@ -906,9 +918,18 @@ const Estimator = () => {
                 // get ACRD rate for destination
 
                 // calculate meals for destination
-                setResult(true);
+                
                 executeScroll()
+                setScreenReaderStatus(formattedMessage('aria_summary_loaded'))
+                setTransportationMessage({
+                    element: <span>{formattedMessage('transportation_select_message')}</span>
+                })
+                setAccommodationMessage({
+                    element: <span>{formattedMessage('accommodation_select_message')}</span>
+                })
+                setResult(true);
                 setLoading(false);
+                focusAccommodationSelect()
                 setErrorPanel(false);
             })
             .catch(err => {
@@ -1166,7 +1187,7 @@ const Estimator = () => {
     useEffect(() => {
         if (result && parseInt(localTransportationCost) === 0) {
             setLocalTransportationMessage({
-                element:  <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.local_tranportation_zero.html }}></span>
+                element:  <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.local_tranportation_zero.html }}></span>
             })
         } else if (result && localTransportationEstimate !== parseInt(localTransportationCost)) {
             setLocalTransportationMessage({
@@ -1250,11 +1271,11 @@ const Estimator = () => {
 
             // } else if (result && !haveFlightCost && (parseInt(transportationCost) === 0)) {
             //     setTransportationMessage({
-            //         element:  <span className="transportation-message alert-warning">{formattedMessage('could_not_fetch_flight_value')}</span>
+            //         element:  <span className="transportation-message alert-warning" role="alert">{formattedMessage('could_not_fetch_flight_value')}</span>
             //     })
             // } else if (result && !haveFlightCost && (parseInt(transportationCost) > 0)) {
             //     setTransportationMessage({
-            //         element:  <span className="transportation-message alert-warning">{formattedMessage('could_not_fetch_you_have_entered_own')}</span>
+            //         element:  <span className="transportation-message alert-warning" role="alert">{formattedMessage('could_not_fetch_you_have_entered_own')}</span>
             //     })
             // }
         }
@@ -1352,9 +1373,9 @@ const Estimator = () => {
             />
 
 
-            <h2 className="mb-4">{localeCopy.title.text}</h2>
+            <h2 className="mb-4" id="h2-label">{localeCopy.title.text}</h2>
             <div className="lead mb-5" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
-             {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
+             {errorPanel !== false && <div className="alert alert-danger alert-danger-banner" role="alert">
                 <h3>{formattedMessage('estimate_error_title')}</h3>
                 <p>{formattedMessage('estimate_error_lead')}</p>
                 <ul className="list-unstyled">
@@ -1406,6 +1427,7 @@ const Estimator = () => {
                         <button type="button" id="clear-button" className="btn btn-outline-primary px-5 ml-3" onClick={() => {clearForm()}}>{formattedMessage('clear')}</button>
                     }
                     {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
+                    <div role="status" class="sr-only" id="loading-sr">{screenReaderStatus}</div>
                 </div>
             </form>
 
@@ -1419,9 +1441,8 @@ const Estimator = () => {
                 </div>
             </div>}
 
-            <div className="card bg-light p-4 mb-4">
+            <section className="card bg-light p-4 mb-4">
                 <h3 className="mb-3">{formattedMessage('estimate_summary_title')}</h3>
-
                 <div className="row mb-4">
                     <div className="col-sm-12 mb-2">
                         <label htmlFor="accommodation_select"><FaBed className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('accommodation')}</label>
@@ -1441,8 +1462,9 @@ const Estimator = () => {
                                             >{children}</OverlayTrigger>)}
                                     >
                                         <select
+                                            ref={accommodationSelect}
                                             disabled={!result}
-                                            aria-label="Accommodation Type"
+                                            aria-label={formattedMessage('accommodation_type')}
                                             className="custom-select mb-2"
                                             value={accommodationType}
                                             onChange={e => {
@@ -1478,11 +1500,13 @@ const Estimator = () => {
                                     </div>
                                 }
                                 <input
-                                    disabled={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
+                                    readOnly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
+                                    aria-readonly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
                                     type="text"
                                     className="form-control"
-                                    id={"accommodation_select"}
-                                    name={'accommodation'}
+                                    id={"accommodation_total"}
+                                    aria-label={formattedMessage('accommodation_total')}
+                                    name={formattedMessage('accommodation_total')}
                                     onChange={(e) => {
                                         if (!result) return;
                                         if (parseFloat(e.target.value) > acrdTotal) {
@@ -1491,15 +1515,17 @@ const Estimator = () => {
                                             message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
                                             message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
                                             setAccommodationMessage({ element: 
-                                            <div className="mb-0 alert-warning">
+                                            <div className="mb-0 alert-warning" role="alert">
                                                 <>
-                                                    <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: message }}></span>
+                                                    <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: message }}></span>
                                                     <OverlayTrigger
                                                         placement="top"
                                                         delay={{ show: 250, hide: 400 }}
                                                         overlay={renderAccommodationTooltip}
                                                     >
-                                                        <FaQuestionCircle className="ml-2 mb-1" size="15" fill="#9E9E9E" />
+                                                        <button type="button" className="btn btn-default" aria-label={formattedMessage('tooltip')}>
+                                                            <FaQuestionCircle className="ml-2 mb-1" size="15" fill="#9E9E9E" />
+                                                        </button>
                                                     </OverlayTrigger>
                                                 </>
                                             </div>
@@ -1508,9 +1534,9 @@ const Estimator = () => {
                                             setAccommodationCost(e.target.value)
                                             // localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
                                             setAccommodationMessage({ element: 
-                                            <div className="mb-0 alert-warning">
+                                            <div className="mb-0 alert-warning" role="alert">
                                                 <>
-                                                    <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
+                                                    <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
                                                 </>
                                             </div>
                                             , style: 'warn' });
@@ -1549,7 +1575,7 @@ const Estimator = () => {
                             </div>
                         </ConditionalWrap>
                     </div>
-                    <div className="col-sm-5 align-self-center text-wrap mb-2">
+                    <div className="col-sm-5 align-self-center text-wrap mb-2" id="accommodation-message">
                         {accommodationMessage.element}
                     </div>
                 </div>
@@ -1574,7 +1600,7 @@ const Estimator = () => {
                                     >
                                         <select
                                             disabled={!result}
-                                            aria-label="Transportation Type"
+                                            aria-label={formattedMessage('transportation_type')}
                                             className="custom-select mb-2"
                                             value={transportationType}
                                             onChange={e => {
@@ -1613,10 +1639,12 @@ const Estimator = () => {
                                     </div>
                                 }
                                 <input
+                                    
                                     type="text"
                                     className={`form-control`}
                                     id={"transportation_select"}
-                                    name={'transportation'}
+                                    aria-label={formattedMessage('transportation_total')}
+                                    name={formattedMessage('transportation_total')}
                                     onChange={(e)  => {
                                         if (result) {
                                             setTransportationCost(e.target.value)
@@ -1631,7 +1659,8 @@ const Estimator = () => {
                                         calculateTotal();
                                     }}
                                     value={transportationCost}
-                                    disabled={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
+                                    readOnly={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
+                                    aria-readonly={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
                                     type="number"
                                     min="0"
                                 >
@@ -1645,7 +1674,7 @@ const Estimator = () => {
                             </div>
                         </ConditionalWrap>
                     </div>
-                    <div className="col-sm-5 align-self-center text-wrap mb-2">
+                    <div className="col-sm-5 align-self-center text-wrap mb-2" id="transportation-message">
                         {transportationMessage.element}
                     </div>
                 </div>
@@ -1694,8 +1723,9 @@ const Estimator = () => {
                     locale={locale}
                     overlayRender={renderEnterTravelInfoAboveTooltip}
                     result={result}
-                    value={localTransportationCost || ''}
-                    name="localTransportation"
+                    value={localTransportationCost}
+                    name={formattedMessage('local_transportation_total')}
+                    ariaLabel={formattedMessage('local_transportation_total')}
                     id="localTransportation"
                     description="localTransportationDescription"
                     icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
@@ -1703,14 +1733,15 @@ const Estimator = () => {
                     calculateTotal={calculateTotal}
                     updateCost={setLocalTransportationCost}
                     message={localTransportationMessage}
-                    disabled={!result}
+                    readOnly={!result}
                 />
                 <EstimatorRow
                     locale={locale}
                     overlayRender={renderEnterTravelInfoAboveTooltip}
                     result={result}
-                    value={mealCost.total || '0.00'}
-                    name="mealsAndIncidentals"
+                    value={mealCost.total}
+                    name={formattedMessage('meals_and_incidentals_total')}
+                    ariaLabel={formattedMessage('meals_and_incidentals_total')}
                     id="mealsAndIncidentals"
                     description="selectMealsToInclude"
                     message={{
@@ -1721,14 +1752,15 @@ const Estimator = () => {
                     title={formattedMessage("meals_and_incidentals")}
                     calculateTotal={calculateTotal}
                     updateCost={setMealCost}
-                    disabled={true}
+                    readOnly={true}
                 />
                 <EstimatorRow
                     locale={locale}
                     overlayRender={renderEnterTravelInfoAboveTooltip}
                     result={result}
                     value={otherCost || ''}
-                    name="otherAllowances"
+                    name={formattedMessage('other_allowances_total')}
+                    ariaLabel={formattedMessage('other_allowances_total')}
                     id="otherAllowances"
                     message={{ element: result ? formattedMessage('other_allowances_message') : <span></span>}}
                     icon={<FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />}
@@ -1737,17 +1769,18 @@ const Estimator = () => {
                     updateCost={setOtherCost}
                     tooltipIcon={FaQuestionCircle}
                     tooltipText={<span dangerouslySetInnerHTML={{ __html: localeCopy.other_tooltip_text }}></span>}
-                    disabled={!result}
+                    toolTipLabel={formattedMessage('tooltip')}
+                    readOnly={!result}
                 />
                 <div className="row mb-4">
-                    <div className="col-sm-7 align-self-center text-right">
+                    <div className="col-sm-7 align-self-center text-right" >
                         <hr />
                         <strong className="mr-2">{formattedMessage('total_cost')}</strong>{localCurrencyDisplay(parseFloat(summaryCost))}
                     </div>
                     <div className="col-sm-5 align-self-center text-wrap">
                     </div>
                 </div>
-            </div>
+            </section>
             <div className="row ml-1 mb-5">
                 <div className="col-sm-12">
                     <Button disabled={!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired')} className="px-5 mb-2" onClick={() => { setEmailModalShow(true) }}>{formattedMessage('email')}</Button>
@@ -1766,7 +1799,7 @@ const Estimator = () => {
             
             <div className="card bg-white py-4 px-5 mb-2">
                 <div className="row">
-                    <button className="col-sm-12 pl-2 pb-1 btn btn-plain" aria-expanded="false" onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
+                    <button className="col-sm-12 pl-2 pb-1 btn btn-plain" aria-expanded={!explainerCollapsed} onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
                         <h3><FaCalculator size="20" className='mb-1 mr-2' />{localeCopy.explainer_title.text}</h3>
                         {explainerCollapsed &&
                             <FaCaretDown
@@ -1804,7 +1837,7 @@ const Estimator = () => {
 
 
             <div>
-                <button className="header-button btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
+                <button className="header-button btn btn-plain pb-3" aria-expanded={!disclaimerCollapsed} onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
                     <h4 className="step-disclaimer-header">
                         {disclaimerCollapsed &&
                             <FaPlusCircle size="15" />}

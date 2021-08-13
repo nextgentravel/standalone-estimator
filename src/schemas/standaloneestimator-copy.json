@@ -138,6 +138,24 @@
         "multi": "strong, em",
         "label": "email_field_disabled_message"
       }
+    },
+    "aria_summary_loading": {
+      "type": "Text",
+      "config": {
+        "label": "aria_summary_loading"
+      }
+    },
+    "aria_summary_loaded": {
+      "type": "Text",
+      "config": {
+        "label": "aria_summary_loaded"
+      }
+    },
+    "tooltip": {
+      "type": "Text",
+      "config": {
+        "label": "tooltip"
+      }
     }
   },
   "Email Confirmation Modal": {
@@ -357,6 +375,12 @@
       "config": {
         "label": "meals_modal_submit"
       }
+    },
+    "meals_and_incidentals_total": {
+      "type": "Text",
+      "config": {
+        "label": "meals_and_incidentals_total"
+      }
     }
   },
   "Explainer": {
@@ -470,6 +494,18 @@
       "type": "Text",
       "config": {
         "label": "accommodation_select_message"
+      }
+    },
+    "accommodation_type": {
+      "type": "Text",
+      "config": {
+        "label": "accommodation_type"
+      }
+    },
+    "accommodation_total": {
+      "type": "Text",
+      "config": {
+        "label": "accommodation_total"
       }
     }
   },
@@ -726,6 +762,18 @@
         "label": "private_vehicle_enter_distance_manually",
         "placeholder": "Enter distance manually"
       }
+    },
+    "transportation_type": {
+      "type": "Text",
+      "config": {
+        "label": "transportation_type"
+      }
+    },
+    "transportation_total": {
+      "type": "Text",
+      "config": {
+        "label": "transportation_total"
+      }
     }
   },
   "Local Transportation Messages": {
@@ -749,6 +797,12 @@
         "multi": "strong, em, hyperlink",
         "label": "local_tranportation_zero"
       }
+    },
+    "local_transportation_total": {
+      "type": "Text",
+      "config": {
+        "label": "local_transportation_total"
+      }
     }
   },
   "Other Allowances Messages": {
@@ -762,6 +816,12 @@
       "type": "Text",
       "config": {
         "label": "other_tooltip_text"
+      }
+    },
+    "other_allowances_total": {
+      "type": "Text",
+      "config": {
+        "label": "other_allowances_total"
       }
     }
   },
@@ -1297,6 +1357,12 @@
       "config": {
         "label": "datepicker_start_date",
         "placeholder": "Start Date"
+      }
+    },
+    "date_format_description": {
+      "type": "Text",
+      "config": {
+        "label": "date_format_description"
       }
     },
     "datepicker_end_date": {

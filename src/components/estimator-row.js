@@ -1,12 +1,13 @@
 import React from "react";
 import Tooltip from 'react-bootstrap/Tooltip'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import { FormattedMessage } from "react-intl";
 
 const ConditionalWrap = ({ condition, wrap, children }) => (
     condition ? wrap(children) : children
 );
 
-const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTotal, value, tooltipIcon, tooltipText, disabled, result, overlayRender, locale }) => {
+const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTotal, value, tooltipIcon, tooltipText, readOnly, result, overlayRender, locale, ariaLabel, toolTipLabel }) => {
     const TooltipIcon = tooltipIcon ? tooltipIcon : null;
 
     const renderTooltip = (props) => (
@@ -27,7 +28,9 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                                 delay={{ show: 250, hide: 400 }}
                                 overlay={renderTooltip}
                             >
-                                <TooltipIcon className="ml-2" size="15" fill="#9E9E9E" />
+                                <button type="button" className="btn btn-default" aria-label={toolTipLabel}>
+                                    <TooltipIcon className="mb-1" size="15" fill="#9E9E9E" />
+                                </button>
                             </OverlayTrigger>
                         }
                         </label>
@@ -50,12 +53,14 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                         </div>
                     }
                     <input
-                        disabled={disabled}
+                        readOnly={readOnly}
+                        aria-readonly={readOnly}
                         type="text"
                         value={value}
                         className="form-control"
                         id={id}
                         name={name}
+                        aria-label={ariaLabel}
                         onChange={(e) => {
                             if (!result) return;
                             updateCost(e.target.value)
