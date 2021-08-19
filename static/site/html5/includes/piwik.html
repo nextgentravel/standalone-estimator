@@ -1,0 +1,24 @@
+<!-- Piwik -->
+<script type="text/javascript">
+var _trackDomains = ["gcintranet.tpsgc-pwgsc.gc.ca","gcintranet.spac-pspc.gc.ca"]
+var _visitorHostname = window.location.hostname;
+var arrayLength = _trackDomains.length;
+var _trackPage = false;
+for (var i = 0; i < arrayLength; i++) {
+	if (_visitorHostname == _trackDomains[i]) _trackPage = true;
+}
+if (_trackPage) {
+	var _paq = _paq || [];
+	_paq.push(['trackPageView']);
+	_paq.push(['enableLinkTracking']);
+	(function() {
+		var u=(("https:" == document.location.protocol) ? "https" : "http") + "://stats.tpsgc-pwgsc.gc.ca/";
+		_paq.push(['setTrackerUrl', u+'piwik.php']);
+		_paq.push(['setSiteId', 103]);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+		g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+	})();
+}
+</script>
+<noscript><p><img src="http://stats.tpsgc-pwgsc.gc.ca/piwik.php?idsite=103" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
