@@ -309,7 +309,7 @@ const FlightForm = (props) => {
                 {props.flightResult.numberOfResults === 0 &&
                     <>
                         <h3>{props.messages.flight_modal_result_header}</h3>
-                        <p>{props.messages.flight_modal_zero_results}</p>
+                        <div dangerouslySetInnerHTML={{ __html: props.messages.flight_modal_zero_results_with_link.html }}></div>
                     </>
                 }
                 {Object.keys(props.flightResult).length === 0 && !flightLoading &&

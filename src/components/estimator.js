@@ -317,6 +317,9 @@ const Estimator = () => {
                         html
                     }
                     flight_modal_zero_results
+                    flight_modal_zero_results_with_link {
+                        html
+                    }
                     flight_modal_api_error
                     flight_selected_fare
                     flight_selected_fare_preselected
