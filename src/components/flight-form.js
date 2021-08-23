@@ -6,9 +6,24 @@ import Button from 'react-bootstrap/Button'
 import { FaSpinner } from 'react-icons/fa';
 import * as yup from "yup"
 
-const FlightForm = (props) => {
-    let validationErrors = props.validationWarnings || []
 
+const FlightForm = (props) => {
+
+    function formattedMessage(prismicKey, classes) {
+        let messageType = typeof props.localeCopy[prismicKey]
+        let message;
+        if (messageType === 'string') {
+            message = props.localeCopy[prismicKey]
+        } else if (messageType === 'object' && props.localeCopy[prismicKey] !== null) {
+            message = <span className={classes} dangerouslySetInnerHTML={{ __html: props.localeCopy[prismicKey].html }}></span>
+        } else {
+            message = 'MISSING MESSAGE ' + prismicKey
+        }
+        return message
+    }
+
+    let validationErrors = props.validationWarnings || []
+    let [screenReaderStatus, setScreenReaderStatus] = useState('');
     const handleSubmitFlightRequestValidation = () => {
         let target = {
             originAirportCode: props.originAirportCode,
@@ -247,21 +262,25 @@ const FlightForm = (props) => {
                             onClick={() => {
                                 handleSubmitFlightRequestValidation()
                                     .then(async (valid) => {
+                                        setScreenReaderStatus(formattedMessage('aria_flight_estimate_loading'))
                                         props.setValidationWarnings([]);
                                         props.setFlightResult({});
                                         setFlightLoading(true);
                                         props.fetchFlightCost(props.originAirportCode, props.destinationAirportCode, props.departureTime, props.returnTime, props.departureOffset, props.returnOffset).then((result) => {
                                             props.setFlightResult(result);
                                             setFlightLoading(false);
+                                            setScreenReaderStatus(formattedMessage('aria_flight_estimate_loaded'))
                                         })
                                     })
                                     .catch(err => {
+                                        setScreenReaderStatus(formattedMessage('aria_flight_estimate_loaded'))
                                         console.log("ERROR", err)
                                         props.setValidationWarnings(err.inner);
                                     });
                             }}
                             className={`${flightLoading ? 'float-right disabled' : 'float-right'}`} variant="primary">{props.messages.flight_modal_fetch_flight_estimate_label}
                             {flightLoading && <FaSpinner className="float-right fa-spin ml-3 mt-1" size="24" />}
+                            <div role="status" class="sr-only" id="loading-sr">{screenReaderStatus}</div>
                             </Button>
                             
                     </Col>

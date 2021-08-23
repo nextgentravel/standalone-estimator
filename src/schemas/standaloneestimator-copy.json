@@ -1538,6 +1538,18 @@
       "config" : {
         "label" : "flight_modal_api_error"
       }
+    },
+    "aria_flight_estimate_loading" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "aria_flight_estimate_loading"
+      }
+    },
+    "aria_flight_estimate_loaded" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "aria_flight_estimate_loaded"
+      }
     }
   }
 }

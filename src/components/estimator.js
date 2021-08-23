@@ -344,6 +344,8 @@ const Estimator = () => {
                     meals_and_incidentals_total
                     other_allowances_total
                     date_format_description
+                    aria_flight_estimate_loading
+                    aria_flight_estimate_loaded
                 }
             }
         }
