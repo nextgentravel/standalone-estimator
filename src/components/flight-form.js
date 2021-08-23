@@ -267,7 +267,7 @@ const FlightForm = (props) => {
                     </Col>
                 </Form.Group>
             </Form>
-            <div>
+            <div aria-live="polite">
                 {Object.keys(props.flightResult).length !== 0 && props.flightResult.numberOfResults > 0 &&
                     <>
                         <h3>{props.messages.flight_modal_result_header}</h3>
