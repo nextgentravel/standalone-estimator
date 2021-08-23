@@ -10,12 +10,12 @@ import * as yup from "yup"
 const FlightForm = (props) => {
 
     function formattedMessage(prismicKey, classes) {
-        let messageType = typeof props.localeCopy[prismicKey]
+        let messageType = typeof props.messages[prismicKey]
         let message;
         if (messageType === 'string') {
-            message = props.localeCopy[prismicKey]
-        } else if (messageType === 'object' && props.localeCopy[prismicKey] !== null) {
-            message = <span className={classes} dangerouslySetInnerHTML={{ __html: props.localeCopy[prismicKey].html }}></span>
+            message = props.messages[prismicKey]
+        } else if (messageType === 'object' && props.messages[prismicKey] !== null) {
+            message = <span className={classes} dangerouslySetInnerHTML={{ __html: props.messages[prismicKey].html }}></span>
         } else {
             message = 'MISSING MESSAGE ' + prismicKey
         }
