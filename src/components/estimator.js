@@ -1378,13 +1378,15 @@ const Estimator = () => {
 
             <h2 className="mb-4" id="h2-label">{localeCopy.title.text}</h2>
             <div className="lead mb-5" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
-             {errorPanel !== false && <div className="alert alert-danger alert-danger-banner" role="alert">
-                <h3>{formattedMessage('estimate_error_title')}</h3>
-                <p>{formattedMessage('estimate_error_lead')}</p>
-                <ul className="list-unstyled">
-                    {errorList()}
-                </ul>
-            </div>}
+            <div role="alert">
+                {errorPanel !== false && <div className="alert alert-danger alert-danger-banner">
+                    <h3>{formattedMessage('estimate_error_title')}</h3>
+                    <p>{formattedMessage('estimate_error_lead')}</p>
+                    <ul className="list-unstyled">
+                        {errorList()}
+                    </ul>
+                </div>}
+            </div>
             <form id="estimates-form" className="form-group row mb-5" onSubmit={handleSubmit} noValidate>
                 <div className="col-sm-7" ref={summaryView}>
                     <InputDatalist
