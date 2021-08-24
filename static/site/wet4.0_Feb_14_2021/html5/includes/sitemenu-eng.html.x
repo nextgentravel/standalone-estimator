@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<!-- DataAjaxFragmentStart -->
+<div class="pnl-strt container nvbar">
+	<h2 class="wb-inv">Topics menu</h2>
+	<div class="row">
+		<ul class="list-inline menu" role="menubar">
+			<li><a href="#compensation" class="item">Compensation</a>
+				<ul class="sm list-unstyled" id="compensation" role="menu">
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/gc/rem/employ-eng.html">Pay, pension and benefits for employees</a></li>
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/gc/rem/comm-eng.html">Compensation community</a></li>
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/gc/rem/awr-cwa-eng.html">Compensation Web Applications (CWA)</a></li>
+					<li class="slflnk"><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/gc/rem-eng.html">Compensation - More</a></li>
+				</ul>
+			</li>
+			<li><a href="#procurement" class="item">Procurement</a>
+				<ul class="sm list-unstyled" id="procurement" role="menu">
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/app-proc/parcourir-browse/index-eng.html">Browse and purchase goods and services</a></li>
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/app-proc/guides/index-eng.html">Procurement advice, guides and tools</a></li>
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/app-proc/contact-eng.html">Submit a procurement comment or question</a></li>
+					<li><a href="https://www.canada.ca/en/treasury-board-secretariat/corporate/job-opportunities/careers-public-procurement.html">Careers in procurement</a></li>
+					<li class="slflnk"><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/gc/app-proc-eng.html">Procurement - More</a></li>
+				</ul>
+			</li>
+			<li><a href="#buildings" class="item">Buildings and offices</a>
+				<ul class="sm list-unstyled" id="buildings" role="menu">
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/gc/immeub-build/issues-eng.html">Report building and office issues (National Service Call Centre)</a></li>
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/gc/immeub-build/rep-dir-eng.html">Property managed by the Government of Canada</a></li>
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/bi-rp/publications/index-eng.html">Policies and procedures on federal buildings and offices</a></li>
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/bi-rp/prpi-rpc-eng.html">Find a real property contact</a></li>
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/gc/immeub-build/ser-cat/index-eng.html">Real Property Branch service catalogue</a></li>
+					<li class="slflnk"><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/gc/immeub-build-eng.html">Buildings and offices - More</a></li>
+				</ul>
+			</li>
+			<li><a href="#finance" class="item">Government finances</a>
+				<ul class="sm list-unstyled" id="finance" role="menu">
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/rg/txt/paiements-payments-eng.html">Issuing payments</a></li>
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/rg/txt/ab-ba-eng.html">Receiving payments</a></li>
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/fp-gf/scrg-rgcs/index-eng.html">Receiver General central systems</a></li>
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/fp-gf/efaf-yer-eng.html">Year-end requirements</a></li>
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/fp-gf/scc-mac-eng.html">Maintaining the accounts of Canada</a></li>
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/sigma/index-eng.html">SIGMA: Finance, procurement and real property system</a></li>
+					<li class="slflnk"><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/fp-gf/index-eng.html">Government finances - More</a></li>
+				</ul>
+			</li>
+			<li><a href="#services" class="item">More services</a>
+				<ul class="sm list-unstyled" id="services" role="menu">
+	<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/bt-tb/index-eng.html">Translation Bureau's language services and tools</a></li>
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/rhgc-gchr/index-eng.html">My Government of Canada Human Resources</a></li>
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/sem-emm/index-eng.html">Copyright Media Clearance Program</a></li>
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/gc/pub-adv/index-eng.html">Advertising coordination and partnerships</a></li>
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/rg/txt/id-di-eng.html">Document imaging</a></li>
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/rop-por/index-eng.html">Public opinion research</a></li>
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/bi-rp/gec-ecm/index-eng.html">Events and conference management</a></li>
+					<li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/forms/text/index-eng.html">Forms catalogue</a></li>
+					<li class="slflnk"><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/gc/services-eng.html">Services - More</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- DataAjaxFragmentEnd -->
+</html>
+				
+

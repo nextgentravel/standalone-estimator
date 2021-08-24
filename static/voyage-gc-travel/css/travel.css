@@ -1,0 +1,31 @@
+
+.arrowsBG{
+  background-image: url("/voyage-gc-travel/images/arrows.png");
+  background-color: white;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; 
+}
+  .Cbtn {
+    transition: transform 250ms ease-in-out;
+  }
+  
+  .Cbtn:hover {
+    transform: translateY(-10px);
+  }
+
+  /* DETAILS BOX  */
+  details {}
+
+details > summary {
+  background-color: #eee;
+  cursor: pointer;
+}
+
+details > p {
+  /*background-color: #eee;*/
+}
+
+details[open] > summary {
+  background-color: #fff;
+}

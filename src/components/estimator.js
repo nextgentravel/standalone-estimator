@@ -1427,7 +1427,7 @@ const Estimator = () => {
                         <button type="button" id="clear-button" className="btn btn-outline-primary px-5 ml-3" onClick={() => {clearForm()}}>{formattedMessage('clear')}</button>
                     }
                     {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
-                    <div role="status" class="sr-only" id="loading-sr">{screenReaderStatus}</div>
+                    <div role="status" className="sr-only" id="loading-sr">{screenReaderStatus}</div>
                 </div>
             </form>
 
