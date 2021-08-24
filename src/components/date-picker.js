@@ -66,11 +66,13 @@ const DatePickerComponent = ({startDate, endDate, initialStart, setStart, initia
                     showDefaultInputIcon={true}
                     displayFormat="YYYY-MM-DD"
                     phrases={phrases}
-                    startDatePlaceholderText={localeCopy.date_format_description}
-                    endDatePlaceholderText={localeCopy.date_format_description}
+                    startDatePlaceholderText={''}
+                    endDatePlaceholderText={''}
                     startDateAriaLabel={localeCopy.datepicker_start_date}
                     endDateAriaLabel={localeCopy.datepicker_end_date}
                 />
+                <small id="datepicker-help" class="form-text text-muted">{localeCopy.date_format_description}</small>
+
             </div>
         </div>
     )
