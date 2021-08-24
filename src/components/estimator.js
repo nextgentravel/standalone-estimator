@@ -989,6 +989,8 @@ const Estimator = () => {
         setTransportationType('')
         setAccommodationType('')
 
+        setPrivateVehicleSuccess(false)
+
         setOriginAirportCode('');
         setDestinationAirportCode('');
         setDepartureTime('07:00');
