@@ -10,6 +10,7 @@ export default function Layout({ children }) {
     console.log(langKey)
   return <div className="app-wrapper">
       {langKey === 'en' &&
+      <div  id="wet-template">
         <header role="banner">
         <div id="wb-bnr" className="container">
         <section id="wb-lng" className="visible-md visible-lg text-right">
@@ -37,12 +38,11 @@ export default function Layout({ children }) {
             <form action="https://gcintranet-recherche-search.tpsgc-pwgsc.gc.ca/b-eng.php" method="get" name="cse-search-box" role="search" className="form-inline">
                 <div className="form-group">
         <label htmlFor="gcwu-srch" className="wb-inv">Search website</label>
-            {/* <input id="gcwu-srch" className="wb-srch-q form-control" name="q" value="" size="27" maxLength="150" placeholder="Search mySource" type="search" defaultValue='' />
+            <input id="gcwu-srch" className="wb-srch-q form-control" name="q" size="27" maxLength="150" placeholder="Search mySource" type="search" defaultValue='' />
             <input name="checkboxgcintranet" value="true" type="hidden" />
             <input type="hidden" name="pagesize" value="10" />
             <input type="hidden" name="page" value="1" />
-            <input type="hidden" name="language" value="en" /> */}
-            
+            <input type="hidden" name="language" value="en" />
         </div>
         <div className="form-group submit">
         <button type="submit" id="wb-srch-sub" className="btn btn-primary btn-small" name="search"><span className="glyphicon-search glyphicon"></span><span className="wb-inv">Search</span></button>
@@ -143,10 +143,69 @@ export default function Layout({ children }) {
         </div>
         </nav>
         </header>
-
+        </div>
 
       }
+      <div id="bootstrap-4">
       {children}
-      <footer></footer>
+      </div>
+      <div id="wet-template">
+        <footer role="contentinfo" id="wb-info" className="visible-sm visible-md visible-lg wb-navcurr">
+            <div className="container">
+                <nav role="navigation" >
+                    <h2 className="wb-inv">Site Information</h2>
+                    <div>
+                        <p><a href="/gc/avis-terms-eng.html" rel="license">Terms and conditions</a></p>
+                    </div>
+                    <div className="clear"></div>
+                    <div className="row">
+                        <section className="col-sm-4 col-lg-4">
+                            <h3>About <abbr title="Public Services and Procurement Canada">PSPC</abbr></h3>
+                            <ul className="list-unstyled">
+                                <li><a href="/gc/activ-eng.html">Our activities</a></li>
+                                <li><a href="/rfp-psr/index-eng.html">Public Service Renewal stories</a></li>
+                                <li><a href="/gc/region-eng.html">Our regional offices</a></li>
+                                <li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/pm-dp/index-eng.html"><abbr title="Public Services and Procurement Canada">PSPC</abbr> departmental policies</a></li>
+                                <li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/sc-cs/index-eng.html">Client service</a></li>
+                                <li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/gc/ba-ao/index-eng.html"><abbr title="Public Services and Procurement Canada">PSPC</abbr> Accessibility Office</a></li>
+                            </ul>
+                        </section>
+                        <section className="col-sm-4 col-lg-4">
+                            <h3>Contact us</h3>
+                            <ul className="list-unstyled">
+                                <li><a href="/gc/questions-eng.html">General inquiries</a></li>
+                                <li><a href="http://gcdirectory-gcannuaire.ssc-spc.gc.ca/en/GCD/?pgid=014&amp;dn=OU=PSPC-SPAC,O=GC,C">Find an employee [<abbr title="GCdirectory">GEDS</abbr>]</a></li>
+                                <li><a href="/bi-rp/issues-eng.html">Report building and office issues<br />
+                                (National Service Call Centre)</a>
+                                </li>
+                            </ul>
+                        </section>
+                        <section className="col-sm-4 col-lg-4">
+                            <h3>Related sites</h3>
+                            <ul className="list-unstyled">
+                                <li><a href="http://www.tpsgc-pwgsc.gc.ca/comm/index-eng.html"><abbr title="Public Services and Procurement Canada">PSPC</abbr> Internet site</a></li>
+                                <li><a href="http://intranet.canada.ca/index-eng.asp">GCIntranet</a></li>
+                                <li><a href="https://www.canada.ca/en/public-service-commission/jobs/services/gc-jobs.html">Public service jobs</a></li>
+                                <li><a href="http://gcconnex.gc.ca/">GCconnex</a></li>
+                                <li><a href="http://www.gcpedia.gc.ca/wiki/?setlang=en">GCpedia</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </nav>
+            </div>
+            <div className="brand">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-xs-6 visible-sm visible-xs tofpg">
+                            <a href="#wb-cont">Top of Page <span className="glyphicon glyphicon-chevron-up"></span></a>
+                        </div>
+                        <div className="col-xs-6 col-md-12 text-right">
+                            <img src="/site/wet4.0/assets/wmms-blk.svg" alt="" /><span className="wb-inv">Symbol of the Government of Canada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        </div>
     </div>
 }
