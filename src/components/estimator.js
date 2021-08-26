@@ -317,6 +317,9 @@ const Estimator = () => {
                         html
                     }
                     flight_modal_zero_results
+                    flight_modal_zero_results_with_link {
+                        html
+                    }
                     flight_modal_api_error
                     flight_selected_fare
                     flight_selected_fare_preselected
@@ -341,6 +344,8 @@ const Estimator = () => {
                     meals_and_incidentals_total
                     other_allowances_total
                     date_format_description
+                    aria_flight_estimate_loading
+                    aria_flight_estimate_loaded
                 }
             }
         }
@@ -984,6 +989,8 @@ const Estimator = () => {
         setTransportationType('')
         setAccommodationType('')
 
+        setPrivateVehicleSuccess(false)
+
         setOriginAirportCode('');
         setDestinationAirportCode('');
         setDepartureTime('07:00');
@@ -1375,7 +1382,7 @@ const Estimator = () => {
 
             <h2 className="mb-4" id="h2-label">{localeCopy.title.text}</h2>
             <div className="lead mb-5" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
-             {errorPanel !== false && <div className="alert alert-danger alert-danger-banner" role="alert">
+            {errorPanel !== false && <div className="alert alert-danger alert-danger-banner" role="alert">
                 <h3>{formattedMessage('estimate_error_title')}</h3>
                 <p>{formattedMessage('estimate_error_lead')}</p>
                 <ul className="list-unstyled">
@@ -1523,7 +1530,7 @@ const Estimator = () => {
                                                         delay={{ show: 250, hide: 400 }}
                                                         overlay={renderAccommodationTooltip}
                                                     >
-                                                        <button type="button" className="btn btn-default" aria-label={formattedMessage('tooltip')}>
+                                                        <button type="button" className="btn btn-default" aria-label={formattedMessage('accommodation_tooltip')}>
                                                             <FaQuestionCircle className="ml-2 mb-1" size="15" fill="#9E9E9E" />
                                                         </button>
                                                     </OverlayTrigger>
@@ -1769,7 +1776,7 @@ const Estimator = () => {
                     updateCost={setOtherCost}
                     tooltipIcon={FaQuestionCircle}
                     tooltipText={<span dangerouslySetInnerHTML={{ __html: localeCopy.other_tooltip_text }}></span>}
-                    toolTipLabel={formattedMessage('tooltip')}
+                    toolTipLabel={localeCopy.other_tooltip_text}
                     readOnly={!result}
                 />
                 <div className="row mb-4">
