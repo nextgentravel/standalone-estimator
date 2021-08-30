@@ -1,14 +1,13 @@
 import React from "react"
 import { useIntl } from 'react-intl';
 const headerHtml = ``
-
+import SelectLanguage from '../components/languageSelect';
 let scriptHtml = ``
 
 export default function Layout({ children }) {
     const intl = useIntl()
     const langKey = intl.locale;
-    console.log(langKey)
-  return <div className="app-wrapper">
+    return <div className="app-wrapper">
       {langKey === 'en' &&
       <div  id="wet-template">
         <header role="banner">
@@ -18,7 +17,7 @@ export default function Layout({ children }) {
             <div className="row">
             <div className="col-md-12">
                 <ul className="list-inline margin-bottom-none">
-                <li><a lang="fr" href="/cgi-bin/language.pl">Fran&ccedil;ais</a></li>
+                <li><SelectLanguage /></li>
                 
                 </ul>
             </div>
@@ -35,7 +34,7 @@ export default function Layout({ children }) {
             </section>
             <section id="wb-srch" className="col-xs-6 text-right visible-md visible-lg">
             <h2>Search</h2>
-            <form action="https://gcintranet-recherche-search.tpsgc-pwgsc.gc.ca/b-eng.php" method="get" name="cse-search-box" role="search" className="form-inline">
+            <form action="https://gcintranet-recherche-search.tpsgc-pwgsc.gc.ca/b-eng.php" method="get" name="cse-search-box" role="search" className="form-inline float-right">
                 <div className="form-group">
         <label htmlFor="gcwu-srch" className="wb-inv">Search website</label>
             <input id="gcwu-srch" className="wb-srch-q form-control" name="q" size="27" maxLength="150" placeholder="Search mySource" type="search" defaultValue='' />
@@ -45,7 +44,7 @@ export default function Layout({ children }) {
             <input type="hidden" name="language" value="en" />
         </div>
         <div className="form-group submit">
-        <button type="submit" id="wb-srch-sub" className="btn btn-primary btn-small" name="search"><span className="glyphicon-search glyphicon"></span><span className="wb-inv">Search</span></button>
+            <button type="submit" id="wb-srch-sub" className="btn btn-primary btn-small" name="search"><span className="glyphicon-search glyphicon"></span><span className="wb-inv">Search</span></button>
         </div>
         </form>
 
@@ -147,7 +146,7 @@ export default function Layout({ children }) {
 
       }
       <div id="bootstrap-4">
-      {children}
+        {children}
       </div>
       <div id="wet-template">
         <footer role="contentinfo" id="wb-info" className="visible-sm visible-md visible-lg wb-navcurr">

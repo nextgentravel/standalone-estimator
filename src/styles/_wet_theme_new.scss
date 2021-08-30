@@ -66,12 +66,12 @@
   font-weight: 700;
   src: url(https://fonts.gstatic.com/s/lato/v20/S6u9w4BMUTPHh6UVSwaPHA.ttf) format('truetype');
 }
-#wet-template html {
+html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
-#wet-template body {
+body {
   margin: 0;
 }
 #wet-template article,
@@ -177,14 +177,14 @@
   text-transform: none;
 }
 #wet-template button,
-#wet-template html input[type="button"],
+html input[type="button"],
 #wet-template input[type="reset"],
 #wet-template input[type="submit"] {
   -webkit-appearance: button;
   cursor: pointer;
 }
 #wet-template button[disabled],
-#wet-template html input[disabled] {
+html input[disabled] {
   cursor: default;
 }
 #wet-template button::-moz-focus-inner,
@@ -1092,11 +1092,11 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-#wet-template html {
+html {
   font-size: 10px;
   -webkit-tap-highlight-color: transparent;
 }
-#wet-template body {
+body {
   font-family: "Noto Sans", sans-serif;
   font-size: 16px;
   line-height: 1.4375;
@@ -8989,7 +8989,7 @@
   outline: 1px dotted #fff;
   outline-offset: -2px;
 }
-#wet-template body.wb-modal summary,
+body.wb-modal summary,
 #wet-template body.wb-modal > #wb-tphp,
 #wet-template body.wb-modal > footer,
 #wet-template body.wb-modal > header,
@@ -9003,7 +9003,7 @@
 #wet-template .lbx-hide-gal li:first-child {
   display: block;
 }
-#wet-template body.wb-modal .modal-dialog summary {
+body.wb-modal .modal-dialog summary {
   visibility: visible !important;
 }
 #wet-template .modal-dialog {
@@ -11810,7 +11810,7 @@
 #wet-template .pagedetails div + .wb-share-inited {
   margin-top: 0.5em;
 }
-#wet-template html {
+html {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -12343,7 +12343,7 @@
 #wet-template h2.hme-banner-bg {
   border: none;
 }
-#wet-template body .btn-primary {
+body .btn-primary {
   background-color: #26374a;
   border-color: #26374a;
 }
