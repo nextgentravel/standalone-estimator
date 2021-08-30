@@ -180,10 +180,10 @@ export default function Layout({ children }) {
             <div className="row">
                 <ol className="breadcrumb">
                 {/* <!-- Start of pain-bread-eng.html / D&eacute;but de pain-bread-eng.html --> */}
-                <li> <a href="http://gcintranet.tpsgc-pwgsc.gc.ca/gc/index-eng.html">PSPC GCintranet </a> </li>
+                <li> <a href="http://gcintranet.tpsgc-pwgsc.gc.ca/gc/index-fra.html">GCintranet de SPAC</a> </li>
                 {/* <!-- End of pain-bread-eng.html / Fin De pain-bread-eng.html -->         */}
                 {/* <!-- InstanceBeginEditable name="breadcrumb" --> */}
-                <li><a href="/gc/services-eng.html">More services</a></li>
+                <li><a href="/gc/services-fra.html">???s</a></li>
                 {/* <!-- InstanceEndEditable --> */}
                 </ol>
             </div>
