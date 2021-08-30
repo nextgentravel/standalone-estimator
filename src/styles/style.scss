@@ -4,8 +4,10 @@
 @import "datepicker";
 @import "autocomplete";
 @import "react-datepicker";
-@import "style_override";
 @import '../../node_modules/react-dates/lib/css/_datepicker.css';
 @import "layout";
-@import "wet_theme_new";
+
+@import "wet-core";
+// @import "wet_theme_new";
 @import "wet-noscript"; 
+@import "style_override";

@@ -1,8 +1,9 @@
 import React from "react"
 import { useIntl } from 'react-intl';
-const headerHtml = ``
 import SelectLanguage from '../components/languageSelect';
+
 let scriptHtml = ``
+const headerHtml = ``
 
 export default function Layout({ children }) {
     const intl = useIntl()
@@ -13,7 +14,7 @@ export default function Layout({ children }) {
             <header role="banner">
             <div id="wb-bnr" className="container">
             <section id="wb-lng" className="visible-md visible-lg text-right">
-                <h2 class="wb-inv">S&eacute;lection de la langue</h2>
+                <h2 className="wb-inv">S&eacute;lection de la langue</h2>
                 <div className="row">
                 <div className="col-md-12">
                     <ul className="list-inline margin-bottom-none">
@@ -23,29 +24,29 @@ export default function Layout({ children }) {
                 </div>
             </section>
             <div className="row">
-            <div class="brand col-xs-8 col-sm-9 col-md-6"> <a href="http://gcintranet.spac-pspc.gc.ca/gc/index-fra.html"><img src="/site/wet4.0/theme-tp-pw-publi-gcweb/img/sig-blk-fr.svg" alt="" /> <span class="wb-inv">Services publics et Approvisionnement Canada</span> </a> </div>
-		<section class="wb-mb-links col-xs-4 col-sm-3 visible-sm visible-xs" id="wb-glb-mn">
+            <div className="brand col-xs-8 col-sm-9 col-md-6"> <a href="http://gcintranet.spac-pspc.gc.ca/gc/index-fra.html"><img src="/site/wet4.0/theme-tp-pw-publi-gcweb/img/sig-blk-fr.svg" alt="" /> <span className="wb-inv">Services publics et Approvisionnement Canada</span> </a> </div>
+		<section className="wb-mb-links col-xs-4 col-sm-3 visible-sm visible-xs" id="wb-glb-mn">
 			<h2>Recherche et menus</h2>
-			<ul class="list-inline text-right chvrn">
-				<li><a href="#mb-pnl" title="Recherche et menus" aria-controls="mb-pnl" class="overlay-lnk" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Recherche et menus</span></span></span></a></li>
+			<ul className="list-inline text-right chvrn">
+				<li><a href="#mb-pnl" title="Recherche et menus" aria-controls="mb-pnl" className="overlay-lnk" role="button"><span className="glyphicon glyphicon-search"><span className="glyphicon glyphicon-th-list"><span className="wb-inv">Recherche et menus</span></span></span></a></li>
 			</ul>
 			<div id="mb-pnl"></div>
 		</section>
-		<section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg">
+		<section id="wb-srch" className="col-xs-6 text-right visible-md visible-lg">
 			<h2>Recherche</h2>
-<form action="https://gcintranet-recherche-search.tpsgc-pwgsc.gc.ca/b-fra.php" method="get" name="cse-search-box" role="search" class="form-inline float-right">
+<form action="https://gcintranet-recherche-search.tpsgc-pwgsc.gc.ca/b-fra.php" method="get" name="cse-search-box" role="search" className="form-inline float-right">
 
-<div class="form-group">
-<label for="gcwu-srch" class="wb-inv">Recherchez le site Web</label>
-		<input id="gcwu-srch" class="wb-srch-q form-control" name="q" value="" size="27" maxlength="150" placeholder="Recherger dans maSource" type="search" />
+<div className="form-group">
+<label htmlFor="gcwu-srch" className="wb-inv">Recherchez le site Web</label>
+		<input id="gcwu-srch" className="wb-srch-q form-control" name="q" defaultValue="" size="27" maxLength="150" placeholder="Recherger dans maSource" type="search" />
 		<input name="checkboxgcintranet" value="true" type="hidden" />
 			<input type="hidden" name="pagesize" value="10" />
 			<input type="hidden" name="page" value="1" />
 			      <input type="hidden" name="language" value="fr" />
 		
 </div>
-<div class="form-group submit">
-<button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="search"><span class="glyphicon-search glyphicon"></span><span class="wb-inv">Recherche</span></button>
+<div className="form-group submit">
+<button type="submit" id="wb-srch-sub" className="btn btn-primary btn-small" name="search"><span className="glyphicon-search glyphicon"></span><span className="wb-inv">Recherche</span></button>
 </div>
 </form>
 		</section>
@@ -56,16 +57,17 @@ export default function Layout({ children }) {
 
 
             {/* <!-- Start of nav_mega-mega_nav-eng.html / D&eacute;but de nav_mega-mega_nav-eng.html --> */}
-            <nav role="navigation" id="wb-sm" data-trgt="mb-pnl" className="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+            <nav role="navigation" id="wb-sm" data-trgt="mb-pnl" className="wb-menu visible-md visible-lg wb-init wb-menu-inited wb-navcurr-inited" typeof="SiteNavigationElement">
 
                 <script>
                     var _paq = _paq || [];
                 </script>
-                <div class="pnl-strt wet-container nvbar">
-                    <h2 class="wb-inv">Menu des sujets</h2>
-                    <ul class="wet-list-inline menu" role="menubar">
-                    <li> <a class="item" href="#Outilsetressources"> Outils et ressources </a>
-                        <ul class="sm list-unstyled" id="Outilsetressources">
+                <div className="pnl-strt container nvbar">
+                    <h2 className="wb-inv">Menu des sujets</h2>
+                    <div className="row">
+                    <ul className="list-inline menu" role="menubar">
+                    <li> <a className="item" href="#Outilsetressources"> Outils et ressources </a>
+                        <ul className="sm list-unstyled" id="Outilsetressources">
                         <li><a href="https://masource-mysource.spac-pspc.gc.ca/fra/ressources-resources/Pages/az-index.aspx">Index A &agrave; Z</a></li>
                             <li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/gc/rem/awr-cwa-fra.html">Applications Web de la r&eacute;mun&eacute;ration</a></li>
                             <li><a href="https://protege-secure.tpsgc-pwgsc.gc.ca:443/nonprotege-unprotected/partactapppen-actmempenapp/demandeacces-accessrequest-fra.html?contextType=external&amp;username=string&amp;contextValue=/oam&amp;password=sercure_string&amp;challenge_url=https://protege-secure.tpsgc">Acc&eacute;der &agrave; Ph&eacute;nix</a></li>
@@ -80,11 +82,11 @@ export default function Layout({ children }) {
                             <li><a href="https://masource-mysource.spac-pspc.gc.ca/fra/Pages/dr-rm.aspx">Documents de r&eacute;f&eacute;rence</a></li>
                             <li><a href="http://intranet.tpsgc-pwgsc.gc.ca/ppc/ressources-resources/gabarits-templates-fra.html">Gabarits et graphiques</a></li>
                             <li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/pm-dp/index-fra.html">Politiques minist&eacute;rielles</a></li>
-                        <li class="slflnk"> <a href="https://masource-mysource.spac-pspc.gc.ca/fra/or-tr/">Outils et ressources - Page principale</a> </li>
+                        <li className="slflnk"> <a href="https://masource-mysource.spac-pspc.gc.ca/fra/or-tr/">Outils et ressources - Page principale</a> </li>
                         </ul>
                     </li>
-                        <li><a href="#Centredesemployes" class="item">Centre des employ&eacute;s</a>
-                            <ul class="sm list-unstyled" id="Centredesemployes" role="menu">
+                        <li><a href="#Centredesemployes" className="item">Centre des employ&eacute;s</a>
+                            <ul className="sm list-unstyled" id="Centredesemployes" role="menu">
                             <li><a href="https://masource-mysource.spac-pspc.gc.ca/fra/Pages/nvxmplys-nwmplys.aspx">Nouveaux employ&eacute;s</a></li>
                             <li><a href="https://masource-mysource.spac-pspc.gc.ca/fra/services/rh-hr/pages/outilsrh-hrtools.aspx?url=mysrcnavempintral">Outils eRH</a></li>
                             <li><a href="https://masource-mysource.spac-pspc.gc.ca/fra/services/rh-hr/avantages-benefits/Pages/default.aspx">Avantages et r�mun�ration</a></li>
@@ -97,11 +99,11 @@ export default function Layout({ children }) {
                             <li><a href="https://masource-mysource.spac-pspc.gc.ca/fra/services/rh-hr/mieuxetre-wellness/Pages/gstn-conflits-conflict-mgt.aspx">Gestion des conflits</a></li>
                             <li><a href="https://masource-mysource.spac-pspc.gc.ca/fra/services/rh-hr/gestionnaires-managers/rend-gstn-perf-mgt/Pages/default.aspx">Gestion du rendement</a></li>
                             <li><a href="https://masource-mysource.spac-pspc.gc.ca/fra/services/rh-hr/santesecuritetravail-occupationalhealthsafety/">Sant&eacute; et s&eacute;curit&eacute; au travail</a></li>
-                            <li class="slflnk"><a href="https://masource-mysource.spac-pspc.gc.ca/fra/Pages/ce-ec.aspx">Centre des employ&eacute;s - Page principale</a></li>
+                            <li className="slflnk"><a href="https://masource-mysource.spac-pspc.gc.ca/fra/Pages/ce-ec.aspx">Centre des employ&eacute;s - Page principale</a></li>
                             </ul>
                         </li>
-                        <li><a href="#Centredelagestion" class="item">Centre de la gestion</a>
-                            <ul class="sm list-unstyled" id="Centredelagestion" role="menu">
+                        <li><a href="#Centredelagestion" className="item">Centre de la gestion</a>
+                            <ul className="sm list-unstyled" id="Centredelagestion" role="menu">
                             <li><a href="http://www.gcpedia.gc.ca/wiki/Communicating_with_the_Pay_Centre,_your_role_and_responsibilities?setlang=fr&amp;uselang=fr">Communiquer avec le centre des services de paye, votre r&ocirc;le et vos responsabilit&eacute;s</a></li>
                             <li><a href="https://masource-mysource.spac-pspc.gc.ca/fra/services/rh-hr/gestionnaires-managers/Pages/default.aspx">Trousse pour les gestionnaires</a></li>
                             <li><a href="http://intranet.tpsgc-pwgsc.gc.ca/rh-hr/milieutravail-workplace/dotation-staffing/pdm-csp-fra.html">Dotation</a></li>
@@ -115,22 +117,22 @@ export default function Layout({ children }) {
                             <li><a href="http://intranet.tpsgc-pwgsc.gc.ca/rh-hr/milieutravail-workplace/classification/grie-fra.html">Griefs</a></li>
                             <li><a href="http://intranet.tpsgc-pwgsc.gc.ca/rh-hr/milieutravail-workplace/travail-labour/harcelement-harassment-fra.html">Harc&egrave;lement</a></li>
                             <li><a href="https://masource-mysource.spac-pspc.gc.ca/fra/services/rh-hr/mieuxetre-wellness/Pages/gstn-conflits-conflict-mgt.aspx">Gestion de conflits</a></li>
-                            <li class="slflnk"><a href="https://masource-mysource.spac-pspc.gc.ca/fra/Pages/cg-mc.aspx">Centre de la gestion - Page principale</a></li>
+                            <li className="slflnk"><a href="https://masource-mysource.spac-pspc.gc.ca/fra/Pages/cg-mc.aspx">Centre de la gestion - Page principale</a></li>
                             </ul>
                         </li>
-                        <li><a href="#Apprentissage" class="item">Apprentissage</a>
-                            <ul class="sm list-unstyled" id="Apprentissage">
+                        <li><a href="#Apprentissage" className="item">Apprentissage</a>
+                            <ul className="sm list-unstyled" id="Apprentissage">
                             <li><a href="https://masource-mysource.spac-pspc.gc.ca/fra/services/rh-hr/accueilorientation-onboardingorientation/Pages/default.aspx">Accueil pour nouveaux employ�s et nouveaux �tudiants</a></li>
                             <li><a href="http://catalogueapprentissage-learningcatalogue.tpsgc-pwgsc.gc.ca/alto.aspx?lang=fra">ALTO</a></li>
                             <li><a href="https://masource-mysource.spac-pspc.gc.ca/fra/services/rh-hr/apprentissage-learning/Pages/default.aspx">Apprentissage</a></li>
                             <li><a href="http://intranet.tpsgc-pwgsc.gc.ca/rh-hr/carriere-career/gest-car-manag/cntrautoapp-slflrncntr-fra.html">Centre d'apprentissage</a></li>
                             <li><a href="http://catalogueapprentissage-learningcatalogue.tpsgc-pwgsc.gc.ca/lang-language.aspx?lang=fra">Formation linguistique</a></li> 
                             <li><a href="https://masource-mysource.spac-pspc.gc.ca/fra/services/rh-hr/carriere-career/leadership-services-gstn-mgt/Pages/default.aspx">Services de gestion de carri�re et de leadership</a></li>
-                            <li class="slflnk"><a href="https://masource-mysource.spac-pspc.gc.ca/fra/Pages/a-l.aspx">Apprentissage - Page principale</a></li>
+                            <li className="slflnk"><a href="https://masource-mysource.spac-pspc.gc.ca/fra/Pages/a-l.aspx">Apprentissage - Page principale</a></li>
                             </ul>
                         </li>
-                        <li><a href="#Services" class="item">Services</a>
-                            <ul class="sm list-unstyled" id="Services">
+                        <li><a href="#Services" className="item">Services</a>
+                            <ul className="sm list-unstyled" id="Services">
                             <li><a href="https://masource-mysource.spac-pspc.gc.ca/fra/services/dgap-pab">Administration de la paye</a></li>
                         <li><a href="http://intranet.tpsgc-pwgsc.gc.ca/app-acq/index-fra.html">Approvisionnements</a></li>
                         <li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/bt-tb/index-fra.html">Bureau de la traduction</a></li>
@@ -143,30 +145,31 @@ export default function Layout({ children }) {
                         <li><a href="http://intranet.tpsgc-pwgsc.gc.ca/bi-rp/index-fra.html">Services immobiliers</a></li>
                         <li><a href="https://masource-mysource.spac-pspc.gc.ca/fra/services/dgsi-isb/Pages/default.aspx">Services int�gr�s</a></li>	
                         <li><a href="https://masource-mysource.spac-pspc.gc.ca/fra/services/dgs-dob/Pages/default.aspx">Surveillance minist�rielle</a></li>
-                            <li class="slflnk"><a href="https://masource-mysource.spac-pspc.gc.ca/fra/services/">Services - Page principale</a></li>
+                            <li className="slflnk"><a href="https://masource-mysource.spac-pspc.gc.ca/fra/services/">Services - Page principale</a></li>
                             </ul>
                         </li>
-                        <li><a href="#Regions" class="item">R&eacute;gions</a>
-                            <ul class="sm list-unstyled" id="Regions" role="menu">
+                        <li><a href="#Regions" className="item">R&eacute;gions</a>
+                            <ul className="sm list-unstyled" id="Regions" role="menu">
                             <li><a href="http://breakers-brisants.pwgsc-tpsgc.gc.ca/fra/home-accueil">Atlantique</a></li>
                             <li><a href="http://orion.pwgsc-tpsgc.gc.ca/orion/index-fra.aspx?lang=fra">Ontario</a></li>
                             <li><a href="http://pacific.pwgsc.gc.ca/language">Pacifique</a></li>
                             <li><a href="http://intranet.que.tpsgc.gc.ca/">Qu&eacute;bec</a></li>
                             <li><a href="http://intranet.wst.pwgsc.gc.ca/">Ouest</a></li>
-                            <li class="slflnk"><a href="https://masource-mysource.spac-pspc.gc.ca/eng/Pages/regions.aspx">R&eacute;gions - Page principale</a></li>
+                            <li className="slflnk"><a href="https://masource-mysource.spac-pspc.gc.ca/eng/Pages/regions.aspx">R&eacute;gions - Page principale</a></li>
                             </ul>
                         </li>
-                        <li><a href="#Soutien" class="item">Soutien</a>
-                            <ul class="sm list-unstyled" id="Soutien">
+                        <li><a href="#Soutien" className="item">Soutien</a>
+                            <ul className="sm list-unstyled" id="Soutien">
                             <li><a href="https://masource-mysource.spac-pspc.gc.ca/fra/Pages/va-bt.aspx">Voyages d'affaires</a></li>
                             <li><a href="http://dune.pwgsc-tpsgc.gc.ca/fr/installations_securite">Installations et s&eacute;curit&eacute;</a></li>
                             <li><a href="https://masource-mysource.spac-pspc.gc.ca/fra/services/dpi-cio/services/sb-ds/stn-spprt/Pages/soutien-support.aspx">Soutien technique</a></li>
                             <li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/bt-tb/ministeres-departments/accueil-home-fra.html">Traduction et services linguistiques</a></li>
                             <li><a href="http://intranet.tpsgc-pwgsc.gc.ca/ppc/ps/sc-cms-fra.html">Services de messagerie et de courrier</a></li>
-                            <li class="slflnk"><a href="https://masource-mysource.spac-pspc.gc.ca/fra/Pages/soutien-support.aspx">Soutien - More</a></li>
+                            <li className="slflnk"><a href="https://masource-mysource.spac-pspc.gc.ca/fra/Pages/soutien-support.aspx">Soutien - More</a></li>
                             </ul>
                         </li>
                         </ul>
+                        </div>
                         </div>
 
                 </nav>
@@ -237,7 +240,7 @@ export default function Layout({ children }) {
 
 
             {/* <!-- Start of nav_mega-mega_nav-eng.html / D&eacute;but de nav_mega-mega_nav-eng.html --> */}
-            <nav role="navigation" id="wb-sm" data-trgt="mb-pnl" className="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+            <nav role="navigation" id="wb-sm" data-trgt="mb-pnl" className="wb-menu visible-md visible-lg wb-init wb-menu-inited wb-navcurr-inited" typeof="SiteNavigationElement">
 
                 <script>
                     var _paq = _paq || [];
@@ -389,49 +392,49 @@ export default function Layout({ children }) {
             }
             {langKey === 'fr' &&
                 <footer role="contentinfo" id="wb-info">
-                    <nav role="navigation" class="container wb-navcurr">
-                        <h2 class="wb-inv">&Agrave; propos de ce site</h2>
+                    <nav role="navigation" className="container wb-navcurr">
+                        <h2 className="wb-inv">&Agrave; propos de ce site</h2>
                         <div>
                             <p><a href="/gc/avis-terms-fra.html" rel="license">Avis</a></p>
                         </div>
-                        <div class="clear"></div>
-                        <div class="row">
-                            <section class="col-sm-4 col-lg-4">
+                        <div className="clear"></div>
+                        <div className="row">
+                            <section className="col-sm-4 col-lg-4">
                                 <h3>&Agrave; propos de <abbr title="Services publics et Approvisionnement Canada">SPAC</abbr></h3>
-                                <ul class="list-unstyled">
-                                    <li><a href="/gc/activ-fra.html" onclick="javascript:_paq.push(['trackEvent', 'Pied de page-Footer-FR', 'Nos activités']);">Nos activit&eacute;s</a></li>
-                                    <li><a href="/rfp-psr/index-fra.html" onclick="javascript:_paq.push(['trackEvent', 'Pied de page-Footer-FR', 'Histoires du renouvellement de la fonction publique']);">Histoires du renouvellement de la fonction publique</a></li>
-                                    <li><a href="/gc/region-fra.html" onclick="javascript:_paq.push(['trackEvent', 'Pied de page-Footer-FR', 'Nos bureaux régionaux']);">Nos bureaux r&eacute;gionaux</a></li>
-                                    <li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/pm-dp/index-fra.html" onclick="javascript:_paq.push(['trackEvent', 'Pied de page-Footer-FR', 'Politiques ministérielles de SPAC']);">Politiques minist&eacute;rielles de <abbr title="Services publics et Approvisionnement Canada">SPAC</abbr></a></li>
-                                    <li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/sc-cs/index-fra.html" onclick="javascript:_paq.push(['trackEvent', 'Pied de page-Footer-FR', 'Service à la clientèle']);">Service &agrave; la client&egrave;le</a></li>
-                                    <li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/gc/ba-ao/index-fra.html" onclick="javascript:_paq.push(['trackEvent', 'Pied de page-Footer-FR', 'Bureau de l’accessibilité de SPAC']);">Bureau de l’accessibilité de <abbr title="Services publics et Approvisionnement Canada">SPAC</abbr></a></li>
+                                <ul className="list-unstyled">
+                                    <li><a href="/gc/activ-fra.html">Nos activit&eacute;s</a></li>
+                                    <li><a href="/rfp-psr/index-fra.html">Histoires du renouvellement de la fonction publique</a></li>
+                                    <li><a href="/gc/region-fra.html">Nos bureaux r&eacute;gionaux</a></li>
+                                    <li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/pm-dp/index-fra.html" >Politiques minist&eacute;rielles de <abbr title="Services publics et Approvisionnement Canada">SPAC</abbr></a></li>
+                                    <li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/sc-cs/index-fra.html" >Service &agrave; la client&egrave;le</a></li>
+                                    <li><a href="http://gcintranet.tpsgc-pwgsc.gc.ca/gc/ba-ao/index-fra.html" >Bureau de l’accessibilité de <abbr title="Services publics et Approvisionnement Canada">SPAC</abbr></a></li>
                                 </ul>
                             </section>
-                            <section class="col-sm-4 col-lg-4">
+                            <section className="col-sm-4 col-lg-4">
                                 <h3>Contactez-nous</h3>
-                                <ul class="list-unstyled">
-                                    <li><a href="/gc/questions-fra.html" onclick="javascript:_paq.push(['trackEvent', 'Pied de page-Footer-FR', 'Demandes de renseignements généraux']);">Demandes de renseignements g&eacute;n&eacute;raux</a></li>
-                                    <li><a href="http://gcdirectory-gcannuaire.ssc-spc.gc.ca/fr/GCA/?pgid=014&amp;dn=OU=PSPC-SPAC,O=GC,C=CA" onclick="javascript:_paq.push(['trackEvent', 'Pied de page-Footer-FR', 'Trouver un employé [SAGE]']);">Trouver un employ&eacute; [<abbr title="GCannuaire">SAGE</abbr>]</a></li>
-                                    <li><a href="/bi-rp/issues-fra.html" onclick="javascript:_paq.push(['trackEvent', 'Pied de page-Footer-FR', 'Signaler un problème lié aux immeubles et aux bureaux (Centre national d’appels de service)']);">Signaler un probl&egrave;me li&eacute; aux immeubles et aux bureaux (Centre national d'appels de service)</a></li>
+                                <ul className="list-unstyled">
+                                    <li><a href="/gc/questions-fra.html">Demandes de renseignements g&eacute;n&eacute;raux</a></li>
+                                    <li><a href="http://gcdirectory-gcannuaire.ssc-spc.gc.ca/fr/GCA/?pgid=014&amp;dn=OU=PSPC-SPAC,O=GC,C=CA">Trouver un employ&eacute; [<abbr title="GCannuaire">SAGE</abbr>]</a></li>
+                                    <li><a href="/bi-rp/issues-fra.html">Signaler un probl&egrave;me li&eacute; aux immeubles et aux bureaux (Centre national d'appels de service)</a></li>
                                 </ul>
                             </section>
-                            <section class="col-sm-4 col-lg-4">
+                            <section className="col-sm-4 col-lg-4">
                                 <h3>Sites connexes</h3>
-                                <ul class="list-unstyled">
-                                    <li><a href="http://www.tpsgc-pwgsc.gc.ca/comm/index-fra.html" onclick="javascript:_paq.push(['trackEvent', 'Pied de page-Footer-FR', 'SPAC sur le Web']);"><abbr title="Services publics et Approvisionnement Canada">SPAC</abbr> sur le Web</a></li>
-                                    <li><a href="http://intranet.canada.ca/index-fra.asp" onclick="javascript:_paq.push(['trackEvent', 'Pied de page-Footer-FR', 'Intranet du GC']);">Intranet du GC</a></li>
-                                    <li><a href="https://www.canada.ca/fr/commission-fonction-publique/emplois/services/emplois-gc.html" onclick="javascript:_paq.push(['trackEvent', 'Pied de page-Footer-FR', 'Emplois à la fonction publique']);">Emplois &agrave; la fonction publique</a></li>
-                                    <li><a href="http://gcconnex.gc.ca/" onclick="javascript:_paq.push(['trackEvent', 'Pied de page-Footer-FR', 'GCconnex']);">GCconnex</a></li>
-                                    <li><a href="http://www.gcpedia.gc.ca/wiki/?setlang=fr" onclick="javascript:_paq.push(['trackEvent', 'Pied de page-Footer-FR', 'GCpédia']);">GCp&eacute;dia</a></li>
+                                <ul className="list-unstyled">
+                                    <li><a href="http://www.tpsgc-pwgsc.gc.ca/comm/index-fra.html"><abbr title="Services publics et Approvisionnement Canada">SPAC</abbr> sur le Web</a></li>
+                                    <li><a href="http://intranet.canada.ca/index-fra.asp">Intranet du GC</a></li>
+                                    <li><a href="https://www.canada.ca/fr/commission-fonction-publique/emplois/services/emplois-gc.html">Emplois &agrave; la fonction publique</a></li>
+                                    <li><a href="http://gcconnex.gc.ca/">GCconnex</a></li>
+                                    <li><a href="http://www.gcpedia.gc.ca/wiki/?setlang=fr">GCp&eacute;dia</a></li>
                                 </ul>
                             </section>
                         </div>
                     </nav>
-                    <div class="brand">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-xs-6 visible-sm visible-xs tofpg"> <a href="#wb-cont">Haut de la page <span class="glyphicon glyphicon-chevron-up"></span></a> </div>
-                                <div class="col-xs-6 col-md-12 text-right"> <img src="/site/wet4.0/assets/wmms-blk.svg" alt="" /><span class="wb-inv">Symbole du gouvernement du Canada</span> </div>
+                    <div className="brand">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-xs-6 visible-sm visible-xs tofpg"> <a href="#wb-cont">Haut de la page <span className="glyphicon glyphicon-chevron-up"></span></a> </div>
+                                <div className="col-xs-6 col-md-12 text-right"> <img src="/site/wet4.0/assets/wmms-blk.svg" alt="" /><span className="wb-inv">Symbole du gouvernement du Canada</span> </div>
                             </div>
                         </div>
                     </div>
