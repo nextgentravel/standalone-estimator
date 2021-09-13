@@ -1409,7 +1409,6 @@ const Estimator = () => {
                     <input 
                         name="departureDate"
                         type="date"
-                        placeholder="Choose a Date"
                         min={today}
                         lang={locale}
                         value={departureDate} 
@@ -1420,11 +1419,10 @@ const Estimator = () => {
                     />
                 </div>
                 <div className="col-sm-3 mb-4">
-                    <label htmlFor="departureDate">{localeCopy.datepicker_end_date}</label>
+                    <label htmlFor="returnDate">{localeCopy.datepicker_end_date}</label>
                     <input 
                         name="returnDate"
                         type="date"
-                        placeholder="Choose a Date"
                         min={today}
                         lang={locale}
                         value={returnDate} 
