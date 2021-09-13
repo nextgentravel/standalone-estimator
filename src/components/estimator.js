@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useRef} from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import InputDatalist from "./input-datalist.js"
-import DatePicker from "./date-picker.js"
 import calculateMeals from "./calculate-meals.js"
 import { DateTime, Interval, Info } from "luxon"
 import * as yup from "yup"
@@ -36,8 +35,8 @@ import fetchDistanceBetweenPlaces from '../api-calls/fetchDistanceBetweenPlaces'
 
 import './extra/estimator-print.css'
 
-let initialDeparture = null
-let initialReturn = null
+let initialDeparture = ""
+let initialReturn = ""
 
 const ConditionalWrap = ({ condition, wrap, children }) => (
     condition ? wrap(children) : children
@@ -52,6 +51,8 @@ const Estimator = () => {
     const focusAccommodationSelect = () => {
       accommodationSelect.current.focus();
     };
+
+    const today = DateTime.now().toISODate();
 
     let locale = `${intl.locale}-ca`;
 
@@ -422,7 +423,7 @@ const Estimator = () => {
     const [returnDate, setReturnDate] = useState(initialDates.return);
 
     const convertToLux = (date) => {
-        return DateTime.fromISO(date.format("YYYY-MM-DD"))
+        return DateTime.fromISO(date)
     }
 
     const [departureDateLux, setDepartureDateLux] = useState(null);
@@ -619,7 +620,7 @@ const Estimator = () => {
 
 
     const fetchHotelCost = () => {
-        let months = monthsContained(departureDate.format("YYYY-MM-DD"), returnDate.format("YYYY-MM-DD"));
+        let months = monthsContained(departureDate, returnDate);
         let rates = acrdRates[destination.acrdName];
         if (!rates) {
             rates = acrdRates[cities.suburbCityList[destination.acrdName]]
@@ -689,7 +690,6 @@ const Estimator = () => {
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></span>  })
             updateAccommodationCost(rate)
         } else if (accommodationType === 'notrequired') {
-            let rate = (Interval.fromDateTimes(departureDateLux, returnDateLux).count('days') - 1) * 50;
             setAccommodationMessage({ element: <span className="transportation-message"></span>  })
             updateAccommodationCost(0.00);
         } else if (result) {
@@ -703,8 +703,8 @@ const Estimator = () => {
 
     const fetchFlightCost = async (originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset) => {
         return new Promise(resolve => {
-            const departureDateISODate = departureDate.format("YYYY-MM-DD")
-            const returnDateISODate = returnDate.format("YYYY-MM-DD")
+            const departureDateISODate = departureDate
+            const returnDateISODate = returnDate
     
             if (origin.cityCode !== null && destination.cityCode !== null) {
                 amadeusFlightOffer(originAirportCode, destinationAirportCode, departureDateISODate, returnDateISODate, departureTime, returnTime, departureOffset, returnOffset)
@@ -797,14 +797,6 @@ const Estimator = () => {
 
     const updateLocalTransportationCost = (newValue) => {
         setLocalTransportationCost(newValue.toFixed(2))
-    }
-
-    const updateMealCost = (newValue) => {
-        setMealCost(newValue.toFixed(2))
-    }
-
-    const updateOtherCost = (newValue) => {
-        setOtherCost(newValue.toFixed(2))
     }
 
     const updateSummaryCost = (newValue) => {
@@ -983,14 +975,12 @@ const Estimator = () => {
         setFlightResult({});
         setTransportationType('')
         setAccommodationType('')
-
         setOriginAirportCode('');
         setDestinationAirportCode('');
         setDepartureTime('07:00');
         setReturnTime('17:00');
         setDepartureOffset(2);
         setReturnOffset(2);
-        
 
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
@@ -1107,8 +1097,8 @@ const Estimator = () => {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        departureDate: departureDate.format("YYYY-MM-DD"),
-                        returnDate: returnDate.format("YYYY-MM-DD"),
+                        departureDate: departureDate,
+                        returnDate: returnDate,
                         origin,
                         destination,
                         accommodationType,
@@ -1405,17 +1395,36 @@ const Estimator = () => {
                         className="col-sm-6"
                     />
                 </div>
-                <div className="col-sm-6"></div>
-                <div className="col-sm-7">
-                    <DatePicker
-                        startDate={departureDate}
-                        setStart={setDepartureDate}
-                        endDate={returnDate}
-                        setEnd={setReturnDate}
-                        label={formattedMessage('date_picker_label')}
-                        screenReaderInputMessage={formattedMessage('screen_reader_input_message')}
-                        localeCopy={localeCopy}
-                        locale={locale}
+                <div className="col-sm-3"></div>
+                <div className="col-sm-3 mb-4">
+                    <label htmlFor="departureDate">{localeCopy.datepicker_start_date}</label>
+                    <input 
+                        name="departureDate"
+                        type="date"
+                        placeholder="Choose a Date"
+                        min={today}
+                        lang={locale}
+                        value={departureDate} 
+                        className="form-control"
+                        onChange={(event) => {
+                            setDepartureDate(event.target.value)
+                        }}
+                    />
+                </div>
+                <div className="col-sm-3 mb-4">
+                    <label htmlFor="departureDate">{localeCopy.datepicker_end_date}</label>
+                    <input 
+                        name="returnDate"
+                        type="date"
+                        placeholder="Choose a Date"
+                        min={today}
+                        lang={locale}
+                        value={returnDate} 
+                        className="form-control"
+                        onChange={(event) => {
+                            console.log('Date', event.target.value)
+                            setReturnDate(event.target.value)
+                        }}
                     />
                 </div>
                 <div className="col-sm-3"></div>
@@ -1502,7 +1511,6 @@ const Estimator = () => {
                                 <input
                                     readOnly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
                                     aria-readonly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
-                                    type="text"
                                     className="form-control"
                                     id={"accommodation_total"}
                                     aria-label={formattedMessage('accommodation_total')}
@@ -1639,8 +1647,6 @@ const Estimator = () => {
                                     </div>
                                 }
                                 <input
-                                    
-                                    type="text"
                                     className={`form-control`}
                                     id={"transportation_select"}
                                     aria-label={formattedMessage('transportation_total')}
