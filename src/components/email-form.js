@@ -26,8 +26,11 @@ const EmailForm = (props) => {
                             props.setTravellersName(e.target.value)
                         }}
                         type="text"
-                        placeholder={props.messages.email_form_travellers_name_placeholder}
+                        aria-describedby="travellersNameHelp"
                     />
+                    <Form.Text id="travellersNameHelp" muted>
+                        {props.messages.email_form_travellers_name_placeholder}
+                    </Form.Text>
                     <Form.Control.Feedback type="invalid">
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
@@ -47,8 +50,11 @@ const EmailForm = (props) => {
                             props.setTravellersEmail(e.target.value)
                         }}
                         type="text"
-                        placeholder={props.messages.email_form_travellers_email_placeholder}
+                        aria-describedby="travellersEmailHelp"
                     />
+                    <Form.Text id="travellersEmailHelp" muted>
+                        {props.messages.email_form_travellers_email_placeholder}
+                    </Form.Text>
                     <Form.Control.Feedback type="invalid">
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
@@ -79,8 +85,11 @@ const EmailForm = (props) => {
                             props.setApproversName(e.target.value)
                         }}
                         type="text"
-                        placeholder={props.messages.email_form_approvers_name_placeholder}
+                        aria-describedby="approversNameHelp"
                     />
+                    <Form.Text id="approversNameHelp" muted>
+                        {props.messages.email_form_approvers_name_placeholder}
+                    </Form.Text>
                     <Form.Control.Feedback type="invalid">
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
@@ -100,8 +109,11 @@ const EmailForm = (props) => {
                             props.setApproversEmail(e.target.value)
                         }}
                         type="text"
-                        placeholder={props.messages.email_form_approvers_email_placeholder}
+                        aria-describedby="approversEmailHelp"
                     />
+                    <Form.Text id="approversEmailHelp" muted>
+                        {props.messages.email_form_approvers_email_placeholder}
+                    </Form.Text>
                     <Form.Control.Feedback type="invalid">
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
@@ -121,14 +133,14 @@ const EmailForm = (props) => {
                             props.setTripName(e.target.value)
                         }}
                         type="text"
-                        placeholder={props.messages.email_form_trip_name_placeholder}
                         aria-describedby="emailTripName"
                     />
                     <Form.Control.Feedback type="invalid">
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
                     <Form.Text id="emailTripName" muted>
-                        {props.messages.email_form_trip_name_helptext}
+                        <p>{props.messages.email_form_trip_name_placeholder}</p>
+                        <p>{props.messages.email_form_trip_name_helptext}</p>
                     </Form.Text>
 
                 </Col>

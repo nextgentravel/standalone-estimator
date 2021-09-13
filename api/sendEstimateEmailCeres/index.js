@@ -72,13 +72,13 @@ const travelMode = (input, lang) => {
         return "Train"
         break;
       case 'rental':
-        return "Rental Car"
+        return "Rental car"
         break;
       case 'private':
-        return "Private Vehicle"
+        return "Private vehicle"
         break;
       case 'notrequired':
-        return "Not Required"
+        return "Not required"
         break;
       default:
         return input;
