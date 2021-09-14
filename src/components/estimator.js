@@ -1406,7 +1406,8 @@ const Estimator = () => {
                 <div className="col-sm-3"></div>
                 <div className="col-sm-3 mb-4">
                     <label htmlFor="departureDate">{localeCopy.datepicker_start_date}</label>
-                    <input 
+                    <input
+                        id="departureDate"
                         name="departureDate"
                         type="date"
                         min={today}
@@ -1420,7 +1421,8 @@ const Estimator = () => {
                 </div>
                 <div className="col-sm-3 mb-4">
                     <label htmlFor="returnDate">{localeCopy.datepicker_end_date}</label>
-                    <input 
+                    <input
+                        id="returnDate"
                         name="returnDate"
                         type="date"
                         min={today}
