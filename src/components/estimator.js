@@ -347,6 +347,11 @@ const Estimator = () => {
                     date_format_description
                     aria_flight_estimate_loading
                     aria_flight_estimate_loaded
+                    autocomplete_no_results
+                    autocomplete_query_too_short
+                    autocomplete_status_selected_option
+                    autocomplete_status_no_results
+                    autocomplete_assistive_hint
                 }
             }
         }
@@ -1389,6 +1394,7 @@ const Estimator = () => {
                         name="origin"
                         options={filteredCitiesList}
                         updateValue={setOrigin}
+                        localeCopy={localeCopy}
                     />
                 </div>
                 <div className="col-sm-6"></div>
@@ -1401,6 +1407,7 @@ const Estimator = () => {
                         options={filteredCitiesList}
                         updateValue={setDestination}
                         className="col-sm-6"
+                        localeCopy={localeCopy}
                     />
                 </div>
                 <div className="col-sm-3"></div>
