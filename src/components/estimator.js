@@ -1491,6 +1491,7 @@ const Estimator = () => {
                                                     ref={accommodationSelect}
                                                     disabled={!result}
                                                     aria-label={formattedMessage('accommodation_type')}
+                                                    aria-describedby="accommodation-message"
                                                     className="custom-select mb-2"
                                                     value={accommodationType}
                                                     onChange={e => {
@@ -1529,6 +1530,7 @@ const Estimator = () => {
                                             readOnly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
                                             aria-readonly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
                                             className="form-control"
+                                            aria-describedby="accommodation-message"
                                             id={"accommodation_total"}
                                             aria-label={formattedMessage('accommodation_total')}
                                             name={formattedMessage('accommodation_total')}
