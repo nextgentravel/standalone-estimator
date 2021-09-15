@@ -1628,6 +1628,7 @@ const Estimator = () => {
                                                 <select
                                                     disabled={!result}
                                                     aria-label={formattedMessage('transportation_type')}
+                                                    aria-describedby="transportation-message"
                                                     className="custom-select mb-2"
                                                     value={transportationType}
                                                     onChange={e => {
@@ -1669,6 +1670,7 @@ const Estimator = () => {
                                             className={`form-control`}
                                             id={"transportation_select"}
                                             aria-label={formattedMessage('transportation_total')}
+                                            aria-describedby="transportation-message"
                                             name={formattedMessage('transportation_total')}
                                             onChange={(e)  => {
                                                 if (result) {
