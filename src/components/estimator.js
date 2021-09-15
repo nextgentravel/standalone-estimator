@@ -1811,9 +1811,17 @@ const Estimator = () => {
                     <div className="row ml-1 mb-5">
                         <div className="col-sm-12">
                             <Button
-                                disabled={!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired')}
-                                className="px-5 mb-2"
-                                onClick={() => { setEmailModalShow(true) }}
+                                aria-disabled={!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired')}
+                                className={`px-5 mb-2${!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired') ? ' disabled' : ''}`}
+                                onClick={() => {
+                                        if (!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired')) {
+                                            return
+                                        } else {
+                                            setEmailModalShow(true)
+                                        }
+                                        
+                                    }
+                                }
                                 aria-describedby="email-button-validation"
                             >
                                     {formattedMessage('email')}
