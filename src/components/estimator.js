@@ -1810,11 +1810,18 @@ const Estimator = () => {
                     </section>
                     <div className="row ml-1 mb-5">
                         <div className="col-sm-12">
-                            <Button disabled={!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired')} className="px-5 mb-2" onClick={() => { setEmailModalShow(true) }}>{formattedMessage('email')}</Button>
+                            <Button
+                                disabled={!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired')}
+                                className="px-5 mb-2"
+                                onClick={() => { setEmailModalShow(true) }}
+                                aria-describedby="email-button-validation"
+                            >
+                                    {formattedMessage('email')}
+                            </Button>
                         </div>
                         {(!result || transportationType === '' || accommodationType === '') &&
                             <div className="col-sm-12">
-                                <small id="passwordHelpBlock" className="form-text text-muted">
+                                <small id="email-button-validation" className="form-text text-muted">
                                     <span dangerouslySetInnerHTML={{ __html: localeCopy.email_field_disabled_message.html }}></span>
                                 </small>
                             </div>
