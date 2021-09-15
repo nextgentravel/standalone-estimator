@@ -977,7 +977,7 @@ const Estimator = () => {
         setDepartureDate(initialDates.departure);
         setReturnDate(initialDates.return);
         setMealsByDay({})
-        setMealCost(parseFloat(0.00).toFixed(2))
+        setMealCost({ total: 0.00 })
         setOtherCost(parseFloat(0.00).toFixed(2))
         setResult(false)
         setSubmitValidationWarnings([]);
@@ -1778,7 +1778,7 @@ const Estimator = () => {
                             icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
                             title={formattedMessage("meals_and_incidentals")}
                             calculateTotal={calculateTotal}
-                            updateCost={setMealCost}
+                            updateCost={(amount) => setMealCost({ total: amount })}
                             readOnly={true}
                         />
                         <EstimatorRow
