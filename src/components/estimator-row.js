@@ -1,7 +1,6 @@
 import React from "react";
 import Tooltip from 'react-bootstrap/Tooltip'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
-import { FormattedMessage } from "react-intl";
 
 const ConditionalWrap = ({ condition, wrap, children }) => (
     condition ? wrap(children) : children
@@ -55,7 +54,7 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                     <input
                         readOnly={readOnly}
                         aria-readonly={readOnly}
-                        type="text"
+                        aria-describedby={`${id}-message`}
                         value={value}
                         className="form-control"
                         id={id}
@@ -91,7 +90,7 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
 
                 
             </div>
-            <div className="col-sm-5 align-self-center text-wrap mb-2">
+            <div className="col-sm-5 align-self-center text-wrap mb-2" id={`${id}-message`} >
                 {message && message.element}
             </div>
         </div>
