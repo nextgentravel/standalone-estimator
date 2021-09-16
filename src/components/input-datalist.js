@@ -2,7 +2,7 @@ import React from 'react'
 import 'unorm';
 import Autocomplete from 'accessible-autocomplete/react'
 
-const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, options, updateValue}) => {
+const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, options, updateValue, localeCopy}) => {
     let showValidationWarning = false;
     let componentWarnings = [];
 
@@ -40,6 +40,13 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
         }
     }
     
+    // autocomplete_no_results
+    // autocomplete_query_too_short
+    // autocomplete_status_selected_option
+    // autocomplete_status_no_results
+    // autocomplete_assistive_hint
+
+
     return (
         <div className="mb-4">
             <label htmlFor={`autocomplete-${name}`}>{label}</label>
@@ -55,6 +62,21 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
                         updateValue(value)
                     }}
                     className={showValidationWarning ? 'form-control is-invalid' : 'form-control' }
+                    tNoResults={() => localeCopy.autocomplete_no_results}
+                    tStatusQueryTooShort={(minQueryLength) => {
+                        let message = localeCopy.autocomplete_query_too_short
+                        message = message.replace('{minQueryLength}', minQueryLength)
+                        return message
+                    }}
+                    tStatusNoResults={() => localeCopy.autocomplete_status_no_results}
+                    tStatusSelectedOption={(selectedOption, length, index) => {
+                        let message = localeCopy.autocomplete_status_selected_option
+                        message = message.replace('{selectedOption}', selectedOption)
+                        message = message.replace('{length}', length)
+                        message = message.replace('{index}', index + 1)
+                        return message;
+                    }}
+                    tAssistiveHint={() => { return localeCopy.autocomplete_assistive_hint }}
                 />
             </div>
             {componentWarnings.map((warning, index) => (

@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useRef} from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import InputDatalist from "./input-datalist.js"
-import DatePicker from "./date-picker.js"
 import calculateMeals from "./calculate-meals.js"
 import { DateTime, Interval, Info } from "luxon"
 import * as yup from "yup"
@@ -36,8 +35,8 @@ import fetchDistanceBetweenPlaces from '../api-calls/fetchDistanceBetweenPlaces'
 
 import './extra/estimator-print.css'
 
-let initialDeparture = null
-let initialReturn = null
+let initialDeparture = ""
+let initialReturn = ""
 
 const ConditionalWrap = ({ condition, wrap, children }) => (
     condition ? wrap(children) : children
@@ -52,6 +51,8 @@ const Estimator = () => {
     const focusAccommodationSelect = () => {
       accommodationSelect.current.focus();
     };
+
+    const today = DateTime.now().toISODate();
 
     let locale = `${intl.locale}-ca`;
 
@@ -346,6 +347,11 @@ const Estimator = () => {
                     date_format_description
                     aria_flight_estimate_loading
                     aria_flight_estimate_loaded
+                    autocomplete_no_results
+                    autocomplete_query_too_short
+                    autocomplete_status_selected_option
+                    autocomplete_status_no_results
+                    autocomplete_assistive_hint
                 }
             }
         }
@@ -427,7 +433,7 @@ const Estimator = () => {
     const [returnDate, setReturnDate] = useState(initialDates.return);
 
     const convertToLux = (date) => {
-        return DateTime.fromISO(date.format("YYYY-MM-DD"))
+        return DateTime.fromISO(date)
     }
 
     const [departureDateLux, setDepartureDateLux] = useState(null);
@@ -624,7 +630,7 @@ const Estimator = () => {
 
 
     const fetchHotelCost = () => {
-        let months = monthsContained(departureDate.format("YYYY-MM-DD"), returnDate.format("YYYY-MM-DD"));
+        let months = monthsContained(departureDate, returnDate);
         let rates = acrdRates[destination.acrdName];
         if (!rates) {
             rates = acrdRates[cities.suburbCityList[destination.acrdName]]
@@ -694,7 +700,6 @@ const Estimator = () => {
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></span>  })
             updateAccommodationCost(rate)
         } else if (accommodationType === 'notrequired') {
-            let rate = (Interval.fromDateTimes(departureDateLux, returnDateLux).count('days') - 1) * 50;
             setAccommodationMessage({ element: <span className="transportation-message"></span>  })
             updateAccommodationCost(0.00);
         } else if (result) {
@@ -708,8 +713,8 @@ const Estimator = () => {
 
     const fetchFlightCost = async (originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset) => {
         return new Promise(resolve => {
-            const departureDateISODate = departureDate.format("YYYY-MM-DD")
-            const returnDateISODate = returnDate.format("YYYY-MM-DD")
+            const departureDateISODate = departureDate
+            const returnDateISODate = returnDate
     
             if (origin.cityCode !== null && destination.cityCode !== null) {
                 amadeusFlightOffer(originAirportCode, destinationAirportCode, departureDateISODate, returnDateISODate, departureTime, returnTime, departureOffset, returnOffset)
@@ -802,14 +807,6 @@ const Estimator = () => {
 
     const updateLocalTransportationCost = (newValue) => {
         setLocalTransportationCost(newValue.toFixed(2))
-    }
-
-    const updateMealCost = (newValue) => {
-        setMealCost(newValue.toFixed(2))
-    }
-
-    const updateOtherCost = (newValue) => {
-        setOtherCost(newValue.toFixed(2))
     }
 
     const updateSummaryCost = (newValue) => {
@@ -980,7 +977,7 @@ const Estimator = () => {
         setDepartureDate(initialDates.departure);
         setReturnDate(initialDates.return);
         setMealsByDay({})
-        setMealCost(parseFloat(0.00).toFixed(2))
+        setMealCost({ total: 0.00 })
         setOtherCost(parseFloat(0.00).toFixed(2))
         setResult(false)
         setSubmitValidationWarnings([]);
@@ -997,7 +994,6 @@ const Estimator = () => {
         setReturnTime('17:00');
         setDepartureOffset(2);
         setReturnOffset(2);
-        
 
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
@@ -1114,8 +1110,8 @@ const Estimator = () => {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        departureDate: departureDate.format("YYYY-MM-DD"),
-                        returnDate: returnDate.format("YYYY-MM-DD"),
+                        departureDate: departureDate,
+                        returnDate: returnDate,
                         origin,
                         destination,
                         accommodationType,
@@ -1398,6 +1394,7 @@ const Estimator = () => {
                         name="origin"
                         options={filteredCitiesList}
                         updateValue={setOrigin}
+                        localeCopy={localeCopy}
                     />
                 </div>
                 <div className="col-sm-6"></div>
@@ -1410,19 +1407,39 @@ const Estimator = () => {
                         options={filteredCitiesList}
                         updateValue={setDestination}
                         className="col-sm-6"
+                        localeCopy={localeCopy}
                     />
                 </div>
-                <div className="col-sm-6"></div>
-                <div className="col-sm-7">
-                    <DatePicker
-                        startDate={departureDate}
-                        setStart={setDepartureDate}
-                        endDate={returnDate}
-                        setEnd={setReturnDate}
-                        label={formattedMessage('date_picker_label')}
-                        screenReaderInputMessage={formattedMessage('screen_reader_input_message')}
-                        localeCopy={localeCopy}
-                        locale={locale}
+                <div className="col-sm-3"></div>
+                <div className="col-sm-3 mb-4">
+                    <label htmlFor="departureDate">{localeCopy.datepicker_start_date}</label>
+                    <input
+                        id="departureDate"
+                        name="departureDate"
+                        type="date"
+                        min={today}
+                        lang={locale}
+                        value={departureDate} 
+                        className="form-control"
+                        onChange={(event) => {
+                            setDepartureDate(event.target.value)
+                        }}
+                    />
+                </div>
+                <div className="col-sm-3 mb-4">
+                    <label htmlFor="returnDate">{localeCopy.datepicker_end_date}</label>
+                    <input
+                        id="returnDate"
+                        name="returnDate"
+                        type="date"
+                        min={today}
+                        lang={locale}
+                        value={returnDate} 
+                        className="form-control"
+                        onChange={(event) => {
+                            console.log('Date', event.target.value)
+                            setReturnDate(event.target.value)
+                        }}
                     />
                 </div>
                 <div className="col-sm-3"></div>
@@ -1448,361 +1465,380 @@ const Estimator = () => {
                 </div>
             </div>}
 
-            <section className="card bg-light p-4 mb-4">
-                <h3 className="mb-3">{formattedMessage('estimate_summary_title')}</h3>
-                <div className="row mb-4">
-                    <div className="col-sm-12 mb-2">
-                        <label htmlFor="accommodation_select"><FaBed className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('accommodation')}</label>
-                    </div>
-                    <div className="col-sm-4 align-self-center">
-                        <div className="align-self-center">
-                            <div>
-                                {/* <label htmlFor={name}>{label}</label> */}
-                                <div id={"accommodation_container"}>
-                                    <ConditionalWrap
-                                        condition={!result}
-                                        wrap={children => (
-                                            <OverlayTrigger
-                                                placement="top"
-                                                delay={{ show: 250, hide: 400 }}
-                                                overlay={renderEnterTravelInfoAboveTooltip}
-                                            >{children}</OverlayTrigger>)}
-                                    >
-                                        <select
-                                            ref={accommodationSelect}
-                                            disabled={!result}
-                                            aria-label={formattedMessage('accommodation_type')}
-                                            className="custom-select mb-2"
-                                            value={accommodationType}
-                                            onChange={e => {
-                                                if (result) {
-                                                    setAccommodationType(e.target.value)
-                                                }
-                                            }}
-                                        >
-                                            <option disabled value="">{formattedMessage('select')}</option>
-                                            <option value="hotel">{formattedMessage('hotel')}</option>
-                                            <option value="private">{formattedMessage('private')}</option>
-                                            <option value="notrequired">{formattedMessage('not_required')}</option>
-                                        </select>
-                                    </ConditionalWrap>
-                                </div>
+            {result &&
+                <>
+                    <section className="card bg-light p-4 mb-4">
+                        <h3 className="mb-3">{formattedMessage('estimate_summary_title')}</h3>
+                        <div className="row mb-4">
+                            <div className="col-sm-12 mb-2">
+                                <label htmlFor="accommodation_select"><FaBed className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('accommodation')}</label>
                             </div>
-                        </div>
-                    </div>
-                    <div className="col-sm-3 align-self-center">
-                        <ConditionalWrap
-                            condition={!result}
-                            wrap={children => (
-                                <OverlayTrigger
-                                    placement="top"
-                                    delay={{ show: 250, hide: 400 }}
-                                    overlay={renderEnterTravelInfoAboveTooltip}
-                                >{children}</OverlayTrigger>)}
-                        >
-                            <div className="input-group mb-2">
-                                {locale === 'en-ca' &&
-                                    <div className='input-group-prepend'>
-                                        <span className="input-group-text" id="accommodation-dollar-sign">$</span>
-                                    </div>
-                                }
-                                <input
-                                    readOnly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
-                                    aria-readonly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
-                                    type="text"
-                                    className="form-control"
-                                    id={"accommodation_total"}
-                                    aria-label={formattedMessage('accommodation_total')}
-                                    name={formattedMessage('accommodation_total')}
-                                    onChange={(e) => {
-                                        if (!result) return;
-                                        if (parseFloat(e.target.value) > acrdTotal) {
-                                            setAccommodationCost(e.target.value)
-                                            let message = localeCopy.hotel_above_estimate.html
-                                            message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
-                                            message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
-                                            setAccommodationMessage({ element: 
-                                            <div className="mb-0 alert-warning" role="alert">
-                                                <>
-                                                    <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: message }}></span>
+                            <div className="col-sm-4 align-self-center">
+                                <div className="align-self-center">
+                                    <div>
+                                        {/* <label htmlFor={name}>{label}</label> */}
+                                        <div id={"accommodation_container"}>
+                                            <ConditionalWrap
+                                                condition={!result}
+                                                wrap={children => (
                                                     <OverlayTrigger
                                                         placement="top"
                                                         delay={{ show: 250, hide: 400 }}
-                                                        overlay={renderAccommodationTooltip}
-                                                    >
-                                                        <button type="button" className="btn btn-default" aria-label={formattedMessage('accommodation_tooltip')}>
-                                                            <FaQuestionCircle className="ml-2 mb-1" size="15" fill="#9E9E9E" />
-                                                        </button>
-                                                    </OverlayTrigger>
-                                                </>
-                                            </div>
-                                            , style: 'warn' });
-                                        } else if (parseFloat(e.target.value) === 0) {
-                                            setAccommodationCost(e.target.value)
-                                            // localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
-                                            setAccommodationMessage({ element: 
-                                            <div className="mb-0 alert-warning" role="alert">
-                                                <>
-                                                    <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
-                                                </>
-                                            </div>
-                                            , style: 'warn' });
-                                        } else if (parseFloat(e.target.value) <= acrdTotal) {
-                                            setAccommodationCost(e.target.value)
-                                            let message = localeCopy.hotel_below_estimate.html
-                                            message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
-                                            message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
-                                            setAccommodationMessage({ element: 
-                                            <div className="mb-0">
-                                                <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span>
-                                            </div>
-                                            , style: 'success' });
-                                        } else {
-                                            setAccommodationCost(e.target.value)
-                                        }
-                                    }}
-                                    onBlur={(e) => {
-                                        if (isNaN(parseFloat(e.target.value))) {
-                                            setAccommodationCost(parseFloat(0.00).toFixed(2))
-                                        } else {
-                                            setAccommodationCost(parseFloat(e.target.value).toFixed(2) || 0.00)
-                                        }
-                                        calculateTotal()
-                                    }}
-                                    value={accommodationCost}
-                                    type="number"
-                                    min="0"
-                                >
-                                </input>
-                                {locale === 'fr-ca' &&
-                                    <div className='input-group-append'>
-                                        <span className="input-group-text" id="accommodation-dollar-sign">$</span>
+                                                        overlay={renderEnterTravelInfoAboveTooltip}
+                                                    >{children}</OverlayTrigger>)}
+                                            >
+                                                <select
+                                                    ref={accommodationSelect}
+                                                    disabled={!result}
+                                                    aria-label={formattedMessage('accommodation_type')}
+                                                    aria-describedby="accommodation-message"
+                                                    className="custom-select mb-2"
+                                                    value={accommodationType}
+                                                    onChange={e => {
+                                                        if (result) {
+                                                            setAccommodationType(e.target.value)
+                                                        }
+                                                    }}
+                                                >
+                                                    <option disabled value="">{formattedMessage('select')}</option>
+                                                    <option value="hotel">{formattedMessage('hotel')}</option>
+                                                    <option value="private">{formattedMessage('private')}</option>
+                                                    <option value="notrequired">{formattedMessage('not_required')}</option>
+                                                </select>
+                                            </ConditionalWrap>
+                                        </div>
                                     </div>
-                                }
-                            </div>
-                        </ConditionalWrap>
-                    </div>
-                    <div className="col-sm-5 align-self-center text-wrap mb-2" id="accommodation-message">
-                        {accommodationMessage.element}
-                    </div>
-                </div>
-
-                <div className="row mb-4">
-                    <div className="col-sm-12 mb-2">
-                        <label htmlFor="transportation_select"><FaPlane className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('transportation')}</label>
-                    </div>
-                    <div className="col-sm-4 align-self-center">
-                        <div className="align-self-center">
-                            <div>
-                                {/* <label htmlFor={name}>{label}</label> */}
-                                <div id={"transportation_container"}>
-                                    <ConditionalWrap
-                                        condition={!result}
-                                        wrap={children => (
-                                            <OverlayTrigger
-                                                placement="top"
-                                                delay={{ show: 250, hide: 400 }}
-                                                overlay={renderEnterTravelInfoAboveTooltip}
-                                            >{children}</OverlayTrigger>)}
-                                    >
-                                        <select
-                                            disabled={!result}
-                                            aria-label={formattedMessage('transportation_type')}
-                                            className="custom-select mb-2"
-                                            value={transportationType}
-                                            onChange={e => {
-                                                if (result) {
-                                                    setTransportationType(e.target.value)
-                                                }
-                                            }}
-                                        >
-                                            <option disabled value="">{formattedMessage('select')}</option>
-                                            <option value="flight" >{formattedMessage('flight')}</option>
-                                            <option value="train">{formattedMessage('train')}</option>
-                                            <option value="rental">{formattedMessage('rental')}</option>
-                                            <option value="private">{formattedMessage('private_vehicle')}</option>
-                                            <option value="notrequired">{formattedMessage('not_required')}</option>
-                                        </select>
-                                    </ConditionalWrap>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div className="col-sm-3 align-self-center">
-                        <ConditionalWrap
-                            condition={!result}
-                            wrap={children => (
-                                <OverlayTrigger
-                                    placement="top"
-                                    delay={{ show: 250, hide: 400 }}
-                                    overlay={renderEnterTravelInfoAboveTooltip}
-                                >{children}</OverlayTrigger>)}
-                        >
-
-                            <div className="input-group mb-2">
-                                {locale === 'en-ca' &&
-                                    <div className='input-group-prepend'>
-                                        <span className="input-group-text" id="transportation-dollar-sign">$</span>
-                                    </div>
-                                }
-                                <input
-                                    
-                                    type="text"
-                                    className={`form-control`}
-                                    id={"transportation_select"}
-                                    aria-label={formattedMessage('transportation_total')}
-                                    name={formattedMessage('transportation_total')}
-                                    onChange={(e)  => {
-                                        if (result) {
-                                            setTransportationCost(e.target.value)
-                                        }                                    
-                                    }}
-                                    onBlur={(e) => {
-                                        if (isNaN(parseFloat(e.target.value))) {
-                                            setTransportationCost(parseFloat(0.00).toFixed(2))
-                                        } else {
-                                            setTransportationCost(parseFloat(e.target.value).toFixed(2) || 0.00)
-                                        }
-                                        calculateTotal();
-                                    }}
-                                    value={transportationCost}
-                                    readOnly={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
-                                    aria-readonly={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
-                                    type="number"
-                                    min="0"
+                            <div className="col-sm-3 align-self-center">
+                                <ConditionalWrap
+                                    condition={!result}
+                                    wrap={children => (
+                                        <OverlayTrigger
+                                            placement="top"
+                                            delay={{ show: 250, hide: 400 }}
+                                            overlay={renderEnterTravelInfoAboveTooltip}
+                                        >{children}</OverlayTrigger>)}
                                 >
-                                </input>
-                                {locale === 'fr-ca' &&
-                                    <div className='input-group-append'>
-                                        <span className="input-group-text" id="transportation-dollar-sign">$</span>
+                                    <div className="input-group mb-2">
+                                        {locale === 'en-ca' &&
+                                            <div className='input-group-prepend'>
+                                                <span className="input-group-text" id="accommodation-dollar-sign">$</span>
+                                            </div>
+                                        }
+                                        <input
+                                            readOnly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
+                                            aria-readonly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
+                                            className="form-control"
+                                            aria-describedby="accommodation-message"
+                                            id={"accommodation_total"}
+                                            aria-label={formattedMessage('accommodation_total')}
+                                            name={formattedMessage('accommodation_total')}
+                                            onChange={(e) => {
+                                                if (!result) return;
+                                                if (parseFloat(e.target.value) > acrdTotal) {
+                                                    setAccommodationCost(e.target.value)
+                                                    let message = localeCopy.hotel_above_estimate.html
+                                                    message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
+                                                    message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
+                                                    setAccommodationMessage({ element: 
+                                                    <div className="mb-0 alert-warning" role="alert">
+                                                        <>
+                                                            <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: message }}></span>
+                                                            <OverlayTrigger
+                                                                placement="top"
+                                                                delay={{ show: 250, hide: 400 }}
+                                                                overlay={renderAccommodationTooltip}
+                                                            >
+                                                                <button type="button" className="btn btn-default" aria-label={formattedMessage('accommodation_tooltip')}>
+                                                                    <FaQuestionCircle className="ml-2 mb-1" size="15" fill="#9E9E9E" />
+                                                                </button>
+                                                            </OverlayTrigger>
+                                                        </>
+                                                    </div>
+                                                    , style: 'warn' });
+                                                } else if (parseFloat(e.target.value) === 0) {
+                                                    setAccommodationCost(e.target.value)
+                                                    // localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
+                                                    setAccommodationMessage({ element: 
+                                                    <div className="mb-0 alert-warning" role="alert">
+                                                        <>
+                                                            <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
+                                                        </>
+                                                    </div>
+                                                    , style: 'warn' });
+                                                } else if (parseFloat(e.target.value) <= acrdTotal) {
+                                                    setAccommodationCost(e.target.value)
+                                                    let message = localeCopy.hotel_below_estimate.html
+                                                    message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
+                                                    message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
+                                                    setAccommodationMessage({ element: 
+                                                    <div className="mb-0">
+                                                        <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span>
+                                                    </div>
+                                                    , style: 'success' });
+                                                } else {
+                                                    setAccommodationCost(e.target.value)
+                                                }
+                                            }}
+                                            onBlur={(e) => {
+                                                if (isNaN(parseFloat(e.target.value))) {
+                                                    setAccommodationCost(parseFloat(0.00).toFixed(2))
+                                                } else {
+                                                    setAccommodationCost(parseFloat(e.target.value).toFixed(2) || 0.00)
+                                                }
+                                                calculateTotal()
+                                            }}
+                                            value={accommodationCost}
+                                            type="number"
+                                            min="0"
+                                        >
+                                        </input>
+                                        {locale === 'fr-ca' &&
+                                            <div className='input-group-append'>
+                                                <span className="input-group-text" id="accommodation-dollar-sign">$</span>
+                                            </div>
+                                        }
                                     </div>
-                                }
-
+                                </ConditionalWrap>
                             </div>
-                        </ConditionalWrap>
-                    </div>
-                    <div className="col-sm-5 align-self-center text-wrap mb-2" id="transportation-message">
-                        {transportationMessage.element}
-                    </div>
-                </div>
-
-                <div className="row mb-4">
-                    {transportationType === 'private' &&
-                        <div className="col-sm-4 align-self-center text-wrap mb-2">
-                            <Form inline>
-                                <Form.Group controlId="kilometricsManually">
-                                    <Form.Check
-                                        type="checkbox"
-                                        className="mr-2" 
-                                        aria-label="Enter Kilometrics Manually"
-                                        checked={enterKilometricsDistanceManually}
-                                        onChange={(e) => setEnterKilometricsDistanceManually(!enterKilometricsDistanceManually)}
-                                    />
-                                    {enterKilometricsDistanceManually &&
-                                        <InputGroup>
-                                            <Form.Control type="privateKilometrics"
-                                                value={privateKilometricsValue}
-                                                onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
-                                                onChange={(e) => {
-                                                    setPrivateKilometricsValue(e.target.value)
-                                                }}
-                                                aria-describedby="km"
-                                            />
-                                            <InputGroup.Append>
-                                                <InputGroup.Text id="km">km</InputGroup.Text>
-                                            </InputGroup.Append>
-                                        </InputGroup>
-
-
-
-                                    }
-                                    {!enterKilometricsDistanceManually &&
-                                        <span>{formattedMessage('private_vehicle_enter_distance_manually')}</span>
-                                    }
-                                </Form.Group>
-                            </Form>
+                            <div className="col-sm-5 align-self-center text-wrap mb-2" id="accommodation-message">
+                                {accommodationMessage.element}
+                            </div>
                         </div>
-                    }
-                </div>
+
+                        <div className="row mb-4">
+                            <div className="col-sm-12 mb-2">
+                                <label htmlFor="transportation_select"><FaPlane className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('transportation')}</label>
+                            </div>
+                            <div className="col-sm-4 align-self-center">
+                                <div className="align-self-center">
+                                    <div>
+                                        {/* <label htmlFor={name}>{label}</label> */}
+                                        <div id={"transportation_container"}>
+                                            <ConditionalWrap
+                                                condition={!result}
+                                                wrap={children => (
+                                                    <OverlayTrigger
+                                                        placement="top"
+                                                        delay={{ show: 250, hide: 400 }}
+                                                        overlay={renderEnterTravelInfoAboveTooltip}
+                                                    >{children}</OverlayTrigger>)}
+                                            >
+                                                <select
+                                                    disabled={!result}
+                                                    aria-label={formattedMessage('transportation_type')}
+                                                    aria-describedby="transportation-message"
+                                                    className="custom-select mb-2"
+                                                    value={transportationType}
+                                                    onChange={e => {
+                                                        if (result) {
+                                                            setTransportationType(e.target.value)
+                                                        }
+                                                    }}
+                                                >
+                                                    <option disabled value="">{formattedMessage('select')}</option>
+                                                    <option value="flight" >{formattedMessage('flight')}</option>
+                                                    <option value="train">{formattedMessage('train')}</option>
+                                                    <option value="rental">{formattedMessage('rental')}</option>
+                                                    <option value="private">{formattedMessage('private_vehicle')}</option>
+                                                    <option value="notrequired">{formattedMessage('not_required')}</option>
+                                                </select>
+                                            </ConditionalWrap>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-sm-3 align-self-center">
+                                <ConditionalWrap
+                                    condition={!result}
+                                    wrap={children => (
+                                        <OverlayTrigger
+                                            placement="top"
+                                            delay={{ show: 250, hide: 400 }}
+                                            overlay={renderEnterTravelInfoAboveTooltip}
+                                        >{children}</OverlayTrigger>)}
+                                >
+
+                                    <div className="input-group mb-2">
+                                        {locale === 'en-ca' &&
+                                            <div className='input-group-prepend'>
+                                                <span className="input-group-text" id="transportation-dollar-sign">$</span>
+                                            </div>
+                                        }
+                                        <input
+                                            className={`form-control`}
+                                            id={"transportation_select"}
+                                            aria-label={formattedMessage('transportation_total')}
+                                            aria-describedby="transportation-message"
+                                            name={formattedMessage('transportation_total')}
+                                            onChange={(e)  => {
+                                                if (result) {
+                                                    setTransportationCost(e.target.value)
+                                                }                                    
+                                            }}
+                                            onBlur={(e) => {
+                                                if (isNaN(parseFloat(e.target.value))) {
+                                                    setTransportationCost(parseFloat(0.00).toFixed(2))
+                                                } else {
+                                                    setTransportationCost(parseFloat(e.target.value).toFixed(2) || 0.00)
+                                                }
+                                                calculateTotal();
+                                            }}
+                                            value={transportationCost}
+                                            readOnly={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
+                                            aria-readonly={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
+                                            type="number"
+                                            min="0"
+                                        >
+                                        </input>
+                                        {locale === 'fr-ca' &&
+                                            <div className='input-group-append'>
+                                                <span className="input-group-text" id="transportation-dollar-sign">$</span>
+                                            </div>
+                                        }
+
+                                    </div>
+                                </ConditionalWrap>
+                            </div>
+                            <div className="col-sm-5 align-self-center text-wrap mb-2" id="transportation-message">
+                                {transportationMessage.element}
+                            </div>
+                        </div>
+
+                        <div className="row mb-4">
+                            {transportationType === 'private' &&
+                                <div className="col-sm-4 align-self-center text-wrap mb-2">
+                                    <Form inline>
+                                        <Form.Group controlId="kilometricsManually">
+                                            <Form.Check
+                                                type="checkbox"
+                                                className="mr-2" 
+                                                aria-label="Enter Kilometrics Manually"
+                                                checked={enterKilometricsDistanceManually}
+                                                onChange={(e) => setEnterKilometricsDistanceManually(!enterKilometricsDistanceManually)}
+                                            />
+                                            {enterKilometricsDistanceManually &&
+                                                <InputGroup>
+                                                    <Form.Control type="privateKilometrics"
+                                                        value={privateKilometricsValue}
+                                                        onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
+                                                        onChange={(e) => {
+                                                            setPrivateKilometricsValue(e.target.value)
+                                                        }}
+                                                        aria-describedby="km"
+                                                    />
+                                                    <InputGroup.Append>
+                                                        <InputGroup.Text id="km">km</InputGroup.Text>
+                                                    </InputGroup.Append>
+                                                </InputGroup>
 
 
-                <EstimatorRow
-                    locale={locale}
-                    overlayRender={renderEnterTravelInfoAboveTooltip}
-                    result={result}
-                    value={localTransportationCost}
-                    name={formattedMessage('local_transportation_total')}
-                    ariaLabel={formattedMessage('local_transportation_total')}
-                    id="localTransportation"
-                    description="localTransportationDescription"
-                    icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
-                    title={formattedMessage("local_transportation")}
-                    calculateTotal={calculateTotal}
-                    updateCost={setLocalTransportationCost}
-                    message={localTransportationMessage}
-                    readOnly={!result}
-                />
-                <EstimatorRow
-                    locale={locale}
-                    overlayRender={renderEnterTravelInfoAboveTooltip}
-                    result={result}
-                    value={mealCost.total}
-                    name={formattedMessage('meals_and_incidentals_total')}
-                    ariaLabel={formattedMessage('meals_and_incidentals_total')}
-                    id="mealsAndIncidentals"
-                    description="selectMealsToInclude"
-                    message={{
-                        element: 
-                            result ? <a href="/" onClick={(e) => {handleMealsModalShow(e)}}>{formattedMessage('select_meals_link')}</a> : <span></span>
-                    }}
-                    icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
-                    title={formattedMessage("meals_and_incidentals")}
-                    calculateTotal={calculateTotal}
-                    updateCost={setMealCost}
-                    readOnly={true}
-                />
-                <EstimatorRow
-                    locale={locale}
-                    overlayRender={renderEnterTravelInfoAboveTooltip}
-                    result={result}
-                    value={otherCost || ''}
-                    name={formattedMessage('other_allowances_total')}
-                    ariaLabel={formattedMessage('other_allowances_total')}
-                    id="otherAllowances"
-                    message={{ element: result ? formattedMessage('other_allowances_message') : <span></span>}}
-                    icon={<FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />}
-                    title={formattedMessage("other_allowances")}
-                    calculateTotal={calculateTotal}
-                    updateCost={setOtherCost}
-                    tooltipIcon={FaQuestionCircle}
-                    tooltipText={<span dangerouslySetInnerHTML={{ __html: localeCopy.other_tooltip_text }}></span>}
-                    toolTipLabel={localeCopy.other_tooltip_text}
-                    readOnly={!result}
-                />
-                <div className="row mb-4">
-                    <div className="col-sm-7 align-self-center text-right" >
-                        <hr />
-                        <strong className="mr-2">{formattedMessage('total_cost')}</strong>{localCurrencyDisplay(parseFloat(summaryCost))}
-                    </div>
-                    <div className="col-sm-5 align-self-center text-wrap">
-                    </div>
-                </div>
-            </section>
-            <div className="row ml-1 mb-5">
-                <div className="col-sm-12">
-                    <Button disabled={!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired')} className="px-5 mb-2" onClick={() => { setEmailModalShow(true) }}>{formattedMessage('email')}</Button>
-                </div>
-                {(!result || transportationType === '' || accommodationType === '') &&
-                    <div className="col-sm-12">
-                        <small id="passwordHelpBlock" className="form-text text-muted">
-                            <span dangerouslySetInnerHTML={{ __html: localeCopy.email_field_disabled_message.html }}></span>
-                        </small>
-                    </div>
-                }
-                {/* <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}>formattedMessage('print" /></Button> */}
-            </div>
 
-            <hr />
+                                            }
+                                            {!enterKilometricsDistanceManually &&
+                                                <span>{formattedMessage('private_vehicle_enter_distance_manually')}</span>
+                                            }
+                                        </Form.Group>
+                                    </Form>
+                                </div>
+                            }
+                        </div>
+
+
+                        <EstimatorRow
+                            locale={locale}
+                            overlayRender={renderEnterTravelInfoAboveTooltip}
+                            result={result}
+                            value={localTransportationCost}
+                            name={formattedMessage('local_transportation_total')}
+                            ariaLabel={formattedMessage('local_transportation_total')}
+                            id="localTransportation"
+                            description="localTransportationDescription"
+                            icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
+                            title={formattedMessage("local_transportation")}
+                            calculateTotal={calculateTotal}
+                            updateCost={setLocalTransportationCost}
+                            message={localTransportationMessage}
+                            readOnly={!result}
+                        />
+                        <EstimatorRow
+                            locale={locale}
+                            overlayRender={renderEnterTravelInfoAboveTooltip}
+                            result={result}
+                            value={mealCost.total}
+                            name={formattedMessage('meals_and_incidentals_total')}
+                            ariaLabel={formattedMessage('meals_and_incidentals_total')}
+                            id="mealsAndIncidentals"
+                            description="selectMealsToInclude"
+                            message={{
+                                element: 
+                                    result ? <a href="/" onClick={(e) => {handleMealsModalShow(e)}}>{formattedMessage('select_meals_link')}</a> : <span></span>
+                            }}
+                            icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
+                            title={formattedMessage("meals_and_incidentals")}
+                            calculateTotal={calculateTotal}
+                            updateCost={(amount) => setMealCost({ total: amount })}
+                            readOnly={true}
+                        />
+                        <EstimatorRow
+                            locale={locale}
+                            overlayRender={renderEnterTravelInfoAboveTooltip}
+                            result={result}
+                            value={otherCost || ''}
+                            name={formattedMessage('other_allowances_total')}
+                            ariaLabel={formattedMessage('other_allowances_total')}
+                            id="otherAllowances"
+                            message={{ element: result ? formattedMessage('other_allowances_message') : <span></span>}}
+                            icon={<FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />}
+                            title={formattedMessage("other_allowances")}
+                            calculateTotal={calculateTotal}
+                            updateCost={setOtherCost}
+                            tooltipIcon={FaQuestionCircle}
+                            tooltipText={<span dangerouslySetInnerHTML={{ __html: localeCopy.other_tooltip_text }}></span>}
+                            toolTipLabel={localeCopy.other_tooltip_text}
+                            readOnly={!result}
+                        />
+                        <div className="row mb-4">
+                            <div className="col-sm-7 align-self-center text-right" >
+                                <hr />
+                                <strong className="mr-2">{formattedMessage('total_cost')}</strong>{localCurrencyDisplay(parseFloat(summaryCost))}
+                            </div>
+                            <div className="col-sm-5 align-self-center text-wrap">
+                            </div>
+                        </div>
+                    </section>
+                    <div className="row ml-1 mb-5">
+                        <div className="col-sm-12">
+                            <Button
+                                aria-disabled={!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired')}
+                                className={`px-5 mb-2${!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired') ? ' disabled' : ''}`}
+                                onClick={() => {
+                                        if (!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired')) {
+                                            return
+                                        } else {
+                                            setEmailModalShow(true)
+                                        }
+                                        
+                                    }
+                                }
+                                aria-describedby="email-button-validation"
+                            >
+                                    {formattedMessage('email')}
+                            </Button>
+                        </div>
+                        {(!result || transportationType === '' || accommodationType === '') &&
+                            <div className="col-sm-12">
+                                <small id="email-button-validation" className="form-text text-muted">
+                                    <span dangerouslySetInnerHTML={{ __html: localeCopy.email_field_disabled_message.html }}></span>
+                                </small>
+                            </div>
+                        }
+                        {/* <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}>formattedMessage('print" /></Button> */}
+                    </div>
+                    <hr />
+                </>
+            }
             
             <div className="card bg-white py-4 px-5 mb-2">
                 <div className="row">

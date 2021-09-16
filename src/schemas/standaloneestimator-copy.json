@@ -1551,5 +1551,37 @@
         "label" : "aria_flight_estimate_loaded"
       }
     }
+  },
+  "Autocomplete instructions" : {
+    "autocomplete_no_results" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "autocomplete_no_results"
+      }
+    },
+    "autocomplete_query_too_short" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "autocomplete_query_too_short"
+      }
+    },
+    "autocomplete_status_selected_option" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "autocomplete_status_selected_option"
+      }
+    },
+    "autocomplete_status_no_results" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "autocomplete_status_no_results"
+      }
+    },
+    "autocomplete_assistive_hint" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "autocomplete_assistive_hint"
+      }
+    }
   }
 }
