@@ -33,3 +33,9 @@ export const wrapPageElement = ({ element, props }) => {
         </PreviewStoreProvider>
     )
 }
+
+export const onRenderBody = ({ setHeadComponents }, pluginOptions) => {
+  setHeadComponents([
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>,
+  ])
+}
