@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from 'gatsby'
 import { useIntl } from 'react-intl';
-
+import Image from './image'
 const Footer = (props) => {
   const intl = useIntl()
   let locale = `${intl.locale}-ca`;
@@ -36,7 +36,7 @@ const Footer = (props) => {
         </div>
       </div>
 
-      {/* <div className="bg-light py-3">
+      <div className="bg-light py-3">
         <div className="container">
           <div className="row h-100">
             <div className="col-sm-6">
@@ -50,7 +50,7 @@ const Footer = (props) => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
     </footer>
   )
 }
