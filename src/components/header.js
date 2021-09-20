@@ -75,7 +75,7 @@ const Header = ({homeHeader}) => {
         <div className="container pl-0">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href={`/${locale}`}>Home</a></li>
+              <li class="breadcrumb-item"><a href={`/${intl.locale}`}>Home</a></li>
               <li class="breadcrumb-item active" aria-current="page">{messages.title.text}</li>
             </ol>
           </nav>
