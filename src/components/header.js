@@ -63,7 +63,7 @@ const Header = ({homeHeader}) => {
             </section>
           </div>
         </div>
-        <div className="py-4 bg-dark">
+        <div className="py-4 header-background">
           <div className="container">
             <div className="row">
                 <div className="col-sm-12">

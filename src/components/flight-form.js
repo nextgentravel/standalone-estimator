@@ -124,9 +124,9 @@ const FlightForm = (props) => {
     
     let validationErrorList = validationErrors.map(a => a.path) || [];
 
-    let departureHeader = props.messages.flight_modal_leaving_header.replace('{originCity}', props.origin.acrdName).replace('{departureDate}', props.departureDate.format("LL"))
+    let departureHeader = props.messages.flight_modal_leaving_header.replace('{originCity}', props.origin.acrdName).replace('{departureDate}', props.departureDate)
 
-    let returnHeader = props.messages.flight_modal_return_header.replace('{destinationCity}', props.destination.acrdName).replace('{returnDate}', props.returnDate.format("LL"))
+    let returnHeader = props.messages.flight_modal_return_header.replace('{destinationCity}', props.destination.acrdName).replace('{returnDate}', props.returnDate)
 
     return (
         <>
@@ -284,7 +284,7 @@ const FlightForm = (props) => {
                                         props.setValidationWarnings(err.inner);
                                     });
                             }}
-                            className={`${flightLoading ? 'float-right disabled' : 'float-right'}`} variant="primary">{props.messages.flight_modal_fetch_flight_estimate_label}
+                            className={`${flightLoading ? 'float-right disabled' : 'float-right'}`} variant="secondary">{props.messages.flight_modal_fetch_flight_estimate_label}
                             {flightLoading && <FaSpinner className="float-right fa-spin ml-3 mt-1" size="24" />}
                             <div role="status" class="sr-only" id="loading-sr">{screenReaderStatus}</div>
                             </Button>

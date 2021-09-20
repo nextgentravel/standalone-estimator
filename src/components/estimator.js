@@ -1835,7 +1835,7 @@ const Estimator = () => {
                                 </small>
                             </div>
                         }
-                        {/* <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}>formattedMessage('print" /></Button> */}
+                        {/* <Button variant="outline-secondary" className="px-5 ml-3" onClick={() => { window.print() }}>formattedMessage('print" /></Button> */}
                     </div>
                     <hr />
                 </>
