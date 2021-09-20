@@ -518,9 +518,10 @@ const Estimator = () => {
     function displayTransportationMessage() {
         let calculateKilometrics = privateKilometricsValue * (privateVehicleRate / 100);
         if (privateVehicleSuccess && privateKilometricsValue === (returnDistance / 1000).toFixed(2)) {
-            localeCopy.private_vehicle_success.html = localeCopy.private_vehicle_success.html.replace('{rate}', `<strong>${privateVehicleRate}</strong>`)
-            localeCopy.private_vehicle_success.html = localeCopy.private_vehicle_success.html.replace('{distance}', `<strong>${(returnDistance / 1000).toFixed(0)}</strong>`)
-            setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_vehicle_success.html }}></span> })
+            let message = '';
+            message = localeCopy.private_vehicle_success.html.replace('{rate}', `<strong>${privateVehicleRate}</strong>`)
+            message = message.replace('{distance}', `<strong>${(returnDistance / 1000).toFixed(0)}</strong>`)
+            setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
         } else if (enterKilometricsDistanceManually) {
             let message = '';
             message = localeCopy.private_vehicle_manual.html.replace('{rate}', `<strong>${privateVehicleRate}</strong>`)
@@ -586,6 +587,9 @@ const Estimator = () => {
     const fetchHotelCost = () => {
         let months = monthsContained(departureDate.format("YYYY-MM-DD"), returnDate.format("YYYY-MM-DD"));
         let rates = acrdRates[destination.acrdName];
+        if (!rates) {
+            rates = acrdRates[cities.suburbCityList[destination.acrdName]]
+        }
         
         let acrdRatesFiltered = Object.keys(rates)
             .filter(key => months.map(mon => mon.month).includes(key))
