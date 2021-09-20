@@ -29,11 +29,13 @@ const EmailConfirmationModal = (props) => {
                 </div>}
             </Modal.Body>
             <Modal.Footer>
-                <Button onClick={() => {
+                <Button
+                    variant="secondary"
+                    onClick={() => {
                     props.onHide()
                     props.setFeedbackModalShow(true);
                 }}>{props.messages.email_confirm_back_button}</Button>
-                <Button variant="outline-primary" onClick={() => {
+                <Button variant="outline-secondary" onClick={() => {
                     props.clearForm()
                     props.setFeedbackModalShow(true);
                 }

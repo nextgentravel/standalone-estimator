@@ -26,7 +26,7 @@ const Footer = (props) => {
 
   return (
     <footer className="footer">
-      <div className="bg-dark py-5 footer-deco">
+      {/* <div className="bg-dark py-5 footer-deco">
         <div className="container">
           <div className="row ml-1">
                 <div className="col-sm-8">
@@ -34,7 +34,7 @@ const Footer = (props) => {
                 </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="bg-light py-3">
         <div className="container">

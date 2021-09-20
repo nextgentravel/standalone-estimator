@@ -264,6 +264,7 @@ const FlightForm = (props) => {
                 <Form.Group as={Row} controlId="submitFlightEstimate" className="mb-5">
                     <Col sm="12">
                         <Button
+                            variant="secondary"
                             onClick={() => {
                                 handleSubmitFlightRequestValidation()
                                     .then(async (valid) => {
