@@ -76,9 +76,9 @@ const Header = ({homeHeader}) => {
         </div>
         <div className="container pl-0">
           <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href={messages.breadcrumb_home_link}>{messages.breadcrumb_home_text}</a></li>
-              <li class="breadcrumb-item active" aria-current="page">{messages.title.text}</li>
+            <ol className="breadcrumb">
+              <li className="breadcrumb-item"><a href={messages.breadcrumb_home_link}>{messages.breadcrumb_home_text}</a></li>
+              <li className="breadcrumb-item active" aria-current="page">{messages.title.text}</li>
             </ol>
           </nav>
         </div>

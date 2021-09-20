@@ -8,8 +8,8 @@ const QuickReferenceCard = (props) => {
             </div>
             <div className="card-body">
                 <ul className="card-columns">
-                    {props.messages.quick_reference_links.map(link => {
-                        return <li>
+                    {props.messages.quick_reference_links.map((link, index) => {
+                        return <li key={`link-${index}`}>
                             <a href={link.link_url}>{link.link_title}</a>
                         </li>
                     })}
