@@ -284,7 +284,7 @@ const FlightForm = (props) => {
                                         props.setValidationWarnings(err.inner);
                                     });
                             }}
-                            className={`${flightLoading ? 'float-right disabled' : 'float-right'}`} variant="secondary">{props.messages.flight_modal_fetch_flight_estimate_label}
+                            className={`${flightLoading ? 'float-right disabled' : 'float-right'}`}>{props.messages.flight_modal_fetch_flight_estimate_label}
                             {flightLoading && <FaSpinner className="float-right fa-spin ml-3 mt-1" size="24" />}
                             <div role="status" class="sr-only" id="loading-sr">{screenReaderStatus}</div>
                             </Button>

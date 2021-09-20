@@ -16,6 +16,8 @@ const Header = ({homeHeader}) => {
       allPrismicStandaloneestimatorHomepage {
         nodes {
           data {
+            breadcrumb_home_link
+            breadcrumb_home_text
             header_goc_logo
             header_language_select
             header_skip_to_main
@@ -63,7 +65,7 @@ const Header = ({homeHeader}) => {
             </section>
           </div>
         </div>
-        <div className="py-4 header-background">
+        <div className="py-4 header-background mb-3">
           <div className="container">
             <div className="row">
                 <div className="col-sm-12">
@@ -75,7 +77,7 @@ const Header = ({homeHeader}) => {
         <div className="container pl-0">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href={`/${intl.locale}`}>Home</a></li>
+              <li class="breadcrumb-item"><a href={messages.breadcrumb_home_link}>{messages.breadcrumb_home_text}</a></li>
               <li class="breadcrumb-item active" aria-current="page">{messages.title.text}</li>
             </ol>
           </nav>
