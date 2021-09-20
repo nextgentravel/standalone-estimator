@@ -1,8 +1,8 @@
 import React from "react"
-import HomeLayout from '../components/home-layout'
+import EstimatorLayout from '../components/estimator-layout'
 
-const IndexPage = () => (
-  <HomeLayout />
+const EstimatorPage = () => (
+  <EstimatorLayout />
 )
 
-export default IndexPage
+export default EstimatorPage
