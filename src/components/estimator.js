@@ -358,6 +358,7 @@ const Estimator = () => {
                         link_title
                         link_url
                     }
+                    select_meals_description
                 }
             }
         }
@@ -1780,7 +1781,7 @@ const Estimator = () => {
                             description="selectMealsToInclude"
                             message={{
                                 element: 
-                                    result ? <a href="/" onClick={(e) => {handleMealsModalShow(e)}}>{formattedMessage('select_meals_link')}</a> : <span></span>
+                                    result ? <>{formattedMessage('select_meals_description')} <a href="/" onClick={(e) => {handleMealsModalShow(e)}}>{formattedMessage('select_meals_link')}</a></> : <span></span>
                             }}
                             icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
                             title={formattedMessage("meals_and_incidentals")}
