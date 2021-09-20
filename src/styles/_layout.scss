@@ -303,6 +303,21 @@ a:focus {
     background-color: #961700;
 }
 
+.card-columns {
+    @include media-breakpoint-only(xl) {
+      column-count: 2;
+    }
+    @include media-breakpoint-only(lg) {
+      column-count: 2;
+    }
+    @include media-breakpoint-only(md) {
+      column-count: 2;
+    }
+    @include media-breakpoint-only(sm) {
+      column-count: 1;
+    }
+}
+
 /* body 
     padding-top: 0px;
 }

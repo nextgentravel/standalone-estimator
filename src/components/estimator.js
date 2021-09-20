@@ -11,6 +11,7 @@ import EmailModal from "./email-modal.js"
 import EmailConfirmationModal from "./email-confirmation-modal.js"
 import MealsModal from "./meals-modal.js"
 import FlightModal from "./flight-modal.js"
+import QuickReferenceCard from "./quick-reference-card.js"
 
 import { FaCaretUp, FaCaretDown, FaCalculator, FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
 import { dailyMealTemplate } from "./functions/dailyMealTemplate"
@@ -352,6 +353,11 @@ const Estimator = () => {
                     autocomplete_status_selected_option
                     autocomplete_status_no_results
                     autocomplete_assistive_hint
+                    quick_reference_title
+                    quick_reference_links {
+                        link_title
+                        link_url
+                    }
                 }
             }
         }
@@ -1898,6 +1904,7 @@ const Estimator = () => {
                     <div className="mb-4"></div>
                 }
             </div>
+            <QuickReferenceCard messages={localeCopy} />
         </div>
     )
 }
