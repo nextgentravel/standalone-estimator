@@ -101,7 +101,7 @@ export default ({ data }) => {
                 <div className="mb-5" dangerouslySetInnerHTML={{ __html: homePageCopy.landing_page_lead.html }}></div>
                 <h2 className="mb-4">{homePageCopy.landing_page_title_2.text}</h2>
                 <div className="mb-4" dangerouslySetInnerHTML={{ __html: homePageCopy.landing_page_content.html }}></div>
-                <a className="btn btn-secondary mb-5" href={homePageCopy.land_page_action_button_link} role="button">{homePageCopy.landing_page_action_button_text}</a>
+                <a className="btn btn-primary mb-5" href={homePageCopy.land_page_action_button_link} role="button">{homePageCopy.landing_page_action_button_text}</a>
                 <div className="card bg-white py-4 px-5 mb-2">
                   <div className="row">
                       <button className="col-sm-12 pl-2 pb-1 btn btn-plain" aria-expanded="false" onClick={() => setExplainerCollapsed(!explainerCollapsed)}>

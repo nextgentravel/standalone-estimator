@@ -1452,7 +1452,7 @@ const Estimator = () => {
                 <div className="col-sm-3"></div>
                 <div className="col-sm-12">
                     {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-                    <button type="submit" className="btn btn-secondary px-5">{formattedMessage('estimate')}</button>
+                    <button type="submit" className="btn btn-primary px-5">{formattedMessage('estimate')}</button>
                     {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                     {showClear &&
                         <button type="button" id="clear-button" className="btn btn-outline-dark px-5 ml-3" onClick={() => {clearForm()}}>{formattedMessage('clear')}</button>
@@ -1818,7 +1818,7 @@ const Estimator = () => {
                     <div className="row ml-1 mb-5">
                         <div className="col-sm-12">
                             <Button
-                                variant="secondary"
+                                variant="primary"
                                 aria-disabled={!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired')}
                                 className={`px-5 mb-2${!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired') ? ' disabled' : ''}`}
                                 onClick={() => {
@@ -1842,7 +1842,7 @@ const Estimator = () => {
                                 </small>
                             </div>
                         }
-                        {/* <Button variant="outline-secondary" className="px-5 ml-3" onClick={() => { window.print() }}>formattedMessage('print" /></Button> */}
+                        {/* <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}>formattedMessage('print" /></Button> */}
                     </div>
                     <hr />
                 </>
