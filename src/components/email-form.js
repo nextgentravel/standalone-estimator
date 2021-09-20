@@ -26,8 +26,11 @@ const EmailForm = (props) => {
                             props.setTravellersName(e.target.value)
                         }}
                         type="text"
-                        placeholder={props.messages.email_form_travellers_name_placeholder}
+                        aria-describedby="travellersNameHelp"
                     />
+                    <Form.Text id="travellersNameHelp" muted>
+                        {props.messages.email_form_travellers_name_placeholder}
+                    </Form.Text>
                     <Form.Control.Feedback type="invalid">
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
@@ -47,8 +50,11 @@ const EmailForm = (props) => {
                             props.setTravellersEmail(e.target.value)
                         }}
                         type="text"
-                        placeholder={props.messages.email_form_travellers_email_placeholder}
+                        aria-describedby="travellersEmailHelp"
                     />
+                    <Form.Text id="travellersEmailHelp" muted>
+                        {props.messages.email_form_travellers_email_placeholder}
+                    </Form.Text>
                     <Form.Control.Feedback type="invalid">
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
@@ -79,8 +85,11 @@ const EmailForm = (props) => {
                             props.setApproversName(e.target.value)
                         }}
                         type="text"
-                        placeholder={props.messages.email_form_approvers_name_placeholder}
+                        aria-describedby="approversNameHelp"
                     />
+                    <Form.Text id="approversNameHelp" muted>
+                        {props.messages.email_form_approvers_name_placeholder}
+                    </Form.Text>
                     <Form.Control.Feedback type="invalid">
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
@@ -100,8 +109,11 @@ const EmailForm = (props) => {
                             props.setApproversEmail(e.target.value)
                         }}
                         type="text"
-                        placeholder={props.messages.email_form_approvers_email_placeholder}
+                        aria-describedby="approversEmailHelp"
                     />
+                    <Form.Text id="approversEmailHelp" muted>
+                        {props.messages.email_form_approvers_email_placeholder}
+                    </Form.Text>
                     <Form.Control.Feedback type="invalid">
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
@@ -121,11 +133,16 @@ const EmailForm = (props) => {
                             props.setTripName(e.target.value)
                         }}
                         type="text"
-                        placeholder={props.messages.email_form_trip_name_placeholder}
+                        aria-describedby="emailTripName"
                     />
                     <Form.Control.Feedback type="invalid">
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
+                    <Form.Text id="emailTripName" muted>
+                        <p>{props.messages.email_form_trip_name_placeholder}</p>
+                        <p>{props.messages.email_form_trip_name_helptext}</p>
+                    </Form.Text>
+
                 </Col>
             </Form.Group>
             <Form.Group as={Row} controlId="travelCategory">
@@ -138,6 +155,7 @@ const EmailForm = (props) => {
                             props.setTravelCategory(e.target.value)
                         }}
                         isInvalid={validationErrorList.includes('travelCategory')}
+                        required
                     >
                         <option value='' disabled>{props.messages.select}</option>
                         {props.messages.email_form_category_options.map((item, index) => {
@@ -159,17 +177,22 @@ const EmailForm = (props) => {
                     <Form.Control
                         isInvalid={validationErrorList.includes('tripNotes')}
                         className="notes-box-placeholder"
-                        required
                         value={props.tripNotes}
                         onChange={(e) => {
                             removeIsInvalid('tripNotes', validationErrors)
                             props.setTripNotes(e.target.value)
                             }} as="textarea" rows={5}
-                        placeholder={props.messages.email_form_notes_placeholder}
+                        placeholder={''}
+                        aria-describedby="emailNotesBox"
                     />
                     <Form.Control.Feedback type="invalid">
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
+                    <Form.Text id="emailNotesBox" muted>
+                        {props.messages.email_form_notes_helptext}
+                    </Form.Text>
+
+                    
                 </Col>
             </Form.Group>
         </Form>

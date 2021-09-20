@@ -14,7 +14,9 @@ module.exports = {
     siteUrl: `https://travel-guidebook.herokuapp.com/`,
     languages
   },
-  plugins: [{
+  plugins: [
+    `gatsby-plugin-layout`,
+    {
       resolve: 'gatsby-source-prismic',
       options: {
         // The name of your prismic.io repository. This is required.

@@ -1,1421 +1,1586 @@
 {
-  "Main": {
-    "title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading3",
-        "label": "title",
-        "placeholder": "Title of the Estimator Tool"
+  "Main" : {
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading3",
+        "label" : "title",
+        "placeholder" : "Title of the Estimator Tool"
       }
     },
-    "lead": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, strong, em, hyperlink",
-        "allowTargetBlank": true,
-        "label": "lead",
-        "placeholder": "Lead text for estimator tool"
+    "lead" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, strong, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "lead",
+        "placeholder" : "Lead text for estimator tool"
       }
     },
-    "enter_travel_info_above": {
-      "type": "Text",
-      "config": {
-        "label": "enter_travel_info_above"
+    "enter_travel_info_above" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "enter_travel_info_above"
       }
     },
-    "estimate_error_title": {
-      "type": "Text",
-      "config": {
-        "label": "estimate_error_title"
+    "estimate_error_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_error_title"
       }
     },
-    "estimate_error_lead": {
-      "type": "Text",
-      "config": {
-        "label": "estimate_error_lead"
+    "estimate_error_lead" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_error_lead"
       }
     },
-    "estimate_origin": {
-      "type": "Text",
-      "config": {
-        "label": "estimate_origin"
+    "estimate_origin" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_origin"
       }
     },
-    "estimate_destination": {
-      "type": "Text",
-      "config": {
-        "label": "estimate_destination"
+    "estimate_destination" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_destination"
       }
     },
-    "estimate": {
-      "type": "Text",
-      "config": {
-        "label": "estimate"
+    "estimate" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate"
       }
     },
-    "clear": {
-      "type": "Text",
-      "config": {
-        "label": "clear"
+    "clear" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "clear"
       }
     },
-    "estimate_summary_title": {
-      "type": "Text",
-      "config": {
-        "label": "estimate_summary_title"
+    "estimate_summary_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_summary_title"
       }
     },
-    "accommodation": {
-      "type": "Text",
-      "config": {
-        "label": "accommodation"
+    "accommodation" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "accommodation"
       }
     },
-    "select_meals_link": {
-      "type": "Text",
-      "config": {
-        "label": "select_meals_link"
+    "select_meals_link" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "select_meals_link"
       }
     },
-    "transportation": {
-      "type": "Text",
-      "config": {
-        "label": "transportation"
+    "select_meals_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "select_meals_description"
       }
     },
-    "total_cost": {
-      "type": "Text",
-      "config": {
-        "label": "total_cost"
+    "transportation" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "transportation"
       }
     },
-    "email": {
-      "type": "Text",
-      "config": {
-        "label": "email"
+    "total_cost" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "total_cost"
       }
     },
-    "print": {
-      "type": "Text",
-      "config": {
-        "label": "print"
+    "email" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email"
       }
     },
-    "other_allowances": {
-      "type": "Text",
-      "config": {
-        "label": "other_allowances"
+    "print" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "print"
       }
     },
-    "meals_and_incidentals": {
-      "type": "Text",
-      "config": {
-        "label": "meals_and_incidentals"
+    "other_allowances" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "other_allowances"
       }
     },
-    "date_picker_label": {
-      "type": "Text",
-      "config": {
-        "label": "date_picker_label"
+    "meals_and_incidentals" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meals_and_incidentals"
       }
     },
-    "screen_reader_input_message": {
-      "type": "Text",
-      "config": {
-        "label": "screen_reader_input_message"
+    "date_picker_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "date_picker_label"
       }
     },
-    "select": {
-      "type": "Text",
-      "config": {
-        "label": "Select",
-        "placeholder": "Default option for select drop downs"
+    "screen_reader_input_message" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "screen_reader_input_message"
+      }
+    },
+    "select" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Select",
+        "placeholder" : "Default option for select drop downs"
+      }
+    },
+    "email_field_disabled_message" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em",
+        "label" : "email_field_disabled_message"
+      }
+    },
+    "aria_summary_loading" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "aria_summary_loading"
+      }
+    },
+    "aria_summary_loaded" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "aria_summary_loaded"
+      }
+    },
+    "tooltip" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "tooltip"
       }
     }
   },
-  "Email Confirmation Modal": {
-    "email_confirm_success_title": {
-      "type": "Text",
-      "config": {
-        "label": "email_confirm_success_title"
+  "Email Confirmation Modal" : {
+    "email_confirm_success_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_confirm_success_title"
       }
     },
-    "email_confirm_error_title": {
-      "type": "Text",
-      "config": {
-        "label": "email_confirm_error_title"
+    "email_confirm_error_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_confirm_error_title"
       }
     },
-    "email_confirm_success_body": {
-      "type": "Text",
-      "config": {
-        "label": "email_confirm_success_body"
+    "email_confirm_success_body" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_confirm_success_body"
       }
     },
-    "email_confirm_error_body": {
-      "type": "Text",
-      "config": {
-        "label": "email_confirm_error_body"
+    "email_confirm_error_body" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_confirm_error_body"
       }
     },
-    "email_confirm_back_button": {
-      "type": "Text",
-      "config": {
-        "label": "email_confirm_back_button"
+    "email_confirm_back_button" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_confirm_back_button"
       }
     },
-    "email_confirm_new_estimate_button": {
-      "type": "Text",
-      "config": {
-        "label": "email_confirm_new_estimate_button"
+    "email_confirm_new_estimate_button" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_confirm_new_estimate_button"
       }
     }
   },
-  "Email Form": {
-    "email_modal_title": {
-      "type": "Text",
-      "config": {
-        "label": "email_modal_title"
+  "Email Form" : {
+    "email_modal_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_modal_title"
       }
     },
-    "email_modal_submit": {
-      "type": "Text",
-      "config": {
-        "label": "email_modal_submit"
+    "email_modal_submit" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_modal_submit"
       }
     },
-    "email_form_trip_name_placeholder": {
-      "type": "Text",
-      "config": {
-        "label": "email_form_trip_name_placeholder"
+    "email_form_trip_name_placeholder" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_trip_name_placeholder"
       }
     },
-    "email_form_trip_name": {
-      "type": "Text",
-      "config": {
-        "label": "email_form_trip_name"
+    "email_form_trip_name_helptext" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_trip_name_helptext"
       }
     },
-    "email_form_travellers_name": {
-      "type": "Text",
-      "config": {
-        "label": "email_form_travellers_name"
+    "email_form_trip_name" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_trip_name"
       }
     },
-    "email_form_travellers_name_placeholder": {
-      "type": "Text",
-      "config": {
-        "label": "email_form_travellers_name_placeholder"
+    "email_form_travellers_name" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_travellers_name"
       }
     },
-    "email_form_travellers_email": {
-      "type": "Text",
-      "config": {
-        "label": "email_form_travellers_email"
+    "email_form_travellers_name_placeholder" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_travellers_name_placeholder"
       }
     },
-    "email_form_travellers_email_placeholder": {
-      "type": "Text",
-      "config": {
-        "label": "email_form_travellers_email_placeholder"
+    "email_form_travellers_email" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_travellers_email"
       }
     },
-    "email_form_approvers_name": {
-      "type": "Text",
-      "config": {
-        "label": "email_form_approvers_name"
+    "email_form_travellers_email_placeholder" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_travellers_email_placeholder"
       }
     },
-    "email_form_approvers_name_placeholder": {
-      "type": "Text",
-      "config": {
-        "label": "email_form_approvers_name_placeholder"
+    "email_form_approvers_name" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_approvers_name"
       }
     },
-    "email_form_approvers_email": {
-      "type": "Text",
-      "config": {
-        "label": "email_form_approvers_email"
+    "email_form_approvers_name_placeholder" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_approvers_name_placeholder"
       }
     },
-    "email_form_approvers_email_placeholder": {
-      "type": "Text",
-      "config": {
-        "label": "email_form_approvers_email_placeholder"
+    "email_form_approvers_email" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_approvers_email"
       }
     },
-    "email_form_notes": {
-      "type": "Text",
-      "config": {
-        "label": "email_form_notes"
+    "email_form_approvers_email_placeholder" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_approvers_email_placeholder"
       }
     },
-    "email_form_notes_placeholder": {
-      "type": "Text",
-      "config": {
-        "label": "email_form_notes_placeholder"
+    "email_form_notes" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_notes"
       }
     },
-    "email_form_is_public_servant_checkbox_label": {
-      "type": "Text",
-      "config": {
-        "label": "email_form_is_public_servant_checkbox_label"
+    "email_form_notes_placeholder" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_notes_placeholder"
       }
     },
-    "email_form_category_label": {
-      "type": "Text",
-      "config": {
-        "label": "email_form_category_label"
+    "email_form_notes_helptext" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_notes_helptext"
       }
     },
-    "email_form_category_options": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "option_label": {
-            "type": "Text",
-            "config": {
-              "label": "option_label"
+    "email_form_is_public_servant_checkbox_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_is_public_servant_checkbox_label"
+      }
+    },
+    "email_form_category_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_category_label"
+      }
+    },
+    "email_form_category_options" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "option_label" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "option_label"
             }
           },
-          "option_value": {
-            "type": "Text",
-            "config": {
-              "label": "option_value"
+          "option_value" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "option_value"
             }
           }
         },
-        "label": "email_form_category_options"
+        "label" : "email_form_category_options"
       }
     },
-    "email_form_disclaimer": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em",
-        "label": "email_form_disclaimer"
+    "email_form_disclaimer" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em",
+        "label" : "email_form_disclaimer"
       }
     },
-    "email_form_field_required": {
-      "type": "Text",
-      "config": {
-        "label": "email_form_field_required"
-      }
-    }
-  },
-  "Meals Modal": {
-    "meals_modal_title": {
-      "type": "Text",
-      "config": {
-        "label": "meals_modal_title"
-      }
-    },
-    "meals_modal_breakfast": {
-      "type": "Text",
-      "config": {
-        "label": "meals_modal_breakfast"
-      }
-    },
-    "meals_modal_lunch": {
-      "type": "Text",
-      "config": {
-        "label": "meals_modal_lunch"
-      }
-    },
-    "meals_modal_dinner": {
-      "type": "Text",
-      "config": {
-        "label": "meals_modal_dinner"
-      }
-    },
-    "meals_modal_incidental": {
-      "type": "Text",
-      "config": {
-        "label": "meals_modal_incidental"
-      }
-    },
-    "meals_modal_submit": {
-      "type": "Text",
-      "config": {
-        "label": "meals_modal_submit"
+    "email_form_field_required" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_field_required"
       }
     }
   },
-  "Explainer": {
-    "explainer_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading4",
-        "label": "explainer_title",
-        "placeholder": "Title of the explainer section.  E.g \"How did we get these numbers?\""
+  "Meals Modal" : {
+    "meals_modal_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meals_modal_title"
       }
     },
-    "explainer_body": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "allowTargetBlank": true,
-        "label": "explainer_body",
-        "placeholder": "Body of explainer",
-        "labels": [
-          "text-indent"
-        ]
-      }
-    }
-  },
-  "Disclaimer": {
-    "disclaimer_body": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, strong, em, hyperlink",
-        "allowTargetBlank": true,
-        "label": "disclaimer_body",
-        "placeholder": "Disclaimer text at bottom of page."
+    "meals_modal_breakfast" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meals_modal_breakfast"
       }
     },
-    "disclaimer": {
-      "type": "Text",
-      "config": {
-        "label": "disclaimer"
-      }
-    }
-  },
-  "Accommodation Messages": {
-    "hotel": {
-      "type": "Text",
-      "config": {
-        "label": "hotel"
+    "meals_modal_lunch" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meals_modal_lunch"
       }
     },
-    "private": {
-      "type": "Text",
-      "config": {
-        "label": "private"
+    "meals_modal_dinner" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meals_modal_dinner"
       }
     },
-    "hotel_success": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "hotel_success"
+    "meals_modal_incidental" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meals_modal_incidental"
       }
     },
-    "hotel_zero": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "hotel_zero"
+    "meals_modal_submit" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meals_modal_submit"
       }
     },
-    "hotel_above_estimate": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "hotel_above_estimate"
-      }
-    },
-    "hotel_below_estimate": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em",
-        "label": "hotel_below_estimate"
-      }
-    },
-    "hotel_error": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "hotel_error"
-      }
-    },
-    "private_accom_estimate_success": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "private_accom_estimate_success"
-      }
-    },
-    "private_accom_estimate_zero": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "private_accom_estimate_zero"
-      }
-    },
-    "accommodation_tooltip": {
-      "type": "Text",
-      "config": {
-        "label": "accommodation_tooltip"
+    "meals_and_incidentals_total" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meals_and_incidentals_total"
       }
     }
   },
-  "Transportation Messages": {
-    "flight_loading": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "flight_loading"
+  "Explainer" : {
+    "explainer_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading4",
+        "label" : "explainer_title",
+        "placeholder" : "Title of the explainer section.  E.g \"How did we get these numbers?\""
       }
     },
-    "flight_success": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "flight_success"
-      }
-    },
-    "flight_zero": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "flight_zero"
-      }
-    },
-    "flight_no_results": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "allowTargetBlank": true,
-        "label": "flight_no_results"
-      }
-    },
-    "flight_no_results_custom": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em",
-        "label": "flight_no_results_custom"
-      }
-    },
-    "flight_custom_fare_entered": {
-      "type": "Text",
-      "config": {
-        "label": "flight_custom_fare_entered"
-      }
-    },
-    "transportation_above_flight_estimate": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "allowTargetBlank": true,
-        "label": "transportation_above_flight_estimate"
-      }
-    },
-    "flight_below_estimate": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "flight_below_estimate"
-      }
-    },
-    "flight_message_no_airport": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "flight_message_no_airport"
-      }
-    },
-    "flight_error": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "flight_error"
-      }
-    },
-    "train_error": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "train_error"
-      }
-    },
-    "train_success": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "allowTargetBlank": true,
-        "label": "train_success"
-      }
-    },
-    "train_zero": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "train_zero"
-      }
-    },
-    "train_below_estimate": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "train_below_estimate"
-      }
-    },
-    "train_above_estimate": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "train_above_estimate"
-      }
-    },
-    "rental_car_error": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "rental_car_error"
-      }
-    },
-    "rental_car_success": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "allowTargetBlank": true,
-        "label": "rental_car_success"
-      }
-    },
-    "rental_car_zero": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "rental_car_zero"
-      }
-    },
-    "private_vehicle_above_estimate": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "allowTargetBlank": true,
-        "label": "private_vehicle_above_estimate"
-      }
-    },
-    "private_vehicle_below_estimate": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "allowTargetBlank": true,
-        "label": "private_vehicle_below_estimate"
-      }
-    },
-    "private_vehicle_error": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "allowTargetBlank": true,
-        "label": "private_vehicle_error"
-      }
-    },
-    "private_vehicle_success": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "private_vehicle_success"
-      }
-    },
-    "private_vehicle_manual": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "private_vehicle_manual"
-      }
-    },
-    "flight": {
-      "type": "Text",
-      "config": {
-        "label": "flight"
-      }
-    },
-    "local_transportation": {
-      "type": "Text",
-      "config": {
-        "label": "local_transportation"
-      }
-    },
-    "rental": {
-      "type": "Text",
-      "config": {
-        "label": "rental"
-      }
-    },
-    "train": {
-      "type": "Text",
-      "config": {
-        "label": "train"
-      }
-    },
-    "could_not_fetch_flight_value": {
-      "type": "Text",
-      "config": {
-        "label": "could_not_fetch_flight_value"
-      }
-    },
-    "could_not_fetch_you_have_entered_own": {
-      "type": "Text",
-      "config": {
-        "label": "could_not_fetch_you_have_entered_own"
-      }
-    },
-    "private_vehicle": {
-      "type": "Text",
-      "config": {
-        "label": "private_vehicle"
-      }
-    },
-    "flight_estimate_your_fare_link": {
-      "type": "Text",
-      "config": {
-        "label": "flight_estimate_your_fare_link",
-        "placeholder": "Estimate your fare..."
-      }
-    },
-    "flight_selected_fare": {
-      "type": "Text",
-      "config": {
-        "label": "flight_selected_fare"
-      }
-    },
-    "flight_regenerate_estimate": {
-      "type": "Text",
-      "config": {
-        "label": "flight_regenerate_estimate"
-      }
-    },
-    "private_vehicle_enter_distance_manually": {
-      "type": "Text",
-      "config": {
-        "label": "private_vehicle_enter_distance_manually",
-        "placeholder": "Enter distance manually"
+    "explainer_body" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "allowTargetBlank" : true,
+        "label" : "explainer_body",
+        "placeholder" : "Body of explainer",
+        "labels" : [ "text-indent" ]
       }
     }
   },
-  "Local Transportation Messages": {
-    "local_transportation_success": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "local_transportation_success"
+  "Disclaimer" : {
+    "disclaimer_body" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, strong, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "disclaimer_body",
+        "placeholder" : "Disclaimer text at bottom of page."
       }
     },
-    "local_transportation_manual": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "local_transportation_manual"
-      }
-    },
-    "local_tranportation_zero": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "local_tranportation_zero"
+    "disclaimer" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "disclaimer"
       }
     }
   },
-  "Other Allowances Messages": {
-    "other_allowances_message": {
-      "type": "Text",
-      "config": {
-        "label": "other_allowances_message"
+  "Accommodation Messages" : {
+    "hotel" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "hotel"
       }
     },
-    "other_tooltip_text": {
-      "type": "Text",
-      "config": {
-        "label": "other_tooltip_text"
-      }
-    }
-  },
-  "Estimate Validation Messages": {
-    "return_date_earlier_than_departure_date": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "label": "return_date_earlier_than_departure_date"
+    "private" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "private"
       }
     },
-    "estimate_origin_city_valid": {
-      "type": "Text",
-      "config": {
-        "label": "estimate_origin_city_valid"
+    "hotel_success" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "hotel_success"
       }
     },
-    "estimate_origin_city_not_valid": {
-      "type": "Text",
-      "config": {
-        "label": "estimate_origin_city_not_valid"
+    "hotel_zero" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "hotel_zero"
       }
     },
-    "estimate_destination_city_valid": {
-      "type": "Text",
-      "config": {
-        "label": "estimate_destination_city_valid"
+    "hotel_above_estimate" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "hotel_above_estimate"
       }
     },
-    "estimate_destination_city_not_valid": {
-      "type": "Text",
-      "config": {
-        "label": "estimate_destination_city_not_valid"
+    "hotel_below_estimate" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em",
+        "label" : "hotel_below_estimate"
       }
     },
-    "estimate_departure_date_not_valid": {
-      "type": "Text",
-      "config": {
-        "label": "estimate_departure_date_not_valid"
+    "hotel_error" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "hotel_error"
       }
     },
-    "estimate_return_date_not_valid": {
-      "type": "Text",
-      "config": {
-        "label": "estimate_return_date_not_valid"
+    "private_accom_estimate_success" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "private_accom_estimate_success"
       }
     },
-    "no_time_travel": {
-      "type": "Text",
-      "config": {
-        "label": "no_time_travel"
+    "private_accom_estimate_zero" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "private_accom_estimate_zero"
       }
     },
-    "estimate_application_error": {
-      "type": "Text",
-      "config": {
-        "label": "estimate_application_error"
+    "accommodation_tooltip" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "accommodation_tooltip"
       }
     },
-    "estimate_application_error_text": {
-      "type": "Text",
-      "config": {
-        "label": "estimate_application_error_text"
-      }
-    }
-  },
-  "Confirmation Email": {
-    "confirmation_email_title": {
-      "type": "Text",
-      "config": {
-        "label": "confirmation_email_title"
+    "accommodation_select_message" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "accommodation_select_message"
       }
     },
-    "confirmation_title_lead": {
-      "type": "Text",
-      "config": {
-        "label": "confirmation_email_title_lead"
+    "accommodation_type" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "accommodation_type"
       }
     },
-    "confirmation_email_opening_body": {
-      "type": "Text",
-      "config": {
-        "label": "confirmation_email_opening_body"
-      }
-    },
-    "confirmation_email_objective": {
-      "type": "Text",
-      "config": {
-        "label": "confirmation_email_objective"
-      }
-    },
-    "confirmation_email_category": {
-      "type": "Text",
-      "config": {
-        "label": "confirmation_email_category"
-      }
-    },
-    "confirmation_email_publicservant": {
-      "type": "Text",
-      "config": {
-        "label": "confirmation_email_publicservant"
-      }
-    },
-    "confirmation_email_origin": {
-      "type": "Text",
-      "config": {
-        "label": "confirmation_email_origin"
-      }
-    },
-    "confirmation_email_destination": {
-      "type": "Text",
-      "config": {
-        "label": "confirmation_email_destination"
-      }
-    },
-    "confirmation_email_departure": {
-      "type": "Text",
-      "config": {
-        "label": "confirmation_email_departure"
-      }
-    },
-    "confirmation_email_return": {
-      "type": "Text",
-      "config": {
-        "label": "confirmation_email_return"
-      }
-    },
-    "confirmation_email_details_header": {
-      "type": "Text",
-      "config": {
-        "label": "confirmation_email_details_header"
-      }
-    },
-    "confirmation_email_accomodation": {
-      "type": "Text",
-      "config": {
-        "label": "confirmation_email_accomodation"
-      }
-    },
-    "confirmation_email_transportation": {
-      "type": "Text",
-      "config": {
-        "label": "confirmation_email_transportation"
-      }
-    },
-    "confirmation_email_local": {
-      "type": "Text",
-      "config": {
-        "label": "confirmation_email_local"
-      }
-    },
-    "confirmation_email_meals": {
-      "type": "Text",
-      "config": {
-        "label": "confirmation_email_meals"
-      }
-    },
-    "confirmation_email_other": {
-      "type": "Text",
-      "config": {
-        "label": "confirmation_email_other"
-      }
-    },
-    "confirmation_email_total": {
-      "type": "Text",
-      "config": {
-        "label": "confirmation_email_total"
-      }
-    },
-    "confirmation_email_notes": {
-      "type": "Text",
-      "config": {
-        "label": "confirmation_email_notes"
-      }
-    },
-    "confirmation_email_thankyou": {
-      "type": "Text",
-      "config": {
-        "label": "confirmation_email_thankyou"
+    "accommodation_total" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "accommodation_total"
       }
     }
   },
-  "Supervisor Email": {
-    "supervisor_email_title": {
-      "type": "Text",
-      "config": {
-        "label": "supervisor_email_title"
+  "Transportation Messages" : {
+    "flight_loading" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "flight_loading"
       }
     },
-    "supervisor_email_title_lead": {
-      "type": "Text",
-      "config": {
-        "label": "supervisor_email_title_lead"
+    "flight_success" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "flight_success"
       }
     },
-    "supervisor_email_opening_body": {
-      "type": "Text",
-      "config": {
-        "label": "supervisor_email_opening_body"
+    "flight_zero" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "flight_zero"
       }
     },
-    "supervisor_email_objective": {
-      "type": "Text",
-      "config": {
-        "label": "supervisor_email_objective"
+    "flight_no_results" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "flight_no_results"
       }
     },
-    "supervisor_email_category": {
-      "type": "Text",
-      "config": {
-        "label": "supervisor_email_category"
+    "flight_no_results_custom" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em",
+        "label" : "flight_no_results_custom"
       }
     },
-    "supervisor_email_publicservant": {
-      "type": "Text",
-      "config": {
-        "label": "supervisor_email_publicservant"
+    "flight_custom_fare_entered" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_custom_fare_entered"
       }
     },
-    "supervisor_email_origin": {
-      "type": "Text",
-      "config": {
-        "label": "supervisor_email_origin"
+    "transportation_above_flight_estimate" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "transportation_above_flight_estimate"
       }
     },
-    "supervisor_email_destination": {
-      "type": "Text",
-      "config": {
-        "label": "supervisor_email_destination"
+    "flight_below_estimate" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "flight_below_estimate"
       }
     },
-    "supervisor_email_departure": {
-      "type": "Text",
-      "config": {
-        "label": "supervisor_email_departure"
+    "flight_message_no_airport" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "flight_message_no_airport"
       }
     },
-    "supervisor_email_return": {
-      "type": "Text",
-      "config": {
-        "label": "supervisor_email_return"
+    "flight_error" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "flight_error"
       }
     },
-    "supervisor_email_details_header": {
-      "type": "Text",
-      "config": {
-        "label": "supervisor_email_details_header"
+    "train_error" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "train_error"
       }
     },
-    "supervisor_email_accomodation": {
-      "type": "Text",
-      "config": {
-        "label": "supervisor_email_accomodation"
+    "train_success" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "train_success"
       }
     },
-    "supervisor_email_transportation": {
-      "type": "Text",
-      "config": {
-        "label": "supervisor_email_transportation"
+    "train_zero" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "train_zero"
       }
     },
-    "supervisor_email_local": {
-      "type": "Text",
-      "config": {
-        "label": "supervisor_email_local"
+    "train_below_estimate" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "train_below_estimate"
       }
     },
-    "supervisor_email_meals": {
-      "type": "Text",
-      "config": {
-        "label": "supervisor_email_meals"
+    "train_above_estimate" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "train_above_estimate"
       }
     },
-    "supervisor_email_other": {
-      "type": "Text",
-      "config": {
-        "label": "supervisor_email_other"
+    "rental_car_error" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "rental_car_error"
       }
     },
-    "supervisor_email_total": {
-      "type": "Text",
-      "config": {
-        "label": "supervisor_email_total"
+    "rental_car_success" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "rental_car_success"
       }
     },
-    "supervisor_email_notes": {
-      "type": "Text",
-      "config": {
-        "label": "supervisor_email_notes"
+    "rental_car_zero" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "rental_car_zero"
       }
     },
-    "supervisor_email_questions": {
-      "type": "Text",
-      "config": {
-        "label": "supervisor_email_questions"
-      }
-    }
-  },
-  "Date Picker": {
-    "datepicker_calendar_label": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_calendar_label",
-        "placeholder": "Calendar"
+    "private_vehicle_above_estimate" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "private_vehicle_above_estimate"
       }
     },
-    "datepicker_role_description": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_role_description",
-        "placeholder": "datepicker"
+    "private_vehicle_below_estimate" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "private_vehicle_below_estimate"
       }
     },
-    "datepicker_close": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_close",
-        "placeholder": "Close"
+    "private_vehicle_error" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "private_vehicle_error"
       }
     },
-    "date_picker_focus_start_date": {
-      "type": "Text",
-      "config": {
-        "label": "date_picker_focus_start_date",
-        "placeholder": "Interact with the calendar and add the check-in date for your trip."
+    "private_vehicle_success" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "private_vehicle_success"
       }
     },
-    "datepicker_clear_date": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_clear_date",
-        "placeholder": "Clear Date"
+    "private_vehicle_manual" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "private_vehicle_manual"
       }
     },
-    "datepicker_clear_dates": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_clear_dates",
-        "placeholder": "Clear Dates"
+    "flight" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight"
       }
     },
-    "datepicker_jump_to_prev_month": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_jump_to_prev_month",
-        "placeholder": "Move backward to switch to the previous month."
+    "local_transportation" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "local_transportation"
       }
     },
-    "datepicker_jump_to_next_month": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_jump_to_next_month",
-        "placeholder": "Move forward to switch to the next month."
+    "rental" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "rental"
       }
     },
-    "datepicker_keyboard_shortcuts": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_keyboard_shortcuts",
-        "placeholder": "Keyboard Shortcuts"
+    "train" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "train"
       }
     },
-    "datepicker_showkeyboard_shortcuts_panel": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_showkeyboard_shortcuts_panel",
-        "placeholder": "Open the keyboard shortcuts panel."
+    "not_required" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "not_required"
       }
     },
-    "datepicker_hide_keyboard_shortcuts_panel": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_hide_keyboard_shortcuts_panel",
-        "placeholder": "Close the shortcuts panel."
+    "could_not_fetch_flight_value" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "could_not_fetch_flight_value"
       }
     },
-    "datepicker_open_this_panel": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_open_this_panel",
-        "placeholder": "Open this panel."
+    "could_not_fetch_you_have_entered_own" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "could_not_fetch_you_have_entered_own"
       }
     },
-    "datepicker_enter_key": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_enter_key",
-        "placeholder": "Enter key"
+    "private_vehicle" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "private_vehicle"
       }
     },
-    "datepicker_left_arrow_right_arrow": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_left_arrow_right_arrow",
-        "placeholder": "Right and left arrow keys"
+    "flight_estimate_your_fare_link" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_estimate_your_fare_link",
+        "placeholder" : "Estimate your fare..."
       }
     },
-    "datepicker_up_arrow_down_arrow": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_up_arrow_down_arrow",
-        "placeholder": "up and down arrow keys"
+    "flight_selected_fare" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_selected_fare"
       }
     },
-    "datepicker_page_up_page_down": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_page_up_page_down",
-        "placeholder": "page up and page down keys"
+    "flight_selected_fare_preselected" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_selected_fare_preselected"
       }
     },
-    "datepicker_home_end": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_home_end",
-        "placeholder": "Home and end keys"
+    "flight_regenerate_estimate" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_regenerate_estimate"
       }
     },
-    "datepicker_escape": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_escape",
-        "placeholder": "Escape key"
+    "transportation_select_message" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "transportation_select_message"
       }
     },
-    "datepicker_question_mark": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_question_mark",
-        "placeholder": "Question mark"
+    "private_vehicle_enter_distance_manually" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "private_vehicle_enter_distance_manually",
+        "placeholder" : "Enter distance manually"
       }
     },
-    "datepicker_select_focused_date": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_select_focused_date",
-        "placeholder": "Select the date in focus."
+    "transportation_type" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "transportation_type"
       }
     },
-    "datepicker_move_focus_by_one_day": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_move_focus_by_one_day",
-        "placeholder": "Move backward (left) and forward (right) by one day."
-      }
-    },
-    "datepicker_move_focus_by_one_week": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_move_focus_by_one_week",
-        "placeholder": "Move backward (up) and forward (down) by one week."
-      }
-    },
-    "datepicker_move_focus_by_one_month": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_move_focus_by_one_month",
-        "placeholder": "Switch months."
-      }
-    },
-    "datepicker_move_focus_to_start_and_end_of_week": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_move_focus_to_start_and_end_of_week",
-        "placeholder": "Go to the first or last day of a week."
-      }
-    },
-    "datepicker_return_focus_to_input": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_return_focus_to_input",
-        "placeholder": "Return to the date input field."
-      }
-    },
-    "datepicker_keyboard_forward_navigation_instructions": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_keyboard_forward_navigation_instructions",
-        "placeholder": "Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates."
-      }
-    },
-    "datepicker_keyboard_backward_navigation_instructions": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_keyboard_backward_navigation_instructions",
-        "placeholder": "Navigate backward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates."
-      }
-    },
-    "datepicker_choose_available_start_date": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_choose_available_start_date",
-        "placeholder": "Choose ${date} as your check-in date. It’s available."
-      }
-    },
-    "datepicker_choose_available_end_date": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_choose_available_end_date",
-        "placeholder": "Choose ${date} as your check-out date. It’s available."
-      }
-    },
-    "datepicker_date_is_unavailable": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_date_is_unavailable",
-        "placeholder": "Not available. ${date}"
-      }
-    },
-    "datepicker_date_is_selected": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_date_is_selected",
-        "placeholder": "Selected. ${date}"
-      }
-    },
-    "datepicker_date_is_selected_as_start_date": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_date_is_selected_as_start_date",
-        "placeholder": "Selected as start date. ${date}"
-      }
-    },
-    "datepicker_date_is_selected_as_end_date": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_date_is_selected_as_end_date",
-        "placeholder": "Selected as end date. ${date}"
-      }
-    },
-    "datepicker_start_date": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_start_date",
-        "placeholder": "Start Date"
-      }
-    },
-    "datepicker_end_date": {
-      "type": "Text",
-      "config": {
-        "label": "datepicker_end_date",
-        "placeholder": "End Date"
+    "transportation_total" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "transportation_total"
       }
     }
   },
-  "Feedback Modal": {
-    "feedback_modal_header_text": {
-      "type": "Text",
-      "config": {
-        "label": "feedback_modal_header_text",
-        "placeholder": "Provide your feedback"
+  "Local Transportation Messages" : {
+    "local_transportation_success" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "local_transportation_success"
       }
     },
-    "feedback_modal_body": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, strong, em, hyperlink",
-        "allowTargetBlank": true,
-        "label": "feedback_modal_body"
+    "local_transportation_manual" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "local_transportation_manual"
       }
     },
-    "feedback_modal_primary_button_text": {
-      "type": "Text",
-      "config": {
-        "label": "feedback_modal_primary_button_text",
-        "placeholder": "Start"
+    "local_tranportation_zero" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "local_tranportation_zero"
       }
     },
-    "feedback_modal_secondary_button_text": {
-      "type": "Text",
-      "config": {
-        "label": "feedback_modal_secondary_button_text",
-        "placeholder": "Close"
-      }
-    },
-    "feedback_modal_link_to_survey": {
-      "type": "Text",
-      "config": {
-        "label": "feedback_modal_link_to_survey"
+    "local_transportation_total" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "local_transportation_total"
       }
     }
   },
-  "Flight Modal": {
-    "flight_modal_header": {
-      "type": "Text",
-      "config": {
-        "label": "flight_modal_header"
+  "Other Allowances Messages" : {
+    "other_allowances_message" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "other_allowances_message"
       }
     },
-    "flight_modal_origin_airport_label": {
-      "type": "Text",
-      "config": {
-        "label": "flight_modal_origin_airport_label"
+    "other_tooltip_text" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "other_tooltip_text"
       }
     },
-    "flight_modal_departure_time_label": {
-      "type": "Text",
-      "config": {
-        "label": "flight_modal_departure_time_label"
+    "other_allowances_total" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "other_allowances_total"
+      }
+    }
+  },
+  "Estimate Validation Messages" : {
+    "return_date_earlier_than_departure_date" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "label" : "return_date_earlier_than_departure_date"
       }
     },
-    "flight_modal_destination_airport_label": {
-      "type": "Text",
-      "config": {
-        "label": "flight_modal_destination_airport_label"
+    "estimate_origin_city_valid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_origin_city_valid"
       }
     },
-    "flight_modal_return_time_label": {
-      "type": "Text",
-      "config": {
-        "label": "flight_modal_return_time_label"
+    "estimate_origin_city_not_valid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_origin_city_not_valid"
       }
     },
-    "flight_modal_fetch_flight_estimate_label": {
-      "type": "Text",
-      "config": {
-        "label": "flight_modal_fetch_flight_estimate_label"
+    "estimate_destination_city_valid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_destination_city_valid"
       }
     },
-    "flight_modal_result_header": {
-      "type": "Text",
-      "config": {
-        "label": "flight_modal_result_header"
+    "estimate_destination_city_not_valid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_destination_city_not_valid"
       }
     },
-    "flight_modal_label_minimum": {
-      "type": "Text",
-      "config": {
-        "label": "flight_modal_label_minimum",
-        "placeholder": "the english or french word for minimum which appears in parenthesis"
+    "estimate_departure_date_not_valid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_departure_date_not_valid"
       }
     },
-    "flight_modal_label_maximum": {
-      "type": "Text",
-      "config": {
-        "label": "flight_modal_label_maximum",
-        "placeholder": "english or french word for maximum"
+    "estimate_return_date_not_valid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_return_date_not_valid"
       }
     },
-    "flight_modal_label_median": {
-      "type": "Text",
-      "config": {
-        "label": "flight_modal_label_median",
-        "placeholder": "english or french word for median"
+    "no_time_travel" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "no_time_travel"
       }
     },
-    "flight_modal_note_disclaimer": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading3, heading4, heading5, heading6, strong, em, hyperlink",
-        "allowTargetBlank": true,
-        "label": "flight_modal_note_disclaimer"
+    "estimate_application_error" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_application_error"
       }
     },
-    "flight_modal_use_in_estimate_button_label": {
-      "type": "Text",
-      "config": {
-        "label": "flight_modal_use_in_estimate_button_label"
+    "estimate_application_error_text" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "estimate_application_error_text"
+      }
+    }
+  },
+  "Confirmation Email" : {
+    "confirmation_email_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "confirmation_email_title"
       }
     },
-    "flight_modal_close_button_label": {
-      "type": "Text",
-      "config": {
-        "label": "flight_modal_close_button_label"
+    "confirmation_title_lead" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "confirmation_email_title_lead"
       }
     },
-    "flight_modal_leaving_header": {
-      "type": "Text",
-      "config": {
-        "label": "flight_modal_leaving_header",
-        "placeholder": "include {departureDate} and {originCity}"
+    "confirmation_email_opening_body" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "confirmation_email_opening_body"
       }
     },
-    "flight_modal_return_header": {
-      "type": "Text",
-      "config": {
-        "label": "flight_modal_return_header",
-        "placeholder": "include {returnDate} and {destinationCity}"
+    "confirmation_email_objective" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "confirmation_email_objective"
       }
     },
-    "flight_modal_initial_instructions": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em",
-        "label": "flight_modal_initial_instructions"
+    "confirmation_email_category" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "confirmation_email_category"
       }
     },
-    "flight_modal_zero_results": {
-      "type": "Text",
-      "config": {
-        "label": "flight_modal_zero_results"
+    "confirmation_email_publicservant" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "confirmation_email_publicservant"
       }
     },
-    "flight_modal_api_error": {
-      "type": "Text",
-      "config": {
-        "label": "flight_modal_api_error"
+    "confirmation_email_origin" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "confirmation_email_origin"
+      }
+    },
+    "confirmation_email_destination" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "confirmation_email_destination"
+      }
+    },
+    "confirmation_email_departure" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "confirmation_email_departure"
+      }
+    },
+    "confirmation_email_return" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "confirmation_email_return"
+      }
+    },
+    "confirmation_email_details_header" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "confirmation_email_details_header"
+      }
+    },
+    "confirmation_email_accomodation" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "confirmation_email_accomodation"
+      }
+    },
+    "confirmation_email_transportation" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "confirmation_email_transportation"
+      }
+    },
+    "confirmation_email_local" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "confirmation_email_local"
+      }
+    },
+    "confirmation_email_meals" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "confirmation_email_meals"
+      }
+    },
+    "confirmation_email_other" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "confirmation_email_other"
+      }
+    },
+    "confirmation_email_total" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "confirmation_email_total"
+      }
+    },
+    "confirmation_email_notes" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "confirmation_email_notes"
+      }
+    },
+    "confirmation_email_thankyou" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "confirmation_email_thankyou"
+      }
+    }
+  },
+  "Supervisor Email" : {
+    "supervisor_email_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "supervisor_email_title"
+      }
+    },
+    "supervisor_email_title_lead" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "supervisor_email_title_lead"
+      }
+    },
+    "supervisor_email_opening_body" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "supervisor_email_opening_body"
+      }
+    },
+    "supervisor_email_objective" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "supervisor_email_objective"
+      }
+    },
+    "supervisor_email_category" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "supervisor_email_category"
+      }
+    },
+    "supervisor_email_publicservant" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "supervisor_email_publicservant"
+      }
+    },
+    "supervisor_email_origin" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "supervisor_email_origin"
+      }
+    },
+    "supervisor_email_destination" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "supervisor_email_destination"
+      }
+    },
+    "supervisor_email_departure" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "supervisor_email_departure"
+      }
+    },
+    "supervisor_email_return" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "supervisor_email_return"
+      }
+    },
+    "supervisor_email_details_header" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "supervisor_email_details_header"
+      }
+    },
+    "supervisor_email_accomodation" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "supervisor_email_accomodation"
+      }
+    },
+    "supervisor_email_transportation" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "supervisor_email_transportation"
+      }
+    },
+    "supervisor_email_local" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "supervisor_email_local"
+      }
+    },
+    "supervisor_email_meals" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "supervisor_email_meals"
+      }
+    },
+    "supervisor_email_other" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "supervisor_email_other"
+      }
+    },
+    "supervisor_email_total" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "supervisor_email_total"
+      }
+    },
+    "supervisor_email_notes" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "supervisor_email_notes"
+      }
+    },
+    "supervisor_email_questions" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "supervisor_email_questions"
+      }
+    }
+  },
+  "Date Picker" : {
+    "datepicker_calendar_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_calendar_label",
+        "placeholder" : "Calendar"
+      }
+    },
+    "datepicker_role_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_role_description",
+        "placeholder" : "datepicker"
+      }
+    },
+    "datepicker_close" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_close",
+        "placeholder" : "Close"
+      }
+    },
+    "date_picker_focus_start_date" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "date_picker_focus_start_date",
+        "placeholder" : "Interact with the calendar and add the check-in date for your trip."
+      }
+    },
+    "datepicker_clear_date" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_clear_date",
+        "placeholder" : "Clear Date"
+      }
+    },
+    "datepicker_clear_dates" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_clear_dates",
+        "placeholder" : "Clear Dates"
+      }
+    },
+    "datepicker_jump_to_prev_month" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_jump_to_prev_month",
+        "placeholder" : "Move backward to switch to the previous month."
+      }
+    },
+    "datepicker_jump_to_next_month" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_jump_to_next_month",
+        "placeholder" : "Move forward to switch to the next month."
+      }
+    },
+    "datepicker_keyboard_shortcuts" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_keyboard_shortcuts",
+        "placeholder" : "Keyboard Shortcuts"
+      }
+    },
+    "datepicker_showkeyboard_shortcuts_panel" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_showkeyboard_shortcuts_panel",
+        "placeholder" : "Open the keyboard shortcuts panel."
+      }
+    },
+    "datepicker_hide_keyboard_shortcuts_panel" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_hide_keyboard_shortcuts_panel",
+        "placeholder" : "Close the shortcuts panel."
+      }
+    },
+    "datepicker_open_this_panel" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_open_this_panel",
+        "placeholder" : "Open this panel."
+      }
+    },
+    "datepicker_enter_key" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_enter_key",
+        "placeholder" : "Enter key"
+      }
+    },
+    "datepicker_left_arrow_right_arrow" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_left_arrow_right_arrow",
+        "placeholder" : "Right and left arrow keys"
+      }
+    },
+    "datepicker_up_arrow_down_arrow" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_up_arrow_down_arrow",
+        "placeholder" : "up and down arrow keys"
+      }
+    },
+    "datepicker_page_up_page_down" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_page_up_page_down",
+        "placeholder" : "page up and page down keys"
+      }
+    },
+    "datepicker_home_end" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_home_end",
+        "placeholder" : "Home and end keys"
+      }
+    },
+    "datepicker_escape" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_escape",
+        "placeholder" : "Escape key"
+      }
+    },
+    "datepicker_question_mark" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_question_mark",
+        "placeholder" : "Question mark"
+      }
+    },
+    "datepicker_select_focused_date" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_select_focused_date",
+        "placeholder" : "Select the date in focus."
+      }
+    },
+    "datepicker_move_focus_by_one_day" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_move_focus_by_one_day",
+        "placeholder" : "Move backward (left) and forward (right) by one day."
+      }
+    },
+    "datepicker_move_focus_by_one_week" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_move_focus_by_one_week",
+        "placeholder" : "Move backward (up) and forward (down) by one week."
+      }
+    },
+    "datepicker_move_focus_by_one_month" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_move_focus_by_one_month",
+        "placeholder" : "Switch months."
+      }
+    },
+    "datepicker_move_focus_to_start_and_end_of_week" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_move_focus_to_start_and_end_of_week",
+        "placeholder" : "Go to the first or last day of a week."
+      }
+    },
+    "datepicker_return_focus_to_input" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_return_focus_to_input",
+        "placeholder" : "Return to the date input field."
+      }
+    },
+    "datepicker_keyboard_forward_navigation_instructions" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_keyboard_forward_navigation_instructions",
+        "placeholder" : "Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates."
+      }
+    },
+    "datepicker_keyboard_backward_navigation_instructions" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_keyboard_backward_navigation_instructions",
+        "placeholder" : "Navigate backward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates."
+      }
+    },
+    "datepicker_choose_available_start_date" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_choose_available_start_date",
+        "placeholder" : "Choose ${date} as your check-in date. It’s available."
+      }
+    },
+    "datepicker_choose_available_end_date" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_choose_available_end_date",
+        "placeholder" : "Choose ${date} as your check-out date. It’s available."
+      }
+    },
+    "datepicker_date_is_unavailable" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_date_is_unavailable",
+        "placeholder" : "Not available. ${date}"
+      }
+    },
+    "datepicker_date_is_selected" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_date_is_selected",
+        "placeholder" : "Selected. ${date}"
+      }
+    },
+    "datepicker_date_is_selected_as_start_date" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_date_is_selected_as_start_date",
+        "placeholder" : "Selected as start date. ${date}"
+      }
+    },
+    "datepicker_date_is_selected_as_end_date" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_date_is_selected_as_end_date",
+        "placeholder" : "Selected as end date. ${date}"
+      }
+    },
+    "datepicker_start_date" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_start_date",
+        "placeholder" : "Start Date"
+      }
+    },
+    "date_format_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "date_format_description"
+      }
+    },
+    "datepicker_end_date" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "datepicker_end_date",
+        "placeholder" : "End Date"
+      }
+    }
+  },
+  "Feedback Modal" : {
+    "feedback_modal_header_text" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "feedback_modal_header_text",
+        "placeholder" : "Provide your feedback"
+      }
+    },
+    "feedback_modal_body" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, strong, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "feedback_modal_body"
+      }
+    },
+    "feedback_modal_primary_button_text" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "feedback_modal_primary_button_text",
+        "placeholder" : "Start"
+      }
+    },
+    "feedback_modal_secondary_button_text" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "feedback_modal_secondary_button_text",
+        "placeholder" : "Close"
+      }
+    },
+    "feedback_modal_link_to_survey" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "feedback_modal_link_to_survey"
+      }
+    }
+  },
+  "Flight Modal" : {
+    "flight_modal_header" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_modal_header"
+      }
+    },
+    "flight_modal_origin_airport_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_modal_origin_airport_label"
+      }
+    },
+    "flight_modal_departure_time_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_modal_departure_time_label"
+      }
+    },
+    "flight_modal_destination_airport_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_modal_destination_airport_label"
+      }
+    },
+    "flight_modal_return_time_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_modal_return_time_label"
+      }
+    },
+    "flight_modal_fetch_flight_estimate_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_modal_fetch_flight_estimate_label"
+      }
+    },
+    "flight_modal_result_header" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_modal_result_header"
+      }
+    },
+    "flight_modal_label_minimum" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_modal_label_minimum",
+        "placeholder" : "the english or french word for minimum which appears in parenthesis"
+      }
+    },
+    "flight_modal_label_maximum" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_modal_label_maximum",
+        "placeholder" : "english or french word for maximum"
+      }
+    },
+    "flight_modal_label_median" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_modal_label_median",
+        "placeholder" : "english or french word for median"
+      }
+    },
+    "flight_modal_note_disclaimer" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading3, heading4, heading5, heading6, strong, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "flight_modal_note_disclaimer"
+      }
+    },
+    "flight_modal_use_in_estimate_button_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_modal_use_in_estimate_button_label"
+      }
+    },
+    "flight_modal_close_button_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_modal_close_button_label"
+      }
+    },
+    "flight_modal_leaving_header" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_modal_leaving_header",
+        "placeholder" : "include {departureDate} and {originCity}"
+      }
+    },
+    "flight_modal_return_header" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_modal_return_header",
+        "placeholder" : "include {returnDate} and {destinationCity}"
+      }
+    },
+    "flight_modal_initial_instructions" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em",
+        "label" : "flight_modal_initial_instructions"
+      }
+    },
+    "flight_modal_zero_results" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_modal_zero_results"
+      }
+    },
+    "flight_modal_zero_results_with_link" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "flight_modal_zero_results_with_link"
+      }
+    },
+    "flight_modal_api_error" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_modal_api_error"
+      }
+    },
+    "aria_flight_estimate_loading" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "aria_flight_estimate_loading"
+      }
+    },
+    "aria_flight_estimate_loaded" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "aria_flight_estimate_loaded"
+      }
+    }
+  },
+  "Autocomplete instructions" : {
+    "autocomplete_no_results" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "autocomplete_no_results"
+      }
+    },
+    "autocomplete_query_too_short" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "autocomplete_query_too_short"
+      }
+    },
+    "autocomplete_status_selected_option" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "autocomplete_status_selected_option"
+      }
+    },
+    "autocomplete_status_no_results" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "autocomplete_status_no_results"
+      }
+    },
+    "autocomplete_assistive_hint" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "autocomplete_assistive_hint"
       }
     }
   }

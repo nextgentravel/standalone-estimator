@@ -6,7 +6,7 @@ const ConditionalWrap = ({ condition, wrap, children }) => (
     condition ? wrap(children) : children
 );
 
-const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTotal, value, tooltipIcon, tooltipText, disabled, result, overlayRender, locale }) => {
+const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTotal, value, tooltipIcon, tooltipText, readOnly, result, overlayRender, locale, ariaLabel, toolTipLabel }) => {
     const TooltipIcon = tooltipIcon ? tooltipIcon : null;
 
     const renderTooltip = (props) => (
@@ -27,7 +27,9 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                                 delay={{ show: 250, hide: 400 }}
                                 overlay={renderTooltip}
                             >
-                                <TooltipIcon className="ml-2" size="15" fill="#9E9E9E" />
+                                <button type="button" className="btn btn-default" aria-label={toolTipLabel}>
+                                    <TooltipIcon className="mb-1" size="15" fill="#9E9E9E" />
+                                </button>
                             </OverlayTrigger>
                         }
                         </label>
@@ -50,12 +52,14 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                         </div>
                     }
                     <input
-                        disabled={disabled}
-                        type="text"
+                        readOnly={readOnly}
+                        aria-readonly={readOnly}
+                        aria-describedby={`${id}-message`}
                         value={value}
                         className="form-control"
                         id={id}
                         name={name}
+                        aria-label={ariaLabel}
                         onChange={(e) => {
                             if (!result) return;
                             updateCost(e.target.value)
@@ -68,6 +72,8 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                             }
                             calculateTotal();
                         }}
+                        type="number"
+                        min="0"
                     >
                     </input>
                     {locale === 'fr-ca' &&
@@ -84,7 +90,7 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
 
                 
             </div>
-            <div className="col-sm-5 align-self-center text-wrap mb-2">
+            <div className="col-sm-5 align-self-center text-wrap mb-2" id={`${id}-message`} >
                 {message && message.element}
             </div>
         </div>

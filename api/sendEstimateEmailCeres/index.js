@@ -72,10 +72,13 @@ const travelMode = (input, lang) => {
         return "Train"
         break;
       case 'rental':
-        return "Rental Car"
+        return "Rental car"
         break;
       case 'private':
-        return "Private Vehicle"
+        return "Private vehicle"
+        break;
+      case 'notrequired':
+        return "Not required"
         break;
       default:
         return input;
@@ -94,6 +97,9 @@ const travelMode = (input, lang) => {
       case 'private':
         return "Véhicule personnel"
         break;
+      case 'notrequired':
+        return "Non requis"
+        break;
       default:
         return input;
     }
@@ -109,6 +115,9 @@ const accommodationType = (input, lang) => {
       case 'private':
         return "Private accommodation"
         break;
+      case 'notrequired':
+        return "Not required"
+        break;
       default:
         return input;
     }
@@ -119,6 +128,9 @@ const accommodationType = (input, lang) => {
         break;
       case 'private':
         return "Hébergement privé"
+        break;
+      case 'notrequired':
+        return "Non requis"
         break;
       default:
         return input;
