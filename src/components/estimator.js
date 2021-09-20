@@ -993,6 +993,7 @@ const Estimator = () => {
         setAccommodationType('')
 
         setPrivateVehicleSuccess(false)
+        setPrivateKilometricsValue(0)
 
         setOriginAirportCode('');
         setDestinationAirportCode('');
