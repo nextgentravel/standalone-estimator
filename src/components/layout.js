@@ -16,7 +16,9 @@ const Layout = ({ children }) => {
           showLanguageSelect = pathname === '/404/' ? showLanguageSelect = false : showLanguageSelect = true;
           onHomePage = pathname === '/en/' || pathname === '/fr/' ? onHomePage = true : onHomePage = false;
           return (
-            <Header showLanguageSelect={showLanguageSelect} homeHeader={onHomePage} />
+            <>
+              <Header showLanguageSelect={showLanguageSelect} homeHeader={onHomePage} />
+            </>
           )
         }}
       </Location>
