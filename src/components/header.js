@@ -4,6 +4,7 @@ import Link from 'gatsby-link';
 import SelectLanguage from './languageSelect';
 import { useIntl } from 'react-intl';
 import { graphql, useStaticQuery } from 'gatsby'
+import Image from './image'
 
 const Header = ({homeHeader}) => {
   const intl = useIntl();
@@ -37,7 +38,7 @@ const Header = ({homeHeader}) => {
           <nav className="skiphold" id="header-skiplink">
             <a className="sr-only sr-only-focusable aurora-skip skiplink" aria-label="main skiplink" href="#main-content">{messages.header_skip_to_main}</a>
           </nav>
-          {/* {homeLink === "/en/" &&
+          {homeLink === "/en/" &&
             <div className="align-self-center" property="publisher" typeof="GovernmentOrganization">
               <Image
                 filename="sig-blk-en.svg"
@@ -54,7 +55,7 @@ const Header = ({homeHeader}) => {
                 alt={messages.header_goc_logo}
               />
             </div>
-          } */}
+          }
           <section className='text-right align-self-center ml-auto'>
             <p className="sr-only sr-only-focusable aurora-skip">{messages.header_language_select}</p>
             <SelectLanguage />
