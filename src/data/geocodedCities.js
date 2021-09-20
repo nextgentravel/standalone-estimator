@@ -1180,23 +1180,23 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "locality",
             "political"
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -1257,7 +1257,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Ahuntsic-Cartierville, Montreal, QC, Canada",
+      "en": "Ahuntsic-Cartierville, Montréal, QC, Canada",
       "fr": "Ahuntsic-Cartierville, Montréal, QC, Canada"
     },
     "geometry": {
@@ -1361,7 +1361,7 @@ module.exports = {
           }
         },
         "relevance": 5.55902,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -1396,8 +1396,8 @@ module.exports = {
           }
         },
         "relevance": 4.4948,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -1431,8 +1431,8 @@ module.exports = {
           }
         },
         "relevance": 2.65043,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -1466,8 +1466,8 @@ module.exports = {
           }
         },
         "relevance": 1.71481,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -2089,7 +2089,7 @@ module.exports = {
           }
         },
         "relevance": 2.81894,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -2379,7 +2379,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -2534,8 +2534,8 @@ module.exports = {
           }
         },
         "relevance": 3.02034,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -2569,7 +2569,7 @@ module.exports = {
           }
         },
         "relevance": 1.86643,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -2639,8 +2639,8 @@ module.exports = {
           }
         },
         "relevance": 1.1078,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -3116,8 +3116,8 @@ module.exports = {
           }
         },
         "relevance": 0.51536,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -3282,7 +3282,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -3472,7 +3472,7 @@ module.exports = {
           }
         },
         "relevance": 2.16766,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -3682,8 +3682,8 @@ module.exports = {
           }
         },
         "relevance": 0.17899,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -3717,8 +3717,8 @@ module.exports = {
           }
         },
         "relevance": 0.11659,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -3743,7 +3743,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -3863,8 +3863,8 @@ module.exports = {
           }
         },
         "relevance": 2.24611,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -3968,8 +3968,8 @@ module.exports = {
           }
         },
         "relevance": 1.69746,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -4197,23 +4197,23 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "locality",
             "political"
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -4274,7 +4274,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Anjou, Montreal, QC, Canada",
+      "en": "Anjou, Montréal, QC, Canada",
       "fr": "Anjou, Montréal, QC, Canada"
     },
     "geometry": {
@@ -4378,8 +4378,8 @@ module.exports = {
           }
         },
         "relevance": 5.47518,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -4413,7 +4413,7 @@ module.exports = {
           }
         },
         "relevance": 5.26339,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -4448,8 +4448,8 @@ module.exports = {
           }
         },
         "relevance": 2.78674,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -4483,8 +4483,8 @@ module.exports = {
           }
         },
         "relevance": 1.50063,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -4750,8 +4750,8 @@ module.exports = {
           }
         },
         "relevance": 0.66174,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -5122,7 +5122,7 @@ module.exports = {
           }
         },
         "relevance": 16.0449,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -5262,8 +5262,8 @@ module.exports = {
           }
         },
         "relevance": 1.44261,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       }
     ]
   },
@@ -5730,7 +5730,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -5885,8 +5885,8 @@ module.exports = {
           }
         },
         "relevance": 2.72746,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -5955,8 +5955,8 @@ module.exports = {
           }
         },
         "relevance": 1.64142,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -6183,15 +6183,15 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -6381,7 +6381,7 @@ module.exports = {
           }
         },
         "relevance": 6.39826,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -6416,8 +6416,8 @@ module.exports = {
           }
         },
         "relevance": 2.39392,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -6451,8 +6451,8 @@ module.exports = {
           }
         },
         "relevance": 2.186,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -6486,8 +6486,8 @@ module.exports = {
           }
         },
         "relevance": 1.71541,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -7520,7 +7520,7 @@ module.exports = {
           }
         },
         "relevance": 2.63526,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -7787,8 +7787,8 @@ module.exports = {
           }
         },
         "relevance": 1.63229,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -7822,8 +7822,8 @@ module.exports = {
           }
         },
         "relevance": 1.34116,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -8015,15 +8015,15 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -8213,7 +8213,7 @@ module.exports = {
           }
         },
         "relevance": 6.22455,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -8248,8 +8248,8 @@ module.exports = {
           }
         },
         "relevance": 2.43227,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -8283,8 +8283,8 @@ module.exports = {
           }
         },
         "relevance": 2.42927,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -8318,8 +8318,8 @@ module.exports = {
           }
         },
         "relevance": 1.74109,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -8372,8 +8372,8 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec City",
-          "short_name": "Quebec City",
+          "long_name": "Québec City",
+          "short_name": "Québec City",
           "types": [
             "locality",
             "political"
@@ -8388,7 +8388,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -8449,7 +8449,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Beauport, Quebec City, QC, Canada",
+      "en": "Beauport, Québec City, QC, Canada",
       "fr": "Beauport, Québec, QC, Canada"
     },
     "geometry": {
@@ -8518,8 +8518,8 @@ module.exports = {
           }
         },
         "relevance": 35.37658,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -8588,7 +8588,7 @@ module.exports = {
           }
         },
         "relevance": 2.27969,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -8693,8 +8693,8 @@ module.exports = {
           }
         },
         "relevance": 0.38586,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -8944,7 +8944,7 @@ module.exports = {
           }
         },
         "relevance": 4.70032,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -9246,8 +9246,8 @@ module.exports = {
           }
         },
         "relevance": 1.68805,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -9281,8 +9281,8 @@ module.exports = {
           }
         },
         "relevance": 1.34709,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -9482,7 +9482,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -9637,7 +9637,7 @@ module.exports = {
           }
         },
         "relevance": 4.17161,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -9672,8 +9672,8 @@ module.exports = {
           }
         },
         "relevance": 3.73626,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -9707,8 +9707,8 @@ module.exports = {
           }
         },
         "relevance": 1.3381,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       }
     ]
   },
@@ -10173,7 +10173,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -10328,7 +10328,7 @@ module.exports = {
           }
         },
         "relevance": 6.05176,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -10363,8 +10363,8 @@ module.exports = {
           }
         },
         "relevance": 5.00465,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -10398,8 +10398,8 @@ module.exports = {
           }
         },
         "relevance": 2.59736,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -10433,8 +10433,8 @@ module.exports = {
           }
         },
         "relevance": 2.24868,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -10995,7 +10995,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -11127,8 +11127,8 @@ module.exports = {
           }
         },
         "relevance": 26.71254,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -11197,7 +11197,7 @@ module.exports = {
           }
         },
         "relevance": 2.24871,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -11337,8 +11337,8 @@ module.exports = {
           }
         },
         "relevance": 0.37659,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       }
     ]
   },
@@ -11585,7 +11585,7 @@ module.exports = {
           }
         },
         "relevance": 2.4439,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -11681,7 +11681,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -11887,8 +11887,8 @@ module.exports = {
           }
         },
         "relevance": 1.9412,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -11922,8 +11922,8 @@ module.exports = {
           }
         },
         "relevance": 1.26802,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -12495,7 +12495,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -12650,8 +12650,8 @@ module.exports = {
           }
         },
         "relevance": 10.38054,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -12685,7 +12685,7 @@ module.exports = {
           }
         },
         "relevance": 4.97351,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -12720,8 +12720,8 @@ module.exports = {
           }
         },
         "relevance": 2.87022,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -12755,8 +12755,8 @@ module.exports = {
           }
         },
         "relevance": 1.14704,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -13022,7 +13022,7 @@ module.exports = {
           }
         },
         "relevance": 3.07535,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -13273,7 +13273,7 @@ module.exports = {
           }
         },
         "relevance": 3.06294,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -13524,7 +13524,7 @@ module.exports = {
           }
         },
         "relevance": 2.37826,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -14166,7 +14166,7 @@ module.exports = {
           }
         },
         "relevance": 2.00098,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -14522,8 +14522,8 @@ module.exports = {
           }
         },
         "relevance": 0.33239,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -14808,7 +14808,7 @@ module.exports = {
           }
         },
         "relevance": 10.77996,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -14869,7 +14869,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -15024,7 +15024,7 @@ module.exports = {
           }
         },
         "relevance": 3.76778,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -15059,8 +15059,8 @@ module.exports = {
           }
         },
         "relevance": 3.03758,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -15094,8 +15094,8 @@ module.exports = {
           }
         },
         "relevance": 1.40072,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       }
     ]
   },
@@ -15457,7 +15457,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -15612,8 +15612,8 @@ module.exports = {
           }
         },
         "relevance": 11.1372,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -15647,7 +15647,7 @@ module.exports = {
           }
         },
         "relevance": 5.08069,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -15682,8 +15682,8 @@ module.exports = {
           }
         },
         "relevance": 2.71345,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -15717,8 +15717,8 @@ module.exports = {
           }
         },
         "relevance": 1.05203,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -15968,7 +15968,7 @@ module.exports = {
           }
         },
         "relevance": 2.21665,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -16245,7 +16245,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -16400,8 +16400,8 @@ module.exports = {
           }
         },
         "relevance": 6.30575,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -16435,7 +16435,7 @@ module.exports = {
           }
         },
         "relevance": 3.19131,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -16470,8 +16470,8 @@ module.exports = {
           }
         },
         "relevance": 0.73199,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       }
     ]
   },
@@ -17500,7 +17500,7 @@ module.exports = {
           }
         },
         "relevance": 2.04915,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -18158,8 +18158,8 @@ module.exports = {
           }
         },
         "relevance": 1.92788,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -18193,8 +18193,8 @@ module.exports = {
           }
         },
         "relevance": 1.56439,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -19212,8 +19212,8 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec City",
-          "short_name": "Quebec City",
+          "long_name": "Québec City",
+          "short_name": "Québec City",
           "types": [
             "locality",
             "political"
@@ -19236,7 +19236,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -19313,7 +19313,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Cap-Rouge, Quebec City, QC, Canada",
+      "en": "Cap-Rouge, Québec City, QC, Canada",
       "fr": "Cap-Rouge, Québec, QC, Canada"
     },
     "geometry": {
@@ -19381,8 +19381,8 @@ module.exports = {
           }
         },
         "relevance": 161.64763,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -19451,7 +19451,7 @@ module.exports = {
           }
         },
         "relevance": 2.37808,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -19521,8 +19521,8 @@ module.exports = {
           }
         },
         "relevance": 0.41609,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       }
     ]
   },
@@ -19555,7 +19555,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -19683,8 +19683,8 @@ module.exports = {
           }
         },
         "relevance": 15.18299,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -19753,8 +19753,8 @@ module.exports = {
           }
         },
         "relevance": 1.06044,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -20214,8 +20214,8 @@ module.exports = {
           }
         },
         "relevance": 1.66828,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -20249,8 +20249,8 @@ module.exports = {
           }
         },
         "relevance": 1.19513,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -20424,8 +20424,8 @@ module.exports = {
           }
         },
         "relevance": 0.5494,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -20726,8 +20726,8 @@ module.exports = {
           }
         },
         "relevance": 0.904,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -21428,7 +21428,7 @@ module.exports = {
           }
         },
         "relevance": 19.37265,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -21498,8 +21498,8 @@ module.exports = {
           }
         },
         "relevance": 1.79925,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -21908,8 +21908,8 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec City",
-          "short_name": "Quebec City",
+          "long_name": "Québec City",
+          "short_name": "Québec City",
           "types": [
             "locality",
             "political"
@@ -21924,7 +21924,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -21985,7 +21985,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Charlesbourg, Quebec City, QC, Canada",
+      "en": "Charlesbourg, Québec City, QC, Canada",
       "fr": "Charlesbourg, Québec, QC, Canada"
     },
     "geometry": {
@@ -22054,8 +22054,8 @@ module.exports = {
           }
         },
         "relevance": 42.11573,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -22124,7 +22124,7 @@ module.exports = {
           }
         },
         "relevance": 2.3091,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -22229,8 +22229,8 @@ module.exports = {
           }
         },
         "relevance": 0.39063,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -22531,8 +22531,8 @@ module.exports = {
           }
         },
         "relevance": 0.79511,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -23283,392 +23283,6 @@ module.exports = {
       }
     ]
   },
-  "Cherry Grove AB": {
-    "acrdName": "Cherry Grove AB",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Cherry Grove",
-          "short_name": "Cherry Grove",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Bonnyville No. 87",
-          "short_name": "Bonnyville No. 87",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Division No. 12",
-          "short_name": "Division No. 12",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Alberta",
-          "short_name": "AB",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "T0A 0T0",
-          "short_name": "T0A 0T0",
-          "types": [
-            "postal_code"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Cherry Grove",
-          "short_name": "Cherry Grove",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Bonnyville No 87",
-          "short_name": "Bonnyville No 87",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Division No 12",
-          "short_name": "Division No 12",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Alberta",
-          "short_name": "AB",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "T0A 0T0",
-          "short_name": "T0A 0T0",
-          "types": [
-            "postal_code"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Cherry Grove, AB T0A 0T0, Canada",
-      "fr": "Cherry Grove, AB T0A 0T0, Canada"
-    },
-    "geometry": {
-      "bounds": {
-        "northeast": {
-          "lat": 54.36970789999999,
-          "lng": -110.0805565
-        },
-        "southwest": {
-          "lat": 54.3550234,
-          "lng": -110.1138343
-        }
-      },
-      "location": {
-        "lat": 54.3602835,
-        "lng": -110.0862722
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 54.36970789999999,
-          "lng": -110.0805565
-        },
-        "southwest": {
-          "lat": 54.3550234,
-          "lng": -110.1138343
-        }
-      }
-    },
-    "google_place_id": "ChIJe4gzm5LFp1MRp1DLgXKJshY",
-    "types": [
-      "locality",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "CALGARY INTL",
-        "detailedName": "CALGARY/AB/CA:CALGARY INTL",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YYC",
-        "geoCode": {
-          "latitude": 51.12945,
-          "longitude": -114.0131
-        },
-        "address": {
-          "cityName": "CALGARY",
-          "cityCode": "YYC",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "AB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 446,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 21
-          },
-          "travelers": {
-            "score": 17
-          }
-        },
-        "relevance": 4.77262,
-        "frenchLabel": "Aéroport international de Calgary",
-        "englishLabel": "Calgary International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "EDMONTON INTL",
-        "detailedName": "EDMONTON/AB/CA:EDMONTON INTL",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YEG",
-        "geoCode": {
-          "latitude": 53.30806,
-          "longitude": -113.5844
-        },
-        "address": {
-          "cityName": "EDMONTON",
-          "cityCode": "YEA",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "AB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 257,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 11
-          },
-          "travelers": {
-            "score": 9
-          }
-        },
-        "relevance": 4.45249,
-        "frenchLabel": "Aéroport international d'Edmonton",
-        "englishLabel": "Edmonton International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "J.G.DIEFENBAKER INTL",
-        "detailedName": "SASKATOON/SK/CA:J.G.DIEFENBAKE",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YXE",
-        "geoCode": {
-          "latitude": 52.17084,
-          "longitude": -106.6997
-        },
-        "address": {
-          "cityName": "SASKATOON",
-          "cityCode": "YXE",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "SK",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 331,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 4
-          },
-          "travelers": {
-            "score": 3
-          }
-        },
-        "relevance": 1.21096,
-        "frenchLabel": "Aéroport John G. Diefenbaker de Saskatoon",
-        "englishLabel": "Saskatoon John G. Diefenbaker International Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "FORT MCMURRAY",
-        "detailedName": "FORT MCMURRAY/AB/CA",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YMM",
-        "geoCode": {
-          "latitude": 56.65334,
-          "longitude": -111.2219
-        },
-        "address": {
-          "cityName": "FORT MCMURRAY",
-          "cityCode": "YMM",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "AB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 265,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.74836,
-        "frenchLabel": "Fort Mcmurray",
-        "englishLabel": "Fort Mcmurray"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "LLOYDMINSTER",
-        "detailedName": "LLOYDMINSTER/AB/CA",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YLL",
-        "geoCode": {
-          "latitude": 53.30917,
-          "longitude": -110.0725
-        },
-        "address": {
-          "cityName": "LLOYDMINSTER",
-          "cityCode": "YLL",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "AB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 117,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 0
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 0.3965,
-        "frenchLabel": "Lloydminster",
-        "englishLabel": "Lloydminster"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "MEDICINE HAT",
-        "detailedName": "MEDICINE HAT/AB/CA",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YXH",
-        "geoCode": {
-          "latitude": 50.01889,
-          "longitude": -110.7208
-        },
-        "address": {
-          "cityName": "MEDICINE HAT",
-          "cityCode": "YXH",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "AB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 485,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 0.14076,
-        "frenchLabel": "Medicine Hat",
-        "englishLabel": "Medicine Hat"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "FORT CHIPEWYAN",
-        "detailedName": "FORT CHIPEWYAN/AB/CA",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YPY",
-        "geoCode": {
-          "latitude": 58.76667,
-          "longitude": -111.1167
-        },
-        "address": {
-          "cityName": "FORT CHIPEWYAN",
-          "cityCode": "YPY",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "AB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 494,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 0.12051,
-        "frenchLabel": "Fort Chipewyan",
-        "englishLabel": "Fort Chipewyan"
-      }
-    ]
-  },
   "Chetwynd BC": {
     "acrdName": "Chetwynd BC",
     "address_components": {
@@ -24192,7 +23806,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -24392,8 +24006,8 @@ module.exports = {
           }
         },
         "relevance": 3.40405,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -24427,7 +24041,7 @@ module.exports = {
           }
         },
         "relevance": 1.82425,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -24462,8 +24076,8 @@ module.exports = {
           }
         },
         "relevance": 1.16687,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -25000,7 +24614,7 @@ module.exports = {
         },
         "relevance": 4.4578,
         "frenchLabel": "Aéroport international de St John's",
-        "englishLabel": "St Johns International"
+        "englishLabel": "St John's International"
       },
       {
         "type": "location",
@@ -25527,7 +25141,7 @@ module.exports = {
           }
         },
         "relevance": 3.15471,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -25794,7 +25408,7 @@ module.exports = {
           }
         },
         "relevance": 3.52802,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -26168,378 +25782,6 @@ module.exports = {
         "relevance": 0.23147,
         "frenchLabel": "Medicine Hat",
         "englishLabel": "Medicine Hat"
-      }
-    ]
-  },
-  "Cochrane ON": {
-    "acrdName": "Cochrane ON",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Cochrane",
-          "short_name": "Cochrane",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Unorganized North Cochrane District",
-          "short_name": "Unorganized North Cochrane District",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Cochrane District",
-          "short_name": "Cochrane District",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Ontario",
-          "short_name": "ON",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Cochrane",
-          "short_name": "Cochrane",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Unorganized North Cochrane District",
-          "short_name": "Unorganized North Cochrane District",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "District de Cochrane",
-          "short_name": "District de Cochrane",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Ontario",
-          "short_name": "ON",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Cochrane, ON, Canada",
-      "fr": "Cochrane, ON, Canada"
-    },
-    "geometry": {
-      "bounds": {
-        "northeast": {
-          "lat": 49.3194761,
-          "lng": -80.876644
-        },
-        "southwest": {
-          "lat": 48.9718379,
-          "lng": -81.27154709999999
-        }
-      },
-      "location": {
-        "lat": 49.06502589999999,
-        "lng": -81.02992979999999
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 49.3194761,
-          "lng": -80.876644
-        },
-        "southwest": {
-          "lat": 48.9718379,
-          "lng": -81.27154709999999
-        }
-      }
-    },
-    "google_place_id": "ChIJpwwdvqMvPU0RVh8Dn36sfw0",
-    "types": [
-      "locality",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "VICTOR M.POWER",
-        "detailedName": "TIMMINS/ON/CA:VICTOR M.POWER",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YTS",
-        "geoCode": {
-          "latitude": 48.56917,
-          "longitude": -81.37472
-        },
-        "address": {
-          "cityName": "TIMMINS",
-          "cityCode": "YTS",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 60,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 3
-          },
-          "travelers": {
-            "score": 2
-          }
-        },
-        "relevance": 4.78601,
-        "frenchLabel": "Aéroport de Timmins, Victor M. Power",
-        "englishLabel": "Timmins, Victor M.Power"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "VAL D'OR",
-        "detailedName": "VAL D'OR/QC/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YVO",
-        "geoCode": {
-          "latitude": 48.05028,
-          "longitude": -77.78277
-        },
-        "address": {
-          "cityName": "VAL D'OR",
-          "cityCode": "YVO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 264,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.68266,
-        "frenchLabel": "Val D'Or",
-        "englishLabel": "Val D'Or"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "SUDBURY",
-        "detailedName": "SUDBURY/ON/CA:SUDBURY",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YSB",
-        "geoCode": {
-          "latitude": 46.625,
-          "longitude": -80.79888
-        },
-        "address": {
-          "cityName": "SUDBURY",
-          "cityCode": "YSB",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 272,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.54008,
-        "frenchLabel": "Sudbury",
-        "englishLabel": "Sudbury"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "ROUYN-NORANDA",
-        "detailedName": "ROUYN-NORANDA/QC/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YUY",
-        "geoCode": {
-          "latitude": 48.20612,
-          "longitude": -78.83555
-        },
-        "address": {
-          "cityName": "ROUYN-NORANDA",
-          "cityCode": "YUY",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 187,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 0.5298,
-        "frenchLabel": "Rouyn-Noranda",
-        "englishLabel": "Rouyn-Noranda"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "SAULT STE MARIE",
-        "detailedName": "SAULT STE MARIE/ON/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YAM",
-        "geoCode": {
-          "latitude": 46.485,
-          "longitude": -84.50944
-        },
-        "address": {
-          "cityName": "SAULT STE MARIE",
-          "cityCode": "YAM",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 387,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.34241,
-        "frenchLabel": "Sault Ste Marie",
-        "englishLabel": "Sault Ste Marie"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "JACK GARLAND",
-        "detailedName": "NORTH BAY/ON/CA:JACK GARLAND",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YYB",
-        "geoCode": {
-          "latitude": 46.36306,
-          "longitude": -79.42416
-        },
-        "address": {
-          "cityName": "NORTH BAY",
-          "cityCode": "YYB",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 323,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.27475,
-        "frenchLabel": "Aéroport Jack Garland de North Bay",
-        "englishLabel": "North Bay, Jack Garland"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "CHAPAIS",
-        "detailedName": "CHIBOUGAMAU/QC/CA:CHAPAIS",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YMT",
-        "geoCode": {
-          "latitude": 49.77195,
-          "longitude": -74.52805
-        },
-        "address": {
-          "cityName": "CHIBOUGAMAU",
-          "cityCode": "YMT",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 477,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.202,
-        "frenchLabel": "Chibougamau, Chapais",
-        "englishLabel": "Chibougamau, Chapais"
       }
     ]
   },
@@ -27142,7 +26384,7 @@ module.exports = {
           }
         },
         "relevance": 2.37806,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -28128,7 +27370,7 @@ module.exports = {
         },
         "relevance": 1.18636,
         "frenchLabel": "Aéroport international de St John's",
-        "englishLabel": "St Johns International"
+        "englishLabel": "St John's International"
       },
       {
         "type": "location",
@@ -28518,7 +27760,7 @@ module.exports = {
           }
         },
         "relevance": 10.86736,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -28588,8 +27830,8 @@ module.exports = {
           }
         },
         "relevance": 1.8253,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -28874,8 +28116,8 @@ module.exports = {
           }
         },
         "relevance": 0.96054,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -28909,8 +28151,8 @@ module.exports = {
           }
         },
         "relevance": 0.7727,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -30353,7 +29595,7 @@ module.exports = {
           }
         },
         "relevance": 29.44654,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -30493,8 +29735,8 @@ module.exports = {
           }
         },
         "relevance": 1.74276,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       }
     ]
   },
@@ -30511,15 +29753,15 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -30674,7 +29916,7 @@ module.exports = {
           }
         },
         "relevance": 5.6078,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -30709,8 +29951,8 @@ module.exports = {
           }
         },
         "relevance": 4.30951,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -30744,8 +29986,8 @@ module.exports = {
           }
         },
         "relevance": 2.58402,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -30779,8 +30021,8 @@ module.exports = {
           }
         },
         "relevance": 1.48058,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -31030,8 +30272,8 @@ module.exports = {
           }
         },
         "relevance": 1.99321,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -31065,8 +30307,8 @@ module.exports = {
           }
         },
         "relevance": 1.47448,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -31612,8 +30854,8 @@ module.exports = {
           }
         },
         "relevance": 0.39552,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -32994,8 +32236,8 @@ module.exports = {
           }
         },
         "relevance": 3.51203,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -33029,7 +32271,7 @@ module.exports = {
           }
         },
         "relevance": 3.09928,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -33281,7 +32523,7 @@ module.exports = {
         },
         "relevance": 1.26486,
         "frenchLabel": "Aéroport international de St John's",
-        "englishLabel": "St Johns International"
+        "englishLabel": "St John's International"
       },
       {
         "type": "location",
@@ -33989,8 +33231,8 @@ module.exports = {
           }
         },
         "relevance": 1.01243,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -34129,8 +33371,8 @@ module.exports = {
           }
         },
         "relevance": 0.49228,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -34252,15 +33494,15 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -34415,7 +33657,7 @@ module.exports = {
           }
         },
         "relevance": 6.03943,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -34450,8 +33692,8 @@ module.exports = {
           }
         },
         "relevance": 2.80623,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -34485,8 +33727,8 @@ module.exports = {
           }
         },
         "relevance": 2.50398,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -34520,8 +33762,8 @@ module.exports = {
           }
         },
         "relevance": 2.01844,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -34573,15 +33815,15 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -34736,7 +33978,7 @@ module.exports = {
           }
         },
         "relevance": 5.83732,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -34771,8 +34013,8 @@ module.exports = {
           }
         },
         "relevance": 3.28978,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -34806,8 +34048,8 @@ module.exports = {
           }
         },
         "relevance": 2.51978,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -34841,8 +34083,8 @@ module.exports = {
           }
         },
         "relevance": 1.59938,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -35735,7 +34977,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -35890,8 +35132,8 @@ module.exports = {
           }
         },
         "relevance": 4.49852,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -35925,7 +35167,7 @@ module.exports = {
           }
         },
         "relevance": 3.44082,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -35960,8 +35202,8 @@ module.exports = {
           }
         },
         "relevance": 1.05604,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       }
     ]
   },
@@ -37346,8 +36588,8 @@ module.exports = {
           }
         },
         "relevance": 2.47096,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -37416,8 +36658,8 @@ module.exports = {
           }
         },
         "relevance": 1.36144,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -38618,8 +37860,8 @@ module.exports = {
           }
         },
         "relevance": 0.43023,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -39918,7 +39160,7 @@ module.exports = {
           }
         },
         "relevance": 2.44856,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -40290,8 +39532,8 @@ module.exports = {
           }
         },
         "relevance": 0.41261,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -40627,7 +39869,7 @@ module.exports = {
           }
         },
         "relevance": 2.12125,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -40732,7 +39974,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -40897,8 +40139,8 @@ module.exports = {
           }
         },
         "relevance": 3.75998,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -40932,7 +40174,7 @@ module.exports = {
           }
         },
         "relevance": 2.94346,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -42997,448 +42239,6 @@ module.exports = {
       }
     ]
   },
-  "Fort Smith NT": {
-    "acrdName": "Fort Smith NT",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Fort Smith",
-          "short_name": "Fort Smith",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Fort Smith Region",
-          "short_name": "Fort Smith Region",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Northwest Territories",
-          "short_name": "NT",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "X0E",
-          "short_name": "X0E",
-          "types": [
-            "postal_code",
-            "postal_code_prefix"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Fort Smith",
-          "short_name": "Fort Smith",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Fort Smith Region",
-          "short_name": "Fort Smith Region",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Territoires du Nord-Ouest",
-          "short_name": "NT",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "X0E",
-          "short_name": "X0E",
-          "types": [
-            "postal_code",
-            "postal_code_prefix"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Fort Smith, NT X0E, Canada",
-      "fr": "Fort Smith, NT X0E, Canada"
-    },
-    "geometry": {
-      "bounds": {
-        "northeast": {
-          "lat": 60.082612,
-          "lng": -111.83122
-        },
-        "southwest": {
-          "lat": 59.9999999,
-          "lng": -112.253265
-        }
-      },
-      "location": {
-        "lat": 60.00552,
-        "lng": -111.8849379
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 60.082612,
-          "lng": -111.83122
-        },
-        "southwest": {
-          "lat": 59.9999999,
-          "lng": -112.253265
-        }
-      }
-    },
-    "google_place_id": "ChIJ17YsfTyJyVMRsHG3Ej_7Gd8",
-    "types": [
-      "locality",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "FORT SMITH",
-        "detailedName": "FORT SMITH/NT/CA",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YSM",
-        "geoCode": {
-          "latitude": 60.02028,
-          "longitude": -111.9619
-        },
-        "address": {
-          "cityName": "FORT SMITH",
-          "cityCode": "YSM",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NT",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 4,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 34.94214,
-        "frenchLabel": "Fort Smith",
-        "englishLabel": "Fort Smith"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "YELLOWKNIFE",
-        "detailedName": "YELLOWKNIFE/NT/CA:YELLOWKNIFE",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YZF",
-        "geoCode": {
-          "latitude": 62.46278,
-          "longitude": -114.4403
-        },
-        "address": {
-          "cityName": "YELLOWKNIFE",
-          "cityCode": "YZF",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NT",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 305,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 10
-          },
-          "travelers": {
-            "score": 8
-          }
-        },
-        "relevance": 3.30045,
-        "frenchLabel": "Yellowknife",
-        "englishLabel": "Yellowknife"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "MERLYN CARTER",
-        "detailedName": "HAY RIVER/NT/CA:MERLYN CARTER",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YHY",
-        "geoCode": {
-          "latitude": 60.83973,
-          "longitude": -115.7828
-        },
-        "address": {
-          "cityName": "HAY RIVER",
-          "cityCode": "YHY",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NT",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 233,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.66065,
-        "frenchLabel": "Hay River, Merlyn Carter",
-        "englishLabel": "Hay River, Merlyn Carter"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "FORT MCMURRAY",
-        "detailedName": "FORT MCMURRAY/AB/CA",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YMM",
-        "geoCode": {
-          "latitude": 56.65334,
-          "longitude": -111.2219
-        },
-        "address": {
-          "cityName": "FORT MCMURRAY",
-          "cityCode": "YMM",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "AB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 375,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.52882,
-        "frenchLabel": "Fort Mcmurray",
-        "englishLabel": "Fort Mcmurray"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "FORT CHIPEWYAN",
-        "detailedName": "FORT CHIPEWYAN/AB/CA",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YPY",
-        "geoCode": {
-          "latitude": 58.76667,
-          "longitude": -111.1167
-        },
-        "address": {
-          "cityName": "FORT CHIPEWYAN",
-          "cityCode": "YPY",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "AB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 144,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 0.41209,
-        "frenchLabel": "Fort Chipewyan",
-        "englishLabel": "Fort Chipewyan"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "HIGH LEVEL",
-        "detailedName": "HIGH LEVEL/AB/CA",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YOJ",
-        "geoCode": {
-          "latitude": 58.62139,
-          "longitude": -117.1647
-        },
-        "address": {
-          "cityName": "HIGH LEVEL",
-          "cityCode": "YOJ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "AB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 337,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.33374,
-        "frenchLabel": "High Level",
-        "englishLabel": "High Level"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "LUTSELKE",
-        "detailedName": "LUTSELKE/NT/CA",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YSG",
-        "geoCode": {
-          "latitude": 62.41806,
-          "longitude": -110.6792
-        },
-        "address": {
-          "cityName": "LUTSELKE",
-          "cityCode": "YSG",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NT",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 276,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 0.30663,
-        "frenchLabel": "Lutselke",
-        "englishLabel": "Lutselke"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "WHATI",
-        "detailedName": "WHATI/NT/CA",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YLE",
-        "geoCode": {
-          "latitude": 63.13167,
-          "longitude": -117.2478
-        },
-        "address": {
-          "cityName": "WHATI",
-          "cityCode": "YLE",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NT",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 449,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 0.20154,
-        "frenchLabel": "Whati",
-        "englishLabel": "Whati"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "WEKWEETI",
-        "detailedName": "WEKWEETI/NT/CA",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YFJ",
-        "geoCode": {
-          "latitude": 64.19167,
-          "longitude": -114.0792
-        },
-        "address": {
-          "cityName": "WEKWEETI",
-          "cityCode": "YFJ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NT",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 479,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 0.14487,
-        "frenchLabel": "Wekweeti",
-        "englishLabel": "Wekweeti"
-      }
-    ]
-  },
   "Fort St. John BC": {
     "acrdName": "Fort St. John BC",
     "address_components": {
@@ -44534,8 +43334,8 @@ module.exports = {
           }
         },
         "relevance": 1.58237,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -44639,8 +43439,8 @@ module.exports = {
           }
         },
         "relevance": 1.00835,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -44941,7 +43741,7 @@ module.exports = {
           }
         },
         "relevance": 7.51464,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -45174,7 +43974,7 @@ module.exports = {
         },
         "relevance": 2.41137,
         "frenchLabel": "Aéroport international de St John's",
-        "englishLabel": "St Johns International"
+        "englishLabel": "St John's International"
       },
       {
         "type": "location",
@@ -45452,7 +44252,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -45615,8 +44415,8 @@ module.exports = {
           }
         },
         "relevance": 2.37966,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -45921,7 +44721,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -46041,7 +44841,7 @@ module.exports = {
           }
         },
         "relevance": 50.7391,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -46181,8 +44981,8 @@ module.exports = {
           }
         },
         "relevance": 1.63389,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       }
     ]
   },
@@ -46207,7 +45007,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -46327,7 +45127,7 @@ module.exports = {
           }
         },
         "relevance": 50.7391,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -46467,8 +45267,8 @@ module.exports = {
           }
         },
         "relevance": 1.63389,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       }
     ]
   },
@@ -46702,7 +45502,7 @@ module.exports = {
           }
         },
         "relevance": 2.28927,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -47379,7 +46179,7 @@ module.exports = {
           }
         },
         "relevance": 58.30748,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -47519,8 +46319,8 @@ module.exports = {
           }
         },
         "relevance": 1.6618,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       }
     ]
   },
@@ -48072,8 +46872,8 @@ module.exports = {
           }
         },
         "relevance": 0.42535,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -49020,7 +47820,7 @@ module.exports = {
           }
         },
         "relevance": 42.24112,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -49160,259 +47960,8 @@ module.exports = {
           }
         },
         "relevance": 1.52394,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
-      }
-    ]
-  },
-  "Grand Bend ON": {
-    "acrdName": "Grand Bend ON",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Grand Bend",
-          "short_name": "Grand Bend",
-          "types": [
-            "political",
-            "sublocality",
-            "sublocality_level_1"
-          ]
-        },
-        {
-          "long_name": "Lambton Shores",
-          "short_name": "Lambton Shores",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "South Huron",
-          "short_name": "South Huron",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Lambton County",
-          "short_name": "Lambton County",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Ontario",
-          "short_name": "ON",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Grand Bend",
-          "short_name": "Grand Bend",
-          "types": [
-            "political",
-            "sublocality",
-            "sublocality_level_1"
-          ]
-        },
-        {
-          "long_name": "Lambton Shores",
-          "short_name": "Lambton Shores",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "South Huron",
-          "short_name": "South Huron",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Comté de Lambton",
-          "short_name": "Comté de Lambton",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Ontario",
-          "short_name": "ON",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Grand Bend, Lambton Shores, ON, Canada",
-      "fr": "Grand Bend, Lambton Shores, ON, Canada"
-    },
-    "geometry": {
-      "bounds": {
-        "northeast": {
-          "lat": 43.318725,
-          "lng": -81.7430584
-        },
-        "southwest": {
-          "lat": 43.3043614,
-          "lng": -81.7681667
-        }
-      },
-      "location": {
-        "lat": 43.3130397,
-        "lng": -81.75622419999999
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 43.318725,
-          "lng": -81.7430584
-        },
-        "southwest": {
-          "lat": 43.3043614,
-          "lng": -81.7681667
-        }
-      }
-    },
-    "google_place_id": "ChIJG6rCAls5L4gRNqpAUfEfpAM",
-    "types": [
-      "political",
-      "sublocality",
-      "sublocality_level_1"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "LESTER B. PEARSON INTL",
-        "detailedName": "TORONTO/ON/CA:LESTER B. PEARSO",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YYZ",
-        "geoCode": {
-          "latitude": 43.68056,
-          "longitude": -79.61277
-        },
-        "address": {
-          "cityName": "TORONTO",
-          "cityCode": "YTO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 177,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 42
-          },
-          "travelers": {
-            "score": 38
-          }
-        },
-        "relevance": 23.73733,
-        "frenchLabel": "Aéroport international Pearson de Toronto",
-        "englishLabel": "Toronto, Lester B. Pearson International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "BILLY BISHOP CITY A/P",
-        "detailedName": "TORONTO/ON/CA:BILLY BISHOP CIT",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YTZ",
-        "geoCode": {
-          "latitude": 43.62973,
-          "longitude": -79.39833
-        },
-        "address": {
-          "cityName": "TORONTO",
-          "cityCode": "YTO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 193,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 7
-          },
-          "travelers": {
-            "score": 5
-          }
-        },
-        "relevance": 3.60926,
-        "frenchLabel": "Aéroport Billy Bishop de Toronto",
-        "englishLabel": "Toronto, Billy Bishop City Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "INTERNATIONAL",
-        "detailedName": "LONDON/ON/CA:INTERNATIONAL",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YXU",
-        "geoCode": {
-          "latitude": 43.03,
-          "longitude": -81.14888
-        },
-        "address": {
-          "cityName": "LONDON",
-          "cityCode": "YXU",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 58,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 2.47416,
-        "frenchLabel": "Aéroport international du Grand London",
-        "englishLabel": "London, International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       }
     ]
   },
@@ -49643,8 +48192,8 @@ module.exports = {
           }
         },
         "relevance": 2.13356,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -49678,8 +48227,8 @@ module.exports = {
           }
         },
         "relevance": 1.29553,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -50051,7 +48600,7 @@ module.exports = {
         },
         "relevance": 1.88069,
         "frenchLabel": "Aéroport international de St John's",
-        "englishLabel": "St Johns International"
+        "englishLabel": "St John's International"
       },
       {
         "type": "location",
@@ -50295,8 +48844,8 @@ module.exports = {
           }
         },
         "relevance": 0.2752,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       }
     ]
   },
@@ -51341,7 +49890,7 @@ module.exports = {
           }
         },
         "relevance": 2.98804,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -51608,7 +50157,7 @@ module.exports = {
           }
         },
         "relevance": 2.25349,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -52315,7 +50864,7 @@ module.exports = {
           }
         },
         "relevance": 2.124,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -52690,8 +51239,8 @@ module.exports = {
           }
         },
         "relevance": 0.39318,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -53046,7 +51595,7 @@ module.exports = {
           }
         },
         "relevance": 2.16602,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -53227,7 +51776,7 @@ module.exports = {
           }
         },
         "relevance": 9.88679,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -53297,8 +51846,8 @@ module.exports = {
           }
         },
         "relevance": 2.11529,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -53367,8 +51916,8 @@ module.exports = {
           }
         },
         "relevance": 1.10012,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -55400,7 +53949,7 @@ module.exports = {
           }
         },
         "relevance": 3.16875,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -55453,7 +54002,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -55565,8 +54114,8 @@ module.exports = {
           }
         },
         "relevance": 13.10705,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -55635,8 +54184,8 @@ module.exports = {
           }
         },
         "relevance": 1.066,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -55882,292 +54431,6 @@ module.exports = {
         "relevance": 0.57039,
         "frenchLabel": "Natashquan",
         "englishLabel": "Natashquan"
-      }
-    ]
-  },
-  "Ingersoll ON": {
-    "acrdName": "Ingersoll ON",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Ingersoll",
-          "short_name": "Ingersoll",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Oxford County",
-          "short_name": "Oxford County",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Ontario",
-          "short_name": "ON",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Ingersoll",
-          "short_name": "Ingersoll",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Comté d'Oxford",
-          "short_name": "Comté d'Oxford",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Ontario",
-          "short_name": "ON",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Ingersoll, ON, Canada",
-      "fr": "Ingersoll, ON, Canada"
-    },
-    "geometry": {
-      "bounds": {
-        "northeast": {
-          "lat": 43.0527269,
-          "lng": -80.850833
-        },
-        "southwest": {
-          "lat": 43.0104131,
-          "lng": -80.9084249
-        }
-      },
-      "location": {
-        "lat": 43.03816279999999,
-        "lng": -80.88404899999999
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 43.0527269,
-          "lng": -80.850833
-        },
-        "southwest": {
-          "lat": 43.0104131,
-          "lng": -80.9084249
-        }
-      }
-    },
-    "google_place_id": "ChIJFYSeGRecLogRYB4jxyh7AwU",
-    "types": [
-      "locality",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "LESTER B. PEARSON INTL",
-        "detailedName": "TORONTO/ON/CA:LESTER B. PEARSO",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YYZ",
-        "geoCode": {
-          "latitude": 43.68056,
-          "longitude": -79.61277
-        },
-        "address": {
-          "cityName": "TORONTO",
-          "cityCode": "YTO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 125,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 42
-          },
-          "travelers": {
-            "score": 38
-          }
-        },
-        "relevance": 33.69241,
-        "frenchLabel": "Aéroport international Pearson de Toronto",
-        "englishLabel": "Toronto, Lester B. Pearson International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "INTERNATIONAL",
-        "detailedName": "LONDON/ON/CA:INTERNATIONAL",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YXU",
-        "geoCode": {
-          "latitude": 43.03,
-          "longitude": -81.14888
-        },
-        "address": {
-          "cityName": "LONDON",
-          "cityCode": "YXU",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 21,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 6.71049,
-        "frenchLabel": "Aéroport international du Grand London",
-        "englishLabel": "London, International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "BILLY BISHOP CITY A/P",
-        "detailedName": "TORONTO/ON/CA:BILLY BISHOP CIT",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YTZ",
-        "geoCode": {
-          "latitude": 43.62973,
-          "longitude": -79.39833
-        },
-        "address": {
-          "cityName": "TORONTO",
-          "cityCode": "YTO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 137,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 7
-          },
-          "travelers": {
-            "score": 5
-          }
-        },
-        "relevance": 5.09805,
-        "frenchLabel": "Aéroport Billy Bishop de Toronto",
-        "englishLabel": "Toronto, Billy Bishop City Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "MACDONALD CARTIER INTL",
-        "detailedName": "OTTAWA/ON/CA:MACDONALD CARTIER",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YOW",
-        "geoCode": {
-          "latitude": 45.32251,
-          "longitude": -75.66916
-        },
-        "address": {
-          "cityName": "OTTAWA",
-          "cityCode": "YOW",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 487,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 9
-          },
-          "travelers": {
-            "score": 7
-          }
-        },
-        "relevance": 1.80398,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
-        "englishLabel": "Ottawa, Macdonald-Cartier International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "JOHN C. MUNRO HAMILTON",
-        "detailedName": "TORONTO/ON/CA:JOHN C. MUNRO HA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YHM",
-        "geoCode": {
-          "latitude": 43.17084,
-          "longitude": -79.92916
-        },
-        "address": {
-          "cityName": "TORONTO",
-          "cityCode": "YTO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 79,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 1.2378,
-        "frenchLabel": "Aéroport international John C. Munro d'Hamilton",
-        "englishLabel": "John C. Munro Hamilton International Airport"
       }
     ]
   },
@@ -57473,7 +55736,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -57673,8 +55936,8 @@ module.exports = {
           }
         },
         "relevance": 3.26648,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -57708,7 +55971,7 @@ module.exports = {
           }
         },
         "relevance": 1.82399,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -57743,8 +56006,8 @@ module.exports = {
           }
         },
         "relevance": 1.16075,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -58782,7 +57045,7 @@ module.exports = {
           }
         },
         "relevance": 48.76526,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -58922,8 +57185,8 @@ module.exports = {
           }
         },
         "relevance": 1.54039,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       }
     ]
   },
@@ -60324,7 +58587,7 @@ module.exports = {
           }
         },
         "relevance": 1.80053,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -60963,7 +59226,7 @@ module.exports = {
           }
         },
         "relevance": 6.39499,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -61214,7 +59477,7 @@ module.exports = {
           }
         },
         "relevance": 1.92124,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -61442,15 +59705,15 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -61640,7 +59903,7 @@ module.exports = {
           }
         },
         "relevance": 6.19398,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -61675,8 +59938,8 @@ module.exports = {
           }
         },
         "relevance": 2.50487,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -61710,8 +59973,8 @@ module.exports = {
           }
         },
         "relevance": 2.45356,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -61745,8 +60008,8 @@ module.exports = {
           }
         },
         "relevance": 1.89356,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -62066,7 +60329,7 @@ module.exports = {
           }
         },
         "relevance": 2.01365,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -62422,7 +60685,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -62622,8 +60885,8 @@ module.exports = {
           }
         },
         "relevance": 3.37299,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -62657,7 +60920,7 @@ module.exports = {
           }
         },
         "relevance": 1.7759,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -62692,8 +60955,8 @@ module.exports = {
           }
         },
         "relevance": 1.21131,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -62858,7 +61121,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -63013,8 +61276,8 @@ module.exports = {
           }
         },
         "relevance": 4.92676,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -63048,7 +61311,7 @@ module.exports = {
           }
         },
         "relevance": 1.79931,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -63083,8 +61346,8 @@ module.exports = {
           }
         },
         "relevance": 1.13685,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -63646,7 +61909,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -63811,7 +62074,7 @@ module.exports = {
           }
         },
         "relevance": 5.06334,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -63846,8 +62109,8 @@ module.exports = {
           }
         },
         "relevance": 3.71934,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -63881,8 +62144,8 @@ module.exports = {
           }
         },
         "relevance": 2.92908,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -63916,8 +62179,8 @@ module.exports = {
           }
         },
         "relevance": 1.35673,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -63935,23 +62198,23 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "locality",
             "political"
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -64012,7 +62275,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Lachine, Montreal, QC, Canada",
+      "en": "Lachine, Montréal, QC, Canada",
       "fr": "Lachine, Montréal, QC, Canada"
     },
     "geometry": {
@@ -64116,7 +62379,7 @@ module.exports = {
           }
         },
         "relevance": 5.6605,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -64151,8 +62414,8 @@ module.exports = {
           }
         },
         "relevance": 3.90651,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -64186,8 +62449,8 @@ module.exports = {
           }
         },
         "relevance": 2.55219,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -64221,8 +62484,8 @@ module.exports = {
           }
         },
         "relevance": 1.43004,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -65248,8 +63511,8 @@ module.exports = {
           }
         },
         "relevance": 0.98783,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -65283,8 +63546,8 @@ module.exports = {
           }
         },
         "relevance": 0.96752,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -65957,23 +64220,23 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "locality",
             "political"
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -66034,7 +64297,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Lasalle, Montreal, QC, Canada",
+      "en": "Lasalle, Montréal, QC, Canada",
       "fr": "LaSalle, Montréal, QC, Canada"
     },
     "geometry": {
@@ -66138,7 +64401,7 @@ module.exports = {
           }
         },
         "relevance": 5.51467,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -66173,8 +64436,8 @@ module.exports = {
           }
         },
         "relevance": 4.57061,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -66208,8 +64471,8 @@ module.exports = {
           }
         },
         "relevance": 2.57828,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -66278,8 +64541,8 @@ module.exports = {
           }
         },
         "relevance": 1.29548,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -66329,7 +64592,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -66544,8 +64807,8 @@ module.exports = {
           }
         },
         "relevance": 3.49292,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -66579,7 +64842,7 @@ module.exports = {
           }
         },
         "relevance": 1.83015,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -66614,8 +64877,8 @@ module.exports = {
           }
         },
         "relevance": 1.16489,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -66780,7 +65043,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -66935,7 +65198,7 @@ module.exports = {
           }
         },
         "relevance": 5.63914,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -66970,8 +65233,8 @@ module.exports = {
           }
         },
         "relevance": 3.53557,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -67005,8 +65268,8 @@ module.exports = {
           }
         },
         "relevance": 2.66878,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -67040,8 +65303,8 @@ module.exports = {
           }
         },
         "relevance": 2.14452,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -67074,7 +65337,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -67237,7 +65500,7 @@ module.exports = {
           }
         },
         "relevance": 5.66871,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -67272,8 +65535,8 @@ module.exports = {
           }
         },
         "relevance": 3.8163,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -67307,8 +65570,8 @@ module.exports = {
           }
         },
         "relevance": 2.62995,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -67342,8 +65605,8 @@ module.exports = {
           }
         },
         "relevance": 1.93876,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -68085,7 +66348,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -68248,8 +66511,8 @@ module.exports = {
           }
         },
         "relevance": 14.74622,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -68283,7 +66546,7 @@ module.exports = {
           }
         },
         "relevance": 5.13853,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -68318,8 +66581,8 @@ module.exports = {
           }
         },
         "relevance": 2.73624,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -68353,8 +66616,8 @@ module.exports = {
           }
         },
         "relevance": 1.16169,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -68396,7 +66659,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -68569,8 +66832,8 @@ module.exports = {
           }
         },
         "relevance": 3.65235,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -68604,7 +66867,7 @@ module.exports = {
           }
         },
         "relevance": 2.94904,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -69195,7 +67458,7 @@ module.exports = {
           }
         },
         "relevance": 3.31729,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -69532,8 +67795,8 @@ module.exports = {
           }
         },
         "relevance": 0.30189,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -70661,7 +68924,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -70816,8 +69079,8 @@ module.exports = {
           }
         },
         "relevance": 11.86944,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -70851,7 +69114,7 @@ module.exports = {
           }
         },
         "relevance": 5.16592,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -70886,8 +69149,8 @@ module.exports = {
           }
         },
         "relevance": 2.75901,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -70921,8 +69184,8 @@ module.exports = {
           }
         },
         "relevance": 1.24734,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -70947,7 +69210,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -71102,7 +69365,7 @@ module.exports = {
           }
         },
         "relevance": 5.79767,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -71137,8 +69400,8 @@ module.exports = {
           }
         },
         "relevance": 3.08404,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -71172,8 +69435,8 @@ module.exports = {
           }
         },
         "relevance": 2.66113,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -71207,8 +69470,8 @@ module.exports = {
           }
         },
         "relevance": 2.63127,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -71276,7 +69539,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -71404,8 +69667,8 @@ module.exports = {
           }
         },
         "relevance": 49.00479,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -71474,7 +69737,7 @@ module.exports = {
           }
         },
         "relevance": 2.33782,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -71570,7 +69833,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -71690,8 +69953,8 @@ module.exports = {
           }
         },
         "relevance": 226.61415,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -71760,7 +70023,7 @@ module.exports = {
           }
         },
         "relevance": 2.36689,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -71830,790 +70093,8 @@ module.exports = {
           }
         },
         "relevance": 0.41057,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
-      }
-    ]
-  },
-  "MacKenzie BC": {
-    "acrdName": "MacKenzie BC",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Mackenzie",
-          "short_name": "Mackenzie",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Fraser-Fort George",
-          "short_name": "Fraser-Fort George",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "British Columbia",
-          "short_name": "BC",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Mackenzie",
-          "short_name": "Mackenzie",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Fraser-Fort George",
-          "short_name": "Fraser-Fort George",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "British Columbia",
-          "short_name": "BC",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Mackenzie, BC, Canada",
-      "fr": "Mackenzie, BC, Canada"
-    },
-    "geometry": {
-      "bounds": {
-        "northeast": {
-          "lat": 55.397244,
-          "lng": -123.012758
-        },
-        "southwest": {
-          "lat": 55.21606999999999,
-          "lng": -123.2597339
-        }
-      },
-      "location": {
-        "lat": 55.338446,
-        "lng": -123.0948068
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 55.397244,
-          "lng": -123.012758
-        },
-        "southwest": {
-          "lat": 55.21606999999999,
-          "lng": -123.2597339
-        }
-      }
-    },
-    "google_place_id": "ChIJZVojNfefjlMRXiqjVmTMGLA",
-    "types": [
-      "administrative_area_level_3",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "AIRPORT",
-        "detailedName": "PRINCE GEORGE/BC/CA:AIRPORT",
-        "timeZoneOffset": "-07:00",
-        "iataCode": "YXS",
-        "geoCode": {
-          "latitude": 53.8875,
-          "longitude": -122.6761
-        },
-        "address": {
-          "cityName": "PRINCE GEORGE",
-          "cityCode": "YXS",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "BC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 163,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 1.42275,
-        "frenchLabel": "Aéroport de Prince George",
-        "englishLabel": "Prince George, Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "NORTH PEACE",
-        "detailedName": "FORT ST JOHN/BC/CA:NORTH PEACE",
-        "timeZoneOffset": "-07:00",
-        "iataCode": "YXJ",
-        "geoCode": {
-          "latitude": 56.23806,
-          "longitude": -120.7403
-        },
-        "address": {
-          "cityName": "FORT ST JOHN",
-          "cityCode": "YXJ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "BC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 178,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.68474,
-        "frenchLabel": "Fort St John, North Peace",
-        "englishLabel": "Fort St John, North Peace"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "GRANDE PRAIRIE",
-        "detailedName": "GRANDE PRAIRIE/AB/CA",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YQU",
-        "geoCode": {
-          "latitude": 55.17806,
-          "longitude": -118.8803
-        },
-        "address": {
-          "cityName": "GRANDE PRAIRIE",
-          "cityCode": "YQU",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "AB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 267,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.4434,
-        "frenchLabel": "Grande Prairie",
-        "englishLabel": "Grande Prairie"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "CAMPBELL ISLAND",
-        "detailedName": "BELLA BELLA/BC/CA:CAMPBELL ISL",
-        "timeZoneOffset": "-07:00",
-        "iataCode": "ZEL",
-        "geoCode": {
-          "latitude": 52.18195,
-          "longitude": -128.1553
-        },
-        "address": {
-          "cityName": "BELLA BELLA",
-          "cityCode": "ZEL",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "BC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 483,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.36372,
-        "frenchLabel": "Aéroport de Bella Bella - Campbell Island",
-        "englishLabel": "Bella Bella, Campbell Island"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "NORTHWEST REGIONAL",
-        "detailedName": "TERRACE/BC/CA:NORTHWEST REGION",
-        "timeZoneOffset": "-07:00",
-        "iataCode": "YXT",
-        "geoCode": {
-          "latitude": 54.46862,
-          "longitude": -128.5761
-        },
-        "address": {
-          "cityName": "TERRACE",
-          "cityCode": "YXT",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "BC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 363,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.27292,
-        "frenchLabel": "Terrace, Northwest Regional",
-        "englishLabel": "Terrace, Northwest Regional"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "DAWSON CREEK",
-        "detailedName": "DAWSON CREEK/BC/CA",
-        "timeZoneOffset": "-07:00",
-        "iataCode": "YDQ",
-        "geoCode": {
-          "latitude": 55.74223,
-          "longitude": -120.1831
-        },
-        "address": {
-          "cityName": "DAWSON CREEK",
-          "cityCode": "YDQ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "BC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 188,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 0
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 0.26427,
-        "frenchLabel": "Dawson Creek",
-        "englishLabel": "Dawson Creek"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "SMITHERS",
-        "detailedName": "SMITHERS/BC/CA",
-        "timeZoneOffset": "-07:00",
-        "iataCode": "YYD",
-        "geoCode": {
-          "latitude": 54.82473,
-          "longitude": -127.1828
-        },
-        "address": {
-          "cityName": "SMITHERS",
-          "cityCode": "YYD",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "BC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 266,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 0.25051,
-        "frenchLabel": "Smithers",
-        "englishLabel": "Smithers"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "WILLIAMS LAKE",
-        "detailedName": "WILLIAMS LAKE/BC/CA",
-        "timeZoneOffset": "-07:00",
-        "iataCode": "YWL",
-        "geoCode": {
-          "latitude": 52.18306,
-          "longitude": -122.0542
-        },
-        "address": {
-          "cityName": "WILLIAMS LAKE",
-          "cityCode": "YWL",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "BC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 357,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 0.2188,
-        "frenchLabel": "Williams Lake",
-        "englishLabel": "Williams Lake"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "NORTHERN ROCKIES RGNL",
-        "detailedName": "FORT NELSON/BC/CA:NORTHERN ROC",
-        "timeZoneOffset": "-07:00",
-        "iataCode": "YYE",
-        "geoCode": {
-          "latitude": 58.83695,
-          "longitude": -122.5997
-        },
-        "address": {
-          "cityName": "FORT NELSON",
-          "cityCode": "YYE",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "BC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 390,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 0.15335,
-        "frenchLabel": "Aéroport de Fort Nelson",
-        "englishLabel": "Fort Nelson, Northern Rockies Regional"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "BELLA COOLA",
-        "detailedName": "BELLA COOLA/BC/CA",
-        "timeZoneOffset": "-07:00",
-        "iataCode": "QBC",
-        "geoCode": {
-          "latitude": 52.3875,
-          "longitude": -126.5958
-        },
-        "address": {
-          "cityName": "BELLA COOLA",
-          "cityCode": "QBC",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "BC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 400,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 0
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 0.11801,
-        "frenchLabel": "Bella Coola",
-        "englishLabel": "Bella Coola"
-      }
-    ]
-  },
-  "Maniwaki QC": {
-    "acrdName": "Maniwaki QC",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Maniwaki",
-          "short_name": "Maniwaki",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "La Vallée-de-la-Gatineau Regional County Municipality",
-          "short_name": "La Vallée-de-la-Gatineau Regional County Municipality",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Quebec",
-          "short_name": "QC",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Maniwaki",
-          "short_name": "Maniwaki",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "La Vallée-de-la-Gatineau",
-          "short_name": "La Vallée-de-la-Gatineau",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Québec",
-          "short_name": "QC",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Maniwaki, QC, Canada",
-      "fr": "Maniwaki, QC, Canada"
-    },
-    "geometry": {
-      "bounds": {
-        "northeast": {
-          "lat": 46.394319,
-          "lng": -75.952372
-        },
-        "southwest": {
-          "lat": 46.360525,
-          "lng": -76.00602909999999
-        }
-      },
-      "location": {
-        "lat": 46.3775167,
-        "lng": -75.9647519
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 46.394319,
-          "lng": -75.952372
-        },
-        "southwest": {
-          "lat": 46.360525,
-          "lng": -76.00602909999999
-        }
-      }
-    },
-    "google_place_id": "ChIJRVgdCnxv0EwRbU6TJ2xATlc",
-    "types": [
-      "locality",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "PIERRE E. TRUDEAU INTL",
-        "detailedName": "MONTREAL/QC/CA:PIERRE E. TRUDE",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YUL",
-        "geoCode": {
-          "latitude": 45.46112,
-          "longitude": -73.75027
-        },
-        "address": {
-          "cityName": "MONTREAL",
-          "cityCode": "YMQ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 199,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 22
-          },
-          "travelers": {
-            "score": 18
-          }
-        },
-        "relevance": 11.23235,
-        "frenchLabel": "Aéroport Pierre-Elliot-Trudeau de Montréal",
-        "englishLabel": "Montréal, Pierre Elliott Trudeau International Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "LESTER B. PEARSON INTL",
-        "detailedName": "TORONTO/ON/CA:LESTER B. PEARSO",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YYZ",
-        "geoCode": {
-          "latitude": 43.68056,
-          "longitude": -79.61277
-        },
-        "address": {
-          "cityName": "TORONTO",
-          "cityCode": "YTO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 415,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 42
-          },
-          "travelers": {
-            "score": 38
-          }
-        },
-        "relevance": 10.16712,
-        "frenchLabel": "Aéroport international Pearson de Toronto",
-        "englishLabel": "Toronto, Lester B. Pearson International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "MACDONALD CARTIER INTL",
-        "detailedName": "OTTAWA/ON/CA:MACDONALD CARTIER",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YOW",
-        "geoCode": {
-          "latitude": 45.32251,
-          "longitude": -75.66916
-        },
-        "address": {
-          "cityName": "OTTAWA",
-          "cityCode": "YOW",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 119,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 9
-          },
-          "travelers": {
-            "score": 7
-          }
-        },
-        "relevance": 7.35199,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
-        "englishLabel": "Ottawa, Macdonald-Cartier International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "BILLY BISHOP CITY A/P",
-        "detailedName": "TORONTO/ON/CA:BILLY BISHOP CIT",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YTZ",
-        "geoCode": {
-          "latitude": 43.62973,
-          "longitude": -79.39833
-        },
-        "address": {
-          "cityName": "TORONTO",
-          "cityCode": "YTO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 408,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 7
-          },
-          "travelers": {
-            "score": 5
-          }
-        },
-        "relevance": 1.71332,
-        "frenchLabel": "Aéroport Billy Bishop de Toronto",
-        "englishLabel": "Toronto, Billy Bishop City Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "JEAN LESAGE INTL",
-        "detailedName": "QUEBEC/QC/CA:JEAN LESAGE INTL",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YQB",
-        "geoCode": {
-          "latitude": 46.79223,
-          "longitude": -71.38444
-        },
-        "address": {
-          "cityName": "QUEBEC",
-          "cityCode": "YQB",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 353,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 6
-          },
-          "travelers": {
-            "score": 3
-          }
-        },
-        "relevance": 1.68159,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "VAL D'OR",
-        "detailedName": "VAL D'OR/QC/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YVO",
-        "geoCode": {
-          "latitude": 48.05028,
-          "longitude": -77.78277
-        },
-        "address": {
-          "cityName": "VAL D'OR",
-          "cityCode": "YVO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 231,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.78029,
-        "frenchLabel": "Val D'Or",
-        "englishLabel": "Val D'Or"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       }
     ]
   },
@@ -73267,7 +70748,7 @@ module.exports = {
           }
         },
         "relevance": 77.20872,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -73407,8 +70888,8 @@ module.exports = {
           }
         },
         "relevance": 1.57266,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       }
     ]
   },
@@ -73925,7 +71406,7 @@ module.exports = {
           }
         },
         "relevance": 2.63867,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -74353,203 +71834,6 @@ module.exports = {
       }
     ]
   },
-  "Masset BC": {
-    "acrdName": "Masset BC",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Masset",
-          "short_name": "Masset",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Haida Gwaii North",
-          "short_name": "Haida Gwaii North",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "North Coast",
-          "short_name": "North Coast",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "British Columbia",
-          "short_name": "BC",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Masset",
-          "short_name": "Masset",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "North Coast D",
-          "short_name": "North Coast D",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "District régional de Skeena-Queen Charlotte",
-          "short_name": "District régional de Skeena-Queen Charlotte",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Colombie-Britannique",
-          "short_name": "BC",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Masset, BC, Canada",
-      "fr": "Masset, BC, Canada"
-    },
-    "geometry": {
-      "bounds": {
-        "northeast": {
-          "lat": 54.0660399,
-          "lng": -131.9209576
-        },
-        "southwest": {
-          "lat": 53.9506583,
-          "lng": -132.1718989
-        }
-      },
-      "location": {
-        "lat": 54.0114581,
-        "lng": -132.1471978
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 54.0660399,
-          "lng": -131.9209576
-        },
-        "southwest": {
-          "lat": 53.9506583,
-          "lng": -132.1718989
-        }
-      }
-    },
-    "google_place_id": "ChIJa41jgya-ElQRhj07Ml3gOOg",
-    "types": [
-      "locality",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "MASSET",
-        "detailedName": "MASSET/BC/CA",
-        "timeZoneOffset": "-07:00",
-        "iataCode": "ZMT",
-        "geoCode": {
-          "latitude": 54.0275,
-          "longitude": -132.12531
-        },
-        "address": {
-          "cityName": "MASSET",
-          "cityCode": "ZMT",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "BC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 2,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 0
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 20.22655,
-        "frenchLabel": "Masset",
-        "englishLabel": "Masset"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "SANDSPIT",
-        "detailedName": "SANDSPIT/BC/CA",
-        "timeZoneOffset": "-07:00",
-        "iataCode": "YZP",
-        "geoCode": {
-          "latitude": 53.25445,
-          "longitude": -131.8139
-        },
-        "address": {
-          "cityName": "SANDSPIT",
-          "cityCode": "YZP",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "BC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 87,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 0
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 0.56025,
-        "frenchLabel": "Sandspit",
-        "englishLabel": "Sandspit"
-      }
-    ]
-  },
   "Matane QC": {
     "acrdName": "Matane QC",
     "address_components": {
@@ -74571,7 +71855,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -74691,8 +71975,8 @@ module.exports = {
           }
         },
         "relevance": 2.68133,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -74796,8 +72080,8 @@ module.exports = {
           }
         },
         "relevance": 1.61671,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -76494,8 +73778,8 @@ module.exports = {
           }
         },
         "relevance": 0.70276,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -77397,8 +74681,8 @@ module.exports = {
           }
         },
         "relevance": 0.3552,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -77772,8 +75056,8 @@ module.exports = {
           }
         },
         "relevance": 0.51033,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -78163,7 +75447,7 @@ module.exports = {
           }
         },
         "relevance": 2.25492,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -78662,8 +75946,8 @@ module.exports = {
           }
         },
         "relevance": 1.33093,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -78697,8 +75981,8 @@ module.exports = {
           }
         },
         "relevance": 1.32738,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -79425,7 +76709,7 @@ module.exports = {
           }
         },
         "relevance": 2.37737,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -79692,8 +76976,8 @@ module.exports = {
           }
         },
         "relevance": 1.0118,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -79832,8 +77116,8 @@ module.exports = {
           }
         },
         "relevance": 0.48804,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -79972,7 +77256,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -80137,8 +77421,8 @@ module.exports = {
           }
         },
         "relevance": 3.71535,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -80172,7 +77456,7 @@ module.exports = {
           }
         },
         "relevance": 2.97863,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -80198,7 +77482,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -80388,7 +77672,7 @@ module.exports = {
           }
         },
         "relevance": 6.40531,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -80423,8 +77707,8 @@ module.exports = {
           }
         },
         "relevance": 1.88552,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -80519,7 +77803,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -80709,7 +77993,7 @@ module.exports = {
           }
         },
         "relevance": 7.23029,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -80744,8 +78028,8 @@ module.exports = {
           }
         },
         "relevance": 2.30829,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -80814,8 +78098,8 @@ module.exports = {
           }
         },
         "relevance": 0.78031,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -80824,23 +78108,23 @@ module.exports = {
     "address_components": {
       "en": [
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "locality",
             "political"
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -80892,7 +78176,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Montreal, QC, Canada",
+      "en": "Montréal, QC, Canada",
       "fr": "Montréal, QC, Canada"
     },
     "geometry": {
@@ -80995,8 +78279,8 @@ module.exports = {
           }
         },
         "relevance": 7.6078,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -81030,7 +78314,7 @@ module.exports = {
           }
         },
         "relevance": 5.31702,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -81065,8 +78349,8 @@ module.exports = {
           }
         },
         "relevance": 2.68541,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -81100,8 +78384,8 @@ module.exports = {
           }
         },
         "relevance": 1.31587,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -81118,15 +78402,15 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -81281,8 +78565,8 @@ module.exports = {
           }
         },
         "relevance": 6.04735,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -81316,7 +78600,7 @@ module.exports = {
           }
         },
         "relevance": 5.10686,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -81351,8 +78635,8 @@ module.exports = {
           }
         },
         "relevance": 2.85252,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -81386,8 +78670,8 @@ module.exports = {
           }
         },
         "relevance": 1.32912,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -81405,23 +78689,23 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "locality",
             "political"
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -81482,7 +78766,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Montréal-Nord, Montreal, QC, Canada",
+      "en": "Montréal-Nord, Montréal, QC, Canada",
       "fr": "Montréal-Nord, Montréal, QC, Canada"
     },
     "geometry": {
@@ -81586,7 +78870,7 @@ module.exports = {
           }
         },
         "relevance": 5.4235,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -81621,8 +78905,8 @@ module.exports = {
           }
         },
         "relevance": 4.55378,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -81656,8 +78940,8 @@ module.exports = {
           }
         },
         "relevance": 2.73043,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -81691,8 +78975,8 @@ module.exports = {
           }
         },
         "relevance": 1.72134,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -83046,7 +80330,7 @@ module.exports = {
           }
         },
         "relevance": 194.40567,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -83186,8 +80470,8 @@ module.exports = {
           }
         },
         "relevance": 1.59617,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       }
     ]
   },
@@ -83220,7 +80504,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -83418,8 +80702,8 @@ module.exports = {
           }
         },
         "relevance": 1.874,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -83453,8 +80737,8 @@ module.exports = {
           }
         },
         "relevance": 1.24988,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -83914,8 +81198,8 @@ module.exports = {
           }
         },
         "relevance": 0.61931,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -84270,7 +81554,7 @@ module.exports = {
           }
         },
         "relevance": 2.23832,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -84887,8 +82171,8 @@ module.exports = {
           }
         },
         "relevance": 0.4003,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -85475,7 +82759,7 @@ module.exports = {
           }
         },
         "relevance": 2.65495,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -87023,7 +84307,7 @@ module.exports = {
           }
         },
         "relevance": 2.80206,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -87627,8 +84911,8 @@ module.exports = {
           }
         },
         "relevance": 0.74576,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -88409,7 +85693,7 @@ module.exports = {
           }
         },
         "relevance": 2.55786,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -88676,8 +85960,8 @@ module.exports = {
           }
         },
         "relevance": 1.14231,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -88746,8 +86030,8 @@ module.exports = {
           }
         },
         "relevance": 0.65893,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -89404,7 +86688,7 @@ module.exports = {
           }
         },
         "relevance": 2.31237,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -90466,7 +87750,7 @@ module.exports = {
           }
         },
         "relevance": 2.29264,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -90511,8 +87795,8 @@ module.exports = {
     "address_components": {
       "en": [
         {
-          "long_name": "Orford, Quebec",
-          "short_name": "Orford, Quebec",
+          "long_name": "Orford, Québec",
+          "short_name": "Orford, Québec",
           "types": [
             "administrative_area_level_3",
             "political"
@@ -90535,7 +87819,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -90595,7 +87879,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Orford, Quebec, QC, Canada",
+      "en": "Orford, Québec, QC, Canada",
       "fr": "Orford, QC, Canada"
     },
     "geometry": {
@@ -90698,8 +87982,8 @@ module.exports = {
           }
         },
         "relevance": 3.47252,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -90733,7 +88017,7 @@ module.exports = {
           }
         },
         "relevance": 3.24293,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -90768,8 +88052,8 @@ module.exports = {
           }
         },
         "relevance": 0.91014,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       }
     ]
   },
@@ -91019,7 +88303,7 @@ module.exports = {
           }
         },
         "relevance": 2.87619,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -91199,7 +88483,7 @@ module.exports = {
           }
         },
         "relevance": 44.79183,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -91339,8 +88623,8 @@ module.exports = {
           }
         },
         "relevance": 1.69344,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       }
     ]
   },
@@ -91555,8 +88839,8 @@ module.exports = {
           }
         },
         "relevance": 1.51898,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -91660,8 +88944,8 @@ module.exports = {
           }
         },
         "relevance": 0.98305,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -91981,7 +89265,7 @@ module.exports = {
           }
         },
         "relevance": 2.94349,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -92480,7 +89764,7 @@ module.exports = {
           }
         },
         "relevance": 78.21494,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -92620,8 +89904,8 @@ module.exports = {
           }
         },
         "relevance": 1.6233,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       }
     ]
   },
@@ -92852,7 +90136,7 @@ module.exports = {
           }
         },
         "relevance": 2.07676,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -93475,7 +90759,7 @@ module.exports = {
           }
         },
         "relevance": 2.5755,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -94203,7 +91487,7 @@ module.exports = {
           }
         },
         "relevance": 7.00553,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -94273,8 +91557,8 @@ module.exports = {
           }
         },
         "relevance": 1.31145,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -94655,7 +91939,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -94845,8 +92129,8 @@ module.exports = {
           }
         },
         "relevance": 1.99062,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -95055,8 +92339,8 @@ module.exports = {
           }
         },
         "relevance": 0.60859,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -95271,7 +92555,7 @@ module.exports = {
           }
         },
         "relevance": 13.42014,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -95376,8 +92660,8 @@ module.exports = {
           }
         },
         "relevance": 1.37576,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       }
     ]
   },
@@ -95592,7 +92876,7 @@ module.exports = {
           }
         },
         "relevance": 6.23662,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -95662,8 +92946,8 @@ module.exports = {
           }
         },
         "relevance": 1.28096,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -95948,7 +93232,7 @@ module.exports = {
           }
         },
         "relevance": 3.70021,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -96215,7 +93499,7 @@ module.exports = {
           }
         },
         "relevance": 2.77245,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -96466,8 +93750,8 @@ module.exports = {
           }
         },
         "relevance": 0.64265,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -96668,23 +93952,23 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "locality",
             "political"
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -96753,7 +94037,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Pierrefonds, Montreal, QC, Canada",
+      "en": "Pierrefonds, Montréal, QC, Canada",
       "fr": "Pierrefonds, Montréal, QC, Canada"
     },
     "geometry": {
@@ -96891,7 +94175,7 @@ module.exports = {
           }
         },
         "relevance": 6.23296,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -96926,8 +94210,8 @@ module.exports = {
           }
         },
         "relevance": 2.45436,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -96961,8 +94245,8 @@ module.exports = {
           }
         },
         "relevance": 2.4508,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -96996,8 +94280,8 @@ module.exports = {
           }
         },
         "relevance": 2.01962,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -97633,23 +94917,23 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "locality",
             "political"
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -97710,7 +94994,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Le Plateau-Mont-Royal, Montreal, QC, Canada",
+      "en": "Le Plateau-Mont-Royal, Montréal, QC, Canada",
       "fr": "Le Plateau-Mont-Royal, Montréal, QC, Canada"
     },
     "geometry": {
@@ -97814,8 +95098,8 @@ module.exports = {
           }
         },
         "relevance": 6.7589,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -97849,7 +95133,7 @@ module.exports = {
           }
         },
         "relevance": 5.35776,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -97884,8 +95168,8 @@ module.exports = {
           }
         },
         "relevance": 2.69024,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -97919,8 +95203,8 @@ module.exports = {
           }
         },
         "relevance": 1.40544,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -97946,23 +95230,23 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "locality",
             "political"
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -98047,7 +95331,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Pointe-aux-Trembles, Montreal, QC H1B, Canada",
+      "en": "Pointe-aux-Trembles, Montréal, QC H1B, Canada",
       "fr": "Pointe-aux-Trembles, Montréal, QC H1B, Canada"
     },
     "geometry": {
@@ -98150,8 +95434,8 @@ module.exports = {
           }
         },
         "relevance": 5.74857,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -98185,7 +95469,7 @@ module.exports = {
           }
         },
         "relevance": 5.08664,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -98220,8 +95504,8 @@ module.exports = {
           }
         },
         "relevance": 2.86708,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -98255,8 +95539,8 @@ module.exports = {
           }
         },
         "relevance": 1.31752,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -98273,15 +95557,15 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -98436,7 +95720,7 @@ module.exports = {
           }
         },
         "relevance": 5.97959,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -98471,8 +95755,8 @@ module.exports = {
           }
         },
         "relevance": 2.93828,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -98506,8 +95790,8 @@ module.exports = {
           }
         },
         "relevance": 2.50483,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -98541,8 +95825,8 @@ module.exports = {
           }
         },
         "relevance": 1.83601,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -99052,7 +96336,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -99215,7 +96499,7 @@ module.exports = {
           }
         },
         "relevance": 5.60873,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -99250,8 +96534,8 @@ module.exports = {
           }
         },
         "relevance": 3.9964,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -99285,8 +96569,8 @@ module.exports = {
           }
         },
         "relevance": 2.65428,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -99320,8 +96604,8 @@ module.exports = {
           }
         },
         "relevance": 1.90295,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -100159,7 +97443,7 @@ module.exports = {
           }
         },
         "relevance": 1.90388,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -100445,8 +97729,8 @@ module.exports = {
           }
         },
         "relevance": 0.65738,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -102486,7 +99770,7 @@ module.exports = {
           }
         },
         "relevance": 2.04714,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -105040,8 +102324,8 @@ module.exports = {
           }
         },
         "relevance": 1.33238,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -105145,8 +102429,8 @@ module.exports = {
           }
         },
         "relevance": 0.3423,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -105190,8 +102474,8 @@ module.exports = {
     "address_components": {
       "en": [
         {
-          "long_name": "Quebec City",
-          "short_name": "Quebec City",
+          "long_name": "Québec City",
+          "short_name": "Québec City",
           "types": [
             "locality",
             "political"
@@ -105206,7 +102490,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -105258,7 +102542,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Quebec City, QC, Canada",
+      "en": "Québec City, QC, Canada",
       "fr": "Québec, QC, Canada"
     },
     "geometry": {
@@ -105326,8 +102610,8 @@ module.exports = {
           }
         },
         "relevance": 43.47361,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -105396,7 +102680,7 @@ module.exports = {
           }
         },
         "relevance": 2.30075,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -106282,499 +103566,6 @@ module.exports = {
         "relevance": 0.20659,
         "frenchLabel": "Medicine Hat",
         "englishLabel": "Medicine Hat"
-      }
-    ]
-  },
-  "Red Lake ON": {
-    "acrdName": "Red Lake ON",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Red Lake",
-          "short_name": "Red Lake",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Kenora, Unorganized",
-          "short_name": "Kenora, Unorganized",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Kenora District",
-          "short_name": "Kenora District",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Ontario",
-          "short_name": "ON",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "P0V",
-          "short_name": "P0V",
-          "types": [
-            "postal_code",
-            "postal_code_prefix"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Red Lake",
-          "short_name": "Red Lake",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Territoire non Organisé de Kenora",
-          "short_name": "Territoire non Organisé de Kenora",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "District de Kenora",
-          "short_name": "District de Kenora",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Ontario",
-          "short_name": "ON",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "P0V",
-          "short_name": "P0V",
-          "types": [
-            "postal_code",
-            "postal_code_prefix"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Red Lake, ON P0V, Canada",
-      "fr": "Red Lake, ON P0V, Canada"
-    },
-    "geometry": {
-      "bounds": {
-        "northeast": {
-          "lat": 51.193287,
-          "lng": -93.4860629
-        },
-        "southwest": {
-          "lat": 50.932161,
-          "lng": -93.965136
-        }
-      },
-      "location": {
-        "lat": 51.0145968,
-        "lng": -93.82891599999999
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 51.193287,
-          "lng": -93.4860629
-        },
-        "southwest": {
-          "lat": 50.932161,
-          "lng": -93.965136
-        }
-      }
-    },
-    "google_place_id": "ChIJRQ2S1VQnl1IRqYSSx_qmDig",
-    "types": [
-      "locality",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "RED LAKE",
-        "detailedName": "RED LAKE/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YRL",
-        "geoCode": {
-          "latitude": 51.06695,
-          "longitude": -93.79305
-        },
-        "address": {
-          "cityName": "RED LAKE",
-          "cityCode": "YRL",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 6,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 3
-          },
-          "travelers": {
-            "score": 2
-          }
-        },
-        "relevance": 49.15059,
-        "frenchLabel": "Red Lake ",
-        "englishLabel": "Red Lake "
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "SIOUX LOOKOUT",
-        "detailedName": "SIOUX LOOKOUT/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YXL",
-        "geoCode": {
-          "latitude": 50.11389,
-          "longitude": -91.90527
-        },
-        "address": {
-          "cityName": "SIOUX LOOKOUT",
-          "cityCode": "YXL",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 168,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 11
-          },
-          "travelers": {
-            "score": 7
-          }
-        },
-        "relevance": 6.30292,
-        "frenchLabel": "Sioux Lookout",
-        "englishLabel": "Sioux Lookout"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "J A RICHARDSON INTL",
-        "detailedName": "WINNIPEG/MB/CA:J A RICHARDSON",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YWG",
-        "geoCode": {
-          "latitude": 49.90584,
-          "longitude": -97.23361
-        },
-        "address": {
-          "cityName": "WINNIPEG",
-          "cityCode": "YWG",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "MB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 270,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 13
-          },
-          "travelers": {
-            "score": 10
-          }
-        },
-        "relevance": 4.97949,
-        "frenchLabel": "Aéroport James Armstrong Richardson de Winnipeg ",
-        "englishLabel": "Winnipeg James Armstrong Richardson International Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "PIKANGIKUM",
-        "detailedName": "PIKANGIKUM/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YPM",
-        "geoCode": {
-          "latitude": 51.82,
-          "longitude": -94
-        },
-        "address": {
-          "cityName": "PIKANGIKUM",
-          "cityCode": "YPM",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 90,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 1.8441,
-        "frenchLabel": "Pikangikum",
-        "englishLabel": "Pikangikum"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "SANDY LAKE",
-        "detailedName": "SANDY LAKE/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "ZSJ",
-        "geoCode": {
-          "latitude": 53.07,
-          "longitude": -93.33
-        },
-        "address": {
-          "cityName": "SANDY LAKE",
-          "cityCode": "ZSJ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 231,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 3
-          },
-          "travelers": {
-            "score": 2
-          }
-        },
-        "relevance": 1.37756,
-        "frenchLabel": "Sandy Lake",
-        "englishLabel": "Sandy Lake"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "INTERNATIONAL",
-        "detailedName": "THUNDER BAY/ON/CA:INTERNATIONA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YQT",
-        "geoCode": {
-          "latitude": 48.37195,
-          "longitude": -89.32388
-        },
-        "address": {
-          "cityName": "THUNDER BAY",
-          "cityCode": "YQT",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 437,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 6
-          },
-          "travelers": {
-            "score": 4
-          }
-        },
-        "relevance": 1.26864,
-        "frenchLabel": "Aéroport international de Thunder Bay",
-        "englishLabel": "Thunder Bay International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "DEER LAKE",
-        "detailedName": "DEER LAKE/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YVZ",
-        "geoCode": {
-          "latitude": 52.65584,
-          "longitude": -94.06138
-        },
-        "address": {
-          "cityName": "DEER LAKE",
-          "cityCode": "YVZ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 183,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 1.07791,
-        "frenchLabel": "Deer Lake",
-        "englishLabel": "Deer Lake"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "KENORA",
-        "detailedName": "KENORA/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YQK",
-        "geoCode": {
-          "latitude": 49.78834,
-          "longitude": -94.36305
-        },
-        "address": {
-          "cityName": "KENORA",
-          "cityCode": "YQK",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 141,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 1.01921,
-        "frenchLabel": "Kenora",
-        "englishLabel": "Kenora"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "REGIONAL",
-        "detailedName": "DRYDEN/ON/CA:REGIONAL",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YHD",
-        "geoCode": {
-          "latitude": 49.83167,
-          "longitude": -92.74416
-        },
-        "address": {
-          "cityName": "DRYDEN",
-          "cityCode": "YHD",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 152,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.95728,
-        "frenchLabel": "Aéroport régional de Dryden",
-        "englishLabel": "Dryden Regional"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "NORTH SPIRIT LAKE",
-        "detailedName": "NORTH SPIRIT LAKE/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YNO",
-        "geoCode": {
-          "latitude": 52.49,
-          "longitude": -92.97111
-        },
-        "address": {
-          "cityName": "NORTH SPIRIT LAKE",
-          "cityCode": "YNO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 174,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.88793,
-        "frenchLabel": "North Spirit Lake",
-        "englishLabel": "North Spirit Lake"
       }
     ]
   },
@@ -107895,7 +104686,7 @@ module.exports = {
           }
         },
         "relevance": 2.59445,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -108412,7 +105203,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -108567,8 +105358,8 @@ module.exports = {
           }
         },
         "relevance": 2.11026,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -108602,8 +105393,8 @@ module.exports = {
           }
         },
         "relevance": 1.85675,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -108852,497 +105643,6 @@ module.exports = {
       }
     ]
   },
-  "Riverton MB": {
-    "acrdName": "Riverton MB",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Riverton",
-          "short_name": "Riverton",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Municipality of Bifrost",
-          "short_name": "Municipality of Bifrost",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Division No. 18",
-          "short_name": "Division No. 18",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Manitoba",
-          "short_name": "MB",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "R0C 2R0",
-          "short_name": "R0C 2R0",
-          "types": [
-            "postal_code"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Riverton",
-          "short_name": "Riverton",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Municipality of Bifrost",
-          "short_name": "Municipality of Bifrost",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Division No. 18",
-          "short_name": "Division No. 18",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Manitoba",
-          "short_name": "MB",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "R0C 2R0",
-          "short_name": "R0C 2R0",
-          "types": [
-            "postal_code"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Riverton, MB R0C 2R0, Canada",
-      "fr": "Riverton, MB R0C 2R0, Canada"
-    },
-    "geometry": {
-      "bounds": {
-        "northeast": {
-          "lat": 51.000252,
-          "lng": -96.99192599999999
-        },
-        "southwest": {
-          "lat": 50.98990209999999,
-          "lng": -97.0118671
-        }
-      },
-      "location": {
-        "lat": 50.9961332,
-        "lng": -96.9997559
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 51.000252,
-          "lng": -96.99192599999999
-        },
-        "southwest": {
-          "lat": 50.98990209999999,
-          "lng": -97.0118671
-        }
-      }
-    },
-    "google_place_id": "ChIJs-HhGSN661IR1JRB7UFDxE0",
-    "types": [
-      "locality",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "J A RICHARDSON INTL",
-        "detailedName": "WINNIPEG/MB/CA:J A RICHARDSON",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YWG",
-        "geoCode": {
-          "latitude": 49.90584,
-          "longitude": -97.23361
-        },
-        "address": {
-          "cityName": "WINNIPEG",
-          "cityCode": "YWG",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "MB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 122,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 13
-          },
-          "travelers": {
-            "score": 10
-          }
-        },
-        "relevance": 11.01488,
-        "frenchLabel": "Aéroport James Armstrong Richardson de Winnipeg ",
-        "englishLabel": "Winnipeg James Armstrong Richardson International Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "SIOUX LOOKOUT",
-        "detailedName": "SIOUX LOOKOUT/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YXL",
-        "geoCode": {
-          "latitude": 50.11389,
-          "longitude": -91.90527
-        },
-        "address": {
-          "cityName": "SIOUX LOOKOUT",
-          "cityCode": "YXL",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 373,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 11
-          },
-          "travelers": {
-            "score": 7
-          }
-        },
-        "relevance": 2.85261,
-        "frenchLabel": "Sioux Lookout",
-        "englishLabel": "Sioux Lookout"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "RED LAKE",
-        "detailedName": "RED LAKE/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YRL",
-        "geoCode": {
-          "latitude": 51.06695,
-          "longitude": -93.79305
-        },
-        "address": {
-          "cityName": "RED LAKE",
-          "cityCode": "YRL",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 224,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 3
-          },
-          "travelers": {
-            "score": 2
-          }
-        },
-        "relevance": 1.39076,
-        "frenchLabel": "Red Lake ",
-        "englishLabel": "Red Lake "
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "SANDY LAKE",
-        "detailedName": "SANDY LAKE/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "ZSJ",
-        "geoCode": {
-          "latitude": 53.07,
-          "longitude": -93.33
-        },
-        "address": {
-          "cityName": "SANDY LAKE",
-          "cityCode": "ZSJ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 341,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 3
-          },
-          "travelers": {
-            "score": 2
-          }
-        },
-        "relevance": 0.93408,
-        "frenchLabel": "Sandy Lake",
-        "englishLabel": "Sandy Lake"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "PIKANGIKUM",
-        "detailedName": "PIKANGIKUM/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YPM",
-        "geoCode": {
-          "latitude": 51.82,
-          "longitude": -94
-        },
-        "address": {
-          "cityName": "PIKANGIKUM",
-          "cityCode": "YPM",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 227,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.73293,
-        "frenchLabel": "Pikangikum",
-        "englishLabel": "Pikangikum"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "DEER LAKE",
-        "detailedName": "DEER LAKE/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YVZ",
-        "geoCode": {
-          "latitude": 52.65584,
-          "longitude": -94.06138
-        },
-        "address": {
-          "cityName": "DEER LAKE",
-          "cityCode": "YVZ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 273,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.72195,
-        "frenchLabel": "Deer Lake",
-        "englishLabel": "Deer Lake"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "KENORA",
-        "detailedName": "KENORA/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YQK",
-        "geoCode": {
-          "latitude": 49.78834,
-          "longitude": -94.36305
-        },
-        "address": {
-          "cityName": "KENORA",
-          "cityCode": "YQK",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 230,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.62672,
-        "frenchLabel": "Kenora",
-        "englishLabel": "Kenora"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "MUNICIPAL",
-        "detailedName": "FORT FRANCES/ON/CA:MUNICIPAL",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YAG",
-        "geoCode": {
-          "latitude": 48.6,
-          "longitude": -93.4
-        },
-        "address": {
-          "cityName": "FORT FRANCES",
-          "cityCode": "YAG",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 371,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.49236,
-        "frenchLabel": "Fort Frances, Municipal",
-        "englishLabel": "Fort Frances, Municipal"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "NORTH SPIRIT LAKE",
-        "detailedName": "NORTH SPIRIT LAKE/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YNO",
-        "geoCode": {
-          "latitude": 52.49,
-          "longitude": -92.97111
-        },
-        "address": {
-          "cityName": "NORTH SPIRIT LAKE",
-          "cityCode": "YNO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 323,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.47897,
-        "frenchLabel": "North Spirit Lake",
-        "englishLabel": "North Spirit Lake"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "REGIONAL",
-        "detailedName": "DRYDEN/ON/CA:REGIONAL",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YHD",
-        "geoCode": {
-          "latitude": 49.83167,
-          "longitude": -92.74416
-        },
-        "address": {
-          "cityName": "DRYDEN",
-          "cityCode": "YHD",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 328,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.44447,
-        "frenchLabel": "Aéroport régional de Dryden",
-        "englishLabel": "Dryden Regional"
-      }
-    ]
-  },
   "Rivière-du-Loup QC": {
     "acrdName": "Rivière-du-Loup QC",
     "address_components": {
@@ -109364,7 +105664,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -109519,8 +105819,8 @@ module.exports = {
           }
         },
         "relevance": 3.27341,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -109554,8 +105854,8 @@ module.exports = {
           }
         },
         "relevance": 1.34112,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -109764,7 +106064,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -109929,8 +106229,8 @@ module.exports = {
           }
         },
         "relevance": 3.60964,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -109964,7 +106264,7 @@ module.exports = {
           }
         },
         "relevance": 3.05184,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -110432,7 +106732,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -110587,7 +106887,7 @@ module.exports = {
           }
         },
         "relevance": 5.81773,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -110622,8 +106922,8 @@ module.exports = {
           }
         },
         "relevance": 2.92663,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -110657,8 +106957,8 @@ module.exports = {
           }
         },
         "relevance": 2.79104,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -110692,8 +106992,8 @@ module.exports = {
           }
         },
         "relevance": 2.64017,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -111125,7 +107425,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -111280,7 +107580,7 @@ module.exports = {
           }
         },
         "relevance": 2.13254,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -111517,23 +107817,23 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "locality",
             "political"
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -111602,7 +107902,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Roxboro, Montreal, QC, Canada",
+      "en": "Roxboro, Montréal, QC, Canada",
       "fr": "Roxboro, Montréal, QC, Canada"
     },
     "geometry": {
@@ -111705,7 +108005,7 @@ module.exports = {
           }
         },
         "relevance": 5.97591,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -111740,8 +108040,8 @@ module.exports = {
           }
         },
         "relevance": 2.94379,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -111775,8 +108075,8 @@ module.exports = {
           }
         },
         "relevance": 2.52677,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -111810,8 +108110,8 @@ module.exports = {
           }
         },
         "relevance": 2.06777,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -113013,8 +109313,8 @@ module.exports = {
           }
         },
         "relevance": 0.51064,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -113179,7 +109479,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -113369,8 +109669,8 @@ module.exports = {
           }
         },
         "relevance": 3.23612,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -113404,7 +109704,7 @@ module.exports = {
           }
         },
         "relevance": 1.78873,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -113439,8 +109739,8 @@ module.exports = {
           }
         },
         "relevance": 1.19271,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -113830,8 +110130,8 @@ module.exports = {
           }
         },
         "relevance": 1.33692,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -113935,8 +110235,8 @@ module.exports = {
           }
         },
         "relevance": 0.32721,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -114660,8 +110960,8 @@ module.exports = {
           }
         },
         "relevance": 2.14072,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -114730,8 +111030,8 @@ module.exports = {
           }
         },
         "relevance": 1.31413,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -114904,7 +111204,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -115048,8 +111348,8 @@ module.exports = {
           }
         },
         "relevance": 23.96721,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -115118,7 +111418,7 @@ module.exports = {
           }
         },
         "relevance": 2.5053,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -115153,8 +111453,8 @@ module.exports = {
           }
         },
         "relevance": 0.46398,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -115369,8 +111669,8 @@ module.exports = {
           }
         },
         "relevance": 2.35537,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -115439,8 +111739,8 @@ module.exports = {
           }
         },
         "relevance": 1.3894,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -115613,7 +111913,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -115811,7 +112111,7 @@ module.exports = {
           }
         },
         "relevance": 6.24112,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -115846,8 +112146,8 @@ module.exports = {
           }
         },
         "relevance": 3.22297,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -115881,8 +112181,8 @@ module.exports = {
           }
         },
         "relevance": 2.50381,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -115916,8 +112216,8 @@ module.exports = {
           }
         },
         "relevance": 2.35372,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -115985,7 +112285,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -116148,8 +112448,8 @@ module.exports = {
           }
         },
         "relevance": 6.42652,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -116183,7 +112483,7 @@ module.exports = {
           }
         },
         "relevance": 2.20773,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -116218,7 +112518,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -116383,8 +112683,8 @@ module.exports = {
           }
         },
         "relevance": 38.7183,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -116418,7 +112718,7 @@ module.exports = {
           }
         },
         "relevance": 4.94527,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -116453,8 +112753,8 @@ module.exports = {
           }
         },
         "relevance": 2.79949,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -116488,8 +112788,8 @@ module.exports = {
           }
         },
         "relevance": 1.02286,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -116514,7 +112814,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -116669,7 +112969,7 @@ module.exports = {
           }
         },
         "relevance": 4.10134,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -116704,8 +113004,8 @@ module.exports = {
           }
         },
         "relevance": 3.35478,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -116739,8 +113039,8 @@ module.exports = {
           }
         },
         "relevance": 2.29375,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       }
     ]
   },
@@ -116765,7 +113065,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -116920,7 +113220,7 @@ module.exports = {
           }
         },
         "relevance": 4.65412,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -116955,8 +113255,8 @@ module.exports = {
           }
         },
         "relevance": 3.28586,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -116990,8 +113290,8 @@ module.exports = {
           }
         },
         "relevance": 2.70544,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       }
     ]
   },
@@ -117016,7 +113316,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -117171,7 +113471,7 @@ module.exports = {
           }
         },
         "relevance": 6.32073,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -117206,8 +113506,8 @@ module.exports = {
           }
         },
         "relevance": 5.00576,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -117241,8 +113541,8 @@ module.exports = {
           }
         },
         "relevance": 2.57052,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -117276,8 +113576,8 @@ module.exports = {
           }
         },
         "relevance": 1.63348,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -117337,7 +113637,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -117492,8 +113792,8 @@ module.exports = {
           }
         },
         "relevance": 12.45776,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -117527,7 +113827,7 @@ module.exports = {
           }
         },
         "relevance": 5.16756,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -117562,8 +113862,8 @@ module.exports = {
           }
         },
         "relevance": 2.72176,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -117597,8 +113897,8 @@ module.exports = {
           }
         },
         "relevance": 1.1733,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -117616,23 +113916,23 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "locality",
             "political"
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -117693,7 +113993,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Saint-Laurent, Montreal, QC, Canada",
+      "en": "Saint-Laurent, Montréal, QC, Canada",
       "fr": "Saint-Laurent, Montréal, QC, Canada"
     },
     "geometry": {
@@ -117797,7 +114097,7 @@ module.exports = {
           }
         },
         "relevance": 5.8157,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -117832,8 +114132,8 @@ module.exports = {
           }
         },
         "relevance": 3.41518,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -117867,8 +114167,8 @@ module.exports = {
           }
         },
         "relevance": 2.55712,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -117902,8 +114202,8 @@ module.exports = {
           }
         },
         "relevance": 1.82666,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -117956,23 +114256,23 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "locality",
             "political"
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -118033,7 +114333,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Saint-Leonard, Montreal, QC, Canada",
+      "en": "Saint-Leonard, Montréal, QC, Canada",
       "fr": "Saint-Léonard, Montréal, QC, Canada"
     },
     "geometry": {
@@ -118137,8 +114437,8 @@ module.exports = {
           }
         },
         "relevance": 5.53667,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -118172,7 +114472,7 @@ module.exports = {
           }
         },
         "relevance": 5.34898,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -118207,8 +114507,8 @@ module.exports = {
           }
         },
         "relevance": 2.73964,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -118242,8 +114542,8 @@ module.exports = {
           }
         },
         "relevance": 1.55599,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -118268,7 +114568,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -118423,8 +114723,8 @@ module.exports = {
           }
         },
         "relevance": 4.76031,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -118458,7 +114758,7 @@ module.exports = {
           }
         },
         "relevance": 3.56262,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -118493,8 +114793,8 @@ module.exports = {
           }
         },
         "relevance": 0.77166,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       }
     ]
   },
@@ -118519,7 +114819,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -118709,7 +115009,7 @@ module.exports = {
           }
         },
         "relevance": 6.52544,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -118744,8 +115044,8 @@ module.exports = {
           }
         },
         "relevance": 2.50515,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -118814,8 +115114,8 @@ module.exports = {
           }
         },
         "relevance": 1.13013,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -118849,829 +115149,8 @@ module.exports = {
           }
         },
         "relevance": 0.98492,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
-      }
-    ]
-  },
-  "Sainte-Anne-de-Beaupré QC": {
-    "acrdName": "Sainte-Anne-de-Beaupré QC",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Sainte-Anne-de-Beaupré",
-          "short_name": "Sainte-Anne-de-Beaupré",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "La Côte-de-Beaupré Regional County Municipality",
-          "short_name": "La Côte-de-Beaupré Regional County Municipality",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Quebec",
-          "short_name": "QC",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Sainte-Anne-de-Beaupré",
-          "short_name": "Sainte-Anne-de-Beaupré",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "La Côte-de-Beaupré",
-          "short_name": "La Côte-de-Beaupré",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Québec",
-          "short_name": "QC",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Sainte-Anne-de-Beaupré, QC, Canada",
-      "fr": "Sainte-Anne-de-Beaupré, QC, Canada"
-    },
-    "geometry": {
-      "bounds": {
-        "northeast": {
-          "lat": 47.11628,
-          "lng": -70.88756099999999
-        },
-        "southwest": {
-          "lat": 47.0003049,
-          "lng": -71.0297549
-        }
-      },
-      "location": {
-        "lat": 47.016164,
-        "lng": -70.9465063
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 47.11628,
-          "lng": -70.88756099999999
-        },
-        "southwest": {
-          "lat": 47.0003049,
-          "lng": -71.0297549
-        }
-      }
-    },
-    "google_place_id": "ChIJRQQf-uu1uEwR74Y8LqIV6Zg",
-    "types": [
-      "locality",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "JEAN LESAGE INTL",
-        "detailedName": "QUEBEC/QC/CA:JEAN LESAGE INTL",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YQB",
-        "geoCode": {
-          "latitude": 46.79223,
-          "longitude": -71.38444
-        },
-        "address": {
-          "cityName": "QUEBEC",
-          "cityCode": "YQB",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 41,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 6
-          },
-          "travelers": {
-            "score": 3
-          }
-        },
-        "relevance": 14.28166,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "PIERRE E. TRUDEAU INTL",
-        "detailedName": "MONTREAL/QC/CA:PIERRE E. TRUDE",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YUL",
-        "geoCode": {
-          "latitude": 45.46112,
-          "longitude": -73.75027
-        },
-        "address": {
-          "cityName": "MONTREAL",
-          "cityCode": "YMQ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 276,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 22
-          },
-          "travelers": {
-            "score": 18
-          }
-        },
-        "relevance": 8.10045,
-        "frenchLabel": "Aéroport Pierre-Elliot-Trudeau de Montréal",
-        "englishLabel": "Montréal, Pierre Elliott Trudeau International Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "MACDONALD CARTIER INTL",
-        "detailedName": "OTTAWA/ON/CA:MACDONALD CARTIER",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YOW",
-        "geoCode": {
-          "latitude": 45.32251,
-          "longitude": -75.66916
-        },
-        "address": {
-          "cityName": "OTTAWA",
-          "cityCode": "YOW",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 409,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 9
-          },
-          "travelers": {
-            "score": 7
-          }
-        },
-        "relevance": 2.14632,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
-        "englishLabel": "Ottawa, Macdonald-Cartier International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "SEPT ILES",
-        "detailedName": "SEPT ILES/QC/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YZV",
-        "geoCode": {
-          "latitude": 50.22334,
-          "longitude": -66.26555
-        },
-        "address": {
-          "cityName": "SEPT ILES",
-          "cityCode": "YZV",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 495,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 5
-          },
-          "travelers": {
-            "score": 3
-          }
-        },
-        "relevance": 0.96587,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "SAGUENAY-BAGOTVILLE",
-        "detailedName": "SAGUENAY-BAGOTVILLE/QC/CA:SAGU",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YBG",
-        "geoCode": {
-          "latitude": 48.33056,
-          "longitude": -70.99638
-        },
-        "address": {
-          "cityName": "SAGUENAY-BAGOTVILLE",
-          "cityCode": "YBG",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 146,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 0.55952,
-        "frenchLabel": "Saguenay-Bagotville",
-        "englishLabel": "Saguenay-Bagotville"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "MONT-JOLI",
-        "detailedName": "MONT-JOLI/QC/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YYY",
-        "geoCode": {
-          "latitude": 48.60473,
-          "longitude": -68.21222
-        },
-        "address": {
-          "cityName": "MONT-JOLI",
-          "cityCode": "YYY",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 270,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.46694,
-        "frenchLabel": "Aéroport régional de Mont-Joli",
-        "englishLabel": "Mont-Joli"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "BAIE-COMEAU",
-        "detailedName": "BAIE-COMEAU/QC/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YBC",
-        "geoCode": {
-          "latitude": 49.1325,
-          "longitude": -68.20444
-        },
-        "address": {
-          "cityName": "BAIE-COMEAU",
-          "cityCode": "YBC",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 311,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.4121,
-        "frenchLabel": "Baie-Comeau",
-        "englishLabel": "Baie-Comeau"
-      }
-    ]
-  },
-  "Sainte-Anne-des-Monts QC": {
-    "acrdName": "Sainte-Anne-des-Monts QC",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Sainte-Anne-des-Monts",
-          "short_name": "Sainte-Anne-des-Monts",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "La Haute-Gaspésie Regional County Municipality",
-          "short_name": "La Haute-Gaspésie Regional County Municipality",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Quebec",
-          "short_name": "QC",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "G4V 2L4",
-          "short_name": "G4V 2L4",
-          "types": [
-            "postal_code"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Ste-anne-des-monts",
-          "short_name": "Ste-anne-des-monts",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "La Haute-Gaspésie",
-          "short_name": "La Haute-Gaspésie",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Québec",
-          "short_name": "QC",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "G4V 2L4",
-          "short_name": "G4V 2L4",
-          "types": [
-            "postal_code"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Sainte-Anne-des-Monts, QC G4V 2L4, Canada",
-      "fr": "Ste-anne-des-monts, QC G4V 2L4, Canada"
-    },
-    "geometry": {
-      "location": {
-        "lat": 49.12229199999999,
-        "lng": -66.4924319
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 49.12959379999999,
-          "lng": -66.4764245
-        },
-        "southwest": {
-          "lat": 49.1149892,
-          "lng": -66.50843929999999
-        }
-      }
-    },
-    "google_place_id": "ChIJFZEyllXEkEwRX4VnSQMbpbo",
-    "types": [
-      "locality",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "SEPT ILES",
-        "detailedName": "SEPT ILES/QC/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YZV",
-        "geoCode": {
-          "latitude": 50.22334,
-          "longitude": -66.26555
-        },
-        "address": {
-          "cityName": "SEPT ILES",
-          "cityCode": "YZV",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 123,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 5
-          },
-          "travelers": {
-            "score": 3
-          }
-        },
-        "relevance": 3.87343,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "JEAN LESAGE INTL",
-        "detailedName": "QUEBEC/QC/CA:JEAN LESAGE INTL",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YQB",
-        "geoCode": {
-          "latitude": 46.79223,
-          "longitude": -71.38444
-        },
-        "address": {
-          "cityName": "QUEBEC",
-          "cityCode": "YQB",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 447,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 6
-          },
-          "travelers": {
-            "score": 3
-          }
-        },
-        "relevance": 1.32837,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "BAIE-COMEAU",
-        "detailedName": "BAIE-COMEAU/QC/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YBC",
-        "geoCode": {
-          "latitude": 49.1325,
-          "longitude": -68.20444
-        },
-        "address": {
-          "cityName": "BAIE-COMEAU",
-          "cityCode": "YBC",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 124,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 1.02947,
-        "frenchLabel": "Baie-Comeau",
-        "englishLabel": "Baie-Comeau"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "MONT-JOLI",
-        "detailedName": "MONT-JOLI/QC/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YYY",
-        "geoCode": {
-          "latitude": 48.60473,
-          "longitude": -68.21222
-        },
-        "address": {
-          "cityName": "MONT-JOLI",
-          "cityCode": "YYY",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 138,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.91118,
-        "frenchLabel": "Aéroport régional de Mont-Joli",
-        "englishLabel": "Mont-Joli"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "WABUSH",
-        "detailedName": "WABUSH/NL/CA",
-        "timeZoneOffset": "-03:00",
-        "iataCode": "YWK",
-        "geoCode": {
-          "latitude": 52.92195,
-          "longitude": -66.86444
-        },
-        "address": {
-          "cityName": "WABUSH",
-          "cityCode": "YWK",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NL",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 423,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 3
-          },
-          "travelers": {
-            "score": 2
-          }
-        },
-        "relevance": 0.74094,
-        "frenchLabel": "Wabush",
-        "englishLabel": "Wabush"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "MICHEL-POULIOT",
-        "detailedName": "GASPE/QC/CA:MICHEL-POULIOT",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YGP",
-        "geoCode": {
-          "latitude": 48.77528,
-          "longitude": -64.47861
-        },
-        "address": {
-          "cityName": "GASPE",
-          "cityCode": "YGP",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 152,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.72793,
-        "frenchLabel": "Gaspe, Michel-Pouliot",
-        "englishLabel": "Gaspe, Michel-Pouliot"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "BONAVENTURE",
-        "detailedName": "BONAVENTURE/QC/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YVB",
-        "geoCode": {
-          "latitude": 48.07112,
-          "longitude": -65.46027
-        },
-        "address": {
-          "cityName": "BONAVENTURE",
-          "cityCode": "YVB",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 139,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 0.7174,
-        "frenchLabel": "Bonaventure",
-        "englishLabel": "Bonaventure"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "LA ROMAINE",
-        "detailedName": "LA ROMAINE/QC/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "ZGS",
-        "geoCode": {
-          "latitude": 50.25917,
-          "longitude": -60.66916
-        },
-        "address": {
-          "cityName": "LA ROMAINE",
-          "cityCode": "ZGS",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 437,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 2
-          }
-        },
-        "relevance": 0.51882,
-        "frenchLabel": "La Romaine",
-        "englishLabel": "La Romaine"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "NATASHQUAN",
-        "detailedName": "NATASHQUAN/QC/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YNA",
-        "geoCode": {
-          "latitude": 50.19,
-          "longitude": -61.78916
-        },
-        "address": {
-          "cityName": "NATASHQUAN",
-          "cityCode": "YNA",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 359,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.49567,
-        "frenchLabel": "Natashquan",
-        "englishLabel": "Natashquan"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "GREATER MONCTON INTL",
-        "detailedName": "MONCTON/NB/CA:GREATER MONCTON",
-        "timeZoneOffset": "-03:00",
-        "iataCode": "YQM",
-        "geoCode": {
-          "latitude": 46.11306,
-          "longitude": -64.68555
-        },
-        "address": {
-          "cityName": "MONCTON",
-          "cityCode": "YQM",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 361,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.43086,
-        "frenchLabel": "Aéroport international du Grand Moncton",
-        "englishLabel": "Greater Moncton International"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       }
     ]
   },
@@ -119704,7 +115183,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -119883,7 +115362,7 @@ module.exports = {
           }
         },
         "relevance": 5.96824,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -119918,8 +115397,8 @@ module.exports = {
           }
         },
         "relevance": 2.91128,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -119953,8 +115432,8 @@ module.exports = {
           }
         },
         "relevance": 2.54713,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -119988,8 +115467,8 @@ module.exports = {
           }
         },
         "relevance": 2.32286,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -120042,8 +115521,8 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec City",
-          "short_name": "Quebec City",
+          "long_name": "Québec City",
+          "short_name": "Québec City",
           "types": [
             "locality",
             "political"
@@ -120066,7 +115545,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -120135,7 +115614,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Sainte-Foy, Quebec City, QC, Canada",
+      "en": "Sainte-Foy, Québec City, QC, Canada",
       "fr": "Sainte-Foy, Québec, QC, Canada"
     },
     "geometry": {
@@ -120204,8 +115683,8 @@ module.exports = {
           }
         },
         "relevance": 78.42815,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -120274,7 +115753,7 @@ module.exports = {
           }
         },
         "relevance": 2.34263,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -120371,23 +115850,23 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "locality",
             "political"
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -120456,7 +115935,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Sainte-Geneviève, Montreal, QC, Canada",
+      "en": "Sainte-Geneviève, Montréal, QC, Canada",
       "fr": "Sainte-Geneviève, Montréal, QC, Canada"
     },
     "geometry": {
@@ -120594,7 +116073,7 @@ module.exports = {
           }
         },
         "relevance": 6.21449,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -120629,8 +116108,8 @@ module.exports = {
           }
         },
         "relevance": 2.48178,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -120664,8 +116143,8 @@ module.exports = {
           }
         },
         "relevance": 2.46379,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -120699,8 +116178,8 @@ module.exports = {
           }
         },
         "relevance": 2.09253,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -120768,7 +116247,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -120931,8 +116410,8 @@ module.exports = {
           }
         },
         "relevance": 8.41636,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -120966,7 +116445,7 @@ module.exports = {
           }
         },
         "relevance": 4.77811,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -121001,8 +116480,8 @@ module.exports = {
           }
         },
         "relevance": 2.94919,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -121036,384 +116515,8 @@ module.exports = {
           }
         },
         "relevance": 0.99175,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
-      }
-    ]
-  },
-  "Sainte-Marthe QC": {
-    "acrdName": "Sainte-Marthe QC",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Sainte-Marthe",
-          "short_name": "Sainte-Marthe",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Sainte-Marthe",
-          "short_name": "Sainte-Marthe",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Vaudreuil-Soulanges",
-          "short_name": "Vaudreuil-Soulanges",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Québec",
-          "short_name": "QC",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "J0P 1W0",
-          "short_name": "J0P 1W0",
-          "types": [
-            "postal_code"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Sainte-Marthe",
-          "short_name": "Sainte-Marthe",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Sainte-Marthe",
-          "short_name": "Sainte-Marthe",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Vaudreuil-Soulanges",
-          "short_name": "Vaudreuil-Soulanges",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Québec",
-          "short_name": "QC",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "J0P 1W0",
-          "short_name": "J0P 1W0",
-          "types": [
-            "postal_code"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Sainte-Marthe, QC J0P 1W0, Canada",
-      "fr": "Sainte-Marthe, QC J0P 1W0, Canada"
-    },
-    "geometry": {
-      "location": {
-        "lat": 45.4058009,
-        "lng": -74.297046
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 45.4136342,
-          "lng": -74.2810386
-        },
-        "southwest": {
-          "lat": 45.3979665,
-          "lng": -74.3130534
-        }
-      }
-    },
-    "google_place_id": "ChIJL3kdSNi1zkwRd_WqkCMflT4",
-    "types": [
-      "locality",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "PIERRE E. TRUDEAU INTL",
-        "detailedName": "MONTREAL/QC/CA:PIERRE E. TRUDE",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YUL",
-        "geoCode": {
-          "latitude": 45.46112,
-          "longitude": -73.75027
-        },
-        "address": {
-          "cityName": "MONTREAL",
-          "cityCode": "YMQ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 43,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 22
-          },
-          "travelers": {
-            "score": 18
-          }
-        },
-        "relevance": 51.92513,
-        "frenchLabel": "Aéroport Pierre-Elliot-Trudeau de Montréal",
-        "englishLabel": "Montréal, Pierre Elliott Trudeau International Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "LESTER B. PEARSON INTL",
-        "detailedName": "TORONTO/ON/CA:LESTER B. PEARSO",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YYZ",
-        "geoCode": {
-          "latitude": 43.68056,
-          "longitude": -79.61277
-        },
-        "address": {
-          "cityName": "TORONTO",
-          "cityCode": "YTO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 463,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 42
-          },
-          "travelers": {
-            "score": 38
-          }
-        },
-        "relevance": 9.11281,
-        "frenchLabel": "Aéroport international Pearson de Toronto",
-        "englishLabel": "Toronto, Lester B. Pearson International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "MACDONALD CARTIER INTL",
-        "detailedName": "OTTAWA/ON/CA:MACDONALD CARTIER",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YOW",
-        "geoCode": {
-          "latitude": 45.32251,
-          "longitude": -75.66916
-        },
-        "address": {
-          "cityName": "OTTAWA",
-          "cityCode": "YOW",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 107,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 9
-          },
-          "travelers": {
-            "score": 7
-          }
-        },
-        "relevance": 8.16705,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
-        "englishLabel": "Ottawa, Macdonald-Cartier International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "JEAN LESAGE INTL",
-        "detailedName": "QUEBEC/QC/CA:JEAN LESAGE INTL",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YQB",
-        "geoCode": {
-          "latitude": 46.79223,
-          "longitude": -71.38444
-        },
-        "address": {
-          "cityName": "QUEBEC",
-          "cityCode": "YQB",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 272,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 6
-          },
-          "travelers": {
-            "score": 3
-          }
-        },
-        "relevance": 2.17946,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "BILLY BISHOP CITY A/P",
-        "detailedName": "TORONTO/ON/CA:BILLY BISHOP CIT",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YTZ",
-        "geoCode": {
-          "latitude": 43.62973,
-          "longitude": -79.39833
-        },
-        "address": {
-          "cityName": "TORONTO",
-          "cityCode": "YTO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 450,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 7
-          },
-          "travelers": {
-            "score": 5
-          }
-        },
-        "relevance": 1.55206,
-        "frenchLabel": "Aéroport Billy Bishop de Toronto",
-        "englishLabel": "Toronto, Billy Bishop City Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "MIRABEL INTL",
-        "detailedName": "MONTREAL/QC/CA:MIRABEL INTL",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YMX",
-        "geoCode": {
-          "latitude": 45.68195,
-          "longitude": -74.00527
-        },
-        "address": {
-          "cityName": "MONTREAL",
-          "cityCode": "YMQ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 38,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 1.36202,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "ST-HUBERT",
-        "detailedName": "MONTREAL/QC/CA:ST-HUBERT",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YHU",
-        "geoCode": {
-          "latitude": 45.51612,
-          "longitude": -73.42055
-        },
-        "address": {
-          "cityName": "MONTREAL",
-          "cityCode": "YMQ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 69,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 1.26548,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -121446,7 +116549,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -121609,7 +116712,7 @@ module.exports = {
           }
         },
         "relevance": 5.8646,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -121644,8 +116747,8 @@ module.exports = {
           }
         },
         "relevance": 2.90323,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -121679,8 +116782,8 @@ module.exports = {
           }
         },
         "relevance": 2.73881,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -121714,8 +116817,8 @@ module.exports = {
           }
         },
         "relevance": 2.60865,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -121775,7 +116878,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -121930,7 +117033,7 @@ module.exports = {
           }
         },
         "relevance": 5.99401,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -121965,8 +117068,8 @@ module.exports = {
           }
         },
         "relevance": 3.88354,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -122000,8 +117103,8 @@ module.exports = {
           }
         },
         "relevance": 2.59755,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -122035,8 +117138,8 @@ module.exports = {
           }
         },
         "relevance": 2.46145,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -122428,257 +117531,6 @@ module.exports = {
         "relevance": 0.55048,
         "frenchLabel": "Aéroport de Prince George",
         "englishLabel": "Prince George, Airport"
-      }
-    ]
-  },
-  "Salt Spring Island BC": {
-    "acrdName": "Salt Spring Island BC",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Salt Spring Island",
-          "short_name": "Salt Spring Island",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Capital",
-          "short_name": "CRD",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "British Columbia",
-          "short_name": "BC",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Île Saltspring",
-          "short_name": "Île Saltspring",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "District régional de la Capitale",
-          "short_name": "CRD",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Colombie-Britannique",
-          "short_name": "BC",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Salt Spring Island, BC, Canada",
-      "fr": "Île Saltspring, BC, Canada"
-    },
-    "geometry": {
-      "bounds": {
-        "northeast": {
-          "lat": 48.9638,
-          "lng": -123.3546399
-        },
-        "southwest": {
-          "lat": 48.707944,
-          "lng": -123.631445
-        }
-      },
-      "location": {
-        "lat": 48.8166622,
-        "lng": -123.5088755
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 48.9638,
-          "lng": -123.3546399
-        },
-        "southwest": {
-          "lat": 48.707944,
-          "lng": -123.631445
-        }
-      }
-    },
-    "google_place_id": "ChIJh5dtYhlaj1QRW8WojOTYMvE",
-    "types": [
-      "administrative_area_level_3",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "INTERNATIONAL",
-        "detailedName": "VANCOUVER/BC/CA:INTERNATIONAL",
-        "timeZoneOffset": "-07:00",
-        "iataCode": "YVR",
-        "geoCode": {
-          "latitude": 49.195,
-          "longitude": -123.1792
-        },
-        "address": {
-          "cityName": "VANCOUVER",
-          "cityCode": "YVR",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "BC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 48,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 31
-          },
-          "travelers": {
-            "score": 24
-          }
-        },
-        "relevance": 63.74537,
-        "frenchLabel": "Aéroport international de Vancouver",
-        "englishLabel": "Vancouver International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "VICTORIA INTL",
-        "detailedName": "VICTORIA/BC/CA:VICTORIA INTL",
-        "timeZoneOffset": "-07:00",
-        "iataCode": "YYJ",
-        "geoCode": {
-          "latitude": 48.64695,
-          "longitude": -123.4258
-        },
-        "address": {
-          "cityName": "VICTORIA",
-          "cityCode": "YYJ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "BC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 19,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 4
-          },
-          "travelers": {
-            "score": 2
-          }
-        },
-        "relevance": 21.89542,
-        "frenchLabel": "Aéroport international de Victoria",
-        "englishLabel": "Victoria International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "AIRPORT",
-        "detailedName": "NANAIMO/BC/CA:AIRPORT",
-        "timeZoneOffset": "-07:00",
-        "iataCode": "YCD",
-        "geoCode": {
-          "latitude": 49.05223,
-          "longitude": -123.8703
-        },
-        "address": {
-          "cityName": "NANAIMO",
-          "cityCode": "YCD",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "BC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 37,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 3.0879,
-        "frenchLabel": "Aéroport Nainaimo",
-        "englishLabel": "Nanaimo Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "INNER HARBOUR SPB",
-        "detailedName": "VICTORIA/BC/CA:INNER HARBOUR S",
-        "timeZoneOffset": "-07:00",
-        "iataCode": "YWH",
-        "geoCode": {
-          "latitude": 48.42417,
-          "longitude": -123.3719
-        },
-        "address": {
-          "cityName": "VICTORIA",
-          "cityCode": "YYJ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "BC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 44,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 2.09814,
-        "frenchLabel": "Aéroport du Port de Victoria",
-        "englishLabel": "Victoria, Inner Harbour"
       }
     ]
   },
@@ -123786,7 +118638,7 @@ module.exports = {
           }
         },
         "relevance": 2.65907,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -123823,327 +118675,6 @@ module.exports = {
         "relevance": 1.11307,
         "frenchLabel": "Aéroport international John C. Munro d'Hamilton",
         "englishLabel": "John C. Munro Hamilton International Airport"
-      }
-    ]
-  },
-  "Seguin ON": {
-    "acrdName": "Seguin ON",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Seguin",
-          "short_name": "Seguin",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Parry Sound District",
-          "short_name": "Parry Sound District",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Ontario",
-          "short_name": "ON",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Seguin",
-          "short_name": "Seguin",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "District de Parry Sound",
-          "short_name": "District de Parry Sound",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Ontario",
-          "short_name": "ON",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Seguin, ON, Canada",
-      "fr": "Seguin, ON, Canada"
-    },
-    "geometry": {
-      "bounds": {
-        "northeast": {
-          "lat": 45.474732,
-          "lng": -79.597882
-        },
-        "southwest": {
-          "lat": 45.166673,
-          "lng": -80.04672099999999
-        }
-      },
-      "location": {
-        "lat": 45.3320359,
-        "lng": -79.7811293
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 45.474732,
-          "lng": -79.597882
-        },
-        "southwest": {
-          "lat": 45.166673,
-          "lng": -80.04672099999999
-        }
-      }
-    },
-    "google_place_id": "ChIJfcGbRlLsK00RQVuJZ6chHA4",
-    "types": [
-      "administrative_area_level_3",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "LESTER B. PEARSON INTL",
-        "detailedName": "TORONTO/ON/CA:LESTER B. PEARSO",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YYZ",
-        "geoCode": {
-          "latitude": 43.68056,
-          "longitude": -79.61277
-        },
-        "address": {
-          "cityName": "TORONTO",
-          "cityCode": "YTO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 184,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 42
-          },
-          "travelers": {
-            "score": 38
-          }
-        },
-        "relevance": 22.90379,
-        "frenchLabel": "Aéroport international Pearson de Toronto",
-        "englishLabel": "Toronto, Lester B. Pearson International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "PIERRE E. TRUDEAU INTL",
-        "detailedName": "MONTREAL/QC/CA:PIERRE E. TRUDE",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YUL",
-        "geoCode": {
-          "latitude": 45.46112,
-          "longitude": -73.75027
-        },
-        "address": {
-          "cityName": "MONTREAL",
-          "cityCode": "YMQ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 471,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 22
-          },
-          "travelers": {
-            "score": 18
-          }
-        },
-        "relevance": 4.75316,
-        "frenchLabel": "Aéroport Pierre-Elliot-Trudeau de Montréal",
-        "englishLabel": "Montréal, Pierre Elliott Trudeau International Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "BILLY BISHOP CITY A/P",
-        "detailedName": "TORONTO/ON/CA:BILLY BISHOP CIT",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YTZ",
-        "geoCode": {
-          "latitude": 43.62973,
-          "longitude": -79.39833
-        },
-        "address": {
-          "cityName": "TORONTO",
-          "cityCode": "YTO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 191,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 7
-          },
-          "travelers": {
-            "score": 5
-          }
-        },
-        "relevance": 3.64295,
-        "frenchLabel": "Aéroport Billy Bishop de Toronto",
-        "englishLabel": "Toronto, Billy Bishop City Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "MACDONALD CARTIER INTL",
-        "detailedName": "OTTAWA/ON/CA:MACDONALD CARTIER",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YOW",
-        "geoCode": {
-          "latitude": 45.32251,
-          "longitude": -75.66916
-        },
-        "address": {
-          "cityName": "OTTAWA",
-          "cityCode": "YOW",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 321,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 9
-          },
-          "travelers": {
-            "score": 7
-          }
-        },
-        "relevance": 2.73404,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
-        "englishLabel": "Ottawa, Macdonald-Cartier International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "SUDBURY",
-        "detailedName": "SUDBURY/ON/CA:SUDBURY",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YSB",
-        "geoCode": {
-          "latitude": 46.625,
-          "longitude": -80.79888
-        },
-        "address": {
-          "cityName": "SUDBURY",
-          "cityCode": "YSB",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 164,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.89599,
-        "frenchLabel": "Sudbury",
-        "englishLabel": "Sudbury"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "VICTOR M.POWER",
-        "detailedName": "TIMMINS/ON/CA:VICTOR M.POWER",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YTS",
-        "geoCode": {
-          "latitude": 48.56917,
-          "longitude": -81.37472
-        },
-        "address": {
-          "cityName": "TIMMINS",
-          "cityCode": "YTS",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 380,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 3
-          },
-          "travelers": {
-            "score": 2
-          }
-        },
-        "relevance": 0.76444,
-        "frenchLabel": "Aéroport de Timmins, Victor M. Power",
-        "englishLabel": "Timmins, Victor M.Power"
       }
     ]
   },
@@ -124629,15 +119160,15 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -124835,7 +119366,7 @@ module.exports = {
           }
         },
         "relevance": 6.53176,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -124870,8 +119401,8 @@ module.exports = {
           }
         },
         "relevance": 2.38772,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -124905,8 +119436,8 @@ module.exports = {
           }
         },
         "relevance": 2.06869,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -124940,8 +119471,8 @@ module.exports = {
           }
         },
         "relevance": 1.92387,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -125001,7 +119532,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -125121,8 +119652,8 @@ module.exports = {
           }
         },
         "relevance": 60.31332,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -125462,7 +119993,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -125617,8 +120148,8 @@ module.exports = {
           }
         },
         "relevance": 5.5577,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -125652,7 +120183,7 @@ module.exports = {
           }
         },
         "relevance": 3.31788,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -125687,8 +120218,8 @@ module.exports = {
           }
         },
         "relevance": 0.68947,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       }
     ]
   },
@@ -125919,8 +120450,8 @@ module.exports = {
           }
         },
         "relevance": 1.03294,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -126059,8 +120590,8 @@ module.exports = {
           }
         },
         "relevance": 0.53467,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -126190,7 +120721,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -126345,8 +120876,8 @@ module.exports = {
           }
         },
         "relevance": 3.72756,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -126380,7 +120911,7 @@ module.exports = {
           }
         },
         "relevance": 2.97755,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -127421,8 +121952,8 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec City",
-          "short_name": "Quebec City",
+          "long_name": "Québec City",
+          "short_name": "Québec City",
           "types": [
             "locality",
             "political"
@@ -127437,7 +121968,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -127506,7 +122037,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Sillery, Quebec City, QC, Canada",
+      "en": "Sillery, Québec City, QC, Canada",
       "fr": "Sillery, Québec, QC, Canada"
     },
     "geometry": {
@@ -127574,8 +122105,8 @@ module.exports = {
           }
         },
         "relevance": 63.28588,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -127644,7 +122175,7 @@ module.exports = {
           }
         },
         "relevance": 2.33709,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -128016,501 +122547,8 @@ module.exports = {
           }
         },
         "relevance": 1.90271,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
-      }
-    ]
-  },
-  "Sioux Lookout ON": {
-    "acrdName": "Sioux Lookout ON",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Sioux Lookout",
-          "short_name": "Sioux Lookout",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Kenora, Unorganized",
-          "short_name": "Kenora, Unorganized",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Kenora District",
-          "short_name": "Kenora District",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Ontario",
-          "short_name": "ON",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "P0V",
-          "short_name": "P0V",
-          "types": [
-            "postal_code",
-            "postal_code_prefix"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Sioux Lookout",
-          "short_name": "Sioux Lookout",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Territoire non Organisé de Kenora",
-          "short_name": "Territoire non Organisé de Kenora",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "District de Kenora",
-          "short_name": "District de Kenora",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Ontario",
-          "short_name": "ON",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "P0V",
-          "short_name": "P0V",
-          "types": [
-            "postal_code",
-            "postal_code_prefix"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Sioux Lookout, ON P0V, Canada",
-      "fr": "Sioux Lookout, ON P0V, Canada"
-    },
-    "geometry": {
-      "bounds": {
-        "northeast": {
-          "lat": 50.135515,
-          "lng": -91.722286
-        },
-        "southwest": {
-          "lat": 49.97222499999999,
-          "lng": -92.27833609999999
-        }
-      },
-      "location": {
-        "lat": 50.0978321,
-        "lng": -91.922038
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 50.135515,
-          "lng": -91.722286
-        },
-        "southwest": {
-          "lat": 49.97222499999999,
-          "lng": -92.27833609999999
-        }
-      }
-    },
-    "google_place_id": "ChIJhbPsPOSbmFIRlFhM9bK7wpo",
-    "types": [
-      "locality",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "SIOUX LOOKOUT",
-        "detailedName": "SIOUX LOOKOUT/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YXL",
-        "geoCode": {
-          "latitude": 50.11389,
-          "longitude": -91.90527
-        },
-        "address": {
-          "cityName": "SIOUX LOOKOUT",
-          "cityCode": "YXL",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 2,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 11
-          },
-          "travelers": {
-            "score": 7
-          }
-        },
-        "relevance": 492.79211,
-        "frenchLabel": "Sioux Lookout",
-        "englishLabel": "Sioux Lookout"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "J A RICHARDSON INTL",
-        "detailedName": "WINNIPEG/MB/CA:J A RICHARDSON",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YWG",
-        "geoCode": {
-          "latitude": 49.90584,
-          "longitude": -97.23361
-        },
-        "address": {
-          "cityName": "WINNIPEG",
-          "cityCode": "YWG",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "MB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 380,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 13
-          },
-          "travelers": {
-            "score": 10
-          }
-        },
-        "relevance": 3.5456,
-        "frenchLabel": "Aéroport James Armstrong Richardson de Winnipeg ",
-        "englishLabel": "Winnipeg James Armstrong Richardson International Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "REGIONAL",
-        "detailedName": "DRYDEN/ON/CA:REGIONAL",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YHD",
-        "geoCode": {
-          "latitude": 49.83167,
-          "longitude": -92.74416
-        },
-        "address": {
-          "cityName": "DRYDEN",
-          "cityCode": "YHD",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 65,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 2.21496,
-        "frenchLabel": "Aéroport régional de Dryden",
-        "englishLabel": "Dryden Regional"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "INTERNATIONAL",
-        "detailedName": "THUNDER BAY/ON/CA:INTERNATIONA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YQT",
-        "geoCode": {
-          "latitude": 48.37195,
-          "longitude": -89.32388
-        },
-        "address": {
-          "cityName": "THUNDER BAY",
-          "cityCode": "YQT",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 269,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 6
-          },
-          "travelers": {
-            "score": 4
-          }
-        },
-        "relevance": 2.06178,
-        "frenchLabel": "Aéroport international de Thunder Bay",
-        "englishLabel": "Thunder Bay International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "RED LAKE",
-        "detailedName": "RED LAKE/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YRL",
-        "geoCode": {
-          "latitude": 51.06695,
-          "longitude": -93.79305
-        },
-        "address": {
-          "cityName": "RED LAKE",
-          "cityCode": "YRL",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 170,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 3
-          },
-          "travelers": {
-            "score": 2
-          }
-        },
-        "relevance": 1.8304,
-        "frenchLabel": "Red Lake ",
-        "englishLabel": "Red Lake "
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "SANDY LAKE",
-        "detailedName": "SANDY LAKE/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "ZSJ",
-        "geoCode": {
-          "latitude": 53.07,
-          "longitude": -93.33
-        },
-        "address": {
-          "cityName": "SANDY LAKE",
-          "cityCode": "ZSJ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 344,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 3
-          },
-          "travelers": {
-            "score": 2
-          }
-        },
-        "relevance": 0.92407,
-        "frenchLabel": "Sandy Lake",
-        "englishLabel": "Sandy Lake"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "MUNICIPAL",
-        "detailedName": "FORT FRANCES/ON/CA:MUNICIPAL",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YAG",
-        "geoCode": {
-          "latitude": 48.6,
-          "longitude": -93.4
-        },
-        "address": {
-          "cityName": "FORT FRANCES",
-          "cityCode": "YAG",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 198,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.92273,
-        "frenchLabel": "Fort Frances, Municipal",
-        "englishLabel": "Fort Frances, Municipal"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "KENORA",
-        "detailedName": "KENORA/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YQK",
-        "geoCode": {
-          "latitude": 49.78834,
-          "longitude": -94.36305
-        },
-        "address": {
-          "cityName": "KENORA",
-          "cityCode": "YQK",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 178,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.81016,
-        "frenchLabel": "Kenora",
-        "englishLabel": "Kenora"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "PIKANGIKUM",
-        "detailedName": "PIKANGIKUM/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YPM",
-        "geoCode": {
-          "latitude": 51.82,
-          "longitude": -94
-        },
-        "address": {
-          "cityName": "PIKANGIKUM",
-          "cityCode": "YPM",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 240,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.69274,
-        "frenchLabel": "Pikangikum",
-        "englishLabel": "Pikangikum"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "DEER LAKE",
-        "detailedName": "DEER LAKE/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YVZ",
-        "geoCode": {
-          "latitude": 52.65584,
-          "longitude": -94.06138
-        },
-        "address": {
-          "cityName": "DEER LAKE",
-          "cityCode": "YVZ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 321,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.61551,
-        "frenchLabel": "Deer Lake",
-        "englishLabel": "Deer Lake"
       }
     ]
   },
@@ -129269,8 +123307,8 @@ module.exports = {
           }
         },
         "relevance": 1.04455,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -129304,8 +123342,8 @@ module.exports = {
           }
         },
         "relevance": 0.69825,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -129625,7 +123663,7 @@ module.exports = {
           }
         },
         "relevance": 16.22361,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -129765,8 +123803,8 @@ module.exports = {
           }
         },
         "relevance": 1.42715,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       }
     ]
   },
@@ -130341,7 +124379,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -130496,7 +124534,7 @@ module.exports = {
           }
         },
         "relevance": 4.10344,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -130531,8 +124569,8 @@ module.exports = {
           }
         },
         "relevance": 3.79342,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -130566,8 +124604,8 @@ module.exports = {
           }
         },
         "relevance": 1.38937,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       }
     ]
   },
@@ -131829,8 +125867,8 @@ module.exports = {
           }
         },
         "relevance": 1.53966,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -132272,7 +126310,7 @@ module.exports = {
         },
         "relevance": 1.05197,
         "frenchLabel": "Aéroport international de St John's",
-        "englishLabel": "St Johns International"
+        "englishLabel": "St John's International"
       },
       {
         "type": "location",
@@ -132627,526 +126665,8 @@ module.exports = {
           }
         },
         "relevance": 2.35683,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
-      }
-    ]
-  },
-  "St. Catherines ON": {
-    "acrdName": "St. Catherines ON",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "St. Catharines",
-          "short_name": "St. Catharines",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Regional Municipality of Niagara",
-          "short_name": "Regional Municipality of Niagara",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Ontario",
-          "short_name": "ON",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Saint Catharines",
-          "short_name": "St Catharines",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Municipalité régionale de Niagara",
-          "short_name": "Municipalité régionale de Niagara",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Ontario",
-          "short_name": "ON",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "St. Catharines, ON, Canada",
-      "fr": "St Catharines, ON, Canada"
-    },
-    "geometry": {
-      "bounds": {
-        "northeast": {
-          "lat": 43.2579558,
-          "lng": -79.177446
-        },
-        "southwest": {
-          "lat": 43.1046951,
-          "lng": -79.320954
-        }
-      },
-      "location": {
-        "lat": 43.1593745,
-        "lng": -79.2468626
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 43.2579558,
-          "lng": -79.177446
-        },
-        "southwest": {
-          "lat": 43.1046951,
-          "lng": -79.320954
-        }
-      }
-    },
-    "google_place_id": "ChIJS1pqu1RQ04kRNygIbGNjdQM",
-    "types": [
-      "locality",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "LESTER B. PEARSON INTL",
-        "detailedName": "TORONTO/ON/CA:LESTER B. PEARSO",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YYZ",
-        "geoCode": {
-          "latitude": 43.68056,
-          "longitude": -79.61277
-        },
-        "address": {
-          "cityName": "TORONTO",
-          "cityCode": "YTO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 65,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 42
-          },
-          "travelers": {
-            "score": 38
-          }
-        },
-        "relevance": 64.81827,
-        "frenchLabel": "Aéroport international Pearson de Toronto",
-        "englishLabel": "Toronto, Lester B. Pearson International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "BILLY BISHOP CITY A/P",
-        "detailedName": "TORONTO/ON/CA:BILLY BISHOP CIT",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YTZ",
-        "geoCode": {
-          "latitude": 43.62973,
-          "longitude": -79.39833
-        },
-        "address": {
-          "cityName": "TORONTO",
-          "cityCode": "YTO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 53,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 7
-          },
-          "travelers": {
-            "score": 5
-          }
-        },
-        "relevance": 13.00012,
-        "frenchLabel": "Aéroport Billy Bishop de Toronto",
-        "englishLabel": "Toronto, Billy Bishop City Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "MACDONALD CARTIER INTL",
-        "detailedName": "OTTAWA/ON/CA:MACDONALD CARTIER",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YOW",
-        "geoCode": {
-          "latitude": 45.32251,
-          "longitude": -75.66916
-        },
-        "address": {
-          "cityName": "OTTAWA",
-          "cityCode": "YOW",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 373,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 9
-          },
-          "travelers": {
-            "score": 7
-          }
-        },
-        "relevance": 2.35683,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
-        "englishLabel": "Ottawa, Macdonald-Cartier International"
-      }
-    ]
-  },
-  "St. Jacobs ON": {
-    "acrdName": "St. Jacobs ON",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "St. Jacobs",
-          "short_name": "St. Jacobs",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Woolwich",
-          "short_name": "Woolwich",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Waterloo Regional Municipality",
-          "short_name": "Waterloo Regional Municipality",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Ontario",
-          "short_name": "ON",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "St. Jacobs",
-          "short_name": "St. Jacobs",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Woolwich",
-          "short_name": "Woolwich",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Municipalité régionale de Waterloo",
-          "short_name": "Municipalité régionale de Waterloo",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Ontario",
-          "short_name": "ON",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "St. Jacobs, ON, Canada",
-      "fr": "St. Jacobs, ON, Canada"
-    },
-    "geometry": {
-      "bounds": {
-        "northeast": {
-          "lat": 43.5531363,
-          "lng": -80.543156
-        },
-        "southwest": {
-          "lat": 43.5262673,
-          "lng": -80.560957
-        }
-      },
-      "location": {
-        "lat": 43.5401215,
-        "lng": -80.5535235
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 43.5531363,
-          "lng": -80.543156
-        },
-        "southwest": {
-          "lat": 43.5262673,
-          "lng": -80.560957
-        }
-      }
-    },
-    "google_place_id": "ChIJ7SVZ-2mLK4gR5vS9PQ6dgqs",
-    "types": [
-      "locality",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "LESTER B. PEARSON INTL",
-        "detailedName": "TORONTO/ON/CA:LESTER B. PEARSO",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YYZ",
-        "geoCode": {
-          "latitude": 43.68056,
-          "longitude": -79.61277
-        },
-        "address": {
-          "cityName": "TORONTO",
-          "cityCode": "YTO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 77,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 42
-          },
-          "travelers": {
-            "score": 38
-          }
-        },
-        "relevance": 54.52708,
-        "frenchLabel": "Aéroport international Pearson de Toronto",
-        "englishLabel": "Toronto, Lester B. Pearson International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "BILLY BISHOP CITY A/P",
-        "detailedName": "TORONTO/ON/CA:BILLY BISHOP CIT",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YTZ",
-        "geoCode": {
-          "latitude": 43.62973,
-          "longitude": -79.39833
-        },
-        "address": {
-          "cityName": "TORONTO",
-          "cityCode": "YTO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 93,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 7
-          },
-          "travelers": {
-            "score": 5
-          }
-        },
-        "relevance": 7.4629,
-        "frenchLabel": "Aéroport Billy Bishop de Toronto",
-        "englishLabel": "Toronto, Billy Bishop City Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "REGION OF WATERLOO INT",
-        "detailedName": "TORONTO/ON/CA:REGION OF WATERL",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YKF",
-        "geoCode": {
-          "latitude": 43.4575,
-          "longitude": -80.38583
-        },
-        "address": {
-          "cityName": "TORONTO",
-          "cityCode": "YTO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 16,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 3.27859,
-        "frenchLabel": "Aéroport international de la région de Waterloo",
-        "englishLabel": "Region of Waterloo International Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "MACDONALD CARTIER INTL",
-        "detailedName": "OTTAWA/ON/CA:MACDONALD CARTIER",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YOW",
-        "geoCode": {
-          "latitude": 45.32251,
-          "longitude": -75.66916
-        },
-        "address": {
-          "cityName": "OTTAWA",
-          "cityCode": "YOW",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 435,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 9
-          },
-          "travelers": {
-            "score": 7
-          }
-        },
-        "relevance": 2.0182,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
-        "englishLabel": "Ottawa, Macdonald-Cartier International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "INTERNATIONAL",
-        "detailedName": "LONDON/ON/CA:INTERNATIONAL",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YXU",
-        "geoCode": {
-          "latitude": 43.03,
-          "longitude": -81.14888
-        },
-        "address": {
-          "cityName": "LONDON",
-          "cityCode": "YXU",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 74,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 1.94301,
-        "frenchLabel": "Aéroport international du Grand London",
-        "englishLabel": "London, International"
       }
     ]
   },
@@ -133308,7 +126828,7 @@ module.exports = {
         },
         "relevance": 75.35139,
         "frenchLabel": "Aéroport international de St John's",
-        "englishLabel": "St Johns International"
+        "englishLabel": "St John's International"
       },
       {
         "type": "location",
@@ -134032,8 +127552,8 @@ module.exports = {
           }
         },
         "relevance": 1.63214,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -134388,8 +127908,8 @@ module.exports = {
           }
         },
         "relevance": 0.60915,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -134866,7 +128386,7 @@ module.exports = {
         },
         "relevance": 1.09835,
         "frenchLabel": "Aéroport international de St John's",
-        "englishLabel": "St Johns International"
+        "englishLabel": "St John's International"
       },
       {
         "type": "location",
@@ -135643,7 +129163,7 @@ module.exports = {
           }
         },
         "relevance": 41.96815,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -135783,8 +129303,8 @@ module.exports = {
           }
         },
         "relevance": 1.52418,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       }
     ]
   },
@@ -136476,7 +129996,7 @@ module.exports = {
           }
         },
         "relevance": 1.8506,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -137122,7 +130642,7 @@ module.exports = {
           }
         },
         "relevance": 2.51151,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -137548,7 +131068,7 @@ module.exports = {
           }
         },
         "relevance": 2.03497,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -137955,8 +131475,8 @@ module.exports = {
           }
         },
         "relevance": 1.03229,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -137990,8 +131510,8 @@ module.exports = {
           }
         },
         "relevance": 0.69627,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -138702,8 +132222,8 @@ module.exports = {
           }
         },
         "relevance": 1.27165,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -138772,8 +132292,8 @@ module.exports = {
           }
         },
         "relevance": 0.38872,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -138809,448 +132329,6 @@ module.exports = {
         "relevance": 0.38299,
         "frenchLabel": "Bonaventure",
         "englishLabel": "Bonaventure"
-      }
-    ]
-  },
-  "Swan River MB": {
-    "acrdName": "Swan River MB",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Swan River",
-          "short_name": "Swan River",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Municipality of Swan Valley West",
-          "short_name": "Municipality of Swan Valley West",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Division No. 20",
-          "short_name": "Division No. 20",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Manitoba",
-          "short_name": "MB",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Swan River",
-          "short_name": "Swan River",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Swan Valley West",
-          "short_name": "Swan Valley West",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Division No 20",
-          "short_name": "Division No 20",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Manitoba",
-          "short_name": "MB",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Swan River, MB, Canada",
-      "fr": "Swan River, MB, Canada"
-    },
-    "geometry": {
-      "bounds": {
-        "northeast": {
-          "lat": 52.1240801,
-          "lng": -101.2289931
-        },
-        "southwest": {
-          "lat": 52.091868,
-          "lng": -101.2887269
-        }
-      },
-      "location": {
-        "lat": 52.1050923,
-        "lng": -101.2706212
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 52.1240801,
-          "lng": -101.2289931
-        },
-        "southwest": {
-          "lat": 52.091868,
-          "lng": -101.2887269
-        }
-      }
-    },
-    "google_place_id": "ChIJU3f7Tm3S5FIRBVlUgE0xJUw",
-    "types": [
-      "locality",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "J A RICHARDSON INTL",
-        "detailedName": "WINNIPEG/MB/CA:J A RICHARDSON",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YWG",
-        "geoCode": {
-          "latitude": 49.90584,
-          "longitude": -97.23361
-        },
-        "address": {
-          "cityName": "WINNIPEG",
-          "cityCode": "YWG",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "MB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 373,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 13
-          },
-          "travelers": {
-            "score": 10
-          }
-        },
-        "relevance": 3.60855,
-        "frenchLabel": "Aéroport James Armstrong Richardson de Winnipeg ",
-        "englishLabel": "Winnipeg James Armstrong Richardson International Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "THOMPSON",
-        "detailedName": "THOMPSON/MB/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YTH",
-        "geoCode": {
-          "latitude": 55.80112,
-          "longitude": -97.86416
-        },
-        "address": {
-          "cityName": "THOMPSON",
-          "cityCode": "YTH",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "MB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 467,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 6
-          },
-          "travelers": {
-            "score": 3
-          }
-        },
-        "relevance": 1.28459,
-        "frenchLabel": "Thompson",
-        "englishLabel": "Thompson"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "J.G.DIEFENBAKER INTL",
-        "detailedName": "SASKATOON/SK/CA:J.G.DIEFENBAKE",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YXE",
-        "geoCode": {
-          "latitude": 52.17084,
-          "longitude": -106.6997
-        },
-        "address": {
-          "cityName": "SASKATOON",
-          "cityCode": "YXE",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "SK",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 370,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 4
-          },
-          "travelers": {
-            "score": 3
-          }
-        },
-        "relevance": 1.08376,
-        "frenchLabel": "Aéroport John G. Diefenbaker de Saskatoon",
-        "englishLabel": "Saskatoon John G. Diefenbaker International Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "INTERNATIONAL",
-        "detailedName": "REGINA/SK/CA:INTERNATIONAL",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YQR",
-        "geoCode": {
-          "latitude": 50.43195,
-          "longitude": -104.6658
-        },
-        "address": {
-          "cityName": "REGINA",
-          "cityCode": "YQR",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "SK",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 300,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 3
-          },
-          "travelers": {
-            "score": 2
-          }
-        },
-        "relevance": 0.83364,
-        "frenchLabel": "Aéroport international de Regina",
-        "englishLabel": "Regina International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "AIRPORT",
-        "detailedName": "THE PAS/MB/CA:AIRPORT",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YQD",
-        "geoCode": {
-          "latitude": 53.97139,
-          "longitude": -101.0911
-        },
-        "address": {
-          "cityName": "THE PAS",
-          "cityCode": "YQD",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "MB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 208,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.44928,
-        "frenchLabel": "Aéroport de The Pas",
-        "englishLabel": "The Pas Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "DEER LAKE",
-        "detailedName": "DEER LAKE/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YVZ",
-        "geoCode": {
-          "latitude": 52.65584,
-          "longitude": -94.06138
-        },
-        "address": {
-          "cityName": "DEER LAKE",
-          "cityCode": "YVZ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 493,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.40061,
-        "frenchLabel": "Deer Lake",
-        "englishLabel": "Deer Lake"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "FLIN FLON",
-        "detailedName": "FLIN FLON/MB/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YFO",
-        "geoCode": {
-          "latitude": 54.67806,
-          "longitude": -101.6817
-        },
-        "address": {
-          "cityName": "FLIN FLON",
-          "cityCode": "YFO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "MB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 287,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.36389,
-        "frenchLabel": "Flin Flon",
-        "englishLabel": "Flin Flon"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "PIKANGIKUM",
-        "detailedName": "PIKANGIKUM/ON/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YPM",
-        "geoCode": {
-          "latitude": 51.82,
-          "longitude": -94
-        },
-        "address": {
-          "cityName": "PIKANGIKUM",
-          "cityCode": "YPM",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "ON",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 499,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.33392,
-        "frenchLabel": "Pikangikum",
-        "englishLabel": "Pikangikum"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "MUNICIPAL",
-        "detailedName": "BRANDON/MB/CA:MUNICIPAL",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YBR",
-        "geoCode": {
-          "latitude": 49.9075,
-          "longitude": -99.94916
-        },
-        "address": {
-          "cityName": "BRANDON",
-          "cityCode": "YBR",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "MB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 261,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 0.19193,
-        "frenchLabel": "Brandon Municipal",
-        "englishLabel": "Brandon Municipal"
       }
     ]
   },
@@ -139818,8 +132896,8 @@ module.exports = {
           }
         },
         "relevance": 0.71063,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -140866,7 +133944,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -141029,7 +134107,7 @@ module.exports = {
           }
         },
         "relevance": 5.36098,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -141064,8 +134142,8 @@ module.exports = {
           }
         },
         "relevance": 3.41975,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -141099,8 +134177,8 @@ module.exports = {
           }
         },
         "relevance": 2.8033,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -141134,8 +134212,8 @@ module.exports = {
           }
         },
         "relevance": 1.79797,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -141168,7 +134246,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -141331,8 +134409,8 @@ module.exports = {
           }
         },
         "relevance": 7.71905,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -141366,7 +134444,7 @@ module.exports = {
           }
         },
         "relevance": 2.51309,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -142110,7 +135188,7 @@ module.exports = {
           }
         },
         "relevance": 2.57394,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -143073,7 +136151,7 @@ module.exports = {
           }
         },
         "relevance": 2.5241,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -143749,7 +136827,7 @@ module.exports = {
           }
         },
         "relevance": 4.3319,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -143775,7 +136853,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -143930,8 +137008,8 @@ module.exports = {
           }
         },
         "relevance": 5.84111,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -143965,7 +137043,7 @@ module.exports = {
           }
         },
         "relevance": 3.28513,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -144000,8 +137078,8 @@ module.exports = {
           }
         },
         "relevance": 0.76883,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       }
     ]
   },
@@ -144302,8 +137380,8 @@ module.exports = {
           }
         },
         "relevance": 0.51867,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -144469,23 +137547,23 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "locality",
             "political"
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -144570,7 +137648,7 @@ module.exports = {
       ]
     },
     "formatted_address": {
-      "en": "Mercier-Est, Montreal, QC H1L, Canada",
+      "en": "Mercier-Est, Montréal, QC H1L, Canada",
       "fr": "Tétreaultville, Montréal, QC H1L, Canada"
     },
     "geometry": {
@@ -144673,8 +137751,8 @@ module.exports = {
           }
         },
         "relevance": 6.99715,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -144708,7 +137786,7 @@ module.exports = {
           }
         },
         "relevance": 5.16117,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -144743,8 +137821,8 @@ module.exports = {
           }
         },
         "relevance": 2.81204,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -144778,454 +137856,8 @@ module.exports = {
           }
         },
         "relevance": 1.35128,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
-      }
-    ]
-  },
-  "Urbania NS": {
-    "acrdName": "Urbania NS",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Urbania",
-          "short_name": "Urbania",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "East Hants",
-          "short_name": "East Hants",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Hants County",
-          "short_name": "Hants County",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Nova Scotia",
-          "short_name": "NS",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "B0N 2H0",
-          "short_name": "B0N 2H0",
-          "types": [
-            "postal_code"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Urbania",
-          "short_name": "Urbania",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "East Hants",
-          "short_name": "East Hants",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Hants County",
-          "short_name": "Hants County",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Nova Scotia",
-          "short_name": "NS",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "B0N 2H0",
-          "short_name": "B0N 2H0",
-          "types": [
-            "postal_code"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Urbania, NS B0N 2H0, Canada",
-      "fr": "Urbania, NS B0N 2H0, Canada"
-    },
-    "geometry": {
-      "location": {
-        "lat": 45.218402,
-        "lng": -63.42798
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 45.2262612,
-          "lng": -63.4119726
-        },
-        "southwest": {
-          "lat": 45.2105417,
-          "lng": -63.4439874
-        }
-      }
-    },
-    "google_place_id": "ChIJheQxyaRCWUsR-4p2cCY1730",
-    "types": [
-      "locality",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "STANFIELD INTL",
-        "detailedName": "HALIFAX/NS/CA:STANFIELD INTL",
-        "timeZoneOffset": "-03:00",
-        "iataCode": "YHZ",
-        "geoCode": {
-          "latitude": 44.88389,
-          "longitude": -63.51166
-        },
-        "address": {
-          "cityName": "HALIFAX",
-          "cityCode": "YHZ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NS",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 37,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 9
-          },
-          "travelers": {
-            "score": 6
-          }
-        },
-        "relevance": 23.12751,
-        "frenchLabel": "Aéroport international Stanfield d'Halifax",
-        "englishLabel": "Halifax, Stanfield International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "GREATER MONCTON INTL",
-        "detailedName": "MONCTON/NB/CA:GREATER MONCTON",
-        "timeZoneOffset": "-03:00",
-        "iataCode": "YQM",
-        "geoCode": {
-          "latitude": 46.11306,
-          "longitude": -64.68555
-        },
-        "address": {
-          "cityName": "MONCTON",
-          "cityCode": "YQM",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 139,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 1.11523,
-        "frenchLabel": "Aéroport international du Grand Moncton",
-        "englishLabel": "Greater Moncton International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "CHARLOTTETOWN",
-        "detailedName": "CHARLOTTETOWN/PE/CA",
-        "timeZoneOffset": "-03:00",
-        "iataCode": "YYG",
-        "geoCode": {
-          "latitude": 46.29,
-          "longitude": -63.12111
-        },
-        "address": {
-          "cityName": "CHARLOTTETOWN",
-          "cityCode": "YYG",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "PE",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 121,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.88281,
-        "frenchLabel": "Charlottetown",
-        "englishLabel": "Charlottetown"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "SAINT JOHN",
-        "detailedName": "SAINT JOHN/NB/CA",
-        "timeZoneOffset": "-03:00",
-        "iataCode": "YSJ",
-        "geoCode": {
-          "latitude": 45.31612,
-          "longitude": -65.89027
-        },
-        "address": {
-          "cityName": "SAINT JOHN",
-          "cityCode": "YSJ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 193,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.54859,
-        "frenchLabel": "Saint John",
-        "englishLabel": "Saint John"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "INTERNATIONAL",
-        "detailedName": "FREDERICTON/NB/CA:INTERNATIONA",
-        "timeZoneOffset": "-03:00",
-        "iataCode": "YFC",
-        "geoCode": {
-          "latitude": 45.87,
-          "longitude": -66.53222
-        },
-        "address": {
-          "cityName": "FREDERICTON",
-          "cityCode": "YFC",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 252,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.50902,
-        "frenchLabel": "Aéroport international de Fredericton",
-        "englishLabel": "Fredericton, International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "ILES DE LA MADELE",
-        "detailedName": "ILES DE LA MADELEINE/QC/CA",
-        "timeZoneOffset": "-03:00",
-        "iataCode": "YGR",
-        "geoCode": {
-          "latitude": 47.42473,
-          "longitude": -61.77805
-        },
-        "address": {
-          "cityName": "ILES DE LA MADELEINE",
-          "cityCode": "YGR",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 276,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.48187,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "J.A. DOUGLAS MCCURDY",
-        "detailedName": "SYDNEY/NS/CA:J.A. DOUGLAS MCCU",
-        "timeZoneOffset": "-03:00",
-        "iataCode": "YQY",
-        "geoCode": {
-          "latitude": 46.16139,
-          "longitude": -60.04777
-        },
-        "address": {
-          "cityName": "SYDNEY",
-          "cityCode": "YQY",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NS",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 283,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.33708,
-        "frenchLabel": "Aéroport de Sydney-J.A. Douglas McCurdy",
-        "englishLabel": "Sydney, J.A. Douglas Mccurdy"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "BONAVENTURE",
-        "detailedName": "BONAVENTURE/QC/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YVB",
-        "geoCode": {
-          "latitude": 48.07112,
-          "longitude": -65.46027
-        },
-        "address": {
-          "cityName": "BONAVENTURE",
-          "cityCode": "YVB",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 353,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 0.28318,
-        "frenchLabel": "Bonaventure",
-        "englishLabel": "Bonaventure"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "MICHEL-POULIOT",
-        "detailedName": "GASPE/QC/CA:MICHEL-POULIOT",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YGP",
-        "geoCode": {
-          "latitude": 48.77528,
-          "longitude": -64.47861
-        },
-        "address": {
-          "cityName": "GASPE",
-          "cityCode": "YGP",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 403,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.27432,
-        "frenchLabel": "Gaspe, Michel-Pouliot",
-        "englishLabel": "Gaspe, Michel-Pouliot"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -145250,7 +137882,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -145440,7 +138072,7 @@ module.exports = {
           }
         },
         "relevance": 2.52025,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -145650,8 +138282,8 @@ module.exports = {
           }
         },
         "relevance": 0.19993,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -145685,8 +138317,8 @@ module.exports = {
           }
         },
         "relevance": 0.13212,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -145719,7 +138351,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -145851,8 +138483,8 @@ module.exports = {
           }
         },
         "relevance": 34.04639,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -145921,7 +138553,7 @@ module.exports = {
           }
         },
         "relevance": 2.37515,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -146026,8 +138658,8 @@ module.exports = {
           }
         },
         "relevance": 0.40337,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -146338,7 +138970,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -146528,7 +139160,7 @@ module.exports = {
           }
         },
         "relevance": 6.87803,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -146563,8 +139195,8 @@ module.exports = {
           }
         },
         "relevance": 2.31645,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -146598,8 +139230,8 @@ module.exports = {
           }
         },
         "relevance": 1.76706,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -146633,8 +139265,8 @@ module.exports = {
           }
         },
         "relevance": 1.67903,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       },
       {
         "type": "location",
@@ -146935,7 +139567,7 @@ module.exports = {
           }
         },
         "relevance": 2.54771,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -148315,7 +140947,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -148470,8 +141102,8 @@ module.exports = {
           }
         },
         "relevance": 6.38327,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -148505,7 +141137,7 @@ module.exports = {
           }
         },
         "relevance": 2.93449,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -148540,8 +141172,8 @@ module.exports = {
           }
         },
         "relevance": 0.68544,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       }
     ]
   },
@@ -148758,861 +141390,6 @@ module.exports = {
         "relevance": 16.67982,
         "frenchLabel": "Aéroport du Port de Victoria",
         "englishLabel": "Victoria, Inner Harbour"
-      }
-    ]
-  },
-  "Waasis NB": {
-    "acrdName": "Waasis NB",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Rusagonis",
-          "short_name": "Rusagonis",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Lincoln Parish",
-          "short_name": "Lincoln Parish",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Sunbury County",
-          "short_name": "Sunbury County",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "New Brunswick",
-          "short_name": "NB",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "E3B",
-          "short_name": "E3B",
-          "types": [
-            "postal_code",
-            "postal_code_prefix"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Rusagonis-Waasis",
-          "short_name": "Rusagonis-Waasis",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Paroisse de Lincoln",
-          "short_name": "Paroisse de Lincoln",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Comté de Sunbury",
-          "short_name": "Comté de Sunbury",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Nouveau-Brunswick",
-          "short_name": "NB",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "E3B",
-          "short_name": "E3B",
-          "types": [
-            "postal_code",
-            "postal_code_prefix"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Rusagonis, NB E3B, Canada",
-      "fr": "Rusagonis-Waasis, NB E3B, Canada"
-    },
-    "geometry": {
-      "location": {
-        "lat": 45.80299489999999,
-        "lng": -66.6198531
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 45.8107729,
-          "lng": -66.6038457
-        },
-        "southwest": {
-          "lat": 45.7952158,
-          "lng": -66.63586049999999
-        }
-      }
-    },
-    "google_place_id": "ChIJYwZ17K0npEwRdwCuGYX8zWo",
-    "types": [
-      "locality",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "INTERNATIONAL",
-        "detailedName": "FREDERICTON/NB/CA:INTERNATIONA",
-        "timeZoneOffset": "-03:00",
-        "iataCode": "YFC",
-        "geoCode": {
-          "latitude": 45.87,
-          "longitude": -66.53222
-        },
-        "address": {
-          "cityName": "FREDERICTON",
-          "cityCode": "YFC",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 10,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 12.73144,
-        "frenchLabel": "Aéroport international de Fredericton",
-        "englishLabel": "Fredericton, International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "STANFIELD INTL",
-        "detailedName": "HALIFAX/NS/CA:STANFIELD INTL",
-        "timeZoneOffset": "-03:00",
-        "iataCode": "YHZ",
-        "geoCode": {
-          "latitude": 44.88389,
-          "longitude": -63.51166
-        },
-        "address": {
-          "cityName": "HALIFAX",
-          "cityCode": "YHZ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NS",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 263,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 9
-          },
-          "travelers": {
-            "score": 6
-          }
-        },
-        "relevance": 3.31587,
-        "frenchLabel": "Aéroport international Stanfield d'Halifax",
-        "englishLabel": "Halifax, Stanfield International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "JEAN LESAGE INTL",
-        "detailedName": "QUEBEC/QC/CA:JEAN LESAGE INTL",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YQB",
-        "geoCode": {
-          "latitude": 46.79223,
-          "longitude": -71.38444
-        },
-        "address": {
-          "cityName": "QUEBEC",
-          "cityCode": "YQB",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 382,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 6
-          },
-          "travelers": {
-            "score": 3
-          }
-        },
-        "relevance": 1.5534,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "SAINT JOHN",
-        "detailedName": "SAINT JOHN/NB/CA",
-        "timeZoneOffset": "-03:00",
-        "iataCode": "YSJ",
-        "geoCode": {
-          "latitude": 45.31612,
-          "longitude": -65.89027
-        },
-        "address": {
-          "cityName": "SAINT JOHN",
-          "cityCode": "YSJ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 78,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 1.34918,
-        "frenchLabel": "Saint John",
-        "englishLabel": "Saint John"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "GREATER MONCTON INTL",
-        "detailedName": "MONCTON/NB/CA:GREATER MONCTON",
-        "timeZoneOffset": "-03:00",
-        "iataCode": "YQM",
-        "geoCode": {
-          "latitude": 46.11306,
-          "longitude": -64.68555
-        },
-        "address": {
-          "cityName": "MONCTON",
-          "cityCode": "YQM",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 153,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 1.01351,
-        "frenchLabel": "Aéroport international du Grand Moncton",
-        "englishLabel": "Greater Moncton International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "SEPT ILES",
-        "detailedName": "SEPT ILES/QC/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YZV",
-        "geoCode": {
-          "latitude": 50.22334,
-          "longitude": -66.26555
-        },
-        "address": {
-          "cityName": "SEPT ILES",
-          "cityCode": "YZV",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 492,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 5
-          },
-          "travelers": {
-            "score": 3
-          }
-        },
-        "relevance": 0.97202,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "CHARLOTTETOWN",
-        "detailedName": "CHARLOTTETOWN/PE/CA",
-        "timeZoneOffset": "-03:00",
-        "iataCode": "YYG",
-        "geoCode": {
-          "latitude": 46.29,
-          "longitude": -63.12111
-        },
-        "address": {
-          "cityName": "CHARLOTTETOWN",
-          "cityCode": "YYG",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "PE",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 275,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.38956,
-        "frenchLabel": "Charlottetown",
-        "englishLabel": "Charlottetown"
-      }
-    ]
-  },
-  "Wabush NL": {
-    "acrdName": "Wabush NL",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Wabush",
-          "short_name": "Wabush",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Division No. 10, Subd. D",
-          "short_name": "Division No. 10, Subd. D",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Division No. 10",
-          "short_name": "Division No. 10",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Newfoundland and Labrador",
-          "short_name": "NL",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Wabush",
-          "short_name": "Wabush",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Division No. 10, Subd. D",
-          "short_name": "Division No. 10, Subd. D",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "division No 10",
-          "short_name": "division No 10",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Terre-Neuve-et-Labrador",
-          "short_name": "NL",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Wabush, NL, Canada",
-      "fr": "Wabush, NL, Canada"
-    },
-    "geometry": {
-      "bounds": {
-        "northeast": {
-          "lat": 52.941767,
-          "lng": -66.8296051
-        },
-        "southwest": {
-          "lat": 52.8417739,
-          "lng": -66.96427179999999
-        }
-      },
-      "location": {
-        "lat": 52.900428,
-        "lng": -66.8655291
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 52.941767,
-          "lng": -66.8296051
-        },
-        "southwest": {
-          "lat": 52.8417739,
-          "lng": -66.96427179999999
-        }
-      }
-    },
-    "google_place_id": "ChIJZ-WVsNe0ikwRIcQOjXRPAyM",
-    "types": [
-      "locality",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "WABUSH",
-        "detailedName": "WABUSH/NL/CA",
-        "timeZoneOffset": "-03:00",
-        "iataCode": "YWK",
-        "geoCode": {
-          "latitude": 52.92195,
-          "longitude": -66.86444
-        },
-        "address": {
-          "cityName": "WABUSH",
-          "cityCode": "YWK",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NL",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 2,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 3
-          },
-          "travelers": {
-            "score": 2
-          }
-        },
-        "relevance": 130.45309,
-        "frenchLabel": "Wabush",
-        "englishLabel": "Wabush"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "SEPT ILES",
-        "detailedName": "SEPT ILES/QC/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YZV",
-        "geoCode": {
-          "latitude": 50.22334,
-          "longitude": -66.26555
-        },
-        "address": {
-          "cityName": "SEPT ILES",
-          "cityCode": "YZV",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 300,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 5
-          },
-          "travelers": {
-            "score": 3
-          }
-        },
-        "relevance": 1.5919,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "GOOSE BAY",
-        "detailedName": "GOOSE BAY/NL/CA",
-        "timeZoneOffset": "-03:00",
-        "iataCode": "YYR",
-        "geoCode": {
-          "latitude": 53.31917,
-          "longitude": -60.42583
-        },
-        "address": {
-          "cityName": "GOOSE BAY",
-          "cityCode": "YYR",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NL",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 432,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 6
-          },
-          "travelers": {
-            "score": 4
-          }
-        },
-        "relevance": 1.31939,
-        "frenchLabel": "Goose Bay",
-        "englishLabel": "Goose Bay"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "SCHEFFERVILLE",
-        "detailedName": "SCHEFFERVILLE/QC/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YKL",
-        "geoCode": {
-          "latitude": 54.80528,
-          "longitude": -66.80527
-        },
-        "address": {
-          "cityName": "SCHEFFERVILLE",
-          "cityCode": "YKL",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 212,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.5639,
-        "frenchLabel": "Schefferville",
-        "englishLabel": "Schefferville"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "NATUASHISH",
-        "detailedName": "NATUASHISH/NL/CA:NATUASHISH",
-        "timeZoneOffset": "-03:00",
-        "iataCode": "YNP",
-        "geoCode": {
-          "latitude": 55.91389,
-          "longitude": -61.18555
-        },
-        "address": {
-          "cityName": "NATUASHISH",
-          "cityCode": "YNP",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NL",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 497,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.44426,
-        "frenchLabel": "Natuashish",
-        "englishLabel": "Natuashish"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "CHURCHILL FALLS",
-        "detailedName": "CHURCHILL FALLS/NL/CA",
-        "timeZoneOffset": "-03:00",
-        "iataCode": "ZUM",
-        "geoCode": {
-          "latitude": 53.56195,
-          "longitude": -64.10638
-        },
-        "address": {
-          "cityName": "CHURCHILL FALLS",
-          "cityCode": "ZUM",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "NL",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 198,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.40596,
-        "frenchLabel": "Churchill Falls",
-        "englishLabel": "Churchill Falls"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "NATASHQUAN",
-        "detailedName": "NATASHQUAN/QC/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YNA",
-        "geoCode": {
-          "latitude": 50.19,
-          "longitude": -61.78916
-        },
-        "address": {
-          "cityName": "NATASHQUAN",
-          "cityCode": "YNA",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 462,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 2
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.38445,
-        "frenchLabel": "Natashquan",
-        "englishLabel": "Natashquan"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "BAIE-COMEAU",
-        "detailedName": "BAIE-COMEAU/QC/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YBC",
-        "geoCode": {
-          "latitude": 49.1325,
-          "longitude": -68.20444
-        },
-        "address": {
-          "cityName": "BAIE-COMEAU",
-          "cityCode": "YBC",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 429,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.29875,
-        "frenchLabel": "Baie-Comeau",
-        "englishLabel": "Baie-Comeau"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "MONT-JOLI",
-        "detailedName": "MONT-JOLI/QC/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YYY",
-        "geoCode": {
-          "latitude": 48.60473,
-          "longitude": -68.21222
-        },
-        "address": {
-          "cityName": "MONT-JOLI",
-          "cityCode": "YYY",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 487,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.25887,
-        "frenchLabel": "Aéroport régional de Mont-Joli",
-        "englishLabel": "Mont-Joli"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "HAVRE-ST-PIERRE",
-        "detailedName": "HAVRE-ST-PIERRE/QC/CA",
-        "timeZoneOffset": "-04:00",
-        "iataCode": "YGV",
-        "geoCode": {
-          "latitude": 50.28195,
-          "longitude": -63.61138
-        },
-        "address": {
-          "cityName": "HAVRE-ST-PIERRE",
-          "cityCode": "YGV",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "QC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 368,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.25666,
-        "frenchLabel": "Havre-St-Pierre",
-        "englishLabel": "Havre-St-Pierre"
       }
     ]
   },
@@ -150250,7 +142027,7 @@ module.exports = {
           }
         },
         "relevance": 1.94105,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -150842,7 +142619,7 @@ module.exports = {
           }
         },
         "relevance": 2.01365,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -150879,324 +142656,6 @@ module.exports = {
         "relevance": 1.74816,
         "frenchLabel": "Aéroport international John C. Munro d'Hamilton",
         "englishLabel": "John C. Munro Hamilton International Airport"
-      }
-    ]
-  },
-  "Watrous SK": {
-    "acrdName": "Watrous SK",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Watrous",
-          "short_name": "Watrous",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Morris No. 312",
-          "short_name": "Morris No. 312",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Division No. 11",
-          "short_name": "Division No. 11",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Saskatchewan",
-          "short_name": "SK",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "S0K",
-          "short_name": "S0K",
-          "types": [
-            "postal_code",
-            "postal_code_prefix"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Watrous",
-          "short_name": "Watrous",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Morris No. 312",
-          "short_name": "Morris No. 312",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Division No. 11",
-          "short_name": "Division No. 11",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Saskatchewan",
-          "short_name": "SK",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "S0K",
-          "short_name": "S0K",
-          "types": [
-            "postal_code",
-            "postal_code_prefix"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Watrous, SK S0K, Canada",
-      "fr": "Watrous, SK S0K, Canada"
-    },
-    "geometry": {
-      "bounds": {
-        "northeast": {
-          "lat": 51.7070269,
-          "lng": -105.4401181
-        },
-        "southwest": {
-          "lat": 51.663397,
-          "lng": -105.4877649
-        }
-      },
-      "location": {
-        "lat": 51.6745142,
-        "lng": -105.4683377
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 51.7070269,
-          "lng": -105.4401181
-        },
-        "southwest": {
-          "lat": 51.663397,
-          "lng": -105.4877649
-        }
-      }
-    },
-    "google_place_id": "ChIJi5RhRlKtHFMRzQH6s7A6fIc",
-    "types": [
-      "locality",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "J.G.DIEFENBAKER INTL",
-        "detailedName": "SASKATOON/SK/CA:J.G.DIEFENBAKE",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YXE",
-        "geoCode": {
-          "latitude": 52.17084,
-          "longitude": -106.6997
-        },
-        "address": {
-          "cityName": "SASKATOON",
-          "cityCode": "YXE",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "SK",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 100,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 4
-          },
-          "travelers": {
-            "score": 3
-          }
-        },
-        "relevance": 3.98024,
-        "frenchLabel": "Aéroport John G. Diefenbaker de Saskatoon",
-        "englishLabel": "Saskatoon John G. Diefenbaker International Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "INTERNATIONAL",
-        "detailedName": "REGINA/SK/CA:INTERNATIONAL",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YQR",
-        "geoCode": {
-          "latitude": 50.43195,
-          "longitude": -104.6658
-        },
-        "address": {
-          "cityName": "REGINA",
-          "cityCode": "YQR",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "SK",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 149,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 3
-          },
-          "travelers": {
-            "score": 2
-          }
-        },
-        "relevance": 1.68057,
-        "frenchLabel": "Aéroport international de Regina",
-        "englishLabel": "Regina International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "FLIN FLON",
-        "detailedName": "FLIN FLON/MB/CA",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YFO",
-        "geoCode": {
-          "latitude": 54.67806,
-          "longitude": -101.6817
-        },
-        "address": {
-          "cityName": "FLIN FLON",
-          "cityCode": "YFO",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "MB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 418,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.24991,
-        "frenchLabel": "Flin Flon",
-        "englishLabel": "Flin Flon"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "AIRPORT",
-        "detailedName": "THE PAS/MB/CA:AIRPORT",
-        "timeZoneOffset": "-05:00",
-        "iataCode": "YQD",
-        "geoCode": {
-          "latitude": 53.97139,
-          "longitude": -101.0911
-        },
-        "address": {
-          "cityName": "THE PAS",
-          "cityCode": "YQD",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "MB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 389,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 1
-          }
-        },
-        "relevance": 0.23983,
-        "frenchLabel": "Aéroport de The Pas",
-        "englishLabel": "The Pas Airport"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "MEDICINE HAT",
-        "detailedName": "MEDICINE HAT/AB/CA",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YXH",
-        "geoCode": {
-          "latitude": 50.01889,
-          "longitude": -110.7208
-        },
-        "address": {
-          "cityName": "MEDICINE HAT",
-          "cityCode": "YXH",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "AB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 412,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 0.16557,
-        "frenchLabel": "Medicine Hat",
-        "englishLabel": "Medicine Hat"
       }
     ]
   },
@@ -151434,7 +142893,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -151576,8 +143035,8 @@ module.exports = {
           }
         },
         "relevance": 71.044,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -151646,7 +143105,7 @@ module.exports = {
           }
         },
         "relevance": 2.35006,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -151751,8 +143210,8 @@ module.exports = {
           }
         },
         "relevance": 0.40254,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       }
     ]
   },
@@ -152850,15 +144309,15 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Montreal",
-          "short_name": "Montreal",
+          "long_name": "Montréal",
+          "short_name": "Montréal",
           "types": [
             "administrative_area_level_2",
             "political"
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -153013,8 +144472,8 @@ module.exports = {
           }
         },
         "relevance": 6.24621,
-        "frenchLabel": "Montreal, St-Hubert",
-        "englishLabel": "Montreal, St-Hubert"
+        "frenchLabel": "Montréal, St-Hubert",
+        "englishLabel": "Montréal, St-Hubert"
       },
       {
         "type": "location",
@@ -153048,7 +144507,7 @@ module.exports = {
           }
         },
         "relevance": 5.39498,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -153083,8 +144542,8 @@ module.exports = {
           }
         },
         "relevance": 2.65137,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -153118,8 +144577,8 @@ module.exports = {
           }
         },
         "relevance": 1.34694,
-        "frenchLabel": "Montreal, Mirabel International",
-        "englishLabel": "Montreal, Mirabel International"
+        "frenchLabel": "Montréal, Mirabel International",
+        "englishLabel": "Montréal, Mirabel International"
       }
     ]
   },
@@ -153617,7 +145076,7 @@ module.exports = {
           }
         },
         "relevance": 2.89345,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       }
     ]
@@ -153958,8 +145417,8 @@ module.exports = {
           }
         },
         "relevance": 0.2966,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -155662,8 +147121,8 @@ module.exports = {
           }
         },
         "relevance": 0.40857,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -157118,8 +148577,8 @@ module.exports = {
           }
         },
         "relevance": 0.40737,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -157420,8 +148879,8 @@ module.exports = {
           }
         },
         "relevance": 1.99069,
-        "frenchLabel": "Quebec, Jean Lesage International",
-        "englishLabel": "Quebec, Jean Lesage International"
+        "frenchLabel": "Québec, Jean Lesage International",
+        "englishLabel": "Québec, Jean Lesage International"
       },
       {
         "type": "location",
@@ -157490,8 +148949,8 @@ module.exports = {
           }
         },
         "relevance": 1.032,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
@@ -157811,7 +149270,7 @@ module.exports = {
           }
         },
         "relevance": 1.8612,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -158876,7 +150335,7 @@ module.exports = {
           }
         },
         "relevance": 2.50994,
-        "frenchLabel": "Aéroport intenational Macdonald-Cartier d'Ottawa",
+        "frenchLabel": "Aéroport international Macdonald-Cartier d'Ottawa",
         "englishLabel": "Ottawa, Macdonald-Cartier International"
       },
       {
@@ -159266,7 +150725,7 @@ module.exports = {
           ]
         },
         {
-          "long_name": "Quebec",
+          "long_name": "Québec",
           "short_name": "QC",
           "types": [
             "administrative_area_level_1",
@@ -159378,8 +150837,8 @@ module.exports = {
           }
         },
         "relevance": 13.10705,
-        "frenchLabel": "Iles De La Madeleine",
-        "englishLabel": "Iles De La Madeleine"
+        "frenchLabel": "Îles-de-la Madeleine",
+        "englishLabel": "Îles-de-la Madeleine"
       },
       {
         "type": "location",
@@ -159448,8 +150907,8 @@ module.exports = {
           }
         },
         "relevance": 1.066,
-        "frenchLabel": "Sept Iles",
-        "englishLabel": "Sept Iles"
+        "frenchLabel": "Sept-Îles",
+        "englishLabel": "Sept-Îles"
       },
       {
         "type": "location",
