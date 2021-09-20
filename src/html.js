@@ -22,8 +22,6 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-        <script src={withPrefix("/boew-wet/wet4.0/wet-boew/js/wet-boew.min.js")}></script>
       </body>
     </html>
   )
