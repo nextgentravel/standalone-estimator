@@ -1409,7 +1409,7 @@ const Estimator = () => {
                         {errorList()}
                     </ul>
                 </div>}
-                <form id="estimates-form" className="form-group row mb-5" onSubmit={handleSubmit} noValidate>
+                <form id="estimates-form" className="form-group row" onSubmit={handleSubmit} noValidate>
                     <div className="col-sm-7" ref={summaryView}>
                         <InputDatalist
                             validationWarnings={submitValidationWarnings}
@@ -1491,7 +1491,7 @@ const Estimator = () => {
                 {result &&
                     <>
                         <hr className="mb-5" />
-                        <h3 className="mb-3">{formattedMessage('estimate_summary_title')}</h3>
+                        <h3 className="mb-4">{formattedMessage('estimate_summary_title')}</h3>
                         <div className="row mb-4">
                             <div className="col-sm-12 mb-2">
                                 <label htmlFor="accommodation_select"><FaBed className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('accommodation')}</label>
@@ -1830,7 +1830,7 @@ const Estimator = () => {
                             <div className="col-sm-5 align-self-center text-wrap">
                             </div>
                         </div>
-                        <div className="row ml-1 mb-5">
+                        <div className="row ml-1">
                             <div className="col-sm-12">
                                 <Button
                                     variant="primary"
@@ -1859,7 +1859,6 @@ const Estimator = () => {
                             }
                             {/* <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}>formattedMessage('print" /></Button> */}
                         </div>
-                        <hr />
                     </>
                 }
             </section>
