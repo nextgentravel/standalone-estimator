@@ -1392,7 +1392,7 @@ const Estimator = () => {
                 setReturnOffset={setReturnOffset}
             />
 
-            {localeCopy.nextgen_opener_show && <div>{formattedMessage('nextgen_opener')}</div>}
+            {localeCopy.nextgen_opener_show && <div className="mb-5">{formattedMessage('nextgen_opener')}</div>}
 
             {localeCopy.simplify_content_show && <div>
                 <h2 className="mb-4">{localeCopy.simplify_title}</h2>
