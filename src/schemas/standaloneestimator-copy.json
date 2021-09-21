@@ -1611,5 +1611,43 @@
         "label": "autocomplete_assistive_hint"
       }
     }
+  },
+  "Additional headers": {
+    "nextgen_opener": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, strong, em, hyperlink",
+        "allowTargetBlank": true,
+        "label": "nextgen_opener"
+      }
+    },
+    "nextgen_opener_show": {
+      "type": "Boolean",
+      "config": {
+        "default_value": false,
+        "label": "nextgen_opener_show"
+      }
+    },
+    "simplify_title": {
+      "type": "Text",
+      "config": {
+        "label": "simplify_title"
+      }
+    },
+    "simplify_content": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, strong, em, hyperlink",
+        "allowTargetBlank": true,
+        "label": "simplify_content"
+      }
+    },
+    "simplify_content_show": {
+      "type": "Boolean",
+      "config": {
+        "default_value": false,
+        "label": "simplify_content_show"
+      }
+    }
   }
 }

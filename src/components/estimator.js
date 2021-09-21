@@ -359,6 +359,15 @@ const Estimator = () => {
                         link_url
                     }
                     select_meals_description
+                    nextgen_opener {
+                        html
+                    }
+                    nextgen_opener_show
+                    simplify_content_show
+                    simplify_title
+                    simplify_content {
+                        html
+                    }
                 }
             }
         }
@@ -1383,99 +1392,105 @@ const Estimator = () => {
                 setReturnOffset={setReturnOffset}
             />
 
+            {localeCopy.nextgen_opener_show && <div>{formattedMessage('nextgen_opener')}</div>}
 
-            <h2 className="mb-4" id="h2-label">{localeCopy.title.text}</h2>
-            <div className="lead mb-5" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
-            {errorPanel !== false && <div className="alert alert-danger alert-danger-banner" role="alert">
-                <h3>{formattedMessage('estimate_error_title')}</h3>
-                <p>{formattedMessage('estimate_error_lead')}</p>
-                <ul className="list-unstyled">
-                    {errorList()}
-                </ul>
-            </div>}
-            <form id="estimates-form" className="form-group row mb-5" onSubmit={handleSubmit} noValidate>
-                <div className="col-sm-7" ref={summaryView}>
-                    <InputDatalist
-                        validationWarnings={submitValidationWarnings}
-                        setValidationWarnings={setSubmitValidationWarnings}
-                        label={formattedMessage('estimate_origin')}
-                        name="origin"
-                        options={filteredCitiesList}
-                        updateValue={setOrigin}
-                        localeCopy={localeCopy}
-                    />
-                </div>
-                <div className="col-sm-6"></div>
-                <div className="col-sm-7">
-                    <InputDatalist
-                        validationWarnings={submitValidationWarnings}
-                        setValidationWarnings={setSubmitValidationWarnings}
-                        label={formattedMessage('estimate_destination')}
-                        name="destination"
-                        options={filteredCitiesList}
-                        updateValue={setDestination}
-                        className="col-sm-6"
-                        localeCopy={localeCopy}
-                    />
-                </div>
-                <div className="col-sm-3"></div>
-                <div className="col-sm-3 mb-4">
-                    <label htmlFor="departureDate">{localeCopy.datepicker_start_date}</label>
-                    <input
-                        id="departureDate"
-                        name="departureDate"
-                        type="date"
-                        min={today}
-                        lang={locale}
-                        value={departureDate} 
-                        className="form-control"
-                        onChange={(event) => {
-                            setDepartureDate(event.target.value)
-                        }}
-                    />
-                </div>
-                <div className="col-sm-3 mb-4">
-                    <label htmlFor="returnDate">{localeCopy.datepicker_end_date}</label>
-                    <input
-                        id="returnDate"
-                        name="returnDate"
-                        type="date"
-                        min={today}
-                        lang={locale}
-                        value={returnDate} 
-                        className="form-control"
-                        onChange={(event) => {
-                            console.log('Date', event.target.value)
-                            setReturnDate(event.target.value)
-                        }}
-                    />
-                </div>
-                <div className="col-sm-3"></div>
-                <div className="col-sm-12">
-                    {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-                    <button type="submit" className="btn btn-primary px-5">{formattedMessage('estimate')}</button>
-                    {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-                    {showClear &&
-                        <button type="button" id="clear-button" className="btn btn-outline-dark px-5 ml-3" onClick={() => {clearForm()}}>{formattedMessage('clear')}</button>
-                    }
-                    {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
-                    <div role="status" className="sr-only" id="loading-sr">{screenReaderStatus}</div>
-                </div>
-            </form>
-
-            {generalError && <div className="alert-icon alert-danger">
-                <div className="icon" aria-hidden="true">
-                    <FaExclamationTriangle size="24" />
-                </div>
-                <div className="message">
-                    <h3>{formattedMessage('estimate_application_error')}</h3>
-                    <p>{formattedMessage('estimate_application_error_text')}</p>
-                </div>
+            {localeCopy.simplify_content_show && <div>
+                <h2 className="mb-4">{localeCopy.simplify_title}</h2>
+                <div>{formattedMessage('simplify_content')}</div>
             </div>}
 
-            {result &&
-                <>
-                    <section className="card bg-light p-4 mb-4">
+            <section className="card bg-light p-4 mb-4 mt-5">
+                <h2 className="mb-4" id="h2-label">{localeCopy.title.text}</h2>
+                <div className="lead mb-3" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
+                {errorPanel !== false && <div className="alert alert-danger alert-danger-banner" role="alert">
+                    <h3>{formattedMessage('estimate_error_title')}</h3>
+                    <p>{formattedMessage('estimate_error_lead')}</p>
+                    <ul className="list-unstyled">
+                        {errorList()}
+                    </ul>
+                </div>}
+                <form id="estimates-form" className="form-group row mb-5" onSubmit={handleSubmit} noValidate>
+                    <div className="col-sm-7" ref={summaryView}>
+                        <InputDatalist
+                            validationWarnings={submitValidationWarnings}
+                            setValidationWarnings={setSubmitValidationWarnings}
+                            label={formattedMessage('estimate_origin')}
+                            name="origin"
+                            options={filteredCitiesList}
+                            updateValue={setOrigin}
+                            localeCopy={localeCopy}
+                        />
+                    </div>
+                    <div className="col-sm-6"></div>
+                    <div className="col-sm-7">
+                        <InputDatalist
+                            validationWarnings={submitValidationWarnings}
+                            setValidationWarnings={setSubmitValidationWarnings}
+                            label={formattedMessage('estimate_destination')}
+                            name="destination"
+                            options={filteredCitiesList}
+                            updateValue={setDestination}
+                            className="col-sm-6"
+                            localeCopy={localeCopy}
+                        />
+                    </div>
+                    <div className="col-sm-3"></div>
+                    <div className="col-sm-3 mb-4">
+                        <label htmlFor="departureDate">{localeCopy.datepicker_start_date}</label>
+                        <input
+                            id="departureDate"
+                            name="departureDate"
+                            type="date"
+                            min={today}
+                            lang={locale}
+                            value={departureDate} 
+                            className="form-control"
+                            onChange={(event) => {
+                                setDepartureDate(event.target.value)
+                            }}
+                        />
+                    </div>
+                    <div className="col-sm-3 mb-4">
+                        <label htmlFor="returnDate">{localeCopy.datepicker_end_date}</label>
+                        <input
+                            id="returnDate"
+                            name="returnDate"
+                            type="date"
+                            min={today}
+                            lang={locale}
+                            value={returnDate} 
+                            className="form-control"
+                            onChange={(event) => {
+                                console.log('Date', event.target.value)
+                                setReturnDate(event.target.value)
+                            }}
+                        />
+                    </div>
+                    <div className="col-sm-3"></div>
+                    <div className="col-sm-12">
+                        {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
+                        <button type="submit" className="btn btn-primary px-5">{formattedMessage('estimate')}</button>
+                        {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
+                        {showClear &&
+                            <button type="button" id="clear-button" className="btn btn-outline-dark px-5 ml-3" onClick={() => {clearForm()}}>{formattedMessage('clear')}</button>
+                        }
+                        {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
+                        <div role="status" className="sr-only" id="loading-sr">{screenReaderStatus}</div>
+                    </div>
+                </form>
+
+                {generalError && <div className="alert-icon alert-danger">
+                    <div className="icon" aria-hidden="true">
+                        <FaExclamationTriangle size="24" />
+                    </div>
+                    <div className="message">
+                        <h3>{formattedMessage('estimate_application_error')}</h3>
+                        <p>{formattedMessage('estimate_application_error_text')}</p>
+                    </div>
+                </div>}
+                {result &&
+                    <>
+                        <hr className="mb-5" />
                         <h3 className="mb-3">{formattedMessage('estimate_summary_title')}</h3>
                         <div className="row mb-4">
                             <div className="col-sm-12 mb-2">
@@ -1815,39 +1830,39 @@ const Estimator = () => {
                             <div className="col-sm-5 align-self-center text-wrap">
                             </div>
                         </div>
-                    </section>
-                    <div className="row ml-1 mb-5">
-                        <div className="col-sm-12">
-                            <Button
-                                variant="primary"
-                                aria-disabled={!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired')}
-                                className={`px-5 mb-2${!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired') ? ' disabled' : ''}`}
-                                onClick={() => {
-                                        if (!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired')) {
-                                            return
-                                        } else {
-                                            setEmailModalShow(true)
-                                        }
-                                        
-                                    }
-                                }
-                                aria-describedby="email-button-validation"
-                            >
-                                    {formattedMessage('email')}
-                            </Button>
-                        </div>
-                        {(!result || transportationType === '' || accommodationType === '') &&
+                        <div className="row ml-1 mb-5">
                             <div className="col-sm-12">
-                                <small id="email-button-validation" className="form-text text-muted">
-                                    <span dangerouslySetInnerHTML={{ __html: localeCopy.email_field_disabled_message.html }}></span>
-                                </small>
+                                <Button
+                                    variant="primary"
+                                    aria-disabled={!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired')}
+                                    className={`px-5 mb-2${!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired') ? ' disabled' : ''}`}
+                                    onClick={() => {
+                                            if (!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired')) {
+                                                return
+                                            } else {
+                                                setEmailModalShow(true)
+                                            }
+                                            
+                                        }
+                                    }
+                                    aria-describedby="email-button-validation"
+                                >
+                                        {formattedMessage('email')}
+                                </Button>
                             </div>
-                        }
-                        {/* <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}>formattedMessage('print" /></Button> */}
-                    </div>
-                    <hr />
-                </>
-            }
+                            {(!result || transportationType === '' || accommodationType === '') &&
+                                <div className="col-sm-12">
+                                    <small id="email-button-validation" className="form-text text-muted">
+                                        <span dangerouslySetInnerHTML={{ __html: localeCopy.email_field_disabled_message.html }}></span>
+                                    </small>
+                                </div>
+                            }
+                            {/* <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}>formattedMessage('print" /></Button> */}
+                        </div>
+                        <hr />
+                    </>
+                }
+            </section>
             
             <div className="card bg-white py-4 px-5 mb-2">
                 <div className="row">
