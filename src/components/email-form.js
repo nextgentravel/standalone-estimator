@@ -30,15 +30,13 @@ const EmailForm = (props) => {
                         type="text"
                         aria-describedby="travellersNameHelp"
                     />
-                    <div id="travellersNameHelp">
-                        <Form.Text muted>
-                            {props.messages.email_form_travellers_name_placeholder}
-                        </Form.Text>
-                        <Form.Control.Feedback type="invalid" role="alert">
-                            <span className="sr-only">{props.messages.email_form_travellers_name}.{' '}</span>
-                            {props.messages.email_form_field_required}
-                        </Form.Control.Feedback>
-                    </div>
+                    <Form.Text id="travellersNameHelp" muted>
+                        {props.messages.email_form_travellers_name_placeholder}
+                    </Form.Text>
+                    <Form.Control.Feedback type="invalid" role="alert">
+                        <span className="sr-only">{props.messages.email_form_travellers_name}.{' '}</span>
+                        {props.messages.email_form_field_required}
+                    </Form.Control.Feedback>
                 </Col>
             </Form.Group>
             <Form.Group as={Row} controlId="travellersEmail" className="mb-5">
