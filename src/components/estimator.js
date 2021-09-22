@@ -369,6 +369,8 @@ const Estimator = () => {
                         html
                     }
                     autocomplete_help_text
+                    flight_modal_departure_time_offset_label
+                    flight_modal_return_time_offset_label
                 }
             }
         }
