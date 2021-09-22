@@ -1467,7 +1467,7 @@ const Estimator = () => {
                         />
                     </div>
                     <div className="col-sm-12 mb-4 pl-4 ">
-                        <small id="datepicker-help" class="form-text text-muted">{localeCopy.date_format_description}</small>
+                        <small id="datepicker-help" class="form-text">{localeCopy.date_format_description}</small>
                     </div>
                     <div className="col-sm-3"></div>
                     <div className="col-sm-12">
@@ -1855,7 +1855,7 @@ const Estimator = () => {
                             </div>
                             {(!result || transportationType === '' || accommodationType === '') &&
                                 <div className="col-sm-12">
-                                    <small id="email-button-validation" className="form-text text-muted">
+                                    <small id="email-button-validation" className="form-text">
                                         <span dangerouslySetInnerHTML={{ __html: localeCopy.email_field_disabled_message.html }}></span>
                                     </small>
                                 </div>
