@@ -1435,7 +1435,7 @@ const Estimator = () => {
                         />
                     </div>
                     <div className="col-sm-3"></div>
-                    <div className="col-sm-3 mb-4">
+                    <div className="col-sm-3">
                         <label htmlFor="departureDate">{localeCopy.datepicker_start_date}</label>
                         <input
                             id="departureDate"
@@ -1448,9 +1448,10 @@ const Estimator = () => {
                             onChange={(event) => {
                                 setDepartureDate(event.target.value)
                             }}
+                            aria-describedby="datepicker-help"
                         />
                     </div>
-                    <div className="col-sm-3 mb-4">
+                    <div className="col-sm-3">
                         <label htmlFor="returnDate">{localeCopy.datepicker_end_date}</label>
                         <input
                             id="returnDate"
@@ -1464,7 +1465,11 @@ const Estimator = () => {
                                 console.log('Date', event.target.value)
                                 setReturnDate(event.target.value)
                             }}
+                            aria-describedby="datepicker-help"
                         />
+                    </div>
+                    <div className="col-sm-12 mb-4 pl-4">
+                        <small id="datepicker-help" class="form-text text-muted">{localeCopy.date_format_description}</small>
                     </div>
                     <div className="col-sm-3"></div>
                     <div className="col-sm-12">
