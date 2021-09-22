@@ -368,6 +368,7 @@ const Estimator = () => {
                     simplify_content {
                         html
                     }
+                    autocomplete_help_text
                 }
             }
         }

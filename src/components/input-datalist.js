@@ -78,7 +78,7 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
                     }}
                     tAssistiveHint={() => { return localeCopy.autocomplete_assistive_hint }}
                 />
-                {/* <small id={`autocomplete-help-${name}`} class="form-text pl-1">{localeCopy.autocomplete_assistive_hint}</small> */}
+                <small id={`autocomplete-help-${name}`} class="form-text pl-1">{localeCopy.autocomplete_help_text}</small>
             </div>
             {componentWarnings.map((warning, index) => (
                 <small key={index} id={`${name}-error`} className="invalid-feedback">{warning.message}</small>
