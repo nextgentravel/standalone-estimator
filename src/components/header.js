@@ -69,7 +69,7 @@ const Header = ({homeHeader}) => {
           <div className="container">
             <div className="row">
                 <div className="col-sm-12">
-                  <Link to={homeLink}><h1 className="text-light">{messages.title.text}</h1></Link>
+                  <h1 className="text-light">{messages.title.text}</h1>
                 </div>
             </div>
           </div>
