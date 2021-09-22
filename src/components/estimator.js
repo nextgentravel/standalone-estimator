@@ -1392,8 +1392,6 @@ const Estimator = () => {
                 setReturnOffset={setReturnOffset}
             />
 
-            {localeCopy.nextgen_opener_show && <div className="mb-5">{formattedMessage('nextgen_opener')}</div>}
-
             {localeCopy.simplify_content_show && <div>
                 <h2 className="mb-4">{localeCopy.simplify_title}</h2>
                 <div>{formattedMessage('simplify_content')}</div>
@@ -1468,7 +1466,7 @@ const Estimator = () => {
                             aria-describedby="datepicker-help"
                         />
                     </div>
-                    <div className="col-sm-12 mb-4 pl-4">
+                    <div className="col-sm-12 mb-4 pl-4 ">
                         <small id="datepicker-help" class="form-text text-muted">{localeCopy.date_format_description}</small>
                     </div>
                     <div className="col-sm-3"></div>
