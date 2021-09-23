@@ -371,6 +371,8 @@ const Estimator = () => {
                     autocomplete_help_text
                     flight_modal_departure_time_offset_label
                     flight_modal_return_time_offset_label
+                    is_not_valid
+                    is_required
                 }
             }
         }
@@ -954,7 +956,6 @@ const Estimator = () => {
                 setErrorPanel(false);
             })
             .catch(err => {
-                console.log("ERROR", err)
                 setLoading(false);
                 setSubmitValidationWarnings(err.inner || []);
                 setErrorPanel(true);
@@ -1080,28 +1081,28 @@ const Estimator = () => {
         let schema = yup.object().shape({
             tripName: yup
                 .string()
-                .typeError(' is required')
-                .required(),
+                .typeError(`${formattedMessage('email_form_trip_name')} ${formattedMessage('is_not_valid')}`)
+                .required(`${formattedMessage('email_form_trip_name')} ${formattedMessage('is_required')}`),
             travellersName: yup
                 .string()
-                .typeError(' is required')
-                .required(),
+                .typeError(`${formattedMessage('email_form_travellers_name')} ${formattedMessage('is_not_valid')}`)
+                .required(`${formattedMessage('email_form_travellers_name')} ${formattedMessage('is_required')}`),
             travellersEmail: yup
                 .string()
-                .typeError(' is required')
-                .required(),
+                .typeError(`${formattedMessage('email_form_travellers_email')} ${formattedMessage('is_not_valid')}`)
+                .required(`${formattedMessage('email_form_travellers_email')} ${formattedMessage('is_required')}`),
             approversName: yup
                 .string()
-                .typeError(' is required')
-                .required(),
+                .typeError(`${formattedMessage('email_form_approvers_name')} ${formattedMessage('is_not_valid')}`)
+                .required(`${formattedMessage('email_form_approvers_name')} ${formattedMessage('is_required')}`),
             approversEmail: yup
                 .string()
-                .typeError(' is required')
-                .required(),
+                .typeError(`${formattedMessage('email_form_approvers_email')} ${formattedMessage('is_not_valid')}`)
+                .required(`${formattedMessage('email_form_approvers_email')} ${formattedMessage('is_required')}`),
             tripNotes: yup
                 .string(),
             travelCategory: yup
-                .string().min(1),
+                .string(),
         });
         return schema.validate(target, {abortEarly: false})
     }
@@ -1470,7 +1471,7 @@ const Estimator = () => {
                         />
                     </div>
                     <div className="col-sm-12 mb-4 pl-4 ">
-                        <small id="datepicker-help" class="form-text">{localeCopy.date_format_description}</small>
+                        <small id="datepicker-help" className="form-text">{localeCopy.date_format_description}</small>
                     </div>
                     <div className="col-sm-3"></div>
                     <div className="col-sm-12">

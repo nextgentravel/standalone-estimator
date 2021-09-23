@@ -1,17 +1,42 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Form from 'react-bootstrap/Form'
 
 const EmailForm = (props) => {
     let validationErrors = props.validationWarnings || []
+    let [errorPanel, setErrorPanel] = useState(false);
     function removeIsInvalid (path, errors) {
         let filtered = errors.filter(function(field) { return field.path !== path; });
         props.setEmailValidationWarnings(filtered);
     }
+
+    const errorList = () => {
+        let list = [];
+        list = validationErrors.map((error, index) =>
+            <li key={index}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
+        );
+        return list;
+    }
+
+    useEffect(() => {
+        if (validationErrors.length > 0) {
+            setErrorPanel(true)
+        } 
+    }, [validationErrors]);
+
     let validationErrorList = validationErrors.map(a => a.path) || [];
     return (
         <Form noValidate>
+            {errorPanel !== false && <div className="alert alert-danger alert-danger-banner" role="alert">
+                <h3>{props.messages.estimate_error_title}</h3>
+                <p>{props.messages.estimate_error_lead}</p>
+                <ul className="list-unstyled">
+                    {errorList()}
+                </ul>
+            </div>}
+
+
             <Form.Group as={Row} controlId="travellersName">
                 <Form.Label column sm="3">
                     {props.messages.email_form_travellers_name}
