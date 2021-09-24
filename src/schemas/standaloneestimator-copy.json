@@ -162,6 +162,44 @@
       "config" : {
         "label" : "tooltip"
       }
+    },
+    "quick_reference_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "quick_reference_title"
+      }
+    },
+    "quick_reference_links" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "link_title" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "link_title"
+            }
+          },
+          "link_url" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "link_url"
+            }
+          }
+        },
+        "label" : "quick_reference_links"
+      }
+    },
+    "is_not_valid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "is_not_valid"
+      }
+    },
+    "is_required" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "is_required"
+      }
     }
   },
   "Email Confirmation Modal" : {
@@ -1433,6 +1471,13 @@
         "label" : "flight_modal_departure_time_label"
       }
     },
+    "flight_modal_departure_time_offset_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_modal_departure_time_offset_label",
+        "placeholder" : "This label is hidden but is required for accessibility"
+      }
+    },
     "flight_modal_destination_airport_label" : {
       "type" : "Text",
       "config" : {
@@ -1443,6 +1488,13 @@
       "type" : "Text",
       "config" : {
         "label" : "flight_modal_return_time_label"
+      }
+    },
+    "flight_modal_return_time_offset_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "flight_modal_return_time_offset_label",
+        "placeholder" : "This label is hidden but is required for accessibility"
       }
     },
     "flight_modal_fetch_flight_estimate_label" : {
@@ -1549,6 +1601,82 @@
       "type" : "Text",
       "config" : {
         "label" : "aria_flight_estimate_loaded"
+      }
+    }
+  },
+  "Autocomplete instructions" : {
+    "autocomplete_no_results" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "autocomplete_no_results"
+      }
+    },
+    "autocomplete_query_too_short" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "autocomplete_query_too_short"
+      }
+    },
+    "autocomplete_status_selected_option" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "autocomplete_status_selected_option"
+      }
+    },
+    "autocomplete_status_no_results" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "autocomplete_status_no_results"
+      }
+    },
+    "autocomplete_assistive_hint" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "autocomplete_assistive_hint"
+      }
+    },
+    "autocomplete_help_text" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "autocomplete_help_text"
+      }
+    }
+  },
+  "Additional headers" : {
+    "nextgen_opener" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, strong, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "nextgen_opener"
+      }
+    },
+    "nextgen_opener_show" : {
+      "type" : "Boolean",
+      "config" : {
+        "default_value" : false,
+        "label" : "nextgen_opener_show"
+      }
+    },
+    "simplify_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "simplify_title"
+      }
+    },
+    "simplify_content" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, strong, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "simplify_content"
+      }
+    },
+    "simplify_content_show" : {
+      "type" : "Boolean",
+      "config" : {
+        "default_value" : false,
+        "label" : "simplify_content_show"
       }
     }
   }

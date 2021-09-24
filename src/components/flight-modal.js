@@ -30,6 +30,7 @@ const FlightModal = (props) => {
             <Modal.Footer>
                 <span className="mr-3">{localCurrencyDisplay(parseFloat(props.selectedFlightPrice))}</span>
                 <Button
+                    variant="primary"
                     onClick={() => {
                         props.setAcceptedFlight(parseFloat(props.selectedFlightPrice))
                         props.updateTransportationCost(parseFloat(props.selectedFlightPrice))

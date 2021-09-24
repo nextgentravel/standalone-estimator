@@ -15,6 +15,18 @@
         "label": "prototype_footer",
         "placeholder": "Text for Blue Bar explaining this is a prototype."
       }
+    },
+    "breadcrumb_home_text": {
+      "type": "Text",
+      "config": {
+        "label": "breadcrumb_home_text"
+      }
+    },
+    "breadcrumb_home_link": {
+      "type": "Text",
+      "config": {
+        "label": "breadcrumb_home_link"
+      }
     }
   },
   "Header": {
@@ -52,6 +64,7 @@
       "type": "StructuredText",
       "config": {
         "multi": "strong, em, hyperlink",
+        "allowTargetBlank": true,
         "label": "footer_text"
       }
     }

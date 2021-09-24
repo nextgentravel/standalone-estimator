@@ -1,17 +1,42 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Form from 'react-bootstrap/Form'
 
 const EmailForm = (props) => {
     let validationErrors = props.validationWarnings || []
+    let [errorPanel, setErrorPanel] = useState(false);
     function removeIsInvalid (path, errors) {
         let filtered = errors.filter(function(field) { return field.path !== path; });
         props.setEmailValidationWarnings(filtered);
     }
+
+    const errorList = () => {
+        let list = [];
+        list = validationErrors.map((error, index) =>
+            <li key={index}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
+        );
+        return list;
+    }
+
+    useEffect(() => {
+        if (validationErrors.length > 0) {
+            setErrorPanel(true)
+        } 
+    }, [validationErrors]);
+
     let validationErrorList = validationErrors.map(a => a.path) || [];
     return (
         <Form noValidate>
+            {errorPanel !== false && <div className="alert alert-danger alert-danger-banner" role="alert">
+                <h3>{props.messages.estimate_error_title}</h3>
+                <p>{props.messages.estimate_error_lead}</p>
+                <ul className="list-unstyled">
+                    {errorList()}
+                </ul>
+            </div>}
+
+
             <Form.Group as={Row} controlId="travellersName">
                 <Form.Label column sm="3">
                     {props.messages.email_form_travellers_name}
@@ -19,7 +44,9 @@ const EmailForm = (props) => {
                 <Col sm="9">
                     <Form.Control
                         isInvalid={validationErrorList.includes('travellersName')}
+                        aria-invalid={validationErrorList.includes('travellersName')}
                         required
+                        aria-required="true"
                         value={props.travellersName}
                         onChange={(e) => {
                             removeIsInvalid('travellersName', validationErrors)
@@ -31,7 +58,8 @@ const EmailForm = (props) => {
                     <Form.Text id="travellersNameHelp" muted>
                         {props.messages.email_form_travellers_name_placeholder}
                     </Form.Text>
-                    <Form.Control.Feedback type="invalid">
+                    <Form.Control.Feedback type="invalid" role="alert">
+                        <span className="sr-only">{props.messages.email_form_travellers_name}.{' '}</span>
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
                 </Col>
@@ -43,7 +71,9 @@ const EmailForm = (props) => {
                 <Col sm="9">
                     <Form.Control
                         isInvalid={validationErrorList.includes('travellersEmail')}
+                        aria-invalid={validationErrorList.includes('travellersEmail')}
                         required
+                        aria-required="true"
                         value={props.travellersEmail}
                         onChange={(e) => {
                             removeIsInvalid('travellersEmail', validationErrors)
@@ -55,7 +85,8 @@ const EmailForm = (props) => {
                     <Form.Text id="travellersEmailHelp" muted>
                         {props.messages.email_form_travellers_email_placeholder}
                     </Form.Text>
-                    <Form.Control.Feedback type="invalid">
+                    <Form.Control.Feedback type="invalid" role="alert">
+                        <span className="sr-only">{props.messages.email_form_travellers_email}.{' '}</span>
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
                     <Form.Check
@@ -78,7 +109,9 @@ const EmailForm = (props) => {
                 <Col sm="9">
                     <Form.Control
                         isInvalid={validationErrorList.includes('approversName')}
+                        aria-invalid={validationErrorList.includes('approversName')}
                         required
+                        aria-required="true"
                         value={props.approversName}
                         onChange={(e) => {
                             removeIsInvalid('approversName', validationErrors)
@@ -90,7 +123,8 @@ const EmailForm = (props) => {
                     <Form.Text id="approversNameHelp" muted>
                         {props.messages.email_form_approvers_name_placeholder}
                     </Form.Text>
-                    <Form.Control.Feedback type="invalid">
+                    <Form.Control.Feedback type="invalid" role="alert">
+                        <span className="sr-only">{props.messages.email_form_approvers_name}.{' '}</span>
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
                 </Col>
@@ -102,7 +136,9 @@ const EmailForm = (props) => {
                 <Col sm="9">
                     <Form.Control
                         isInvalid={validationErrorList.includes('approversEmail')}
+                        aria-invalid={validationErrorList.includes('approversEmail')}
                         required
+                        aria-required="true"
                         value={props.approversEmail}
                         onChange={(e) => {
                             removeIsInvalid('approversEmail', validationErrors)
@@ -114,7 +150,8 @@ const EmailForm = (props) => {
                     <Form.Text id="approversEmailHelp" muted>
                         {props.messages.email_form_approvers_email_placeholder}
                     </Form.Text>
-                    <Form.Control.Feedback type="invalid">
+                    <Form.Control.Feedback type="invalid" role="alert">
+                        <span className="sr-only">{props.messages.email_form_approvers_email}.{' '}</span>
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
                 </Col>
@@ -126,7 +163,9 @@ const EmailForm = (props) => {
                 <Col sm="9">
                     <Form.Control
                         isInvalid={validationErrorList.includes('tripName')}
+                        aria-invalid={validationErrorList.includes('tripName')}
                         required
+                        aria-required="true"
                         value={props.tripName}
                         onChange={(e) => {
                             removeIsInvalid('tripName', validationErrors)
@@ -135,7 +174,8 @@ const EmailForm = (props) => {
                         type="text"
                         aria-describedby="emailTripName"
                     />
-                    <Form.Control.Feedback type="invalid">
+                    <Form.Control.Feedback type="invalid" role="alert">
+                        <span className="sr-only">{props.messages.email_form_trip_name}.{' '}</span>
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
                     <Form.Text id="emailTripName" muted>
@@ -155,7 +195,9 @@ const EmailForm = (props) => {
                             props.setTravelCategory(e.target.value)
                         }}
                         isInvalid={validationErrorList.includes('travelCategory')}
+                        aria-invalid={validationErrorList.includes('travelCategory')}
                         required
+                        aria-required="true"
                     >
                         <option value='' disabled>{props.messages.select}</option>
                         {props.messages.email_form_category_options.map((item, index) => {
@@ -164,7 +206,8 @@ const EmailForm = (props) => {
                             )
                         })}
                     </Form.Control>
-                    <Form.Control.Feedback type="invalid">
+                    <Form.Control.Feedback type="invalid" role="alert">
+                        <span className="sr-only">{props.messages.email_form_category_label}.{' '}</span>
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
                 </Col>
@@ -176,6 +219,7 @@ const EmailForm = (props) => {
                 <Col sm="9">
                     <Form.Control
                         isInvalid={validationErrorList.includes('tripNotes')}
+                        aria-invalid={validationErrorList.includes('tripNotes')}
                         className="notes-box-placeholder"
                         value={props.tripNotes}
                         onChange={(e) => {
@@ -185,7 +229,8 @@ const EmailForm = (props) => {
                         placeholder={''}
                         aria-describedby="emailNotesBox"
                     />
-                    <Form.Control.Feedback type="invalid">
+                    <Form.Control.Feedback type="invalid" role="alert">
+                        <span className="sr-only">.{' '}</span>
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
                     <Form.Text id="emailNotesBox" muted>

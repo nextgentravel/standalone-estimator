@@ -79,7 +79,8 @@ label {
 }
 
 .goc-logo {
-    height: 1.8em;
+    margin-top: .4em;
+    height: 2em;
 }
 
 [class*="colcount-"] {
@@ -205,7 +206,7 @@ a:focus {
     position: relative;
     top: -1.5px;
     left: 0px;
-    color: $primary;
+    color: $secondary;
     margin-right: 15px;
 }
 
@@ -253,11 +254,11 @@ a:focus {
 }
 
 .footer-text a:link {
-    color: #7caad2;
+    color: #f9f4ee;
 }
 
 .footer-text a:visited {
-    color: #7caad2;
+    color: #f9f4ee;
 }
 
 .footer-text a:hover {
@@ -296,6 +297,29 @@ a:focus {
 
 .notes-box-placeholder {
     font-size: 0.8em;
+}
+
+.header-background {
+    background-color: #961700;
+}
+
+.card-columns {
+    @include media-breakpoint-only(xl) {
+      column-count: 2;
+    }
+    @include media-breakpoint-only(lg) {
+      column-count: 2;
+    }
+    @include media-breakpoint-only(md) {
+      column-count: 2;
+    }
+    @include media-breakpoint-only(sm) {
+      column-count: 1;
+    }
+}
+
+a {
+    text-decoration: underline;
 }
 
 /* body 

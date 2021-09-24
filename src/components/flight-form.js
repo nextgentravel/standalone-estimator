@@ -61,7 +61,12 @@ const FlightForm = (props) => {
     }
 
     const localCurrencyDisplay = (string) => {
-        return string.toLocaleString(props.locale, {minimumFractionDigits: 2, maximumFractionDigits: 2, style: 'currency', currency: 'CAD', currencyDisplay: 'symbol'}).replace('CA', '')
+        if (string) {
+            return string.toLocaleString(props.locale, {minimumFractionDigits: 2, maximumFractionDigits: 2, style: 'currency', currency: 'CAD', currencyDisplay: 'symbol'}).replace('CA', '')
+        } else {
+            return ''
+        }
+        
     }
 
     let times = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00']
@@ -119,9 +124,9 @@ const FlightForm = (props) => {
     
     let validationErrorList = validationErrors.map(a => a.path) || [];
 
-    let departureHeader = props.messages.flight_modal_leaving_header.replace('{originCity}', props.origin.acrdName).replace('{departureDate}', props.departureDate.format("LL"))
+    let departureHeader = props.messages.flight_modal_leaving_header.replace('{originCity}', props.origin.acrdName).replace('{departureDate}', props.departureDate)
 
-    let returnHeader = props.messages.flight_modal_return_header.replace('{destinationCity}', props.destination.acrdName).replace('{returnDate}', props.returnDate.format("LL"))
+    let returnHeader = props.messages.flight_modal_return_header.replace('{destinationCity}', props.destination.acrdName).replace('{returnDate}', props.returnDate)
 
     return (
         <>
@@ -148,49 +153,53 @@ const FlightForm = (props) => {
                         </Form.Control.Feedback>
                     </Col>
                 </Form.Group>
-                <Form.Group as={Row} className="mb-5">
-                    <Form.Label column sm="4">{props.messages.flight_modal_departure_time_label}</Form.Label>
-                    <Col sm="4">
-                        <Form.Control as="select"
-                            controlId="departureTime"
-                            value={props.departureTime}
-                            onChange={(e) => {
-                                props.setDepartureTime(e.target.value)
-                            }}
-                            isInvalid={validationErrorList.includes('departureTime')}
-                        >
-                            <option value='' disabled>{props.messages.select}</option>
-                            {times.map((item, index) => {
-                                return (
-                                    <option key={index} value={item}>{item}</option>
-                                )
-                            })}
-                        </Form.Control>
-                        <Form.Control.Feedback type="invalid">
-                            {props.messages.email_form_field_required}
-                        </Form.Control.Feedback>
-                    </Col>
-                    <Col sm="4">
-                        <Form.Control as="select"
-                            controlId="originOffset"
-                            value={props.departureOffset}
-                            onChange={(e) => {
-                                props.setDepartureOffset(e.target.value)
-                            }}
-                            isInvalid={validationErrorList.includes('originOffset')}
-                        >
-                            {offsetOptions.map((item, index) => {
-                                return (
-                                    <option key={index} value={item.value}>{item.label}</option>
-                                )
-                            })}
-                        </Form.Control>
-                        <Form.Control.Feedback type="invalid">
-                            {props.messages.email_form_field_required}
-                        </Form.Control.Feedback>
-                    </Col>
-
-                </Form.Group>
+                <fieldset>
+                    <Form.Group as={Row} className="mb-5">
+                        <Form.Label htmlFor="departureTime" column sm="4">{props.messages.flight_modal_departure_time_label}</Form.Label>
+                        <Col sm="4">
+                            <Form.Control as="select"
+                                controlId="departureTime"
+                                id="departureTime"
+                                value={props.departureTime}
+                                onChange={(e) => {
+                                    props.setDepartureTime(e.target.value)
+                                }}
+                                isInvalid={validationErrorList.includes('departureTime')}
+                            >
+                                <option value='' disabled>{props.messages.select}</option>
+                                {times.map((item, index) => {
+                                    return (
+                                        <option key={index} value={item}>{item}</option>
+                                    )
+                                })}
+                            </Form.Control>
+                            <Form.Control.Feedback type="invalid">
+                                {props.messages.email_form_field_required}
+                            </Form.Control.Feedback>
+                        </Col>
+                        <Col sm="4">
+                            <Form.Label htmlFor="originOffset" srOnly>{props.messages.flight_modal_departure_time_offset_label}</Form.Label>
+                            <Form.Control as="select"
+                                id="originOffset"
+                                controlId="originOffset"
+                                value={props.departureOffset}
+                                onChange={(e) => {
+                                    props.setDepartureOffset(e.target.value)
+                                }}
+                                isInvalid={validationErrorList.includes('originOffset')}
+                            >
+                                {offsetOptions.map((item, index) => {
+                                    return (
+                                        <option key={index} value={item.value}>{item.label}</option>
+                                    )
+                                })}
+                            </Form.Control>
+                            <Form.Control.Feedback type="invalid">
+                                {props.messages.email_form_field_required}
+                            </Form.Control.Feedback>
+                        </Col>
+                    </Form.Group>
+                </fieldset>
                 <h3 className="mb-4">{returnHeader}</h3>
                 <Form.Group as={Row} controlId="destinationAirport">
                     <Form.Label column sm="4">{props.messages.flight_modal_destination_airport_label}</Form.Label>
@@ -214,10 +223,11 @@ const FlightForm = (props) => {
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-4">
-                    <Form.Label column sm="4">{props.messages.flight_modal_return_time_label}</Form.Label>
+                    <Form.Label htmlFor="returnTime" column sm="4">{props.messages.flight_modal_return_time_label}</Form.Label>
                     <Col sm="4">
                         <Form.Control as="select"
                             value={props.returnTime}
+                            id="returnTime" 
                             controlId="returnTime" 
                             onChange={(e) => {
                                 props.setReturnTime(e.target.value)
@@ -236,7 +246,9 @@ const FlightForm = (props) => {
                         </Form.Control.Feedback>
                     </Col>
                     <Col sm="4">
+                    <Form.Label htmlFor="returnOffset" srOnly>{props.messages.flight_modal_return_time_offset_label}</Form.Label>
                         <Form.Control as="select"
+                            id="returnOffset"
                             controlId="returnOffset" 
                             value={props.returnOffset}
                             onChange={(e) => {
@@ -259,6 +271,7 @@ const FlightForm = (props) => {
                 <Form.Group as={Row} controlId="submitFlightEstimate" className="mb-5">
                     <Col sm="12">
                         <Button
+                            variant="primary"
                             onClick={() => {
                                 handleSubmitFlightRequestValidation()
                                     .then(async (valid) => {
@@ -278,9 +291,9 @@ const FlightForm = (props) => {
                                         props.setValidationWarnings(err.inner);
                                     });
                             }}
-                            className={`${flightLoading ? 'float-right disabled' : 'float-right'}`} variant="primary">{props.messages.flight_modal_fetch_flight_estimate_label}
+                            className={`${flightLoading ? 'float-right disabled' : 'float-right'}`}>{props.messages.flight_modal_fetch_flight_estimate_label}
                             {flightLoading && <FaSpinner className="float-right fa-spin ml-3 mt-1" size="24" />}
-                            <div role="status" class="sr-only" id="loading-sr">{screenReaderStatus}</div>
+                            <div role="status" className="sr-only" id="loading-sr">{screenReaderStatus}</div>
                             </Button>
                             
                     </Col>

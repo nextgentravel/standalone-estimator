@@ -984,6 +984,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.14.8":
+  version "7.15.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.15.4.tgz#fd17d16bfdf878e6dd02d19753a39fa8a8d9c84a"
+  integrity sha512-99catp6bHCaxr4sJ/DbTGgHS4+Rs2RVd2g7iOap6SLGPDknRK9ztKNsE/Fg6QhSeh1FGE5f6gHGQmvvn3I3xhw==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/runtime@^7.4.3":
   version "7.12.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
@@ -7022,6 +7029,13 @@ gatsby-plugin-imgix@^0.8.1:
     node-fetch "^2.6.0"
     param-case "^3.0.3"
 
+gatsby-plugin-layout@^2.13.0:
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-layout/-/gatsby-plugin-layout-2.13.0.tgz#e19b4035c1477f3dd983c8af3b6f603f0ac06e85"
+  integrity sha512-BkQwrOyAsuGdhZcFagDJeKipB+du8rQRudIoakKLPuDgst5sm/MgN1//YZUkHGiIKg9O2a6TTzrvD0ja75hL1A==
+  dependencies:
+    "@babel/runtime" "^7.14.8"
+
 gatsby-plugin-lunr@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-lunr/-/gatsby-plugin-lunr-1.5.2.tgz#eaeba70b85294827e031070c9bad70a93226e509"
@@ -10096,9 +10110,9 @@ lunr@^2.3.8:
   integrity sha512-oxMeX/Y35PNFuZoHp+jUj5OSEmLCaIH4KTFJh7a93cHBoFmpw2IoPs22VIz7vyO2YUnx2Tn9dzIwO2P/4quIRg==
 
 luxon@^1.24.1:
-  version "1.24.1"
-  resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.24.1.tgz#a8383266131ed4eaed4b5f430f96f3695403a52a"
-  integrity sha512-CgnIMKAWT0ghcuWFfCWBnWGOddM0zu6c4wZAWmD0NN7MZTnro0+833DF6tJep+xlxRPg4KtsYEHYLfTMBQKwYg==
+  version "1.28.0"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.28.0.tgz#e7f96daad3938c06a62de0fb027115d251251fbf"
+  integrity sha512-TfTiyvZhwBYM/7QdAVDh+7dBTBA29v4ik0Ce9zda3Mnf8on1S5KJI8P2jKFZ8+5C0jhmr0KwJEO/Wdpm0VeWJQ==
 
 magic-string@^0.25.3:
   version "0.25.7"
