@@ -4,7 +4,7 @@ const QuickReferenceCard = (props) => {
     return (
         <div className="card">
             <div className="card-header">
-                <h2 >{props.messages.quick_reference_title}</h2>
+                <h2 className='quick-reference-heading'>{props.messages.quick_reference_title}</h2>
             </div>
             <div className="card-body">
                 <ul className="card-columns">
