@@ -130,7 +130,7 @@ export default ({ data }) => {
                       aria-expanded="false"
                       onClick={() => setExplainerCollapsed(!explainerCollapsed)}
                     >
-                      <h2 className="explainer-heading">
+                      <h2 className="h3">
                         <FaCalculator size="20" className="mb-1 mr-2" />
                         {estimatorCopy.explainer_title.text}
                       </h2>
