@@ -1911,7 +1911,7 @@ const Estimator = () => {
 
             <div>
                 <button className="header-button btn btn-plain pb-3" aria-expanded={!disclaimerCollapsed} onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
-                    <h2 className="step-disclaimer-header">
+                    <h2 className="step-disclaimer-header h4">
                         {disclaimerCollapsed &&
                             <FaPlusCircle size="15" />}
                         {!disclaimerCollapsed &&
