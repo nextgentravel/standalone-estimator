@@ -93,75 +93,116 @@ export default ({ data }) => {
 
     return (
       <Layout>
-        <SEO title={homePageCopy.landing_page_title_2.text} lang={locale.substring(0,2)} />
+        <SEO
+          title={homePageCopy.landing_page_title_2.text}
+          lang={locale.substring(0, 2)}
+        />
         <w-screen mt-4="true" fluid="true" id="container">
           <div>
             <main id="main-content" role="main">
               <div className="container mt-4">
-                <div className="mb-5" dangerouslySetInnerHTML={{ __html: homePageCopy.landing_page_lead.html }}></div>
-                <h2 className="mb-4">{homePageCopy.landing_page_title_2.text}</h2>
-                <div className="mb-4" dangerouslySetInnerHTML={{ __html: homePageCopy.landing_page_content.html }}></div>
-                <a className="btn btn-primary mb-5" href={homePageCopy.land_page_action_button_link} role="button">{homePageCopy.landing_page_action_button_text}</a>
+                <div
+                  className="mb-5"
+                  dangerouslySetInnerHTML={{
+                    __html: homePageCopy.landing_page_lead.html,
+                  }}
+                ></div>
+                <h2 className="mb-4">
+                  {homePageCopy.landing_page_title_2.text}
+                </h2>
+                <div
+                  className="mb-4"
+                  dangerouslySetInnerHTML={{
+                    __html: homePageCopy.landing_page_content.html,
+                  }}
+                ></div>
+                <a
+                  className="btn btn-primary mb-5"
+                  href={homePageCopy.land_page_action_button_link}
+                  role="button"
+                >
+                  {homePageCopy.landing_page_action_button_text}
+                </a>
                 <div className="card bg-white py-4 px-5 mb-2">
                   <div className="row">
-                      <button className="col-sm-12 pl-2 pb-1 btn btn-plain" aria-expanded="false" onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
-                          <h2><FaCalculator size="20" className='mb-1 mr-2' />{estimatorCopy.explainer_title.text}</h2>
-                          {explainerCollapsed &&
-                              <FaCaretDown
-                                  size="25"
-                                  style={{
-                                      position: 'absolute',
-                                      right: 30,
-                                      top: 15,
-                                  }}
-                          />}
-                          {!explainerCollapsed &&
-                              <FaCaretUp
-                                  size="25"
-                                  style={{
-                                      position: 'absolute',
-                                      right: 30,
-                                      top: 15,
-                                  }}
-                              />
-                          }
-                      </button>
-                      {!explainerCollapsed &&
-                          <React.Fragment>
-                              <div className="col-sm-12 mt-2" dangerouslySetInnerHTML={{ __html: estimatorCopy.explainer_body.html }}>
-                              </div>
-                          </React.Fragment>
-                      }
-                      {explainerCollapsed &&
-                          <React.Fragment>
-                              <div className="col-sm-12" />
-                          </React.Fragment>
-                      }
+                    <button
+                      className="col-sm-12 pl-2 pb-1 btn btn-plain"
+                      aria-expanded="false"
+                      onClick={() => setExplainerCollapsed(!explainerCollapsed)}
+                    >
+                      <h2 className="explainer-heading">
+                        <FaCalculator size="20" className="mb-1 mr-2" />
+                        {estimatorCopy.explainer_title.text}
+                      </h2>
+                      {explainerCollapsed && (
+                        <FaCaretDown
+                          size="25"
+                          style={{
+                            position: "absolute",
+                            right: 30,
+                            top: 15,
+                          }}
+                        />
+                      )}
+                      {!explainerCollapsed && (
+                        <FaCaretUp
+                          size="25"
+                          style={{
+                            position: "absolute",
+                            right: 30,
+                            top: 15,
+                          }}
+                        />
+                      )}
+                    </button>
+                    {!explainerCollapsed && (
+                      <React.Fragment>
+                        <div
+                          className="col-sm-12 mt-2"
+                          dangerouslySetInnerHTML={{
+                            __html: estimatorCopy.explainer_body.html,
+                          }}
+                        ></div>
+                      </React.Fragment>
+                    )}
+                    {explainerCollapsed && (
+                      <React.Fragment>
+                        <div className="col-sm-12" />
+                      </React.Fragment>
+                    )}
                   </div>
-              </div>
-              <div>
-                  <button className="header-button btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
-                      <h4 className="step-disclaimer-header">
-                          {disclaimerCollapsed &&
-                              <FaPlusCircle size="15" />}
-                          {!disclaimerCollapsed &&
-                              <FaMinusCircle size="15" />
-                          }
-                          {formattedMessage('disclaimer')}
-                      </h4>
+                </div>
+                <div>
+                  <button
+                    className="header-button btn btn-plain pb-3"
+                    aria-expanded="false"
+                    onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}
+                  >
+                    <h4 className="step-disclaimer-header">
+                      {disclaimerCollapsed && <FaPlusCircle size="15" />}
+                      {!disclaimerCollapsed && <FaMinusCircle size="15" />}
+                      {formattedMessage("disclaimer")}
+                    </h4>
                   </button>
-                  {!disclaimerCollapsed &&
-                      <div className="px-5 pb-3">{formattedMessage('disclaimer_body')}</div>
-                  }
-                  {disclaimerCollapsed &&
-                      <div className="mb-4"></div>
-                  }
+                  {!disclaimerCollapsed && (
+                    <div className="px-5 pb-3">
+                      {formattedMessage("disclaimer_body")}
+                    </div>
+                  )}
+                  {disclaimerCollapsed && <div className="mb-4"></div>}
+                </div>
               </div>
-              </div>
-              {pos === "top" && <div dangerouslySetInnerHTML={{ __html: homePageCopy.prototype_footer.html }} className="prototype-banner fixed-bottom"></div>}
+              {pos === "top" && (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: homePageCopy.prototype_footer.html,
+                  }}
+                  className="prototype-banner fixed-bottom"
+                ></div>
+              )}
             </main>
           </div>
         </w-screen>
       </Layout>
-  )
+    )
 }
