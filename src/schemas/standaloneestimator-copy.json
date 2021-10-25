@@ -1679,5 +1679,91 @@
         "label" : "simplify_content_show"
       }
     }
+  },
+  "Icon Alt Tags" : {
+    "alt_for_fabed" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "alt_for_FaBed"
+      }
+    },
+    "alt_for_facalculator" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "alt_for_FaCalculator"
+      }
+    },
+    "alt_for_facaretdown" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "alt_for_FaCaretDown"
+      }
+    },
+    "alt_for_facaretup" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "alt_for_FaCaretUp"
+      }
+    },
+    "alt_for_facheckcircle" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "alt_for_FaCheckCircle"
+      }
+    },
+    "alt_for_faexclamationtriangle" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "alt_for_FaExclamationTriangle"
+      }
+    },
+    "alt_for_faminuscircle" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "alt_for_FaMinusCircle"
+      }
+    },
+    "alt_for_faplane" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "alt_for_FaPlane"
+      }
+    },
+    "alt_for_fapluscircle" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "alt_for_FaPlusCircle"
+      }
+    },
+    "alt_for_faquestioncircle" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "alt_for_FaQuestionCircle"
+      }
+    },
+    "alt_for_faspinner" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "alt_for_FaSpinner"
+      }
+    },
+    "alt_for_fasuitcase" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "alt_for_FaSuitcase"
+      }
+    },
+    "alt_for_fataxi" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "alt_for_FaTaxi"
+      }
+    },
+    "alt_for_fautensils" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "alt_for_FaUtensils"
+      }
+    }
   }
 }
