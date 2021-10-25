@@ -38,10 +38,12 @@ const SelectLanguage = (props) => {
     .filter(lang => !lang.selected)
     .map((lang, idx) => {
       return (
-      <React.Fragment key={idx}>
-        <Link to={lang.link} className="language-link d-none d-sm-block">{messages.site_other_language_name}</Link>
-        <abbr title={messages.site_other_language_name} className="d-sm-none language-link mrgn-tp-sm mrgn-bttm-0 text-uppercase"><Link to={lang.link}>{lang.langKey}</Link></abbr>
-      </React.Fragment>
+        <React.Fragment key={idx}>
+          <Link to={lang.link} className="language-link" lang={lang.langKey}>
+            <span className="d-none d-sm-block">{messages.site_other_language_name}{' '}</span>
+            <abbr title={messages.site_other_language_name} className="d-sm-none language-link mrgn-tp-sm mrgn-bttm-0 text-uppercase">{lang.langKey}</abbr>
+          </Link>
+        </React.Fragment>
     )});
   
 
