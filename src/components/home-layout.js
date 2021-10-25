@@ -178,11 +178,11 @@ export default ({ data }) => {
                     aria-expanded="false"
                     onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}
                   >
-                    <h4 className="step-disclaimer-header">
+                    <h2 className="step-disclaimer-header">
                       {disclaimerCollapsed && <FaPlusCircle size="15" />}
                       {!disclaimerCollapsed && <FaMinusCircle size="15" />}
                       {formattedMessage("disclaimer")}
-                    </h4>
+                    </h2>
                   </button>
                   {!disclaimerCollapsed && (
                     <div className="px-5 pb-3">
