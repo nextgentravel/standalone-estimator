@@ -54,6 +54,7 @@ const Estimator = () => {
     };
 
     const today = DateTime.now().toISODate();
+    const twentyYearsFromToday = DateTime.now().plus({ years: 20 }).toISODate();
 
     let locale = `${intl.locale}-ca`;
 
@@ -1444,6 +1445,7 @@ const Estimator = () => {
                             name="departureDate"
                             type="date"
                             min={today}
+                            max={twentyYearsFromToday}
                             lang={locale}
                             value={departureDate} 
                             className="form-control"
