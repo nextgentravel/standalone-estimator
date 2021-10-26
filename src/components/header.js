@@ -65,6 +65,14 @@ const Header = ({homeHeader}) => {
             </section>
           </div>
         </div>
+        <div className="container pl-0">
+          <nav aria-label="breadcrumb">
+            <ol className="breadcrumb">
+              <li className="breadcrumb-item"><a href={messages.breadcrumb_home_link}>{messages.breadcrumb_home_text}</a></li>
+              <li className="breadcrumb-item active" aria-current="page">{messages.title.text}</li>
+            </ol>
+          </nav>
+        </div>
         <div className="py-4 header-background mb-3">
           <div className="container">
             <div className="row">
@@ -73,14 +81,6 @@ const Header = ({homeHeader}) => {
                 </div>
             </div>
           </div>
-        </div>
-        <div className="container pl-0">
-          <nav aria-label="breadcrumb">
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item"><a href={messages.breadcrumb_home_link}>{messages.breadcrumb_home_text}</a></li>
-              <li className="breadcrumb-item active" aria-current="page">{messages.title.text}</li>
-            </ol>
-          </nav>
         </div>
       </header>
     </>
