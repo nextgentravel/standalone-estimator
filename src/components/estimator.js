@@ -1872,28 +1872,30 @@ const Estimator = () => {
             
             <div className="card bg-white py-4 px-5 mb-2">
                 <div className="row">
-                    <button className="col-sm-12 pl-2 pb-1 btn btn-plain" aria-expanded={!explainerCollapsed} onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
-                        <h3><FaCalculator size="20" className='mb-1 mr-2' />{localeCopy.explainer_title.text}</h3>
-                        {explainerCollapsed &&
-                            <FaCaretDown
-                                size="25"
-                                style={{
-                                    position: 'absolute',
-                                    right: 30,
-                                    top: 15,
-                                }}
-                        />}
-                        {!explainerCollapsed &&
-                            <FaCaretUp
-                                size="25"
-                                style={{
-                                    position: 'absolute',
-                                    right: 30,
-                                    top: 15,
-                                }}
-                            />
-                        }
-                    </button>
+                    <h3 className="col-sm-12 pl-2 pb-1">
+                        <button className="btn btn-plain" aria-expanded={!explainerCollapsed} onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
+                            <FaCalculator size="20" className='mb-1 mr-2' />{localeCopy.explainer_title.text}
+                            {explainerCollapsed &&
+                                <FaCaretDown
+                                    size="25"
+                                    style={{
+                                        position: 'absolute',
+                                        right: 30,
+                                        top: 15,
+                                    }}
+                            />}
+                            {!explainerCollapsed &&
+                                <FaCaretUp
+                                    size="25"
+                                    style={{
+                                        position: 'absolute',
+                                        right: 30,
+                                        top: 15,
+                                    }}
+                                />
+                            }
+                        </button>
+                    </h3>
                     {!explainerCollapsed &&
                         <React.Fragment>
                             <div className="col-sm-12 mt-2" dangerouslySetInnerHTML={{ __html: localeCopy.explainer_body.html }}>
@@ -1910,16 +1912,16 @@ const Estimator = () => {
 
 
             <div>
-                <button className="header-button btn btn-plain pb-3" aria-expanded={!disclaimerCollapsed} onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
-                    <h4 className="step-disclaimer-header">
-                        {disclaimerCollapsed &&
-                            <FaPlusCircle size="15" />}
-                        {!disclaimerCollapsed &&
-                            <FaMinusCircle size="15" />
-                        }
-                        {formattedMessage('disclaimer')}
-                    </h4>
-                </button>
+                <h4 className="step-disclaimer-header">
+                    <button className="header-button btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
+                      {disclaimerCollapsed &&
+                          <FaPlusCircle size="15" />}
+                      {!disclaimerCollapsed &&
+                          <FaMinusCircle size="15" />
+                      }
+                      {formattedMessage('disclaimer')}
+                    </button>
+                </h4>
                 {!disclaimerCollapsed &&
                     <div className="px-5 pb-3">{formattedMessage('disclaimer_body')}</div>
                 }
