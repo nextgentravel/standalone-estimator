@@ -1,0 +1,13 @@
+diff --git a/node_modules/gatsby-plugin-google-fonts/gatsby-ssr.js b/node_modules/gatsby-plugin-google-fonts/gatsby-ssr.js
+index 2696289..c54ed63 100644
+--- a/node_modules/gatsby-plugin-google-fonts/gatsby-ssr.js
++++ b/node_modules/gatsby-plugin-google-fonts/gatsby-ssr.js
+@@ -22,7 +22,7 @@ var format = function format(string) {
+ var getFonts = function getFonts(options) {
+   return options.fonts
+     .map(format)
+-    .join('|')
++    .join('%7C')
+     .replace(/ /g, '+')
+ }
+ 
