@@ -35,6 +35,7 @@ import amadeusFlightOffer from '../api-calls/amadeusFlightOffer'
 import fetchDistanceBetweenPlaces from '../api-calls/fetchDistanceBetweenPlaces'
 
 import './extra/estimator-print.css'
+import EmailErrorModal from "./email-error-modal.js"
 
 let initialDeparture = ""
 let initialReturn = ""
@@ -549,6 +550,7 @@ const Estimator = () => {
     const [applicableRates, setApplicableRates] = useState([]);
 
     const [emailModalShow, setEmailModalShow] = useState(false);
+    const [emailErrorModalShow, setEmailErrorModalShow]=useState(false);
     const [emailRequestLoading, setEmailRequestLoading] = useState(false);
     const [emailConfirmationModalShow, setEmailConfirmationModalShow] = useState(false);
     const [emailRequestResult, setEmailRequestResult] = useState({});
@@ -1320,6 +1322,7 @@ const Estimator = () => {
 
     return (
         <div className="mb-4">
+            <EmailErrorModal show={emailErrorModalShow} onHide={() => setEmailErrorModalShow(false)}/>
             <EmailModal
                 validationWarnings={emailValidationWarnings}
                 setEmailValidationWarnings={setEmailValidationWarnings}
