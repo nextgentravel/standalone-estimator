@@ -16,8 +16,9 @@ const EmailErrorModal = (props) => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-            <span dangerouslySetInnerHTML={{ __html: props.errorMessage.html }}></span>
-
+                <div role='alert'>
+                    <span dangerouslySetInnerHTML={{ __html: props.errorMessage.html }}></span>
+                </div>
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="outline-dark" onClick={() => {
