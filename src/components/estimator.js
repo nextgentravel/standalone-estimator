@@ -1872,8 +1872,8 @@ const Estimator = () => {
             
             <div className="card bg-white py-4 px-5 mb-2">
                 <div className="row">
-                    <h3 className="col-sm-12 pl-2 pb-1">
-                        <button className="btn btn-plain" aria-expanded={!explainerCollapsed} onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
+                    <h3 className="col-sm-12 pl-2 pb-1 pt-2">
+                        <button className="btn button-explainer block" aria-expanded={!explainerCollapsed} onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
                             <FaCalculator size="20" className='mb-1 mr-2' />{localeCopy.explainer_title.text}
                             {explainerCollapsed &&
                                 <FaCaretDown
@@ -1911,15 +1911,15 @@ const Estimator = () => {
             </div>
 
 
-            <div>
-                <h4 className="step-disclaimer-header">
-                    <button className="header-button btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
+            <div className="mb-4">
+                <h4 className="step-disclaimer-header mt-5 pl-4">
+                    <button className="button-explainer btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
                       {disclaimerCollapsed &&
-                          <FaPlusCircle size="15" />}
+                          <FaPlusCircle size="15" className='mb-1 mr-2' />}
                       {!disclaimerCollapsed &&
-                          <FaMinusCircle size="15" />
+                          <FaMinusCircle size="15" className='mb-1 mr-2' />
                       }
-                      {formattedMessage('disclaimer')}
+                      <span>{formattedMessage('disclaimer')}</span>
                     </button>
                 </h4>
                 {!disclaimerCollapsed &&
