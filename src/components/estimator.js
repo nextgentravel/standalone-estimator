@@ -1439,7 +1439,9 @@ const Estimator = () => {
                     </div>
                     <div className="col-sm-3"></div>
                     <div className="col-sm-3">
-                        <label htmlFor="departureDate">{localeCopy.datepicker_start_date}</label>
+                        <label htmlFor="departureDate">{localeCopy.datepicker_start_date}
+                            <small id="departure-datepicker-help" className="form-text">{localeCopy.date_format_description}</small>
+                        </label>
                         <input
                             id="departureDate"
                             name="departureDate"
@@ -1448,15 +1450,16 @@ const Estimator = () => {
                             max={twentyYearsFromToday}
                             lang={locale}
                             value={departureDate} 
-                            className="form-control"
+                            className="form-control mb-4"
                             onChange={(event) => {
                                 setDepartureDate(event.target.value)
                             }}
-                            aria-describedby="datepicker-help"
                         />
                     </div>
                     <div className="col-sm-3">
-                        <label htmlFor="returnDate">{localeCopy.datepicker_end_date}</label>
+                        <label htmlFor="returnDate">{localeCopy.datepicker_end_date}
+                            <small id="return-datepicker-help" className="form-text">{localeCopy.date_format_description}</small>
+                        </label>
                         <input
                             id="returnDate"
                             name="returnDate"
@@ -1469,12 +1472,9 @@ const Estimator = () => {
                                 console.log('Date', event.target.value)
                                 setReturnDate(event.target.value)
                             }}
-                            aria-describedby="datepicker-help"
                         />
                     </div>
-                    <div className="col-sm-12 mb-4 pl-4 ">
-                        <small id="datepicker-help" className="form-text">{localeCopy.date_format_description}</small>
-                    </div>
+                    
                     <div className="col-sm-3"></div>
                     <div className="col-sm-12">
                         {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
