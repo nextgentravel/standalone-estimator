@@ -23,7 +23,7 @@ const EmailModal = (props) => {
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="primary" onClick={props.sendEmail} className={`${props.emailRequestLoading ? 'disabled' : ''}`} >{props.messages.email_modal_submit}</Button>
-                {props.emailRequestLoading && <FaSpinner className="fa-spin ml-3" size="24" />}
+                {props.emailRequestLoading && <FaSpinner focusable="false" aria-hidden="true" title={props.messages.alt_for_faspinner}  className="fa-spin ml-3" size="24" />}
             </Modal.Footer>
       </Modal>
     )

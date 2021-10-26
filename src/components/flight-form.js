@@ -292,7 +292,7 @@ const FlightForm = (props) => {
                                     });
                             }}
                             className={`${flightLoading ? 'float-right disabled' : 'float-right'}`}>{props.messages.flight_modal_fetch_flight_estimate_label}
-                            {flightLoading && <FaSpinner className="float-right fa-spin ml-3 mt-1" size="24" />}
+                            {flightLoading && <FaSpinner focusable="false" aria-hidden="true" title={props.messages.alt_for_faspinner}  className="float-right fa-spin ml-3 mt-1" size="24" />}
                             <div role="status" className="sr-only" id="loading-sr">{screenReaderStatus}</div>
                             </Button>
                             

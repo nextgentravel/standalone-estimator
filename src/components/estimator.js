@@ -377,6 +377,20 @@ const Estimator = () => {
                     is_required
                     email_error_modal_title
                     email_error_modal_close_text
+                    alt_for_fabed
+                    alt_for_facalculator
+                    alt_for_facaretdown
+                    alt_for_facaretup
+                    alt_for_facheckcircle
+                    alt_for_faexclamationtriangle
+                    alt_for_faminuscircle
+                    alt_for_faplane
+                    alt_for_fapluscircle
+                    alt_for_faquestioncircle
+                    alt_for_faspinner
+                    alt_for_fasuitcase
+                    alt_for_fataxi
+                    alt_for_fautensils
                 }
             }
         }
@@ -1404,7 +1418,7 @@ const Estimator = () => {
 
             {localeCopy.simplify_content_show && <div>
                 <h2 className="mb-4">{localeCopy.simplify_title}</h2>
-                <div>{formattedMessage('simplify_content')}</div>
+                <div dangerouslySetInnerHTML={{ __html: localeCopy.simplify_content.html }}></div>
             </div>}
 
             <section className="card bg-light p-4 mb-4 mt-5">
@@ -1488,14 +1502,14 @@ const Estimator = () => {
                         {showClear &&
                             <button type="button" id="clear-button" className="btn btn-outline-dark px-5 ml-3" onClick={() => {clearForm()}}>{formattedMessage('clear')}</button>
                         }
-                        {loading && <FaSpinner className="fa-spin ml-3" size="24" />}
+                        {loading && <FaSpinner focusable="false" aria-hidden="true" title={localeCopy.alt_for_faspinner}  className="fa-spin ml-3" size="24" />}
                         <div role="status" className="sr-only" id="loading-sr">{screenReaderStatus}</div>
                     </div>
                 </form>
 
                 {generalError && <div className="alert-icon alert-danger">
                     <div className="icon" aria-hidden="true">
-                        <FaExclamationTriangle size="24" />
+                        <FaExclamationTriangle focusable="false" aria-hidden="true" title={localeCopy.alt_for_faexclamationtriangle}  size="24" />
                     </div>
                     <div className="message">
                         <h3>{formattedMessage('estimate_application_error')}</h3>
@@ -1508,7 +1522,7 @@ const Estimator = () => {
                         <h3 className="mb-4">{formattedMessage('estimate_summary_title')}</h3>
                         <div className="row mb-4">
                             <div className="col-sm-12 mb-2">
-                                <label htmlFor="accommodation_select"><FaBed className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('accommodation')}</label>
+                                <label htmlFor="accommodation_select"><FaBed focusable="false" aria-hidden="true" title={localeCopy.alt_for_fabed} className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('accommodation')}</label>
                             </div>
                             <div className="col-sm-4 align-self-center">
                                 <div className="align-self-center">
@@ -1588,7 +1602,7 @@ const Estimator = () => {
                                                                 overlay={renderAccommodationTooltip}
                                                             >
                                                                 <button type="button" className="btn btn-default" aria-label={formattedMessage('accommodation_tooltip')}>
-                                                                    <FaQuestionCircle className="ml-2 mb-1" size="15" fill="#9E9E9E" />
+                                                                    <FaQuestionCircle focusable="false" aria-hidden="true" title={localeCopy.alt_for_faquestioncircle}  className="ml-2 mb-1" size="15" fill="#9E9E9E" />
                                                                 </button>
                                                             </OverlayTrigger>
                                                         </>
@@ -1646,7 +1660,7 @@ const Estimator = () => {
 
                         <div className="row mb-4">
                             <div className="col-sm-12 mb-2">
-                                <label htmlFor="transportation_select"><FaPlane className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('transportation')}</label>
+                                <label htmlFor="transportation_select"><FaPlane focusable="false" aria-hidden="true" title={localeCopy.alt_for_faplane}  className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('transportation')}</label>
                             </div>
                             <div className="col-sm-4 align-self-center">
                                 <div className="align-self-center">
@@ -1792,8 +1806,8 @@ const Estimator = () => {
                             ariaLabel={formattedMessage('local_transportation_total')}
                             id="localTransportation"
                             description="localTransportationDescription"
-                            icon={<FaTaxi className="mr-2" size="25" fill="#9E9E9E" />}
-                            title={formattedMessage("local_transportation")}
+                            icon={<FaTaxi focusable="false" aria-hidden="true" title={localeCopy.alt_for_fataxi}  className="mr-2" size="25" fill="#9E9E9E" />}
+                            aria-hidden="true" title={formattedMessage("local_transportation")}
                             calculateTotal={calculateTotal}
                             updateCost={setLocalTransportationCost}
                             message={localTransportationMessage}
@@ -1812,8 +1826,8 @@ const Estimator = () => {
                                 element: 
                                     result ? <>{formattedMessage('select_meals_description')} <a href="/" onClick={(e) => {handleMealsModalShow(e)}}>{formattedMessage('select_meals_link')}</a></> : <span></span>
                             }}
-                            icon={<FaUtensils className="mr-2" size="25" fill="#9E9E9E" />}
-                            title={formattedMessage("meals_and_incidentals")}
+                            icon={<FaUtensils focusable="false" aria-hidden="true" title={localeCopy.alt_for_fautensils}  className="mr-2" size="25" fill="#9E9E9E" />}
+                            aria-hidden="true" title={formattedMessage("meals_and_incidentals")}
                             calculateTotal={calculateTotal}
                             updateCost={(amount) => setMealCost({ total: amount })}
                             readOnly={true}
@@ -1827,8 +1841,8 @@ const Estimator = () => {
                             ariaLabel={formattedMessage('other_allowances_total')}
                             id="otherAllowances"
                             message={{ element: result ? formattedMessage('other_allowances_message') : <span></span>}}
-                            icon={<FaSuitcase className="mr-2" size="25" fill="#9E9E9E" />}
-                            title={formattedMessage("other_allowances")}
+                            icon={<FaSuitcase focusable="false" aria-hidden="true" title={localeCopy.alt_for_fasuitcase}  className="mr-2" size="25" fill="#9E9E9E" />}
+                            aria-hidden="true" title={formattedMessage("other_allowances")}
                             calculateTotal={calculateTotal}
                             updateCost={setOtherCost}
                             tooltipIcon={FaQuestionCircle}
@@ -1871,10 +1885,11 @@ const Estimator = () => {
             
             <div className="card bg-white py-4 px-5 mb-2">
                 <div className="row">
-                    <button className="col-sm-12 pl-2 pb-1 btn btn-plain" aria-expanded={!explainerCollapsed} onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
-                        <h3><FaCalculator size="20" className='mb-1 mr-2' />{localeCopy.explainer_title.text}</h3>
-                        {explainerCollapsed &&
-                            <FaCaretDown
+                    <h2 className="col-sm-12 pl-2 pb-1 pt-2 h3">
+                        <button className="btn button-explainer block" aria-expanded={!explainerCollapsed} onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
+                            <FaCalculator focusable="false" aria-hidden="true" title={localeCopy.alt_for_facalculator}  size="20" className='mb-1 mr-2' />{localeCopy.explainer_title.text}
+                            {explainerCollapsed &&
+                                <FaCaretDown focusable="false" aria-hidden="true" title={localeCopy.alt_for_facaretdown} 
                                 size="25"
                                 style={{
                                     position: 'absolute',
@@ -1882,8 +1897,8 @@ const Estimator = () => {
                                     top: 15,
                                 }}
                         />}
-                        {!explainerCollapsed &&
-                            <FaCaretUp
+                            {!explainerCollapsed &&
+                                <FaCaretUp focusable="false" aria-hidden="true" title={localeCopy.alt_for_facaretup} 
                                 size="25"
                                 style={{
                                     position: 'absolute',
@@ -1891,8 +1906,9 @@ const Estimator = () => {
                                     top: 15,
                                 }}
                             />
-                        }
-                    </button>
+                            }
+                        </button>
+                    </h2>
                     {!explainerCollapsed &&
                         <React.Fragment>
                             <div className="col-sm-12 mt-2" dangerouslySetInnerHTML={{ __html: localeCopy.explainer_body.html }}>
@@ -1906,19 +1922,17 @@ const Estimator = () => {
                     }
                 </div>
             </div>
-
-
-            <div>
-                <button className="header-button btn btn-plain pb-3" aria-expanded={!disclaimerCollapsed} onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
-                    <h4 className="step-disclaimer-header">
-                        {disclaimerCollapsed &&
-                            <FaPlusCircle size="15" />}
-                        {!disclaimerCollapsed &&
-                            <FaMinusCircle size="15" />
-                        }
-                        {formattedMessage('disclaimer')}
-                    </h4>
-                </button>
+            <div className="mb-4">
+                <h2 className="step-disclaimer-header mt-5 pl-4 h4">
+                    <button className="button-explainer btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
+                      {disclaimerCollapsed &&
+                          <FaPlusCircle focusable="false" aria-hidden="true" title={localeCopy.alt_for_fapluscircle}  size="15" />}
+                      {!disclaimerCollapsed &&
+                          <FaMinusCircle focusable="false" aria-hidden="true" title={localeCopy.alt_for_faminuscircle}  size="15" />
+                      }
+                      <span>{formattedMessage('disclaimer')}</span>
+                    </button>
+                </h2>
                 {!disclaimerCollapsed &&
                     <div className="px-5 pb-3">{formattedMessage('disclaimer_body')}</div>
                 }

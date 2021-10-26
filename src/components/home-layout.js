@@ -93,7 +93,7 @@ export default ({ data }) => {
 
     return (
       <Layout>
-        <SEO title={homePageCopy.landing_page_title_2.text} lang={locale.substring(0,2)} />
+        <SEO aria-hidden="true" title={homePageCopy.landing_page_title_2.text} lang={locale.substring(0,2)} />
         <w-screen mt-4="true" fluid="true" id="container">
           <div>
             <main id="main-content" role="main">
@@ -105,9 +105,9 @@ export default ({ data }) => {
                 <div className="card bg-white py-4 px-5 mb-2">
                   <div className="row">
                       <button className="col-sm-12 pl-2 pb-1 btn btn-plain" aria-expanded="false" onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
-                          <h3><FaCalculator size="20" className='mb-1 mr-2' />{estimatorCopy.explainer_title.text}</h3>
+                          <h2 className='h3'><FaCalculator focusable="false" aria-hidden="true" title={localeCopy.alt_for_facalculator}  focusable="false" aria-hidden="true" title={localeCopy.alt_for_facalculator}  size="20" className='mb-1 mr-2' />{estimatorCopy.explainer_title.text}</h2>
                           {explainerCollapsed &&
-                              <FaCaretDown
+                              <FaCaretDown focusable="false" aria-hidden="true" title={localeCopy.alt_for_facaretdown} 
                                   size="25"
                                   style={{
                                       position: 'absolute',
@@ -116,7 +116,7 @@ export default ({ data }) => {
                                   }}
                           />}
                           {!explainerCollapsed &&
-                              <FaCaretUp
+                              <FaCaretUp focusable="false" aria-hidden="true" title={localeCopy.alt_for_facaretup} 
                                   size="25"
                                   style={{
                                       position: 'absolute',
@@ -139,23 +139,23 @@ export default ({ data }) => {
                       }
                   </div>
               </div>
-              <div>
-                  <button className="header-button btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
-                      <h4 className="step-disclaimer-header">
-                          {disclaimerCollapsed &&
-                              <FaPlusCircle size="15" />}
-                          {!disclaimerCollapsed &&
-                              <FaMinusCircle size="15" />
-                          }
-                          {formattedMessage('disclaimer')}
-                      </h4>
-                  </button>
-                  {!disclaimerCollapsed &&
-                      <div className="px-5 pb-3">{formattedMessage('disclaimer_body')}</div>
-                  }
-                  {disclaimerCollapsed &&
-                      <div className="mb-4"></div>
-                  }
+              <div className="mb-4">
+                <h4 className="step-disclaimer-header mt-5 pl-4">
+                    <button className="button-explainer btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
+                      {disclaimerCollapsed &&
+                          <FaPlusCircle focusable="false" aria-hidden="true" title={localeCopy.alt_for_fapluscircle}  size="15" />}
+                      {!disclaimerCollapsed &&
+                          <FaMinusCircle focusable="false" aria-hidden="true" title={localeCopy.alt_for_faminuscircle}  size="15" />
+                      }
+                      <span>{formattedMessage('disclaimer')}</span>
+                    </button>
+                </h4>
+                {!disclaimerCollapsed &&
+                    <div className="px-5 pb-3">{formattedMessage('disclaimer_body')}</div>
+                }
+                {disclaimerCollapsed &&
+                    <div className="mb-4"></div>
+                }
               </div>
               </div>
               {pos === "top" && <div dangerouslySetInnerHTML={{ __html: homePageCopy.prototype_footer.html }} className="prototype-banner fixed-bottom"></div>}
