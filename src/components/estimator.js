@@ -1413,7 +1413,7 @@ const Estimator = () => {
 
             {localeCopy.simplify_content_show && <div>
                 <h2 className="mb-4">{localeCopy.simplify_title}</h2>
-                <div>{formattedMessage('simplify_content')}</div>
+                <div dangerouslySetInnerHTML={{ __html: localeCopy.simplify_content.html }}></div>
             </div>}
 
             <section className="card bg-light p-4 mb-4 mt-5">
@@ -1888,10 +1888,11 @@ const Estimator = () => {
             
             <div className="card bg-white py-4 px-5 mb-2">
                 <div className="row">
-                    <button className="col-sm-12 pl-2 pb-1 btn btn-plain" aria-expanded={!explainerCollapsed} onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
-                        <h2 className='h3'><FaCalculator focusable="false" aria-hidden="true" title={localeCopy.alt_for_facalculator}  size="20" className='mb-1 mr-2' />{localeCopy.explainer_title.text}</h2>
-                        {explainerCollapsed &&
-                            <FaCaretDown focusable="false" aria-hidden="true" title={localeCopy.alt_for_facaretdown} 
+                    <h2 className="col-sm-12 pl-2 pb-1 pt-2 h3">
+                        <button className="btn button-explainer block" aria-expanded={!explainerCollapsed} onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
+                            <FaCalculator focusable="false" aria-hidden="true" title={localeCopy.alt_for_facalculator}  size="20" className='mb-1 mr-2' />{localeCopy.explainer_title.text}
+                            {explainerCollapsed &&
+                                <FaCaretDown focusable="false" aria-hidden="true" title={localeCopy.alt_for_facaretdown} 
                                 size="25"
                                 style={{
                                     position: 'absolute',
@@ -1899,8 +1900,8 @@ const Estimator = () => {
                                     top: 15,
                                 }}
                         />}
-                        {!explainerCollapsed &&
-                            <FaCaretUp focusable="false" aria-hidden="true" title={localeCopy.alt_for_facaretup} 
+                            {!explainerCollapsed &&
+                                <FaCaretUp focusable="false" aria-hidden="true" title={localeCopy.alt_for_facaretup} 
                                 size="25"
                                 style={{
                                     position: 'absolute',
@@ -1908,8 +1909,9 @@ const Estimator = () => {
                                     top: 15,
                                 }}
                             />
-                        }
-                    </button>
+                            }
+                        </button>
+                    </h2>
                     {!explainerCollapsed &&
                         <React.Fragment>
                             <div className="col-sm-12 mt-2" dangerouslySetInnerHTML={{ __html: localeCopy.explainer_body.html }}>
@@ -1923,19 +1925,17 @@ const Estimator = () => {
                     }
                 </div>
             </div>
-
-
-            <div>
-                <button className="header-button btn btn-plain pb-3" aria-expanded={!disclaimerCollapsed} onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
-                    <h2 className="step-disclaimer-header h4">
-                        {disclaimerCollapsed &&
-                            <FaPlusCircle focusable="false" aria-hidden="true" title={localeCopy.alt_for_fapluscircle}  size="15" />}
-                        {!disclaimerCollapsed &&
-                            <FaMinusCircle focusable="false" aria-hidden="true" title={localeCopy.alt_for_faminuscircle}  size="15" />
-                        }
-                        {formattedMessage('disclaimer')}
-                    </h2>
-                </button>
+            <div className="mb-4">
+                <h2 className="step-disclaimer-header mt-5 pl-4 h4">
+                    <button className="button-explainer btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
+                      {disclaimerCollapsed &&
+                          <FaPlusCircle focusable="false" aria-hidden="true" title={localeCopy.alt_for_fapluscircle}  size="15" />}
+                      {!disclaimerCollapsed &&
+                          <FaMinusCircle focusable="false" aria-hidden="true" title={localeCopy.alt_for_faminuscircle}  size="15" />
+                      }
+                      <span>{formattedMessage('disclaimer')}</span>
+                    </button>
+                </h2>
                 {!disclaimerCollapsed &&
                     <div className="px-5 pb-3">{formattedMessage('disclaimer_body')}</div>
                 }
