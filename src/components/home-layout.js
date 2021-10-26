@@ -140,7 +140,7 @@ export default ({ data }) => {
                   </div>
               </div>
               <div>
-                  <button className="header-button btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
+                  <div className="header-button btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
                       <h4 className="step-disclaimer-header">
                           {disclaimerCollapsed &&
                               <FaPlusCircle size="15" />}
@@ -149,7 +149,7 @@ export default ({ data }) => {
                           }
                           {formattedMessage('disclaimer')}
                       </h4>
-                  </button>
+                  </div>
                   {!disclaimerCollapsed &&
                       <div className="px-5 pb-3">{formattedMessage('disclaimer_body')}</div>
                   }
