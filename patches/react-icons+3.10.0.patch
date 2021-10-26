@@ -1,0 +1,38 @@
+diff --git a/node_modules/react-icons/lib/cjs/iconBase.js b/node_modules/react-icons/lib/cjs/iconBase.js
+index d4557dd..1cfc612 100644
+--- a/node_modules/react-icons/lib/cjs/iconBase.js
++++ b/node_modules/react-icons/lib/cjs/iconBase.js
+@@ -38,6 +38,7 @@ function IconBase(props) {
+         if (props.className)
+             className = (className ? className + ' ' : '') + props.className;
+         var attr = props.attr, title = props.title, svgProps = __rest(props, ["attr", "title"]);
++        delete svgProps['size'];
+         return (React.createElement("svg", __assign({ stroke: "currentColor", fill: "currentColor", strokeWidth: "0" }, conf.attr, attr, svgProps, { className: className, style: __assign({ color: props.color || conf.color }, conf.style, props.style), height: computedSize, width: computedSize, xmlns: "http://www.w3.org/2000/svg" }),
+             title && React.createElement("title", null, title),
+             props.children));
+diff --git a/node_modules/react-icons/lib/esm/iconBase.js b/node_modules/react-icons/lib/esm/iconBase.js
+index 85a5705..96546d9 100644
+--- a/node_modules/react-icons/lib/esm/iconBase.js
++++ b/node_modules/react-icons/lib/esm/iconBase.js
+@@ -50,6 +50,8 @@ export function IconBase(props) {
+         title = props.title,
+         svgProps = __rest(props, ["attr", "title"]);
+ 
++    delete svgProps['size'];
++
+     return React.createElement("svg", __assign({
+       stroke: "currentColor",
+       fill: "currentColor",
+diff --git a/node_modules/react-icons/src/iconBase.tsx b/node_modules/react-icons/src/iconBase.tsx
+index c779232..225dd5a 100644
+--- a/node_modules/react-icons/src/iconBase.tsx
++++ b/node_modules/react-icons/src/iconBase.tsx
+@@ -35,7 +35,7 @@ export function IconBase(props:IconBaseProps & { attr: {} | undefined }): JSX.El
+     if (conf.className) className = conf.className;
+     if (props.className) className = (className ? className + ' ' : '') + props.className;
+     const {attr, title, ...svgProps} = props;
+-
++    delete svgProps['size'];
+     return (
+       <svg
+         stroke="currentColor"
