@@ -16,10 +16,12 @@ const EmailErrorModal = (props) => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                This is a danger alert—check it out!
+            <span dangerouslySetInnerHTML={{ __html: props.errorMessage.html }}></span>
+
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-dark"  >Close</Button>
+                <Button variant="outline-dark" onClick={() => {
+                    props.onHide()}} >Close</Button>
             </Modal.Footer>
       </Modal>
     )}

@@ -1322,7 +1322,7 @@ const Estimator = () => {
 
     return (
         <div className="mb-4">
-            <EmailErrorModal show={emailErrorModalShow} onHide={() => setEmailErrorModalShow(false)}/>
+            <EmailErrorModal show={emailErrorModalShow} onHide={() => setEmailErrorModalShow(false)} errorMessage={localeCopy.email_field_disabled_message}/>
             <EmailModal
                 validationWarnings={emailValidationWarnings}
                 setEmailValidationWarnings={setEmailValidationWarnings}
@@ -1849,7 +1849,7 @@ const Estimator = () => {
                                     className='px-5 mb-2'
                                     onClick={() => {
                                             if (!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired')) {
-                                                return
+                                                setEmailErrorModalShow(true)
                                             } else {
                                                 setEmailModalShow(true)
                                             }
