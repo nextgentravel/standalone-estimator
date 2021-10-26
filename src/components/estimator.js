@@ -1398,7 +1398,7 @@ const Estimator = () => {
 
             {localeCopy.simplify_content_show && <div>
                 <h2 className="mb-4">{localeCopy.simplify_title}</h2>
-                <div>{formattedMessage('simplify_content')}</div>
+                <div dangerouslySetInnerHTML={{ __html: localeCopy.simplify_content.html }}></div>
             </div>}
 
             <section className="card bg-light p-4 mb-4 mt-5">
