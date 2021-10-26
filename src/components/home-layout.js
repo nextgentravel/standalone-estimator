@@ -139,23 +139,23 @@ export default ({ data }) => {
                       }
                   </div>
               </div>
-              <div>
-                  <button className="header-button btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
-                      <h4 className="step-disclaimer-header">
-                          {disclaimerCollapsed &&
-                              <FaPlusCircle size="15" />}
-                          {!disclaimerCollapsed &&
-                              <FaMinusCircle size="15" />
-                          }
-                          {formattedMessage('disclaimer')}
-                      </h4>
-                  </button>
-                  {!disclaimerCollapsed &&
-                      <div className="px-5 pb-3">{formattedMessage('disclaimer_body')}</div>
-                  }
-                  {disclaimerCollapsed &&
-                      <div className="mb-4"></div>
-                  }
+              <div className="mb-4">
+                <h4 className="step-disclaimer-header mt-5 pl-4">
+                    <button className="button-explainer btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
+                      {disclaimerCollapsed &&
+                          <FaPlusCircle size="15" className='mb-1 mr-2' />}
+                      {!disclaimerCollapsed &&
+                          <FaMinusCircle size="15" className='mb-1 mr-2' />
+                      }
+                      <span>{formattedMessage('disclaimer')}</span>
+                    </button>
+                </h4>
+                {!disclaimerCollapsed &&
+                    <div className="px-5 pb-3">{formattedMessage('disclaimer_body')}</div>
+                }
+                {disclaimerCollapsed &&
+                    <div className="mb-4"></div>
+                }
               </div>
               </div>
               {pos === "top" && <div dangerouslySetInnerHTML={{ __html: homePageCopy.prototype_footer.html }} className="prototype-banner fixed-bottom"></div>}

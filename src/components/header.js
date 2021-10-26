@@ -60,7 +60,7 @@ const Header = ({homeHeader}) => {
               </div>
             }
             <section className='text-right align-self-center ml-auto'>
-              <p className="sr-only sr-only-focusable aurora-skip">{messages.header_language_select}</p>
+              <h2 className="sr-only sr-only-focusable aurora-skip">{messages.header_language_select}</h2>
               <SelectLanguage />
             </section>
           </div>
