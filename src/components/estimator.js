@@ -1861,13 +1861,6 @@ const Estimator = () => {
                                         {formattedMessage('email')}
                                 </Button>
                             </div>
-                            {(!result || transportationType === '' || accommodationType === '') &&
-                                <div className="col-sm-12">
-                                    <small id="email-button-validation" className="form-text">
-                                        <span dangerouslySetInnerHTML={{ __html: localeCopy.email_field_disabled_message.html }}></span>
-                                    </small>
-                                </div>
-                            }
                             {/* <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}>formattedMessage('print" /></Button> */}
                         </div>
                     </>
