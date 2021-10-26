@@ -1,0 +1,31 @@
+import React from "react"
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button'
+
+const EmailErrorModal = (props) => {
+    return (
+        <Modal
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+            show={props.show}
+            onHide={props.onHide}
+        >
+            <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-vcenter">
+                    {props.errorTitle}
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <div role='alert'>
+                    <span dangerouslySetInnerHTML={{ __html: props.errorMessage.html }}></span>
+                </div>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="outline-dark" onClick={() => {
+                    props.onHide()}} >{props.closeText}</Button>
+            </Modal.Footer>
+      </Modal>
+    )}
+
+
+export default EmailErrorModal;

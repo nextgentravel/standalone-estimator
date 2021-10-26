@@ -35,6 +35,7 @@ import amadeusFlightOffer from '../api-calls/amadeusFlightOffer'
 import fetchDistanceBetweenPlaces from '../api-calls/fetchDistanceBetweenPlaces'
 
 import './extra/estimator-print.css'
+import EmailErrorModal from "./email-error-modal.js"
 
 let initialDeparture = ""
 let initialReturn = ""
@@ -374,6 +375,8 @@ const Estimator = () => {
                     flight_modal_return_time_offset_label
                     is_not_valid
                     is_required
+                    email_error_modal_title
+                    email_error_modal_close_text
                     alt_for_fabed
                     alt_for_facalculator
                     alt_for_facaretdown
@@ -563,6 +566,7 @@ const Estimator = () => {
     const [applicableRates, setApplicableRates] = useState([]);
 
     const [emailModalShow, setEmailModalShow] = useState(false);
+    const [emailErrorModalShow, setEmailErrorModalShow]=useState(false);
     const [emailRequestLoading, setEmailRequestLoading] = useState(false);
     const [emailConfirmationModalShow, setEmailConfirmationModalShow] = useState(false);
     const [emailRequestResult, setEmailRequestResult] = useState({});
@@ -1334,6 +1338,7 @@ const Estimator = () => {
 
     return (
         <div className="mb-4">
+            <EmailErrorModal show={emailErrorModalShow} onHide={() => setEmailErrorModalShow(false)} errorMessage={localeCopy.email_field_disabled_message} closeText={localeCopy.email_error_modal_close_text} errorTitle={localeCopy.email_error_modal_title}/>
             <EmailModal
                 validationWarnings={emailValidationWarnings}
                 setEmailValidationWarnings={setEmailValidationWarnings}
@@ -1857,11 +1862,10 @@ const Estimator = () => {
                             <div className="col-sm-12">
                                 <Button
                                     variant="primary"
-                                    aria-disabled={!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired')}
-                                    className={`px-5 mb-2${!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired') ? ' disabled' : ''}`}
+                                    className='px-5 mb-2'
                                     onClick={() => {
                                             if (!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired')) {
-                                                return
+                                                setEmailErrorModalShow(true)
                                             } else {
                                                 setEmailModalShow(true)
                                             }
@@ -1873,13 +1877,6 @@ const Estimator = () => {
                                         {formattedMessage('email')}
                                 </Button>
                             </div>
-                            {(!result || transportationType === '' || accommodationType === '') &&
-                                <div className="col-sm-12">
-                                    <small id="email-button-validation" className="form-text">
-                                        <span dangerouslySetInnerHTML={{ __html: localeCopy.email_field_disabled_message.html }}></span>
-                                    </small>
-                                </div>
-                            }
                             {/* <Button variant="outline-primary" className="px-5 ml-3" onClick={() => { window.print() }}>formattedMessage('print" /></Button> */}
                         </div>
                     </>
