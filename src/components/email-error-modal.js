@@ -12,7 +12,7 @@ const EmailErrorModal = (props) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Error
+                    {props.errorTitle}
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -22,7 +22,7 @@ const EmailErrorModal = (props) => {
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="outline-dark" onClick={() => {
-                    props.onHide()}} >Close</Button>
+                    props.onHide()}} >{props.closeText}</Button>
             </Modal.Footer>
       </Modal>
     )}
