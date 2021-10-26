@@ -1,192 +1,198 @@
 {
-  "Main": {
-    "title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading2",
-        "label": "title",
-        "placeholder": "Site wide title (appears in blue header)"
+  "Main" : {
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading2",
+        "label" : "title",
+        "placeholder" : "Site wide title (appears in blue header)"
       }
     },
-    "prototype_footer": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, strong, em, hyperlink",
-        "label": "prototype_footer",
-        "placeholder": "Text for Blue Bar explaining this is a prototype."
+    "prototype_footer" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, strong, em, hyperlink",
+        "label" : "prototype_footer",
+        "placeholder" : "Text for Blue Bar explaining this is a prototype."
       }
     },
-    "breadcrumb_home_text": {
-      "type": "Text",
-      "config": {
-        "label": "breadcrumb_home_text"
+    "breadcrumb_home_text" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "breadcrumb_home_text"
       }
     },
-    "breadcrumb_home_link": {
-      "type": "Text",
-      "config": {
-        "label": "breadcrumb_home_link"
+    "breadcrumb_home_link" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "breadcrumb_home_link"
+      }
+    },
+    "breadcrumb_screen_reader" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "breadcrumb screen reader"
       }
     }
   },
-  "Header": {
-    "header_goc_logo": {
-      "type": "Text",
-      "config": {
-        "label": "header_goc_logo",
-        "placeholder": "alt text for GoC Logo"
+  "Header" : {
+    "header_goc_logo" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "header_goc_logo",
+        "placeholder" : "alt text for GoC Logo"
       }
     },
-    "header_skip_to_main": {
-      "type": "Text",
-      "config": {
-        "label": "header_skip_to_main",
-        "placeholder": "Accessibility screen reader text to \"Skip to Main\""
+    "header_skip_to_main" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "header_skip_to_main",
+        "placeholder" : "Accessibility screen reader text to \"Skip to Main\""
       }
     },
-    "header_language_select": {
-      "type": "Text",
-      "config": {
-        "label": "header_language_select",
-        "placeholder": "Screen reader identifier for language select"
+    "header_language_select" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "header_language_select",
+        "placeholder" : "Screen reader identifier for language select"
       }
     }
   },
-  "Footer": {
-    "footer_logo_alt": {
-      "type": "Text",
-      "config": {
-        "label": "footer_logo_alt",
-        "placeholder": "Alt text for Canada logo, bottom right of screen."
+  "Footer" : {
+    "footer_logo_alt" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "footer_logo_alt",
+        "placeholder" : "Alt text for Canada logo, bottom right of screen."
       }
     },
-    "footer_text": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "strong, em, hyperlink",
-        "allowTargetBlank": true,
-        "label": "footer_text"
+    "footer_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "strong, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "footer_text"
       }
     }
   },
-  "Language Select": {
-    "site_other_language_name": {
-      "type": "Text",
-      "config": {
-        "label": "site_other_language_name",
-        "placeholder": "E.g in the English should be \"Français\" not \"French\" and vice versa."
+  "Language Select" : {
+    "site_other_language_name" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "site_other_language_name",
+        "placeholder" : "E.g in the English should be \"Français\" not \"French\" and vice versa."
       }
     }
   },
-  "404 Page": {
-    "error_404_fr_header": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "heading2",
-        "label": "error_404_fr_header",
-        "placeholder": "Must be in French regardless of language selection"
+  "404 Page" : {
+    "error_404_fr_header" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "heading2",
+        "label" : "error_404_fr_header",
+        "placeholder" : "Must be in French regardless of language selection"
       }
     },
-    "error_404_fr_body": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, strong, em, hyperlink",
-        "allowTargetBlank": true,
-        "label": "error_404_fr_body",
-        "placeholder": "Must be in French regardless of language selection"
+    "error_404_fr_body" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, strong, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "error_404_fr_body",
+        "placeholder" : "Must be in French regardless of language selection"
       }
     },
-    "error_404_fr_link_text": {
-      "type": "Text",
-      "config": {
-        "label": "error_404_fr_link_text"
+    "error_404_fr_link_text" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "error_404_fr_link_text"
       }
     },
-    "error_404_en_header": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "heading2",
-        "label": "error_404_en_header",
-        "placeholder": "Must be in English regardless of language selection"
+    "error_404_en_header" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "heading2",
+        "label" : "error_404_en_header",
+        "placeholder" : "Must be in English regardless of language selection"
       }
     },
-    "error_404_en_body": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, strong, em, hyperlink",
-        "allowTargetBlank": true,
-        "label": "error_404_en_body",
-        "placeholder": "Must be in English regardless of language selection"
+    "error_404_en_body" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, strong, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "error_404_en_body",
+        "placeholder" : "Must be in English regardless of language selection"
       }
     },
-    "error_404_en_link_text": {
-      "type": "Text",
-      "config": {
-        "label": "error_404_en_link_text",
-        "placeholder": "Must be in English regardless of language selection"
+    "error_404_en_link_text" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "error_404_en_link_text",
+        "placeholder" : "Must be in English regardless of language selection"
       }
     }
   },
-  "Site Meta Data": {
-    "meta_data_sitename": {
-      "type": "Text",
-      "config": {
-        "label": "meta_data_sitename",
-        "placeholder": "E.g. \"GC Travel Calculator\""
+  "Site Meta Data" : {
+    "meta_data_sitename" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meta_data_sitename",
+        "placeholder" : "E.g. \"GC Travel Calculator\""
       }
     },
-    "meta_data_shortname": {
-      "type": "Text",
-      "config": {
-        "label": "meta_data_shortname",
-        "placeholder": "No spaces"
+    "meta_data_shortname" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meta_data_shortname",
+        "placeholder" : "No spaces"
       }
     },
-    "meta_data_description": {
-      "type": "Text",
-      "config": {
-        "label": "meta_data_description",
-        "placeholder": "Appears when link unfurls, for example on Slack when you paste a link into chat."
+    "meta_data_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meta_data_description",
+        "placeholder" : "Appears when link unfurls, for example on Slack when you paste a link into chat."
       }
     }
   },
-  "Landing Page": {
-    "landing_page_lead": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, strong, em, hyperlink",
-        "allowTargetBlank": true,
-        "label": "landing_page_lead",
-        "placeholder": "Short lead text at top of landing page"
+  "Landing Page" : {
+    "landing_page_lead" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, strong, em, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "landing_page_lead",
+        "placeholder" : "Short lead text at top of landing page"
       }
     },
-    "landing_page_title_2": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading2",
-        "label": "landing_page_title_2",
-        "placeholder": "\"Create a travel estimate\""
+    "landing_page_title_2" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading2",
+        "label" : "landing_page_title_2",
+        "placeholder" : "\"Create a travel estimate\""
       }
     },
-    "landing_page_content": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, strong, em, hyperlink, list-item, o-list-item",
-        "allowTargetBlank": true,
-        "label": "landing_page_content",
-        "placeholder": "\"In order to simplify....\" content before 'calculate travel' button."
+    "landing_page_content" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, strong, em, hyperlink, list-item, o-list-item",
+        "allowTargetBlank" : true,
+        "label" : "landing_page_content",
+        "placeholder" : "\"In order to simplify....\" content before 'calculate travel' button."
       }
     },
-    "landing_page_action_button_text": {
-      "type": "Text",
-      "config": {
-        "label": "landing_page_action_button_text"
+    "landing_page_action_button_text" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "landing_page_action_button_text"
       }
     },
-    "land_page_action_button_link": {
-      "type": "Text",
-      "config": {
-        "label": "land_page_action_button_link"
+    "land_page_action_button_link" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "land_page_action_button_link"
       }
     }
   }

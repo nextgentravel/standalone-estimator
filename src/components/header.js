@@ -18,6 +18,7 @@ const Header = ({homeHeader}) => {
           data {
             breadcrumb_home_link
             breadcrumb_home_text
+            breadcrumb_screen_reader
             header_goc_logo
             header_language_select
             header_skip_to_main
@@ -32,7 +33,6 @@ const Header = ({homeHeader}) => {
   `)
 
   let messages = allPrismicStandaloneestimatorHomepage.nodes.find(function(o){ return o.lang === locale }).data;
-
   return (
     <>
       <header className="mb-0">
@@ -67,7 +67,7 @@ const Header = ({homeHeader}) => {
         </div>
         <div className="container pl-0">
           <nav aria-label="breadcrumb">
-            <h2 className='sr-only'>You are here:</h2>
+            <h2 className='sr-only'>{messages.breadcrumb_screen_reader}</h2>
             <ol className="breadcrumb">
               <li className="breadcrumb-item"><a href={messages.breadcrumb_home_link}>{messages.breadcrumb_home_text}</a></li>
               <li className="breadcrumb-item active" aria-current="page">{messages.title.text}</li>
