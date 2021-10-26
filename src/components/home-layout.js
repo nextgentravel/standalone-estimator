@@ -105,7 +105,7 @@ export default ({ data }) => {
                 <div className="card bg-white py-4 px-5 mb-2">
                   <div className="row">
                       <button className="col-sm-12 pl-2 pb-1 btn btn-plain" aria-expanded="false" onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
-                          <h3><FaCalculator focusable="false" aria-hidden="true" title={localeCopy.alt_for_facalculator}  focusable="false" aria-hidden="true" title={localeCopy.alt_for_facalculator}  size="20" className='mb-1 mr-2' />{estimatorCopy.explainer_title.text}</h3>
+                          <h2 className='h3'><FaCalculator focusable="false" aria-hidden="true" title={localeCopy.alt_for_facalculator}  focusable="false" aria-hidden="true" title={localeCopy.alt_for_facalculator}  size="20" className='mb-1 mr-2' />{estimatorCopy.explainer_title.text}</h2>
                           {explainerCollapsed &&
                               <FaCaretDown focusable="false" aria-hidden="true" title={localeCopy.alt_for_facaretdown} 
                                   size="25"
