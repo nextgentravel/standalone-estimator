@@ -54,6 +54,7 @@ const Estimator = () => {
     };
 
     const today = DateTime.now().toISODate();
+    const twentyYearsFromToday = DateTime.now().plus({ years: 20 }).toISODate();
 
     let locale = `${intl.locale}-ca`;
 
@@ -1444,6 +1445,7 @@ const Estimator = () => {
                             name="departureDate"
                             type="date"
                             min={today}
+                            max={twentyYearsFromToday}
                             lang={locale}
                             value={departureDate} 
                             className="form-control"
@@ -1872,7 +1874,8 @@ const Estimator = () => {
             
             <div className="card bg-white py-4 px-5 mb-2">
                 <div className="row">
-                    <h3 className="col-sm-12 pl-2 pb-1 pt-2">
+
+                    <h2 className="col-sm-12 pl-2 pb-1 pt-2 h3">
                         <button className="btn button-explainer block" aria-expanded={!explainerCollapsed} onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
                             <FaCalculator size="20" className='mb-1 mr-2' />{localeCopy.explainer_title.text}
                             {explainerCollapsed &&
@@ -1895,7 +1898,7 @@ const Estimator = () => {
                                 />
                             }
                         </button>
-                    </h3>
+                    </h2>
                     {!explainerCollapsed &&
                         <React.Fragment>
                             <div className="col-sm-12 mt-2" dangerouslySetInnerHTML={{ __html: localeCopy.explainer_body.html }}>
@@ -1911,8 +1914,9 @@ const Estimator = () => {
             </div>
 
 
+
             <div className="mb-4">
-                <h4 className="step-disclaimer-header mt-5 pl-4">
+                <h2 className="step-disclaimer-header mt-5 pl-4 h4">
                     <button className="button-explainer btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
                       {disclaimerCollapsed &&
                           <FaPlusCircle size="15" className='mb-1 mr-2' />}
@@ -1921,7 +1925,7 @@ const Estimator = () => {
                       }
                       <span>{formattedMessage('disclaimer')}</span>
                     </button>
-                </h4>
+                </h2>
                 {!disclaimerCollapsed &&
                     <div className="px-5 pb-3">{formattedMessage('disclaimer_body')}</div>
                 }
