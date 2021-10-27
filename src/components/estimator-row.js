@@ -20,18 +20,20 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
             <div className="col-sm-4 align-self-center mb-2">
                 <div className="align-self-center">
                     {icon}
-                        <label htmlFor={id}>{title}
-                        {tooltipIcon &&
-                            <OverlayTrigger
-                                placement="top"
-                                delay={{ show: 250, hide: 400 }}
-                                overlay={renderTooltip}
-                            >
-                                <button type="button" className="btn btn-default" aria-label={toolTipLabel}>
-                                    <TooltipIcon className="mb-1" size="15" fill="#9E9E9E" />
-                                </button>
-                            </OverlayTrigger>
-                        }
+                        <label htmlFor={id}>
+                            <h4 className="font-weight-bold">{title}
+                            {tooltipIcon &&
+                                <OverlayTrigger
+                                    placement="top"
+                                    delay={{ show: 250, hide: 400 }}
+                                    overlay={renderTooltip}
+                                >
+                                    <button type="button" className="btn btn-default" aria-label={toolTipLabel}>
+                                        <TooltipIcon className="mb-1" size="15" fill="#9E9E9E" />
+                                    </button>
+                                </OverlayTrigger>
+                            }
+                            </h4>
                         </label>
                 </div>
             </div>
