@@ -1502,7 +1502,9 @@ const Estimator = () => {
                     </div>
                     <div className="col-sm-3"></div>
                     <div className="col-sm-3">
-                        <label htmlFor="departureDate">{localeCopy.datepicker_start_date}</label>
+                        <label htmlFor="departureDate">{localeCopy.datepicker_start_date}
+                            <small id="departure-datepicker-help" className="form-text">{localeCopy.date_format_description}</small>
+                        </label>
                         <input
                             id="departureDate"
                             name="departureDate"
@@ -1511,15 +1513,16 @@ const Estimator = () => {
                             max={twentyYearsFromToday}
                             lang={locale}
                             value={departureDate} 
-                            className="form-control"
+                            className="form-control mb-4"
                             onChange={(event) => {
                                 setDepartureDate(event.target.value)
                             }}
-                            aria-describedby="datepicker-help"
                         />
                     </div>
                     <div className="col-sm-3">
-                        <label htmlFor="returnDate">{localeCopy.datepicker_end_date}</label>
+                        <label htmlFor="returnDate">{localeCopy.datepicker_end_date}
+                            <small id="return-datepicker-help" className="form-text">{localeCopy.date_format_description}</small>
+                        </label>
                         <input
                             id="returnDate"
                             name="returnDate"
@@ -1532,12 +1535,9 @@ const Estimator = () => {
                                 console.log('Date', event.target.value)
                                 setReturnDate(event.target.value)
                             }}
-                            aria-describedby="datepicker-help"
                         />
                     </div>
-                    <div className="col-sm-12 mb-4 pl-4 ">
-                        <small id="datepicker-help" className="form-text">{localeCopy.date_format_description}</small>
-                    </div>
+                    
                     <div className="col-sm-3"></div>
                     <div className="col-sm-12">
                         {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
@@ -1566,7 +1566,7 @@ const Estimator = () => {
                         <h3 className="mb-4">{formattedMessage('estimate_summary_title')}</h3>
                         <div className="row mb-4">
                             <div className="col-sm-12 mb-2">
-                                <label htmlFor="accommodation_select"><FaBed focusable="false" aria-hidden="true" title={localeCopy.alt_for_fabed} className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('accommodation')}</label>
+                                <h4 className="font-weight-bold"><FaBed focusable="false" aria-hidden="true" title={localeCopy.alt_for_fabed} className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('accommodation')}</h4>
                             </div>
                             <div className="col-sm-4 align-self-center">
                                 <div className="align-self-center">
@@ -1704,7 +1704,7 @@ const Estimator = () => {
 
                         <div className="row mb-4">
                             <div className="col-sm-12 mb-2">
-                                <label htmlFor="transportation_select"><FaPlane focusable="false" aria-hidden="true" title={localeCopy.alt_for_faplane}  className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('transportation')}</label>
+                                <h4 className="font-weight-bold"><FaPlane focusable="false" aria-hidden="true" title={localeCopy.alt_for_faplane}  className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('transportation')}</h4>
                             </div>
                             <div className="col-sm-4 align-self-center">
                                 <div className="align-self-center">
