@@ -22,6 +22,12 @@ function SEO({ description, lang, meta, title }) {
             descriptionFrench
             authorEnglish
             authorFrench
+            dateIssued
+            dateModified
+            subjectEnglish
+            subjectFrench
+            keywordsEnglish
+            keywordsFrench
           }
         }
       }
@@ -31,6 +37,7 @@ function SEO({ description, lang, meta, title }) {
   const metaTitle = lang === 'en-ca' ? site.siteMetadata.titleEnglish : site.siteMetadata.titleFrench;
 
   const metaDescription = description || lang === 'en-ca' ? site.siteMetadata.descriptionEnglish : site.siteMetadata.descriptionFrench
+  
   return (
     <Helmet
       htmlAttributes={{
@@ -40,8 +47,43 @@ function SEO({ description, lang, meta, title }) {
       titleTemplate={`%s | ${metaTitle}`}
       meta={[
         {
+          name: `title`,
+          content: title,
+        },
+        {
+          name: `creator`,
+          content: site.siteMetadata.creator,
+        },
+        {
+          name: `dcterms.issued`,
+          content: '2021-11-01',
+          title: 'W3CDTF'
+        },
+        {
+          name: `dcterms.modified`,
+          content: '2021-11-01',
+          content: "",
+        },
+        {
+          name: `dcterms.subject`,
+          title: `gccore`,
+          content: lang === 'en-ca' ? site.siteMetadata.subjectEnglish : site.siteMetadata.subjectFrench,
+        },
+        {
+          name: `dcterms.title`,
+          content: title,
+        },
+        {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: `dcterms.description`,
+          content: metaDescription,
+        },
+        {
+          name: `dcterms.creator`,
+          content: lang === 'en-ca' ? site.siteMetadata.authorEnglish : site.siteMetadata.authorFrench,
         },
         {
           property: `og:title`,
@@ -71,6 +113,12 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `dcterms.language`,
+          content: lang === 'en-ca' ? 'eng' : 'fra',
+          title: 'ISO639-2'
+        },
+
       ].concat(meta)}
     >
     </Helmet>
