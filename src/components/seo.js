@@ -35,10 +35,9 @@ function SEO({ description, lang, meta, title }) {
     `
   )
 
-  const metaTitle = lang === 'en-ca' ? site.siteMetadata.titleEnglish : site.siteMetadata.titleFrench;
+  const metaTitle = lang === 'en' ? site.siteMetadata.titleEnglish : site.siteMetadata.titleFrench;
 
-  const metaDescription = description || lang === 'en-ca' ? site.siteMetadata.descriptionEnglish : site.siteMetadata.descriptionFrench
-  
+  const metaDescription = description || lang === 'en' ? site.siteMetadata.descriptionEnglish : site.siteMetadata.descriptionFrench
   return (
     <Helmet
       htmlAttributes={{
@@ -68,7 +67,7 @@ function SEO({ description, lang, meta, title }) {
         {
           name: `dcterms.subject`,
           title: `gccore`,
-          content: lang === 'en-ca' ? site.siteMetadata.subjectEnglish : site.siteMetadata.subjectFrench,
+          content: lang === 'en' ? site.siteMetadata.subjectEnglish : site.siteMetadata.subjectFrench,
         },
         {
           name: `dcterms.title`,
@@ -84,7 +83,16 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `dcterms.creator`,
-          content: lang === 'en-ca' ? site.siteMetadata.authorEnglish : site.siteMetadata.authorFrench,
+          content: lang === 'en' ? site.siteMetadata.authorEnglish : site.siteMetadata.authorFrench,
+        },
+        {
+          name: `dcterms.keywords`,
+          content: lang === 'en' ? site.siteMetadata.keywordsEnglish : site.siteMetadata.keywordsFrench,
+        },
+        {
+          name: `dcterms.language`,
+          content: lang === 'en' ? 'eng' : 'fra',
+          title: 'ISO639-2'
         },
         {
           property: `og:title`,
@@ -104,20 +112,15 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:creator`,
-          content: lang === 'en-ca' ? site.siteMetadata.authorEnglish : site.siteMetadata.authorFrench,
+          content: lang === 'en' ? site.siteMetadata.authorEnglish : site.siteMetadata.authorFrench,
         },
         {
           name: `twitter:title`,
-          content: `${title} | ${metaTitle}`,
+          content: `${title}`,
         },
         {
           name: `twitter:description`,
           content: metaDescription,
-        },
-        {
-          name: `dcterms.language`,
-          content: lang === 'en-ca' ? 'eng' : 'fra',
-          title: 'ISO639-2'
         },
 
       ].concat(meta)}
