@@ -1338,14 +1338,14 @@ const Estimator = () => {
 
     const checkForEmailErrors = () => {
         const errorArray = [];
-        if (transportationType === '') {
-            errorArray.push('You must select a transportation type');
-        }
         if (accommodationType === '') {
             errorArray.push('You must select an accommodation type');
         }
         if (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') {
             errorArray.push('Accommodation cost cannot be zero');
+        }
+        if (transportationType === '') {
+            errorArray.push('You must select a transportation type');
         }
         if (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired') {
             errorArray.push('Transportation cost cannot be zero');
@@ -1369,12 +1369,12 @@ const Estimator = () => {
     return (
         <div className="mb-4">
             <EmailErrorModal 
-            show={emailErrorModalShow} 
-            onHide={() => setEmailErrorModalShow(false)} 
-            errorMessage={localeCopy.email_field_disabled_message} 
-            closeText={localeCopy.email_error_modal_close_text} 
-            errorTitle={localeCopy.email_error_modal_title}
-            emailErrorList={emailErrorList}/>
+                show={emailErrorModalShow} 
+                onHide={() => setEmailErrorModalShow(false)} 
+                errorMessage={localeCopy.email_field_disabled_message} 
+                closeText={localeCopy.email_error_modal_close_text} 
+                errorTitle={localeCopy.email_error_modal_title}
+                emailErrorList={emailErrorList}/>
             <EmailModal
                 validationWarnings={emailValidationWarnings}
                 setEmailValidationWarnings={setEmailValidationWarnings}
