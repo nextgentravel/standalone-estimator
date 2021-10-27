@@ -336,6 +336,10 @@ const Estimator = () => {
                     email_field_disabled_message {
                         html
                     }
+                    email_error_accom_type
+                    email_error_accom_value
+                    email_error_transport_type
+                    email_error_transport_value
                     email_form_trip_name_helptext
                     email_form_notes_helptext
                     accommodation_type
@@ -1339,16 +1343,16 @@ const Estimator = () => {
     const checkForEmailErrors = () => {
         const errorArray = [];
         if (accommodationType === '') {
-            errorArray.push('You must select an accommodation type');
+            errorArray.push(localeCopy.email_error_accom_type);
         }
         if (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') {
-            errorArray.push('Accommodation cost cannot be zero');
+            errorArray.push(localeCopy.email_error_accom_value);
         }
         if (transportationType === '') {
-            errorArray.push('You must select a transportation type');
+            errorArray.push(localeCopy.email_error_transport_type);
         }
         if (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired') {
-            errorArray.push('Transportation cost cannot be zero');
+            errorArray.push(localeCopy.email_error_transport_value);
         }
         setEmailErrorList(errorArray);
         setEmailClicked(true);
