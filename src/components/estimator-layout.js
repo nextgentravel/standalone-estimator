@@ -14,26 +14,25 @@ import {
 export default ({ data }) => {
     const intl = useIntl();
     let locale = `${intl.locale}-ca`;
-    const estimatorData = useStaticQuery(graphql`
-      query estimatorData {
-        allPrismicStandaloneestimatorCopy {
-          nodes {
-            data {
-              title {
-                text
-              }
+    const { allPrismicStandaloneestimatorHomepage } = useStaticQuery(graphql`
+    {
+      allPrismicStandaloneestimatorHomepage {
+        nodes {
+          data {
+            title {
+              text
             }
-            lang
           }
+          lang
         }
       }
-    `);
+    }`)
 
-    let estimatorCopy = estimatorData.allPrismicStandaloneestimatorCopy.nodes.find(function(o){ return o.lang === locale }).data;
+    let homePageCopy = allPrismicStandaloneestimatorHomepage.nodes.find(function(o){ return o.lang === locale }).data;
 
     return (
       <Layout>
-        <SEO title={estimatorCopy.title.text} lang={locale.substring(0,2)} />
+        <SEO title={homePageCopy.title.text} lang={locale.substring(0,2)} />
         <w-screen mt-4="true" fluid="true" id="container">
           <div>
             <main id="main-content" aria-labelledby="h2-label">
