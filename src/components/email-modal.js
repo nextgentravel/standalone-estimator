@@ -15,7 +15,7 @@ const EmailModal = (props) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    {props.messages.email_modal_title}
+                    <h2 className="h3">{props.messages.email_modal_title}</h2>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
