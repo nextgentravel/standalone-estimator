@@ -55,7 +55,6 @@ const EmailForm = (props) => {
                         isInvalid={validationErrorList.includes('travellersName')}
                         aria-invalid={validationErrorList.includes('travellersName')}
                         required
-                        aria-required="true"
                         value={props.travellersName}
                         onChange={(e) => {
                             removeIsInvalid('travellersName', validationErrors)
@@ -82,7 +81,6 @@ const EmailForm = (props) => {
                         isInvalid={validationErrorList.includes('travellersEmail')}
                         aria-invalid={validationErrorList.includes('travellersEmail')}
                         required
-                        aria-required="true"
                         value={props.travellersEmail}
                         onChange={(e) => {
                             removeIsInvalid('travellersEmail', validationErrors)
@@ -120,7 +118,6 @@ const EmailForm = (props) => {
                         isInvalid={validationErrorList.includes('approversName')}
                         aria-invalid={validationErrorList.includes('approversName')}
                         required
-                        aria-required="true"
                         value={props.approversName}
                         onChange={(e) => {
                             removeIsInvalid('approversName', validationErrors)
@@ -147,7 +144,6 @@ const EmailForm = (props) => {
                         isInvalid={validationErrorList.includes('approversEmail')}
                         aria-invalid={validationErrorList.includes('approversEmail')}
                         required
-                        aria-required="true"
                         value={props.approversEmail}
                         onChange={(e) => {
                             removeIsInvalid('approversEmail', validationErrors)
@@ -174,7 +170,6 @@ const EmailForm = (props) => {
                         isInvalid={validationErrorList.includes('tripName')}
                         aria-invalid={validationErrorList.includes('tripName')}
                         required
-                        aria-required="true"
                         value={props.tripName}
                         onChange={(e) => {
                             removeIsInvalid('tripName', validationErrors)
@@ -206,7 +201,6 @@ const EmailForm = (props) => {
                         isInvalid={validationErrorList.includes('travelCategory')}
                         aria-invalid={validationErrorList.includes('travelCategory')}
                         required
-                        aria-required="true"
                     >
                         <option value='' disabled>{props.messages.select}</option>
                         {props.messages.email_form_category_options.map((item, index) => {
