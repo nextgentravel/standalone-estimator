@@ -1481,7 +1481,7 @@ const Estimator = () => {
                             validationWarnings={submitValidationWarnings}
                             setValidationWarnings={setSubmitValidationWarnings}
                             label={formattedMessage('estimate_origin')}
-                            name="origin"
+                            name="origin-input"
                             options={filteredCitiesList}
                             updateValue={setOrigin}
                             localeCopy={localeCopy}
@@ -1493,7 +1493,7 @@ const Estimator = () => {
                             validationWarnings={submitValidationWarnings}
                             setValidationWarnings={setSubmitValidationWarnings}
                             label={formattedMessage('estimate_destination')}
-                            name="destination"
+                            name="destination-input"
                             options={filteredCitiesList}
                             updateValue={setDestination}
                             className="col-sm-6"
