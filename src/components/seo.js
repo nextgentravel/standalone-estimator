@@ -28,6 +28,7 @@ function SEO({ description, lang, meta, title }) {
             subjectFrench
             keywordsEnglish
             keywordsFrench
+            dateModified
           }
         }
       }
@@ -61,8 +62,8 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `dcterms.modified`,
-          content: '2021-11-01',
-          content: "",
+          content: site.siteMetadata.dateModified,
+          title: 'W3CDTF'
         },
         {
           name: `dcterms.subject`,

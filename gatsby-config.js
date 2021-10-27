@@ -1,7 +1,6 @@
 const languages = require('./src/data/languages');
 
-var buildDate = new Date()
-var buildDate = buildDate.toISOString().slice(0, -5)
+var buildDate = new Date().toISOString().split('T')[0]
 
 module.exports = {
   siteMetadata: {
