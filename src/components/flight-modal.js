@@ -19,7 +19,7 @@ const FlightModal = (props) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    {props.messages.flight_modal_header}
+                    <h2 className="h3">{props.messages.flight_modal_header}</h2>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
