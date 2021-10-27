@@ -12,7 +12,12 @@ module.exports = {
     authorEnglish: `NextGen Travel`,
     authorFrench: `NextGen Travel`,
     siteUrl: `https://travel-guidebook.herokuapp.com/`,
-    languages
+    languages,
+    creator: "",
+    dateIssued: "",
+    dateModified: "",
+    subject: "",
+    keywords: "",
   },
   plugins: [
     `gatsby-plugin-layout`,
