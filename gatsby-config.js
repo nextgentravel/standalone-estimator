@@ -1,5 +1,7 @@
 const languages = require('./src/data/languages');
 
+var buildDate = new Date().toISOString().split('T')[0]
+
 module.exports = {
   siteMetadata: {
     title: `GC Travel Calculator / Calculateur de voyage du GC`,
@@ -8,11 +10,16 @@ module.exports = {
     description: `Use this tool to create Government of Canada (GC) travel estimates / Utilisez cet outil pour créer des estimations des voyages du gouvernement du Canada (GC)`,
     descriptionEnglish: `Use this tool to create Government of Canada (GC) travel estimates`,
     descriptionFrench: `Utilisez cet outil pour créer des estimations des voyages du gouvernement du Canada (GC)`,
-    author: `NextGen Travel / Voyage Prochaine Génération`,
-    authorEnglish: `NextGen Travel`,
-    authorFrench: `NextGen Travel`,
+    authorEnglish: `Government of Canada, Public Services and Procurement Canada, Digital Services Branch, Next Generation Travel Program, Shared Travel Services`,
+    authorFrench: `Gouvernement du Canada, Services publics et Approvisionnement Canada, Direction générale des services numériques, Programme de voyage de prochaine génération, Services de voyage partagés`,
     siteUrl: `https://travel-guidebook.herokuapp.com/`,
-    languages
+    languages,
+    dateIssued: "2021-11-01",
+    dateModified: buildDate,
+    subjectEnglish: "Travel; Travel Documents; Transborder data flow; Border crossing; Tourism; International travel; Airplanes; Rail transport; Transport;  Housing; Hospitality industry; Business plans; Financial management",
+    subjectFrench: "Voyage;  tourisme; voyage international;  transport ferroviaire; transport;  logement; industrie hôtelière;  gestion financière",
+    keywordsEnglish: "Shared Travel Services, STS, AmexGBT, Travel, Accommodation, Transportation, Voyage, Planner, About, HRG",
+    keywordsFrench: "Services de voyage partagés, SVP, AmexGBT, voyage, hébergement, transport, planificateur, À propos, HRG",
   },
   plugins: [
     `gatsby-plugin-layout`,
