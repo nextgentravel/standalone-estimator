@@ -49,7 +49,9 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
 
     return (
         <div className="mb-4">
-            <label htmlFor={`autocomplete-${name}`}>{label}</label>
+            <label htmlFor={`autocomplete-${name}`}>{label}
+                <small id={`autocomplete-help-${name}`} className="form-text">{localeCopy.autocomplete_help_text}</small>
+            </label>
             <div id={`${name}container`}>
                 <Autocomplete
                     id={`autocomplete-${name}`}
@@ -78,7 +80,7 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
                     }}
                     tAssistiveHint={() => { return localeCopy.autocomplete_assistive_hint }}
                 />
-                <small id={`autocomplete-help-${name}`} className="form-text pl-1">{localeCopy.autocomplete_help_text}</small>
+                
             </div>
             {componentWarnings.map((warning, index) => (
                 <small key={index} id={`${name}-error`} className="invalid-feedback">{warning.message}</small>
