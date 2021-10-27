@@ -44,7 +44,7 @@ function SEO({ description, lang, meta, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${metaTitle}`}
+      titleTemplate={`%s`}
       meta={[
         {
           name: `title`,
@@ -87,7 +87,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:title`,
-          content: `${title} | ${metaTitle}`,
+          content: `${title}`,
         },
         {
           property: `og:description`,
