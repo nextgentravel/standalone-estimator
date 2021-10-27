@@ -17,7 +17,12 @@ const EmailErrorModal = (props) => {
             </Modal.Header>
             <Modal.Body>
                 <div role='alert'>
-                    <span dangerouslySetInnerHTML={{ __html: props.errorMessage.html }}></span>
+                    <ol>
+                        {props.emailErrorList.map((error)=>(
+                            <li>{error}</li>
+                            ))
+                        }
+                    </ol>
                 </div>
             </Modal.Body>
             <Modal.Footer>
