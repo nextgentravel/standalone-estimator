@@ -1518,7 +1518,7 @@ const Estimator = () => {
                 </div>}
                 {result &&
                     <>
-                        <hr className="mb-5" />
+                        <div className="mb-5 hr pt-3" />
                         <h3 className="mb-4">{formattedMessage('estimate_summary_title')}</h3>
                         <div className="row mb-4">
                             <div className="col-sm-12 mb-2">
@@ -1852,7 +1852,7 @@ const Estimator = () => {
                         />
                         <div className="row mb-4">
                             <div className="col-sm-7 align-self-center text-right" >
-                                <hr />
+                                <div className="hr pb-3" />
                                 <strong className="mr-2">{formattedMessage('total_cost')}</strong>{localCurrencyDisplay(parseFloat(summaryCost))}
                             </div>
                             <div className="col-sm-5 align-self-center text-wrap">
