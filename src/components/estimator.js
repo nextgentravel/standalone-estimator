@@ -566,7 +566,9 @@ const Estimator = () => {
     const [applicableRates, setApplicableRates] = useState([]);
 
     const [emailModalShow, setEmailModalShow] = useState(false);
-    const [emailErrorModalShow, setEmailErrorModalShow]=useState(false);
+    const [emailErrorModalShow, setEmailErrorModalShow] = useState(false);
+    const [emailErrorList, setEmailErrorList]= useState([]);
+    const [emailClicked, setEmailClicked] = useState(false);
     const [emailRequestLoading, setEmailRequestLoading] = useState(false);
     const [emailConfirmationModalShow, setEmailConfirmationModalShow] = useState(false);
     const [emailRequestResult, setEmailRequestResult] = useState({});
@@ -1334,11 +1336,45 @@ const Estimator = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [transportationCost, transportationType, haveFlightCost]);
 
+    const checkForEmailErrors = () => {
+        const errorArray = [];
+        if (transportationType === '') {
+            errorArray.push('You must select a transportation type');
+        }
+        if (accommodationType === '') {
+            errorArray.push('You must select an accommodation type');
+        }
+        if (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') {
+            errorArray.push('Accommodation cost cannot be zero');
+        }
+        if (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired') {
+            errorArray.push('Transportation cost cannot be zero');
+        }
+        setEmailErrorList(errorArray);
+        setEmailClicked(true);
+    }
 
+    useEffect(() => {
+        if(emailClicked) {
+            if (emailErrorList.length > 0) {
+                setEmailErrorModalShow(true);
+                setEmailClicked(false);
+            } else {
+                setEmailModalShow(true);
+                setEmailClicked(false);
+            }
+        }
+    }, [emailErrorList,emailClicked])
 
     return (
         <div className="mb-4">
-            <EmailErrorModal show={emailErrorModalShow} onHide={() => setEmailErrorModalShow(false)} errorMessage={localeCopy.email_field_disabled_message} closeText={localeCopy.email_error_modal_close_text} errorTitle={localeCopy.email_error_modal_title}/>
+            <EmailErrorModal 
+            show={emailErrorModalShow} 
+            onHide={() => setEmailErrorModalShow(false)} 
+            errorMessage={localeCopy.email_field_disabled_message} 
+            closeText={localeCopy.email_error_modal_close_text} 
+            errorTitle={localeCopy.email_error_modal_title}
+            emailErrorList={emailErrorList}/>
             <EmailModal
                 validationWarnings={emailValidationWarnings}
                 setEmailValidationWarnings={setEmailValidationWarnings}
@@ -1864,14 +1900,8 @@ const Estimator = () => {
                                     variant="primary"
                                     className='px-5 mb-2'
                                     onClick={() => {
-                                            if (!result || transportationType === '' || accommodationType === '' || (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') || (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired')) {
-                                                setEmailErrorModalShow(true)
-                                            } else {
-                                                setEmailModalShow(true)
-                                            }
-                                            
-                                        }
-                                    }
+                                        checkForEmailErrors(); 
+                                    }}
                                     aria-describedby="email-button-validation"
                                 >
                                         {formattedMessage('email')}
