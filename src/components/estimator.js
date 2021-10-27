@@ -1561,7 +1561,7 @@ const Estimator = () => {
                         <h3 className="mb-4">{formattedMessage('estimate_summary_title')}</h3>
                         <div className="row mb-4">
                             <div className="col-sm-12 mb-2">
-                                <label htmlFor="accommodation_select"><FaBed focusable="false" aria-hidden="true" title={localeCopy.alt_for_fabed} className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('accommodation')}</label>
+                                <h4 className="font-weight-bold"><FaBed focusable="false" aria-hidden="true" title={localeCopy.alt_for_fabed} className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('accommodation')}</h4>
                             </div>
                             <div className="col-sm-4 align-self-center">
                                 <div className="align-self-center">
@@ -1699,7 +1699,7 @@ const Estimator = () => {
 
                         <div className="row mb-4">
                             <div className="col-sm-12 mb-2">
-                                <label htmlFor="transportation_select"><FaPlane focusable="false" aria-hidden="true" title={localeCopy.alt_for_faplane}  className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('transportation')}</label>
+                                <h4 className="font-weight-bold"><FaPlane focusable="false" aria-hidden="true" title={localeCopy.alt_for_faplane}  className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('transportation')}</h4>
                             </div>
                             <div className="col-sm-4 align-self-center">
                                 <div className="align-self-center">
