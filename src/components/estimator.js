@@ -1926,9 +1926,9 @@ const Estimator = () => {
                 <h2 className="step-disclaimer-header mt-5 pl-4 h4">
                     <button className="button-explainer btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
                       {disclaimerCollapsed &&
-                          <FaPlusCircle focusable="false" aria-hidden="true" title={localeCopy.alt_for_fapluscircle}  size="15" />}
+                          <FaPlusCircle focusable="false" aria-hidden="true" title={localeCopy.alt_for_fapluscircle}  size="15" className='mb-1 mr-2' />}
                       {!disclaimerCollapsed &&
-                          <FaMinusCircle focusable="false" aria-hidden="true" title={localeCopy.alt_for_faminuscircle}  size="15" />
+                          <FaMinusCircle focusable="false" aria-hidden="true" title={localeCopy.alt_for_faminuscircle}  size="15" className='mb-1 mr-2' />
                       }
                       <span>{formattedMessage('disclaimer')}</span>
                     </button>
