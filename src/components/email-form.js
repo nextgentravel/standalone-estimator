@@ -40,6 +40,7 @@ const EmailForm = (props) => {
             <Form.Group as={Row} controlId="travellersName">
                 <Form.Label column sm="3">
                     {props.messages.email_form_travellers_name}
+                    <span className='sr-only'>{props.messages.email_form_travellers_name_placeholder}</span>
                 </Form.Label>
                 <Col sm="9">
                     <Form.Control
@@ -53,7 +54,6 @@ const EmailForm = (props) => {
                             props.setTravellersName(e.target.value)
                         }}
                         type="text"
-                        aria-describedby="travellersNameHelp"
                     />
                     <Form.Text id="travellersNameHelp" muted>
                         {props.messages.email_form_travellers_name_placeholder}
@@ -67,6 +67,7 @@ const EmailForm = (props) => {
             <Form.Group as={Row} controlId="travellersEmail" className="mb-5">
                 <Form.Label column sm="3">
                     {props.messages.email_form_travellers_email}
+                    <span className="sr-only">{props.messages.email_form_travellers_email_placeholder}</span>
                 </Form.Label>
                 <Col sm="9">
                     <Form.Control
@@ -80,7 +81,6 @@ const EmailForm = (props) => {
                             props.setTravellersEmail(e.target.value)
                         }}
                         type="text"
-                        aria-describedby="travellersEmailHelp"
                     />
                     <Form.Text id="travellersEmailHelp" muted>
                         {props.messages.email_form_travellers_email_placeholder}
@@ -105,6 +105,7 @@ const EmailForm = (props) => {
             <Form.Group as={Row} controlId="approversName">
                 <Form.Label column sm="3">
                     {props.messages.email_form_approvers_name}
+                    <span className="sr-only">{props.messages.email_form_approvers_name_placeholder}</span>
                 </Form.Label>
                 <Col sm="9">
                     <Form.Control
@@ -118,7 +119,6 @@ const EmailForm = (props) => {
                             props.setApproversName(e.target.value)
                         }}
                         type="text"
-                        aria-describedby="approversNameHelp"
                     />
                     <Form.Text id="approversNameHelp" muted>
                         {props.messages.email_form_approvers_name_placeholder}
@@ -132,6 +132,7 @@ const EmailForm = (props) => {
             <Form.Group as={Row} controlId="approversEmail" className="mb-5">
                 <Form.Label column sm="3">
                     {props.messages.email_form_approvers_email}
+                    <span className='sr-only'>{props.messages.email_form_approvers_email_placeholder}</span>
                 </Form.Label>
                 <Col sm="9">
                     <Form.Control
@@ -159,6 +160,8 @@ const EmailForm = (props) => {
             <Form.Group as={Row} controlId="tripName">
                 <Form.Label column sm="3">
                     {props.messages.email_form_trip_name}
+                    <p className='sr-only'>{props.messages.email_form_trip_name_placeholder}</p>
+                    <p className='sr-only'>{props.messages.email_form_trip_name_helptext}</p>
                 </Form.Label>
                 <Col sm="9">
                     <Form.Control
@@ -172,7 +175,6 @@ const EmailForm = (props) => {
                             props.setTripName(e.target.value)
                         }}
                         type="text"
-                        aria-describedby="emailTripName"
                     />
                     <Form.Control.Feedback type="invalid" role="alert">
                         <span className="sr-only">{props.messages.email_form_trip_name}.{' '}</span>
@@ -215,6 +217,7 @@ const EmailForm = (props) => {
             <Form.Group as={Row} controlId="notes">
                 <Form.Label column sm="3">
                     {props.messages.email_form_notes}
+                    <span className="sr-only">{props.messages.email_form_notes_helptext}</span>
                 </Form.Label>
                 <Col sm="9">
                     <Form.Control
@@ -227,7 +230,6 @@ const EmailForm = (props) => {
                             props.setTripNotes(e.target.value)
                             }} as="textarea" rows={5}
                         placeholder={''}
-                        aria-describedby="emailNotesBox"
                     />
                     <Form.Control.Feedback type="invalid" role="alert">
                         <span className="sr-only">.{' '}</span>
