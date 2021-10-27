@@ -1375,7 +1375,6 @@ const Estimator = () => {
             <EmailErrorModal 
                 show={emailErrorModalShow} 
                 onHide={() => setEmailErrorModalShow(false)} 
-                errorMessage={localeCopy.email_field_disabled_message} 
                 closeText={localeCopy.email_error_modal_close_text} 
                 errorTitle={localeCopy.email_error_modal_title}
                 emailErrorList={emailErrorList}/>
