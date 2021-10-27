@@ -12,7 +12,7 @@ const EmailErrorModal = (props) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    {props.errorTitle}
+                    <h2 className="h3">{props.errorTitle}</h2>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>

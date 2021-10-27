@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Form from 'react-bootstrap/Form'
@@ -6,6 +6,9 @@ import Form from 'react-bootstrap/Form'
 const EmailForm = (props) => {
     let validationErrors = props.validationWarnings || []
     let [errorPanel, setErrorPanel] = useState(false);
+    const errorPanelView = useRef(null)
+    const executeErrorPanelScroll = () => errorPanelView.current.scrollIntoView()
+
     function removeIsInvalid (path, errors) {
         let filtered = errors.filter(function(field) { return field.path !== path; });
         props.setEmailValidationWarnings(filtered);
@@ -25,15 +28,21 @@ const EmailForm = (props) => {
         } 
     }, [validationErrors]);
 
+    useEffect(() => {
+        if (errorPanel) {
+            executeErrorPanelScroll();
+        }
+    }, [errorPanel])
+
     let validationErrorList = validationErrors.map(a => a.path) || [];
     return (
         <Form noValidate>
-            {errorPanel !== false && <div className="alert alert-danger alert-danger-banner" role="alert">
+            {errorPanel !== false && <div className="alert alert-danger alert-danger-banner" role="alert" ref={errorPanelView}>
                 <h3>{props.messages.estimate_error_title}</h3>
                 <p>{props.messages.estimate_error_lead}</p>
-                <ul className="list-unstyled">
+                <ol>
                     {errorList()}
-                </ul>
+                </ol>
             </div>}
 
 
@@ -47,7 +56,6 @@ const EmailForm = (props) => {
                         isInvalid={validationErrorList.includes('travellersName')}
                         aria-invalid={validationErrorList.includes('travellersName')}
                         required
-                        aria-required="true"
                         value={props.travellersName}
                         onChange={(e) => {
                             removeIsInvalid('travellersName', validationErrors)
@@ -74,7 +82,6 @@ const EmailForm = (props) => {
                         isInvalid={validationErrorList.includes('travellersEmail')}
                         aria-invalid={validationErrorList.includes('travellersEmail')}
                         required
-                        aria-required="true"
                         value={props.travellersEmail}
                         onChange={(e) => {
                             removeIsInvalid('travellersEmail', validationErrors)
@@ -112,7 +119,6 @@ const EmailForm = (props) => {
                         isInvalid={validationErrorList.includes('approversName')}
                         aria-invalid={validationErrorList.includes('approversName')}
                         required
-                        aria-required="true"
                         value={props.approversName}
                         onChange={(e) => {
                             removeIsInvalid('approversName', validationErrors)
@@ -139,7 +145,6 @@ const EmailForm = (props) => {
                         isInvalid={validationErrorList.includes('approversEmail')}
                         aria-invalid={validationErrorList.includes('approversEmail')}
                         required
-                        aria-required="true"
                         value={props.approversEmail}
                         onChange={(e) => {
                             removeIsInvalid('approversEmail', validationErrors)
@@ -168,7 +173,6 @@ const EmailForm = (props) => {
                         isInvalid={validationErrorList.includes('tripName')}
                         aria-invalid={validationErrorList.includes('tripName')}
                         required
-                        aria-required="true"
                         value={props.tripName}
                         onChange={(e) => {
                             removeIsInvalid('tripName', validationErrors)
@@ -199,7 +203,6 @@ const EmailForm = (props) => {
                         isInvalid={validationErrorList.includes('travelCategory')}
                         aria-invalid={validationErrorList.includes('travelCategory')}
                         required
-                        aria-required="true"
                     >
                         <option value='' disabled>{props.messages.select}</option>
                         {props.messages.email_form_category_options.map((item, index) => {

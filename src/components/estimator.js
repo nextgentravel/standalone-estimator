@@ -47,7 +47,11 @@ const ConditionalWrap = ({ condition, wrap, children }) => (
 const Estimator = () => {
     const intl = useIntl();
     const summaryView = useRef(null)
-    const executeScroll = () => summaryView.current.scrollIntoView()
+    const errorPanelView = useRef(null)
+    const executeSummaryViewScroll = () => summaryView.current.scrollIntoView()
+    const executeErrorPanelViewScroll = () => errorPanelView.current.scrollIntoView()
+
+    
     
     const accommodationSelect = useRef(null);
     const focusAccommodationSelect = () => {
@@ -457,9 +461,9 @@ const Estimator = () => {
     }, []);
 
     const removeActiveDescendantAttr = () => {
-        const originInput = document.querySelector('#autocomplete-origin');
+        const originInput = document.querySelector('#origin');
         originInput && originInput.setAttribute("aria-activedescendant", "");
-        const destinationInput = document.querySelector('#autocomplete-destination');
+        const destinationInput = document.querySelector('#destination');
         destinationInput && destinationInput.setAttribute("aria-activedescendant", "");
     };
 
@@ -967,7 +971,7 @@ const Estimator = () => {
 
                 // calculate meals for destination
                 
-                executeScroll()
+                executeSummaryViewScroll()
                 setScreenReaderStatus(formattedMessage('aria_summary_loaded'))
                 setTransportationMessage({
                     element: <span>{formattedMessage('transportation_select_message')}</span>
@@ -984,6 +988,7 @@ const Estimator = () => {
                 setLoading(false);
                 setSubmitValidationWarnings(err.inner || []);
                 setErrorPanel(true);
+                executeErrorPanelViewScroll();
             });
     }
 
@@ -1463,12 +1468,12 @@ const Estimator = () => {
             <section className="card bg-light p-4 mb-4 mt-5">
                 <h2 className="mb-4" id="h2-label">{localeCopy.title.text}</h2>
                 <div className="lead mb-3" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
-                {errorPanel !== false && <div className="alert alert-danger alert-danger-banner" role="alert">
+                {errorPanel !== false && <div className="alert alert-danger alert-danger-banner" role="alert" ref={errorPanelView}>
                     <h3>{formattedMessage('estimate_error_title')}</h3>
                     <p>{formattedMessage('estimate_error_lead')}</p>
-                    <ul className="list-unstyled">
+                    <ol>
                         {errorList()}
-                    </ul>
+                    </ol>
                 </div>}
                 <form id="estimates-form" className="form-group row" onSubmit={handleSubmit} noValidate>
                     <div className="col-sm-7" ref={summaryView}>
