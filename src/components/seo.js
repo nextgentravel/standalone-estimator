@@ -35,7 +35,7 @@ function SEO({ description, lang, meta, title }) {
     `
   )
 
-  const metaTitle = lang === 'en' ? site.siteMetadata.titleEnglish : site.siteMetadata.titleFrench;
+  const metaTitle = lang === 'en' ? `${site.siteMetadata.titleEnglish} - GCintranet - PSPC` : `${site.siteMetadata.titleFrench} - GCintranet - SPAC`;
 
   const metaDescription = description || lang === 'en' ? site.siteMetadata.descriptionEnglish : site.siteMetadata.descriptionFrench
   return (
@@ -43,12 +43,12 @@ function SEO({ description, lang, meta, title }) {
       htmlAttributes={{
         lang,
       }}
-      title={title}
+      title={metaTitle}
       titleTemplate={`%s`}
       meta={[
         {
           name: `title`,
-          content: title,
+          content: metaTitle,
         },
         {
           name: `dcterms.issued`,
