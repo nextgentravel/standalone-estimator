@@ -18,8 +18,8 @@ const EmailErrorModal = (props) => {
             <Modal.Body>
                 <div role='alert'>
                     <ol>
-                        {props.emailErrorList.map((error)=>(
-                            <li>{error}</li>
+                        {props.emailErrorList.map((error, index)=>(
+                            <li tabindex='0' key={`error-${index}`}>{error}</li>
                             ))
                         }
                     </ol>
