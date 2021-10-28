@@ -105,25 +105,28 @@ export default ({ data }) => {
                 <div className="card bg-white py-4 px-5 mb-2">
                   <div className="row">
                       <button className="col-sm-12 pl-2 pb-1 btn btn-plain" aria-expanded="false" onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
-                          <h2 className='h3'><FaCalculator focusable="false" aria-hidden="true" title={localeCopy.alt_for_facalculator}  focusable="false" aria-hidden="true" title={localeCopy.alt_for_facalculator}  size="20" className='mb-1 mr-2' />{estimatorCopy.explainer_title.text}</h2>
+                          <h2 className='h3'><FaCalculator focusable="false" aria-hidden="true" focusable="false" aria-hidden="true" size="20" className='mb-1 mr-2' />{estimatorCopy.explainer_title.text}</h2>
                           {explainerCollapsed &&
-                              <FaCaretDown focusable="false" aria-hidden="true" title={localeCopy.alt_for_facaretdown} 
-                                  size="25"
-                                  style={{
-                                      position: 'absolute',
-                                      right: 30,
-                                      top: 15,
-                                  }}
-                          />}
+                            <FaCaretDown focusable="false"
+                              aria-hidden="true"
+                                size="25"
+                                style={{
+                                    position: 'absolute',
+                                    right: 30,
+                                    top: 15,
+                                }}
+                            />
+                          }
                           {!explainerCollapsed &&
-                              <FaCaretUp focusable="false" aria-hidden="true" title={localeCopy.alt_for_facaretup} 
-                                  size="25"
-                                  style={{
-                                      position: 'absolute',
-                                      right: 30,
-                                      top: 15,
-                                  }}
-                              />
+                            <FaCaretUp focusable="false"
+                                aria-hidden="true"
+                                size="25"
+                                style={{
+                                    position: 'absolute',
+                                    right: 30,
+                                    top: 15,
+                                }}
+                            />
                           }
                       </button>
                       {!explainerCollapsed &&
@@ -143,9 +146,9 @@ export default ({ data }) => {
                 <h4 className="step-disclaimer-header mt-5 pl-4">
                     <button className="button-explainer btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
                       {disclaimerCollapsed &&
-                          <FaPlusCircle focusable="false" aria-hidden="true" title={localeCopy.alt_for_fapluscircle}  size="15" />}
+                          <FaPlusCircle focusable="false" aria-hidden="true" size="15" />}
                       {!disclaimerCollapsed &&
-                          <FaMinusCircle focusable="false" aria-hidden="true" title={localeCopy.alt_for_faminuscircle}  size="15" />
+                          <FaMinusCircle focusable="false" aria-hidden="true" size="15" />
                       }
                       <span>{formattedMessage('disclaimer')}</span>
                     </button>
