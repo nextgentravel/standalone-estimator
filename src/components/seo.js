@@ -51,10 +51,6 @@ function SEO({ description, lang, meta, title }) {
           content: title,
         },
         {
-          name: `creator`,
-          content: site.siteMetadata.creator,
-        },
-        {
           name: `dcterms.issued`,
           content: '2021-11-01',
           title: 'W3CDTF'

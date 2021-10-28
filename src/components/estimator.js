@@ -48,8 +48,9 @@ const Estimator = () => {
     const intl = useIntl();
     const summaryView = useRef(null)
     const errorPanelView = useRef(null)
+    const errorFirstItem = useRef(null)
     const executeSummaryViewScroll = () => summaryView.current.scrollIntoView()
-    const executeErrorPanelViewScroll = () => errorPanelView.current.scrollIntoView()
+    const executeErrorPanelViewScroll = () => errorPanelView.current.scrollIntoView() && errorFirstItem.current.focus()
 
     
     
@@ -1140,7 +1141,7 @@ const Estimator = () => {
     const errorList = () => {
         let list = [];
         list = submitValidationWarnings.map((error, index) =>
-            <li key={index}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
+            <li key={index} ref={index === 0 ? errorFirstItem : null}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
         );
         return list;
     }
