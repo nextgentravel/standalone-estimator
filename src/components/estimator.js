@@ -1523,7 +1523,7 @@ const Estimator = () => {
                     </div>
                     <div className="col-sm-3">
                         <label htmlFor="returnDate">
-                            {localeCopy.datepicker_end_date}<small className='pl-1'>(obligatoire)</small>
+                            {localeCopy.datepicker_end_date}<small className='pl-1'>({localeCopy.required})</small>
                             <small id="return-datepicker-help" className="form-text">{localeCopy.date_format_description}</small>
                         </label>
                         <input
