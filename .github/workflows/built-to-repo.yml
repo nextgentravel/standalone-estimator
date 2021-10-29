@@ -38,7 +38,7 @@ jobs:
         with:
           repository: estimator-build
           token: ${{ secrets.PUSH_TO_BUILD }} # `GitHub_PAT` is a secret that contains your PAT
-          path: main
+          path: estimator-build
       - run: |
           date > generated.txt
           git config user.name github-actions
