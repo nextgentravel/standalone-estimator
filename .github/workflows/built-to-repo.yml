@@ -36,7 +36,7 @@ jobs:
       - name: Checkout private tools
         uses: actions/checkout@v2
         with:
-          repository: nextgentravel/estimator-build
+          repository: estimator-build
           token: ${{ secrets.PUSH_TO_BUILD }} # `GitHub_PAT` is a secret that contains your PAT
           path: main
       - run: |
