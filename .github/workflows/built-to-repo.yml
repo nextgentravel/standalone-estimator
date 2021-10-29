@@ -28,17 +28,14 @@ jobs:
       - name: Install yarn
         run: npm install -g yarn
 
-      - name: move into correct folder
-        run: cd standalone-estimator
-
       - name: Install Project Dependencies
-        run: yarn
+        run: cd standalone-estimator && yarn
       
       - name: Build
-        run: gatsby build
+        run: cd standalone-estimator && gatsby build
       
       - name: Verify build
-        run: ls -la public
+        run: ls -la standalone-estimator/public
 
       - name: Checkout Build Repo
         uses: actions/checkout@v2
@@ -47,7 +44,7 @@ jobs:
           token: ${{ secrets.PUSH_TO_BUILD }} # `GitHub_PAT` is a secret that contains your PAT
           path: estimator-build
       - run: |
-          cp -RT ~/standalone-estimator/public ~/estimator-build
+          cp -RT standalone-estimator/public estimator-build
           cd ../estimator-build
           git config user.name github-actions
           git config user.email github-actions@github.com
