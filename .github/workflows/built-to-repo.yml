@@ -13,9 +13,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
         with:
-          # persist-credentials: false
           path: standalone-estimator
-          # submodules: false
       
       - name: Install Node.js
         uses: actions/setup-node@v1
@@ -45,7 +43,7 @@ jobs:
           path: estimator-build
       - run: |
           cp -RT standalone-estimator/public estimator-build
-          cd ../estimator-build
+          cd estimator-build
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
