@@ -33,18 +33,34 @@ jobs:
       # - name: Verify build
       #   run: ls -la public
 
-      - name: Push build to private repo
-        run: |
-          git remote set-url origin https://github.com/nextgentravel/estimator-build.git
-          mkdir public estimator-build
-          touch public/index.html
-          cp -RT public estimator-build
-          cd estimator-build
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "Updated build"
-          git push https://$USERNAME:$REPO_KEY@github.com/nextgentravel/estimator-build.git
-        env:
-          REPO_KEY: ${{secrets.PUSH_TO_BUILD}}
-          USERNAME: github-actions[bot]
+      - name: Checkout private tools
+        uses: actions/checkout@v2
+        with:
+          repository: nextgentravel/estimator-build
+          token: ${{ secrets.PUSH_TO_BUILD }} # `GitHub_PAT` is a secret that contains your PAT
+          path: main
+      - run: |
+          date > generated.txt
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "generated"
+          git push
+
+
+
+      # - name: Push build to private repo
+      #   run: |
+      #     git remote set-url origin https://github.com/nextgentravel/estimator-build.git
+      #     mkdir public estimator-build
+      #     touch public/index.html
+      #     cp -RT public estimator-build
+      #     cd estimator-build
+      #     git config --local user.name "github-actions[bot]"
+      #     git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      #     git add -A
+      #     git commit -m "Updated build"
+      #     git push https://$USERNAME:$REPO_KEY@github.com/nextgentravel/estimator-build.git
+      #   env:
+      #     REPO_KEY: ${{secrets.PUSH_TO_BUILD}}
+      #     USERNAME: github-actions[bot]
