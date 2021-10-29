@@ -13,30 +13,31 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2.3.1
       
-      - name: Install Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: '15.x'
+      # - name: Install Node.js
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: '15.x'
 
-      - name: Install Gatsby CLI
-        run: npm install -g gatsby-cli@2.18.0
+      # - name: Install Gatsby CLI
+      #   run: npm install -g gatsby-cli@2.18.0
 
-      - name: Install yarn
-        run: npm install -g yarn
+      # - name: Install yarn
+      #   run: npm install -g yarn
 
-      - name: Install Project Dependencies
-        run: yarn
+      # - name: Install Project Dependencies
+      #   run: yarn
       
-      - name: Build
-        run: gatsby build
+      # - name: Build
+      #   run: gatsby build
       
-      - name: Verify build
-        run: ls -la public
+      # - name: Verify build
+      #   run: ls -la public
 
       - name: Push build to private repo
         run: |
           git remote set-url origin https://github.com/nextgentravel/estimator-build.git
-          mkdir estimator-build
+          mkdir public estimator-build
+          touch public/index.html
           cp -RT public estimator-build
           cd estimator-build
           git config --local user.name "github-actions[bot]"
