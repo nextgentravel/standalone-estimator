@@ -1,3 +1,10 @@
+name: build
+
+on:
+  push:
+    branches:
+      - build-to-azure
+
 jobs:
   build-and-deploy:
     name: Build and deploy Gatsby site
