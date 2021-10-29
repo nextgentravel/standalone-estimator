@@ -35,6 +35,7 @@ jobs:
 
       - name: Push build to private repo
         run: |
+          git remote set-url origin https://github.com/nextgentravel/estimator-build.git
           mkdir estimator-build
           cp -RT public estimator-build
           cd estimator-build
