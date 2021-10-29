@@ -1,0 +1,41 @@
+jobs:
+  build-and-deploy:
+    name: Build and deploy Gatsby site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2.3.1
+      
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '15.x'
+
+      - name: Install Gatsby CLI
+        run: npm install -g gatsby-cli@2.18.0
+
+      - name: Install yarn
+        run: npm install -g yarn
+
+      - name: Install Project Dependencies
+        run: yarn
+      
+      - name: Build
+        run: gatsby build
+      
+      - name: Verify build
+        run: ls -la public
+
+      - name: Push build to private repo
+        run: |
+          mkdir estimator-build
+          cp -RT public estimator-build
+          cd estimator-build
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Updated build"
+          git push https:://$USERNAME:$REPO_KEY@github.com/nextgentravel/estimator-build.git
+        env:
+          REPO_KEY: ${{secrets.PUSH_TO_BUILD}}
+          USERNAME: github-actions[bot]
