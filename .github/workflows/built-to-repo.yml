@@ -17,25 +17,28 @@ jobs:
           path: standalone-estimator
           # submodules: false
       
-      # - name: Install Node.js
-      #   uses: actions/setup-node@v1
-      #   with:
-      #     node-version: '15.x'
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '15.x'
 
-      # - name: Install Gatsby CLI
-      #   run: npm install -g gatsby-cli@2.18.0
+      - name: Install Gatsby CLI
+        run: npm install -g gatsby-cli@2.18.0
 
-      # - name: Install yarn
-      #   run: npm install -g yarn
+      - name: Install yarn
+        run: npm install -g yarn
 
-      # - name: Install Project Dependencies
-      #   run: yarn
+      - name: move into correct folder
+        run: cd standalone-estimator
+
+      - name: Install Project Dependencies
+        run: yarn
       
-      # - name: Build
-      #   run: gatsby build
+      - name: Build
+        run: gatsby build
       
-      # - name: Verify build
-      #   run: ls -la public
+      - name: Verify build
+        run: ls -la public
 
       - name: Checkout Build Repo
         uses: actions/checkout@v2
@@ -44,8 +47,8 @@ jobs:
           token: ${{ secrets.PUSH_TO_BUILD }} # `GitHub_PAT` is a secret that contains your PAT
           path: estimator-build
       - run: |
-          date > estimator-build/generated.txt
-          cd estimator-build
+          cp -RT ~/standalone-estimator/public ~/estimator-build
+          cd ../estimator-build
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
