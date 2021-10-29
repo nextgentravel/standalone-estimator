@@ -42,7 +42,7 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "Updated build"
-          git push https:://$USERNAME:$REPO_KEY@github.com/nextgentravel/estimator-build.git
+          git push https://$USERNAME:$REPO_KEY@github.com/nextgentravel/estimator-build.git
         env:
           REPO_KEY: ${{secrets.PUSH_TO_BUILD}}
           USERNAME: github-actions[bot]
