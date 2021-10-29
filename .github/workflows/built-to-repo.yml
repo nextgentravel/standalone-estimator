@@ -37,19 +37,20 @@ jobs:
       # - name: Verify build
       #   run: ls -la public
 
-      # - name: Checkout Build Repo
-      #   uses: actions/checkout@v2
-      #   with:
-      #     repository: nextgentravel/estimator-build
-      #     token: ${{ secrets.PUSH_TO_BUILD }} # `GitHub_PAT` is a secret that contains your PAT
-      #     path: estimator-build
-      # - run: |
-      #     date > generated.txt
-      #     git config user.name github-actions
-      #     git config user.email github-actions@github.com
-      #     git add .
-      #     git commit -m "generated"
-      #     git push
+      - name: Checkout Build Repo
+        uses: actions/checkout@v2
+        with:
+          repository: nextgentravel/estimator-build
+          token: ${{ secrets.PUSH_TO_BUILD }} # `GitHub_PAT` is a secret that contains your PAT
+          path: estimator-build
+      - run: |
+          date > estimator-build/generated.txt
+          cd estimator-build
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "generated"
+          git push
 
 
 
