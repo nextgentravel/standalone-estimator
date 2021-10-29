@@ -15,6 +15,7 @@ jobs:
         with:
           persist-credentials: false
           path: standalone-estimator
+          submodules: false
       
       # - name: Install Node.js
       #   uses: actions/setup-node@v1
