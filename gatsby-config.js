@@ -138,6 +138,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-csp`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-sitemap`,
