@@ -51,6 +51,7 @@
     "node-sass": "^4.14.1",
     "patch-package": "^6.4.7",
     "postinstall-postinstall": "^2.1.0",
+    "prismic-dom": "^2.2.6",
     "prop-types": "^15.7.2",
     "query-string": "^6.13.1",
     "react": "^16.12.0",
