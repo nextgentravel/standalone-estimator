@@ -8,11 +8,13 @@ const client = Prismic.client("http://gctravelapp.cdn.prismic.io/api")
 
 return client.query(Prismic.Predicates.at('document.type', 'standaloneestimator-email-notifications')) // An empty query will return all the documents
   .then(function(response) {
-    // let json = JSON.stringify(response.results[0].data["standaloneestimator-email-notifications"]);
     let result = (PrismicDom.RichText.asHtml(response.results[0].data['standaloneestimator-email-notifications'].message_to_traveller.value))
-    // console.log("Documents: ", json);
-    let decoded = htmlEntities.decode(result)
-    fs.writeFile('./email-notifications.json', decoded, (err) => {
+    let decoded = (htmlEntities.decode(result))
+    let messages = {
+        toTravellerMessage: decoded
+    }
+    let data = JSON.stringify(messages);
+    fs.writeFile('./email-notifications.json', data, (err) => {
         if (err) throw err;
         console.log('JSON email-notifications saved.');
     });
