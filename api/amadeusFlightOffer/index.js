@@ -5,8 +5,6 @@ module.exports = async function (context, req) {
   
   let result = await amadeusFlightOffer(req);
 
-  console.log('result', result);
-
   context.res = {
     body: result.body
   };
