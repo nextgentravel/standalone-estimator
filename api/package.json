@@ -10,7 +10,8 @@
     "@sendgrid/mail": "^7.3.0",
     "aws-sdk": "^2.855.0",
     "intl": "^1.2.5",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "node-html-parser": "^5.1.0"
   },
   "devDependencies": {}
 }

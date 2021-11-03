@@ -1,5 +1,6 @@
 const AWS = require('aws-sdk');
 var Intl = require('intl');
+
 // Note: you only need to require the locale once
 require('intl/locale-data/jsonp/en-CA.js');
 require('intl/locale-data/jsonp/fr-CA.js');
@@ -484,15 +485,15 @@ module.exports = async function (context, req) {
         response.approver = err;
       });
 
-    await new AWS.SES(SESConfig)
-      .sendEmail(debugParams)
-      .promise()
-      .then((res) => {
-        console.log('res: ', res)
-      })
-      .catch((err) => {
-        console.log('err: ', err)
-      });
+    // await new AWS.SES(SESConfig)
+    //   .sendEmail(debugParams)
+    //   .promise()
+    //   .then((res) => {
+    //     console.log('res: ', res)
+    //   })
+    //   .catch((err) => {
+    //     console.log('err: ', err)
+    //   });
 
       context.res = {
         body: JSON.stringify(response)
