@@ -1,3 +1,4 @@
+
 # .github/workflows/git-sync.yml
 
 on: push
@@ -8,8 +9,7 @@ jobs:
       - name: git-sync
         uses: wei/git-sync@v3
         with:
-          source_repo: "nextgentravel/estimator-build"
+          source_repo: "https://mikepspc:${{ secrets.GITHUB_TOKEN }}@github.com/nextgentravel/estimator-build.git"
           source_branch: "main"
           destination_repo: "${{ secrets.DESTINATION_REPO }}"
-          destination_branch: "main"
-          destination_ssh_private_key: ${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}
+          destination_branch: "master"
