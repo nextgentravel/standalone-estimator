@@ -197,49 +197,18 @@ module.exports = async function (context, req) {
           Html: {
             Charset: "UTF-8",
             Data: 
-              `${injectTemplateLiterals(prismicData.toTravellerMessage)}
+              `${injectTemplateLiterals(prismicData.message_to_traveller_en)}
 
               ---
 
               <br /><br />
-              ${body.travellersName},<br /><br />
-
-              L'estimation de voyage suivante a été présentée à ${body.approversName} des fins de planification :<br /><br />
-              
-              Objectif: ${body.tripName}<br /><br />
-              
-              Catégorie: ${travelCategory(body.travelCategory, 'fr')}<br />
-              Fonctionnaire: ${body.travellerIsPublicServant ? 'Oui' : 'Non'}<br /><br />
-                
-              Point d’origine: ${addCommaToPlaceName(body.origin.acrdName)}<br />
-              Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
-              
-              Départ: ${body.departureDate}<br />
-              Retour: ${body.returnDate}<br /><br />
-              
-              Hébergement (${accommodationType(body.accommodationType, 'fr')}): ${localCurrencyDisplay(body.accommodationCost, 'fr-CA')}<br /><br />
-              
-              Transport (${travelMode(body.transportationType, 'fr')}): ${localCurrencyDisplay(body.transportationCost, 'fr-CA')}<br /><br />
-              
-              Transport local: ${localCurrencyDisplay(body.localTransportationCost, 'fr-CA')}<br /><br />
-              
-              Repas et frais accessoires: ${localCurrencyDisplay(body.mealCost, 'fr-CA')}<br /><br />
-              
-              Autres coûts: ${localCurrencyDisplay(body.otherCost, 'fr-CA')}<br /><br />
-              
-              TOTAL: ${localCurrencyDisplay(body.summaryCost, 'fr-CA')}<br /><br />
-              
-              Remarques: ${body.tripNotes}<br /><br />
-              
-              Merci d’utiliser le Calculateur de voyage du GC!<br /><br />
-              
-              Toutes les dates indiquées dans ce courriel utilisent le format AAAA-MM-JJ.
+              ${injectTemplateLiterals(prismicData.message_to_traveller_fr)}
               `
           }
         },
         Subject: {
           Charset: 'UTF-8',
-          Data: `Estimate sent [Confirmation] / L'estimation a été envoyée [Confirmation]`
+          Data: `${prismicData.traveller_message_subject_en} / ${prismicData.traveller_message_subject_fr}`
         }
       }
     };
