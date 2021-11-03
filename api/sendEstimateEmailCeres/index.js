@@ -1,6 +1,7 @@
 const AWS = require('aws-sdk');
 var Intl = require('intl');
 const prismicData = require('./prismic-email-notifications.json')
+const prismicKeywords = require('./prismic-email-keywords.json')
 // Note: you only need to require the locale once
 require('intl/locale-data/jsonp/en-CA.js');
 require('intl/locale-data/jsonp/fr-CA.js');
@@ -41,20 +42,20 @@ const travelCategory = (input, lang) => {
     return input;
   } else if (lang === 'fr') {
     switch (input) {
-      case 'Operational activities':
-        return "Activités opérationnelles"
+      case prismicKeywords.travelCategories.en[0]:
+        return prismicKeywords.travelCategories.fr[0]
         break;
-      case 'Key stakeholders':
-        return "Principaux intervenants"
+        case prismicKeywords.travelCategories.en[1]:
+          return prismicKeywords.travelCategories.fr[1]
         break;
-      case 'Internal governance':
-        return "Gouvernance interne"
+        case prismicKeywords.travelCategories.en[2]:
+          return prismicKeywords.travelCategories.fr[2]
         break;
-      case 'Training':
-        return "Formation"
+        case prismicKeywords.travelCategories.en[3]:
+          return prismicKeywords.travelCategories.fr[3]
         break;
-      case 'Other travel':
-        return "Autres voyages"
+      case prismicKeywords.travelCategories.en[4]:
+        return prismicKeywords.travelCategories.fr[4]
         break;
       default:
         return input;
@@ -67,19 +68,19 @@ const travelMode = (input, lang) => {
     console.log(input)
     switch (input) {
       case 'flight':
-        return "Flight"
+        return prismicKeywords.travelMode.en.flight
         break;
       case 'train':
-        return "Train"
+        return prismicKeywords.travelMode.en.train
         break;
       case 'rental':
-        return "Rental car"
+        return prismicKeywords.travelMode.en.rental
         break;
       case 'private':
-        return "Private vehicle"
+        return prismicKeywords.travelMode.en.privatevehicle
         break;
       case 'notrequired':
-        return "Not required"
+        return prismicKeywords.travelMode.en.notrequired
         break;
       default:
         return input;
@@ -87,19 +88,19 @@ const travelMode = (input, lang) => {
   } else if (lang === 'fr') {
     switch (input) {
       case 'flight':
-        return "Vol"
+        return prismicKeywords.travelMode.fr.flight
         break;
       case 'train':
-        return "Train"
+        return prismicKeywords.travelMode.fr.train
         break;
       case 'rental':
-        return "Location de véhicule"
+        return prismicKeywords.travelMode.fr.rental
         break;
       case 'private':
-        return "Véhicule personnel"
+        return prismicKeywords.travelMode.fr.privatevehicle
         break;
       case 'notrequired':
-        return "Non requis"
+        return prismicKeywords.travelMode.fr.notrequired
         break;
       default:
         return input;
@@ -111,13 +112,13 @@ const accommodationType = (input, lang) => {
   if (lang === 'en') {
     switch (input) {
       case 'hotel':
-        return "Hotel"
+        return prismicKeywords.accommodationType.en.hotel
         break;
       case 'private':
-        return "Private accommodation"
+        return prismicKeywords.accommodationType.en.private
         break;
       case 'notrequired':
-        return "Not required"
+        return prismicKeywords.accommodationType.en.notrequired
         break;
       default:
         return input;
@@ -125,13 +126,13 @@ const accommodationType = (input, lang) => {
   } else if (lang === 'fr') {
     switch (input) {
       case 'hotel':
-        return "Hôtel"
+        return prismicKeywords.accommodationType.fr.hotel
         break;
       case 'private':
-        return "Hébergement privé"
+        return prismicKeywords.accommodationType.fr.private
         break;
       case 'notrequired':
-        return "Non requis"
+        return prismicKeywords.accommodationType.fr.notrequired
         break;
       default:
         return input;
