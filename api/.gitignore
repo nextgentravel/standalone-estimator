@@ -97,3 +97,4 @@ local.settings.production.json
 
 # Prismic email notificiations
 prismic-email-notifications.json
+prismic-email-keywords.json

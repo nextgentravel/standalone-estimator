@@ -5,7 +5,7 @@ const htmlEntities = require("html-entities")
 
 const client = Prismic.client("http://gctravelapp.cdn.prismic.io/api")
 
-return client
+client
   .query(
     Prismic.Predicates.at(
       "document.type",
@@ -45,3 +45,48 @@ return client
       console.log("Something went wrong: ", err)
     }
   )
+
+client
+  .query(Prismic.Predicates.at("document.type", "standaloneestimator-copy"), {
+    lang: "*",
+  })
+  .then(
+    function (response) {
+        const words = {travelCategories:{},travelMode:{},accommodationType:{}};
+      response.results.forEach(item => {
+        const lang = item.lang.slice(0, 2)
+        const categories =
+          item.data["standaloneestimator-copy"]
+            .email_form_category_options.value
+        const catList = categories.map(cat => cat.option_label.value)
+        words.travelCategories[`${lang}`] = catList
+
+        const flight = item.data["standaloneestimator-copy"].flight.value;
+        const train = item.data["standaloneestimator-copy"].train.value;
+        const rental = item.data["standaloneestimator-copy"].rental.value;
+        const privatevehicle = item.data["standaloneestimator-copy"].private_vehicle.value;
+        const notrequired = item.data["standaloneestimator-copy"].not_required.value;
+
+        words.travelMode[`${lang}`] = {flight,train,rental,privatevehicle,notrequired}
+
+        const hotel=item.data["standaloneestimator-copy"].hotel.value;
+        const private=item.data["standaloneestimator-copy"].private.value;
+
+        words.accommodationType[`${lang}`] = {hotel,private,notrequired}
+      })
+      let data = JSON.stringify(words)
+      fs.writeFile(
+        "./api/sendEstimateEmailCeres/prismic-email-keywords.json",
+        data,
+        err => {
+          if (err) throw err
+          console.log("JSON email-keywords saved.")
+        }
+      )
+    },
+    function (err) {
+      console.log("Something went wrong: ", err)
+    }
+  )
+
+return
