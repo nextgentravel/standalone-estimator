@@ -43,6 +43,7 @@
     "gatsby-transformer-remark": "^2.8.7",
     "gatsby-transformer-sharp": "^2.5.2",
     "graphql-type-json": "^0.3.2",
+    "html-entities": "^2.3.2",
     "intl": "^1.2.5",
     "js-search": "^2.0.0",
     "lunr": "^2.3.8",
