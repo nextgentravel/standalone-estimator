@@ -226,82 +226,18 @@ module.exports = async function (context, req) {
           Html: {
             Charset: "UTF-8",
             Data: 
-              `(Le français suit l'anglais.)<br /><br />
-
-              ${body.approversName},<br /><br />
-
-              ${body.travellersName} has submitted a new travel estimate for a trip to ${addCommaToPlaceName(body.destination.acrdName)}.<br /><br />
-
-              Objective: ${body.tripName}<br /><br />
-              
-              Category: ${travelCategory(body.travelCategory, 'en')}<br />
-              Public servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
-                
-              Origin: ${addCommaToPlaceName(body.origin.acrdName)}<br />
-              Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
-              
-              Departure: ${body.departureDate}<br />
-              Return: ${body.returnDate}<br /><br />
-              
-              Accommodation (${accommodationType(body.accommodationType, 'en')}): ${localCurrencyDisplay(body.accommodationCost, 'en-CA')}<br /><br />
-              
-              Transportation (${travelMode(body.transportationType, 'en')}): ${localCurrencyDisplay(body.transportationCost, 'en-CA')}<br /><br />
-              
-              Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'en-CA')}<br /><br />
-              
-              Meals and incidentals: ${localCurrencyDisplay(body.mealCost, 'en-CA')}<br /><br />
-              
-              Other costs: ${localCurrencyDisplay(body.otherCost, 'en-CA')}<br /><br />
-              
-              TOTAL: ${localCurrencyDisplay(body.summaryCost, 'en-CA')}<br /><br />
-              
-              Notes: ${body.tripNotes}<br /><br />
-              
-              If you have questions regarding this estimate, please email ${body.travellersName} at ${body.travellersEmail}<br /><br />
-
-              All dates expressed in this email are in YYYY-MM-DD format.<br /><br />
+              `${injectTemplateLiterals(prismicData.message_to_approver_en)}
 
               ---
 
               <br /><br />
-              ${body.approversName},<br /><br />
-
-              ${body.travellersName} a présenté une nouvelle estimation de voyage pour un voyage à ${addCommaToPlaceName(body.destination.acrdName)}.<br /><br />
-
-              Objectif: ${body.tripName}<br /><br />
-              
-              Catégorie: ${travelCategory(body.travelCategory, 'fr')}<br />
-              Fonctionnaire: ${body.travellerIsPublicServant ? 'Oui' : 'Non'}<br /><br />
-                
-              Origine: ${addCommaToPlaceName(body.origin.acrdName)}<br />
-              Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
-              
-              Départ: ${body.departureDate}<br />
-              Retour: ${body.returnDate}<br /><br />
-              
-              Hébergement (${accommodationType(body.accommodationType, 'fr')}): ${localCurrencyDisplay(body.accommodationCost, 'fr-CA')}<br /><br />
-              
-              Transport (${travelMode(body.transportationType, 'fr')}): ${localCurrencyDisplay(body.transportationCost, 'fr-CA')}<br /><br />
-              
-              Transport local: ${localCurrencyDisplay(body.localTransportationCost, 'fr-CA')}<br /><br />
-              
-              Repas et frais accessoires: ${localCurrencyDisplay(body.mealCost, 'fr-CA')}<br /><br />
-              
-              Autres dépenses: ${localCurrencyDisplay(body.otherCost, 'fr-CA')}<br /><br />
-              
-              TOTAL: ${localCurrencyDisplay(body.summaryCost, 'fr-CA')}<br /><br />
-              
-              Remarques: ${body.tripNotes}<br /><br />
-              
-              Si vous avez des questions, veuillez communiquer avec ${body.travellersName}, à ${body.travellersEmail}.<br /><br />
-              
-              Toutes les dates indiquées dans ce courriel utilisent le format AAAA-MM-JJ.<br /><br />
+              ${injectTemplateLiterals(prismicData.message_to_approver_fr)}
               `
           }
         },
         Subject: {
           Charset: 'UTF-8',
-          Data: `Trip estimate / Estimation de voyage`,
+          Data: `${prismicData.approver_message_subject_en} / ${prismicData.approver_message_subject_fr}`,
         }
       }
     };
