@@ -33,11 +33,9 @@ const EmailConfirmationModal = (props) => {
                     variant="primary"
                     onClick={() => {
                     props.onHide()
-                    props.setFeedbackModalShow(true);
                 }}>{props.messages.email_confirm_back_button}</Button>
                 <Button variant="outline-primary" onClick={() => {
                     props.clearForm()
-                    props.setFeedbackModalShow(true);
                 }
                 }>{props.messages.email_confirm_new_estimate_button}</Button>
             </Modal.Footer>

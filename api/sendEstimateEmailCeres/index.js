@@ -290,79 +290,79 @@ module.exports = async function (context, req) {
     let csvHeaders = Object.keys(csvLineObject);
     let csvData = csvHeaders.map(key => `"${csvLineObject[key]}"`).join(',')
 
-    let debugParams = {
-      Source: 'GC Travel Calculator / Calculateur de voyage du GC <tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca>',
-      Destination: {
-        ToAddresses: [
-          'TPSGC.VoyageProchaineGen-NextGenTravel.PWGSC@tpsgc-pwgsc.gc.ca',
-        ]
-      },
-      ReplyToAddresses: ['tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca'],
-      Message: {
-        Body: {
-          Html: {
-            Charset: "UTF-8",
-            Data: 
-              `
+    // let debugParams = {
+    //   Source: 'GC Travel Calculator / Calculateur de voyage du GC <tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca>',
+    //   Destination: {
+    //     ToAddresses: [
+    //       'TPSGC.VoyageProchaineGen-NextGenTravel.PWGSC@tpsgc-pwgsc.gc.ca',
+    //     ]
+    //   },
+    //   ReplyToAddresses: ['tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca'],
+    //   Message: {
+    //     Body: {
+    //       Html: {
+    //         Charset: "UTF-8",
+    //         Data: 
+    //           `
 
-              Objective: ${body.tripName}<br /><br />
+    //           Objective: ${body.tripName}<br /><br />
 
-              Category: ${travelCategory(body.travelCategory, 'en')}<br />
+    //           Category: ${travelCategory(body.travelCategory, 'en')}<br />
 
-              Public servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
+    //           Public servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
 
-              Origin: ${addCommaToPlaceName(body.origin.acrdName)}<br />
-              Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
+    //           Origin: ${addCommaToPlaceName(body.origin.acrdName)}<br />
+    //           Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
               
-              Departure: ${body.departureDate}<br />
-              Return: ${body.returnDate}<br /><br />
+    //           Departure: ${body.departureDate}<br />
+    //           Return: ${body.returnDate}<br /><br />
               
-              Accommodation (${accommodationType(body.accommodationType, 'en')}): ${localCurrencyDisplay(body.accommodationCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.accommodationCost, 'en-CA')})<br /><br />
+    //           Accommodation (${accommodationType(body.accommodationType, 'en')}): ${localCurrencyDisplay(body.accommodationCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.accommodationCost, 'en-CA')})<br /><br />
               
-              Transportation (${travelMode(body.transportationType, 'en')}): ${localCurrencyDisplay(body.transportationCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.transportationCost, 'en-CA')})<br /><br />
+    //           Transportation (${travelMode(body.transportationType, 'en')}): ${localCurrencyDisplay(body.transportationCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.transportationCost, 'en-CA')})<br /><br />
               
-              Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.localTransportationCost, 'en-CA')})<br /><br />
+    //           Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.localTransportationCost, 'en-CA')})<br /><br />
               
-              Meals and incidentals: ${localCurrencyDisplay(body.mealCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.mealCostTotal, 'en-CA')})<br /><br />
+    //           Meals and incidentals: ${localCurrencyDisplay(body.mealCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.mealCostTotal, 'en-CA')})<br /><br />
               
-              Other costs: ${localCurrencyDisplay(body.otherCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.otherCost, 'en-CA')})<br /><br />
+    //           Other costs: ${localCurrencyDisplay(body.otherCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.otherCost, 'en-CA')})<br /><br />
               
-              TOTAL: ${localCurrencyDisplay(body.summaryCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.summaryCost, 'en-CA')})<br /><br />
+    //           TOTAL: ${localCurrencyDisplay(body.summaryCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.summaryCost, 'en-CA')})<br /><br />
 
-              Notes: ${body.tripNotes}<br /><br />
+    //           Notes: ${body.tripNotes}<br /><br />
 
-              <br><br>
-              Flight Result: (returns NaN if no estimate requested)
-              <br><br>
+    //           <br><br>
+    //           Flight Result: (returns NaN if no estimate requested)
+    //           <br><br>
 
-              Min: ${localCurrencyDisplay(body.flightResult.minimum, 'en-CA')}<br>
-              Med: ${localCurrencyDisplay(body.flightResult.median, 'en-CA')}<br>
-              Max: ${localCurrencyDisplay(body.flightResult.maximum, 'en-CA')}<br>
+    //           Min: ${localCurrencyDisplay(body.flightResult.minimum, 'en-CA')}<br>
+    //           Med: ${localCurrencyDisplay(body.flightResult.median, 'en-CA')}<br>
+    //           Max: ${localCurrencyDisplay(body.flightResult.maximum, 'en-CA')}<br>
 
-              <br><br>
+    //           <br><br>
 
-              All dates expressed in this email are in YYYY-MM-DD format.<br /><br />
+    //           All dates expressed in this email are in YYYY-MM-DD format.<br /><br />
 
-              <br><br>CSV: (Header followed by data)<br><br>
-              ${csvHeaders}
+    //           <br><br>CSV: (Header followed by data)<br><br>
+    //           ${csvHeaders}
 
-              <br>
+    //           <br>
 
-              ${csvData}
+    //           ${csvData}
 
-              <br><br>
+    //           <br><br>
 
-              Initial Result: <br><br>
-              ${JSON.stringify(initialResult, null, '<br>')}
-              `
-          }
-        },
-        Subject: {
-          Charset: 'UTF-8',
-          Data: `Report: Trip estimate`,
-        }
-      }
-    };
+    //           Initial Result: <br><br>
+    //           ${JSON.stringify(initialResult, null, '<br>')}
+    //           `
+    //       }
+    //     },
+    //     Subject: {
+    //       Charset: 'UTF-8',
+    //       Data: `Report: Trip estimate`,
+    //     }
+    //   }
+    // };
 
     let response = {
       approver: '',
