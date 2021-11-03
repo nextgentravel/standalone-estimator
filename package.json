@@ -82,8 +82,9 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "createemailnotifications": "node ./util/prismicqueryforemail.js",
+    "build": "yarn createemailnotifications && gatsby build",
+    "develop": "yarn createemailnotifications && gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
