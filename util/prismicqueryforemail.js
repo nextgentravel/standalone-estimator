@@ -16,7 +16,6 @@ return client
   .then(
     function (response) {
       const messages = {}
-      console.log(response.results[0].data)
       response.results.forEach(item => {
         const lang = item.lang.slice(0, 2)
         for (const [key, value] of Object.entries(
