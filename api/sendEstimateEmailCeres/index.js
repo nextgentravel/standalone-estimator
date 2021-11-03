@@ -1,6 +1,6 @@
 const AWS = require('aws-sdk');
 var Intl = require('intl');
-
+const prismicData = require('./prismic-email-notifications.json')
 // Note: you only need to require the locale once
 require('intl/locale-data/jsonp/en-CA.js');
 require('intl/locale-data/jsonp/fr-CA.js');
@@ -139,8 +139,43 @@ const accommodationType = (input, lang) => {
   }
 }
 
+
+
 module.exports = async function (context, req) {
     let body = req.body
+
+    const injectTemplateLiterals = (data) => {
+      data = data.replace('${body.travellersName}', `${body.travellersName}`)
+      data = data.replace('${body.approversName}', `${body.approversName}`)
+      data = data.replace('${body.tripName}', `${body.tripName}`)
+      data = data.replace("${travelCategory(body.travelCategory, 'fr')}", `${travelCategory(body.travelCategory, 'fr')}`)
+      data = data.replace("${travelCategory(body.travelCategory, 'en')}", `${travelCategory(body.travelCategory, 'en')}`)
+      data = data.replace("${body.travellerIsPublicServant ? 'Oui' : 'Non'}", `${body.travellerIsPublicServant ? 'Oui' : 'Non'}`)
+      data = data.replace("${body.travellerIsPublicServant ? 'Yes' : 'No'}", `${body.travellerIsPublicServant ? 'Yes' : 'No'}`)
+      data = data.replace("${addCommaToPlaceName(body.origin.acrdName)}", `${addCommaToPlaceName(body.origin.acrdName)}`)
+      data = data.replace("${addCommaToPlaceName(body.destination.acrdName)}", `${addCommaToPlaceName(body.destination.acrdName)}`)
+      data = data.replace("${body.departureDate}", `${body.departureDate}`)
+      data = data.replace("${body.returnDate}", `${body.returnDate}`)
+      data = data.replace("${accommodationType(body.accommodationType, 'fr')}", `${accommodationType(body.accommodationType, 'fr')}`)
+      data = data.replace("${accommodationType(body.accommodationType, 'en')}", `${accommodationType(body.accommodationType, 'en')}`)
+      data = data.replace("${localCurrencyDisplay(body.accommodationCost, 'fr-CA')}", `${localCurrencyDisplay(body.accommodationCost, 'fr-CA')}`)
+      data = data.replace("${localCurrencyDisplay(body.accommodationCost, 'en-CA')}", `${localCurrencyDisplay(body.accommodationCost, 'en-CA')}`)
+      data = data.replace("${travelMode(body.transportationType, 'fr')}", `${travelMode(body.transportationType, 'fr')}`)
+      data = data.replace("${travelMode(body.transportationType, 'en')}", `${travelMode(body.transportationType, 'en')}`)
+      data = data.replace("${localCurrencyDisplay(body.transportationCost, 'fr-CA')}", `${localCurrencyDisplay(body.transportationCost, 'fr-CA')}`)
+      data = data.replace("${localCurrencyDisplay(body.transportationCost, 'en-CA')}", `${localCurrencyDisplay(body.transportationCost, 'en-CA')}`)
+      data = data.replace("${localCurrencyDisplay(body.localTransportationCost, 'fr-CA')}", `${localCurrencyDisplay(body.localTransportationCost, 'fr-CA')}`)
+      data = data.replace("${localCurrencyDisplay(body.localTransportationCost, 'en-CA')}", `${localCurrencyDisplay(body.localTransportationCost, 'en-CA')}`)
+      data = data.replace("${localCurrencyDisplay(body.mealCost, 'fr-CA')}", `${localCurrencyDisplay(body.mealCost, 'fr-CA')}`)
+      data = data.replace("${localCurrencyDisplay(body.mealCost, 'en-CA')}", `${localCurrencyDisplay(body.mealCost, 'en-CA')}`)
+      data = data.replace("${localCurrencyDisplay(body.otherCost, 'fr-CA')}", `${localCurrencyDisplay(body.otherCost, 'fr-CA')}`)
+      data = data.replace("${localCurrencyDisplay(body.otherCost, 'en-CA')}", `${localCurrencyDisplay(body.otherCost, 'en-CA')}`)
+      data = data.replace("${localCurrencyDisplay(body.summaryCost, 'fr-CA')}", `${localCurrencyDisplay(body.summaryCost, 'fr-CA')}`)
+      data = data.replace("${localCurrencyDisplay(body.summaryCost, 'en-CA')}", `${localCurrencyDisplay(body.summaryCost, 'en-CA')}`)
+      data = data.replace("${body.tripNotes}", `${body.tripNotes}`)
+
+      return data
+    }
 
     const SESConfig = {
         apiVersion: '2010-12-01',
@@ -162,40 +197,7 @@ module.exports = async function (context, req) {
           Html: {
             Charset: "UTF-8",
             Data: 
-              `(Le français suit l'anglais.)<br /><br />
-              
-              ${body.travellersName},<br /><br />
-
-              The following trip estimate has been submitted to ${body.approversName} for planning purposes:<br /><br />
-              
-              Objective: ${body.tripName}<br /><br />
-              
-              Category: ${travelCategory(body.travelCategory, 'en')}<br />
-              Public servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
-                
-              Origin: ${addCommaToPlaceName(body.origin.acrdName)}<br />
-              Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
-              
-              Departure: ${body.departureDate}<br />
-              Return: ${body.returnDate}<br /><br />
-              
-              Accommodation (${accommodationType(body.accommodationType, 'en')}): ${localCurrencyDisplay(body.accommodationCost, 'en-CA')}<br /><br />
-              
-              Transportation (${travelMode(body.transportationType, 'en')}): ${localCurrencyDisplay(body.transportationCost, 'en-CA')}<br /><br />
-              
-              Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'en-CA')}<br /><br />
-              
-              Meals and incidentals: ${localCurrencyDisplay(body.mealCost, 'en-CA')}<br /><br />
-              
-              Other costs: ${localCurrencyDisplay(body.otherCost, 'en-CA')}<br /><br />
-              
-              TOTAL: ${localCurrencyDisplay(body.summaryCost, 'en-CA')}<br /><br />
-              
-              Notes: ${body.tripNotes}<br /><br />
-              
-              Thank you for using the GC Travel Calculator!<br /><br />
-
-              All dates expressed in this email are in YYYY-MM-DD format.<br /><br />
+              `${injectTemplateLiterals(prismicData.toTravellerMessage)}
 
               ---
 
