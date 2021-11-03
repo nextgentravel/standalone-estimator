@@ -1933,21 +1933,13 @@ const Estimator = () => {
                                     
                                     aria-hidden="true" 
                                     size="25"
-                                    style={{
-                                        position: 'absolute',
-                                        right: 30,
-                                        top: 15,
-                                    }}
+                                    className="explainer-carets"
                                 />}
                             {!explainerCollapsed &&
                                 <FaCaretUp focusable="false"
                                     aria-hidden="true"
                                     size="25"
-                                    style={{
-                                        position: 'absolute',
-                                        right: 30,
-                                        top: 15,
-                                    }}
+                                    className="explainer-carets"
                                 />
                             }
                         </button>

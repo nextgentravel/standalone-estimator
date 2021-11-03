@@ -109,23 +109,15 @@ export default ({ data }) => {
                           {explainerCollapsed &&
                             <FaCaretDown focusable="false"
                               aria-hidden="true"
-                                size="25"
-                                style={{
-                                    position: 'absolute',
-                                    right: 30,
-                                    top: 15,
-                                }}
+                              size="25"
+                              className="explainer-carets"
                             />
                           }
                           {!explainerCollapsed &&
                             <FaCaretUp focusable="false"
                                 aria-hidden="true"
-                                size="25"
-                                style={{
-                                    position: 'absolute',
-                                    right: 30,
-                                    top: 15,
-                                }}
+                              size="25"
+                              className="explainer-carets"
                             />
                           }
                       </button>
