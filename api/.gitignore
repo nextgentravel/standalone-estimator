@@ -94,3 +94,6 @@ appsettings.json
 local.settings.json
 local.settings.staging.json
 local.settings.production.json
+
+# Prismic email notificiations
+prismic-email-notifications.json

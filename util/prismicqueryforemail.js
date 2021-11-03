@@ -14,7 +14,7 @@ return client.query(Prismic.Predicates.at('document.type', 'standaloneestimator-
         toTravellerMessage: decoded
     }
     let data = JSON.stringify(messages);
-    fs.writeFile('./email-notifications.json', data, (err) => {
+    fs.writeFile('./api/sendEstimateEmailCeres/prismic-email-notifications.json', data, (err) => {
         if (err) throw err;
         console.log('JSON email-notifications saved.');
     });
