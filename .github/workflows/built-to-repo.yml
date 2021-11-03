@@ -43,6 +43,7 @@ jobs:
           path: estimator-build
       - run: |
           cp -RT standalone-estimator/public estimator-build
+          mkdir -p estimator-build/.github/workflows && cp standalone-estimator/buildworkflow.yml estimator-build/.github/workflows
           cd estimator-build
           git config user.name github-actions
           git config user.email github-actions@github.com
