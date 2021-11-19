@@ -1,4 +1,4 @@
-name: build
+name: Build gatsby and push to remote prod repo
 
 on:
   push:
