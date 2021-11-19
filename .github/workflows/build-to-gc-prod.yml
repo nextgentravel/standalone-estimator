@@ -3,13 +3,16 @@ name: build
 on:
   push:
     branches:
-      - build-to-azure
+      - gc-prod
 
 jobs:
   build-and-deploy:
     name: Build and deploy Gatsby site
     runs-on: ubuntu-latest
     steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       - name: Checkout Code
         uses: actions/checkout@v2
         with:
@@ -38,33 +41,33 @@ jobs:
       - name: Checkout Build Repo
         uses: actions/checkout@v2
         with:
-          repository: nextgentravel/estimator-build
+          repository: nextgentravel/gc-prod-build
           token: ${{ secrets.PUSH_TO_BUILD }} # `GitHub_PAT` is a secret that contains your PAT
-          path: estimator-build
+          path: gc-prod-build
       - run: |
-          cp -RT standalone-estimator/public estimator-build
-          mkdir -p estimator-build/.github/workflows && cp standalone-estimator/buildworkflow.yml estimator-build/.github/workflows
-          cd estimator-build
+          cp -RT standalone-estimator/public gc-prod-build
+          mkdir -p gc-prod-build/.github/workflows && cp standalone-estimator/buildworkflow.yml gc-prod-build/.github/workflows
+          cd gc-prod-build
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
-          git commit -m "generated"
+          git commit -m "Deployed ${{ steps.date.outputs.date }}"
           git push
 
 
 
       # - name: Push build to private repo
       #   run: |
-      #     git remote set-url origin https://github.com/nextgentravel/estimator-build.git
-      #     mkdir public estimator-build
+      #     git remote set-url origin https://github.com/nextgentravel/gc-prod-build.git
+      #     mkdir public gc-prod-build
       #     touch public/index.html
-      #     cp -RT public estimator-build
-      #     cd estimator-build
+      #     cp -RT public gc-prod-build
+      #     cd gc-prod-build
       #     git config --local user.name "github-actions[bot]"
       #     git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
       #     git add -A
       #     git commit -m "Updated build"
-      #     git push https://$USERNAME:$REPO_KEY@github.com/nextgentravel/estimator-build.git
+      #     git push https://$USERNAME:$REPO_KEY@github.com/nextgentravel/gc-prod-build.git
       #   env:
       #     REPO_KEY: ${{secrets.PUSH_TO_BUILD}}
       #     USERNAME: github-actions[bot]
