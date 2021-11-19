@@ -1,9 +1,9 @@
-name: Build gatsby and push static code to gc-travel-calc-prod-build
+name: Build gatsby and push static code to gc-travel-calc-staging-build
 
 on:
   push:
     branches:
-      - gc-prod
+      - gc-staging
 
 jobs:
   build-and-deploy:
@@ -41,13 +41,13 @@ jobs:
       - name: Checkout Build Repo
         uses: actions/checkout@v2
         with:
-          repository: nextgentravel/gc-travel-calc-prod-build
+          repository: nextgentravel/gc-travel-calc-staging-build
           token: ${{ secrets.PUSH_TO_BUILD }} # `GitHub_PAT` is a secret that contains your PAT
-          path: gc-travel-calc-prod-build
+          path: gc-travel-calc-staging-build
       - run: |
-          cp -RT standalone-estimator/public gc-travel-calc-prod-build
-          mkdir -p gc-travel-calc-prod-build/.github/workflows && cp standalone-estimator/buildworkflow_prod.yml gc-travel-calc-prod-build/.github/workflows
-          cd gc-travel-calc-prod-build
+          cp -RT standalone-estimator/public gc-travel-calc-staging-build
+          mkdir -p gc-travel-calc-staging-build/.github/workflows && cp standalone-estimator/buildworkflow_staging.yml gc-travel-calc-staging-build/.github/workflows
+          cd gc-travel-calc-staging-build
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
