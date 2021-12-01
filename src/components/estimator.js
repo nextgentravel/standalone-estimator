@@ -400,6 +400,7 @@ const Estimator = () => {
                     alt_for_fasuitcase
                     alt_for_fataxi
                     alt_for_fautensils
+                    required
                 }
             }
         }
@@ -1502,8 +1503,8 @@ const Estimator = () => {
                         />
                     </div>
                     <div className="col-sm-3"></div>
-                    <div className="col-sm-3">
-                        <label htmlFor="departureDate">{localeCopy.datepicker_start_date}
+                    <div className="col-sm-4">
+                        <label htmlFor="departureDate">{localeCopy.datepicker_start_date}<small className='pl-1'>({localeCopy.required})</small>
                             <small id="departure-datepicker-help" className="form-text">{localeCopy.date_format_description}</small>
                         </label>
                         <input
@@ -1520,8 +1521,9 @@ const Estimator = () => {
                             }}
                         />
                     </div>
-                    <div className="col-sm-3">
-                        <label htmlFor="returnDate">{localeCopy.datepicker_end_date}
+                    <div className="col-sm-4">
+                        <label htmlFor="returnDate">
+                            {localeCopy.datepicker_end_date}<small className='pl-1'>({localeCopy.required})</small>
                             <small id="return-datepicker-help" className="form-text">{localeCopy.date_format_description}</small>
                         </label>
                         <input

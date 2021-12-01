@@ -200,6 +200,12 @@
       "config" : {
         "label" : "is_required"
       }
+    },
+    "required" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "required"
+      }
     }
   },
   "Email Confirmation Modal" : {
