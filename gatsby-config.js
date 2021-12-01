@@ -5,8 +5,8 @@ var buildDate = new Date().toISOString().split('T')[0]
 module.exports = {
   siteMetadata: {
     title: `GC Travel Calculator / Calculateur de voyage du GC`,
-    titleEnglish: `GC Travel Calculator`,
-    titleFrench: `Calculateur de voyage du GC`,
+    titleEnglish: `Government of Canada travel calculator`,
+    titleFrench: `Calculateur de voyage du gouvernement du Canada`,
     description: `Use this tool to create Government of Canada (GC) travel estimates / Utilisez cet outil pour créer des estimations des voyages du gouvernement du Canada (GC)`,
     descriptionEnglish: `Use this tool to create Government of Canada (GC) travel estimates`,
     descriptionFrench: `Utilisez cet outil pour créer des estimations des voyages du gouvernement du Canada (GC)`,
