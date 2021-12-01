@@ -1900,7 +1900,7 @@ const Estimator = () => {
                             readOnly={!result}
                         />
                         <div className="row mb-4">
-                            <div className="col-sm-7 align-self-center text-right" >
+                            <div className="col-sm-7 align-self-center text-right" tabindex='0'>
                                 <div className='mb-3 border-bottom' />
                                 <strong className="mr-2">{formattedMessage('total_cost')}</strong>{localCurrencyDisplay(parseFloat(summaryCost))}
                             </div>
