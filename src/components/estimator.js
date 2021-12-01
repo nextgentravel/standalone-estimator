@@ -2,9 +2,8 @@ import React, {useState, useEffect, useRef} from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import InputDatalist from "./input-datalist.js"
 import calculateMeals from "./calculate-meals.js"
-import { DateTime, Interval, Info } from "luxon"
+import { DateTime, Interval } from "luxon"
 import * as yup from "yup"
-import monthsContained from "./months-contained.js"
 import { useIntl } from 'react-intl'
 import EstimatorRow from "./estimator-row.js"
 import EmailModal from "./email-modal.js"
@@ -26,7 +25,6 @@ import InputGroup from 'react-bootstrap/InputGroup'
 
 import cities from "../data/cities.js"
 import geocodedCities from "../data/geocodedCities"
-import acrdRates from "../data/acrdRates.js"
 import locations from "../data/locations.js"
 
 import { FaSpinner, FaQuestionCircle, FaExclamationTriangle, FaBed, FaPlane, FaTaxi, FaUtensils, FaSuitcase } from 'react-icons/fa'
@@ -65,13 +63,15 @@ const Estimator = () => {
     let locale = `${intl.locale}-ca`;
 
     const localCurrencyDisplay = (string) => {
-        return string.toLocaleString(locale, {
+        const float = parseFloat(string);
+        let localDisplay = float.toLocaleString(locale, {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
             style: 'currency',
             currency: 'CAD',
             currencyDisplay: 'symbol'
         }).replace('CA', '').replace(/\D00(?=\D*$)/, '')
+        return localDisplay;
     }
 
     const cmsData = useStaticQuery(graphql`
@@ -678,52 +678,26 @@ const Estimator = () => {
     let [initialFlightResult, setInitialFlightResult] = useState(1.11);
     let [acceptedFlight, setAcceptedFlight] = useState(0.00);
 
-
-
-    const fetchHotelCost = () => {
-        let months = monthsContained(departureDate, returnDate);
-        let rates = acrdRates[destination.acrdName];
-        if (!rates) {
-            rates = acrdRates[cities.suburbCityList[destination.acrdName]]
+    const fetchHotelCost = async () => {
+        let requestBody = {
+            city: destination.cityName,
+            province: destination.provinceCode,
+            startDate: departureDate,
+            endDate: returnDate,
         }
-        
-        let acrdRatesFiltered = Object.keys(rates)
-            .filter(key => months.map(mon => mon.month).includes(key))
-            .reduce((res, key) => {
-                res[key] = rates[key];
-                return res;
-            }, {});
+        let response = await fetch('/api/fetchAcrdRates',
+        {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+        })
 
-        try {
-            let rates = rateDaysByMonth(departureDateLux, returnDateLux, acrdRatesFiltered)
+        let result = await response.json()
 
-            let total = 0.00;
-
-            let calculatedApplicableRates = []
-
-            for (const month in rates) {
-                total = total + rates[month].monthTotal
-                calculatedApplicableRates.push({
-                    month: month,
-                    rate: rates[month].rate
-                })
-            }
-
-            setApplicableRates(calculatedApplicableRates)
-
-            setAcrdTotal(total);
-
-            // eslint-disable-next-line no-template-curly-in-string
-
-
-
-            // message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
-            // eslint-disable-next-line no-template-curly-in-string
-            // message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(calculatedApplicableRates[0].rate)}</strong>`)
-            // setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
-        } catch (error) {
-            console.log('fetchHotelCostError', error);
-        }
+        setAcrdTotal(result.total);
+        setApplicableRates(result.ratesByDay)
     }
 
     const fetchLocalTransportationRate = (numberOfDays) => {
@@ -740,10 +714,9 @@ const Estimator = () => {
             let destinationDisplay = `${cityName}, ${province}`
 
             let message = localeCopy.hotel_success.html
-            fetchHotelCost()
             message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
             // eslint-disable-next-line no-template-curly-in-string
-            message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
+            message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate.max_rate)}</strong>`)
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
             updateAccommodationCost(acrdTotal)
         } else if (accommodationType === 'private') {
@@ -864,46 +837,6 @@ const Estimator = () => {
         setSummaryCost(newValue.toFixed(2))
     }
 
-    const rateDaysByMonth = (departureDate, returnDate, rates) => {
-        // get all the dates in range
-
-        let dates = Interval.fromDateTimes(
-            departureDate.startOf("day"),
-            returnDate.endOf("day"))
-            .splitBy({days: 1}).map(d => d.start)
-
-        // remove the last date, since we won't need accommodation on that day
-
-        dates.pop();
-
-        // get month/year from each date object
-
-        let months = dates.map((date) => {
-            return date.month + '-' + date.year;
-        });
-
-        // count occurrences of each month
-
-        var monthYearCount = months.reduce(function(obj, b) {
-            obj[b] = ++obj[b] || 1;
-            return obj;
-        }, {});
-
-        let result = {}
-
-        for (const monthYear in monthYearCount) {
-            let split = monthYear.split('-');
-            let monthName = Info.months()[split[0] - 1]
-            result[monthYear] = {
-                dayCount: monthYearCount[monthYear],
-                rate: rates[monthName],
-                monthTotal: monthYearCount[monthYear] * rates[monthName],
-            }
-        }
-
-        return result;
-    }
-
     const handleSubmit =  async(e) => {
         setProvince('')
         setMealsByDay({})
@@ -965,7 +898,7 @@ const Estimator = () => {
                     setReturnDistance(0);
                 }
 
-                fetchHotelCost()
+                await fetchHotelCost()
                 fetchLocalTransportationRate(numberOfDays - 1)
 
                 // get ACRD rate for destination
@@ -1533,7 +1466,6 @@ const Estimator = () => {
                             value={returnDate} 
                             className="form-control"
                             onChange={(event) => {
-                                console.log('Date', event.target.value)
                                 setReturnDate(event.target.value)
                             }}
                         />
@@ -1635,7 +1567,7 @@ const Estimator = () => {
                                                 if (parseFloat(e.target.value) > acrdTotal) {
                                                     setAccommodationCost(e.target.value)
                                                     let message = localeCopy.hotel_above_estimate.html
-                                                    message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
+                                                    message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate.max_rate)}</strong>`)
                                                     message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
                                                     setAccommodationMessage({ element: 
                                                     <div className="mb-0 alert-warning" role="alert">
@@ -1666,7 +1598,7 @@ const Estimator = () => {
                                                 } else if (parseFloat(e.target.value) <= acrdTotal) {
                                                     setAccommodationCost(e.target.value)
                                                     let message = localeCopy.hotel_below_estimate.html
-                                                    message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
+                                                    message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate.max_rate)}</strong>`)
                                                     message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
                                                     setAccommodationMessage({ element: 
                                                     <div className="mb-0">
