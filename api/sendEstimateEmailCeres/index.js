@@ -1,5 +1,7 @@
 const AWS = require('aws-sdk');
 var Intl = require('intl');
+const prismicData = require('./prismic-email-notifications.json')
+const prismicKeywords = require('./prismic-email-keywords.json')
 // Note: you only need to require the locale once
 require('intl/locale-data/jsonp/en-CA.js');
 require('intl/locale-data/jsonp/fr-CA.js');
@@ -40,20 +42,20 @@ const travelCategory = (input, lang) => {
     return input;
   } else if (lang === 'fr') {
     switch (input) {
-      case 'Operational activities':
-        return "Activités opérationnelles"
+      case prismicKeywords.travelCategories.en[0]:
+        return prismicKeywords.travelCategories.fr[0]
         break;
-      case 'Key stakeholders':
-        return "Principaux intervenants"
+        case prismicKeywords.travelCategories.en[1]:
+          return prismicKeywords.travelCategories.fr[1]
         break;
-      case 'Internal governance':
-        return "Gouvernance interne"
+        case prismicKeywords.travelCategories.en[2]:
+          return prismicKeywords.travelCategories.fr[2]
         break;
-      case 'Training':
-        return "Formation"
+        case prismicKeywords.travelCategories.en[3]:
+          return prismicKeywords.travelCategories.fr[3]
         break;
-      case 'Other travel':
-        return "Autres voyages"
+      case prismicKeywords.travelCategories.en[4]:
+        return prismicKeywords.travelCategories.fr[4]
         break;
       default:
         return input;
@@ -66,19 +68,19 @@ const travelMode = (input, lang) => {
     console.log(input)
     switch (input) {
       case 'flight':
-        return "Flight"
+        return prismicKeywords.travelMode.en.flight
         break;
       case 'train':
-        return "Train"
+        return prismicKeywords.travelMode.en.train
         break;
       case 'rental':
-        return "Rental car"
+        return prismicKeywords.travelMode.en.rental
         break;
       case 'private':
-        return "Private vehicle"
+        return prismicKeywords.travelMode.en.privatevehicle
         break;
       case 'notrequired':
-        return "Not required"
+        return prismicKeywords.travelMode.en.notrequired
         break;
       default:
         return input;
@@ -86,19 +88,19 @@ const travelMode = (input, lang) => {
   } else if (lang === 'fr') {
     switch (input) {
       case 'flight':
-        return "Vol"
+        return prismicKeywords.travelMode.fr.flight
         break;
       case 'train':
-        return "Train"
+        return prismicKeywords.travelMode.fr.train
         break;
       case 'rental':
-        return "Location de véhicule"
+        return prismicKeywords.travelMode.fr.rental
         break;
       case 'private':
-        return "Véhicule personnel"
+        return prismicKeywords.travelMode.fr.privatevehicle
         break;
       case 'notrequired':
-        return "Non requis"
+        return prismicKeywords.travelMode.fr.notrequired
         break;
       default:
         return input;
@@ -110,13 +112,13 @@ const accommodationType = (input, lang) => {
   if (lang === 'en') {
     switch (input) {
       case 'hotel':
-        return "Hotel"
+        return prismicKeywords.accommodationType.en.hotel
         break;
       case 'private':
-        return "Private accommodation"
+        return prismicKeywords.accommodationType.en.private
         break;
       case 'notrequired':
-        return "Not required"
+        return prismicKeywords.accommodationType.en.notrequired
         break;
       default:
         return input;
@@ -124,13 +126,13 @@ const accommodationType = (input, lang) => {
   } else if (lang === 'fr') {
     switch (input) {
       case 'hotel':
-        return "Hôtel"
+        return prismicKeywords.accommodationType.fr.hotel
         break;
       case 'private':
-        return "Hébergement privé"
+        return prismicKeywords.accommodationType.fr.private
         break;
       case 'notrequired':
-        return "Non requis"
+        return prismicKeywords.accommodationType.fr.notrequired
         break;
       default:
         return input;
@@ -138,8 +140,44 @@ const accommodationType = (input, lang) => {
   }
 }
 
+
+
 module.exports = async function (context, req) {
     let body = req.body
+
+    const injectTemplateLiterals = (data) => {
+      data = data.split('${body.travellersName}').join(`${body.travellersName}`)
+      data = data.split('${body.approversName}').join(`${body.approversName}`)
+      data = data.split('${body.tripName}').join(`${body.tripName}`)
+      data = data.split("${travelCategory(body.travelCategory, 'fr')}").join(`${travelCategory(body.travelCategory, 'fr')}`)
+      data = data.split("${travelCategory(body.travelCategory, 'en')}").join(`${travelCategory(body.travelCategory, 'en')}`)
+      data = data.split("${body.travellerIsPublicServant ? 'Oui' : 'Non'}").join(`${body.travellerIsPublicServant ? 'Oui' : 'Non'}`)
+      data = data.split("${body.travellerIsPublicServant ? 'Yes' : 'No'}").join(`${body.travellerIsPublicServant ? 'Yes' : 'No'}`)
+      data = data.split("${addCommaToPlaceName(body.origin.acrdName)}").join(`${addCommaToPlaceName(body.origin.acrdName)}`)
+      data = data.split("${addCommaToPlaceName(body.destination.acrdName)}").join(`${addCommaToPlaceName(body.destination.acrdName)}`)
+      data = data.split("${body.departureDate}").join(`${body.departureDate}`)
+      data = data.split("${body.returnDate}").join(`${body.returnDate}`)
+      data = data.split("${accommodationType(body.accommodationType, 'fr')}").join(`${accommodationType(body.accommodationType, 'fr')}`)
+      data = data.split("${accommodationType(body.accommodationType, 'en')}").join(`${accommodationType(body.accommodationType, 'en')}`)
+      data = data.split("${localCurrencyDisplay(body.accommodationCost, 'fr-CA')}").join(`${localCurrencyDisplay(body.accommodationCost, 'fr-CA')}`)
+      data = data.split("${localCurrencyDisplay(body.accommodationCost, 'en-CA')}").join(`${localCurrencyDisplay(body.accommodationCost, 'en-CA')}`)
+      data = data.split("${travelMode(body.transportationType, 'fr')}").join(`${travelMode(body.transportationType, 'fr')}`)
+      data = data.split("${travelMode(body.transportationType, 'en')}").join(`${travelMode(body.transportationType, 'en')}`)
+      data = data.split("${localCurrencyDisplay(body.transportationCost, 'fr-CA')}").join(`${localCurrencyDisplay(body.transportationCost, 'fr-CA')}`)
+      data = data.split("${localCurrencyDisplay(body.transportationCost, 'en-CA')}").join(`${localCurrencyDisplay(body.transportationCost, 'en-CA')}`)
+      data = data.split("${localCurrencyDisplay(body.localTransportationCost, 'fr-CA')}").join(`${localCurrencyDisplay(body.localTransportationCost, 'fr-CA')}`)
+      data = data.split("${localCurrencyDisplay(body.localTransportationCost, 'en-CA')}").join(`${localCurrencyDisplay(body.localTransportationCost, 'en-CA')}`)
+      data = data.split("${localCurrencyDisplay(body.mealCost, 'fr-CA')}").join(`${localCurrencyDisplay(body.mealCost, 'fr-CA')}`)
+      data = data.split("${localCurrencyDisplay(body.mealCost, 'en-CA')}").join(`${localCurrencyDisplay(body.mealCost, 'en-CA')}`)
+      data = data.split("${localCurrencyDisplay(body.otherCost, 'fr-CA')}").join(`${localCurrencyDisplay(body.otherCost, 'fr-CA')}`)
+      data = data.split("${localCurrencyDisplay(body.otherCost, 'en-CA')}").join(`${localCurrencyDisplay(body.otherCost, 'en-CA')}`)
+      data = data.split("${localCurrencyDisplay(body.summaryCost, 'fr-CA')}").join(`${localCurrencyDisplay(body.summaryCost, 'fr-CA')}`)
+      data = data.split("${localCurrencyDisplay(body.summaryCost, 'en-CA')}").join(`${localCurrencyDisplay(body.summaryCost, 'en-CA')}`)
+      data = data.split("${body.tripNotes}").join(`${body.tripNotes}`)
+      data = data.split("${body.travellersEmail}").join(`${body.travellersEmail}`)
+
+      return data
+    }
 
     const SESConfig = {
         apiVersion: '2010-12-01',
@@ -161,82 +199,18 @@ module.exports = async function (context, req) {
           Html: {
             Charset: "UTF-8",
             Data: 
-              `(Le français suit l'anglais.)<br /><br />
-              
-              ${body.travellersName},<br /><br />
-
-              The following trip estimate has been submitted to ${body.approversName} for planning purposes:<br /><br />
-              
-              Objective: ${body.tripName}<br /><br />
-              
-              Category: ${travelCategory(body.travelCategory, 'en')}<br />
-              Public servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
-                
-              Origin: ${addCommaToPlaceName(body.origin.acrdName)}<br />
-              Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
-              
-              Departure: ${body.departureDate}<br />
-              Return: ${body.returnDate}<br /><br />
-              
-              Accommodation (${accommodationType(body.accommodationType, 'en')}): ${localCurrencyDisplay(body.accommodationCost, 'en-CA')}<br /><br />
-              
-              Transportation (${travelMode(body.transportationType, 'en')}): ${localCurrencyDisplay(body.transportationCost, 'en-CA')}<br /><br />
-              
-              Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'en-CA')}<br /><br />
-              
-              Meals and incidentals: ${localCurrencyDisplay(body.mealCost, 'en-CA')}<br /><br />
-              
-              Other costs: ${localCurrencyDisplay(body.otherCost, 'en-CA')}<br /><br />
-              
-              TOTAL: ${localCurrencyDisplay(body.summaryCost, 'en-CA')}<br /><br />
-              
-              Notes: ${body.tripNotes}<br /><br />
-              
-              Thank you for using the GC Travel Calculator!<br /><br />
-
-              All dates expressed in this email are in YYYY-MM-DD format.<br /><br />
+              `${injectTemplateLiterals(prismicData.message_to_traveller_en)}
 
               ---
 
               <br /><br />
-              ${body.travellersName},<br /><br />
-
-              L'estimation de voyage suivante a été présentée à ${body.approversName} des fins de planification :<br /><br />
-              
-              Objectif: ${body.tripName}<br /><br />
-              
-              Catégorie: ${travelCategory(body.travelCategory, 'fr')}<br />
-              Fonctionnaire: ${body.travellerIsPublicServant ? 'Oui' : 'Non'}<br /><br />
-                
-              Point d’origine: ${addCommaToPlaceName(body.origin.acrdName)}<br />
-              Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
-              
-              Départ: ${body.departureDate}<br />
-              Retour: ${body.returnDate}<br /><br />
-              
-              Hébergement (${accommodationType(body.accommodationType, 'fr')}): ${localCurrencyDisplay(body.accommodationCost, 'fr-CA')}<br /><br />
-              
-              Transport (${travelMode(body.transportationType, 'fr')}): ${localCurrencyDisplay(body.transportationCost, 'fr-CA')}<br /><br />
-              
-              Transport local: ${localCurrencyDisplay(body.localTransportationCost, 'fr-CA')}<br /><br />
-              
-              Repas et frais accessoires: ${localCurrencyDisplay(body.mealCost, 'fr-CA')}<br /><br />
-              
-              Autres coûts: ${localCurrencyDisplay(body.otherCost, 'fr-CA')}<br /><br />
-              
-              TOTAL: ${localCurrencyDisplay(body.summaryCost, 'fr-CA')}<br /><br />
-              
-              Remarques: ${body.tripNotes}<br /><br />
-              
-              Merci d’utiliser le Calculateur de voyage du GC!<br /><br />
-              
-              Toutes les dates indiquées dans ce courriel utilisent le format AAAA-MM-JJ.
+              ${injectTemplateLiterals(prismicData.message_to_traveller_fr)}
               `
           }
         },
         Subject: {
           Charset: 'UTF-8',
-          Data: `Estimate sent [Confirmation] / L'estimation a été envoyée [Confirmation]`
+          Data: `${prismicData.traveller_message_subject_en} / ${prismicData.traveller_message_subject_fr}`
         }
       }
     };
@@ -254,82 +228,18 @@ module.exports = async function (context, req) {
           Html: {
             Charset: "UTF-8",
             Data: 
-              `(Le français suit l'anglais.)<br /><br />
-
-              ${body.approversName},<br /><br />
-
-              ${body.travellersName} has submitted a new travel estimate for a trip to ${addCommaToPlaceName(body.destination.acrdName)}.<br /><br />
-
-              Objective: ${body.tripName}<br /><br />
-              
-              Category: ${travelCategory(body.travelCategory, 'en')}<br />
-              Public servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
-                
-              Origin: ${addCommaToPlaceName(body.origin.acrdName)}<br />
-              Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
-              
-              Departure: ${body.departureDate}<br />
-              Return: ${body.returnDate}<br /><br />
-              
-              Accommodation (${accommodationType(body.accommodationType, 'en')}): ${localCurrencyDisplay(body.accommodationCost, 'en-CA')}<br /><br />
-              
-              Transportation (${travelMode(body.transportationType, 'en')}): ${localCurrencyDisplay(body.transportationCost, 'en-CA')}<br /><br />
-              
-              Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'en-CA')}<br /><br />
-              
-              Meals and incidentals: ${localCurrencyDisplay(body.mealCost, 'en-CA')}<br /><br />
-              
-              Other costs: ${localCurrencyDisplay(body.otherCost, 'en-CA')}<br /><br />
-              
-              TOTAL: ${localCurrencyDisplay(body.summaryCost, 'en-CA')}<br /><br />
-              
-              Notes: ${body.tripNotes}<br /><br />
-              
-              If you have questions regarding this estimate, please email ${body.travellersName} at ${body.travellersEmail}<br /><br />
-
-              All dates expressed in this email are in YYYY-MM-DD format.<br /><br />
+              `${injectTemplateLiterals(prismicData.message_to_approver_en)}
 
               ---
 
               <br /><br />
-              ${body.approversName},<br /><br />
-
-              ${body.travellersName} a présenté une nouvelle estimation de voyage pour un voyage à ${addCommaToPlaceName(body.destination.acrdName)}.<br /><br />
-
-              Objectif: ${body.tripName}<br /><br />
-              
-              Catégorie: ${travelCategory(body.travelCategory, 'fr')}<br />
-              Fonctionnaire: ${body.travellerIsPublicServant ? 'Oui' : 'Non'}<br /><br />
-                
-              Origine: ${addCommaToPlaceName(body.origin.acrdName)}<br />
-              Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
-              
-              Départ: ${body.departureDate}<br />
-              Retour: ${body.returnDate}<br /><br />
-              
-              Hébergement (${accommodationType(body.accommodationType, 'fr')}): ${localCurrencyDisplay(body.accommodationCost, 'fr-CA')}<br /><br />
-              
-              Transport (${travelMode(body.transportationType, 'fr')}): ${localCurrencyDisplay(body.transportationCost, 'fr-CA')}<br /><br />
-              
-              Transport local: ${localCurrencyDisplay(body.localTransportationCost, 'fr-CA')}<br /><br />
-              
-              Repas et frais accessoires: ${localCurrencyDisplay(body.mealCost, 'fr-CA')}<br /><br />
-              
-              Autres dépenses: ${localCurrencyDisplay(body.otherCost, 'fr-CA')}<br /><br />
-              
-              TOTAL: ${localCurrencyDisplay(body.summaryCost, 'fr-CA')}<br /><br />
-              
-              Remarques: ${body.tripNotes}<br /><br />
-              
-              Si vous avez des questions, veuillez communiquer avec ${body.travellersName}, à ${body.travellersEmail}.<br /><br />
-              
-              Toutes les dates indiquées dans ce courriel utilisent le format AAAA-MM-JJ.<br /><br />
+              ${injectTemplateLiterals(prismicData.message_to_approver_fr)}
               `
           }
         },
         Subject: {
           Charset: 'UTF-8',
-          Data: `Trip estimate / Estimation de voyage`,
+          Data: `${prismicData.approver_message_subject_en} / ${prismicData.approver_message_subject_fr}`,
         }
       }
     };
@@ -382,79 +292,79 @@ module.exports = async function (context, req) {
     let csvHeaders = Object.keys(csvLineObject);
     let csvData = csvHeaders.map(key => `"${csvLineObject[key]}"`).join(',')
 
-    let debugParams = {
-      Source: 'GC Travel Calculator / Calculateur de voyage du GC <tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca>',
-      Destination: {
-        ToAddresses: [
-          'TPSGC.VoyageProchaineGen-NextGenTravel.PWGSC@tpsgc-pwgsc.gc.ca',
-        ]
-      },
-      ReplyToAddresses: ['tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca'],
-      Message: {
-        Body: {
-          Html: {
-            Charset: "UTF-8",
-            Data: 
-              `
+    // let debugParams = {
+    //   Source: 'GC Travel Calculator / Calculateur de voyage du GC <tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca>',
+    //   Destination: {
+    //     ToAddresses: [
+    //       'TPSGC.VoyageProchaineGen-NextGenTravel.PWGSC@tpsgc-pwgsc.gc.ca',
+    //     ]
+    //   },
+    //   ReplyToAddresses: ['tpsgc.nepasrepondre-donotreply02.pwgsc@tpsgc-pwgsc.gc.ca'],
+    //   Message: {
+    //     Body: {
+    //       Html: {
+    //         Charset: "UTF-8",
+    //         Data: 
+    //           `
 
-              Objective: ${body.tripName}<br /><br />
+    //           Objective: ${body.tripName}<br /><br />
 
-              Category: ${travelCategory(body.travelCategory, 'en')}<br />
+    //           Category: ${travelCategory(body.travelCategory, 'en')}<br />
 
-              Public servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
+    //           Public servant: ${body.travellerIsPublicServant ? 'Yes' : 'No'}<br /><br />
 
-              Origin: ${addCommaToPlaceName(body.origin.acrdName)}<br />
-              Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
+    //           Origin: ${addCommaToPlaceName(body.origin.acrdName)}<br />
+    //           Destination: ${addCommaToPlaceName(body.destination.acrdName)}<br /><br />
               
-              Departure: ${body.departureDate}<br />
-              Return: ${body.returnDate}<br /><br />
+    //           Departure: ${body.departureDate}<br />
+    //           Return: ${body.returnDate}<br /><br />
               
-              Accommodation (${accommodationType(body.accommodationType, 'en')}): ${localCurrencyDisplay(body.accommodationCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.accommodationCost, 'en-CA')})<br /><br />
+    //           Accommodation (${accommodationType(body.accommodationType, 'en')}): ${localCurrencyDisplay(body.accommodationCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.accommodationCost, 'en-CA')})<br /><br />
               
-              Transportation (${travelMode(body.transportationType, 'en')}): ${localCurrencyDisplay(body.transportationCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.transportationCost, 'en-CA')})<br /><br />
+    //           Transportation (${travelMode(body.transportationType, 'en')}): ${localCurrencyDisplay(body.transportationCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.transportationCost, 'en-CA')})<br /><br />
               
-              Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.localTransportationCost, 'en-CA')})<br /><br />
+    //           Local transportation: ${localCurrencyDisplay(body.localTransportationCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.localTransportationCost, 'en-CA')})<br /><br />
               
-              Meals and incidentals: ${localCurrencyDisplay(body.mealCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.mealCostTotal, 'en-CA')})<br /><br />
+    //           Meals and incidentals: ${localCurrencyDisplay(body.mealCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.mealCostTotal, 'en-CA')})<br /><br />
               
-              Other costs: ${localCurrencyDisplay(body.otherCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.otherCost, 'en-CA')})<br /><br />
+    //           Other costs: ${localCurrencyDisplay(body.otherCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.otherCost, 'en-CA')})<br /><br />
               
-              TOTAL: ${localCurrencyDisplay(body.summaryCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.summaryCost, 'en-CA')})<br /><br />
+    //           TOTAL: ${localCurrencyDisplay(body.summaryCost, 'en-CA')} (Initital: ${localCurrencyDisplay(initialResult.summaryCost, 'en-CA')})<br /><br />
 
-              Notes: ${body.tripNotes}<br /><br />
+    //           Notes: ${body.tripNotes}<br /><br />
 
-              <br><br>
-              Flight Result: (returns NaN if no estimate requested)
-              <br><br>
+    //           <br><br>
+    //           Flight Result: (returns NaN if no estimate requested)
+    //           <br><br>
 
-              Min: ${localCurrencyDisplay(body.flightResult.minimum, 'en-CA')}<br>
-              Med: ${localCurrencyDisplay(body.flightResult.median, 'en-CA')}<br>
-              Max: ${localCurrencyDisplay(body.flightResult.maximum, 'en-CA')}<br>
+    //           Min: ${localCurrencyDisplay(body.flightResult.minimum, 'en-CA')}<br>
+    //           Med: ${localCurrencyDisplay(body.flightResult.median, 'en-CA')}<br>
+    //           Max: ${localCurrencyDisplay(body.flightResult.maximum, 'en-CA')}<br>
 
-              <br><br>
+    //           <br><br>
 
-              All dates expressed in this email are in YYYY-MM-DD format.<br /><br />
+    //           All dates expressed in this email are in YYYY-MM-DD format.<br /><br />
 
-              <br><br>CSV: (Header followed by data)<br><br>
-              ${csvHeaders}
+    //           <br><br>CSV: (Header followed by data)<br><br>
+    //           ${csvHeaders}
 
-              <br>
+    //           <br>
 
-              ${csvData}
+    //           ${csvData}
 
-              <br><br>
+    //           <br><br>
 
-              Initial Result: <br><br>
-              ${JSON.stringify(initialResult, null, '<br>')}
-              `
-          }
-        },
-        Subject: {
-          Charset: 'UTF-8',
-          Data: `Report: Trip estimate`,
-        }
-      }
-    };
+    //           Initial Result: <br><br>
+    //           ${JSON.stringify(initialResult, null, '<br>')}
+    //           `
+    //       }
+    //     },
+    //     Subject: {
+    //       Charset: 'UTF-8',
+    //       Data: `Report: Trip estimate`,
+    //     }
+    //   }
+    // };
 
     let response = {
       approver: '',
@@ -484,15 +394,15 @@ module.exports = async function (context, req) {
         response.approver = err;
       });
 
-    await new AWS.SES(SESConfig)
-      .sendEmail(debugParams)
-      .promise()
-      .then((res) => {
-        console.log('res: ', res)
-      })
-      .catch((err) => {
-        console.log('err: ', err)
-      });
+    // await new AWS.SES(SESConfig)
+    //   .sendEmail(debugParams)
+    //   .promise()
+    //   .then((res) => {
+    //     console.log('res: ', res)
+    //   })
+    //   .catch((err) => {
+    //     console.log('err: ', err)
+    //   });
 
       context.res = {
         body: JSON.stringify(response)

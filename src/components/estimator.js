@@ -1824,6 +1824,7 @@ const Estimator = () => {
                                                             setPrivateKilometricsValue(e.target.value)
                                                         }}
                                                         aria-describedby="km"
+                                                        type='number'
                                                     />
                                                     <InputGroup.Append>
                                                         <InputGroup.Text id="km">km</InputGroup.Text>
