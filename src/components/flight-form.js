@@ -302,8 +302,8 @@ const FlightForm = (props) => {
             <div aria-live="polite">
                 {Object.keys(props.flightResult).length !== 0 && props.flightResult.numberOfResults > 0 &&
                     <>
-                        <h3>{props.messages.flight_modal_result_header}</h3>
                         <Form onChange={(e) => props.setSelectedFlightPrice(e.target.value)}>
+                        <legend>{props.messages.flight_modal_result_header}</legend>
                             <div className="my-3 pl-4">
                                 <fieldset>
                                     <Form.Check
