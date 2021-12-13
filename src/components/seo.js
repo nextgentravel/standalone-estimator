@@ -87,7 +87,7 @@ function SEO({ description, lang, meta, title }) {
         {
           name: `dcterms.language`,
           content: lang === 'en' ? 'en' : 'fr',
-          title: 'ISO639-2'
+          title: 'ISO639-1'
         },
         {
           property: `og:title`,
