@@ -1927,7 +1927,7 @@ const Estimator = () => {
             <div className="card bg-white py-4 px-5 mb-2">
                 <div className="row">
                     <h2 className="col-sm-12 pl-2 pb-1 pt-2 h3">
-                        <button className="btn button-explainer block" aria-expanded={!explainerCollapsed} onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
+                        <button id='explainer-collapse-button' className="btn button-explainer block" aria-expanded={!explainerCollapsed} onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
                             <FaCalculator focusable="false" aria-hidden="true" size="20" className='mb-1 mr-2' />{localeCopy.explainer_title.text}
                             {explainerCollapsed &&
                                 <FaCaretDown
@@ -1969,7 +1969,7 @@ const Estimator = () => {
             </div>
             <div className="mb-4">
                 <h2 className="step-disclaimer-header mt-5 pl-4 h4">
-                    <button className="button-explainer btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
+                    <button id='disclaimer-collapse-button' className="button-explainer btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
                       {disclaimerCollapsed &&
                           <FaPlusCircle focusable="false" aria-hidden="true" size="15" className='mb-1 mr-2' />}
                       {!disclaimerCollapsed &&

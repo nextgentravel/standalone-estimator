@@ -52,6 +52,14 @@ describe('accessibility', function () {
       })
     });
 
+    it(`\n\n should pass accessibility tests on explainer and disclaimer \n\n`, () => {
+      cy.get('#explainer-collapse-button').click()
+      cy.get('#disclaimer-collapse-button').click()
+      cy.checkA11y(null, null, (violations) => {
+        terminalLog(violations, url)
+      })
+    });
+
     it(`\n\n display a load spinner when start is clicked \n\n`, () => {
       const departDate = Cypress.moment().add(1, 'day').format('YYYY-MM-DD')
       const returnDate = Cypress.moment().add(5, 'day').format('YYYY-MM-DD')
@@ -96,6 +104,7 @@ describe('accessibility', function () {
         terminalLog(violations, url)
       })
     });
+
 
   });
 });
