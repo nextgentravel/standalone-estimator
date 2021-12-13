@@ -28,7 +28,6 @@ function SEO({ description, lang, meta, title }) {
             subjectFrench
             keywordsEnglish
             keywordsFrench
-            dateModified
           }
         }
       }
@@ -87,7 +86,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `dcterms.language`,
-          content: lang === 'en' ? 'eng' : 'fra',
+          content: lang === 'en' ? 'en' : 'fr',
           title: 'ISO639-2'
         },
         {
