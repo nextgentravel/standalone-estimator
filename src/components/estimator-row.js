@@ -29,7 +29,7 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                                     overlay={renderTooltip}
                                 >
                                     <button type="button" className="btn btn-default" aria-label={toolTipLabel}>
-                                        <TooltipIcon className="mb-1" size="15" fill="#9E9E9E" />
+                                        <TooltipIcon className="mb-1" size="15" fill="212529" />
                                     </button>
                                 </OverlayTrigger>
                             }
