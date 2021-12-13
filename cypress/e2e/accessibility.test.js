@@ -74,7 +74,24 @@ describe('accessibility', function () {
 
     it(`\n\n should pass accessibility tests on flight modal \n\n`, () => {
       url === 'fr' ? cy.get('select').eq(1).select('Vol') : cy.get('select').eq(1).select('Flight')
-      cy.get('.transportation-message>span').eq(1).children().click()
+      cy.get('#open-transportation-modal').click()
+      cy.checkA11y(null, null, (violations) => {
+        terminalLog(violations, url)
+      })
+    });
+
+    it(`\n\n should pass accessibility tests on meals modal \n\n`, () => {
+      url === 'fr' ? cy.contains('Fermer').click() : cy.contains('Close').click()
+      cy.get('#open-meals-modal').click()
+      cy.checkA11y(null, null, (violations) => {
+        terminalLog(violations, url)
+      })
+    });
+
+    it(`\n\n should pass accessibility tests on email modal \n\n`, () => {
+      cy.get('#close-meals-modal').click()
+      url === 'fr' ? cy.get('select').eq(0).select('Non requis') : cy.get('select').eq(0).select('Not required')
+      cy.get('#open-email-modal-button').click()
       cy.checkA11y(null, null, (violations) => {
         terminalLog(violations, url)
       })

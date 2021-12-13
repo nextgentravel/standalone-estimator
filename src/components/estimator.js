@@ -1277,7 +1277,7 @@ const Estimator = () => {
                 setTransportationMessage({
                     element: <span>
                                 <span dangerouslySetInnerHTML={{ __html: `${message}` }}></span>
-                                <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
+                                <span> <a id='open-transportation-modal' href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
                             </span>
                 })
             } else if (parseFloat(transportationCost) === parseFloat(flightResult.minimum) || parseFloat(transportationCost) === parseFloat(flightResult.maximum) || parseFloat(transportationCost) === parseFloat(flightResult.median)) {
@@ -1290,12 +1290,12 @@ const Estimator = () => {
                 setTransportationMessage({
                     element: <span>
                                 <span dangerouslySetInnerHTML={{ __html: `${message}` }}></span>
-                                <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
+                                <span> <a id='open-transportation-modal' href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
                             </span>
                 })
             } else if (transportationCost > 0) {
                 setTransportationMessage({
-                    element: <span>{formattedMessage('flight_custom_fare_entered')} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
+                    element: <span>{formattedMessage('flight_custom_fare_entered')} <a id='open-transportation-modal' href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
                 })
             }
             // if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) === 0.00) {
@@ -1870,7 +1870,7 @@ const Estimator = () => {
                             description="selectMealsToInclude"
                             message={{
                                 element: 
-                                    result ? <>{formattedMessage('select_meals_description')} <a href="/" onClick={(e) => {handleMealsModalShow(e)}}>{formattedMessage('select_meals_link')}</a></> : <span></span>
+                                    result ? <>{formattedMessage('select_meals_description')} <a id='open-meals-modal' href="/" onClick={(e) => {handleMealsModalShow(e)}}>{formattedMessage('select_meals_link')}</a></> : <span></span>
                             }}
                             icon={<FaUtensils focusable="false" aria-hidden="true" className="mr-2" size="25" fill="#9E9E9E" />}
                             aria-hidden="true" title={formattedMessage("meals_and_incidentals")}
@@ -1907,6 +1907,7 @@ const Estimator = () => {
                         <div className="row ml-1">
                             <div className="col-sm-12">
                                 <Button
+                                    id='open-email-modal-button'
                                     variant="primary"
                                     className='px-5 mb-2'
                                     onClick={() => {
