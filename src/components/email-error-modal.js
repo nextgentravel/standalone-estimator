@@ -10,16 +10,16 @@ const EmailErrorModal = (props) => {
             show={props.show}
             onHide={props.onHide}
         >
-            <Modal.Header closeButton>
+            <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
                     <h2 className="h3">{props.errorTitle}</h2>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <div role='alert'>
+                <div role='alert' autofocus>
                     <ol>
                         {props.emailErrorList.map((error, index)=>(
-                            <li tabindex='0' key={`error-${index}`}>{error}</li>
+                            <li tabIndex='0' key={`error-${index}`}>{error}</li>
                             ))
                         }
                     </ol>
