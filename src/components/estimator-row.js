@@ -48,7 +48,7 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                 <div className="input-group mb-2">
                     {locale === 'en-ca' &&
                         <div className='input-group-prepend'>
-                            <span className="input-group-text" id={`${name}-dollar-sign`}>$</span>
+                            <span className="input-group-text" id={`${name.replace(/\s+/g, '-')}-dollar-sign`}>$</span>
                         </div>
                     }
                     <input
