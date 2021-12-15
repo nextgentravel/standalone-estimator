@@ -40,7 +40,9 @@ const MealsModal = (props) => {
             onHide={props.onHide}
         >
             <Modal.Header closeButton>
-                <h5 className="modal-title">{props.messages.meals_modal_title}</h5>
+                <Modal.Title id="contained-modal-title-vcenter">
+                    <h5 className="modal-title">{props.messages.meals_modal_title}</h5>
+                </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 {items.length > 0 && items.map((day, index) => {
