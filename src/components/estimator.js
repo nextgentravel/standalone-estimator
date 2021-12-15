@@ -1930,7 +1930,7 @@ const Estimator = () => {
                 <div className="row">
                     <details>
                         <summary>
-                            <h2 className="h4 d-inline mb-5" aria-expanded={!explainerCollapsed} onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
+                            <h2 className="h4 d-inline mb-5" onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
                                 <FaCalculator focusable="false" aria-hidden="true" size="20" className='mb-1 mr-2' />
                                 {localeCopy.explainer_title.text}
                             </h2>
@@ -1953,7 +1953,7 @@ const Estimator = () => {
                 <div className="row">
                     <details>
                         <summary>
-                            <h2 className="h4 d-inline mb-5" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
+                            <h2 className="h4 d-inline mb-5" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
                                 {formattedMessage('disclaimer')}
                             </h2>
                         </summary>
