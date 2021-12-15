@@ -464,9 +464,9 @@ const Estimator = () => {
 
     const removeActiveDescendantAttr = () => {
         const originInput = document.querySelector('#origin');
-        originInput && originInput.setAttribute("aria-activedescendant", "");
+        originInput && originInput.removeAttribute("aria-activedescendant");
         const destinationInput = document.querySelector('#destination');
-        destinationInput && destinationInput.setAttribute("aria-activedescendant", "");
+        destinationInput && destinationInput.removeAttribute("aria-activedescendant");
     };
 
     let initialDates = {
