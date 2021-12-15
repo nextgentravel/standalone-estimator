@@ -18,10 +18,10 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
     return (
         <div className="row mb-4">
             <div className="col-sm-4 align-self-center mb-2">
-                <div className="align-self-center">
+                <div className="align-self-center d-flex align-items-center">
                     {icon}
-                        <label htmlFor={id}>
-                            <h4 className="font-weight-bold">{title}
+                    <h4 className="font-weight-bold m-0">{title}
+                            </h4>
                             {tooltipIcon &&
                                 <OverlayTrigger
                                     placement="top"
@@ -33,8 +33,6 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                                     </button>
                                 </OverlayTrigger>
                             }
-                            </h4>
-                        </label>
                 </div>
             </div>
             <div className="col-sm-3 align-self-center">
