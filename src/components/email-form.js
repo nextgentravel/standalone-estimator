@@ -6,8 +6,8 @@ import Form from 'react-bootstrap/Form'
 const EmailForm = (props) => {
     let validationErrors = props.validationWarnings || []
     let [errorPanel, setErrorPanel] = useState(false);
-    const errorPanelView = useRef(null)
-    const executeErrorPanelScroll = () => errorPanelView.current.scrollIntoView()
+    const emailErrorPanelView = useRef(null)
+    const executeErrorPanelScroll = () => emailErrorPanelView.current.focus() && emailErrorPanelView.current.scrollIntoView()
 
     function removeIsInvalid (path, errors) {
         let filtered = errors.filter(function(field) { return field.path !== path; });
@@ -37,13 +37,13 @@ const EmailForm = (props) => {
     let validationErrorList = validationErrors.map(a => a.path) || [];
     return (
         <Form noValidate>
-            {errorPanel !== false && <div className="alert alert-danger alert-danger-banner" role="alert" ref={errorPanelView}>
+             {errorPanel !== false && <section tabIndex={'-1'} className="alert alert-danger alert-danger-banner" role="alert" ref={emailErrorPanelView}>
                 <h3>{props.messages.estimate_error_title}</h3>
                 <p>{props.messages.estimate_error_lead}</p>
                 <ol>
                     {errorList()}
                 </ol>
-            </div>}
+            </section>}
 
 
             <Form.Group as={Row} controlId="travellersName">

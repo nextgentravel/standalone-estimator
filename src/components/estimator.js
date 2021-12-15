@@ -48,9 +48,8 @@ const Estimator = () => {
     const intl = useIntl();
     const summaryView = useRef(null)
     const errorPanelView = useRef(null)
-    const errorFirstItem = useRef(null)
     const executeSummaryViewScroll = () => summaryView.current.scrollIntoView()
-    const executeErrorPanelViewScroll = () => errorPanelView.current.scrollIntoView() && errorFirstItem.current.focus()
+    const executeErrorPanelViewScroll = () =>  errorPanelView.current.focus() && errorPanelView.current.scrollIntoView()
 
     
     
@@ -1142,7 +1141,7 @@ const Estimator = () => {
     const errorList = () => {
         let list = [];
         list = submitValidationWarnings.map((error, index) =>
-            <li key={index} ref={index === 0 ? errorFirstItem : null}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
+        <li key={index}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
         );
         return list;
     }
@@ -1470,13 +1469,13 @@ const Estimator = () => {
             <section className="card bg-light p-4 mb-4 mt-5">
                 <h2 className="mb-4" id="h2-label">{localeCopy.title.text}</h2>
                 <div className="lead mb-3" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
-                {errorPanel !== false && <div className="alert alert-danger alert-danger-banner" role="alert" ref={errorPanelView}>
+                {errorPanel !== false && <section tabIndex={'-1'} className="alert alert-danger alert-danger-banner" role="alert" ref={errorPanelView}>
                     <h3>{formattedMessage('estimate_error_title')}</h3>
                     <p>{formattedMessage('estimate_error_lead')}</p>
                     <ol>
                         {errorList()}
                     </ol>
-                </div>}
+                </section>}
                 <form id="estimates-form" className="form-group row" onSubmit={handleSubmit} noValidate>
                     <div className="col-sm-7" ref={summaryView}>
                         <InputDatalist
