@@ -28,7 +28,6 @@ function SEO({ description, lang, meta, title }) {
             subjectFrench
             keywordsEnglish
             keywordsFrench
-            dateModified
           }
         }
       }

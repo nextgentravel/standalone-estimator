@@ -13,8 +13,6 @@
   top: 15px;
 }
 
-/*! CSS Used from: https://www.canada.ca/etc/designs/canada/wet-boew/css/theme.min.css */
-
 summary {
   cursor: pointer;
 }
@@ -46,4 +44,8 @@ details summary:focus {
 details[open]>summary {
   list-style-type: disclosure-open;
   margin-bottom: .25em;
+}
+  
+#meals-fieldset {
+  display: inherit;
 }

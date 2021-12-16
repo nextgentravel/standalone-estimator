@@ -18,10 +18,10 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
     return (
         <div className="row mb-4">
             <div className="col-sm-4 align-self-center mb-2">
-                <div className="align-self-center">
+                <div className="align-self-center d-flex align-items-center">
                     {icon}
-                        <label htmlFor={id}>
-                            <h4 className="font-weight-bold">{title}
+                    <h4 className="font-weight-bold m-0">{title}
+                            </h4>
                             {tooltipIcon &&
                                 <OverlayTrigger
                                     placement="top"
@@ -29,12 +29,10 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                                     overlay={renderTooltip}
                                 >
                                     <button type="button" className="btn btn-default" aria-label={toolTipLabel}>
-                                        <TooltipIcon className="mb-1" size="15" fill="#9E9E9E" />
+                                        <TooltipIcon className="mb-1" size="15" fill="#212529" />
                                     </button>
                                 </OverlayTrigger>
                             }
-                            </h4>
-                        </label>
                 </div>
             </div>
             <div className="col-sm-3 align-self-center">
@@ -50,7 +48,7 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                 <div className="input-group mb-2">
                     {locale === 'en-ca' &&
                         <div className='input-group-prepend'>
-                            <span className="input-group-text" id={`${name}-dollar-sign`}>$</span>
+                            <span className="input-group-text" id={`${name.replace(/\s+/g, '-')}-dollar-sign`}>$</span>
                         </div>
                     }
                     <input

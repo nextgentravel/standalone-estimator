@@ -40,61 +40,73 @@ const MealsModal = (props) => {
             onHide={props.onHide}
         >
             <Modal.Header closeButton>
-                <h5 className="modal-title">{props.messages.meals_modal_title}</h5>
+                <Modal.Title id="contained-modal-title-vcenter">
+                    <h5 className="modal-title">{props.messages.meals_modal_title}</h5>
+                </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 {items.length > 0 && items.map((day, index) => {
                     return (
                         <div className="row mb-3" key={index}>
-                            <div className="col-sm"><strong>{day.date}</strong></div>
-                            <div className="col-sm">
-                                <input
-                                    type="checkbox"
-                                    name={`${day.date}_breakfast`}
-                                    className="form-check-input"
-                                    checked={day.meals.breakfast}
-                                    onChange={handleChange}
-                                />
-                                <label>
-                                    {props.messages.meals_modal_breakfast} <small>{mealCost.breakfast && localCurrencyDisplay(mealCost.breakfast)}</small>
-                                </label>
-                            </div>
-                            <div className="col-sm">
-                                <input
-                                    type="checkbox"
-                                    name={`${day.date}_lunch`}
-                                    className="form-check-input"
-                                    checked={day.meals.lunch}
-                                    onChange={handleChange}
-                                />
-                                <label>
-                                    {props.messages.meals_modal_lunch} <small>{mealCost.lunch && localCurrencyDisplay(mealCost.lunch)}</small>
-                                </label>
-                            </div>
-                            <div className="col-sm">
-                                <input
-                                    type="checkbox"
-                                    name={`${day.date}_dinner`}
-                                    className="form-check-input"
-                                    checked={day.meals.dinner}
-                                    onChange={handleChange}
-                                />
-                                <label>
-                                    {props.messages.meals_modal_dinner} <small>{mealCost.dinner && localCurrencyDisplay(mealCost.dinner)}</small>
-                                </label>
-                            </div>
-                            <div className="col-sm">
-                                <input
-                                    type="checkbox"
-                                    name={`${day.date}_incidentals`}
-                                    className="form-check-input"
-                                    checked={day.meals.incidentals}
-                                    onChange={handleChange}
-                                />
-                                <label>
-                                    {props.messages.meals_modal_incidental} <small>{mealCost.incidentals && localCurrencyDisplay(mealCost.incidentals)}</small>
-                                </label>
-                            </div>
+                            <fieldset id="meals-fieldset">
+                                <div className="col-sm">
+                                    <strong>
+                                        <legend>{day.date}</legend>
+                                    </strong>
+                                </div>
+                                <div className="col-sm">
+                                    <input
+                                        type="checkbox"
+                                        name={`${day.date}_breakfast`}
+                                        id={`${day.date}_breakfast`}
+                                        className="form-check-input"
+                                        checked={day.meals.breakfast}
+                                        onChange={handleChange}
+                                    />
+                                    <label htmlFor={`${day.date}_breakfast`}>
+                                        {props.messages.meals_modal_breakfast} <small>{mealCost.breakfast && localCurrencyDisplay(mealCost.breakfast)}</small>
+                                    </label>
+                                </div>
+                                <div className="col-sm">
+                                    <input
+                                        type="checkbox"
+                                        name={`${day.date}_lunch`}
+                                        id={`${day.date}_lunch`}
+                                        className="form-check-input"
+                                        checked={day.meals.lunch}
+                                        onChange={handleChange}
+                                    />
+                                    <label htmlFor={`${day.date}_lunch`}>
+                                        {props.messages.meals_modal_lunch} <small>{mealCost.lunch && localCurrencyDisplay(mealCost.lunch)}</small>
+                                    </label>
+                                </div>
+                                <div className="col-sm">
+                                    <input
+                                        type="checkbox"
+                                        name={`${day.date}_dinner`}
+                                        id={`${day.date}_dinner`}
+                                        className="form-check-input"
+                                        checked={day.meals.dinner}
+                                        onChange={handleChange}
+                                    />
+                                    <label htmlFor={`${day.date}_dinner`}>
+                                        {props.messages.meals_modal_dinner} <small>{mealCost.dinner && localCurrencyDisplay(mealCost.dinner)}</small>
+                                    </label>
+                                </div>
+                                <div className="col-sm">
+                                    <input
+                                        type="checkbox"
+                                        name={`${day.date}_incidentals`}
+                                        id={`${day.date}_incidentals`}
+                                        className="form-check-input"
+                                        checked={day.meals.incidentals}
+                                        onChange={handleChange}
+                                    />
+                                    <label htmlFor={`${day.date}_incidentals`}>
+                                        {props.messages.meals_modal_incidental} <small>{mealCost.incidentals && localCurrencyDisplay(mealCost.incidentals)}</small>
+                                    </label>
+                                </div>
+                            </fieldset>
                         </div>
                     )
                 })}
