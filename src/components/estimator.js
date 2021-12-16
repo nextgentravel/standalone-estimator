@@ -414,7 +414,7 @@ const Estimator = () => {
         if (messageType === 'string') {
             message = localeCopy[prismicKey]
         } else if (messageType === 'object' && localeCopy[prismicKey] !== null) {
-            message = <span className={classes} dangerouslySetInnerHTML={{ __html: localeCopy[prismicKey].html }}></span>
+            message = <div className={classes} dangerouslySetInnerHTML={{ __html: localeCopy[prismicKey].html }}></div>
         } else {
             message = 'MISSING MESSAGE ' + prismicKey
         }
@@ -744,11 +744,11 @@ const Estimator = () => {
             message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
             // eslint-disable-next-line no-template-curly-in-string
             message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
-            setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
+            setAccommodationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></div> })
             updateAccommodationCost(acrdTotal)
         } else if (accommodationType === 'private') {
             let rate = (Interval.fromDateTimes(departureDateLux, returnDateLux).count('days') - 1) * 50;
-            setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></span>  })
+            setAccommodationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></div>  })
             updateAccommodationCost(rate)
         } else if (accommodationType === 'notrequired') {
             setAccommodationMessage({ element: <span className="transportation-message"></span>  })
@@ -1234,7 +1234,7 @@ const Estimator = () => {
     const renderEnterTravelInfoAboveTooltip = (props) => {
         return (
             <Tooltip id="button-tooltip" {...props}>
-                <span dangerouslySetInnerHTML={{ __html: localeCopy.enter_travel_info_above }}></span>
+                <div dangerouslySetInnerHTML={{ __html: localeCopy.enter_travel_info_above }}></div>
             </Tooltip>
         )
     }
@@ -1262,7 +1262,7 @@ const Estimator = () => {
             } else if (parseFloat(transportationCost) === parseFloat(0.00)) {
                 setTransportationMessage({
                     element: <span className="transportation-message alert-warning">
-                                <span dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></span>
+                                <div dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></div>
                                 <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
                             </span>
                 })
@@ -1276,7 +1276,7 @@ const Estimator = () => {
                 message = message.replace('{flightPrice}', `<strong>${localCurrencyDisplay(parseFloat(acceptedFlight))}</strong>`)
                 setTransportationMessage({
                     element: <span>
-                                <span dangerouslySetInnerHTML={{ __html: `${message}` }}></span>
+                                <div dangerouslySetInnerHTML={{ __html: `${message}` }}></div>
                                 <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
                             </span>
                 })
@@ -1289,7 +1289,7 @@ const Estimator = () => {
                 message = message.replace('{flightPrice}', `<strong>${localCurrencyDisplay(parseFloat(acceptedFlight))}</strong>`)
                 setTransportationMessage({
                     element: <span>
-                                <span dangerouslySetInnerHTML={{ __html: `${message}` }}></span>
+                                <div dangerouslySetInnerHTML={{ __html: `${message}` }}></div>
                                 <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
                             </span>
                 })
@@ -1606,7 +1606,7 @@ const Estimator = () => {
                                                     setAccommodationMessage({ element: 
                                                     <div className="mb-0 alert-warning" role="alert">
                                                         <>
-                                                            <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: message }}></span>
+                                                            <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: message }}></div>
                                                             <OverlayTrigger
                                                                 placement="top"
                                                                 delay={{ show: 250, hide: 400 }}
@@ -1625,7 +1625,7 @@ const Estimator = () => {
                                                     setAccommodationMessage({ element: 
                                                     <div className="mb-0 alert-warning" role="alert">
                                                         <>
-                                                            <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
+                                                            <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></div>
                                                         </>
                                                     </div>
                                                     , style: 'warn' });
@@ -1636,7 +1636,7 @@ const Estimator = () => {
                                                     message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
                                                     setAccommodationMessage({ element: 
                                                     <div className="mb-0">
-                                                        <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span>
+                                                        <div className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></div>
                                                     </div>
                                                     , style: 'success' });
                                                 } else {
@@ -1857,7 +1857,7 @@ const Estimator = () => {
                             calculateTotal={calculateTotal}
                             updateCost={setOtherCost}
                             tooltipIcon={FaQuestionCircle}
-                            tooltipText={<span dangerouslySetInnerHTML={{ __html: localeCopy.other_tooltip_text }}></span>}
+                            tooltipText={<div dangerouslySetInnerHTML={{ __html: localeCopy.other_tooltip_text }}></div>}
                             toolTipLabel={localeCopy.other_tooltip_text}
                             readOnly={!result}
                         />
