@@ -157,7 +157,6 @@ const FlightForm = (props) => {
                     <Form.Label htmlFor="departureTime" column sm="4">{props.messages.flight_modal_departure_time_label}</Form.Label>
                     <Col sm="4">
                         <Form.Control as="select"
-                            controlId="departureTime"
                             id="departureTime"
                             value={props.departureTime}
                             onChange={(e) => {
@@ -180,7 +179,6 @@ const FlightForm = (props) => {
                         <Form.Label htmlFor="originOffset" srOnly>{props.messages.flight_modal_departure_time_offset_label}</Form.Label>
                         <Form.Control as="select"
                             id="originOffset"
-                            controlId="originOffset"
                             value={props.departureOffset}
                             onChange={(e) => {
                                 props.setDepartureOffset(e.target.value)
@@ -221,7 +219,7 @@ const FlightForm = (props) => {
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-4">
-                    <Form.Label htmlFor="returnTime" column sm="4">{props.messages.flight_modal_return_time_label}</Form.Label>
+                    <Form.Label column sm="4">{props.messages.flight_modal_return_time_label}</Form.Label>
                     <Col sm="4">
                         <Form.Control as="select"
                             value={props.returnTime}
