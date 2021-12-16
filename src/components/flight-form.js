@@ -158,7 +158,6 @@ const FlightForm = (props) => {
                         <Form.Label htmlFor="departureTime" column sm="4">{props.messages.flight_modal_departure_time_label}</Form.Label>
                         <Col sm="4">
                             <Form.Control as="select"
-                                controlId="departureTime"
                                 id="departureTime"
                                 value={props.departureTime}
                                 onChange={(e) => {
@@ -181,7 +180,6 @@ const FlightForm = (props) => {
                             <Form.Label htmlFor="originOffset" srOnly>{props.messages.flight_modal_departure_time_offset_label}</Form.Label>
                             <Form.Control as="select"
                                 id="originOffset"
-                                controlId="originOffset"
                                 value={props.departureOffset}
                                 onChange={(e) => {
                                     props.setDepartureOffset(e.target.value)
@@ -228,7 +226,6 @@ const FlightForm = (props) => {
                         <Form.Control as="select"
                             value={props.returnTime}
                             id="returnTime" 
-                            controlId="returnTime" 
                             onChange={(e) => {
                                 props.setReturnTime(e.target.value)
                             }}
@@ -249,7 +246,6 @@ const FlightForm = (props) => {
                     <Form.Label htmlFor="returnOffset" srOnly>{props.messages.flight_modal_return_time_offset_label}</Form.Label>
                         <Form.Control as="select"
                             id="returnOffset"
-                            controlId="returnOffset" 
                             value={props.returnOffset}
                             onChange={(e) => {
                                 props.setReturnOffset(e.target.value)
@@ -293,8 +289,8 @@ const FlightForm = (props) => {
                             }}
                             className={`${flightLoading ? 'float-right disabled' : 'float-right'}`}>{props.messages.flight_modal_fetch_flight_estimate_label}
                             {flightLoading && <FaSpinner focusable="false" aria-hidden="true" title={props.messages.alt_for_faspinner}  className="float-right fa-spin ml-3 mt-1" size="24" />}
-                            <div role="status" className="sr-only" id="loading-sr">{screenReaderStatus}</div>
                             </Button>
+                            <div role="status" className="sr-only">{screenReaderStatus}</div>
                             
                     </Col>
                 </Form.Group>

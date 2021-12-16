@@ -48,9 +48,8 @@ const Estimator = () => {
     const intl = useIntl();
     const summaryView = useRef(null)
     const errorPanelView = useRef(null)
-    const errorFirstItem = useRef(null)
     const executeSummaryViewScroll = () => summaryView.current.scrollIntoView()
-    const executeErrorPanelViewScroll = () => errorPanelView.current.scrollIntoView() && errorFirstItem.current.focus()
+    const executeErrorPanelViewScroll = () =>  errorPanelView.current.focus() && errorPanelView.current.scrollIntoView()
 
     
     
@@ -623,14 +622,14 @@ const Estimator = () => {
             let message = '';
             message = localeCopy.private_vehicle_success.html.replace('{rate}', `<strong>${privateVehicleRate}</strong>`)
             message = message.replace('{distance}', `<strong>${(returnDistance / 1000).toFixed(0)}</strong>`)
-            setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
+            setTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></div> })
         } else if (enterKilometricsDistanceManually) {
             let message = '';
             message = localeCopy.private_vehicle_manual.html.replace('{rate}', `<strong>${privateVehicleRate}</strong>`)
             message = message.replace('{distance}', `<strong>${parseInt(privateKilometricsValue)}</strong>`)
-            setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
+            setTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></div> })
         } else if (!privateVehicleSuccess) {
-            setTransportationMessage({ element: <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.private_vehicle_error.html }}></span> })
+            setTransportationMessage({ element: <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.private_vehicle_error.html }}></div> })
         }
         return calculateKilometrics;
     }
@@ -731,7 +730,7 @@ const Estimator = () => {
         let cost = 100 + 50 * (numberOfDays)
         setLocalTransportationEstimate(cost);
         updateLocalTransportationCost(cost)
-        setLocalTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_success.html }}></span>  })
+        setLocalTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_success.html }}></div>  })
     }
 
     useEffect(() => {
@@ -831,10 +830,10 @@ const Estimator = () => {
             updateTransportationCost(acceptedFlight)
         } else if (transportationType === 'train') {
             updateTransportationCost(0)
-            setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.train_success.html }}></span>  })
+            setTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.train_success.html }}></div>  })
         } else if (transportationType === 'rental') {
             updateTransportationCost(0)
-            setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.rental_car_success.html }}></span>  })
+            setTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.rental_car_success.html }}></div>  })
         } else if (transportationType === 'private') {
             if (privateVehicleSuccess) {
                 setPrivateKilometricsValue((returnDistance / 1000).toFixed(2));
@@ -844,7 +843,7 @@ const Estimator = () => {
             displayTransportationMessage()
         } else if (transportationType === 'notrequired') {
             updateTransportationCost(0.00)
-            setTransportationMessage({ element: <span className="transportation-message"></span>  })
+            setTransportationMessage({ element: <div className="transportation-message"></div>  })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [transportationType])
@@ -1142,7 +1141,7 @@ const Estimator = () => {
     const errorList = () => {
         let list = [];
         list = submitValidationWarnings.map((error, index) =>
-            <li key={index} ref={index === 0 ? errorFirstItem : null}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
+        <li key={index}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
         );
         return list;
     }
@@ -1243,11 +1242,11 @@ const Estimator = () => {
     useEffect(() => {
         if (result && parseInt(localTransportationCost) === 0) {
             setLocalTransportationMessage({
-                element:  <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.local_tranportation_zero.html }}></span>
+                element:  <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.local_tranportation_zero.html }}></div>
             })
         } else if (result && localTransportationEstimate !== parseInt(localTransportationCost)) {
             setLocalTransportationMessage({
-                element:  <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_manual.html }}></span>
+                element:  <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_manual.html }}></div>
             })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -1470,13 +1469,13 @@ const Estimator = () => {
             <section className="card bg-light p-4 mb-4 mt-5">
                 <h2 className="mb-4" id="h2-label">{localeCopy.title.text}</h2>
                 <div className="lead mb-3" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
-                {errorPanel !== false && <div className="alert alert-danger alert-danger-banner" role="alert" ref={errorPanelView}>
+                {errorPanel !== false && <section tabIndex={'-1'} className="alert alert-danger alert-danger-banner" role="alert" ref={errorPanelView}>
                     <h3>{formattedMessage('estimate_error_title')}</h3>
                     <p>{formattedMessage('estimate_error_lead')}</p>
                     <ol>
                         {errorList()}
                     </ol>
-                </div>}
+                </section>}
                 <form id="estimates-form" className="form-group row" onSubmit={handleSubmit} noValidate>
                     <div className="col-sm-7" ref={summaryView}>
                         <InputDatalist
@@ -1551,7 +1550,7 @@ const Estimator = () => {
                             <button type="button" id="clear-button" className="btn btn-outline-dark px-5 ml-3" onClick={() => {clearForm()}}>{formattedMessage('clear')}</button>
                         }
                         {loading && <FaSpinner focusable="false" aria-hidden="true" className="fa-spin ml-3" size="24" />}
-                        <div role="status" className="sr-only" id="loading-sr">{screenReaderStatus}</div>
+                        <div role="status" className="sr-only">{screenReaderStatus}</div>
                     </div>
                 </form>
 
@@ -1915,7 +1914,7 @@ const Estimator = () => {
                                     onClick={() => {
                                         checkForEmailErrors(); 
                                     }}
-                                    aria-describedby="email-button-validation"
+                                    // aria-describedby="email-button-validation"
                                 >
                                         {formattedMessage('email')}
                                 </Button>
