@@ -48,7 +48,7 @@ const EmailForm = (props) => {
 
             <Form.Group as={Row} controlId="travellersName">
                 <Form.Label column sm="3">
-                    <div className='row pl-3'>{props.messages.email_form_travellers_name}</div>
+                    <span className='row pl-3'>{props.messages.email_form_travellers_name}</span>
                     <small className='row pl-3'>({props.messages.required})</small>
                     <span className='sr-only'>{props.messages.email_form_travellers_name_placeholder}</span>
                 </Form.Label>
@@ -75,7 +75,7 @@ const EmailForm = (props) => {
             </Form.Group>
             <Form.Group as={Row} controlId="travellersEmail" className="mb-5">
                 <Form.Label column sm="3">
-                    <div className='row pl-3'>{props.messages.email_form_travellers_email}</div>
+                    <span className='row pl-3'>{props.messages.email_form_travellers_email}</span>
                     <small className='row pl-3'>({props.messages.required})</small>
                     <span className="sr-only">{props.messages.email_form_travellers_email_placeholder}</span>
                 </Form.Label>
@@ -113,7 +113,7 @@ const EmailForm = (props) => {
             </Form.Group>
             <Form.Group as={Row} controlId="approversName">
                 <Form.Label column sm="3">
-                    <div className='row pl-3'>{props.messages.email_form_approvers_name}</div>
+                    <span className='row pl-3'>{props.messages.email_form_approvers_name}</span>
                     <small className='row pl-3'>({props.messages.required})</small>
                     <span className="sr-only">{props.messages.email_form_approvers_name_placeholder}</span>
                 </Form.Label>
@@ -140,7 +140,7 @@ const EmailForm = (props) => {
             </Form.Group>
             <Form.Group as={Row} controlId="approversEmail" className="mb-5">
                 <Form.Label column sm="3">
-                    <div className="row pl-3">{props.messages.email_form_approvers_email}</div>
+                    <span className="row pl-3">{props.messages.email_form_approvers_email}</span>
                     <small className='row pl-3'>({props.messages.required})</small>
                     <span className='sr-only'>{props.messages.email_form_approvers_email_placeholder}</span>
                 </Form.Label>
@@ -168,10 +168,10 @@ const EmailForm = (props) => {
             </Form.Group>
             <Form.Group as={Row} controlId="tripName">
                 <Form.Label column sm="3">
-                    <div className="row pl-3">{props.messages.email_form_trip_name}</div>
+                    <span className="row pl-3">{props.messages.email_form_trip_name}</span>
                     <small className='row pl-3'>({props.messages.required})</small>
-                    <p className='sr-only'>{props.messages.email_form_trip_name_placeholder}</p>
-                    <p className='sr-only'>{props.messages.email_form_trip_name_helptext}</p>
+                    <span className='sr-only'>{props.messages.email_form_trip_name_placeholder}</span>
+                    <span className='sr-only'>{props.messages.email_form_trip_name_helptext}</span>
                 </Form.Label>
                 <Col sm="9">
                     <Form.Control
@@ -190,15 +190,15 @@ const EmailForm = (props) => {
                         {props.messages.email_form_field_required}
                     </Form.Control.Feedback>
                     <Form.Text id="emailTripName" muted>
-                        <p>{props.messages.email_form_trip_name_placeholder}</p>
-                        <p>{props.messages.email_form_trip_name_helptext}</p>
+                        <span>{props.messages.email_form_trip_name_placeholder}<br/><br/>
+                        {props.messages.email_form_trip_name_helptext}</span>
                     </Form.Text>
 
                 </Col>
             </Form.Group>
             <Form.Group as={Row} controlId="travelCategory">
                 <Form.Label column sm="3">
-                    <div className="row pl-3">{props.messages.email_form_category_label}</div>
+                    <span className="row pl-3">{props.messages.email_form_category_label}</span>
                     <small className='row pl-3'>({props.messages.required})</small></Form.Label>
                 <Col sm="9">
                     <Form.Control as="select"
