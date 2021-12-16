@@ -715,12 +715,6 @@ const Estimator = () => {
 
             // eslint-disable-next-line no-template-curly-in-string
 
-
-
-            // message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
-            // eslint-disable-next-line no-template-curly-in-string
-            // message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(calculatedApplicableRates[0].rate)}</strong>`)
-            // setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
         } catch (error) {
             console.log('fetchHotelCostError', error);
         }
