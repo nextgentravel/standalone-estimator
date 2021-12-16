@@ -103,7 +103,7 @@ const MealsModal = (props) => {
             </Modal.Body>
             <Modal.Footer>
                 <div className="mb-2 mr-3" tabindex='0'>{mealCost.total && localCurrencyDisplay(parseFloat(mealCost.total))}</div>
-                <button type="button" className="btn btn-primary" onClick={() => { props.onHide() }}>{props.messages.meals_modal_submit}</button>
+                <button id='close-meals-modal' type="button" className="btn btn-primary" onClick={() => { props.onHide() }}>{props.messages.meals_modal_submit}</button>
             </Modal.Footer>
       </Modal>
     )
