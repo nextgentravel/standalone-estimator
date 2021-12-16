@@ -48,9 +48,10 @@ const Estimator = () => {
     const intl = useIntl();
     const summaryView = useRef(null)
     const errorPanelView = useRef(null)
+    const transportationError = useRef(null)
     const executeSummaryViewScroll = () => summaryView.current.scrollIntoView()
     const executeErrorPanelViewScroll = () =>  errorPanelView.current.focus() && errorPanelView.current.scrollIntoView()
-
+    const focusTransportationMessage = () => transportationError.current.focus() && transportationError.current.scrollIntoView()
     
     
     const accommodationSelect = useRef(null);
@@ -1260,13 +1261,13 @@ const Estimator = () => {
                     element: <span>{formattedMessage('flight_message_no_airport')}</span>
                 })
             } else if (parseFloat(transportationCost) === parseFloat(0.00)) {
+                focusTransportationMessage()
                 setTransportationMessage({
                     element: <span className="transportation-message alert-warning">
                                 <span dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></span>
                                 <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
                             </span>
                 })
-
 
             } else if (parseFloat(transportationCost) === parseFloat(initialFlightResult)) {
                 let message = formattedMessage('flight_selected_fare_preselected')
@@ -1799,7 +1800,7 @@ const Estimator = () => {
                                     </div>
                                 </ConditionalWrap>
                             </div>
-                            <div className="col-sm-5 align-self-center text-wrap mb-2" id="transportation-message">
+                            <div ref={transportationError} tabIndex={'-1'} className="col-sm-5 align-self-center text-wrap mb-2" id="transportation-message">
                                 {transportationMessage.element}
                             </div>
                         </div>
@@ -1899,7 +1900,7 @@ const Estimator = () => {
                             readOnly={!result}
                         />
                         <div className="row mb-4">
-                            <div className="col-sm-7 align-self-center text-right" tabindex='0'>
+                            <div className="col-sm-7 align-self-center text-right" tabIndex='0'>
                                 <div className='mb-3 border-bottom' />
                                 <strong className="mr-2">{formattedMessage('total_cost')}</strong>{localCurrencyDisplay(parseFloat(summaryCost))}
                             </div>
