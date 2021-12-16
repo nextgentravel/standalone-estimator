@@ -13,6 +13,39 @@
   top: 15px;
 }
 
+summary {
+  cursor: pointer;
+}
+
+summary:focus,
+summary:hover {
+  color: #000;
+}
+
+summary {
+  display: list-item !important;
+  list-style-type: none;
+  list-style-type: disclosure-closed;
+  visibility: visible !important;
+}
+
+details summary:focus,
+details summary:hover {
+  background-color: transparent;
+  color: $primary;
+  text-decoration: underline;
+}
+
+details summary:focus {
+  outline-style: dotted;
+  outline-width: 1px;
+}
+
+details[open]>summary {
+  list-style-type: disclosure-open;
+  margin-bottom: .25em;
+}
+  
 #meals-fieldset {
   display: inherit;
 }

@@ -463,9 +463,9 @@ const Estimator = () => {
 
     const removeActiveDescendantAttr = () => {
         const originInput = document.querySelector('#origin');
-        originInput && originInput.setAttribute("aria-activedescendant", "");
+        originInput && originInput.removeAttribute("aria-activedescendant");
         const destinationInput = document.querySelector('#destination');
-        destinationInput && destinationInput.setAttribute("aria-activedescendant", "");
+        destinationInput && destinationInput.removeAttribute("aria-activedescendant");
     };
 
     let initialDates = {
@@ -1925,58 +1925,47 @@ const Estimator = () => {
                 }
             </section>
             
-            <div className="card bg-white py-4 px-5 mb-2">
+            <div className="card bg-white py-4 px-5 mb-4">
                 <div className="row">
-                    <h2 className="col-sm-12 pl-2 pb-1 pt-2 h3">
-                        <button className="btn button-explainer block" aria-expanded={!explainerCollapsed} onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
-                            <FaCalculator focusable="false" aria-hidden="true" size="20" className='mb-1 mr-2' />{localeCopy.explainer_title.text}
-                            {explainerCollapsed &&
-                                <FaCaretDown
-                                    focusable="false"
-                                    
-                                    aria-hidden="true" 
-                                    size="25"
-                                    className="explainer-carets"
-                                />}
-                            {!explainerCollapsed &&
-                                <FaCaretUp focusable="false"
-                                    aria-hidden="true"
-                                    size="25"
-                                    className="explainer-carets"
-                                />
-                            }
-                        </button>
-                    </h2>
-                    {!explainerCollapsed &&
-                        <React.Fragment>
-                            <div className="col-sm-12 mt-2" dangerouslySetInnerHTML={{ __html: localeCopy.explainer_body.html }}>
-                            </div>
-                        </React.Fragment>
-                    }
-                    {explainerCollapsed &&
-                        <React.Fragment>
-                            <div className="col-sm-12" />
-                        </React.Fragment>
-                    }
+                    <details>
+                        <summary>
+                            <h2 className="h4 d-inline mb-5" onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
+                                <FaCalculator focusable="false" aria-hidden="true" size="20" className='mb-1 mr-2' />
+                                {localeCopy.explainer_title.text}
+                            </h2>
+                        </summary>
+                        {!explainerCollapsed &&
+                            <React.Fragment>
+                                <div className="col-sm-12 mt-2" dangerouslySetInnerHTML={{ __html: localeCopy.explainer_body.html }}>
+                                </div>
+                            </React.Fragment>
+                        }
+                        {explainerCollapsed &&
+                            <React.Fragment>
+                                <div className="col-sm-12" />
+                            </React.Fragment>
+                        }
+                    </details>
                 </div>
             </div>
-            <div className="mb-4">
-                <h2 className="step-disclaimer-header mt-5 pl-4 h4">
-                    <button className="button-explainer btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
-                      {disclaimerCollapsed &&
-                          <FaPlusCircle focusable="false" aria-hidden="true" size="15" className='mb-1 mr-2' />}
-                      {!disclaimerCollapsed &&
-                          <FaMinusCircle focusable="false" aria-hidden="true" size="15" className='mb-1 mr-2' />
-                      }
-                      <span>{formattedMessage('disclaimer')}</span>
-                    </button>
-                </h2>
-                {!disclaimerCollapsed &&
-                    <div className="px-5 pb-3">{formattedMessage('disclaimer_body')}</div>
-                }
-                {disclaimerCollapsed &&
-                    <div className="mb-4"></div>
-                }
+            <div className="card bg-white py-4 px-5 mb-4">
+                <div className="row">
+                    <details>
+                        <summary>
+                            <h2 className="h4 d-inline mb-5" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
+                                {formattedMessage('disclaimer')}
+                            </h2>
+                        </summary>
+
+                        {!disclaimerCollapsed &&
+                            <div className="px-5 pt-3 pb-3">{formattedMessage('disclaimer_body')}</div>
+                        }
+                        {disclaimerCollapsed &&
+                            <div></div>
+                        }
+
+                    </details>
+                </div>
             </div>
             <QuickReferenceCard messages={localeCopy} />
         </div>
