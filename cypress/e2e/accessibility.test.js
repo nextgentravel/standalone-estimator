@@ -36,7 +36,8 @@ function terminalLog(violations, url) {
 }
 
 describe('accessibility', function () {
-  const siteMap = require('../../sitemap.json')
+  const siteMap = ['en', 'fr']
+  // const siteMap = require('../../sitemap.json')
   it('has imported sitemap', function () {
     expect(siteMap).to.be.an('array')
   })
