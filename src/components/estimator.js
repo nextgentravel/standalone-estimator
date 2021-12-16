@@ -1298,41 +1298,6 @@ const Estimator = () => {
                     element: <span>{formattedMessage('flight_custom_fare_entered')} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
                 })
             }
-            // if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) === 0.00) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message">{formattedMessage('flight_no_results')}</span>
-            //     })
-            // } else if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) > 0.00) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message">{formattedMessage('flight_no_results_custom')}</span>
-            //     })
-            // } else if (haveFlightCost && (parseInt(transportationCost) === 0)) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message">{formattedMessage('flight_zero', 'alert-warning')}</span>
-            //     })
-            // } else if (haveFlightCost && (parseFloat(transportationCost) < parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message">{formattedMessage('flight_below_estimate')}</span>
-            //     })
-            // } else if (haveFlightCost && (parseFloat(transportationCost) === parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
-            //     setTransportationMessage({
-            //         element:  transportationEstimates.flight.estimatedValueMessage
-            //     })
-            // } else if (haveFlightCost && (parseFloat(transportationCost) > parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message">{formattedMessage('transportation_above_flight_estimate')}</span>
-            //     })
-            // }
-
-            // } else if (result && !haveFlightCost && (parseInt(transportationCost) === 0)) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message alert-warning" role="alert">{formattedMessage('could_not_fetch_flight_value')}</span>
-            //     })
-            // } else if (result && !haveFlightCost && (parseInt(transportationCost) > 0)) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message alert-warning" role="alert">{formattedMessage('could_not_fetch_you_have_entered_own')}</span>
-            //     })
-            // }
         }
         if (result && transportationType === 'train') {
             console.log('validate train price')
