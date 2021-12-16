@@ -622,14 +622,14 @@ const Estimator = () => {
             let message = '';
             message = localeCopy.private_vehicle_success.html.replace('{rate}', `<strong>${privateVehicleRate}</strong>`)
             message = message.replace('{distance}', `<strong>${(returnDistance / 1000).toFixed(0)}</strong>`)
-            setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
+            setTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></div> })
         } else if (enterKilometricsDistanceManually) {
             let message = '';
             message = localeCopy.private_vehicle_manual.html.replace('{rate}', `<strong>${privateVehicleRate}</strong>`)
             message = message.replace('{distance}', `<strong>${parseInt(privateKilometricsValue)}</strong>`)
-            setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
+            setTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></div> })
         } else if (!privateVehicleSuccess) {
-            setTransportationMessage({ element: <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.private_vehicle_error.html }}></span> })
+            setTransportationMessage({ element: <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.private_vehicle_error.html }}></div> })
         }
         return calculateKilometrics;
     }
@@ -730,7 +730,7 @@ const Estimator = () => {
         let cost = 100 + 50 * (numberOfDays)
         setLocalTransportationEstimate(cost);
         updateLocalTransportationCost(cost)
-        setLocalTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_success.html }}></span>  })
+        setLocalTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_success.html }}></div>  })
     }
 
     useEffect(() => {
@@ -830,10 +830,10 @@ const Estimator = () => {
             updateTransportationCost(acceptedFlight)
         } else if (transportationType === 'train') {
             updateTransportationCost(0)
-            setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.train_success.html }}></span>  })
+            setTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.train_success.html }}></div>  })
         } else if (transportationType === 'rental') {
             updateTransportationCost(0)
-            setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.rental_car_success.html }}></span>  })
+            setTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.rental_car_success.html }}></div>  })
         } else if (transportationType === 'private') {
             if (privateVehicleSuccess) {
                 setPrivateKilometricsValue((returnDistance / 1000).toFixed(2));
@@ -843,7 +843,7 @@ const Estimator = () => {
             displayTransportationMessage()
         } else if (transportationType === 'notrequired') {
             updateTransportationCost(0.00)
-            setTransportationMessage({ element: <span className="transportation-message"></span>  })
+            setTransportationMessage({ element: <div className="transportation-message"></div>  })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [transportationType])
@@ -1242,11 +1242,11 @@ const Estimator = () => {
     useEffect(() => {
         if (result && parseInt(localTransportationCost) === 0) {
             setLocalTransportationMessage({
-                element:  <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.local_tranportation_zero.html }}></span>
+                element:  <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.local_tranportation_zero.html }}></div>
             })
         } else if (result && localTransportationEstimate !== parseInt(localTransportationCost)) {
             setLocalTransportationMessage({
-                element:  <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_manual.html }}></span>
+                element:  <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_manual.html }}></div>
             })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
