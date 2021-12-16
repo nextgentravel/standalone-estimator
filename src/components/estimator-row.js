@@ -53,7 +53,6 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                     }
                     <input
                         readOnly={readOnly}
-                        aria-readonly={readOnly}
                         aria-describedby={`${id}-message`}
                         value={value}
                         className="form-control"
