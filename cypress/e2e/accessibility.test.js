@@ -1,5 +1,3 @@
-
-
 function terminalLog(violations, url) {
 
   cy.task(
@@ -50,5 +48,60 @@ describe('accessibility', function () {
         terminalLog(violations, url)
       })
     });
+
+    it(`\n\n should pass accessibility tests on explainer and disclaimer \n\n`, () => {
+      cy.get('#explainer-collapse-button').click()
+      cy.get('#disclaimer-collapse-button').click()
+      cy.checkA11y(null, null, (violations) => {
+        terminalLog(violations, url)
+      })
+    });
+
+    it(`\n\n display a load spinner when start is clicked \n\n`, () => {
+      const departDate = Cypress.moment().add(1, 'day').format('YYYY-MM-DD')
+      const returnDate = Cypress.moment().add(5, 'day').format('YYYY-MM-DD')
+
+      cy.get('#origin').type('ottaw{downarrow}{enter}')
+      cy.get('#destination').type('calga{downarrow}{enter}')
+      cy.get('#departureDate').type(`${departDate}`)
+      cy.get('#returnDate').type(`${returnDate}`)
+      cy.get('button').first().click()
+      cy.get('.fa-spin').should('be.visible')
+    });
+
+    it(`\n\n Expanded page should have appropriate accessibility \n\n`, () => {
+      cy.get('#transportation_container', {timeout:15000}).should('be.visible');
+      cy.get("main").injectAxe();
+      cy.checkA11y(null, null, (violations) => {
+        terminalLog(violations, url)
+      })
+    });
+
+    it(`\n\n should pass accessibility tests on flight modal \n\n`, () => {
+      url === 'fr' ? cy.get('select').eq(1).select('Vol') : cy.get('select').eq(1).select('Flight')
+      cy.get('#open-transportation-modal').click()
+      cy.checkA11y(null, null, (violations) => {
+        terminalLog(violations, url)
+      })
+    });
+
+    it(`\n\n should pass accessibility tests on meals modal \n\n`, () => {
+      url === 'fr' ? cy.contains('Fermer').click() : cy.contains('Close').click()
+      cy.get('#open-meals-modal').click()
+      cy.checkA11y(null, null, (violations) => {
+        terminalLog(violations, url)
+      })
+    });
+
+    it(`\n\n should pass accessibility tests on email modal \n\n`, () => {
+      cy.get('#close-meals-modal').click()
+      url === 'fr' ? cy.get('select').eq(0).select('Non requis') : cy.get('select').eq(0).select('Not required')
+      cy.get('#open-email-modal-button').click()
+      cy.checkA11y(null, null, (violations) => {
+        terminalLog(violations, url)
+      })
+    });
+
+
   });
 });
