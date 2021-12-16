@@ -1626,7 +1626,6 @@ const Estimator = () => {
                                         }
                                         <input
                                             readOnly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
-                                            aria-readonly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
                                             className="form-control"
                                             aria-describedby="accommodation-message"
                                             id={"accommodation_total"}
@@ -1785,7 +1784,6 @@ const Estimator = () => {
                                             }}
                                             value={transportationCost}
                                             readOnly={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
-                                            aria-readonly={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
                                             type="number"
                                             min="0"
                                         >
