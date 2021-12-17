@@ -1728,8 +1728,9 @@ const Estimator = () => {
                             {transportationType === 'private' &&
                                 <div className="col-sm-4 align-self-center text-wrap mb-2">
                                     <Form inline>
-                                        <Form.Group controlId="kilometricsManually">
+                                        <Form.Group>
                                             <Form.Check
+                                                id="kilometricsManuallyCheckBox"
                                                 type="checkbox"
                                                 className="mr-2" 
                                                 aria-label="Enter Kilometrics Manually"
@@ -1746,6 +1747,7 @@ const Estimator = () => {
                                                         }}
                                                         aria-describedby="km"
                                                         type='number'
+                                                        id="kilometricsManuallyInput"
                                                     />
                                                     <InputGroup.Append>
                                                         <InputGroup.Text id="km">km</InputGroup.Text>
