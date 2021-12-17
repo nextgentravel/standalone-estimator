@@ -218,7 +218,7 @@ const FlightForm = (props) => {
                         </Form.Control.Feedback>
                     </Col>
                 </Form.Group>
-                <Form.Group as={Row} className="mb-4">
+                <Form.Group as={Row} className="mb-4"  controlId='returnTime'>
                     <Form.Label column sm="4">{props.messages.flight_modal_return_time_label}</Form.Label>
                     <Col sm="4">
                         <Form.Control as="select"
