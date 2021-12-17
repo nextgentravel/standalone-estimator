@@ -46,6 +46,6 @@ details[open]>summary {
   margin-bottom: .25em;
 }
   
-#meals-fieldset {
+[id^=meals-fieldset] {
   display: inherit;
 }
