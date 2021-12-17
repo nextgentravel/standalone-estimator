@@ -49,11 +49,9 @@ const MealsModal = (props) => {
                 {items.length > 0 && items.map((day, index) => {
                     return (
                         <div className="row mb-3" key={index}>
-                            <fieldset id="meals-fieldset">
+                            <fieldset id={`meals-fieldset-${day.date}`} >
                                 <div className="col-sm">
-                                    <strong>
-                                        <legend>{day.date}</legend>
-                                    </strong>
+                                    <legend><strong>{day.date}</strong></legend>
                                 </div>
                                 <div className="col-sm">
                                     <input
