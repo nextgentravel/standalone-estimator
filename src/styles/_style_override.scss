@@ -49,3 +49,7 @@ details[open]>summary {
 #meals-fieldset {
   display: inherit;
 }
+
+.focus-only:focus {
+  outline: 1px dashed #aa767b;
+}
