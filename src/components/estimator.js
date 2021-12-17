@@ -424,8 +424,6 @@ const Estimator = () => {
 
     let initialTransportationMessage = { element: <span></span>, style: 'primary' };
 
-    const [explainerCollapsed, setExplainerCollapsed] = useState(true);
-
     const citiesList = cities.citiesList;
     const [filteredCitiesList, setFilteredCitiesList] = useState([]);
 
@@ -491,7 +489,6 @@ const Estimator = () => {
     const [privateVehicleRate, setPrivateVehicleRate] = useState('');
     const [privateVehicleSuccess, setPrivateVehicleSuccess] = useState(false);
     const [showClear, setShowClear] = useState(false);
-    const [disclaimerCollapsed, setDisclaimerCollapsed] = useState(true);
 
     // Flight modal vars
 
@@ -1849,7 +1846,7 @@ const Estimator = () => {
                 <div className="row">
                     <details>
                         <summary>
-                            <h2 className="h4 d-inline mb-5" onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
+                            <h2 className="h4 d-inline mb-5">
                                 <FaCalculator focusable="false" aria-hidden="true" size="20" className='mb-1 mr-2' />
                                 {localeCopy.explainer_title.text}
                             </h2>
@@ -1866,7 +1863,7 @@ const Estimator = () => {
                 <div className="row">
                     <details>
                         <summary>
-                            <h2 className="h4 d-inline mb-5" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
+                            <h2 className="h4 d-inline mb-5">
                                 {formattedMessage('disclaimer')}
                             </h2>
                         </summary>
