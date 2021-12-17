@@ -48,9 +48,10 @@ const Estimator = () => {
     const intl = useIntl();
     const summaryView = useRef(null)
     const errorPanelView = useRef(null)
+    const transportationError = useRef(null)
     const executeSummaryViewScroll = () => summaryView.current.scrollIntoView()
     const executeErrorPanelViewScroll = () =>  errorPanelView.current.focus() && errorPanelView.current.scrollIntoView()
-
+    const focusTransportationMessage = () => transportationError.current.focus() && transportationError.current.scrollIntoView()
     
     
     const accommodationSelect = useRef(null);
@@ -463,9 +464,9 @@ const Estimator = () => {
 
     const removeActiveDescendantAttr = () => {
         const originInput = document.querySelector('#origin');
-        originInput && originInput.setAttribute("aria-activedescendant", "");
+        originInput && originInput.removeAttribute("aria-activedescendant");
         const destinationInput = document.querySelector('#destination');
-        destinationInput && destinationInput.setAttribute("aria-activedescendant", "");
+        destinationInput && destinationInput.removeAttribute("aria-activedescendant");
     };
 
     let initialDates = {
@@ -1260,13 +1261,13 @@ const Estimator = () => {
                     element: <span>{formattedMessage('flight_message_no_airport')}</span>
                 })
             } else if (parseFloat(transportationCost) === parseFloat(0.00)) {
+                focusTransportationMessage()
                 setTransportationMessage({
                     element: <span className="transportation-message alert-warning">
                                 <span dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></span>
                                 <span> <a id='open-transportation-modal' href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
                             </span>
                 })
-
 
             } else if (parseFloat(transportationCost) === parseFloat(initialFlightResult)) {
                 let message = formattedMessage('flight_selected_fare_preselected')
@@ -1799,7 +1800,7 @@ const Estimator = () => {
                                     </div>
                                 </ConditionalWrap>
                             </div>
-                            <div className="col-sm-5 align-self-center text-wrap mb-2" id="transportation-message">
+                            <div ref={transportationError} tabIndex={'-1'} className="col-sm-5 align-self-center text-wrap mb-2" id="transportation-message">
                                 {transportationMessage.element}
                             </div>
                         </div>
@@ -1899,7 +1900,7 @@ const Estimator = () => {
                             readOnly={!result}
                         />
                         <div className="row mb-4">
-                            <div className="col-sm-7 align-self-center text-right" tabindex='0'>
+                            <div className="col-sm-7 align-self-center text-right" tabIndex='0'>
                                 <div className='mb-3 border-bottom' />
                                 <strong className="mr-2">{formattedMessage('total_cost')}</strong>{localCurrencyDisplay(parseFloat(summaryCost))}
                             </div>
@@ -1926,58 +1927,47 @@ const Estimator = () => {
                 }
             </section>
             
-            <div className="card bg-white py-4 px-5 mb-2">
+            <div className="card bg-white py-4 px-5 mb-4">
                 <div className="row">
-                    <h2 className="col-sm-12 pl-2 pb-1 pt-2 h3">
-                        <button id='explainer-collapse-button' className="btn button-explainer block" aria-expanded={!explainerCollapsed} onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
-                            <FaCalculator focusable="false" aria-hidden="true" size="20" className='mb-1 mr-2' />{localeCopy.explainer_title.text}
-                            {explainerCollapsed &&
-                                <FaCaretDown
-                                    focusable="false"
-                                    
-                                    aria-hidden="true" 
-                                    size="25"
-                                    className="explainer-carets"
-                                />}
-                            {!explainerCollapsed &&
-                                <FaCaretUp focusable="false"
-                                    aria-hidden="true"
-                                    size="25"
-                                    className="explainer-carets"
-                                />
-                            }
-                        </button>
-                    </h2>
-                    {!explainerCollapsed &&
-                        <React.Fragment>
-                            <div className="col-sm-12 mt-2" dangerouslySetInnerHTML={{ __html: localeCopy.explainer_body.html }}>
-                            </div>
-                        </React.Fragment>
-                    }
-                    {explainerCollapsed &&
-                        <React.Fragment>
-                            <div className="col-sm-12" />
-                        </React.Fragment>
-                    }
+                    <details>
+                        <summary>
+                            <h2 className="h4 d-inline mb-5" id='explainer-collapse-button' onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
+                                <FaCalculator focusable="false" aria-hidden="true" size="20" className='mb-1 mr-2' />
+                                {localeCopy.explainer_title.text}
+                            </h2>
+                        </summary>
+                        {!explainerCollapsed &&
+                            <React.Fragment>
+                                <div className="col-sm-12 mt-2" dangerouslySetInnerHTML={{ __html: localeCopy.explainer_body.html }}>
+                                </div>
+                            </React.Fragment>
+                        }
+                        {explainerCollapsed &&
+                            <React.Fragment>
+                                <div className="col-sm-12" />
+                            </React.Fragment>
+                        }
+                    </details>
                 </div>
             </div>
-            <div className="mb-4">
-                <h2 className="step-disclaimer-header mt-5 pl-4 h4">
-                    <button id='disclaimer-collapse-button' className="button-explainer btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
-                      {disclaimerCollapsed &&
-                          <FaPlusCircle focusable="false" aria-hidden="true" size="15" className='mb-1 mr-2' />}
-                      {!disclaimerCollapsed &&
-                          <FaMinusCircle focusable="false" aria-hidden="true" size="15" className='mb-1 mr-2' />
-                      }
-                      <span>{formattedMessage('disclaimer')}</span>
-                    </button>
-                </h2>
-                {!disclaimerCollapsed &&
-                    <div className="px-5 pb-3">{formattedMessage('disclaimer_body')}</div>
-                }
-                {disclaimerCollapsed &&
-                    <div className="mb-4"></div>
-                }
+            <div className="card bg-white py-4 px-5 mb-4">
+                <div className="row">
+                    <details>
+                        <summary>
+                            <h2 className="h4 d-inline mb-5" id='disclaimer-collapse-button' onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
+                                {formattedMessage('disclaimer')}
+                            </h2>
+                        </summary>
+
+                        {!disclaimerCollapsed &&
+                            <div className="px-5 pt-3 pb-3">{formattedMessage('disclaimer_body')}</div>
+                        }
+                        {disclaimerCollapsed &&
+                            <div></div>
+                        }
+
+                    </details>
+                </div>
             </div>
             <QuickReferenceCard messages={localeCopy} />
         </div>
