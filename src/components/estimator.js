@@ -401,6 +401,8 @@ const Estimator = () => {
                     alt_for_fataxi
                     alt_for_fautensils
                     required
+                    enable_manual_km_checkbox_label
+                    manual_km_input_label
                 }
             }
         }
@@ -1733,7 +1735,7 @@ const Estimator = () => {
                                                 id="kilometricsManuallyCheckBox"
                                                 type="checkbox"
                                                 className="mr-2" 
-                                                aria-label="Enter Kilometrics Manually"
+                                                aria-label={localeCopy.enable_manual_km_checkbox_label}
                                                 checked={enterKilometricsDistanceManually}
                                                 onChange={(e) => setEnterKilometricsDistanceManually(!enterKilometricsDistanceManually)}
                                             />
@@ -1748,6 +1750,7 @@ const Estimator = () => {
                                                         aria-describedby="km"
                                                         type='number'
                                                         id="kilometricsManuallyInput"
+                                                        aria-label={localeCopy.manual_km_input_label}
                                                     />
                                                     <InputGroup.Append>
                                                         <InputGroup.Text id="km">km</InputGroup.Text>
