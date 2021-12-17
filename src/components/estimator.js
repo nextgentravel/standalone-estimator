@@ -1470,8 +1470,8 @@ const Estimator = () => {
             <section className="card bg-light p-4 mb-4 mt-5">
                 <h2 className="mb-4" id="h2-label">{localeCopy.title.text}</h2>
                 <div className="lead mb-3" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
-                {errorPanel !== false && <section tabIndex={'-1'} className="alert alert-danger alert-danger-banner" role="alert" ref={errorPanelView}>
-                    <h3>{formattedMessage('estimate_error_title')}</h3>
+                {errorPanel !== false && <section tabIndex={'0'} className="focus-only alert alert-danger alert-danger-banner" role="alert" ref={errorPanelView}>
+                    <h3 >{formattedMessage('estimate_error_title')}</h3>
                     <p>{formattedMessage('estimate_error_lead')}</p>
                     <ol>
                         {errorList()}

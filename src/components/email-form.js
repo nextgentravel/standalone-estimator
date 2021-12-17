@@ -37,7 +37,7 @@ const EmailForm = (props) => {
     let validationErrorList = validationErrors.map(a => a.path) || [];
     return (
         <Form noValidate>
-             {errorPanel !== false && <section tabIndex={'-1'} className="alert alert-danger alert-danger-banner" role="alert" ref={emailErrorPanelView}>
+             {errorPanel !== false && <section tabIndex={'0'} className="focus-only alert alert-danger alert-danger-banner" role="alert" ref={emailErrorPanelView}>
                 <h3>{props.messages.estimate_error_title}</h3>
                 <p>{props.messages.estimate_error_lead}</p>
                 <ol>
