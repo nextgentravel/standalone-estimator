@@ -41,7 +41,8 @@ const MealsModal = (props) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    <h5 className="modal-title">{props.messages.meals_modal_title}</h5>
+                    <h2 className="h3">{props.messages.meals_and_incidentals}</h2>
+                    <p className="h5">{props.messages.meals_modal_title}</p>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
