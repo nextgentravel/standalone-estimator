@@ -1219,10 +1219,10 @@ const Estimator = () => {
             } else if (parseFloat(transportationCost) === parseFloat(0.00)) {
                 focusTransportationMessage()
                 setTransportationMessage({
-                    element: <span className="transportation-message alert-warning">
-                                <div dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></div>
+                    element: <div className="transportation-message alert-warning ">
+                                <div className='d-inline' dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></div>
                                 <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
-                            </span>
+                            </div>
                 })
 
             } else if (parseFloat(transportationCost) === parseFloat(initialFlightResult)) {
