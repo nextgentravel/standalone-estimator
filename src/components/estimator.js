@@ -401,6 +401,8 @@ const Estimator = () => {
                     alt_for_fataxi
                     alt_for_fautensils
                     required
+                    enable_manual_km_checkbox_label
+                    manual_km_input_label
                 }
             }
         }
@@ -1229,10 +1231,10 @@ const Estimator = () => {
                 // eslint-disable-next-line no-template-curly-in-string
                 message = message.replace('{flightPrice}', `<strong>${localCurrencyDisplay(parseFloat(acceptedFlight))}</strong>`)
                 setTransportationMessage({
-                    element: <span>
+                    element: <div>
                                 <div dangerouslySetInnerHTML={{ __html: `${message}` }}></div>
                                 <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
-                            </span>
+                            </div>
                 })
             } else if (parseFloat(transportationCost) === parseFloat(flightResult.minimum) || parseFloat(transportationCost) === parseFloat(flightResult.maximum) || parseFloat(transportationCost) === parseFloat(flightResult.median)) {
                 let message = formattedMessage('flight_selected_fare')
@@ -1242,10 +1244,10 @@ const Estimator = () => {
 
                 message = message.replace('{flightPrice}', `<strong>${localCurrencyDisplay(parseFloat(acceptedFlight))}</strong>`)
                 setTransportationMessage({
-                    element: <span>
+                    element: <div>
                                 <div dangerouslySetInnerHTML={{ __html: `${message}` }}></div>
                                 <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
-                            </span>
+                            </div>
                 })
             } else if (transportationCost > 0) {
                 setTransportationMessage({
@@ -1725,11 +1727,12 @@ const Estimator = () => {
                             {transportationType === 'private' &&
                                 <div className="col-sm-4 align-self-center text-wrap mb-2">
                                     <Form inline>
-                                        <Form.Group controlId="kilometricsManually">
+                                        <Form.Group>
                                             <Form.Check
+                                                id="kilometricsManuallyCheckBox"
                                                 type="checkbox"
                                                 className="mr-2" 
-                                                aria-label="Enter Kilometrics Manually"
+                                                aria-label={localeCopy.enable_manual_km_checkbox_label}
                                                 checked={enterKilometricsDistanceManually}
                                                 onChange={(e) => setEnterKilometricsDistanceManually(!enterKilometricsDistanceManually)}
                                             />
@@ -1743,6 +1746,8 @@ const Estimator = () => {
                                                         }}
                                                         aria-describedby="km"
                                                         type='number'
+                                                        id="kilometricsManuallyInput"
+                                                        aria-label={localeCopy.manual_km_input_label}
                                                     />
                                                     <InputGroup.Append>
                                                         <InputGroup.Text id="km">km</InputGroup.Text>
