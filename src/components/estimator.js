@@ -1854,17 +1854,11 @@ const Estimator = () => {
                                 {localeCopy.explainer_title.text}
                             </h2>
                         </summary>
-                        {!explainerCollapsed &&
-                            <React.Fragment>
-                                <div className="col-sm-12 mt-2" dangerouslySetInnerHTML={{ __html: localeCopy.explainer_body.html }}>
-                                </div>
-                            </React.Fragment>
-                        }
-                        {explainerCollapsed &&
-                            <React.Fragment>
-                                <div className="col-sm-12" />
-                            </React.Fragment>
-                        }
+
+                        <React.Fragment>
+                            <div className="col-sm-12 mt-2" dangerouslySetInnerHTML={{ __html: localeCopy.explainer_body.html }}>
+                            </div>
+                        </React.Fragment>
                     </details>
                 </div>
             </div>
@@ -1877,12 +1871,7 @@ const Estimator = () => {
                             </h2>
                         </summary>
 
-                        {!disclaimerCollapsed &&
-                            <div className="px-5 pt-3 pb-3">{formattedMessage('disclaimer_body')}</div>
-                        }
-                        {disclaimerCollapsed &&
-                            <div></div>
-                        }
+                        <div className="px-5 pt-3 pb-3">{formattedMessage('disclaimer_body')}</div>
 
                     </details>
                 </div>
