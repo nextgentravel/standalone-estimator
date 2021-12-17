@@ -46,10 +46,16 @@ details[open]>summary {
   margin-bottom: .25em;
 }
   
-#meals-fieldset {
+.meals-fieldset {
   display: inherit;
 }
 
 .focus-only:focus {
   outline: 1px dashed #aa767b;
+}
+
+.meals-legend {
+  width: inherit;
+  padding:0 10px;
+  display: inherit;
 }
