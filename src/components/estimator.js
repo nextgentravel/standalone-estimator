@@ -415,7 +415,7 @@ const Estimator = () => {
         if (messageType === 'string') {
             message = localeCopy[prismicKey]
         } else if (messageType === 'object' && localeCopy[prismicKey] !== null) {
-            message = <span className={classes} dangerouslySetInnerHTML={{ __html: localeCopy[prismicKey].html }}></span>
+            message = <div className={classes} dangerouslySetInnerHTML={{ __html: localeCopy[prismicKey].html }}></div>
         } else {
             message = 'MISSING MESSAGE ' + prismicKey
         }
@@ -716,12 +716,6 @@ const Estimator = () => {
 
             // eslint-disable-next-line no-template-curly-in-string
 
-
-
-            // message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
-            // eslint-disable-next-line no-template-curly-in-string
-            // message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(calculatedApplicableRates[0].rate)}</strong>`)
-            // setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
         } catch (error) {
             console.log('fetchHotelCostError', error);
         }
@@ -745,11 +739,11 @@ const Estimator = () => {
             message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
             // eslint-disable-next-line no-template-curly-in-string
             message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
-            setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
+            setAccommodationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></div> })
             updateAccommodationCost(acrdTotal)
         } else if (accommodationType === 'private') {
             let rate = (Interval.fromDateTimes(departureDateLux, returnDateLux).count('days') - 1) * 50;
-            setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></span>  })
+            setAccommodationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></div>  })
             updateAccommodationCost(rate)
         } else if (accommodationType === 'notrequired') {
             setAccommodationMessage({ element: <span className="transportation-message"></span>  })
@@ -772,52 +766,14 @@ const Estimator = () => {
                 amadeusFlightOffer(originAirportCode, destinationAirportCode, departureDateISODate, returnDateISODate, departureTime, returnTime, departureOffset, returnOffset)
                 .then(response => response.json())
                 .then(result => {
-                    // let date = DateTime.local().toFormat("yyyy-MM-dd");
-                    // let time = DateTime.local().toFormat("hh:mm a")
                     resolve(result);
-                    // if (result.numberOfResults === 0) {
-                    //     localeCopy.flight_no_results.html = localeCopy.flight_no_results.html.replace('{date}', `<strong>${date}</strong>`)    
-                    //     let FlightMessage = <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.flight_no_results.html }}></span>
-                    //     updateTransportationCost(0.00);
-                    //     setTransportationEstimates({
-                    //         ...transportationEstimates,
-                    //         flight: {
-                    //             estimatedValue: 0,
-                    //             estimatedValueMessage: FlightMessage,
-                    //             responseBody: result,
-                    //         }
-                    //     })
-                    //     setTransportationMessage({ element: FlightMessage  })
-                    //     setHaveFlightCost(true);
-                    //     resolve(result);
-                    // } else {        
-                    //     localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{date}', `<strong>${date}</strong>`)
-                    //     localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{time}', `<strong>${time}</strong>`)
-        
-                    //     let FlightMessage = <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_success.html }}></span>
-                        
-                    //     setTransportationEstimates({
-                    //         ...transportationEstimates,
-                    //         flight: {
-                    //             estimatedValue: result.flightEstimate,
-                    //             estimatedValueMessage: FlightMessage,
-                    //             responseBody: result,
-                    //         }
-                    //     })
-                    //     setTransportationMessage({ element: FlightMessage  })
-                    //     setHaveFlightCost(true);
-                    //     resolve(result);
-                    // }
                 })
                 .catch(error => {
                     console.log('amadeus flight offer error', error);
-                    // updateTransportationCost(0.00);
-                    // setTransportationMessage({ element: <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
                     resolve(error);
                 });
             } else {
                 setLoading(false);
-                // setTransportationMessage({ element: <span className="transportation-message alert-warning" role="alert">{formattedMessage('flight_message_no_airport')}</span>  })
                 resolve('no airport');
             }
         });
@@ -1235,7 +1191,7 @@ const Estimator = () => {
     const renderEnterTravelInfoAboveTooltip = (props) => {
         return (
             <Tooltip id="button-tooltip" {...props}>
-                <span dangerouslySetInnerHTML={{ __html: localeCopy.enter_travel_info_above }}></span>
+                <div dangerouslySetInnerHTML={{ __html: localeCopy.enter_travel_info_above }}></div>
             </Tooltip>
         )
     }
@@ -1264,7 +1220,7 @@ const Estimator = () => {
                 focusTransportationMessage()
                 setTransportationMessage({
                     element: <span className="transportation-message alert-warning">
-                                <span dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></span>
+                                <div dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></div>
                                 <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
                             </span>
                 })
@@ -1277,7 +1233,7 @@ const Estimator = () => {
                 message = message.replace('{flightPrice}', `<strong>${localCurrencyDisplay(parseFloat(acceptedFlight))}</strong>`)
                 setTransportationMessage({
                     element: <span>
-                                <span dangerouslySetInnerHTML={{ __html: `${message}` }}></span>
+                                <div dangerouslySetInnerHTML={{ __html: `${message}` }}></div>
                                 <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
                             </span>
                 })
@@ -1290,7 +1246,7 @@ const Estimator = () => {
                 message = message.replace('{flightPrice}', `<strong>${localCurrencyDisplay(parseFloat(acceptedFlight))}</strong>`)
                 setTransportationMessage({
                     element: <span>
-                                <span dangerouslySetInnerHTML={{ __html: `${message}` }}></span>
+                                <div dangerouslySetInnerHTML={{ __html: `${message}` }}></div>
                                 <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
                             </span>
                 })
@@ -1299,41 +1255,6 @@ const Estimator = () => {
                     element: <span>{formattedMessage('flight_custom_fare_entered')} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
                 })
             }
-            // if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) === 0.00) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message">{formattedMessage('flight_no_results')}</span>
-            //     })
-            // } else if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) > 0.00) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message">{formattedMessage('flight_no_results_custom')}</span>
-            //     })
-            // } else if (haveFlightCost && (parseInt(transportationCost) === 0)) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message">{formattedMessage('flight_zero', 'alert-warning')}</span>
-            //     })
-            // } else if (haveFlightCost && (parseFloat(transportationCost) < parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message">{formattedMessage('flight_below_estimate')}</span>
-            //     })
-            // } else if (haveFlightCost && (parseFloat(transportationCost) === parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
-            //     setTransportationMessage({
-            //         element:  transportationEstimates.flight.estimatedValueMessage
-            //     })
-            // } else if (haveFlightCost && (parseFloat(transportationCost) > parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message">{formattedMessage('transportation_above_flight_estimate')}</span>
-            //     })
-            // }
-
-            // } else if (result && !haveFlightCost && (parseInt(transportationCost) === 0)) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message alert-warning" role="alert">{formattedMessage('could_not_fetch_flight_value')}</span>
-            //     })
-            // } else if (result && !haveFlightCost && (parseInt(transportationCost) > 0)) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message alert-warning" role="alert">{formattedMessage('could_not_fetch_you_have_entered_own')}</span>
-            //     })
-            // }
         }
         if (result && transportationType === 'train') {
             console.log('validate train price')
@@ -1627,7 +1548,6 @@ const Estimator = () => {
                                         }
                                         <input
                                             readOnly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
-                                            aria-readonly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
                                             className="form-control"
                                             aria-describedby="accommodation-message"
                                             id={"accommodation_total"}
@@ -1643,7 +1563,7 @@ const Estimator = () => {
                                                     setAccommodationMessage({ element: 
                                                     <div className="mb-0 alert-warning" role="alert">
                                                         <>
-                                                            <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: message }}></span>
+                                                            <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: message }}></div>
                                                             <OverlayTrigger
                                                                 placement="top"
                                                                 delay={{ show: 250, hide: 400 }}
@@ -1662,7 +1582,7 @@ const Estimator = () => {
                                                     setAccommodationMessage({ element: 
                                                     <div className="mb-0 alert-warning" role="alert">
                                                         <>
-                                                            <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
+                                                            <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></div>
                                                         </>
                                                     </div>
                                                     , style: 'warn' });
@@ -1673,7 +1593,7 @@ const Estimator = () => {
                                                     message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
                                                     setAccommodationMessage({ element: 
                                                     <div className="mb-0">
-                                                        <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span>
+                                                        <div className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></div>
                                                     </div>
                                                     , style: 'success' });
                                                 } else {
@@ -1786,7 +1706,6 @@ const Estimator = () => {
                                             }}
                                             value={transportationCost}
                                             readOnly={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
-                                            aria-readonly={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
                                             type="number"
                                             min="0"
                                         >
@@ -1895,7 +1814,7 @@ const Estimator = () => {
                             calculateTotal={calculateTotal}
                             updateCost={setOtherCost}
                             tooltipIcon={FaQuestionCircle}
-                            tooltipText={<span dangerouslySetInnerHTML={{ __html: localeCopy.other_tooltip_text }}></span>}
+                            tooltipText={<div dangerouslySetInnerHTML={{ __html: localeCopy.other_tooltip_text }}></div>}
                             toolTipLabel={localeCopy.other_tooltip_text}
                             readOnly={!result}
                         />
