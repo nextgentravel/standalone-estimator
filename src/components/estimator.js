@@ -1089,7 +1089,9 @@ const Estimator = () => {
             tripNotes: yup
                 .string(),
             travelCategory: yup
-                .string(),
+                .string()
+                .typeError(`${formattedMessage('email_form_category_label')} ${formattedMessage('is_not_valid')}`)
+                .required(`${formattedMessage('email_form_category_label')} ${formattedMessage('is_required')}`),
         });
         return schema.validate(target, {abortEarly: false})
     }
