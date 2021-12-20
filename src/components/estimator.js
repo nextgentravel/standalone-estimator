@@ -54,9 +54,9 @@ const Estimator = () => {
     const focusTransportationMessage = () => transportationError.current.focus() && transportationError.current.scrollIntoView()
     
     
-    const accommodationSelect = useRef(null);
-    const focusAccommodationSelect = () => {
-      accommodationSelect.current.focus();
+    const statusDiv = useRef(null);
+    const focusStatusDiv = () => {
+      statusDiv.current.focus();
     };
 
     const today = DateTime.now().toISODate();
@@ -938,7 +938,7 @@ const Estimator = () => {
                 })
                 setResult(true);
                 setLoading(false);
-                focusAccommodationSelect()
+                focusStatusDiv()
                 setErrorPanel(false);
             })
             .catch(err => {
@@ -1473,7 +1473,7 @@ const Estimator = () => {
                             <button type="button" id="clear-button" className="btn btn-outline-dark px-5 ml-3" onClick={() => {clearForm()}}>{formattedMessage('clear')}</button>
                         }
                         {loading && <FaSpinner focusable="false" aria-hidden="true" className="fa-spin ml-3" size="24" />}
-                        <div role="status" className="sr-only">{screenReaderStatus}</div>
+                        <div role="status" ref={statusDiv} tabIndex={'-1'} className="sr-only">{screenReaderStatus}</div>
                     </div>
                 </form>
 
@@ -1509,7 +1509,7 @@ const Estimator = () => {
                                                     >{children}</OverlayTrigger>)}
                                             >
                                                 <select
-                                                    ref={accommodationSelect}
+                                                    
                                                     disabled={!result}
                                                     aria-label={formattedMessage('accommodation_type')}
                                                     aria-describedby="accommodation-message"
