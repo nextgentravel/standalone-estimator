@@ -54,7 +54,7 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
             </label>
             <div id={`${name}-container`}>
                 <Autocomplete
-                    id={name}
+                    id={`autocomplete-${name}`}
                     templates={templates}
                     source={source}
                     element={`${name}container`}
