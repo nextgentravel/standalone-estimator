@@ -466,9 +466,9 @@ const Estimator = () => {
     }, []);
 
     const removeActiveDescendantAttr = () => {
-        const originInput = document.querySelector('#origin');
+        const originInput = document.querySelector('#autocomplete-origin');
         originInput && originInput.removeAttribute("aria-activedescendant");
-        const destinationInput = document.querySelector('#destination');
+        const destinationInput = document.querySelector('#autocomplete-destination');
         destinationInput && destinationInput.removeAttribute("aria-activedescendant");
     };
 
