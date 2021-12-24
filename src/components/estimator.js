@@ -46,10 +46,10 @@ const Estimator = () => {
     const intl = useIntl();
     const summaryView = useRef(null)
     const errorPanelView = useRef(null)
-    const errorFirstItem = useRef(null)
+    const transportationError = useRef(null)
     const executeSummaryViewScroll = () => summaryView.current.scrollIntoView()
-    const executeErrorPanelViewScroll = () => errorPanelView.current.scrollIntoView() && errorFirstItem.current.focus()
-
+    const executeErrorPanelViewScroll = () =>  errorPanelView.current.focus() && errorPanelView.current.scrollIntoView()
+    const focusTransportationMessage = () => transportationError.current.focus() && transportationError.current.scrollIntoView()
     
     
     const accommodationSelect = useRef(null);
@@ -400,6 +400,9 @@ const Estimator = () => {
                     alt_for_fasuitcase
                     alt_for_fataxi
                     alt_for_fautensils
+                    required
+                    enable_manual_km_checkbox_label
+                    manual_km_input_label
                 }
             }
         }
@@ -414,7 +417,7 @@ const Estimator = () => {
         if (messageType === 'string') {
             message = localeCopy[prismicKey]
         } else if (messageType === 'object' && localeCopy[prismicKey] !== null) {
-            message = <span className={classes} dangerouslySetInnerHTML={{ __html: localeCopy[prismicKey].html }}></span>
+            message = <div className={classes} dangerouslySetInnerHTML={{ __html: localeCopy[prismicKey].html }}></div>
         } else {
             message = 'MISSING MESSAGE ' + prismicKey
         }
@@ -422,8 +425,6 @@ const Estimator = () => {
     }
 
     let initialTransportationMessage = { element: <span></span>, style: 'primary' };
-
-    const [explainerCollapsed, setExplainerCollapsed] = useState(true);
 
     const citiesList = cities.citiesList;
     const [filteredCitiesList, setFilteredCitiesList] = useState([]);
@@ -463,9 +464,9 @@ const Estimator = () => {
 
     const removeActiveDescendantAttr = () => {
         const originInput = document.querySelector('#origin');
-        originInput && originInput.setAttribute("aria-activedescendant", "");
+        originInput && originInput.removeAttribute("aria-activedescendant");
         const destinationInput = document.querySelector('#destination');
-        destinationInput && destinationInput.setAttribute("aria-activedescendant", "");
+        destinationInput && destinationInput.removeAttribute("aria-activedescendant");
     };
 
     let initialDates = {
@@ -490,7 +491,6 @@ const Estimator = () => {
     const [privateVehicleRate, setPrivateVehicleRate] = useState('');
     const [privateVehicleSuccess, setPrivateVehicleSuccess] = useState(false);
     const [showClear, setShowClear] = useState(false);
-    const [disclaimerCollapsed, setDisclaimerCollapsed] = useState(true);
 
     // Flight modal vars
 
@@ -622,14 +622,14 @@ const Estimator = () => {
             let message = '';
             message = localeCopy.private_vehicle_success.html.replace('{rate}', `<strong>${privateVehicleRate}</strong>`)
             message = message.replace('{distance}', `<strong>${(returnDistance / 1000).toFixed(0)}</strong>`)
-            setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
+            setTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></div> })
         } else if (enterKilometricsDistanceManually) {
             let message = '';
             message = localeCopy.private_vehicle_manual.html.replace('{rate}', `<strong>${privateVehicleRate}</strong>`)
             message = message.replace('{distance}', `<strong>${parseInt(privateKilometricsValue)}</strong>`)
-            setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
+            setTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></div> })
         } else if (!privateVehicleSuccess) {
-            setTransportationMessage({ element: <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.private_vehicle_error.html }}></span> })
+            setTransportationMessage({ element: <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.private_vehicle_error.html }}></div> })
         }
         return calculateKilometrics;
     }
@@ -704,7 +704,7 @@ const Estimator = () => {
         let cost = 100 + 50 * (numberOfDays)
         setLocalTransportationEstimate(cost);
         updateLocalTransportationCost(cost)
-        setLocalTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_success.html }}></span>  })
+        setLocalTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_success.html }}></div>  })
     }
 
     useEffect(() => {
@@ -716,12 +716,17 @@ const Estimator = () => {
             let message = localeCopy.hotel_success.html
             message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
             // eslint-disable-next-line no-template-curly-in-string
+<<<<<<< HEAD
             message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate.max_rate)}</strong>`)
             setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
+=======
+            message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
+            setAccommodationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></div> })
+>>>>>>> gc-staging
             updateAccommodationCost(acrdTotal)
         } else if (accommodationType === 'private') {
             let rate = (Interval.fromDateTimes(departureDateLux, returnDateLux).count('days') - 1) * 50;
-            setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></span>  })
+            setAccommodationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></div>  })
             updateAccommodationCost(rate)
         } else if (accommodationType === 'notrequired') {
             setAccommodationMessage({ element: <span className="transportation-message"></span>  })
@@ -744,52 +749,14 @@ const Estimator = () => {
                 amadeusFlightOffer(originAirportCode, destinationAirportCode, departureDateISODate, returnDateISODate, departureTime, returnTime, departureOffset, returnOffset)
                 .then(response => response.json())
                 .then(result => {
-                    // let date = DateTime.local().toFormat("yyyy-MM-dd");
-                    // let time = DateTime.local().toFormat("hh:mm a")
                     resolve(result);
-                    // if (result.numberOfResults === 0) {
-                    //     localeCopy.flight_no_results.html = localeCopy.flight_no_results.html.replace('{date}', `<strong>${date}</strong>`)    
-                    //     let FlightMessage = <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.flight_no_results.html }}></span>
-                    //     updateTransportationCost(0.00);
-                    //     setTransportationEstimates({
-                    //         ...transportationEstimates,
-                    //         flight: {
-                    //             estimatedValue: 0,
-                    //             estimatedValueMessage: FlightMessage,
-                    //             responseBody: result,
-                    //         }
-                    //     })
-                    //     setTransportationMessage({ element: FlightMessage  })
-                    //     setHaveFlightCost(true);
-                    //     resolve(result);
-                    // } else {        
-                    //     localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{date}', `<strong>${date}</strong>`)
-                    //     localeCopy.flight_success.html = localeCopy.flight_success.html.replace('{time}', `<strong>${time}</strong>`)
-        
-                    //     let FlightMessage = <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.flight_success.html }}></span>
-                        
-                    //     setTransportationEstimates({
-                    //         ...transportationEstimates,
-                    //         flight: {
-                    //             estimatedValue: result.flightEstimate,
-                    //             estimatedValueMessage: FlightMessage,
-                    //             responseBody: result,
-                    //         }
-                    //     })
-                    //     setTransportationMessage({ element: FlightMessage  })
-                    //     setHaveFlightCost(true);
-                    //     resolve(result);
-                    // }
                 })
                 .catch(error => {
                     console.log('amadeus flight offer error', error);
-                    // updateTransportationCost(0.00);
-                    // setTransportationMessage({ element: <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.flight_error.html }}></span>  })
                     resolve(error);
                 });
             } else {
                 setLoading(false);
-                // setTransportationMessage({ element: <span className="transportation-message alert-warning" role="alert">{formattedMessage('flight_message_no_airport')}</span>  })
                 resolve('no airport');
             }
         });
@@ -803,10 +770,10 @@ const Estimator = () => {
             updateTransportationCost(acceptedFlight)
         } else if (transportationType === 'train') {
             updateTransportationCost(0)
-            setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.train_success.html }}></span>  })
+            setTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.train_success.html }}></div>  })
         } else if (transportationType === 'rental') {
             updateTransportationCost(0)
-            setTransportationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.rental_car_success.html }}></span>  })
+            setTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.rental_car_success.html }}></div>  })
         } else if (transportationType === 'private') {
             if (privateVehicleSuccess) {
                 setPrivateKilometricsValue((returnDistance / 1000).toFixed(2));
@@ -816,7 +783,7 @@ const Estimator = () => {
             displayTransportationMessage()
         } else if (transportationType === 'notrequired') {
             updateTransportationCost(0.00)
-            setTransportationMessage({ element: <span className="transportation-message"></span>  })
+            setTransportationMessage({ element: <div className="transportation-message"></div>  })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [transportationType])
@@ -1074,7 +1041,7 @@ const Estimator = () => {
     const errorList = () => {
         let list = [];
         list = submitValidationWarnings.map((error, index) =>
-            <li key={index} ref={index === 0 ? errorFirstItem : null}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
+        <li key={index}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
         );
         return list;
     }
@@ -1167,7 +1134,7 @@ const Estimator = () => {
     const renderEnterTravelInfoAboveTooltip = (props) => {
         return (
             <Tooltip id="button-tooltip" {...props}>
-                <span dangerouslySetInnerHTML={{ __html: localeCopy.enter_travel_info_above }}></span>
+                <div dangerouslySetInnerHTML={{ __html: localeCopy.enter_travel_info_above }}></div>
             </Tooltip>
         )
     }
@@ -1175,11 +1142,11 @@ const Estimator = () => {
     useEffect(() => {
         if (result && parseInt(localTransportationCost) === 0) {
             setLocalTransportationMessage({
-                element:  <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.local_tranportation_zero.html }}></span>
+                element:  <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.local_tranportation_zero.html }}></div>
             })
         } else if (result && localTransportationEstimate !== parseInt(localTransportationCost)) {
             setLocalTransportationMessage({
-                element:  <span className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_manual.html }}></span>
+                element:  <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.local_transportation_manual.html }}></div>
             })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -1193,13 +1160,13 @@ const Estimator = () => {
                     element: <span>{formattedMessage('flight_message_no_airport')}</span>
                 })
             } else if (parseFloat(transportationCost) === parseFloat(0.00)) {
+                focusTransportationMessage()
                 setTransportationMessage({
-                    element: <span className="transportation-message alert-warning">
-                                <span dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></span>
+                    element: <div className="transportation-message alert-warning ">
+                                <div className='d-inline' dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></div>
                                 <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
-                            </span>
+                            </div>
                 })
-
 
             } else if (parseFloat(transportationCost) === parseFloat(initialFlightResult)) {
                 let message = formattedMessage('flight_selected_fare_preselected')
@@ -1208,10 +1175,10 @@ const Estimator = () => {
                 // eslint-disable-next-line no-template-curly-in-string
                 message = message.replace('{flightPrice}', `<strong>${localCurrencyDisplay(parseFloat(acceptedFlight))}</strong>`)
                 setTransportationMessage({
-                    element: <span>
-                                <span dangerouslySetInnerHTML={{ __html: `${message}` }}></span>
+                    element: <div>
+                                <div dangerouslySetInnerHTML={{ __html: `${message}` }}></div>
                                 <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
-                            </span>
+                            </div>
                 })
             } else if (parseFloat(transportationCost) === parseFloat(flightResult.minimum) || parseFloat(transportationCost) === parseFloat(flightResult.maximum) || parseFloat(transportationCost) === parseFloat(flightResult.median)) {
                 let message = formattedMessage('flight_selected_fare')
@@ -1221,51 +1188,16 @@ const Estimator = () => {
 
                 message = message.replace('{flightPrice}', `<strong>${localCurrencyDisplay(parseFloat(acceptedFlight))}</strong>`)
                 setTransportationMessage({
-                    element: <span>
-                                <span dangerouslySetInnerHTML={{ __html: `${message}` }}></span>
+                    element: <div>
+                                <div dangerouslySetInnerHTML={{ __html: `${message}` }}></div>
                                 <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
-                            </span>
+                            </div>
                 })
             } else if (transportationCost > 0) {
                 setTransportationMessage({
                     element: <span>{formattedMessage('flight_custom_fare_entered')} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
                 })
             }
-            // if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) === 0.00) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message">{formattedMessage('flight_no_results')}</span>
-            //     })
-            // } else if (haveFlightCost && transportationEstimates.flight.responseBody.numberOfResults === 0 && parseFloat(transportationCost) > 0.00) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message">{formattedMessage('flight_no_results_custom')}</span>
-            //     })
-            // } else if (haveFlightCost && (parseInt(transportationCost) === 0)) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message">{formattedMessage('flight_zero', 'alert-warning')}</span>
-            //     })
-            // } else if (haveFlightCost && (parseFloat(transportationCost) < parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message">{formattedMessage('flight_below_estimate')}</span>
-            //     })
-            // } else if (haveFlightCost && (parseFloat(transportationCost) === parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
-            //     setTransportationMessage({
-            //         element:  transportationEstimates.flight.estimatedValueMessage
-            //     })
-            // } else if (haveFlightCost && (parseFloat(transportationCost) > parseFloat(transportationEstimates.flight.estimatedValue.toFixed(2)))) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message">{formattedMessage('transportation_above_flight_estimate')}</span>
-            //     })
-            // }
-
-            // } else if (result && !haveFlightCost && (parseInt(transportationCost) === 0)) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message alert-warning" role="alert">{formattedMessage('could_not_fetch_flight_value')}</span>
-            //     })
-            // } else if (result && !haveFlightCost && (parseInt(transportationCost) > 0)) {
-            //     setTransportationMessage({
-            //         element:  <span className="transportation-message alert-warning" role="alert">{formattedMessage('could_not_fetch_you_have_entered_own')}</span>
-            //     })
-            // }
         }
         if (result && transportationType === 'train') {
             console.log('validate train price')
@@ -1402,13 +1334,13 @@ const Estimator = () => {
             <section className="card bg-light p-4 mb-4 mt-5">
                 <h2 className="mb-4" id="h2-label">{localeCopy.title.text}</h2>
                 <div className="lead mb-3" dangerouslySetInnerHTML={{ __html: localeCopy.lead.html }}></div>
-                {errorPanel !== false && <div className="alert alert-danger alert-danger-banner" role="alert" ref={errorPanelView}>
-                    <h3>{formattedMessage('estimate_error_title')}</h3>
+                {errorPanel !== false && <section tabIndex={'0'} className="focus-only alert alert-danger alert-danger-banner" role="alert" ref={errorPanelView}>
+                    <h3 >{formattedMessage('estimate_error_title')}</h3>
                     <p>{formattedMessage('estimate_error_lead')}</p>
                     <ol>
                         {errorList()}
                     </ol>
-                </div>}
+                </section>}
                 <form id="estimates-form" className="form-group row" onSubmit={handleSubmit} noValidate>
                     <div className="col-sm-7" ref={summaryView}>
                         <InputDatalist
@@ -1435,8 +1367,8 @@ const Estimator = () => {
                         />
                     </div>
                     <div className="col-sm-3"></div>
-                    <div className="col-sm-3">
-                        <label htmlFor="departureDate">{localeCopy.datepicker_start_date}
+                    <div className="col-sm-4">
+                        <label htmlFor="departureDate">{localeCopy.datepicker_start_date}<small className='pl-1'>({localeCopy.required})</small>
                             <small id="departure-datepicker-help" className="form-text">{localeCopy.date_format_description}</small>
                         </label>
                         <input
@@ -1453,8 +1385,9 @@ const Estimator = () => {
                             }}
                         />
                     </div>
-                    <div className="col-sm-3">
-                        <label htmlFor="returnDate">{localeCopy.datepicker_end_date}
+                    <div className="col-sm-4">
+                        <label htmlFor="returnDate">
+                            {localeCopy.datepicker_end_date}<small className='pl-1'>({localeCopy.required})</small>
                             <small id="return-datepicker-help" className="form-text">{localeCopy.date_format_description}</small>
                         </label>
                         <input
@@ -1462,6 +1395,7 @@ const Estimator = () => {
                             name="returnDate"
                             type="date"
                             min={today}
+                            max={twentyYearsFromToday}
                             lang={locale}
                             value={returnDate} 
                             className="form-control"
@@ -1480,7 +1414,7 @@ const Estimator = () => {
                             <button type="button" id="clear-button" className="btn btn-outline-dark px-5 ml-3" onClick={() => {clearForm()}}>{formattedMessage('clear')}</button>
                         }
                         {loading && <FaSpinner focusable="false" aria-hidden="true" className="fa-spin ml-3" size="24" />}
-                        <div role="status" className="sr-only" id="loading-sr">{screenReaderStatus}</div>
+                        <div role="status" className="sr-only">{screenReaderStatus}</div>
                     </div>
                 </form>
 
@@ -1556,7 +1490,6 @@ const Estimator = () => {
                                         }
                                         <input
                                             readOnly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
-                                            aria-readonly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
                                             className="form-control"
                                             aria-describedby="accommodation-message"
                                             id={"accommodation_total"}
@@ -1572,7 +1505,7 @@ const Estimator = () => {
                                                     setAccommodationMessage({ element: 
                                                     <div className="mb-0 alert-warning" role="alert">
                                                         <>
-                                                            <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: message }}></span>
+                                                            <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: message }}></div>
                                                             <OverlayTrigger
                                                                 placement="top"
                                                                 delay={{ show: 250, hide: 400 }}
@@ -1591,7 +1524,7 @@ const Estimator = () => {
                                                     setAccommodationMessage({ element: 
                                                     <div className="mb-0 alert-warning" role="alert">
                                                         <>
-                                                            <span className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></span>
+                                                            <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></div>
                                                         </>
                                                     </div>
                                                     , style: 'warn' });
@@ -1602,7 +1535,7 @@ const Estimator = () => {
                                                     message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
                                                     setAccommodationMessage({ element: 
                                                     <div className="mb-0">
-                                                        <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span>
+                                                        <div className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></div>
                                                     </div>
                                                     , style: 'success' });
                                                 } else {
@@ -1715,7 +1648,6 @@ const Estimator = () => {
                                             }}
                                             value={transportationCost}
                                             readOnly={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
-                                            aria-readonly={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
                                             type="number"
                                             min="0"
                                         >
@@ -1729,7 +1661,7 @@ const Estimator = () => {
                                     </div>
                                 </ConditionalWrap>
                             </div>
-                            <div className="col-sm-5 align-self-center text-wrap mb-2" id="transportation-message">
+                            <div ref={transportationError} tabIndex={'-1'} className="col-sm-5 align-self-center text-wrap mb-2" id="transportation-message">
                                 {transportationMessage.element}
                             </div>
                         </div>
@@ -1738,11 +1670,12 @@ const Estimator = () => {
                             {transportationType === 'private' &&
                                 <div className="col-sm-4 align-self-center text-wrap mb-2">
                                     <Form inline>
-                                        <Form.Group controlId="kilometricsManually">
+                                        <Form.Group>
                                             <Form.Check
+                                                id="kilometricsManuallyCheckBox"
                                                 type="checkbox"
                                                 className="mr-2" 
-                                                aria-label="Enter Kilometrics Manually"
+                                                aria-label={localeCopy.enable_manual_km_checkbox_label}
                                                 checked={enterKilometricsDistanceManually}
                                                 onChange={(e) => setEnterKilometricsDistanceManually(!enterKilometricsDistanceManually)}
                                             />
@@ -1756,6 +1689,8 @@ const Estimator = () => {
                                                         }}
                                                         aria-describedby="km"
                                                         type='number'
+                                                        id="kilometricsManuallyInput"
+                                                        aria-label={localeCopy.manual_km_input_label}
                                                     />
                                                     <InputGroup.Append>
                                                         <InputGroup.Text id="km">km</InputGroup.Text>
@@ -1824,12 +1759,12 @@ const Estimator = () => {
                             calculateTotal={calculateTotal}
                             updateCost={setOtherCost}
                             tooltipIcon={FaQuestionCircle}
-                            tooltipText={<span dangerouslySetInnerHTML={{ __html: localeCopy.other_tooltip_text }}></span>}
+                            tooltipText={<div dangerouslySetInnerHTML={{ __html: localeCopy.other_tooltip_text }}></div>}
                             toolTipLabel={localeCopy.other_tooltip_text}
                             readOnly={!result}
                         />
                         <div className="row mb-4">
-                            <div className="col-sm-7 align-self-center text-right" >
+                            <div className="col-sm-7 align-self-center text-right" tabIndex='0'>
                                 <div className='mb-3 border-bottom' />
                                 <strong className="mr-2">{formattedMessage('total_cost')}</strong>{localCurrencyDisplay(parseFloat(summaryCost))}
                             </div>
@@ -1844,7 +1779,7 @@ const Estimator = () => {
                                     onClick={() => {
                                         checkForEmailErrors(); 
                                     }}
-                                    aria-describedby="email-button-validation"
+                                    // aria-describedby="email-button-validation"
                                 >
                                         {formattedMessage('email')}
                                 </Button>
@@ -1855,58 +1790,36 @@ const Estimator = () => {
                 }
             </section>
             
-            <div className="card bg-white py-4 px-5 mb-2">
+            <div className="card bg-white py-4 px-5 mb-4">
                 <div className="row">
-                    <h2 className="col-sm-12 pl-2 pb-1 pt-2 h3">
-                        <button className="btn button-explainer block" aria-expanded={!explainerCollapsed} onClick={() => setExplainerCollapsed(!explainerCollapsed)}>
-                            <FaCalculator focusable="false" aria-hidden="true" size="20" className='mb-1 mr-2' />{localeCopy.explainer_title.text}
-                            {explainerCollapsed &&
-                                <FaCaretDown
-                                    focusable="false"
-                                    
-                                    aria-hidden="true" 
-                                    size="25"
-                                    className="explainer-carets"
-                                />}
-                            {!explainerCollapsed &&
-                                <FaCaretUp focusable="false"
-                                    aria-hidden="true"
-                                    size="25"
-                                    className="explainer-carets"
-                                />
-                            }
-                        </button>
-                    </h2>
-                    {!explainerCollapsed &&
+                    <details>
+                        <summary>
+                            <h2 className="h4 d-inline mb-5">
+                                <FaCalculator focusable="false" aria-hidden="true" size="20" className='mb-1 mr-2' />
+                                {localeCopy.explainer_title.text}
+                            </h2>
+                        </summary>
+
                         <React.Fragment>
                             <div className="col-sm-12 mt-2" dangerouslySetInnerHTML={{ __html: localeCopy.explainer_body.html }}>
                             </div>
                         </React.Fragment>
-                    }
-                    {explainerCollapsed &&
-                        <React.Fragment>
-                            <div className="col-sm-12" />
-                        </React.Fragment>
-                    }
+                    </details>
                 </div>
             </div>
-            <div className="mb-4">
-                <h2 className="step-disclaimer-header mt-5 pl-4 h4">
-                    <button className="button-explainer btn btn-plain pb-3" aria-expanded="false" onClick={() => setDisclaimerCollapsed(!disclaimerCollapsed)}>
-                      {disclaimerCollapsed &&
-                          <FaPlusCircle focusable="false" aria-hidden="true" size="15" className='mb-1 mr-2' />}
-                      {!disclaimerCollapsed &&
-                          <FaMinusCircle focusable="false" aria-hidden="true" size="15" className='mb-1 mr-2' />
-                      }
-                      <span>{formattedMessage('disclaimer')}</span>
-                    </button>
-                </h2>
-                {!disclaimerCollapsed &&
-                    <div className="px-5 pb-3">{formattedMessage('disclaimer_body')}</div>
-                }
-                {disclaimerCollapsed &&
-                    <div className="mb-4"></div>
-                }
+            <div className="card bg-white py-4 px-5 mb-4">
+                <div className="row">
+                    <details>
+                        <summary>
+                            <h2 className="h4 d-inline mb-5">
+                                {formattedMessage('disclaimer')}
+                            </h2>
+                        </summary>
+
+                        <div className="px-5 pt-3 pb-3">{formattedMessage('disclaimer_body')}</div>
+
+                    </details>
+                </div>
             </div>
             <QuickReferenceCard messages={localeCopy} />
         </div>

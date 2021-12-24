@@ -4,10 +4,10 @@ import { withPrefix } from "gatsby"
 
 export default function HTML(props) {
   return (
-    <html {...props.htmlAttributes} lang="en">
+    <html {...props.htmlAttributes}>
       <head>
-        <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
