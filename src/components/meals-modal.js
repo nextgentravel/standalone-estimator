@@ -48,8 +48,8 @@ const MealsModal = (props) => {
             <Modal.Body>
                 {items.length > 0 && items.map((day, index) => {
                     return (
-                        <div className="row mb-3" key={index}>
-                            <fieldset className="meals-fieldset" id={`meals-fieldset-${day.date}`} >
+                        <fieldset className="meals-fieldset" id={`meals-fieldset-${day.date}`} >
+                            <div className="row mb-3" key={index}>
                                 <legend className="sr-only">{day.date}</legend>
                                 <div className="col-sm">
                                     <strong>{day.date}</strong>
@@ -106,8 +106,8 @@ const MealsModal = (props) => {
                                         {props.messages.meals_modal_incidental} <small>{mealCost.incidentals && localCurrencyDisplay(mealCost.incidentals)}</small>
                                     </label>
                                 </div>
-                            </fieldset>
-                        </div>
+                            </div>
+                        </fieldset>
                     )
                 })}
             </Modal.Body>
