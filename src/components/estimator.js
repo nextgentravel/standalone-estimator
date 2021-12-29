@@ -1470,10 +1470,10 @@ const Estimator = () => {
                     <div className="col-sm-3"></div>
                     <div className="col-sm-12">
                         {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-                        <button type="submit" className="btn btn-primary px-5">{formattedMessage('estimate')}</button>
+                        <button type="submit" className="btn btn-primary px-5 my-3 my-md-0">{formattedMessage('estimate')}</button>
                         {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                         {showClear &&
-                            <button type="button" id="clear-button" className="btn btn-outline-dark px-5 ml-3" onClick={() => {clearForm()}}>{formattedMessage('clear')}</button>
+                            <button type="button" id="clear-button" className="btn btn-outline-dark px-5 ml-sm-3" onClick={() => {clearForm()}}>{formattedMessage('clear')}</button>
                         }
                         {loading && <FaSpinner focusable="false" aria-hidden="true" className="fa-spin ml-3" size="24" />}
                         <div role="status" className="sr-only">{screenReaderStatus}</div>
