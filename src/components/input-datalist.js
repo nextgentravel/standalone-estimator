@@ -49,12 +49,12 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
 
     return (
         <div className="mb-4">
-            <label htmlFor={name}>{label}
+            <label htmlFor={`autocomplete-${name}`}>{label}<small className='pl-1'>({localeCopy.required})</small>
                 <small className="form-text">{localeCopy.autocomplete_help_text}</small>
             </label>
             <div id={`${name}-container`}>
                 <Autocomplete
-                    id={name}
+                    id={`autocomplete-${name}`}
                     templates={templates}
                     source={source}
                     element={`${name}container`}

@@ -5,8 +5,8 @@ var buildDate = new Date().toISOString().split('T')[0]
 module.exports = {
   siteMetadata: {
     title: `GC Travel Calculator / Calculateur de voyage du GC`,
-    titleEnglish: `GC Travel Calculator`,
-    titleFrench: `Calculateur de voyage du GC`,
+    titleEnglish: `Government of Canada travel calculator`,
+    titleFrench: `Calculateur de voyage du gouvernement du Canada`,
     description: `Use this tool to create Government of Canada (GC) travel estimates / Utilisez cet outil pour créer des estimations des voyages du gouvernement du Canada (GC)`,
     descriptionEnglish: `Use this tool to create Government of Canada (GC) travel estimates`,
     descriptionFrench: `Utilisez cet outil pour créer des estimations des voyages du gouvernement du Canada (GC)`,
@@ -16,8 +16,8 @@ module.exports = {
     languages,
     dateIssued: "2021-11-01",
     dateModified: buildDate,
-    subjectEnglish: "Travel; Travel Documents; Transborder data flow; Border crossing; Tourism; International travel; Airplanes; Rail transport; Transport;  Housing; Hospitality industry; Business plans; Financial management",
-    subjectFrench: "Voyage;  tourisme; voyage international;  transport ferroviaire; transport;  logement; industrie hôtelière;  gestion financière",
+    subjectEnglish: "Travel; Travel Documents; Transborder data flow; Border crossing; Tourism; International travel; Airplanes; Rail transport; Transport; Housing; Hospitality industry; Business plans; Financial management",
+    subjectFrench: "Voyage; tourisme; voyage international; transport ferroviaire; transport; logement; industrie hôtelière; gestion financière",
     keywordsEnglish: "Shared Travel Services, STS, AmexGBT, Travel, Accommodation, Transportation, Voyage, Planner, About, HRG",
     keywordsFrench: "Services de voyage partagés, SVP, AmexGBT, voyage, hébergement, transport, planificateur, À propos, HRG",
   },
@@ -147,7 +147,7 @@ module.exports = {
         mergeStyleHashes: true,
         mergeDefaultDirectives: true,
         directives: {
-          "style-src": "'self' 'unsafe-hashes' 'sha256-o4LYhp5wtluJ8/NWUV2vi+r5AxmP8X2zEvYHCpji+kI=' 'sha256-MzJlpM03503nzXvQHm3lmf3EypF9jHu+regG7halQmI=' 'sha256-aqNNdDLnnrDOnTNdkJpYlAxKVJtLt9CtFLklmInuUAE=' 'sha256-MzJlpM03503nzXvQHm3lmf3EypF9jHu+regG7halQmI=' 'sha256-MtxTLcyxVEJFNLEIqbVTaqR4WWr0+lYSZ78AzGmNsuA=' 'sha256-aqNNdDLnnrDOnTNdkJpYlAxKVJtLt9CtFLklmInuUAE=' fonts.googleapis.com",
+          "style-src": "'self' 'unsafe-hashes' 'sha256-o4LYhp5wtluJ8/NWUV2vi+r5AxmP8X2zEvYHCpji+kI=' 'sha256-MzJlpM03503nzXvQHm3lmf3EypF9jHu+regG7halQmI=' 'sha256-MtxTLcyxVEJFNLEIqbVTaqR4WWr0+lYSZ78AzGmNsuA=' 'sha256-aqNNdDLnnrDOnTNdkJpYlAxKVJtLt9CtFLklmInuUAE=' fonts.googleapis.com",
           "font-src": "'self' fonts.gstatic.com",
           "script-src": "'self' static.hotjar.com",
         },

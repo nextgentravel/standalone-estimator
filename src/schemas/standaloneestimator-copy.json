@@ -11,7 +11,7 @@
     "lead" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "paragraph, strong, em, hyperlink",
+        "multi" : "paragraph,strong,em,hyperlink",
         "allowTargetBlank" : true,
         "label" : "lead",
         "placeholder" : "Lead text for estimator tool"
@@ -141,7 +141,7 @@
     "email_field_disabled_message" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em",
+        "multi" : "strong,em",
         "label" : "email_field_disabled_message"
       }
     },
@@ -199,6 +199,12 @@
       "type" : "Text",
       "config" : {
         "label" : "is_required"
+      }
+    },
+    "required" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "required"
       }
     }
   },
@@ -372,7 +378,7 @@
     "email_form_disclaimer" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em",
+        "multi" : "strong,em",
         "label" : "email_form_disclaimer"
       }
     },
@@ -439,7 +445,7 @@
     "explainer_body" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "paragraph, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "multi" : "paragraph,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
         "allowTargetBlank" : true,
         "label" : "explainer_body",
         "placeholder" : "Body of explainer",
@@ -451,7 +457,7 @@
     "disclaimer_body" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "paragraph, strong, em, hyperlink",
+        "multi" : "paragraph,strong,em,hyperlink",
         "allowTargetBlank" : true,
         "label" : "disclaimer_body",
         "placeholder" : "Disclaimer text at bottom of page."
@@ -480,49 +486,49 @@
     "hotel_success" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "hotel_success"
       }
     },
     "hotel_zero" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "hotel_zero"
       }
     },
     "hotel_above_estimate" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "hotel_above_estimate"
       }
     },
     "hotel_below_estimate" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em",
+        "multi" : "strong,em",
         "label" : "hotel_below_estimate"
       }
     },
     "hotel_error" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "hotel_error"
       }
     },
     "private_accom_estimate_success" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "private_accom_estimate_success"
       }
     },
     "private_accom_estimate_zero" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "private_accom_estimate_zero"
       }
     },
@@ -555,28 +561,28 @@
     "flight_loading" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "flight_loading"
       }
     },
     "flight_success" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "flight_success"
       }
     },
     "flight_zero" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "flight_zero"
       }
     },
     "flight_no_results" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "allowTargetBlank" : true,
         "label" : "flight_no_results"
       }
@@ -584,7 +590,7 @@
     "flight_no_results_custom" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em",
+        "multi" : "strong,em",
         "label" : "flight_no_results_custom"
       }
     },
@@ -597,7 +603,7 @@
     "transportation_above_flight_estimate" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "allowTargetBlank" : true,
         "label" : "transportation_above_flight_estimate"
       }
@@ -605,35 +611,35 @@
     "flight_below_estimate" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "flight_below_estimate"
       }
     },
     "flight_message_no_airport" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "flight_message_no_airport"
       }
     },
     "flight_error" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "flight_error"
       }
     },
     "train_error" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "train_error"
       }
     },
     "train_success" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "allowTargetBlank" : true,
         "label" : "train_success"
       }
@@ -641,35 +647,35 @@
     "train_zero" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "train_zero"
       }
     },
     "train_below_estimate" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "train_below_estimate"
       }
     },
     "train_above_estimate" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "train_above_estimate"
       }
     },
     "rental_car_error" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "rental_car_error"
       }
     },
     "rental_car_success" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "allowTargetBlank" : true,
         "label" : "rental_car_success"
       }
@@ -677,14 +683,14 @@
     "rental_car_zero" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "rental_car_zero"
       }
     },
     "private_vehicle_above_estimate" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "allowTargetBlank" : true,
         "label" : "private_vehicle_above_estimate"
       }
@@ -692,7 +698,7 @@
     "private_vehicle_below_estimate" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "allowTargetBlank" : true,
         "label" : "private_vehicle_below_estimate"
       }
@@ -700,7 +706,7 @@
     "private_vehicle_error" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "allowTargetBlank" : true,
         "label" : "private_vehicle_error"
       }
@@ -708,14 +714,14 @@
     "private_vehicle_success" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "private_vehicle_success"
       }
     },
     "private_vehicle_manual" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "private_vehicle_manual"
       }
     },
@@ -805,6 +811,18 @@
         "placeholder" : "Enter distance manually"
       }
     },
+    "enable_manual_km_checkbox_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "enable manual km checkbox label"
+      }
+    },
+    "manual_km_input_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "manual km input label"
+      }
+    },
     "transportation_type" : {
       "type" : "Text",
       "config" : {
@@ -822,21 +840,21 @@
     "local_transportation_success" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "local_transportation_success"
       }
     },
     "local_transportation_manual" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "local_transportation_manual"
       }
     },
     "local_tranportation_zero" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "local_tranportation_zero"
       }
     },
@@ -871,7 +889,7 @@
     "return_date_earlier_than_departure_date" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "label" : "return_date_earlier_than_departure_date"
       }
     },
@@ -1426,7 +1444,7 @@
     "feedback_modal_body" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "paragraph, strong, em, hyperlink",
+        "multi" : "paragraph,strong,em,hyperlink",
         "allowTargetBlank" : true,
         "label" : "feedback_modal_body"
       }
@@ -1533,7 +1551,7 @@
     "flight_modal_note_disclaimer" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "paragraph, preformatted, heading3, heading4, heading5, heading6, strong, em, hyperlink",
+        "multi" : "paragraph,preformatted,heading3,heading4,heading5,heading6,strong,em,hyperlink",
         "allowTargetBlank" : true,
         "label" : "flight_modal_note_disclaimer"
       }
@@ -1567,7 +1585,7 @@
     "flight_modal_initial_instructions" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em",
+        "multi" : "strong,em",
         "label" : "flight_modal_initial_instructions"
       }
     },
@@ -1580,7 +1598,7 @@
     "flight_modal_zero_results_with_link" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "strong, em, hyperlink",
+        "multi" : "strong,em,hyperlink",
         "allowTargetBlank" : true,
         "label" : "flight_modal_zero_results_with_link"
       }
@@ -1646,7 +1664,7 @@
     "nextgen_opener" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "paragraph, preformatted, strong, em, hyperlink",
+        "multi" : "paragraph,preformatted,strong,em,hyperlink",
         "allowTargetBlank" : true,
         "label" : "nextgen_opener"
       }
@@ -1667,7 +1685,7 @@
     "simplify_content" : {
       "type" : "StructuredText",
       "config" : {
-        "multi" : "paragraph, preformatted, strong, em, hyperlink",
+        "multi" : "paragraph,preformatted,strong,em,hyperlink",
         "allowTargetBlank" : true,
         "label" : "simplify_content"
       }
