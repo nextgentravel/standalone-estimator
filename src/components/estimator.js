@@ -403,6 +403,9 @@ const Estimator = () => {
                     required
                     enable_manual_km_checkbox_label
                     manual_km_input_label
+                    acrd_api_error {
+                        html
+                    }
                 }
             }
         }
@@ -556,6 +559,7 @@ const Estimator = () => {
 
     const [accommodationCost, setAccommodationCost] = useState('0.00');
     const [acrdTotal, setAcrdTotal] = useState(0.00);
+    const [acrdFetchSuccess, setAcrdFetchSuccess] = useState(false);
     const [accommodationMessage, setAccommodationMessage] = useState({ element: <span></span>, style: 'primary' });
     const [transportationMessage, setTransportationMessage] = useState(initialTransportationMessage);
     const [localTransportationMessage, setLocalTransportationMessage] = useState({ element: <span></span>, style: 'primary' });
@@ -694,10 +698,19 @@ const Estimator = () => {
             body: JSON.stringify(requestBody)
         })
 
-        let result = await response.json()
+        let result;
 
-        setAcrdTotal(result.total);
-        setApplicableRates(result.ratesByDay)
+        if (response.status === 200) {
+            result = await response.json()
+            setAcrdTotal(result.total);
+            setApplicableRates(result.ratesByDay)
+            setAcrdFetchSuccess(true)
+        } else {
+            setAcrdTotal(0.00);
+            setApplicableRates([])
+            setAcrdFetchSuccess(false)
+        }
+
     }
 
     const fetchLocalTransportationRate = (numberOfDays) => {
@@ -709,16 +722,21 @@ const Estimator = () => {
 
     useEffect(() => {
         if (accommodationType === 'hotel') {
-            let province = destination.provinceCode
-            let cityName = destination.cityName
-            let destinationDisplay = `${cityName}, ${province}`
+            if (acrdFetchSuccess) {
+                let province = destination.provinceCode
+                let cityName = destination.cityName
+                let destinationDisplay = `${cityName}, ${province}`
+    
+                let message = localeCopy.hotel_success.html
+                message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
+                // eslint-disable-next-line no-template-curly-in-string
+                message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate.max_rate)}</strong>`)
+                setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
+                updateAccommodationCost(acrdTotal)
+            } else {
+                setAccommodationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.acrd_api_error.html }}></span> })
+            }
 
-            let message = localeCopy.hotel_success.html
-            message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
-            // eslint-disable-next-line no-template-curly-in-string
-            message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate.max_rate)}</strong>`)
-            setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
-            updateAccommodationCost(acrdTotal)
         } else if (accommodationType === 'private') {
             let rate = (Interval.fromDateTimes(departureDateLux, returnDateLux).count('days') - 1) * 50;
             setAccommodationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></div>  })
@@ -1494,25 +1512,27 @@ const Estimator = () => {
                                                 if (!result) return;
                                                 if (parseFloat(e.target.value) > acrdTotal) {
                                                     setAccommodationCost(e.target.value)
-                                                    let message = localeCopy.hotel_above_estimate.html
-                                                    message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate.max_rate)}</strong>`)
-                                                    message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
-                                                    setAccommodationMessage({ element: 
-                                                    <div className="mb-0 alert-warning" role="alert">
-                                                        <>
-                                                            <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: message }}></div>
-                                                            <OverlayTrigger
-                                                                placement="top"
-                                                                delay={{ show: 250, hide: 400 }}
-                                                                overlay={renderAccommodationTooltip}
-                                                            >
-                                                                <button type="button" className="btn btn-default" aria-label={formattedMessage('accommodation_tooltip')}>
-                                                                    <FaQuestionCircle focusable="false" aria-hidden="true" className="ml-2 mb-1" size="15" fill="#9E9E9E" />
-                                                                </button>
-                                                            </OverlayTrigger>
-                                                        </>
-                                                    </div>
-                                                    , style: 'warn' });
+                                                    if (acrdFetchSuccess) {
+                                                        let message = localeCopy.hotel_above_estimate.html
+                                                        message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate.max_rate)}</strong>`)
+                                                        message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
+                                                        setAccommodationMessage({ element: 
+                                                        <div className="mb-0 alert-warning" role="alert">
+                                                            <>
+                                                                <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: message }}></div>
+                                                                <OverlayTrigger
+                                                                    placement="top"
+                                                                    delay={{ show: 250, hide: 400 }}
+                                                                    overlay={renderAccommodationTooltip}
+                                                                >
+                                                                    <button type="button" className="btn btn-default" aria-label={formattedMessage('accommodation_tooltip')}>
+                                                                        <FaQuestionCircle focusable="false" aria-hidden="true" className="ml-2 mb-1" size="15" fill="#9E9E9E" />
+                                                                    </button>
+                                                                </OverlayTrigger>
+                                                            </>
+                                                        </div>
+                                                        , style: 'warn' });
+                                                    } // else { provide message }
                                                 } else if (parseFloat(e.target.value) === 0) {
                                                     setAccommodationCost(e.target.value)
                                                     // localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
