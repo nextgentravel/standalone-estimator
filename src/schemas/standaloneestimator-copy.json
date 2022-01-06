@@ -555,6 +555,14 @@
       "config" : {
         "label" : "accommodation_total"
       }
+    },
+    "acrd_api_error" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "acrd_api_error"
+      }
     }
   },
   "Transportation Messages" : {
