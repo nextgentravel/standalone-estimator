@@ -36412,8 +36412,8 @@ module.exports = {
       }
     ]
   },
-  "Edmunston NB": {
-    "acrdName": "Edmunston NB",
+  "Edmundston NB": {
+    "acrdName": "Edmundston NB",
     "address_components": {
       "en": [
         {
@@ -122724,8 +122724,8 @@ module.exports = {
       }
     ]
   },
-  "Smith Falls ON": {
-    "acrdName": "Smith Falls ON",
+  "Smiths Falls ON": {
+    "acrdName": "Smiths Falls ON",
     "address_components": {
       "en": [
         {
@@ -139200,8 +139200,8 @@ module.exports = {
       }
     ]
   },
-  "Vermillion AB": {
-    "acrdName": "Vermillion AB",
+  "Vermilion AB": {
+    "acrdName": "Vermilion AB",
     "address_components": {
       "en": [
         {
@@ -142684,8 +142684,8 @@ module.exports = {
       }
     ]
   },
-  "Westaskiwin AB": {
-    "acrdName": "Westaskiwin AB",
+  "Wetaskiwin AB": {
+    "acrdName": "Wetaskiwin AB",
     "address_components": {
       "en": [
         {
