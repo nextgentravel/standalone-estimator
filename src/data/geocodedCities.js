@@ -97146,8 +97146,8 @@ module.exports = {
       }
     ]
   },
-  "Port McNeil BC": {
-    "acrdName": "Port McNeil BC",
+  "Port McNeill BC": {
+    "acrdName": "Port McNeill BC",
     "address_components": {
       "en": [
         {
@@ -111458,8 +111458,8 @@ module.exports = {
       }
     ]
   },
-  "Saint-George-de-Beauce QC": {
-    "acrdName": "Saint-George-de-Beauce QC",
+  "Saint-Georges QC": {
+    "acrdName": "Saint-Georges QC",
     "address_components": {
       "en": [
         {
