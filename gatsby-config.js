@@ -147,7 +147,7 @@ module.exports = {
         mergeStyleHashes: true,
         mergeDefaultDirectives: true,
         directives: {
-          "style-src": "'self' 'unsafe-hashes' 'sha256-o4LYhp5wtluJ8/NWUV2vi+r5AxmP8X2zEvYHCpji+kI=' 'sha256-MzJlpM03503nzXvQHm3lmf3EypF9jHu+regG7halQmI=' 'sha256-MtxTLcyxVEJFNLEIqbVTaqR4WWr0+lYSZ78AzGmNsuA=' 'sha256-aqNNdDLnnrDOnTNdkJpYlAxKVJtLt9CtFLklmInuUAE=' fonts.googleapis.com",
+          "style-src": "'self' 'unsafe-hashes' 'sha256-o4LYhp5wtluJ8/NWUV2vi+r5AxmP8X2zEvYHCpji+kI=' 'sha256-MzJlpM03503nzXvQHm3lmf3EypF9jHu+regG7halQmI=' 'sha256-MtxTLcyxVEJFNLEIqbVTaqR4WWr0+lYSZ78AzGmNsuA=' 'sha256-aqNNdDLnnrDOnTNdkJpYlAxKVJtLt9CtFLklmInuUAE=' 'sha256-SvLgADqEePEV9RNxBrRQXSBJafFHcVNG7cPzHz6h9eA=' fonts.googleapis.com",
           "font-src": "'self' fonts.gstatic.com http://script.hotjar.com https://script.hotjar.com",
           "script-src": "'self' http://static.hotjar.com https://static.hotjar.com https://script.hotjar.com 'unsafe-inline'",
           "img-src": "'self' data: https://script.hotjar.com http://script.hotjar.com",
