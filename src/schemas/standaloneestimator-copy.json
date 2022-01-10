@@ -387,6 +387,12 @@
       "config" : {
         "label" : "email_form_field_required"
       }
+    },
+    "email_form_field_invalid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_field_invalid"
+      }
     }
   },
   "Meals Modal" : {
@@ -554,6 +560,14 @@
       "type" : "Text",
       "config" : {
         "label" : "accommodation_total"
+      }
+    },
+    "acrd_api_error" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "acrd_api_error"
       }
     }
   },
