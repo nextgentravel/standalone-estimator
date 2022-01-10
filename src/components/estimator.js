@@ -946,6 +946,7 @@ const Estimator = () => {
             })
             .catch(err => {
                 setLoading(false);
+                console.log(err);
                 setSubmitValidationWarnings(err.inner || []);
                 setErrorPanel(true);
                 executeErrorPanelViewScroll();
@@ -1101,9 +1102,14 @@ const Estimator = () => {
 
     const errorList = () => {
         let list = [];
-        list = submitValidationWarnings.map((error, index) =>
-        <li key={index}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
-        );
+        list = submitValidationWarnings.map((error, index) => {
+            if (error.path === 'destination') {
+                error.path = 'autocomplete-destination'
+            } else if (error.path === 'origin') {
+                error.path = 'autocomplete-origin'
+            }
+            return <li key={index}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
+        });
         return list;
     }
 
