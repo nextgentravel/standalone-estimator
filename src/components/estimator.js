@@ -1080,6 +1080,7 @@ const Estimator = () => {
                 .required(`${formattedMessage('email_form_travellers_name')} ${formattedMessage('is_required')}`),
             travellersEmail: yup
                 .string()
+                .email()
                 .typeError(`${formattedMessage('email_form_travellers_email')} ${formattedMessage('is_not_valid')}`)
                 .required(`${formattedMessage('email_form_travellers_email')} ${formattedMessage('is_required')}`),
             approversName: yup
@@ -1088,6 +1089,7 @@ const Estimator = () => {
                 .required(`${formattedMessage('email_form_approvers_name')} ${formattedMessage('is_required')}`),
             approversEmail: yup
                 .string()
+                .email()
                 .typeError(`${formattedMessage('email_form_approvers_email')} ${formattedMessage('is_not_valid')}`)
                 .required(`${formattedMessage('email_form_approvers_email')} ${formattedMessage('is_required')}`),
             tripNotes: yup
