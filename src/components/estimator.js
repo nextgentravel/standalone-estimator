@@ -243,6 +243,7 @@ const Estimator = () => {
                         option_value
                     }
                     email_form_field_required
+                    email_form_field_invalid
                     email_modal_title
                     email_modal_submit
                     meals_modal_title
@@ -946,6 +947,7 @@ const Estimator = () => {
             })
             .catch(err => {
                 setLoading(false);
+                console.log(err);
                 setSubmitValidationWarnings(err.inner || []);
                 setErrorPanel(true);
                 executeErrorPanelViewScroll();
@@ -1079,6 +1081,7 @@ const Estimator = () => {
                 .required(`${formattedMessage('email_form_travellers_name')} ${formattedMessage('is_required')}`),
             travellersEmail: yup
                 .string()
+                .email(`${formattedMessage('email_form_travellers_email')} ${formattedMessage('is_not_valid')}`)
                 .typeError(`${formattedMessage('email_form_travellers_email')} ${formattedMessage('is_not_valid')}`)
                 .required(`${formattedMessage('email_form_travellers_email')} ${formattedMessage('is_required')}`),
             approversName: yup
@@ -1087,6 +1090,7 @@ const Estimator = () => {
                 .required(`${formattedMessage('email_form_approvers_name')} ${formattedMessage('is_required')}`),
             approversEmail: yup
                 .string()
+                .email(`${formattedMessage('email_form_approvers_email')} ${formattedMessage('is_not_valid')}`)
                 .typeError(`${formattedMessage('email_form_approvers_email')} ${formattedMessage('is_not_valid')}`)
                 .required(`${formattedMessage('email_form_approvers_email')} ${formattedMessage('is_required')}`),
             tripNotes: yup
@@ -1101,9 +1105,14 @@ const Estimator = () => {
 
     const errorList = () => {
         let list = [];
-        list = submitValidationWarnings.map((error, index) =>
-        <li key={index}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
-        );
+        list = submitValidationWarnings.map((error, index) => {
+            if (error.path === 'destination') {
+                error.path = 'autocomplete-destination'
+            } else if (error.path === 'origin') {
+                error.path = 'autocomplete-origin'
+            }
+            return <li key={index}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
+        });
         return list;
     }
 
