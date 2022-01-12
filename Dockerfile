@@ -7,7 +7,7 @@ WORKDIR /app
 COPY . .
 
 RUN apk update && \
-    apk add --update --repository http://dl-3.alpinelinux.org/alpine/edge/testing vips-tools vips-dev fftw-dev gcc g++ make libc6-compat && \
+    apk add --update vips-tools vips-dev fftw-dev gcc g++ make libc6-compat && \
     apk add git && \
     apk add --no-cache python3 py3-pip && \
     python3 -m ensurepip && \
@@ -15,6 +15,11 @@ RUN apk update && \
     apk add --no-cache python2 && \
     apk add --no-cache automake && \
     apk add --no-cache autoconf && \
+    apk add --no-cache dpkg && \
+    apk add --no-cache pkgconfig && \
+    apk add --no-cache nasm && \
+    apk add --no-cache libpng && \
+    apk add --no-cache libpng-dev && \
     rm -r /usr/lib/python*/ensurepip && \
     pip install --upgrade pip setuptools && \
     rm -r /root/.cache && \
