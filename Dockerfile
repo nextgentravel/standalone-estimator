@@ -1,5 +1,5 @@
 # Name the node stage "builder"
-FROM --platform=linux/amd64 node:alpine AS builder
+FROM --platform=linux/amd64 node:14-alpine AS builder
 
 # Set working directory
 WORKDIR /app
@@ -28,6 +28,7 @@ RUN apk update && \
 
 # install node modules and build assets
 RUN rm yarn.lock
+RUN yarn cache clean
 RUN yarn --verbose
 RUN yarn run build
 # nginx state for serving content
