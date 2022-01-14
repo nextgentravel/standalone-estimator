@@ -1,5 +1,5 @@
 # Name the node stage "builder"
-FROM --platform=linux/amd64 node:14-alpine AS builder
+FROM --platform=linux/amd64 node:14.7.0-alpine AS builder
 
 # Set working directory
 WORKDIR /app
@@ -21,8 +21,6 @@ RUN apk update && \
     apk add --no-cache libpng && \
     apk add --no-cache libpng-dev && \
     rm -r /usr/lib/python*/ensurepip && \
-    pip install --upgrade pip setuptools && \
-    rm -r /root/.cache && \
     rm -rf /var/cache/apk/*
 
 
@@ -30,14 +28,16 @@ RUN apk update && \
 RUN rm yarn.lock
 RUN yarn cache clean
 RUN yarn --verbose
+ENV NODE_OPTIONS=”–max_old_space_size=2048″
 RUN yarn run build
-# nginx state for serving content
+
 FROM nginx:alpine
 # Set working directory to nginx asset directory
 WORKDIR /usr/share/nginx/html
+COPY ./nginx_docker.conf /etc/nginx/conf.d/default.conf
 # Remove default nginx static assets
 RUN rm -rf ./*
 # Copy static assets from builder stage
-COPY --from=builder /app/public .
+COPY --from=builder /app/public /usr/share/nginx/html
 # Containers run nginx with global directives and daemon off
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
