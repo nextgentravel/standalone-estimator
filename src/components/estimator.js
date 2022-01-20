@@ -1071,10 +1071,6 @@ const Estimator = () => {
     const handleSubmitEmailValidation = () => {
         let target = {tripName, travellersName, travellersEmail, approversName, approversEmail, tripNotes, travellerIsPublicServant, travelCategory};
         let schema = yup.object().shape({
-            tripName: yup
-                .string()
-                .typeError(`${formattedMessage('email_form_trip_name')} ${formattedMessage('is_not_valid')}`)
-                .required(`${formattedMessage('email_form_trip_name')} ${formattedMessage('is_required')}`),
             travellersName: yup
                 .string()
                 .typeError(`${formattedMessage('email_form_travellers_name')} ${formattedMessage('is_not_valid')}`)
@@ -1093,12 +1089,16 @@ const Estimator = () => {
                 .email(`${formattedMessage('email_form_approvers_email')} ${formattedMessage('is_not_valid')}`)
                 .typeError(`${formattedMessage('email_form_approvers_email')} ${formattedMessage('is_not_valid')}`)
                 .required(`${formattedMessage('email_form_approvers_email')} ${formattedMessage('is_required')}`),
-            tripNotes: yup
-                .string(),
+            tripName: yup
+                .string()
+                .typeError(`${formattedMessage('email_form_trip_name')} ${formattedMessage('is_not_valid')}`)
+                .required(`${formattedMessage('email_form_trip_name')} ${formattedMessage('is_required')}`),
             travelCategory: yup
                 .string()
                 .typeError(`${formattedMessage('email_form_category_label')} ${formattedMessage('is_not_valid')}`)
                 .required(`${formattedMessage('email_form_category_label')} ${formattedMessage('is_required')}`),
+            tripNotes: yup
+                .string(),
         });
         return schema.validate(target, {abortEarly: false})
     }
