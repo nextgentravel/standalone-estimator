@@ -890,6 +890,7 @@ const Estimator = () => {
         e.preventDefault();
         handleSubmitEstimateValidation()
             .then(async (valid) => {
+                setErrorPanel(false);
                 setOtherCost('0.00');
                 setSubmitValidationWarnings([]);
                 let flightResult = await fetchFlightCost(originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset)
