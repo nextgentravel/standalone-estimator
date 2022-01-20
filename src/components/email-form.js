@@ -25,14 +25,14 @@ const EmailForm = (props) => {
     useEffect(() => {
         if (validationErrors.length > 0) {
             setErrorPanel(true)
-        } 
+        }
     }, [validationErrors]);
 
     useEffect(() => {
-        if (errorPanel) {
-            executeErrorPanelScroll();
+        if (errorPanel && validationErrors.length > 0) {
+            executeErrorPanelScroll()
         }
-    }, [errorPanel])
+    }, [errorPanel, validationErrors])
 
     let validationErrorList = validationErrors.map(a => a.path) || [];
     return (
