@@ -219,11 +219,11 @@ const FlightForm = (props) => {
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-4">
-                    <Form.Label column sm="4">{props.messages.flight_modal_return_time_label}</Form.Label>
+                    <Form.Label htmlFor="returnTime" column sm="4">{props.messages.flight_modal_return_time_label}</Form.Label>
                     <Col sm="4">
                         <Form.Control as="select"
+                            id="returnTime"
                             value={props.returnTime}
-                            id="returnTime" 
                             onChange={(e) => {
                                 props.setReturnTime(e.target.value)
                             }}
