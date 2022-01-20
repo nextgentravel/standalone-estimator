@@ -1009,6 +1009,8 @@ const Estimator = () => {
         setDepartureOffset(2);
         setReturnOffset(2);
 
+        setErrorPanel(false)
+
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
         let originElement = document.querySelector('#autocomplete-origin')
@@ -1124,7 +1126,7 @@ const Estimator = () => {
 
     const sendEmail = async () => {
         setEmailRequestLoading(true);
-        setEmailValidationWarnings([]);
+        setEmailValidationWarnings([])
         handleSubmitEmailValidation()
             .then(async (valid) => {
                 setEmailValidationWarnings([]);
