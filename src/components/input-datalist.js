@@ -58,10 +58,17 @@ const InputDatalist = ({validationWarnings, setValidationWarnings, label, name, 
                     templates={templates}
                     source={source}
                     element={`${name}container`}
-                    confirmOnBlur={false}
+                    confirmOnBlur={true}
                     displayValue="overlay"
                     onConfirm={value => {
-                        updateValue(value)
+                        const valid = options.some(item => JSON.stringify(item) === JSON.stringify(value))
+                        console.log('valid? : ', valid)
+                        if (true) {
+                            updateValue(value)
+                        } else {
+                            /// ?????
+                            updateValue(value)
+                        }
                     }}
                     className={showValidationWarning ? 'form-control is-invalid' : 'form-control' }
                     tNoResults={() => localeCopy.autocomplete_no_results}
