@@ -1124,6 +1124,7 @@ const Estimator = () => {
 
     const sendEmail = async () => {
         setEmailRequestLoading(true);
+        setEmailValidationWarnings([]);
         handleSubmitEmailValidation()
             .then(async (valid) => {
                 setEmailValidationWarnings([]);
