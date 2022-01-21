@@ -890,6 +890,7 @@ const Estimator = () => {
         e.preventDefault();
         handleSubmitEstimateValidation()
             .then(async (valid) => {
+                setErrorPanel(false);
                 setOtherCost('0.00');
                 setSubmitValidationWarnings([]);
                 let flightResult = await fetchFlightCost(originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset)
@@ -1008,6 +1009,8 @@ const Estimator = () => {
         setDepartureOffset(2);
         setReturnOffset(2);
 
+        setErrorPanel(false)
+
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
         let originElement = document.querySelector('#autocomplete-origin')
@@ -1071,10 +1074,6 @@ const Estimator = () => {
     const handleSubmitEmailValidation = () => {
         let target = {tripName, travellersName, travellersEmail, approversName, approversEmail, tripNotes, travellerIsPublicServant, travelCategory};
         let schema = yup.object().shape({
-            tripName: yup
-                .string()
-                .typeError(`${formattedMessage('email_form_trip_name')} ${formattedMessage('is_not_valid')}`)
-                .required(`${formattedMessage('email_form_trip_name')} ${formattedMessage('is_required')}`),
             travellersName: yup
                 .string()
                 .typeError(`${formattedMessage('email_form_travellers_name')} ${formattedMessage('is_not_valid')}`)
@@ -1093,12 +1092,16 @@ const Estimator = () => {
                 .email(`${formattedMessage('email_form_approvers_email')} ${formattedMessage('is_not_valid')}`)
                 .typeError(`${formattedMessage('email_form_approvers_email')} ${formattedMessage('is_not_valid')}`)
                 .required(`${formattedMessage('email_form_approvers_email')} ${formattedMessage('is_required')}`),
-            tripNotes: yup
-                .string(),
+            tripName: yup
+                .string()
+                .typeError(`${formattedMessage('email_form_trip_name')} ${formattedMessage('is_not_valid')}`)
+                .required(`${formattedMessage('email_form_trip_name')} ${formattedMessage('is_required')}`),
             travelCategory: yup
                 .string()
                 .typeError(`${formattedMessage('email_form_category_label')} ${formattedMessage('is_not_valid')}`)
                 .required(`${formattedMessage('email_form_category_label')} ${formattedMessage('is_required')}`),
+            tripNotes: yup
+                .string(),
         });
         return schema.validate(target, {abortEarly: false})
     }
@@ -1123,6 +1126,7 @@ const Estimator = () => {
 
     const sendEmail = async () => {
         setEmailRequestLoading(true);
+        setEmailValidationWarnings([])
         handleSubmitEmailValidation()
             .then(async (valid) => {
                 setEmailValidationWarnings([]);
@@ -1224,13 +1228,13 @@ const Estimator = () => {
 
     useEffect(() => {
         if (transportationType === 'flight') {
-            
+
             if (origin.cityCode === null || destination.cityCode === null) {
                 setTransportationMessage({
                     element: <span>{formattedMessage('flight_message_no_airport')}</span>
                 })
             } else if (parseFloat(transportationCost) === parseFloat(0.00)) {
-                focusTransportationMessage()
+                if (result) { focusTransportationMessage() }
                 setTransportationMessage({
                     element: <div className="transportation-message alert-warning ">
                                 <div className='d-inline' dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></div>
@@ -1470,7 +1474,6 @@ const Estimator = () => {
                             value={returnDate} 
                             className="form-control"
                             onChange={(event) => {
-                                console.log('Date', event.target.value)
                                 setReturnDate(event.target.value)
                             }}
                         />
