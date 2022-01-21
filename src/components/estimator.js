@@ -1228,13 +1228,13 @@ const Estimator = () => {
 
     useEffect(() => {
         if (transportationType === 'flight') {
-            
+
             if (origin.cityCode === null || destination.cityCode === null) {
                 setTransportationMessage({
                     element: <span>{formattedMessage('flight_message_no_airport')}</span>
                 })
             } else if (parseFloat(transportationCost) === parseFloat(0.00)) {
-                focusTransportationMessage()
+                if (result) { focusTransportationMessage() }
                 setTransportationMessage({
                     element: <div className="transportation-message alert-warning ">
                                 <div className='d-inline' dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></div>
@@ -1474,7 +1474,6 @@ const Estimator = () => {
                             value={returnDate} 
                             className="form-control"
                             onChange={(event) => {
-                                console.log('Date', event.target.value)
                                 setReturnDate(event.target.value)
                             }}
                         />
