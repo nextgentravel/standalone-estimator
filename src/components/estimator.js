@@ -832,9 +832,13 @@ const Estimator = () => {
             returnDate.endOf("day"))
             .splitBy({days: 1}).map(d => d.start)
 
-        // remove the last date, since we won't need accommodation on that day
+        // remove the last date, since we won't need accommodation on that day. If the travel is on the same day (i.e.
+        // dates length is 1) then do not remove the last date in case the user wants a hotel for that day.
 
-        dates.pop();
+        if(dates.length > 1) {
+            dates.pop();
+        }
+
 
         // get month/year from each date object
 
