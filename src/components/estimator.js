@@ -714,8 +714,13 @@ const Estimator = () => {
             }
 
             setApplicableRates(calculatedApplicableRates)
-
-            setAcrdTotal(total);
+            console.log(departureDate === returnDate)
+            if(departureDate === returnDate) {
+                setAcrdTotal(0.00)
+            } else {
+                setAcrdTotal(total);
+            }
+            
 
             // eslint-disable-next-line no-template-curly-in-string
 
@@ -832,9 +837,10 @@ const Estimator = () => {
             returnDate.endOf("day"))
             .splitBy({days: 1}).map(d => d.start)
 
-        // remove the last date, since we won't need accommodation on that day
-
-        dates.pop();
+        // remove the last date, since we won't need accommodation on that day. 
+        if(dates.length > 1) {
+            dates.pop();
+        }
 
         // get month/year from each date object
 
