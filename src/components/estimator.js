@@ -714,12 +714,9 @@ const Estimator = () => {
             }
 
             setApplicableRates(calculatedApplicableRates)
-            console.log(departureDate === returnDate)
-            if(departureDate === returnDate) {
-                setAcrdTotal(0.00)
-            } else {
-                setAcrdTotal(total);
-            }
+
+
+            setAcrdTotal(total);
             
 
             // eslint-disable-next-line no-template-curly-in-string
@@ -748,7 +745,11 @@ const Estimator = () => {
             // eslint-disable-next-line no-template-curly-in-string
             message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
             setAccommodationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></div> })
-            updateAccommodationCost(acrdTotal)
+            if(departureDate === returnDate) {
+                updateAccommodationCost(0.00)
+            } else {
+                updateAccommodationCost(acrdTotal)
+            }
         } else if (accommodationType === 'private') {
             let rate = (Interval.fromDateTimes(departureDateLux, returnDateLux).count('days') - 1) * 50;
             setAccommodationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></div>  })
