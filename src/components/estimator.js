@@ -2,9 +2,8 @@ import React, {useState, useEffect, useRef} from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import InputDatalist from "./input-datalist.js"
 import calculateMeals from "./calculate-meals.js"
-import { DateTime, Interval, Info } from "luxon"
+import { DateTime, Interval } from "luxon"
 import * as yup from "yup"
-import monthsContained from "./months-contained.js"
 import { useIntl } from 'react-intl'
 import EstimatorRow from "./estimator-row.js"
 import EmailModal from "./email-modal.js"
@@ -26,7 +25,6 @@ import InputGroup from 'react-bootstrap/InputGroup'
 
 import cities from "../data/cities.js"
 import geocodedCities from "../data/geocodedCities"
-import acrdRates from "../data/acrdRates.js"
 import locations from "../data/locations.js"
 
 import { FaSpinner, FaQuestionCircle, FaExclamationTriangle, FaBed, FaPlane, FaTaxi, FaUtensils, FaSuitcase } from 'react-icons/fa'
@@ -68,13 +66,15 @@ const Estimator = () => {
     let locale = `${intl.locale}-ca`;
 
     const localCurrencyDisplay = (string) => {
-        return string.toLocaleString(locale, {
+        const float = parseFloat(string);
+        let localDisplay = float.toLocaleString(locale, {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
             style: 'currency',
             currency: 'CAD',
             currencyDisplay: 'symbol'
         }).replace('CA', '').replace(/\D00(?=\D*$)/, '')
+        return localDisplay;
     }
 
     const cmsData = useStaticQuery(graphql`
@@ -407,6 +407,9 @@ const Estimator = () => {
                     required
                     enable_manual_km_checkbox_label
                     manual_km_input_label
+                    acrd_api_error {
+                        html
+                    }
                 }
             }
         }
@@ -560,6 +563,7 @@ const Estimator = () => {
 
     const [accommodationCost, setAccommodationCost] = useState('0.00');
     const [acrdTotal, setAcrdTotal] = useState(0.00);
+    const [acrdFetchSuccess, setAcrdFetchSuccess] = useState(false);
     const [accommodationMessage, setAccommodationMessage] = useState({ element: <span></span>, style: 'primary' });
     const [transportationMessage, setTransportationMessage] = useState(initialTransportationMessage);
     const [localTransportationMessage, setLocalTransportationMessage] = useState({ element: <span></span>, style: 'primary' });
@@ -682,48 +686,37 @@ const Estimator = () => {
     let [initialFlightResult, setInitialFlightResult] = useState(1.11);
     let [acceptedFlight, setAcceptedFlight] = useState(0.00);
 
-
-
-    const fetchHotelCost = () => {
-        let months = monthsContained(departureDate, returnDate);
-        let rates = acrdRates[destination.acrdName];
-        if (!rates) {
-            rates = acrdRates[cities.suburbCityList[destination.acrdName]]
+    const fetchHotelCost = async () => {
+        let requestBody = {
+            city: destination.cityName,
+            province: destination.provinceCode,
+            startDate: departureDate,
+            endDate: returnDate,
         }
+        let response = await fetch('/api/fetchAcrdRates',
+        {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+        })
+
+        let result;
+
         
-        let acrdRatesFiltered = Object.keys(rates)
-            .filter(key => months.map(mon => mon.month).includes(key))
-            .reduce((res, key) => {
-                res[key] = rates[key];
-                return res;
-            }, {});
-
-        try {
-            let rates = rateDaysByMonth(departureDateLux, returnDateLux, acrdRatesFiltered)
-
-            let total = 0.00;
-
-            let calculatedApplicableRates = []
-
-            for (const month in rates) {
-                total = total + rates[month].monthTotal
-                calculatedApplicableRates.push({
-                    month: month,
-                    rate: rates[month].rate
-                })
-            }
-
-            setApplicableRates(calculatedApplicableRates)
-
-
-            setAcrdTotal(total);
-            
-
-            // eslint-disable-next-line no-template-curly-in-string
-
-        } catch (error) {
-            console.log('fetchHotelCostError', error);
+        if (response.status === 200) {
+            result = await response.json()
+            console.log(result)
+            setAcrdTotal(result.total);
+            setApplicableRates(result.ratesByDay)
+            setAcrdFetchSuccess(true)
+        } else {
+            setAcrdTotal(0.00);
+            setApplicableRates([])
+            setAcrdFetchSuccess(false)
         }
+
     }
 
     const fetchLocalTransportationRate = (numberOfDays) => {
@@ -735,21 +728,25 @@ const Estimator = () => {
 
     useEffect(() => {
         if (accommodationType === 'hotel') {
-            let province = destination.provinceCode
-            let cityName = destination.cityName
-            let destinationDisplay = `${cityName}, ${province}`
-
-            let message = localeCopy.hotel_success.html
-            fetchHotelCost()
-            message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
-            // eslint-disable-next-line no-template-curly-in-string
-            message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
-            setAccommodationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></div> })
-            if(departureDate === returnDate) {
-                updateAccommodationCost(0.00)
+            if (acrdFetchSuccess) {
+                let province = destination.provinceCode
+                let cityName = destination.cityName
+                let destinationDisplay = `${cityName}, ${province}`
+    
+                let message = localeCopy.hotel_success.html
+                message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
+                // eslint-disable-next-line no-template-curly-in-string
+                message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate.max_rate)}</strong>`)
+                setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
+                if(departureDate === returnDate) {
+                    updateAccommodationCost(0.00)
+                } else {
+                    updateAccommodationCost(acrdTotal)
+                }
             } else {
-                updateAccommodationCost(acrdTotal)
+                setAccommodationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.acrd_api_error.html }}></span> })
             }
+
         } else if (accommodationType === 'private') {
             let rate = (Interval.fromDateTimes(departureDateLux, returnDateLux).count('days') - 1) * 50;
             setAccommodationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></div>  })
@@ -830,47 +827,6 @@ const Estimator = () => {
         setSummaryCost(newValue.toFixed(2))
     }
 
-    const rateDaysByMonth = (departureDate, returnDate, rates) => {
-        // get all the dates in range
-
-        let dates = Interval.fromDateTimes(
-            departureDate.startOf("day"),
-            returnDate.endOf("day"))
-            .splitBy({days: 1}).map(d => d.start)
-
-        // remove the last date, since we won't need accommodation on that day. 
-        if(dates.length > 1) {
-            dates.pop();
-        }
-
-        // get month/year from each date object
-
-        let months = dates.map((date) => {
-            return date.month + '-' + date.year;
-        });
-
-        // count occurrences of each month
-
-        var monthYearCount = months.reduce(function(obj, b) {
-            obj[b] = ++obj[b] || 1;
-            return obj;
-        }, {});
-
-        let result = {}
-
-        for (const monthYear in monthYearCount) {
-            let split = monthYear.split('-');
-            let monthName = Info.months()[split[0] - 1]
-            result[monthYear] = {
-                dayCount: monthYearCount[monthYear],
-                rate: rates[monthName],
-                monthTotal: monthYearCount[monthYear] * rates[monthName],
-            }
-        }
-
-        return result;
-    }
-
     const handleSubmit =  async(e) => {
         setProvince('')
         setMealsByDay({})
@@ -933,7 +889,7 @@ const Estimator = () => {
                     setReturnDistance(0);
                 }
 
-                fetchHotelCost()
+                await fetchHotelCost()
                 fetchLocalTransportationRate(numberOfDays - 1)
 
                 // get ACRD rate for destination
@@ -1580,25 +1536,27 @@ const Estimator = () => {
                                                 if (!result) return;
                                                 if (parseFloat(e.target.value) > acrdTotal) {
                                                     setAccommodationCost(e.target.value)
-                                                    let message = localeCopy.hotel_above_estimate.html
-                                                    message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
-                                                    message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
-                                                    setAccommodationMessage({ element: 
-                                                    <div className="mb-0 alert-warning" role="alert">
-                                                        <>
-                                                            <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: message }}></div>
-                                                            <OverlayTrigger
-                                                                placement="top"
-                                                                delay={{ show: 250, hide: 400 }}
-                                                                overlay={renderAccommodationTooltip}
-                                                            >
-                                                                <button type="button" className="btn btn-default" aria-label={formattedMessage('accommodation_tooltip')}>
-                                                                    <FaQuestionCircle focusable="false" aria-hidden="true" className="ml-2 mb-1" size="15" fill="#9E9E9E" />
-                                                                </button>
-                                                            </OverlayTrigger>
-                                                        </>
-                                                    </div>
-                                                    , style: 'warn' });
+                                                    if (acrdFetchSuccess) {
+                                                        let message = localeCopy.hotel_above_estimate.html
+                                                        message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate.max_rate)}</strong>`)
+                                                        message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
+                                                        setAccommodationMessage({ element: 
+                                                        <div className="mb-0 alert-warning" role="alert">
+                                                            <>
+                                                                <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: message }}></div>
+                                                                <OverlayTrigger
+                                                                    placement="top"
+                                                                    delay={{ show: 250, hide: 400 }}
+                                                                    overlay={renderAccommodationTooltip}
+                                                                >
+                                                                    <button type="button" className="btn btn-default" aria-label={formattedMessage('accommodation_tooltip')}>
+                                                                        <FaQuestionCircle focusable="false" aria-hidden="true" className="ml-2 mb-1" size="15" fill="#9E9E9E" />
+                                                                    </button>
+                                                                </OverlayTrigger>
+                                                            </>
+                                                        </div>
+                                                        , style: 'warn' });
+                                                    } // else { provide message }
                                                 } else if (parseFloat(e.target.value) === 0) {
                                                     setAccommodationCost(e.target.value)
                                                     // localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
@@ -1612,7 +1570,7 @@ const Estimator = () => {
                                                 } else if (parseFloat(e.target.value) <= acrdTotal) {
                                                     setAccommodationCost(e.target.value)
                                                     let message = localeCopy.hotel_below_estimate.html
-                                                    message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
+                                                    message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate.max_rate)}</strong>`)
                                                     message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
                                                     setAccommodationMessage({ element: 
                                                     <div className="mb-0">
