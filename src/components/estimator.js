@@ -54,7 +54,10 @@ const Estimator = () => {
     
     const accommodationSelect = useRef(null);
     const focusAccommodationSelect = () => {
-      accommodationSelect.current.focus();
+        setTimeout(()=>{
+            accommodationSelect.current.focus();
+        },3000)
+      
     };
 
     const today = DateTime.now().toISODate();
@@ -240,6 +243,7 @@ const Estimator = () => {
                         option_value
                     }
                     email_form_field_required
+                    email_form_field_invalid
                     email_modal_title
                     email_modal_submit
                     meals_modal_title
@@ -466,9 +470,9 @@ const Estimator = () => {
     }, []);
 
     const removeActiveDescendantAttr = () => {
-        const originInput = document.querySelector('#origin');
+        const originInput = document.querySelector('#autocomplete-origin');
         originInput && originInput.removeAttribute("aria-activedescendant");
-        const destinationInput = document.querySelector('#destination');
+        const destinationInput = document.querySelector('#autocomplete-destination');
         destinationInput && destinationInput.removeAttribute("aria-activedescendant");
     };
 
@@ -843,6 +847,7 @@ const Estimator = () => {
         e.preventDefault();
         handleSubmitEstimateValidation()
             .then(async (valid) => {
+                setErrorPanel(false);
                 setOtherCost('0.00');
                 setSubmitValidationWarnings([]);
                 let flightResult = await fetchFlightCost(originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset)
@@ -900,6 +905,7 @@ const Estimator = () => {
             })
             .catch(err => {
                 setLoading(false);
+                console.log(err);
                 setSubmitValidationWarnings(err.inner || []);
                 setErrorPanel(true);
                 executeErrorPanelViewScroll();
@@ -959,6 +965,8 @@ const Estimator = () => {
         setReturnTime('17:00');
         setDepartureOffset(2);
         setReturnOffset(2);
+
+        setErrorPanel(false)
 
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
@@ -1023,16 +1031,13 @@ const Estimator = () => {
     const handleSubmitEmailValidation = () => {
         let target = {tripName, travellersName, travellersEmail, approversName, approversEmail, tripNotes, travellerIsPublicServant, travelCategory};
         let schema = yup.object().shape({
-            tripName: yup
-                .string()
-                .typeError(`${formattedMessage('email_form_trip_name')} ${formattedMessage('is_not_valid')}`)
-                .required(`${formattedMessage('email_form_trip_name')} ${formattedMessage('is_required')}`),
             travellersName: yup
                 .string()
                 .typeError(`${formattedMessage('email_form_travellers_name')} ${formattedMessage('is_not_valid')}`)
                 .required(`${formattedMessage('email_form_travellers_name')} ${formattedMessage('is_required')}`),
             travellersEmail: yup
                 .string()
+                .email(`${formattedMessage('email_form_travellers_email')} ${formattedMessage('is_not_valid')}`)
                 .typeError(`${formattedMessage('email_form_travellers_email')} ${formattedMessage('is_not_valid')}`)
                 .required(`${formattedMessage('email_form_travellers_email')} ${formattedMessage('is_required')}`),
             approversName: yup
@@ -1041,11 +1046,18 @@ const Estimator = () => {
                 .required(`${formattedMessage('email_form_approvers_name')} ${formattedMessage('is_required')}`),
             approversEmail: yup
                 .string()
+                .email(`${formattedMessage('email_form_approvers_email')} ${formattedMessage('is_not_valid')}`)
                 .typeError(`${formattedMessage('email_form_approvers_email')} ${formattedMessage('is_not_valid')}`)
                 .required(`${formattedMessage('email_form_approvers_email')} ${formattedMessage('is_required')}`),
-            tripNotes: yup
-                .string(),
+            tripName: yup
+                .string()
+                .typeError(`${formattedMessage('email_form_trip_name')} ${formattedMessage('is_not_valid')}`)
+                .required(`${formattedMessage('email_form_trip_name')} ${formattedMessage('is_required')}`),
             travelCategory: yup
+                .string()
+                .typeError(`${formattedMessage('email_form_category_label')} ${formattedMessage('is_not_valid')}`)
+                .required(`${formattedMessage('email_form_category_label')} ${formattedMessage('is_required')}`),
+            tripNotes: yup
                 .string(),
         });
         return schema.validate(target, {abortEarly: false})
@@ -1053,9 +1065,14 @@ const Estimator = () => {
 
     const errorList = () => {
         let list = [];
-        list = submitValidationWarnings.map((error, index) =>
-        <li key={index}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
-        );
+        list = submitValidationWarnings.map((error, index) => {
+            if (error.path === 'destination') {
+                error.path = 'autocomplete-destination'
+            } else if (error.path === 'origin') {
+                error.path = 'autocomplete-origin'
+            }
+            return <li key={index}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
+        });
         return list;
     }
 
@@ -1066,6 +1083,7 @@ const Estimator = () => {
 
     const sendEmail = async () => {
         setEmailRequestLoading(true);
+        setEmailValidationWarnings([])
         handleSubmitEmailValidation()
             .then(async (valid) => {
                 setEmailValidationWarnings([]);
@@ -1167,13 +1185,13 @@ const Estimator = () => {
 
     useEffect(() => {
         if (transportationType === 'flight') {
-            
+
             if (origin.cityCode === null || destination.cityCode === null) {
                 setTransportationMessage({
                     element: <span>{formattedMessage('flight_message_no_airport')}</span>
                 })
             } else if (parseFloat(transportationCost) === parseFloat(0.00)) {
-                focusTransportationMessage()
+                if (result) { focusTransportationMessage() }
                 setTransportationMessage({
                     element: <div className="transportation-message alert-warning ">
                                 <div className='d-inline' dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></div>
@@ -1421,10 +1439,10 @@ const Estimator = () => {
                     <div className="col-sm-3"></div>
                     <div className="col-sm-12">
                         {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-                        <button type="submit" className="btn btn-primary px-5">{formattedMessage('estimate')}</button>
+                        <button type="submit" className="btn btn-primary px-5 my-3 mr-3 my-md-0">{formattedMessage('estimate')}</button>
                         {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                         {showClear &&
-                            <button type="button" id="clear-button" className="btn btn-outline-dark px-5 ml-3" onClick={() => {clearForm()}}>{formattedMessage('clear')}</button>
+                            <button type="button" id="clear-button" className="btn btn-outline-dark px-5" onClick={() => {clearForm()}}>{formattedMessage('clear')}</button>
                         }
                         {loading && <FaSpinner focusable="false" aria-hidden="true" className="fa-spin ml-3" size="24" />}
                         <div role="status" className="sr-only">{screenReaderStatus}</div>

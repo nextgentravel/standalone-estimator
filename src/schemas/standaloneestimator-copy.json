@@ -387,6 +387,12 @@
       "config" : {
         "label" : "email_form_field_required"
       }
+    },
+    "email_form_field_invalid" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "email_form_field_invalid"
+      }
     }
   },
   "Meals Modal" : {

@@ -49,12 +49,12 @@ const MealsModal = (props) => {
                 {items.length > 0 && items.map((day, index) => {
                     return (
                         <div className="row mb-3" key={index}>
-                            <fieldset className="meals-fieldset" id={`meals-fieldset-${day.date}`} >
+                            <fieldset className="meals-fieldset row mb-3" id={`meals-fieldset-${day.date}`} >
                                 <legend className="sr-only">{day.date}</legend>
-                                <div className="col-sm">
+                                <div className="col-lg">
                                     <strong>{day.date}</strong>
                                 </div>
-                                <div className="col-sm">
+                                <div className="col-lg ml-4 ml-lg-0">
                                     <input
                                         type="checkbox"
                                         name={`${day.date}_breakfast`}
@@ -67,7 +67,7 @@ const MealsModal = (props) => {
                                         {props.messages.meals_modal_breakfast} <small>{mealCost.breakfast && localCurrencyDisplay(mealCost.breakfast)}</small>
                                     </label>
                                 </div>
-                                <div className="col-sm">
+                                <div className="col-lg ml-4 ml-lg-0">
                                     <input
                                         type="checkbox"
                                         name={`${day.date}_lunch`}
@@ -80,7 +80,7 @@ const MealsModal = (props) => {
                                         {props.messages.meals_modal_lunch} <small>{mealCost.lunch && localCurrencyDisplay(mealCost.lunch)}</small>
                                     </label>
                                 </div>
-                                <div className="col-sm">
+                                <div className="col-lg ml-4 ml-lg-0">
                                     <input
                                         type="checkbox"
                                         name={`${day.date}_dinner`}
@@ -93,7 +93,7 @@ const MealsModal = (props) => {
                                         {props.messages.meals_modal_dinner} <small>{mealCost.dinner && localCurrencyDisplay(mealCost.dinner)}</small>
                                     </label>
                                 </div>
-                                <div className="col-sm">
+                                <div className="col-lg ml-4 ml-lg-0">
                                     <input
                                         type="checkbox"
                                         name={`${day.date}_incidentals`}
@@ -112,7 +112,7 @@ const MealsModal = (props) => {
                 })}
             </Modal.Body>
             <Modal.Footer>
-                <div className="mb-2 mr-3" tabindex='0'>{mealCost.total && localCurrencyDisplay(parseFloat(mealCost.total))}</div>
+                <div className="mb-2 mr-3" tabindex='0'><strong >{props.messages.meals_and_incidentals_total}: </strong>{mealCost.total && localCurrencyDisplay(parseFloat(mealCost.total))}</div>
                 <button type="button" className="btn btn-primary" onClick={() => { props.onHide() }}>{props.messages.meals_modal_submit}</button>
             </Modal.Footer>
       </Modal>

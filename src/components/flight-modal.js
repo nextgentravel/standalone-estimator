@@ -28,7 +28,7 @@ const FlightModal = (props) => {
                 <div className="small" dangerouslySetInnerHTML={{ __html: props.messages.flight_modal_note_disclaimer.html }} ></div>
             </Modal.Body>
             <Modal.Footer>
-                <span className="mr-3" tabindex='0'>{localCurrencyDisplay(parseFloat(props.selectedFlightPrice))}</span>
+                <span className="mr-3" tabindex='0' ><strong>{props.messages.transportation_total}: </strong>{localCurrencyDisplay(parseFloat(props.selectedFlightPrice))}</span>
                 <Button
                     variant="primary"
                     onClick={() => {
