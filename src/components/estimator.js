@@ -704,8 +704,10 @@ const Estimator = () => {
 
         let result;
 
+        
         if (response.status === 200) {
             result = await response.json()
+            console.log(result)
             setAcrdTotal(result.total);
             setApplicableRates(result.ratesByDay)
             setAcrdFetchSuccess(true)
@@ -736,7 +738,11 @@ const Estimator = () => {
                 // eslint-disable-next-line no-template-curly-in-string
                 message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate.max_rate)}</strong>`)
                 setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
-                updateAccommodationCost(acrdTotal)
+                if(departureDate === returnDate) {
+                    updateAccommodationCost(0.00)
+                } else {
+                    updateAccommodationCost(acrdTotal)
+                }
             } else {
                 setAccommodationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.acrd_api_error.html }}></span> })
             }
