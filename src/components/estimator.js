@@ -2,9 +2,8 @@ import React, {useState, useEffect, useRef} from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import InputDatalist from "./input-datalist.js"
 import calculateMeals from "./calculate-meals.js"
-import { DateTime, Interval, Info } from "luxon"
+import { DateTime, Interval } from "luxon"
 import * as yup from "yup"
-import monthsContained from "./months-contained.js"
 import { useIntl } from 'react-intl'
 import EstimatorRow from "./estimator-row.js"
 import EmailModal from "./email-modal.js"
@@ -26,7 +25,6 @@ import InputGroup from 'react-bootstrap/InputGroup'
 
 import cities from "../data/cities.js"
 import geocodedCities from "../data/geocodedCities"
-import acrdRates from "../data/acrdRates.js"
 import locations from "../data/locations.js"
 
 import { FaSpinner, FaQuestionCircle, FaExclamationTriangle, FaBed, FaPlane, FaTaxi, FaUtensils, FaSuitcase } from 'react-icons/fa'
@@ -68,13 +66,15 @@ const Estimator = () => {
     let locale = `${intl.locale}-ca`;
 
     const localCurrencyDisplay = (string) => {
-        return string.toLocaleString(locale, {
+        const float = parseFloat(string);
+        let localDisplay = float.toLocaleString(locale, {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
             style: 'currency',
             currency: 'CAD',
             currencyDisplay: 'symbol'
         }).replace('CA', '').replace(/\D00(?=\D*$)/, '')
+        return localDisplay;
     }
 
     const cmsData = useStaticQuery(graphql`
@@ -243,6 +243,7 @@ const Estimator = () => {
                         option_value
                     }
                     email_form_field_required
+                    email_form_field_invalid
                     email_modal_title
                     email_modal_submit
                     meals_modal_title
@@ -406,6 +407,9 @@ const Estimator = () => {
                     required
                     enable_manual_km_checkbox_label
                     manual_km_input_label
+                    acrd_api_error {
+                        html
+                    }
                 }
             }
         }
@@ -559,6 +563,7 @@ const Estimator = () => {
 
     const [accommodationCost, setAccommodationCost] = useState('0.00');
     const [acrdTotal, setAcrdTotal] = useState(0.00);
+    const [acrdFetchSuccess, setAcrdFetchSuccess] = useState(false);
     const [accommodationMessage, setAccommodationMessage] = useState({ element: <span></span>, style: 'primary' });
     const [transportationMessage, setTransportationMessage] = useState(initialTransportationMessage);
     const [localTransportationMessage, setLocalTransportationMessage] = useState({ element: <span></span>, style: 'primary' });
@@ -681,46 +686,37 @@ const Estimator = () => {
     let [initialFlightResult, setInitialFlightResult] = useState(1.11);
     let [acceptedFlight, setAcceptedFlight] = useState(0.00);
 
-
-
-    const fetchHotelCost = () => {
-        let months = monthsContained(departureDate, returnDate);
-        let rates = acrdRates[destination.acrdName];
-        if (!rates) {
-            rates = acrdRates[cities.suburbCityList[destination.acrdName]]
+    const fetchHotelCost = async () => {
+        let requestBody = {
+            city: destination.cityName,
+            province: destination.provinceCode,
+            startDate: departureDate,
+            endDate: returnDate,
         }
+        let response = await fetch('/api/fetchAcrdRates',
+        {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+        })
+
+        let result;
+
         
-        let acrdRatesFiltered = Object.keys(rates)
-            .filter(key => months.map(mon => mon.month).includes(key))
-            .reduce((res, key) => {
-                res[key] = rates[key];
-                return res;
-            }, {});
-
-        try {
-            let rates = rateDaysByMonth(departureDateLux, returnDateLux, acrdRatesFiltered)
-
-            let total = 0.00;
-
-            let calculatedApplicableRates = []
-
-            for (const month in rates) {
-                total = total + rates[month].monthTotal
-                calculatedApplicableRates.push({
-                    month: month,
-                    rate: rates[month].rate
-                })
-            }
-
-            setApplicableRates(calculatedApplicableRates)
-
-            setAcrdTotal(total);
-
-            // eslint-disable-next-line no-template-curly-in-string
-
-        } catch (error) {
-            console.log('fetchHotelCostError', error);
+        if (response.status === 200) {
+            result = await response.json()
+            console.log(result)
+            setAcrdTotal(result.total);
+            setApplicableRates(result.ratesByDay)
+            setAcrdFetchSuccess(true)
+        } else {
+            setAcrdTotal(0.00);
+            setApplicableRates([])
+            setAcrdFetchSuccess(false)
         }
+
     }
 
     const fetchLocalTransportationRate = (numberOfDays) => {
@@ -732,17 +728,25 @@ const Estimator = () => {
 
     useEffect(() => {
         if (accommodationType === 'hotel') {
-            let province = destination.provinceCode
-            let cityName = destination.cityName
-            let destinationDisplay = `${cityName}, ${province}`
+            if (acrdFetchSuccess) {
+                let province = destination.provinceCode
+                let cityName = destination.cityName
+                let destinationDisplay = `${cityName}, ${province}`
+    
+                let message = localeCopy.hotel_success.html
+                message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
+                // eslint-disable-next-line no-template-curly-in-string
+                message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate.max_rate)}</strong>`)
+                setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
+                if(departureDate === returnDate) {
+                    updateAccommodationCost(0.00)
+                } else {
+                    updateAccommodationCost(acrdTotal)
+                }
+            } else {
+                setAccommodationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.acrd_api_error.html }}></span> })
+            }
 
-            let message = localeCopy.hotel_success.html
-            fetchHotelCost()
-            message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
-            // eslint-disable-next-line no-template-curly-in-string
-            message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
-            setAccommodationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></div> })
-            updateAccommodationCost(acrdTotal)
         } else if (accommodationType === 'private') {
             let rate = (Interval.fromDateTimes(departureDateLux, returnDateLux).count('days') - 1) * 50;
             setAccommodationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></div>  })
@@ -823,46 +827,6 @@ const Estimator = () => {
         setSummaryCost(newValue.toFixed(2))
     }
 
-    const rateDaysByMonth = (departureDate, returnDate, rates) => {
-        // get all the dates in range
-
-        let dates = Interval.fromDateTimes(
-            departureDate.startOf("day"),
-            returnDate.endOf("day"))
-            .splitBy({days: 1}).map(d => d.start)
-
-        // remove the last date, since we won't need accommodation on that day
-
-        dates.pop();
-
-        // get month/year from each date object
-
-        let months = dates.map((date) => {
-            return date.month + '-' + date.year;
-        });
-
-        // count occurrences of each month
-
-        var monthYearCount = months.reduce(function(obj, b) {
-            obj[b] = ++obj[b] || 1;
-            return obj;
-        }, {});
-
-        let result = {}
-
-        for (const monthYear in monthYearCount) {
-            let split = monthYear.split('-');
-            let monthName = Info.months()[split[0] - 1]
-            result[monthYear] = {
-                dayCount: monthYearCount[monthYear],
-                rate: rates[monthName],
-                monthTotal: monthYearCount[monthYear] * rates[monthName],
-            }
-        }
-
-        return result;
-    }
-
     const handleSubmit =  async(e) => {
         setProvince('')
         setMealsByDay({})
@@ -889,6 +853,7 @@ const Estimator = () => {
         e.preventDefault();
         handleSubmitEstimateValidation()
             .then(async (valid) => {
+                setErrorPanel(false);
                 setOtherCost('0.00');
                 setSubmitValidationWarnings([]);
                 let flightResult = await fetchFlightCost(originAirportCode, destinationAirportCode, departureTime, returnTime, departureOffset, returnOffset)
@@ -924,7 +889,7 @@ const Estimator = () => {
                     setReturnDistance(0);
                 }
 
-                fetchHotelCost()
+                await fetchHotelCost()
                 fetchLocalTransportationRate(numberOfDays - 1)
 
                 // get ACRD rate for destination
@@ -946,6 +911,7 @@ const Estimator = () => {
             })
             .catch(err => {
                 setLoading(false);
+                console.log(err);
                 setSubmitValidationWarnings(err.inner || []);
                 setErrorPanel(true);
                 executeErrorPanelViewScroll();
@@ -1005,6 +971,8 @@ const Estimator = () => {
         setReturnTime('17:00');
         setDepartureOffset(2);
         setReturnOffset(2);
+
+        setErrorPanel(false)
 
         // START OF HACK This is a hack to programatically clear the autocomplete inputs
 
@@ -1069,16 +1037,13 @@ const Estimator = () => {
     const handleSubmitEmailValidation = () => {
         let target = {tripName, travellersName, travellersEmail, approversName, approversEmail, tripNotes, travellerIsPublicServant, travelCategory};
         let schema = yup.object().shape({
-            tripName: yup
-                .string()
-                .typeError(`${formattedMessage('email_form_trip_name')} ${formattedMessage('is_not_valid')}`)
-                .required(`${formattedMessage('email_form_trip_name')} ${formattedMessage('is_required')}`),
             travellersName: yup
                 .string()
                 .typeError(`${formattedMessage('email_form_travellers_name')} ${formattedMessage('is_not_valid')}`)
                 .required(`${formattedMessage('email_form_travellers_name')} ${formattedMessage('is_required')}`),
             travellersEmail: yup
                 .string()
+                .email(`${formattedMessage('email_form_travellers_email')} ${formattedMessage('is_not_valid')}`)
                 .typeError(`${formattedMessage('email_form_travellers_email')} ${formattedMessage('is_not_valid')}`)
                 .required(`${formattedMessage('email_form_travellers_email')} ${formattedMessage('is_required')}`),
             approversName: yup
@@ -1087,23 +1052,33 @@ const Estimator = () => {
                 .required(`${formattedMessage('email_form_approvers_name')} ${formattedMessage('is_required')}`),
             approversEmail: yup
                 .string()
+                .email(`${formattedMessage('email_form_approvers_email')} ${formattedMessage('is_not_valid')}`)
                 .typeError(`${formattedMessage('email_form_approvers_email')} ${formattedMessage('is_not_valid')}`)
                 .required(`${formattedMessage('email_form_approvers_email')} ${formattedMessage('is_required')}`),
-            tripNotes: yup
-                .string(),
+            tripName: yup
+                .string()
+                .typeError(`${formattedMessage('email_form_trip_name')} ${formattedMessage('is_not_valid')}`)
+                .required(`${formattedMessage('email_form_trip_name')} ${formattedMessage('is_required')}`),
             travelCategory: yup
                 .string()
                 .typeError(`${formattedMessage('email_form_category_label')} ${formattedMessage('is_not_valid')}`)
                 .required(`${formattedMessage('email_form_category_label')} ${formattedMessage('is_required')}`),
+            tripNotes: yup
+                .string(),
         });
         return schema.validate(target, {abortEarly: false})
     }
 
     const errorList = () => {
         let list = [];
-        list = submitValidationWarnings.map((error, index) =>
-        <li key={index}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
-        );
+        list = submitValidationWarnings.map((error, index) => {
+            if (error.path === 'destination') {
+                error.path = 'autocomplete-destination'
+            } else if (error.path === 'origin') {
+                error.path = 'autocomplete-origin'
+            }
+            return <li key={index}><a className="alert-link" href={'#' + error.path}>{error.errors}</a></li>
+        });
         return list;
     }
 
@@ -1114,6 +1089,7 @@ const Estimator = () => {
 
     const sendEmail = async () => {
         setEmailRequestLoading(true);
+        setEmailValidationWarnings([])
         handleSubmitEmailValidation()
             .then(async (valid) => {
                 setEmailValidationWarnings([]);
@@ -1215,13 +1191,13 @@ const Estimator = () => {
 
     useEffect(() => {
         if (transportationType === 'flight') {
-            
+
             if (origin.cityCode === null || destination.cityCode === null) {
                 setTransportationMessage({
                     element: <span>{formattedMessage('flight_message_no_airport')}</span>
                 })
             } else if (parseFloat(transportationCost) === parseFloat(0.00)) {
-                focusTransportationMessage()
+                if (result) { focusTransportationMessage() }
                 setTransportationMessage({
                     element: <div className="transportation-message alert-warning ">
                                 <div className='d-inline' dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></div>
@@ -1461,7 +1437,6 @@ const Estimator = () => {
                             value={returnDate} 
                             className="form-control"
                             onChange={(event) => {
-                                console.log('Date', event.target.value)
                                 setReturnDate(event.target.value)
                             }}
                         />
@@ -1470,10 +1445,10 @@ const Estimator = () => {
                     <div className="col-sm-3"></div>
                     <div className="col-sm-12">
                         {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-                        <button type="submit" className="btn btn-primary px-5">{formattedMessage('estimate')}</button>
+                        <button type="submit" className="btn btn-primary px-5 my-3 mr-3 my-md-0">{formattedMessage('estimate')}</button>
                         {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                         {showClear &&
-                            <button type="button" id="clear-button" className="btn btn-outline-dark px-5 ml-3" onClick={() => {clearForm()}}>{formattedMessage('clear')}</button>
+                            <button type="button" id="clear-button" className="btn btn-outline-dark px-5" onClick={() => {clearForm()}}>{formattedMessage('clear')}</button>
                         }
                         {loading && <FaSpinner focusable="false" aria-hidden="true" className="fa-spin ml-3" size="24" />}
                         <div role="status" className="sr-only">{screenReaderStatus}</div>
@@ -1561,25 +1536,27 @@ const Estimator = () => {
                                                 if (!result) return;
                                                 if (parseFloat(e.target.value) > acrdTotal) {
                                                     setAccommodationCost(e.target.value)
-                                                    let message = localeCopy.hotel_above_estimate.html
-                                                    message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
-                                                    message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
-                                                    setAccommodationMessage({ element: 
-                                                    <div className="mb-0 alert-warning" role="alert">
-                                                        <>
-                                                            <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: message }}></div>
-                                                            <OverlayTrigger
-                                                                placement="top"
-                                                                delay={{ show: 250, hide: 400 }}
-                                                                overlay={renderAccommodationTooltip}
-                                                            >
-                                                                <button type="button" className="btn btn-default" aria-label={formattedMessage('accommodation_tooltip')}>
-                                                                    <FaQuestionCircle focusable="false" aria-hidden="true" className="ml-2 mb-1" size="15" fill="#9E9E9E" />
-                                                                </button>
-                                                            </OverlayTrigger>
-                                                        </>
-                                                    </div>
-                                                    , style: 'warn' });
+                                                    if (acrdFetchSuccess) {
+                                                        let message = localeCopy.hotel_above_estimate.html
+                                                        message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate.max_rate)}</strong>`)
+                                                        message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
+                                                        setAccommodationMessage({ element: 
+                                                        <div className="mb-0 alert-warning" role="alert">
+                                                            <>
+                                                                <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: message }}></div>
+                                                                <OverlayTrigger
+                                                                    placement="top"
+                                                                    delay={{ show: 250, hide: 400 }}
+                                                                    overlay={renderAccommodationTooltip}
+                                                                >
+                                                                    <button type="button" className="btn btn-default" aria-label={formattedMessage('accommodation_tooltip')}>
+                                                                        <FaQuestionCircle focusable="false" aria-hidden="true" className="ml-2 mb-1" size="15" fill="#9E9E9E" />
+                                                                    </button>
+                                                                </OverlayTrigger>
+                                                            </>
+                                                        </div>
+                                                        , style: 'warn' });
+                                                    } // else { provide message }
                                                 } else if (parseFloat(e.target.value) === 0) {
                                                     setAccommodationCost(e.target.value)
                                                     // localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
@@ -1593,7 +1570,7 @@ const Estimator = () => {
                                                 } else if (parseFloat(e.target.value) <= acrdTotal) {
                                                     setAccommodationCost(e.target.value)
                                                     let message = localeCopy.hotel_below_estimate.html
-                                                    message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate)}</strong>`)
+                                                    message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate.max_rate)}</strong>`)
                                                     message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
                                                     setAccommodationMessage({ element: 
                                                     <div className="mb-0">

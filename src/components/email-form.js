@@ -25,12 +25,14 @@ const EmailForm = (props) => {
     useEffect(() => {
         if (validationErrors.length > 0) {
             setErrorPanel(true)
-        } 
+        } else {
+            setErrorPanel(false)
+        }
     }, [validationErrors]);
 
     useEffect(() => {
-        if (errorPanel) {
-            executeErrorPanelScroll();
+        if (validationErrors.length > 0 && errorPanel) {
+            executeErrorPanelScroll()
         }
     }, [errorPanel])
 
@@ -89,14 +91,14 @@ const EmailForm = (props) => {
                             removeIsInvalid('travellersEmail', validationErrors)
                             props.setTravellersEmail(e.target.value)
                         }}
-                        type="text"
+                        type="email"
                     />
                     <Form.Text id="travellersEmailHelp" muted>
                         {props.messages.email_form_travellers_email_placeholder}
                     </Form.Text>
                     <Form.Control.Feedback type="invalid" role="alert">
-                        <span className="sr-only">{props.messages.email_form_travellers_email}.{' '}</span>
-                        {props.messages.email_form_field_required}
+                        <span className="sr-only">{props.travellersEmail.length < 1 ? props.messages.email_form_field_required : props.messages.email_form_field_invalid}.{' '}</span>
+                        {props.travellersEmail.length < 1 ? props.messages.email_form_field_required : props.messages.email_form_field_invalid}
                     </Form.Control.Feedback>
                     <Form.Check
                         className="mt-3 checkbox-label"
@@ -154,15 +156,15 @@ const EmailForm = (props) => {
                             removeIsInvalid('approversEmail', validationErrors)
                             props.setApproversEmail(e.target.value)
                         }}
-                        type="text"
+                        type="email"
                         aria-describedby="approversEmailHelp"
                     />
                     <Form.Text id="approversEmailHelp" muted>
                         {props.messages.email_form_approvers_email_placeholder}
                     </Form.Text>
                     <Form.Control.Feedback type="invalid" role="alert">
-                        <span className="sr-only">{props.messages.email_form_approvers_email}.{' '}</span>
-                        {props.messages.email_form_field_required}
+                        <span className="sr-only">{props.approversEmail.length < 1 ? props.messages.email_form_field_required : props.messages.email_form_field_invalid}.{' '}</span>
+                        {props.approversEmail.length < 1 ? props.messages.email_form_field_required : props.messages.email_form_field_invalid}
                     </Form.Control.Feedback>
                 </Col>
             </Form.Group>

@@ -36412,8 +36412,8 @@ module.exports = {
       }
     ]
   },
-  "Edmunston NB": {
-    "acrdName": "Edmunston NB",
+  "Edmundston NB": {
+    "acrdName": "Edmundston NB",
     "address_components": {
       "en": [
         {
@@ -48846,359 +48846,6 @@ module.exports = {
         "relevance": 0.2752,
         "frenchLabel": "Îles-de-la Madeleine",
         "englishLabel": "Îles-de-la Madeleine"
-      }
-    ]
-  },
-  "Grand Forks BC": {
-    "acrdName": "Grand Forks BC",
-    "address_components": {
-      "en": [
-        {
-          "long_name": "Grand Forks",
-          "short_name": "Grand Forks",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Kootenay Boundary D",
-          "short_name": "Kootenay Boundary D",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Kootenay Boundary",
-          "short_name": "Kootenay Boundary",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "British Columbia",
-          "short_name": "BC",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "V0H",
-          "short_name": "V0H",
-          "types": [
-            "postal_code",
-            "postal_code_prefix"
-          ]
-        }
-      ],
-      "fr": [
-        {
-          "long_name": "Grand Forks",
-          "short_name": "Grand Forks",
-          "types": [
-            "locality",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Kootenay Boundary D",
-          "short_name": "Kootenay Boundary D",
-          "types": [
-            "administrative_area_level_3",
-            "political"
-          ]
-        },
-        {
-          "long_name": "District régional de Kootenay Boundary",
-          "short_name": "District régional de Kootenay Boundary",
-          "types": [
-            "administrative_area_level_2",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Colombie-Britannique",
-          "short_name": "BC",
-          "types": [
-            "administrative_area_level_1",
-            "political"
-          ]
-        },
-        {
-          "long_name": "Canada",
-          "short_name": "CA",
-          "types": [
-            "country",
-            "political"
-          ]
-        },
-        {
-          "long_name": "V0H",
-          "short_name": "V0H",
-          "types": [
-            "postal_code",
-            "postal_code_prefix"
-          ]
-        }
-      ]
-    },
-    "formatted_address": {
-      "en": "Grand Forks, BC V0H, Canada",
-      "fr": "Grand Forks, BC V0H, Canada"
-    },
-    "geometry": {
-      "bounds": {
-        "northeast": {
-          "lat": 49.04606620000001,
-          "lng": -118.4195281
-        },
-        "southwest": {
-          "lat": 49.0125596,
-          "lng": -118.4751245
-        }
-      },
-      "location": {
-        "lat": 49.0300946,
-        "lng": -118.4451392
-      },
-      "location_type": "APPROXIMATE",
-      "viewport": {
-        "northeast": {
-          "lat": 49.04606620000001,
-          "lng": -118.4195281
-        },
-        "southwest": {
-          "lat": 49.0125596,
-          "lng": -118.4751245
-        }
-      }
-    },
-    "google_place_id": "ChIJA7DM_retYlMRVLM2ekn0fVg",
-    "types": [
-      "locality",
-      "political"
-    ],
-    "airports": [
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "INTERNATIONAL",
-        "detailedName": "VANCOUVER/BC/CA:INTERNATIONAL",
-        "timeZoneOffset": "-07:00",
-        "iataCode": "YVR",
-        "geoCode": {
-          "latitude": 49.195,
-          "longitude": -123.1792
-        },
-        "address": {
-          "cityName": "VANCOUVER",
-          "cityCode": "YVR",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "BC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 345,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 31
-          },
-          "travelers": {
-            "score": 24
-          }
-        },
-        "relevance": 8.95488,
-        "frenchLabel": "Aéroport international de Vancouver",
-        "englishLabel": "Vancouver International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "CALGARY INTL",
-        "detailedName": "CALGARY/AB/CA:CALGARY INTL",
-        "timeZoneOffset": "-06:00",
-        "iataCode": "YYC",
-        "geoCode": {
-          "latitude": 51.12945,
-          "longitude": -114.0131
-        },
-        "address": {
-          "cityName": "CALGARY",
-          "cityCode": "YYC",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "AB",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 393,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 21
-          },
-          "travelers": {
-            "score": 17
-          }
-        },
-        "relevance": 5.41516,
-        "frenchLabel": "Aéroport international de Calgary",
-        "englishLabel": "Calgary International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "INTERNATIONAL",
-        "detailedName": "KELOWNA/BC/CA:INTERNATIONAL",
-        "timeZoneOffset": "-07:00",
-        "iataCode": "YLW",
-        "geoCode": {
-          "latitude": 49.95612,
-          "longitude": -119.3778
-        },
-        "address": {
-          "cityName": "KELOWNA",
-          "cityCode": "YLW",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "BC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 123,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 3
-          },
-          "travelers": {
-            "score": 2
-          }
-        },
-        "relevance": 2.58053,
-        "frenchLabel": "Aéroport international de Kelowna",
-        "englishLabel": "Kelowna International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "VICTORIA INTL",
-        "detailedName": "VICTORIA/BC/CA:VICTORIA INTL",
-        "timeZoneOffset": "-07:00",
-        "iataCode": "YYJ",
-        "geoCode": {
-          "latitude": 48.64695,
-          "longitude": -123.4258
-        },
-        "address": {
-          "cityName": "VICTORIA",
-          "cityCode": "YYJ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "BC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 367,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 4
-          },
-          "travelers": {
-            "score": 2
-          }
-        },
-        "relevance": 1.18388,
-        "frenchLabel": "Aéroport international de Victoria",
-        "englishLabel": "Victoria International"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "WEST KOOTENAY REGIONAL",
-        "detailedName": "CASTLEGAR/BC/CA:WEST KOOTENAY",
-        "timeZoneOffset": "-07:00",
-        "iataCode": "YCG",
-        "geoCode": {
-          "latitude": 49.29639,
-          "longitude": -117.6325
-        },
-        "address": {
-          "cityName": "CASTLEGAR",
-          "cityCode": "YCG",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "BC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 66,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 1.01095,
-        "frenchLabel": "Castlegar, West Kootenay Regional",
-        "englishLabel": "Castlegar, West Kootenay Regional"
-      },
-      {
-        "type": "location",
-        "subType": "AIRPORT",
-        "name": "TRAIL",
-        "detailedName": "TRAIL/BC/CA",
-        "timeZoneOffset": "-07:00",
-        "iataCode": "YZZ",
-        "geoCode": {
-          "latitude": 49.05695,
-          "longitude": -117.6081
-        },
-        "address": {
-          "cityName": "TRAIL",
-          "cityCode": "YZZ",
-          "countryName": "CANADA",
-          "countryCode": "CA",
-          "stateCode": "BC",
-          "regionCode": "NAMER"
-        },
-        "distance": {
-          "value": 61,
-          "unit": "KM"
-        },
-        "analytics": {
-          "flights": {
-            "score": 1
-          },
-          "travelers": {
-            "score": 0
-          }
-        },
-        "relevance": 0.86658,
-        "frenchLabel": "Trail",
-        "englishLabel": "Trail"
       }
     ]
   },
@@ -97499,8 +97146,8 @@ module.exports = {
       }
     ]
   },
-  "Port McNeil BC": {
-    "acrdName": "Port McNeil BC",
+  "Port McNeill BC": {
+    "acrdName": "Port McNeill BC",
     "address_components": {
       "en": [
         {
@@ -111811,8 +111458,8 @@ module.exports = {
       }
     ]
   },
-  "Saint-George-de-Beauce QC": {
-    "acrdName": "Saint-George-de-Beauce QC",
+  "Saint-Georges QC": {
+    "acrdName": "Saint-Georges QC",
     "address_components": {
       "en": [
         {
@@ -123077,8 +122724,8 @@ module.exports = {
       }
     ]
   },
-  "Smith Falls ON": {
-    "acrdName": "Smith Falls ON",
+  "Smiths Falls ON": {
+    "acrdName": "Smiths Falls ON",
     "address_components": {
       "en": [
         {
@@ -139553,8 +139200,8 @@ module.exports = {
       }
     ]
   },
-  "Vermillion AB": {
-    "acrdName": "Vermillion AB",
+  "Vermilion AB": {
+    "acrdName": "Vermilion AB",
     "address_components": {
       "en": [
         {
@@ -143037,8 +142684,8 @@ module.exports = {
       }
     ]
   },
-  "Westaskiwin AB": {
-    "acrdName": "Westaskiwin AB",
+  "Wetaskiwin AB": {
+    "acrdName": "Wetaskiwin AB",
     "address_components": {
       "en": [
         {
