@@ -1473,7 +1473,7 @@ const Estimator = () => {
                             <p>{formattedMessage('estimate_error_lead')}</p>
                             <ol>
                                 {emailErrorList.map((error, index)=> (
-                                        <li tabIndex='0' key={`error-${index}`}><a className="alert-link" href={`#${error.sourceId}`}>{error.text}</a></li>
+                                        <li key={`error-${index}`}><a className="alert-link" href={`#${error.sourceId}`}>{error.text}</a></li>
                                     )
                                 )}
                             </ol>
