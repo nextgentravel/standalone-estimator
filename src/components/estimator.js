@@ -46,9 +46,11 @@ const Estimator = () => {
     const intl = useIntl();
     const summaryView = useRef(null)
     const errorPanelView = useRef(null)
+    const emailErrorPanelView = useRef(null)
     const transportationError = useRef(null)
     const executeSummaryViewScroll = () => summaryView.current.scrollIntoView()
     const executeErrorPanelViewScroll = () =>  errorPanelView.current.focus() && errorPanelView.current.scrollIntoView()
+    const executeEmailErrorPanelViewScroll = () =>  emailErrorPanelView.current.focus() && emailErrorPanelView.current.scrollIntoView()
     const focusTransportationMessage = () => transportationError.current.focus() && transportationError.current.scrollIntoView()
     
     
@@ -560,6 +562,7 @@ const Estimator = () => {
     const [result, setResult] = useState(false);
     const [generalError, setGeneralError] = useState(false);
     const [errorPanel, setErrorPanel] = useState(false);
+    const [emailErrorPanel, setEmailErrorPanel] = useState(false);
 
     const [accommodationCost, setAccommodationCost] = useState('0.00');
     const [acrdTotal, setAcrdTotal] = useState(0.00);
@@ -583,7 +586,7 @@ const Estimator = () => {
     const [applicableRates, setApplicableRates] = useState([]);
 
     const [emailModalShow, setEmailModalShow] = useState(false);
-    const [emailErrorModalShow, setEmailErrorModalShow] = useState(false);
+    // const [emailErrorModalShow, setEmailErrorModalShow] = useState(false);
     const [emailErrorList, setEmailErrorList]= useState([]);
     const [emailClicked, setEmailClicked] = useState(false);
     const [emailRequestLoading, setEmailRequestLoading] = useState(false);
@@ -1251,16 +1254,16 @@ const Estimator = () => {
     const checkForEmailErrors = () => {
         const errorArray = [];
         if (accommodationType === '') {
-            errorArray.push(localeCopy.email_error_accom_type);
+            errorArray.push({ sourceId: 'accommodationType', text: localeCopy.email_error_accom_type });
         }
         if (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') {
-            errorArray.push(localeCopy.email_error_accom_value);
+            errorArray.push({ sourceId: 'accommodation_total', text: localeCopy.email_error_accom_value });
         }
         if (transportationType === '') {
-            errorArray.push(localeCopy.email_error_transport_type);
+            errorArray.push({ sourceId: 'transportationType', text: localeCopy.email_error_transport_type });
         }
         if (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired') {
-            errorArray.push(localeCopy.email_error_transport_value);
+            errorArray.push({ sourceId: 'transportation_total', text: localeCopy.email_error_transport_value });
         }
         setEmailErrorList(errorArray);
         setEmailClicked(true);
@@ -1269,23 +1272,18 @@ const Estimator = () => {
     useEffect(() => {
         if(emailClicked) {
             if (emailErrorList.length > 0) {
-                setEmailErrorModalShow(true);
+                setEmailErrorPanel(true)
+                executeEmailErrorPanelViewScroll()
                 setEmailClicked(false);
             } else {
                 setEmailModalShow(true);
                 setEmailClicked(false);
             }
         }
-    }, [emailErrorList,emailClicked])
+    }, [emailErrorList, emailClicked])
 
     return (
         <div className="mb-4">
-            <EmailErrorModal 
-                show={emailErrorModalShow} 
-                onHide={() => setEmailErrorModalShow(false)} 
-                closeText={localeCopy.email_error_modal_close_text} 
-                errorTitle={localeCopy.email_error_modal_title}
-                emailErrorList={emailErrorList}/>
             <EmailModal
                 validationWarnings={emailValidationWarnings}
                 setEmailValidationWarnings={setEmailValidationWarnings}
@@ -1468,6 +1466,19 @@ const Estimator = () => {
                     <>
                         <div className="mb-5 mt-4 border-bottom" />
                         <h3 className="mb-4">{formattedMessage('estimate_summary_title')}</h3>
+
+
+                        {emailErrorPanel !== false && <section tabIndex={'0'} className="focus-only alert alert-danger alert-danger-banner" role="alert" ref={emailErrorPanelView}>
+                            <h3 >{formattedMessage('estimate_error_title')}</h3>
+                            <p>{formattedMessage('estimate_error_lead')}</p>
+                            <ol>
+                                {emailErrorList.map((error, index)=> (
+                                        <li tabIndex='0' key={`error-${index}`}><a className="alert-link" href={`#${error.sourceId}`}>{error.text}</a></li>
+                                    )
+                                )}
+                            </ol>
+                        </section>}
+
                         <div className="row mb-4">
                             <div className="col-sm-12 mb-2">
                                 <h4 className="font-weight-bold"><FaBed focusable="false" aria-hidden="true" className="mr-2" size="25" fill="#9E9E9E" />{formattedMessage('accommodation')}</h4>
@@ -1498,6 +1509,7 @@ const Estimator = () => {
                                                             setAccommodationType(e.target.value)
                                                         }
                                                     }}
+                                                    id="accommodationType"
                                                 >
                                                     <option disabled value="">{formattedMessage('select')}</option>
                                                     <option value="hotel">{formattedMessage('hotel')}</option>
@@ -1636,6 +1648,7 @@ const Estimator = () => {
                                                             setTransportationType(e.target.value)
                                                         }
                                                     }}
+                                                    id="transportationType"
                                                 >
                                                     <option disabled value="">{formattedMessage('select')}</option>
                                                     <option value="flight" >{formattedMessage('flight')}</option>
@@ -1668,7 +1681,7 @@ const Estimator = () => {
                                         }
                                         <input
                                             className={`form-control`}
-                                            id={"transportation_select"}
+                                            id={"transportation_total"}
                                             aria-label={formattedMessage('transportation_total')}
                                             aria-describedby="transportation-message"
                                             name={formattedMessage('transportation_total')}
