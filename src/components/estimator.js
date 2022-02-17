@@ -964,7 +964,7 @@ const Estimator = () => {
         setFlightResult({});
         setTransportationType('')
         setAccommodationType('')
-
+        setEmailErrorList([])
         setPrivateVehicleSuccess(false)
         setPrivateKilometricsValue(0)
 
@@ -1256,13 +1256,13 @@ const Estimator = () => {
         if (accommodationType === '') {
             errorArray.push({ sourceId: 'accommodationType', text: localeCopy.email_error_accom_type });
         }
-        if (parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') {
+        if (accommodationType !== '' && parseFloat(accommodationCost) === parseFloat(0.00) && accommodationType !== 'notrequired') {
             errorArray.push({ sourceId: 'accommodation_total', text: localeCopy.email_error_accom_value });
         }
         if (transportationType === '') {
             errorArray.push({ sourceId: 'transportationType', text: localeCopy.email_error_transport_type });
         }
-        if (parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired') {
+        if (transportationType !== '' && parseFloat(transportationCost) === parseFloat(0.00) && transportationType !== 'notrequired') {
             errorArray.push({ sourceId: 'transportation_total', text: localeCopy.email_error_transport_value });
         }
         setEmailErrorList(errorArray);
@@ -1272,8 +1272,8 @@ const Estimator = () => {
     useEffect(() => {
         if(emailClicked) {
             if (emailErrorList.length > 0) {
-                setEmailErrorPanel(true)
-                executeEmailErrorPanelViewScroll()
+                setEmailErrorPanel(true);
+                executeEmailErrorPanelViewScroll();
                 setEmailClicked(false);
             } else {
                 setEmailModalShow(true);
@@ -1468,7 +1468,7 @@ const Estimator = () => {
                         <h3 className="mb-4">{formattedMessage('estimate_summary_title')}</h3>
 
 
-                        {emailErrorPanel !== false && <section tabIndex={'0'} className="focus-only alert alert-danger alert-danger-banner" role="alert" ref={emailErrorPanelView}>
+                        {emailErrorList.length > 0 && <section tabIndex={'0'} className="focus-only alert alert-danger alert-danger-banner" role="alert" ref={emailErrorPanelView}>
                             <h3 >{formattedMessage('estimate_error_title')}</h3>
                             <p>{formattedMessage('estimate_error_lead')}</p>
                             <ol>
