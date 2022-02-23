@@ -727,37 +727,40 @@ const Estimator = () => {
     }
 
     useEffect(() => {
-        if (accommodationType === 'hotel') {
-            if (acrdFetchSuccess) {
-                let province = destination.provinceCode
-                let cityName = destination.cityName
-                let destinationDisplay = `${cityName}, ${province}`
-    
-                let message = localeCopy.hotel_success.html
-                message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
-                // eslint-disable-next-line no-template-curly-in-string
-                message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate.max_rate)}</strong>`)
-                setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
-                if(departureDate === returnDate) {
-                    updateAccommodationCost(0.00)
+        const timer = setTimeout(() => {
+            if (accommodationType === 'hotel') {
+                if (acrdFetchSuccess) {
+                    let province = destination.provinceCode
+                    let cityName = destination.cityName
+                    let destinationDisplay = `${cityName}, ${province}`
+        
+                    let message = localeCopy.hotel_success.html
+                    message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
+                    // eslint-disable-next-line no-template-curly-in-string
+                    message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate.max_rate)}</strong>`)
+                    setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
+                    if(departureDate === returnDate) {
+                        updateAccommodationCost(0.00)
+                    } else {
+                        updateAccommodationCost(acrdTotal)
+                    }
                 } else {
-                    updateAccommodationCost(acrdTotal)
+                    setAccommodationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.acrd_api_error.html }}></span> })
                 }
-            } else {
-                setAccommodationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.acrd_api_error.html }}></span> })
+    
+            } else if (accommodationType === 'private') {
+                let rate = (Interval.fromDateTimes(departureDateLux, returnDateLux).count('days') - 1) * 50;
+                setAccommodationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></div>  })
+                updateAccommodationCost(rate)
+            } else if (accommodationType === 'notrequired') {
+                setAccommodationMessage({ element: <span className="transportation-message"></span>  })
+                updateAccommodationCost(0.00);
+            } else if (result) {
+                setAccommodationMessage({ element: <span className="transportation-message">{formattedMessage('transportation_select_message')}</span>  })
+                updateAccommodationCost(0.00)
             }
-
-        } else if (accommodationType === 'private') {
-            let rate = (Interval.fromDateTimes(departureDateLux, returnDateLux).count('days') - 1) * 50;
-            setAccommodationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></div>  })
-            updateAccommodationCost(rate)
-        } else if (accommodationType === 'notrequired') {
-            setAccommodationMessage({ element: <span className="transportation-message"></span>  })
-            updateAccommodationCost(0.00);
-        } else if (result) {
-            setAccommodationMessage({ element: <span className="transportation-message">{formattedMessage('transportation_select_message')}</span>  })
-            updateAccommodationCost(0.00)
-        }
+          }, 100);
+        return () => clearTimeout(timer);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [accommodationType])
 
