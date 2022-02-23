@@ -47,12 +47,9 @@ const Estimator = () => {
     const summaryView = useRef(null)
     const errorPanelView = useRef(null)
     const emailErrorPanelView = useRef(null)
-    const transportationError = useRef(null)
     const executeSummaryViewScroll = () => summaryView.current.scrollIntoView()
     const executeErrorPanelViewScroll = () =>  errorPanelView.current.focus() && errorPanelView.current.scrollIntoView()
-    const executeEmailErrorPanelViewScroll = () =>  emailErrorPanelView.current.focus() && emailErrorPanelView.current.scrollIntoView()
-    const focusTransportationMessage = () => transportationError.current.focus() && transportationError.current.scrollIntoView()
-    
+    const executeEmailErrorPanelViewScroll = () =>  emailErrorPanelView.current.focus() && emailErrorPanelView.current.scrollIntoView()    
     
     const accommodationSelect = useRef(null);
     const focusAccommodationSelect = () => {
@@ -1200,7 +1197,6 @@ const Estimator = () => {
                     element: <span>{formattedMessage('flight_message_no_airport')}</span>
                 })
             } else if (parseFloat(transportationCost) === parseFloat(0.00)) {
-                if (result) { focusTransportationMessage() }
                 setTransportationMessage({
                     element: <div className="transportation-message alert-warning ">
                                 <div className='d-inline' dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></div>
@@ -1713,7 +1709,7 @@ const Estimator = () => {
                                     </div>
                                 </ConditionalWrap>
                             </div>
-                            <div ref={transportationError} tabIndex={'-1'} className="col-sm-5 align-self-center text-wrap mb-2" id="transportation-message">
+                            <div className="col-sm-5 align-self-center text-wrap mb-2" id="transportation-message">
                                 {transportationMessage.element}
                             </div>
                         </div>
@@ -1816,7 +1812,7 @@ const Estimator = () => {
                             readOnly={!result}
                         />
                         <div className="row mb-4">
-                            <div className="col-sm-7 align-self-center text-right" tabIndex='0'>
+                            <div className="col-sm-7 align-self-center text-right">
                                 <div className='mb-3 border-bottom' />
                                 <strong className="mr-2">{formattedMessage('total_cost')}</strong>{localCurrencyDisplay(parseFloat(summaryCost))}
                             </div>
