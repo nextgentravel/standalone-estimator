@@ -790,7 +790,6 @@ const Estimator = () => {
             setTransportationMessage({
                 element: <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a>
             });
-            setScreenReaderStatus('tab twice to select a custom flight time')
             updateTransportationCost(acceptedFlight)
         } else if (transportationType === 'train') {
             updateTransportationCost(0)
@@ -1202,6 +1201,7 @@ const Estimator = () => {
                     element: <div className="transportation-message alert-warning ">
                                 <div className='d-inline' dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></div>
                                 <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
+                                <span className="sr-only">tab twice to open the modal</span>
                             </div>
                 })
 
