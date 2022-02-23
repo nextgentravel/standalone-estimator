@@ -786,30 +786,33 @@ const Estimator = () => {
     }
 
     useEffect(() => {
-        if (transportationType === 'flight') {
-            setTransportationMessage({
-                element: <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a>
-            });
-            // TODO - translate
-            setScreenReaderStatus('tab twice to select a custom flight time')
-            updateTransportationCost(acceptedFlight)
-        } else if (transportationType === 'train') {
-            updateTransportationCost(0)
-            setTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.train_success.html }}></div>  })
-        } else if (transportationType === 'rental') {
-            updateTransportationCost(0)
-            setTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.rental_car_success.html }}></div>  })
-        } else if (transportationType === 'private') {
-            if (privateVehicleSuccess) {
-                setPrivateKilometricsValue((returnDistance / 1000).toFixed(2));
+        const timer = setTimeout(() => {
+            if (transportationType === 'flight') {
+                setTransportationMessage({
+                    element: <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a>
+                });
+                // TODO - translate
+                setScreenReaderStatus('tab twice to select a custom flight time')
+                updateTransportationCost(acceptedFlight)
+            } else if (transportationType === 'train') {
+                updateTransportationCost(0)
+                setTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.train_success.html }}></div>  })
+            } else if (transportationType === 'rental') {
+                updateTransportationCost(0)
+                setTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.rental_car_success.html }}></div>  })
+            } else if (transportationType === 'private') {
+                if (privateVehicleSuccess) {
+                    setPrivateKilometricsValue((returnDistance / 1000).toFixed(2));
+                }
+    
+                updateTransportationCost(transportationEstimates.rentalCar.estimatedValue)
+                displayTransportationMessage()
+            } else if (transportationType === 'notrequired') {
+                updateTransportationCost(0.00)
+                setTransportationMessage({ element: <div className="transportation-message"></div>  })
             }
-
-            updateTransportationCost(transportationEstimates.rentalCar.estimatedValue)
-            displayTransportationMessage()
-        } else if (transportationType === 'notrequired') {
-            updateTransportationCost(0.00)
-            setTransportationMessage({ element: <div className="transportation-message"></div>  })
-        }
+          }, 100);
+        return () => clearTimeout(timer);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [transportationType])
 
