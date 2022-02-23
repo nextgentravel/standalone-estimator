@@ -790,6 +790,8 @@ const Estimator = () => {
             setTransportationMessage({
                 element: <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a>
             });
+            // TODO - translate
+            setScreenReaderStatus('tab twice to select a custom flight time')
             updateTransportationCost(acceptedFlight)
         } else if (transportationType === 'train') {
             updateTransportationCost(0)
