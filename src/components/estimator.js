@@ -1227,6 +1227,7 @@ const Estimator = () => {
                                     <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
                                 </div>
                     })
+                    setTimeout(() => { setScreenReaderStatus('Tab twice to get to the link') }, 100)
                 }, 100)
 
             } else if (parseFloat(transportationCost) === parseFloat(initialFlightResult)) {
@@ -1242,6 +1243,7 @@ const Estimator = () => {
                                     <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
                                 </div>
                     })
+                    setTimeout(() => { setScreenReaderStatus('Tab twice to get to the link') }, 100)
                 }, 100)
             } else if (parseFloat(transportationCost) === parseFloat(flightResult.minimum) || parseFloat(transportationCost) === parseFloat(flightResult.maximum) || parseFloat(transportationCost) === parseFloat(flightResult.median)) {
                 let message = formattedMessage('flight_selected_fare')
