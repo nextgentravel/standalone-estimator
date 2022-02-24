@@ -1638,7 +1638,7 @@ const Estimator = () => {
                                             type="number"
                                             noValidate
                                             min="0"
-                                            step="any"
+                                            step="0.01"
                                         >
                                         </input>
                                         {locale === 'fr-ca' &&
@@ -1737,7 +1737,7 @@ const Estimator = () => {
                                             type="number"
                                             min="0"
                                             noValidate
-                                            step="any"
+                                            step="0.01"
                                         >
                                         </input>
                                         {locale === 'fr-ca' &&
