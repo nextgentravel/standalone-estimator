@@ -789,33 +789,33 @@ const Estimator = () => {
 
     useEffect(() => {
         if (transportationType === 'flight') {
+            updateTransportationCost(acceptedFlight)
             setTimeout(() => {
                 setTransportationMessage({
                     element: <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a>
                 });
-                updateTransportationCost(acceptedFlight)
             }, 100)
         } else if (transportationType === 'train') {
+            updateTransportationCost(0)
             setTimeout(() => {
-                updateTransportationCost(0)
                 setTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.train_success.html }}></div>  })
             }, 100)
         } else if (transportationType === 'rental') {
+            updateTransportationCost(0)
             setTimeout(() => {
-                updateTransportationCost(0)
                 setTransportationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.rental_car_success.html }}></div>  })
             }, 100)
         } else if (transportationType === 'private') {
+            if (privateVehicleSuccess) {
+                setPrivateKilometricsValue((returnDistance / 1000).toFixed(2));
+            }
+            updateTransportationCost(transportationEstimates.rentalCar.estimatedValue)
             setTimeout(() => {
-                if (privateVehicleSuccess) {
-                    setPrivateKilometricsValue((returnDistance / 1000).toFixed(2));
-                }
-                updateTransportationCost(transportationEstimates.rentalCar.estimatedValue)
                 displayTransportationMessage()
             }, 100)
         } else if (transportationType === 'notrequired') {
+            updateTransportationCost(0.00)
             setTimeout(() => {
-                updateTransportationCost(0.00)
                 setTransportationMessage({ element: <div className="transportation-message"></div>  })
             }, 100)
         }
