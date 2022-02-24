@@ -1203,16 +1203,20 @@ const Estimator = () => {
     useEffect(() => {
         if (transportationType === 'flight') {
             if (origin.cityCode === null || destination.cityCode === null) {
-                setTransportationMessage({
-                    element: <span>{formattedMessage('flight_message_no_airport')}</span>
-                })
+                setTimeout(() => {
+                    setTransportationMessage({
+                        element: <span>{formattedMessage('flight_message_no_airport')}</span>
+                    })
+                }, 100)
             } else if (parseFloat(transportationCost) === parseFloat(0.00)) {
-                setTransportationMessage({
-                    element: <div className="transportation-message alert-warning ">
-                                <div className='d-inline' dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></div>
-                                <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
-                            </div>
-                })
+                setTimeout(() => {
+                    setTransportationMessage({
+                        element: <div className="transportation-message alert-warning ">
+                                    <div className='d-inline' dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></div>
+                                    <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
+                                </div>
+                    })
+                }, 100)
 
             } else if (parseFloat(transportationCost) === parseFloat(initialFlightResult)) {
                 let message = formattedMessage('flight_selected_fare_preselected')
@@ -1220,12 +1224,14 @@ const Estimator = () => {
                 message = message.replace('{destinationIATACode}', `<strong>${destinationAirportCode}</strong>`)
                 // eslint-disable-next-line no-template-curly-in-string
                 message = message.replace('{flightPrice}', `<strong>${localCurrencyDisplay(parseFloat(acceptedFlight))}</strong>`)
-                setTransportationMessage({
-                    element: <div>
-                                <div dangerouslySetInnerHTML={{ __html: `${message}` }}></div>
-                                <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
-                            </div>
-                })
+                setTimeout(() => {
+                    setTransportationMessage({
+                        element: <div>
+                                    <div dangerouslySetInnerHTML={{ __html: `${message}` }}></div>
+                                    <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
+                                </div>
+                    })
+                }, 100)
             } else if (parseFloat(transportationCost) === parseFloat(flightResult.minimum) || parseFloat(transportationCost) === parseFloat(flightResult.maximum) || parseFloat(transportationCost) === parseFloat(flightResult.median)) {
                 let message = formattedMessage('flight_selected_fare')
                 message = message.replace('{departureIATACode}', `<strong>${originAirportCode}</strong>`)
@@ -1233,16 +1239,20 @@ const Estimator = () => {
 
 
                 message = message.replace('{flightPrice}', `<strong>${localCurrencyDisplay(parseFloat(acceptedFlight))}</strong>`)
-                setTransportationMessage({
-                    element: <div>
-                                <div dangerouslySetInnerHTML={{ __html: `${message}` }}></div>
-                                <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
-                            </div>
-                })
+                setTimeout(() => {
+                    setTransportationMessage({
+                        element: <div>
+                                    <div dangerouslySetInnerHTML={{ __html: `${message}` }}></div>
+                                    <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
+                                </div>
+                    })
+                }, 100)
             } else if (transportationCost > 0) {
-                setTransportationMessage({
-                    element: <span>{formattedMessage('flight_custom_fare_entered')} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
-                })
+                setTimeout(() => {
+                    setTransportationMessage({
+                        element: <span>{formattedMessage('flight_custom_fare_entered')} <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
+                    })
+                }, 100)
             }
         }
         if (result && transportationType === 'train') {
