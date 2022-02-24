@@ -1601,6 +1601,7 @@ const Estimator = () => {
                                             }}
                                             value={accommodationCost}
                                             type="number"
+                                            noValidate
                                             min="0"
                                         >
                                         </input>
@@ -1700,6 +1701,7 @@ const Estimator = () => {
                                             readOnly={!result || transportationType === 'private' ? true : false || transportationType === '' || transportationType === 'notrequired'}
                                             type="number"
                                             min="0"
+                                            noValidate
                                         >
                                         </input>
                                         {locale === 'fr-ca' &&
