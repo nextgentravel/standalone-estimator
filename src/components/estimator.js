@@ -47,6 +47,8 @@ const Estimator = () => {
     const summaryView = useRef(null)
     const errorPanelView = useRef(null)
     const emailErrorPanelView = useRef(null)
+    const flightSelectRef = useRef(null)
+
     const executeSummaryViewScroll = () => summaryView.current.scrollIntoView()
     const executeErrorPanelViewScroll = () =>  errorPanelView.current.focus() && errorPanelView.current.scrollIntoView()
     const executeEmailErrorPanelViewScroll = () =>  emailErrorPanelView.current.focus() && emailErrorPanelView.current.scrollIntoView()    
@@ -1191,7 +1193,6 @@ const Estimator = () => {
 
     useEffect(() => {
         if (transportationType === 'flight') {
-
             if (origin.cityCode === null || destination.cityCode === null) {
                 setTransportationMessage({
                     element: <span>{formattedMessage('flight_message_no_airport')}</span>
@@ -1201,7 +1202,6 @@ const Estimator = () => {
                     element: <div className="transportation-message alert-warning ">
                                 <div className='d-inline' dangerouslySetInnerHTML={{ __html: localeCopy.flight_zero.text }}></div>
                                 <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_estimate_your_fare_link')}</a></span>
-                                <span className="sr-only">tab twice to open the modal</span>
                             </div>
                 })
 
@@ -1215,7 +1215,6 @@ const Estimator = () => {
                     element: <div>
                                 <div dangerouslySetInnerHTML={{ __html: `${message}` }}></div>
                                 <span> <a href="/" onClick={(e) => {handleFlightModalShow(e)}}>{formattedMessage('flight_regenerate_estimate')}</a></span>
-                                <span className="sr-only">tab twice to open the modal</span>
                             </div>
                 })
             } else if (parseFloat(transportationCost) === parseFloat(flightResult.minimum) || parseFloat(transportationCost) === parseFloat(flightResult.maximum) || parseFloat(transportationCost) === parseFloat(flightResult.median)) {
@@ -1499,7 +1498,6 @@ const Estimator = () => {
                                                     ref={accommodationSelect}
                                                     disabled={!result}
                                                     aria-label={formattedMessage('accommodation_type')}
-                                                    aria-describedby="accommodation-message"
                                                     className="custom-select mb-2"
                                                     value={accommodationType}
                                                     onChange={e => {
@@ -1538,7 +1536,6 @@ const Estimator = () => {
                                         <input
                                             readOnly={!result || accommodationType === "private" || accommodationType === 'notrequired' || accommodationType === ''}
                                             className="form-control"
-                                            aria-describedby="accommodation-message"
                                             id={"accommodation_total"}
                                             aria-label={formattedMessage('accommodation_total')}
                                             name={formattedMessage('accommodation_total')}
@@ -1613,7 +1610,7 @@ const Estimator = () => {
                                     </div>
                                 </ConditionalWrap>
                             </div>
-                            <div className="col-sm-5 align-self-center text-wrap mb-2" id="accommodation-message">
+                            <div className="col-sm-5 align-self-center text-wrap mb-2" id="accommodation-message" aria-live="polite">
                                 {accommodationMessage.element}
                             </div>
                         </div>
@@ -1637,9 +1634,9 @@ const Estimator = () => {
                                                     >{children}</OverlayTrigger>)}
                                             >
                                                 <select
+                                                    ref={flightSelectRef}
                                                     disabled={!result}
                                                     aria-label={formattedMessage('transportation_type')}
-                                                    aria-describedby="transportation-message"
                                                     className="custom-select mb-2"
                                                     value={transportationType}
                                                     onChange={e => {
@@ -1682,7 +1679,6 @@ const Estimator = () => {
                                             className={`form-control`}
                                             id={"transportation_total"}
                                             aria-label={formattedMessage('transportation_total')}
-                                            aria-describedby="transportation-message"
                                             name={formattedMessage('transportation_total')}
                                             onChange={(e)  => {
                                                 if (result) {
@@ -1713,7 +1709,7 @@ const Estimator = () => {
                                     </div>
                                 </ConditionalWrap>
                             </div>
-                            <div className="col-sm-5 align-self-center text-wrap mb-2" id="transportation-message">
+                            <div className="col-sm-5 align-self-center text-wrap mb-2" id="transportation-message" aria-live="polite">
                                 {transportationMessage.element}
                             </div>
                         </div>
