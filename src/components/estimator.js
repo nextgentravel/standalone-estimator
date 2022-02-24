@@ -739,25 +739,35 @@ const Estimator = () => {
                 message = message.replace('{location}', `<strong>${destinationDisplay}</strong>`)
                 // eslint-disable-next-line no-template-curly-in-string
                 message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate.max_rate)}</strong>`)
-                setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
+                setTimeout(() => {
+                    setAccommodationMessage({ element: <span className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></span> })
+                }, 100)
                 if(departureDate === returnDate) {
                     updateAccommodationCost(0.00)
                 } else {
                     updateAccommodationCost(acrdTotal)
                 }
             } else {
-                setAccommodationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.acrd_api_error.html }}></span> })
+                setTimeout(() => {
+                    setAccommodationMessage({ element: <span className="transportation-message alert-warning" dangerouslySetInnerHTML={{ __html: localeCopy.acrd_api_error.html }}></span> })
+                }, 100)
             }
 
         } else if (accommodationType === 'private') {
             let rate = (Interval.fromDateTimes(departureDateLux, returnDateLux).count('days') - 1) * 50;
-            setAccommodationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></div>  })
+            setTimeout(() => {
+                setAccommodationMessage({ element: <div className="transportation-message" dangerouslySetInnerHTML={{ __html: localeCopy.private_accom_estimate_success.html }}></div>  })
+            }, 100)
             updateAccommodationCost(rate)
         } else if (accommodationType === 'notrequired') {
-            setAccommodationMessage({ element: <span className="transportation-message"></span>  })
+            setTimeout(() => {
+                setAccommodationMessage({ element: <span className="transportation-message"></span>  })
+            }, 100)
             updateAccommodationCost(0.00);
         } else if (result) {
-            setAccommodationMessage({ element: <span className="transportation-message">{formattedMessage('transportation_select_message')}</span>  })
+            setTimeout(() => {
+                setAccommodationMessage({ element: <span className="transportation-message">{formattedMessage('transportation_select_message')}</span>  })
+            }, 100)
             updateAccommodationCost(0.00)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -912,6 +922,7 @@ const Estimator = () => {
                 setTransportationMessage({
                     element: <span>{formattedMessage('transportation_select_message')}</span>
                 })
+                setTimeout(() => {}, 100)
                 setAccommodationMessage({
                     element: <span>{formattedMessage('accommodation_select_message')}</span>
                 })
@@ -1566,43 +1577,49 @@ const Estimator = () => {
                                                         let message = localeCopy.hotel_above_estimate.html
                                                         message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate.max_rate)}</strong>`)
                                                         message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
-                                                        setAccommodationMessage({ element: 
-                                                        <div className="mb-0 alert-warning" role="alert">
-                                                            <>
-                                                                <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: message }}></div>
-                                                                <OverlayTrigger
-                                                                    placement="top"
-                                                                    delay={{ show: 250, hide: 400 }}
-                                                                    overlay={renderAccommodationTooltip}
-                                                                >
-                                                                    <button type="button" className="btn btn-default" aria-label={formattedMessage('accommodation_tooltip')}>
-                                                                        <FaQuestionCircle focusable="false" aria-hidden="true" className="ml-2 mb-1" size="15" fill="#9E9E9E" />
-                                                                    </button>
-                                                                </OverlayTrigger>
-                                                            </>
-                                                        </div>
-                                                        , style: 'warn' });
+                                                        setTimeout(() => {
+                                                            setAccommodationMessage({ element: 
+                                                                <div className="mb-0 alert-warning" role="alert">
+                                                                    <>
+                                                                        <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: message }}></div>
+                                                                        <OverlayTrigger
+                                                                            placement="top"
+                                                                            delay={{ show: 250, hide: 400 }}
+                                                                            overlay={renderAccommodationTooltip}
+                                                                        >
+                                                                            <button type="button" className="btn btn-default" aria-label={formattedMessage('accommodation_tooltip')}>
+                                                                                <FaQuestionCircle focusable="false" aria-hidden="true" className="ml-2 mb-1" size="15" fill="#9E9E9E" />
+                                                                            </button>
+                                                                        </OverlayTrigger>
+                                                                    </>
+                                                                </div>
+                                                                , style: 'warn' });
+                                                        }, 100)
                                                     } // else { provide message }
                                                 } else if (parseFloat(e.target.value) === 0) {
                                                     setAccommodationCost(e.target.value)
                                                     // localeCopy.hotel_below_estimate.html = localeCopy.hotel_below_estimate.html.replace('{daily rate}', `<strong>${acrdTotal}</strong>`)
-                                                    setAccommodationMessage({ element: 
-                                                    <div className="mb-0 alert-warning" role="alert">
-                                                        <>
-                                                            <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></div>
-                                                        </>
-                                                    </div>
-                                                    , style: 'warn' });
+                                                    setTimeout(() => {
+                                                        setAccommodationMessage({ element: 
+                                                            <div className="mb-0 alert-warning" role="alert">
+                                                                <>
+                                                                    <div className="transportation-message alert-warning" role="alert" dangerouslySetInnerHTML={{ __html: localeCopy.hotel_zero.html }}></div>
+                                                                </>
+                                                            </div>
+                                                            , style: 'warn' });
+                                                    }, 100)
                                                 } else if (parseFloat(e.target.value) <= acrdTotal) {
                                                     setAccommodationCost(e.target.value)
                                                     let message = localeCopy.hotel_below_estimate.html
                                                     message = message.replace('{daily rate}', `<strong>${localCurrencyDisplay(applicableRates[0].rate.max_rate)}</strong>`)
                                                     message = message.replace('{tripTotal}', `<strong>${localCurrencyDisplay(acrdTotal)}</strong>`)
-                                                    setAccommodationMessage({ element: 
-                                                    <div className="mb-0">
-                                                        <div className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></div>
-                                                    </div>
-                                                    , style: 'success' });
+                                                    setTimeout(() => {
+                                                        setAccommodationMessage({ element: 
+                                                            <div className="mb-0">
+                                                                <div className="transportation-message" dangerouslySetInnerHTML={{ __html: message }}></div>
+                                                            </div>
+                                                            , style: 'success' });
+                                                    }, 100)
                                                 } else {
                                                     setAccommodationCost(e.target.value)
                                                 }
