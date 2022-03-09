@@ -917,7 +917,7 @@ const Estimator = () => {
             setScreenReaderStatus(localeCopy.tab_twice)
             setTimeout(() => {
               setScreenReaderStatus("")
-            }, 100)
+            }, 1000)
           }, 100)
         }, 100)
       }
@@ -1624,7 +1624,7 @@ const Estimator = () => {
             setScreenReaderStatus(localeCopy.tab_twice)
             setTimeout(() => {
               setScreenReaderStatus("")
-            }, 100)
+            }, 1000)
           }, 100)
         }, 100)
       } else if (
@@ -1667,7 +1667,7 @@ const Estimator = () => {
             setScreenReaderStatus(localeCopy.tab_twice)
             setTimeout(() => {
               setScreenReaderStatus("")
-            }, 100)
+            }, 1000)
           }, 100)
         }, 100)
       } else if (
@@ -1730,7 +1730,7 @@ const Estimator = () => {
             setScreenReaderStatus(localeCopy.tab_once)
             setTimeout(() => {
               setScreenReaderStatus("")
-            }, 100)
+            }, 1000)
           }, 100)
         }, 100)
       }
