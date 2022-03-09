@@ -730,14 +730,19 @@ const Estimator = () => {
         "{distance}",
         `<strong>${(returnDistance / 1000).toFixed(0)}</strong>`
       )
-      setTransportationMessage({
-        element: (
-          <div
-            className="transportation-message"
-            dangerouslySetInnerHTML={{ __html: message }}
-          ></div>
-        ),
-      })
+      setTimeout(() => {
+        setTransportationMessage({
+          element: (
+            <div
+              className="transportation-message"
+              dangerouslySetInnerHTML={{ __html: message }}
+            ></div>
+          ),
+        })
+        setTimeout(() => {
+          setScreenReaderStatus(localeCopy.manual_private_vehicle)
+        }, 100)
+      }, 100)
     } else if (enterKilometricsDistanceManually) {
       let message = ""
       message = localeCopy.private_vehicle_manual.html.replace(
@@ -748,25 +753,35 @@ const Estimator = () => {
         "{distance}",
         `<strong>${parseInt(privateKilometricsValue)}</strong>`
       )
-      setTransportationMessage({
-        element: (
-          <div
-            className="transportation-message"
-            dangerouslySetInnerHTML={{ __html: message }}
-          ></div>
-        ),
-      })
+      setTimeout(() => {
+        setTransportationMessage({
+          element: (
+            <div
+              className="transportation-message"
+              dangerouslySetInnerHTML={{ __html: message }}
+            ></div>
+          ),
+        })
+        setTimeout(() => {
+          setScreenReaderStatus(localeCopy.manual_private_vehicle)
+        }, 100)
+      }, 100)
     } else if (!privateVehicleSuccess) {
-      setTransportationMessage({
-        element: (
-          <div
-            className="transportation-message alert-warning"
-            dangerouslySetInnerHTML={{
-              __html: localeCopy.private_vehicle_error.html,
-            }}
-          ></div>
-        ),
-      })
+      setTimeout(() => {
+        setTransportationMessage({
+          element: (
+            <div
+              className="transportation-message alert-warning"
+              dangerouslySetInnerHTML={{
+                __html: localeCopy.private_vehicle_error.html,
+              }}
+            ></div>
+          ),
+        })
+        setTimeout(() => {
+          setScreenReaderStatus(localeCopy.manual_private_vehicle)
+        }, 100)
+      }, 100)
     }
     return calculateKilometrics
   }
@@ -868,6 +883,8 @@ const Estimator = () => {
   }
 
   useEffect(() => {
+    setScreenReaderStatus("")
+
     if (accommodationType === "hotel") {
       if (acrdFetchSuccess) {
         let province = destination.provinceCode
@@ -915,9 +932,6 @@ const Estimator = () => {
           })
           setTimeout(() => {
             setScreenReaderStatus(localeCopy.tab_twice)
-            setTimeout(() => {
-              setScreenReaderStatus("")
-            }, 1000)
           }, 100)
         }, 100)
       }
@@ -939,9 +953,6 @@ const Estimator = () => {
         })
         setTimeout(() => {
           setScreenReaderStatus(localeCopy.manual_private_vehicle)
-          setTimeout(() => {
-            setScreenReaderStatus("")
-          }, 100)
         }, 100)
       }, 100)
       updateAccommodationCost(rate)
@@ -1008,6 +1019,7 @@ const Estimator = () => {
   }
 
   useEffect(() => {
+    setScreenReaderStatus("")
     if (transportationType === "flight") {
       updateTransportationCost(acceptedFlight)
       setTimeout(() => {
@@ -1023,6 +1035,9 @@ const Estimator = () => {
             </a>
           ),
         })
+        setTimeout(() => {
+          setScreenReaderStatus(localeCopy.tab_twice)
+        }, 100)
       }, 100)
     } else if (transportationType === "train") {
       updateTransportationCost(0)
@@ -1039,9 +1054,6 @@ const Estimator = () => {
         })
         setTimeout(() => {
           setScreenReaderStatus(localeCopy.tab_twice)
-          setTimeout(() => {
-            setScreenReaderStatus("")
-          }, 100)
         }, 100)
       }, 100)
     } else if (transportationType === "rental") {
@@ -1059,9 +1071,6 @@ const Estimator = () => {
         })
         setTimeout(() => {
           setScreenReaderStatus(localeCopy.tab_twice)
-          setTimeout(() => {
-            setScreenReaderStatus("")
-          }, 100)
         }, 100)
       }, 100)
     } else if (transportationType === "private") {
@@ -1069,15 +1078,8 @@ const Estimator = () => {
         setPrivateKilometricsValue((returnDistance / 1000).toFixed(2))
       }
       updateTransportationCost(transportationEstimates.rentalCar.estimatedValue)
-      setTimeout(() => {
-        displayTransportationMessage()
-        setTimeout(() => {
-          setScreenReaderStatus(localeCopy.manual_private_vehicle)
-          setTimeout(() => {
-            setScreenReaderStatus("")
-          }, 100)
-        }, 100)
-      }, 100)
+
+      displayTransportationMessage()
     } else if (transportationType === "notrequired") {
       updateTransportationCost(0.0)
       setTimeout(() => {
@@ -1586,6 +1588,7 @@ const Estimator = () => {
   }, [localTransportationCost])
 
   useEffect(() => {
+    setScreenReaderStatus("")
     if (transportationType === "flight") {
       if (origin.cityCode === null || destination.cityCode === null) {
         setTimeout(() => {
@@ -1622,9 +1625,6 @@ const Estimator = () => {
           })
           setTimeout(() => {
             setScreenReaderStatus(localeCopy.tab_twice)
-            setTimeout(() => {
-              setScreenReaderStatus("")
-            }, 1000)
           }, 100)
         }, 100)
       } else if (
@@ -1665,9 +1665,6 @@ const Estimator = () => {
           })
           setTimeout(() => {
             setScreenReaderStatus(localeCopy.tab_twice)
-            setTimeout(() => {
-              setScreenReaderStatus("")
-            }, 1000)
           }, 100)
         }, 100)
       } else if (
@@ -1708,6 +1705,9 @@ const Estimator = () => {
               </div>
             ),
           })
+          setTimeout(() => {
+            setScreenReaderStatus(localeCopy.tab_twice)
+          }, 100)
         }, 100)
       } else if (transportationCost > 0) {
         setTimeout(() => {
@@ -1728,9 +1728,6 @@ const Estimator = () => {
           })
           setTimeout(() => {
             setScreenReaderStatus(localeCopy.tab_once)
-            setTimeout(() => {
-              setScreenReaderStatus("")
-            }, 1000)
           }, 100)
         }, 100)
       }
