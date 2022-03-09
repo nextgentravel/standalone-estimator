@@ -2014,7 +2014,7 @@ const Estimator = () => {
                 size="24"
               />
             )}
-            <div role="status" className="sr-only">
+            <div aria-live="polite" className="sr-only">
               {screenReaderStatus}
             </div>
           </div>
