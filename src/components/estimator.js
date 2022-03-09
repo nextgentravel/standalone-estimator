@@ -56,6 +56,12 @@ let initialReturn = ""
 const ConditionalWrap = ({ condition, wrap, children }) =>
   condition ? wrap(children) : children
 
+if (typeof String.prototype.replaceAll === "undefined") {
+  String.prototype.replaceAll = function (match, replace) {
+    return this.replace(new RegExp(match, "g"), () => replace)
+  }
+}
+
 const Estimator = () => {
   const intl = useIntl()
   const summaryView = useRef(null)
