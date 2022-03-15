@@ -180,9 +180,11 @@
             }
           },
           "link_url": {
-            "type": "Text",
+            "type": "Link",
             "config": {
-              "label": "link_url"
+              "label": "link url",
+              "allowTargetBlank": true,
+              "select": null
             }
           }
         },

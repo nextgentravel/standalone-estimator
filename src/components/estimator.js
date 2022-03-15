@@ -398,7 +398,10 @@ const Estimator = () => {
             quick_reference_title
             quick_reference_links {
               link_title
-              link_url
+              link_url {
+                target
+                url
+              }
             }
             select_meals_description
             nextgen_opener {
