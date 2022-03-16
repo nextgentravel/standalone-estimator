@@ -954,9 +954,6 @@ const Estimator = () => {
             ></div>
           ),
         })
-        setTimeout(() => {
-          setScreenReaderStatus(localeCopy.manual_private_vehicle)
-        }, 100)
       }, 100)
       updateAccommodationCost(rate)
     } else if (accommodationType === "notrequired") {
@@ -1129,12 +1126,12 @@ const Estimator = () => {
     setAcceptedFlight(0.0)
     setFlightResult({})
     setSelectedFlightPrice(0.0)
-    setLoading(true)
-    setScreenReaderStatus(formattedMessage("aria_summary_loading"))
     setGeneralError(false)
     e.preventDefault()
     handleSubmitEstimateValidation()
       .then(async valid => {
+        setLoading(true)
+        setScreenReaderStatus(formattedMessage("aria_summary_loading"))
         setErrorPanel(false)
         setOtherCost("0.00")
         setSubmitValidationWarnings([])
