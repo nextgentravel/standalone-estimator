@@ -2076,7 +2076,6 @@ const Estimator = () => {
               <div className="col-sm-4 align-self-center">
                 <div className="align-self-center">
                   <div>
-                    {/* <label htmlFor={name}>{label}</label> */}
                     <div id={"accommodation_container"}>
                       <ConditionalWrap
                         condition={!result}
