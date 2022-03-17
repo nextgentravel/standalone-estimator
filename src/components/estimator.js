@@ -636,6 +636,8 @@ const Estimator = () => {
   const [errorPanel, setErrorPanel] = useState(false)
   const [emailErrorPanel, setEmailErrorPanel] = useState(false)
 
+  const transportRef = useRef(null)
+
   const [accommodationCost, setAccommodationCost] = useState("0.00")
   const [acrdTotal, setAcrdTotal] = useState(0.0)
   const [acrdFetchSuccess, setAcrdFetchSuccess] = useState(false)
@@ -1624,7 +1626,11 @@ const Estimator = () => {
             ),
           })
           setTimeout(() => {
-            setScreenReaderStatus(localeCopy.tab_twice)
+            if (transportRef.current === document.activeElement) {
+              setScreenReaderStatus(localeCopy.tab_once)
+            } else {
+              setScreenReaderStatus(localeCopy.tab_twice)
+            }
           }, 100)
         }, 100)
       } else if (
@@ -2404,6 +2410,7 @@ const Estimator = () => {
                       </div>
                     )}
                     <input
+                      ref={transportRef}
                       className={`form-control`}
                       id={"transportation_total"}
                       aria-label={formattedMessage("transportation_total")}
