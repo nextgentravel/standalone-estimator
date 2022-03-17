@@ -1628,7 +1628,7 @@ const Estimator = () => {
           setTimeout(() => {
             if (transportRef.current === document.activeElement) {
               setScreenReaderStatus(localeCopy.tab_once)
-            } else {
+            } else if (flightSelectRef.current === document.activeElement) {
               setScreenReaderStatus(localeCopy.tab_twice)
             }
           }, 100)
@@ -1733,7 +1733,9 @@ const Estimator = () => {
             ),
           })
           setTimeout(() => {
-            setScreenReaderStatus(localeCopy.tab_once)
+            if (transportRef.current === document.activeElement) {
+              setScreenReaderStatus(localeCopy.tab_once)
+            }
           }, 100)
         }, 100)
       }
