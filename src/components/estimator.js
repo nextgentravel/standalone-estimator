@@ -80,7 +80,7 @@ const Estimator = () => {
   const focusAccommodationSelect = () => {
     setTimeout(() => {
       accommodationSelect.current.focus()
-    }, 3000)
+    }, 4000)
   }
 
   const today = DateTime.now().toISODate()
