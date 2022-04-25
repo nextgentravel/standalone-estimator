@@ -39,7 +39,7 @@ const Header = ({homeHeader}) => {
         <div className="container">
           <div className="row my-3 mx-2">
             <nav className="skiphold" id="header-skiplink">
-              <a className="sr-only sr-only-focusable aurora-skip skiplink" aria-label="main skiplink" href="#main-content">{messages.header_skip_to_main}</a>
+              <a className="sr-only sr-only-focusable aurora-skip skiplink" href="#main-content">{messages.header_skip_to_main}</a>
             </nav>
             {homeLink === "/en/" &&
               <div className="align-self-center" property="publisher" typeof="GovernmentOrganization">
