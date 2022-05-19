@@ -1,0 +1,12 @@
+on: push
+jobs:
+  git-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: git-sync
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "https://mikepspc:${{ secrets.GITHUB_TOKEN }}@github.com/nextgentravel/gc-travel-calc-staging-build.git"
+          source_branch: "main"
+          destination_repo: "${{ secrets.DESTINATION_REPO }}"
+          destination_branch: "master"

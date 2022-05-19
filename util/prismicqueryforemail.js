@@ -33,7 +33,7 @@ client
       })
       let data = JSON.stringify(messages)
       fs.writeFile(
-        "./api/sendEstimateEmailCeres/prismic-email-notifications.json",
+        "./prismic-email-notifications.json",
         data,
         err => {
           if (err) throw err
@@ -76,7 +76,7 @@ client
       })
       let data = JSON.stringify(words)
       fs.writeFile(
-        "./api/sendEstimateEmailCeres/prismic-email-keywords.json",
+        "./prismic-email-keywords.json",
         data,
         err => {
           if (err) throw err

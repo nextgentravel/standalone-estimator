@@ -22,6 +22,7 @@ jobs:
       - name: yarn
         run: |
           yarn
+          
       - name: build gatsby project
         run: |
           gatsby build

@@ -1,0 +1,55 @@
+name: Build gatsby and push static code to gc-travel-calc-prod-build
+
+on:
+  push:
+    branches:
+      - gc-prod
+
+jobs:
+  build-and-deploy:
+    name: Build and deploy Gatsby site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          path: standalone-estimator
+      
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '15.x'
+
+      - name: Install Gatsby CLI
+        run: npm install -g gatsby-cli@2.18.0
+
+      - name: Install yarn
+        run: npm install -g yarn
+
+      - name: Install Project Dependencies
+        run: cd standalone-estimator && yarn
+      
+      - name: Build
+        run: cd standalone-estimator && gatsby build
+      
+      - name: Verify build
+        run: ls -la standalone-estimator/public
+
+      - name: Checkout Build Repo
+        uses: actions/checkout@v2
+        with:
+          repository: nextgentravel/gc-travel-calc-prod-build
+          token: ${{ secrets.PUSH_TO_BUILD }} # `GitHub_PAT` is a secret that contains your PAT
+          path: gc-travel-calc-prod-build
+      - run: |
+          cp -RT standalone-estimator/public gc-travel-calc-prod-build
+          mkdir -p gc-travel-calc-prod-build/.github/workflows && cp standalone-estimator/buildworkflow_prod.yml gc-travel-calc-prod-build/.github/workflows/buildworkflow.yml
+          cd gc-travel-calc-prod-build
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "Deployed ${{ steps.date.outputs.date }}"
+          git push

@@ -71,3 +71,6 @@ yarn-error.log
 # cypress artefacts
 
 sitemap.json
+
+prismic-email-keywords.json
+prismic-email-notifications.json

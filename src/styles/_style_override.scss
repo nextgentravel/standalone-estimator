@@ -6,3 +6,60 @@
   padding: 0;
   text-align: left;
 }
+
+.explainer-carets {
+  position: absolute;
+  right: 30px;
+  top: 15px;
+}
+
+summary {
+  cursor: pointer;
+}
+
+summary:focus,
+summary:hover {
+  color: #000;
+}
+
+summary {
+  display: list-item !important;
+  list-style-type: none;
+  list-style-type: disclosure-closed;
+  visibility: visible !important;
+}
+
+details summary:focus,
+details summary:hover {
+  background-color: transparent;
+  color: $primary;
+  text-decoration: underline;
+}
+
+details summary:focus {
+  outline-style: dotted;
+  outline-width: 1px;
+}
+
+details[open]>summary {
+  list-style-type: disclosure-open;
+  margin-bottom: .25em;
+}
+  
+.meals-fieldset {
+  display: inherit;
+}
+
+.focus-only:focus {
+  outline: 1px dashed #aa767b;
+}
+
+.meals-legend {
+  width: inherit;
+  padding:0 10px;
+  display: inherit;
+}
+
+.alert-warning > div {
+  display: inline;
+}
