@@ -73,6 +73,8 @@ const EstimatorRow = ({ name, id, message, icon, title, updateCost, calculateTot
                         }}
                         type="number"
                         min="0"
+                        noValidate
+                        step="0.01"
                     >
                     </input>
                     {locale === 'fr-ca' &&
