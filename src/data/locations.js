@@ -41,7 +41,7 @@ module.exports = {
     },
     QC: {
         label: "Quebec",
-        rateCents: "55.3"
+        rateCents: "55.5"
     },
     SK: {
         label: "Saskatchewan",

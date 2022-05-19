@@ -2,7 +2,7 @@ module.exports = {
     YT: {
         breakfast: 23.20,
         lunch: 21.30,
-        dinner: 61.35,
+        dinner: 61.45,
         incidentals: 17.30
     },
     TN: {
