@@ -22,6 +22,7 @@ module.exports = {
     keywordsFrench: "Services de voyage partagés, SVP, AmexGBT, voyage, hébergement, transport, planificateur, À propos, HRG",
   },
   plugins: [
+    `gatsby-plugin-htaccess`,
     `gatsby-plugin-layout`,
     {
       resolve: 'gatsby-source-prismic',
