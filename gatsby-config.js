@@ -1,6 +1,6 @@
-const languages = require('./src/data/languages');
+const languages = require("./src/data/languages")
 
-var buildDate = new Date().toISOString().split('T')[0]
+var buildDate = new Date().toISOString().split("T")[0]
 
 module.exports = {
   siteMetadata: {
@@ -16,21 +16,25 @@ module.exports = {
     languages,
     dateIssued: "2021-11-01",
     dateModified: buildDate,
-    subjectEnglish: "Travel; Travel Documents; Transborder data flow; Border crossing; Tourism; International travel; Airplanes; Rail transport; Transport; Housing; Hospitality industry; Business plans; Financial management",
-    subjectFrench: "Voyage; tourisme; voyage international; transport ferroviaire; transport; logement; industrie hôtelière; gestion financière",
-    keywordsEnglish: "Shared Travel Services, STS, AmexGBT, Travel, Accommodation, Transportation, Voyage, Planner, About, HRG",
-    keywordsFrench: "Services de voyage partagés, SVP, AmexGBT, voyage, hébergement, transport, planificateur, À propos, HRG",
+    subjectEnglish:
+      "Travel; Travel Documents; Transborder data flow; Border crossing; Tourism; International travel; Airplanes; Rail transport; Transport; Housing; Hospitality industry; Business plans; Financial management",
+    subjectFrench:
+      "Voyage; tourisme; voyage international; transport ferroviaire; transport; logement; industrie hôtelière; gestion financière",
+    keywordsEnglish:
+      "Shared Travel Services, STS, AmexGBT, Travel, Accommodation, Transportation, Voyage, Planner, About, HRG",
+    keywordsFrench:
+      "Services de voyage partagés, SVP, AmexGBT, voyage, hébergement, transport, planificateur, À propos, HRG",
   },
   plugins: [
     `gatsby-plugin-htaccess`,
     `gatsby-plugin-layout`,
     {
-      resolve: 'gatsby-source-prismic',
+      resolve: "gatsby-source-prismic",
       options: {
         // The name of your prismic.io repository. This is required.
         // Example: 'gatsby-source-prismic-test-site' if your prismic.io address
         // is 'gatsby-source-prismic-test-site.prismic.io'.
-        repositoryName: 'gctravelapp',
+        repositoryName: "gctravelapp",
 
         // An API access token to your prismic.io repository. This is optional.
         // You can generate an access token in the "API & Security" section of
@@ -53,13 +57,14 @@ module.exports = {
         // provided to the function, as seen below. This allows you to use
         // different link resolver logic for each field if necessary.
         // See: https://prismic.io/docs/javascript/query-the-api/link-resolving
-        linkResolver: ({ node, key, value }) => (doc) => {
+        linkResolver: ({ node, key, value }) => doc => {
           // Pretty URLs for known types
-          let lang = node.lang === 'en-ca' ? 'en' : 'fr';
-          if (doc.type === 'generic_content_page') return "/" + lang + "/" + doc.uid;
-          if (doc.type === 'tool') return "/" + lang + "/" + doc.uid;
+          let lang = node.lang === "en-ca" ? "en" : "fr"
+          if (doc.type === "generic_content_page")
+            return "/" + lang + "/" + doc.uid
+          if (doc.type === "tool") return "/" + lang + "/" + doc.uid
           // Fallback for other types, in case new custom types get created
-          return lang + "/doc/" + doc.id;
+          return lang + "/doc/" + doc.id
         },
 
         // Set a list of links to fetch and be made available in your link
@@ -76,27 +81,23 @@ module.exports = {
         // provided to the function, as seen below. This allows you to use
         // different HTML serializer logic for each field if necessary.
         // See: https://prismic.io/docs/nodejs/beyond-the-api/html-serializer
-        htmlSerializer: ({
-          node,
-          key,
-          value
-        }) => (
+        htmlSerializer: ({ node, key, value }) => (
           type,
           element,
           content,
-          children,
+          children
         ) => {},
 
         // Provide an object of Prismic custom type JSON schemas to load into
         // Gatsby. This is required.
         schemas: {
-          "standaloneestimator-homepage": require('./src/schemas/standaloneestimator-homepage.json'),
-          "standaloneestimator-copy": require('./src/schemas/standaloneestimator-copy.json'),
+          "standaloneestimator-homepage": require("./src/schemas/standaloneestimator-homepage.json"),
+          "standaloneestimator-copy": require("./src/schemas/standaloneestimator-copy.json"),
         },
         // Set a default language when fetching documents. The default value is
         // '*' which will fetch all languages.
         // See: https://prismic.io/docs/javascript/query-the-api/query-by-language
-        lang: '*',
+        lang: "*",
 
         // Add the Prismic Toolbar script to the site. Defaults to false.
         // Set to "legacy" if your repository requires the older toolbar script.
@@ -109,12 +110,8 @@ module.exports = {
         // provided to the function, as seen below. This allows you to use
         // different logic for each field if necessary.
         // This defaults to always return false.
-        shouldDownloadImage: ({
-          node,
-          key,
-          value
-        }) => {
-          return true;
+        shouldDownloadImage: ({ node, key, value }) => {
+          return true
         },
 
         // Provide a default set of Imgix image transformations applied to
@@ -122,8 +119,8 @@ module.exports = {
         // defaults set by Prismic.
         // See: https://docs.imgix.com/apis/url
         imageImgixParams: {
-          auto: 'compress,format',
-          fit: 'max',
+          auto: "compress,format",
+          fit: "max",
           q: 50,
         },
 
@@ -148,9 +145,17 @@ module.exports = {
         mergeStyleHashes: true,
         mergeDefaultDirectives: true,
         directives: {
-          "style-src": "'self' 'unsafe-hashes' 'sha256-o4LYhp5wtluJ8/NWUV2vi+r5AxmP8X2zEvYHCpji+kI=' 'sha256-MzJlpM03503nzXvQHm3lmf3EypF9jHu+regG7halQmI=' 'sha256-MtxTLcyxVEJFNLEIqbVTaqR4WWr0+lYSZ78AzGmNsuA=' 'sha256-aqNNdDLnnrDOnTNdkJpYlAxKVJtLt9CtFLklmInuUAE=' fonts.googleapis.com",
-          "font-src": "'self' fonts.gstatic.com",
-          "script-src": "'self' static.hotjar.com",
+          "style-src":
+            "'self' 'unsafe-hashes' 'sha256-o4LYhp5wtluJ8/NWUV2vi+r5AxmP8X2zEvYHCpji+kI=' 'sha256-MzJlpM03503nzXvQHm3lmf3EypF9jHu+regG7halQmI=' 'sha256-MtxTLcyxVEJFNLEIqbVTaqR4WWr0+lYSZ78AzGmNsuA=' 'sha256-aqNNdDLnnrDOnTNdkJpYlAxKVJtLt9CtFLklmInuUAE=' 'sha256-SvLgADqEePEV9RNxBrRQXSBJafFHcVNG7cPzHz6h9eA=' fonts.googleapis.com",
+          "font-src":
+            "'self' fonts.gstatic.com http://script.hotjar.com https://script.hotjar.com",
+          "script-src":
+            "'self' http://static.hotjar.com https://static.hotjar.com https://script.hotjar.com 'unsafe-inline'",
+          "img-src":
+            "'self' data: https://script.hotjar.com http://script.hotjar.com",
+          "connect-src":
+            "'self' http://*.hotjar.com:* https://*.hotjar.com:* https://vc.hotjar.io:* https://surveystats.hotjar.io wss://*.hotjar.com",
+          "frame-src": "https://vars.hotjar.com",
         },
       },
     },
@@ -182,21 +187,18 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          `Nunito Sans\:300,400,600,700`,
-          `Rubik\:300,400,600,700`,
-        ],
-        display: 'swap'
-      }
+        fonts: [`Nunito Sans\:300,400,600,700`, `Rubik\:300,400,600,700`],
+        display: "swap",
+      },
     },
     {
-      resolve: 'gatsby-plugin-i18n',
+      resolve: "gatsby-plugin-i18n",
       options: {
-        langKeyDefault: 'en',
-        langKeyForNull: 'any',
+        langKeyDefault: "en",
+        langKeyForNull: "any",
         useLangKeyLayout: false,
         prefixDefault: true,
-      }
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -219,13 +221,13 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-remove-serviceworker`
+      resolve: `gatsby-plugin-remove-serviceworker`,
     },
     {
       resolve: `gatsby-plugin-hotjar`,
       options: {
         id: process.env.HOTJAR_ID,
-        sv: process.env.HOTJAR_SNIPPET_VERSION
+        sv: process.env.HOTJAR_SNIPPET_VERSION,
       },
     },
     `gatsby-plugin-use-query-params`,
@@ -246,12 +248,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-compile-es6-packages`,
       options: {
-        modules: [`luxon`]
-      }
+        modules: [`luxon`],
+      },
     },
   ],
-  proxy: [{
-    prefix: "/api",
-    url: "http://localhost:7071",
-  }, ],
+  proxy: [
+    {
+      prefix: "/api",
+      url: "http://localhost:7071",
+    },
+  ],
 }
