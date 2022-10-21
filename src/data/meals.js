@@ -1,26 +1,26 @@
 module.exports = {
     YT: {
-        breakfast: 23.20,
-        lunch: 21.30,
-        dinner: 61.45,
+        breakfast: 23.35,
+        lunch: 21.45,
+        dinner: 61.85,
         incidentals: 17.30
     },
     TN: {
-        breakfast: 25.10,
-        lunch: 30.45,
-        dinner: 65.15,
+        breakfast: 25.55,
+        lunch: 31.00,
+        dinner: 66.35,
         incidentals: 17.30
     },
     NU: {
-        breakfast: 28.35,
-        lunch: 34.45,
-        dinner: 91.75,
+        breakfast: 29.25,
+        lunch: 35.50,
+        dinner: 94.55,
         incidentals: 17.30
     },
     CAN: {
-        breakfast: 21.90,
-        lunch: 22.15,
-        dinner: 54.40,
+        breakfast: 22.80,
+        lunch: 23.05,
+        dinner: 56.60,
         incidentals: 17.30
     },
 };
