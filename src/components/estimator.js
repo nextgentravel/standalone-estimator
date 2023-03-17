@@ -499,12 +499,13 @@ const Estimator = () => {
       let province = geocodedCities[city].acrdName.slice(-2)
       let cityName = geocodedCities[city].acrdName.slice(0, -3)
       let display = `${cityName}, ${province}`
+      let description = geocodedCities[city].description ? geocodedCities[city].description : ''
 
       list.push({
         id: geocodedCities[city].google_place_id,
-        label: display,
+        label: `${display} ${description}`,
         type: "city",
-        searchTerm: `${display}`,
+        searchTerm: `${display} ${description}`,
         acrdName: geocodedCities[city].acrdName,
         provinceCode: province,
         cityName: cityName,

@@ -17,11 +17,11 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: standalone-estimator
-      
+
       - name: Install Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '15.x'
+          node-version: '16.x'
 
       - name: Install Gatsby CLI
         run: npm install -g gatsby-cli@2.18.0
@@ -31,10 +31,10 @@ jobs:
 
       - name: Install Project Dependencies
         run: cd standalone-estimator && yarn
-      
+
       - name: Build
         run: cd standalone-estimator && gatsby build
-      
+
       - name: Verify build
         run: ls -la standalone-estimator/public
 
