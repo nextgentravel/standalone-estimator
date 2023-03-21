@@ -9,6 +9,9 @@ jobs:
   build-and-deploy:
     name: Build and deploy Gatsby site
     runs-on: ubuntu-latest
+    env:
+      HOTJAR_ID: "2764436"
+      HOTJAR_SNIPPET_VERSION: "6"
     steps:
       - name: Get current date
         id: date
