@@ -1,11 +1,11 @@
 module.exports = {
     AB: {
         label: "Alberta",
-        rateCents: "52"
+        rateCents: "52.5"
     },
     BC: {
         label: "British Columbia",
-        rateCents: "54.5"
+        rateCents: "55"
     },
     MB: {
         label: "Manitoba",
@@ -29,7 +29,7 @@ module.exports = {
     },
     NU: {
         label: "Nunavut",
-        rateCents: "66.5"
+        rateCents: "67"
     },
     ON: {
         label: "Ontario",
@@ -37,7 +37,7 @@ module.exports = {
     },
     PE: {
         label: "Prince Edward Island",
-        rateCents: "55"
+        rateCents: "55.5"
     },
     QC: {
         label: "Quebec",
@@ -45,10 +45,10 @@ module.exports = {
     },
     SK: {
         label: "Saskatchewan",
-        rateCents: "52"
+        rateCents: "52.5"
     },
     YT: {
         label: "Yukon",
-        rateCents: "69"
+        rateCents: "69.5"
     },
 };
